@@ -38,9 +38,8 @@ def comoving_distance(z):
     # Équation d'état de l'énergie noire w(z) = w0 + wa * z / (1+z)
     integrand = 0
     for zi in z_vals:
-        w_z = w0 + wa * (zi / (1 + zi))
-        # Densité d'énergie noire
-        f_de = np.exp(3 * (1 + w_z)) # Simplification pour le scaling
+        # Densité d'énergie noire (Correction du scaling pour la paramétrisation CPL)
+        f_de = ((1 + zi)**(3 * (1 + w0 + wa))) * np.exp(-3 * wa * zi / (1 + zi))
         E_z = np.sqrt(Omega_m * (1 + zi)**3 + Omega_de * f_de)
         integrand += 1.0 / E_z
     
@@ -140,13 +139,16 @@ def process_pipeline_run():
     
     # Projection des coordonnées sur la grille de densité (calcul matriciel parallèle accéléré sur GPU)
     # On map chaque galaxie sur la cellule de la grille correspondante
-    scale = (grid_size - 1) / (max(torch.max(torch.abs(t_X)).item(), 1.0) * 2)
-    ix = torch.clamp(((t_X + torch.max(torch.abs(t_X))) * scale).long(), 0, grid_size - 1)
-    iy = torch.clamp(((t_Y + torch.max(torch.abs(t_Y))) * scale).long(), 0, grid_size - 1)
-    iz = torch.clamp(((t_Z + torch.max(torch.abs(t_Z))) * scale).long(), 0, grid_size - 1)
+    max_val = max(torch.max(torch.abs(t_X)).item(), torch.max(torch.abs(t_Y)).item(), torch.max(torch.abs(t_Z)).item(), 1.0)
+    scale = (grid_size - 1) / (max_val * 2)
+    ix = torch.clamp(((t_X + max_val) * scale).long(), 0, grid_size - 1)
+    iy = torch.clamp(((t_Y + max_val) * scale).long(), 0, grid_size - 1)
+    iz = torch.clamp(((t_Z + max_val) * scale).long(), 0, grid_size - 1)
     
-    # Remplissage de la grille de densité complexe
-    density_grid[ix, iy, iz] = 1.0 + 0j
+    # Remplissage de la grille de densité complexe (Accumulation correcte de la masse)
+    flat_idx = ix * grid_size * grid_size + iy * grid_size + iz
+    counts = torch.bincount(flat_idx, minlength=grid_size**3)
+    density_grid = counts.view(grid_size, grid_size, grid_size).to(torch.complex64)
     
     # Transformée de Fourier Rapide 3D pour projeter sur la variété K3 (pliage topologique)
     k3_space_3d = torch.fft.fftn(density_grid)
@@ -211,8 +213,10 @@ def process_pipeline_run():
             "z": z,
             "source": f"{source} (Restored from Checkpoint)"
         }
-        torch.save(checkpoint, checkpoint_path)
-        print("[CHECKPOINT] Point de sauvegarde checkpoint_run.pt créé avec succès.")
+        tmp_checkpoint = checkpoint_path + ".tmp"
+        torch.save(checkpoint, tmp_checkpoint)
+        os.replace(tmp_checkpoint, checkpoint_path)
+        print("[CHECKPOINT] Point de sauvegarde checkpoint_run.pt créé avec succès (atomique).")
     except Exception as ec:
         print(f"[CHECKPOINT] Échec de la sauvegarde du checkpoint : {ec}")
         
