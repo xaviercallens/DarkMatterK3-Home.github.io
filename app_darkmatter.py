@@ -2,6 +2,8 @@ import streamlit as st
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
 import time
 import os
 import json
@@ -232,25 +234,29 @@ with tab2:
                 m3.metric("Temps de calcul moyen (GPU)", f"{df['calc_time_seconds'].mean():.3f} s")
                 m4.metric("Dernière asymétrie moyenne", f"{df['mean_asymmetry'].iloc[-1]:.4f}")
                 
-                # Graphique d'asymétrie
+                # Graphique d'asymétrie avec Plotly
                 st.subheader("📈 Évolution de l'Asymétrie Topologique Cosmique (K3 |S12 - S21|)")
-                fig_chart, ax_chart = plt.subplots(figsize=(10, 3))
-                fig_chart.patch.set_facecolor('#0E1117')
-                ax_chart.set_facecolor('#0E1117')
                 
-                # Tracer les données
-                ax_chart.plot(df['timestamp'], df['mean_asymmetry'], color='#FFD700', marker='o', linestyle='-', linewidth=2, label='Moyenne')
-                ax_chart.fill_between(df['timestamp'], df['mean_asymmetry'], color='#FFD700', alpha=0.1)
+                fig_chart = px.line(
+                    df, 
+                    x='timestamp', 
+                    y='mean_asymmetry', 
+                    title="Détection des variations d'asymétrie K3 (TDA)",
+                    markers=True,
+                    template="plotly_dark",
+                    line_shape="spline"
+                )
+                fig_chart.update_traces(line=dict(color='#FFD700', width=3), marker=dict(size=8, color='#FF5733'))
+                fig_chart.update_layout(
+                    xaxis_title="Date / Heure (UTC)",
+                    yaxis_title="Asymétrie Moyenne Δ",
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    margin=dict(l=20, r=20, t=40, b=20),
+                    hovermode="x unified"
+                )
                 
-                ax_chart.tick_params(colors='white')
-                ax_chart.spines['bottom'].set_color('white')
-                ax_chart.spines['left'].set_color('white')
-                ax_chart.spines['top'].set_visible(False)
-                ax_chart.spines['right'].set_visible(False)
-                ax_chart.set_ylabel("Asymétrie", color='white')
-                ax_chart.set_xlabel("Date/Heure (UTC)", color='white')
-                
-                st.pyplot(fig_chart)
+                st.plotly_chart(fig_chart, use_container_width=True)
                 
                 # Historique complet sous forme de tableau
                 st.subheader("📋 Journal de calcul du supercalculateur local")
