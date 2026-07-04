@@ -1,0 +1,5 @@
+pipeline_runs.json
+__pycache__/
+*.pyc
+*.pyo
+.streamlit/
