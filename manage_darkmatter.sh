@@ -14,6 +14,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STREAMLIT_APP="$SCRIPT_DIR/app_darkmatter.py"
 WORKER_APP="$SCRIPT_DIR/real_euclid_worker.py"
+API_APP="$SCRIPT_DIR/api_darkmatter.py"
 TMUX_SESSION="darkmatter"
 PORT=8501
 LOG_DIR="$SCRIPT_DIR/logs"
@@ -108,11 +109,14 @@ start_services() {
         # Create detached tmux session for the Dashboard
         tmux new-session -d -s "$TMUX_SESSION" -n "Dashboard" "streamlit run \"$STREAMLIT_APP\" --server.port $PORT --server.address 0.0.0.0 2>&1 | tee \"$LOG_DIR/streamlit.log\""
         
-        echo -e "${CYAN}[2/3] Starting Physics Worker (real_euclid_worker.py)...${NC}"
+        echo -e "${CYAN}[2/4] Starting Physics Worker (real_euclid_worker.py)...${NC}"
         # Add a new window for the background worker (unbuffered for live logging)
         tmux new-window -t "$TMUX_SESSION" -n "Worker" "python3 -u \"$WORKER_APP\" 2>&1 | tee \"$LOG_DIR/worker.log\""
         
-        echo -e "${GREEN}[3/3] Services started successfully inside tmux!${NC}"
+        echo -e "${CYAN}[3/4] Starting Data API Backend (FastAPI)...${NC}"
+        tmux new-window -t "$TMUX_SESSION" -n "API" "uvicorn api_darkmatter:app --host 0.0.0.0 --port 8000 2>&1 | tee \"$LOG_DIR/api.log\""
+        
+        echo -e "${GREEN}[4/4] Services started successfully inside tmux!${NC}"
         echo -e ""
         echo -e "👉 Your processes are now completely isolated from your SSH session."
         echo -e "👉 You can safely close your terminal or lose SSH connection."
@@ -127,6 +131,9 @@ start_services() {
         
         nohup python3 -u "$WORKER_APP" > "$LOG_DIR/worker.log" 2>&1 &
         echo $! > "$PID_DIR/worker.pid"
+        
+        nohup uvicorn api_darkmatter:app --host 0.0.0.0 --port 8000 > "$LOG_DIR/api.log" 2>&1 &
+        echo $! > "$PID_DIR/api.pid"
         
         echo -e "${GREEN}Services started in background using nohup.${NC}"
         echo -e "Log files are located in ${BOLD}$LOG_DIR/${NC}"
@@ -165,11 +172,22 @@ stop_services() {
         rm -f "$PID_DIR/worker.pid"
     fi
     
+    if [ -f "$PID_DIR/api.pid" ]; then
+        local pid
+        pid=$(cat "$PID_DIR/api.pid")
+        if kill -0 "$pid" 2>/dev/null; then
+            kill "$pid" || kill -9 "$pid"
+            echo -e "${GREEN}✓ Stopped API (PID $pid).${NC}"
+        fi
+        rm -f "$PID_DIR/api.pid"
+    fi
+    
     # Kill any dangling localtunnel or other ssh tunnel launched by this script
     pkill -f "localhost.run" || true
     pkill -f "serveo.net" || true
     pkill -f "streamlit run" || true
     pkill -f "real_euclid_worker.py" || true
+    pkill -f "uvicorn api_darkmatter" || true
     
     echo -e "${GREEN}All services successfully stopped.${NC}"
 }
