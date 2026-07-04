@@ -1,0 +1,20 @@
+{
+  "backup_name": "backup_20260704_201120_initial",
+  "timestamp": "2026-07-04T20:11:20.825229",
+  "label": "initial",
+  "run_count": 50,
+  "latest_asymmetry": 0.014349202625453472,
+  "galaxy_count": 5000,
+  "files": {
+    "pipeline_runs.json": {
+      "size_bytes": 19961,
+      "size_kb": 19.49,
+      "last_modified": "2026-07-04T20:10:37.819232"
+    },
+    "checkpoint_run.pt": {
+      "size_bytes": 84375,
+      "size_kb": 82.4,
+      "last_modified": "2026-07-04T20:10:37.820232"
+    }
+  }
+}
