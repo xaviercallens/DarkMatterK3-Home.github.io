@@ -84,8 +84,26 @@ def process_pipeline_run():
     """Exécute une itération du calcul cosmologique K3 sur GPU."""
     start_time = time.time()
     
-    # 1. Récupération des coordonnées célestes
-    ra, dec, z, source = fetch_real_sdss_data(limit=5000)
+    # 1. Récupération des coordonnées célestes (avec restauration depuis checkpoint en cas de problème)
+    checkpoint_path = "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/checkpoint_run.pt"
+    try:
+        ra, dec, z, source = fetch_real_sdss_data(limit=5000)
+    except Exception as e:
+        print(f"[RECONSTITUTION] Impossible de récupérer des données en direct : {e}")
+        if os.path.exists(checkpoint_path):
+            print("[CHECKPOINT] Restauration du dernier état valide depuis checkpoint_run.pt...")
+            try:
+                checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only=False)
+                ra = checkpoint["ra"]
+                dec = checkpoint["dec"]
+                z = checkpoint["z"]
+                source = checkpoint["source"]
+                print(f"[CHECKPOINT] Restored {len(ra)} galaxies.")
+            except Exception as er:
+                print(f"[CHECKPOINT] Échec de la lecture du checkpoint : {er}. Utilisation du repli local.")
+                ra, dec, z, source = fetch_real_sdss_data(limit=5000)
+        else:
+            raise e
     num_galaxies = len(ra)
     
     # 2. Conversion en coordonnées comobiles 3D (X, Y, Z)
@@ -184,6 +202,19 @@ def process_pipeline_run():
     
     with open(LOG_FILE, "w") as f:
         json.dump(history, f, indent=2)
+        
+    # Sauvegarde du checkpoint pour redémarrage rapide en cas d'interruption
+    try:
+        checkpoint = {
+            "ra": ra,
+            "dec": dec,
+            "z": z,
+            "source": f"{source} (Restored from Checkpoint)"
+        }
+        torch.save(checkpoint, checkpoint_path)
+        print("[CHECKPOINT] Point de sauvegarde checkpoint_run.pt créé avec succès.")
+    except Exception as ec:
+        print(f"[CHECKPOINT] Échec de la sauvegarde du checkpoint : {ec}")
         
     print(f"Données enregistrées dans pipeline_runs.json. Asymétrie moyenne: {mean_asymmetry:.4f}")
 
