@@ -1,0 +1,10 @@
+[package]
+name = "runux_tda_engine"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Assume runux-ai-runtime is available when forked
+runux-ai-runtime = { git = "https://github.com/xaviercallens/runux-ai-runtime" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
