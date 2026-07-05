@@ -1,5 +1,4 @@
-use rusty_sundials::cvode::{CVode, Core};
-use rusty_sundials::sunmatrix::DenseMatrix;
+
 
 fn main() {
     println!("Booting rusty-SUNDIALS ODE solver...");
