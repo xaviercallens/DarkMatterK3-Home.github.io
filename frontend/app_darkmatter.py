@@ -66,7 +66,7 @@ else:
 
 # --- HISTORIQUE DES RUNS TEMPS RÉEL (VRAIES DONNÉES) ---
 st.sidebar.header(t["live_monitor"])
-LOG_FILE = "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/pipeline_runs.json"
+LOG_FILE = os.path.join(os.path.dirname(parent_dir), "pipeline_runs.json")
 
 if os.path.exists(LOG_FILE):
     try:
@@ -359,7 +359,7 @@ with tab3:
         st.subheader(t["discoveries_title"])
         st.markdown(t["disc_monitor_desc"])
         
-        DISCOVERIES_FILE_PATH = "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/discoveries.json"
+        DISCOVERIES_FILE_PATH = os.path.join(os.path.dirname(parent_dir), "discoveries.json")
         if os.path.exists(DISCOVERIES_FILE_PATH):
             try:
                 with open(DISCOVERIES_FILE_PATH, "r") as f:
