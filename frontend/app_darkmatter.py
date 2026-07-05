@@ -15,6 +15,15 @@ import time
 import json
 import pandas as pd
 from translations import TRANSLATIONS
+import requests
+
+# Load API URL from env or secrets
+API_URL = os.getenv("API_URL")
+if not API_URL and hasattr(st, "secrets"):
+    API_URL = st.secrets.get("API_URL")
+if not API_URL:
+    API_URL = "http://localhost:8000"
+
 
 # --- 1. CONFIGURATION DU DASHBOARD ---
 st.set_page_config(page_title="DarkMatterK3@Home - PoC", layout="wide")
@@ -69,21 +78,34 @@ else:
 st.sidebar.header(t["live_monitor"])
 LOG_FILE = os.path.join(os.path.dirname(parent_dir), "pipeline_runs.json")
 
+runs = None
 if os.path.exists(LOG_FILE):
     try:
         with open(LOG_FILE, "r") as f:
             runs = json.load(f)
-        if runs:
-            latest = runs[-1]
-            st.sidebar.metric(
-                label=t["latest_run"], 
-                value=f"{latest['num_galaxies']} {t['gal']}", 
-                delta=f"Δ = {latest['delta']:.2f}"
-            )
-            st.sidebar.text(f"{t['source_label']} : {latest['source']}")
-            st.sidebar.text(f"{t['gpu_time']} : {latest['calc_time_seconds']:.2f} s")
-            st.sidebar.text(f"{t['max_asym']} : {latest['max_asymmetry']:.3f}")
-            st.sidebar.caption(f"{t['last_update']} : {latest['timestamp'][:19].replace('T', ' ')}")
+    except Exception as e:
+        pass
+
+if not runs and API_URL:
+    try:
+        r = requests.get(f"{API_URL}/api/v1/runs", timeout=3.0)
+        if r.status_code == 200:
+            runs = r.json()
+    except Exception as e:
+        pass
+
+if runs:
+    try:
+        latest = runs[-1]
+        st.sidebar.metric(
+            label=t["latest_run"], 
+            value=f"{latest['num_galaxies']} {t['gal']}", 
+            delta=f"Δ = {latest['delta']:.2f}"
+        )
+        st.sidebar.text(f"{t['source_label']} : {latest['source']}")
+        st.sidebar.text(f"{t['gpu_time']} : {latest['calc_time_seconds']:.2f} s")
+        st.sidebar.text(f"{t['max_asym']} : {latest['max_asymmetry']:.3f}")
+        st.sidebar.caption(f"{t['last_update']} : {latest['timestamp'][:19].replace('T', ' ')}")
     except Exception as e:
         st.sidebar.error(f"{t['read_error']} : {e}")
 else:
@@ -258,10 +280,21 @@ with tab2:
     st.header(t["mon_header"])
     st.markdown(t["mon_intro"])
     
+    history = None
     if os.path.exists(LOG_FILE):
         try:
             with open(LOG_FILE, "r") as f:
                 history = json.load(f)
+        except Exception as e:
+            pass
+
+    if not history and API_URL:
+        try:
+            r = requests.get(f"{API_URL}/api/v1/runs", timeout=3.0)
+            if r.status_code == 200:
+                history = r.json()
+        except Exception as e:
+            pass
             
             if history:
                 df = pd.DataFrame(history)
@@ -361,10 +394,21 @@ with tab3:
         st.markdown(t["disc_monitor_desc"])
         
         DISCOVERIES_FILE_PATH = os.path.join(os.path.dirname(parent_dir), "discoveries.json")
+        live_discoveries = None
         if os.path.exists(DISCOVERIES_FILE_PATH):
             try:
                 with open(DISCOVERIES_FILE_PATH, "r") as f:
                     live_discoveries = json.load(f)
+            except Exception as e:
+                pass
+
+        if not live_discoveries and API_URL:
+            try:
+                r = requests.get(f"{API_URL}/api/v1/discoveries", timeout=3.0)
+                if r.status_code == 200:
+                    live_discoveries = r.json()
+            except Exception as e:
+                pass
                 
                 # Trier du plus récent au plus ancien
                 live_discoveries = sorted(live_discoveries, key=lambda x: x.get("timestamp", ""), reverse=True)
