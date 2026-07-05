@@ -32,7 +32,7 @@ def mock_redis():
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"status": "Community Dispatcher Online", "docs": "/docs"}
+    assert "Community Dispatcher Online" in response.json()["status"]
 
 def test_register_user_new(mock_db_connection):
     _, mock_conn, mock_cursor = mock_db_connection

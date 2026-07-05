@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from api_darkmatter import app
+from api.api_dispatcher import app
 import os
 import json
 
