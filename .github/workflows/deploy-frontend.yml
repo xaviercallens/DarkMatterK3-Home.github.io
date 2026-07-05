@@ -1,0 +1,19 @@
+name: Deploy Frontend to Streamlit
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Push to Streamlit
+        run: |
+          # Streamlit Cloud déploie automatiquement depuis GitHub
+          echo "Déploiement géré par Streamlit Cloud (pas d'action nécessaire ici)"
