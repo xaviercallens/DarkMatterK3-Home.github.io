@@ -1,0 +1,6 @@
+[submodule "core/runux-ai-runtime"]
+	path = core/runux-ai-runtime
+	url = git@github.com:xaviercallens/runux-ai-runtime.git
+[submodule "core/rusty-SUNDIALS"]
+	path = core/rusty-SUNDIALS
+	url = https://github.com/xaviercallens/rusty-SUNDIALS.git
