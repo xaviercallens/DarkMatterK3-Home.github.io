@@ -1,28 +1,12 @@
-variable "project_id" {
-  description = "The GCP project ID"
+variable "gcp_project_id" {
+  description = "ID du projet GCP"
   type        = string
-}
-
-variable "region" {
-  description = "The GCP region to deploy resources into"
-  type        = string
-  default     = "us-central1"
-}
-
-variable "zone" {
-  description = "The GCP zone for the Compute Engine VM"
-  type        = string
-  default     = "us-central1-a"
+  default     = "YOUR_GCP_PROJECT_ID"  # À remplacer
 }
 
 variable "db_password" {
-  description = "Password for the Cloud SQL PostgreSQL instance"
+  description = "Mot de passe PostgreSQL"
   type        = string
   sensitive   = true
-}
-
-variable "t4_machine_type" {
-  description = "Machine type for the T4 GPU VM"
-  type        = string
-  default     = "n1-standard-4"
+  default     = "YOUR_DB_PASSWORD"  # À remplacer
 }
