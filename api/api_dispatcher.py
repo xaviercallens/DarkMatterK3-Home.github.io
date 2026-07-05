@@ -94,14 +94,58 @@ class UserCreate(BaseModel):
     user_id: str
     username: str
 
+class EmailPayload(BaseModel):
+    subject: str
+    body: str
+    secret_key: Optional[str] = None
+
 @app.on_event("startup")
 def startup_event():
     init_db()
 
-# --- UNIFIED ROOT ---
+# --- UNIFIED ROOT & UTILITIES ---
 @app.get("/")
 def read_root():
     return {"status": "DarkMatterK3 API Online & Community Dispatcher Online", "docs": "/docs"}
+
+@app.post("/api/v1/send_email")
+def api_send_email(payload: EmailPayload):
+    """Relays email sending via SMTP using environment variable secrets."""
+    # Safety secret check
+    api_secret = os.getenv("EMAIL_API_SECRET")
+    if api_secret and payload.secret_key != api_secret:
+        raise HTTPException(status_code=403, detail="Invalid EMAIL_API_SECRET")
+
+    smtp_host = os.getenv("SMTP_HOST")
+    smtp_port = os.getenv("SMTP_PORT", "587")
+    smtp_user = os.getenv("SMTP_USER")
+    smtp_password = os.getenv("SMTP_PASSWORD")
+    sender_email = os.getenv("SENDER_EMAIL")
+    recipient_email = os.getenv("RECIPIENT_EMAIL")
+
+    if not all([smtp_host, smtp_user, smtp_password, sender_email, recipient_email]):
+        print(f"[{datetime.now()}] SMTP is not fully configured in environment variables.")
+        return {"status": "simulated", "message": "SMTP not configured. Email logged to API container logs.", "subject": payload.subject}
+
+    try:
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+
+        msg = MIMEMultipart()
+        msg["Subject"] = payload.subject
+        msg["From"] = sender_email
+        msg["To"] = recipient_email
+        msg.attach(MIMEText(payload.body, "plain"))
+
+        server = smtplib.SMTP(smtp_host, int(smtp_port))
+        server.starttls()
+        server.login(smtp_user, smtp_password)
+        server.sendmail(sender_email, recipient_email, msg.as_string())
+        server.quit()
+        return {"status": "success", "message": "Email dispatched successfully!"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to relay email via SMTP: {str(e)}")
 
 # --- LOCAL DATA API ENDPOINTS (from api_darkmatter.py) ---
 @app.get("/api/v1/runs", response_model=List[Dict])
