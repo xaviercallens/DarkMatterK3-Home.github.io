@@ -10,11 +10,19 @@
 
 set -euo pipefail
 
-# --- CONFIGURATION ---
+# --- CONFIGURATION & ENV LOADING ---
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-STREAMLIT_APP="$SCRIPT_DIR/app_darkmatter.py"
+
+# Load and export environment variables from .env if it exists
+if [ -f "$SCRIPT_DIR/.env" ]; then
+    set -o allexport
+    source "$SCRIPT_DIR/.env"
+    set +o allexport
+fi
+
+STREAMLIT_APP="$SCRIPT_DIR/frontend/app_darkmatter.py"
 WORKER_APP="$SCRIPT_DIR/real_euclid_worker.py"
-API_APP="$SCRIPT_DIR/api_darkmatter.py"
+API_APP="$SCRIPT_DIR/api/api_dispatcher.py"
 TMUX_SESSION="darkmatter"
 PORT=8501
 LOG_DIR="$SCRIPT_DIR/logs"
@@ -114,7 +122,7 @@ start_services() {
         tmux new-window -t "$TMUX_SESSION" -n "Worker" "python3 -u \"$WORKER_APP\" 2>&1 | tee \"$LOG_DIR/worker.log\""
         
         echo -e "${CYAN}[3/4] Starting Data API Backend (FastAPI)...${NC}"
-        tmux new-window -t "$TMUX_SESSION" -n "API" "uvicorn api_darkmatter:app --host 0.0.0.0 --port 8000 2>&1 | tee \"$LOG_DIR/api.log\""
+        tmux new-window -t "$TMUX_SESSION" -n "API" "uvicorn api.api_dispatcher:app --host 0.0.0.0 --port 8000 2>&1 | tee \"$LOG_DIR/api.log\""
         
         echo -e "${GREEN}[4/4] Services started successfully inside tmux!${NC}"
         echo -e ""
@@ -132,7 +140,7 @@ start_services() {
         nohup python3 -u "$WORKER_APP" > "$LOG_DIR/worker.log" 2>&1 &
         echo $! > "$PID_DIR/worker.pid"
         
-        nohup uvicorn api_darkmatter:app --host 0.0.0.0 --port 8000 > "$LOG_DIR/api.log" 2>&1 &
+        nohup uvicorn api.api_dispatcher:app --host 0.0.0.0 --port 8000 > "$LOG_DIR/api.log" 2>&1 &
         echo $! > "$PID_DIR/api.pid"
         
         echo -e "${GREEN}Services started in background using nohup.${NC}"
@@ -187,7 +195,7 @@ stop_services() {
     pkill -f "serveo.net" || true
     pkill -f "streamlit run" || true
     pkill -f "real_euclid_worker.py" || true
-    pkill -f "uvicorn api_darkmatter" || true
+    pkill -f "uvicorn api.api_dispatcher" || true
     
     echo -e "${GREEN}All services successfully stopped.${NC}"
 }
