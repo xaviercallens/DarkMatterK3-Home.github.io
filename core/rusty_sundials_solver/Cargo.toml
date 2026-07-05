@@ -1,0 +1,9 @@
+[package]
+name = "rusty_sundials_solver"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Assume rusty-SUNDIALS is available either via crates.io or local path when forked
+rusty-sundials = { git = "https://github.com/xaviercallens/rusty-SUNDIALS" }
+ndarray = "0.15.6"
