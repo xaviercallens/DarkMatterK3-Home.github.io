@@ -69,60 +69,36 @@ st.markdown(f"**{t['subtitle']}**")
 # --- INTRODUCTION & SCIENTIFIC COLLABORATION CALL (Zebroloss, Hugo Risoir & Astro Passionates) ---
 with st.container():
     if selected_language == "Français":
-        st.markdown(
-            """
-            <div style="background-color: #1a1e29; padding: 20px; border-radius: 10px; border-left: 5px solid #FFD700; margin-bottom: 25px;">
-                <h3 style="color: #FFD700; margin-top: 0;">🌌 Rejoignez la Frontière de l'Astrophysique : Appel aux Passionnés d'Astronomie</h3>
-                <p>Bienvenue dans l'aventure <b>DarkMatterK3@Home</b> ! Nous unissons la passion de l'astronomie et la puissance du calcul distribué pour lever le voile sur le plus grand mystère de notre univers : la matière noire et l'énergie noire.</p>
-                
-                <h4 style="color: #00e5ff;">🔬 Notre Théorie en Termes Simples</h4>
-                <p>Imaginez l'espace-temps comme un <b>miroir plié ou froissé très complexe</b> (une structure mathématique appelée <i>variété de K3</i>). 
-                La théorie que nous cherchons à vérifier conjecture que la matière noire n'est pas juste une particule fantôme passive, mais une distorsion ondulatoire active de cette topologie. 
-                Si cette hypothèse est correcte, elle doit créer une <b>brisure de symétrie mesurable</b> entre la lumière qui interagit normalement et les forces gravitationnelles cachées de l'univers (modélisée par nos deux tenseurs de diffusion, $S_{12}$ et $S_{21}$).</p>
-                <p><b>Comment le prouver ?</b> Vos ordinateurs (CPU et GPU) analysent les micro-déformations de la lumière de millions de galaxies lointaines capturées par les télescopes spatiaux <b>Euclid</b> et <b>SDSS</b>. En calculant l'asymétrie $\Delta = |S_{12} - S_{21}|$ sur ces données réelles, nous pouvons valider mathématiquement la présence de ces nœuds de matière noire plissés.</p>
-                
-                <h4 style="color: #00e5ff;">🤝 L'Alliance de la Vulgarisation : Zebroloss & Hugo Risoir</h4>
-                <p>Pour réussir, la science a besoin de la force du collectif ! C'est pourquoi nous lançons un appel vibrant à des esprits brillants et influenceurs scientifiques hors pair :</p>
-                <ul>
-                    <li><b>Zebroloss (et son armée de hackers cosmiques)</b> : Votre génie technique et votre capacité à fédérer une communauté de bidouilleurs de haut vol est la clé pour concevoir des scripts d'optimisation optimisés pour toutes les architectures de puces.</li>
-                    <li><b>Hugo Risoir (et sa brigade de passionnés d'espace)</b> : Votre talent inégalé pour raconter les mystères du cosmos peut inspirer des milliers d'astronomes amateurs et d'esprits curieux à faire don de leurs cycles CPU/GPU inutilisés pour de la recherche fondamentale.</li>
-                    <li><b>Vos Communautés (Squad Zebroloss vs Squad Risoir)</b> : Un classement amical (Leaderboard) est intégré pour mesurer en temps réel la puissance de calcul fournie par chaque guilde. Qui cartographiera le plus grand nombre de secteurs de l'univers ?</li>
-                </ul>
-                
-                <p style="background-color: #0d1117; padding: 10px; border-radius: 5px; border-left: 3px solid #00e5ff; font-style: italic;">
-                    ✨ <b>Astro-passionnés, astronomes amateurs, ou simples curieux de l'espace</b> : que vous ayez une simple console de jeu, un vieux PC portable ou une station de calcul haut de gamme, chaque milliseconde de calcul que vous donnez nous rapproche d'un prix Nobel potentiel. Rejoignez notre pool de calcul fédéré en visitant simplement ce site !
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
+        st.info(
+            "### 🌌 Rejoignez la Frontière de l'Astrophysique : Appel aux Passionnés d'Astronomie\n\n"
+            "Bienvenue dans l'aventure **DarkMatterK3@Home** ! Nous unissons la passion de l'astronomie et la puissance du calcul distribué pour lever le voile sur le plus grand mystère de notre univers : la matière noire et l'énergie noire.\n\n"
+            "#### 🔬 Notre Théorie en Termes Simples\n"
+            "Imaginez l'espace-temps comme un **miroir plié ou froissé très complexe** (une variété mathématique appelée *variété de K3*). "
+            "La théorie que nous cherchons à vérifier conjecture que la matière noire n'est pas juste une particule fantôme passive, mais une distorsion ondulatoire active de cette topologie. "
+            "Si cette hypothèse est correcte, elle doit créer une **brisure de symétrie mesurable** entre la lumière qui interagit normalement et les forces gravitationnelles cachées de l'univers (modélisée par nos deux tenseurs de diffusion, $S_{12}$ et $S_{21}$).\n\n"
+            "**Comment le prouver ?** Vos ordinateurs (CPU et GPU) analysent les micro-déformations de la lumière de millions de galaxies lointaines capturées par les télescopes spatiaux **Euclid** et **SDSS**. En calculant l'asymétrie $\\Delta = |S_{12} - S_{21}|$ sur ces données réelles, vos machines vérifient si ces nœuds de matière noire plissés existent réellement.\n\n"
+            "#### 🤝 L'Alliance de la Vulgarisation : Zebroloss & Hugo Risoir\n"
+            "Pour réussir, la science a besoin de la force du collectif ! C'est pourquoi nous lançons un appel vibrant à des esprits brillants et influenceurs scientifiques hors pair :\n"
+            "- **Zebroloss (et son armée de hackers cosmiques)** : Votre génie technique et votre capacité à fédérer une communauté de bidouilleurs de haut vol est la clé pour concevoir des scripts d'optimisation optimisés pour toutes les architectures de puces.\n"
+            "- **Hugo Risoir (et sa brigade de passionnés d'espace)** : Votre talent inégalé pour raconter les mystères du cosmos peut inspirer des milliers d'astronomes amateurs et d'esprits curieux à faire don de leurs cycles CPU/GPU inutilisés pour de la recherche fondamentale.\n"
+            "- **Vos Communautés (Squad Zebroloss vs Squad Risoir)** : Un classement amical (Leaderboard) est intégré pour mesurer en temps réel la puissance de calcul fournie par chaque guilde. Qui cartographiera le plus grand nombre de secteurs de l'univers ?\n\n"
+            "✨ **Astro-passionnés, astronomes amateurs, ou simples curieux de l'espace** : que vous ayez une simple console de jeu, un vieux PC portable ou une station de calcul haut de gamme, chaque milliseconde de calcul que vous donnez nous rapproche d'un prix Nobel potentiel. Rejoignez notre pool de calcul fédéré en visitant simplement ce site !"
         )
     else:
-        st.markdown(
-            """
-            <div style="background-color: #1a1e29; padding: 20px; border-radius: 10px; border-left: 5px solid #FFD700; margin-bottom: 25px;">
-                <h3 style="color: #FFD700; margin-top: 0;">🌌 Join the Frontiers of Astrophysics: A Call to All Astronomy Enthusiasts</h3>
-                <p>Welcome to <b>DarkMatterK3@Home</b>! We are merging the passion of space observation with the power of citizen-led distributed computing to unveil the greatest secret of our cosmos: dark matter and dark energy duality.</p>
-                
-                <h4 style="color: #00e5ff;">🔬 Our Conjecture in Simple Terms</h4>
-                <p>Imagine space-time as an <b>intricately folded or crumpled mirror</b> (a mathematical topology called a <i>K3 surface</i>). 
-                The theory we are seeking to verify conjectures that dark matter is not just an elusive ghost particle, but an active wave-like twisting of space-time itself. 
-                If this hypothesis is correct, it must cause a <b>measurable symmetry-breaking</b> between visible light and hidden cosmic forces (represented by our scattering tensors, $S_{12}$ and $S_{21}$).</p>
-                <p><b>How do we prove this?</b> Your computers (CPU and GPU) analyze the micro-distortions in light from millions of distant galaxies observed by the <b>Euclid space telescope</b> and the <b>SDSS sky survey</b>. By calculating the asymmetry $\Delta = |S_{12} - S_{21}|$ on this real observational data, your hardware verifies if the folded dark matter nodes actually exist.</p>
-                
-                <h4 style="color: #00e5ff;">🤝 A Collaborative Mission: Calling Zebroloss & Hugo Risoir</h4>
-                <p>To succeed, science needs the power of the crowd! We are launching a special appeal to outstanding scientific communicators and tech advocates:</p>
-                <ul>
-                    <li><b>Zebroloss (and his army of cosmic hackers)</b>: Your technical ingenuity and ability to inspire an active, hands-on community is the key to building and optimizing lightweight computation scripts for all client-side hardware.</li>
-                    <li><b>Hugo Risoir (and his brigade of space lovers)</b>: Your unmatched talent for telling the stories of the cosmos can inspire thousands of amateur astronomers to donate their idle computer cycles to fundamental physics research.</li>
-                    <li><b>Your Communities (Squad Zebroloss vs Squad Risoir)</b>: An interactive leaderboard is integrated so your squads can compete to see who maps the most cosmic sectors!</li>
-                </ul>
-                
-                <p style="background-color: #0d1117; padding: 10px; border-radius: 5px; border-left: 3px solid #00e5ff; font-style: italic;">
-                    ✨ <b>Astronomy enthusiasts, space lovers, and tech hobbyists</b>: whether you have a basic laptop, a home console, or a high-end gaming station, every single computation cycle you contribute moves us closer to a historic astronomical discovery. Join our federated pool simply by keeping this page open!
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
+        st.info(
+            "### 🌌 Join the Frontiers of Astrophysics: A Call to All Astronomy Enthusiasts\n\n"
+            "Welcome to **DarkMatterK3@Home**! We are merging the passion of space observation with the power of citizen-led distributed computing to unveil the greatest secret of our cosmos: dark matter and dark energy duality.\n\n"
+            "#### 🔬 Our Conjecture in Simple Terms\n"
+            "Imagine space-time as an **intricately folded or crumpled mirror** (a mathematical topology called a *K3 surface*).\n\n"
+            "The theory we are seeking to verify conjectures that dark matter is not just an elusive ghost particle, but an active wave-like twisting of space-time itself. "
+            "If this hypothesis is correct, it must cause a **measurable symmetry-breaking** between visible light and hidden cosmic forces (represented by our scattering tensors, $S_{12}$ and $S_{21}$).\n\n"
+            "**How do we prove this?** Your computers (CPU and GPU) analyze the micro-distortions in light from millions of distant galaxies observed by the **Euclid space telescope** and the **SDSS sky survey**. By calculating the asymmetry $\\Delta = |S_{12} - S_{21}|$ on this real observational data, your hardware verifies if the folded dark matter nodes actually exist.\n\n"
+            "#### 🤝 A Collaborative Mission: Calling Zebroloss & Hugo Risoir\n"
+            "To succeed, science needs the power of the crowd! We are launching a special appeal to outstanding scientific communicators and tech advocates:\n"
+            "- **Zebroloss (and his army of cosmic hackers)**: Your technical ingenuity and ability to inspire an active, hands-on community is the key to building and optimizing lightweight computation scripts for all client-side hardware.\n"
+            "- **Hugo Risoir (and his brigade of space lovers)**: Your unmatched talent for telling the stories of the cosmos can inspire thousands of amateur astronomers to donate their idle computer cycles to fundamental physics research.\n"
+            "- **Your Communities (Squad Zebroloss vs Squad Risoir)**: An interactive leaderboard is integrated so your squads can compete to see who maps the most cosmic sectors!\n\n"
+            "✨ **Astronomy enthusiasts, space lovers, and tech hobbyists**: whether you have a basic laptop, a home console, or a high-end gaming station, every single computation cycle you contribute moves us closer to a historic astronomical discovery. Join our federated pool simply by keeping this page open!"
         )
 
 # Vérification du GPU NVIDIA
