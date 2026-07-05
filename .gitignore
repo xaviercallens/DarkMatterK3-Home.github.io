@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 *.pyo
 .streamlit/
+.env
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
