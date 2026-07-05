@@ -101,7 +101,7 @@ def startup_event():
 # --- UNIFIED ROOT ---
 @app.get("/")
 def read_root():
-    return {"status": "DarkMatterK3 API & Community Dispatcher Online", "docs": "/docs"}
+    return {"status": "DarkMatterK3 API Online & Community Dispatcher Online", "docs": "/docs"}
 
 # --- LOCAL DATA API ENDPOINTS (from api_darkmatter.py) ---
 @app.get("/api/v1/runs", response_model=List[Dict])
