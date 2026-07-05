@@ -1,0 +1,8 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Mathematical Model and Cosmological Integration}{2}{section.2}%
+\contentsline {section}{\numberline {3}Experimental Validation: The Spectroscopic Euclid Scenario}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Hardware Configuration}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Performance Results}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Memory Consumption Analysis (VRAM)}{2}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Conclusion: A Fundamental Discovery}{3}{section.4}%
