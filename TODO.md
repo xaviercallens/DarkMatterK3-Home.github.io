@@ -104,3 +104,17 @@ This document maps out the specific, engineering-level tasks required to transit
 - [ ] **Production Deployment**
   - [ ] Deploy frontend bundles to Firebase Hosting.
   - [ ] Initialize global Cloud CDN cache.
+
+---
+
+## 🌌 7. Advanced Observational Client & BOINC Integration (`core_boinc/`)
+*Installable native background computing using BOINC for advanced research.*
+
+- [ ] **Initialize Native C++ Core Client**
+  - [ ] Bootstrap the C++ compute daemon leveraging CUDA and OpenCL modules.
+  - [ ] Port Picard-Fuchs integration math and complex matrix solvers to native C++ for extreme performance.
+- [ ] **Deploy BOINC Project Server**
+  - [ ] Set up and configure a dedicated BOINC project server instance on GCP (`https://boinc.berkeley.edu/`).
+  - [ ] Define XML-based workunit templates and work distribution protocols matching BOINC API specifications.
+- [ ] **Establish Federated Sync**
+  - [ ] Build a bridging daemon that synchronizes completed BOINC workunit receipts directly into the main Cloud SQL PostgreSQL ledger.
