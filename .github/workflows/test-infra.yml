@@ -1,0 +1,31 @@
+name: Test Infrastructure Terraform
+
+on:
+  pull_request:
+    paths:
+      - 'gcp_infrastructure/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: |
+          cd gcp_infrastructure
+          terraform init
+
+      - name: Terraform Format
+        run: |
+          cd gcp_infrastructure
+          terraform fmt -check
+
+      - name: Terraform Validate
+        run: |
+          cd gcp_infrastructure
+          terraform validate
