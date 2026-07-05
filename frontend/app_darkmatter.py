@@ -295,62 +295,61 @@ with tab2:
                 history = r.json()
         except Exception as e:
             pass
+
+    if history:
+        try:
+            df = pd.DataFrame(history)
+            # Trier chronologiquement pour le graphique
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+            df = df.sort_values('timestamp')
             
-            if history:
-                df = pd.DataFrame(history)
-                # Trier chronologiquement pour le graphique
-                df['timestamp'] = pd.to_datetime(df['timestamp'])
-                df = df.sort_values('timestamp')
-                
-                # Métriques principales
-                m1, m2, m3, m4 = st.columns(4)
-                m1.metric(t["stat_runs"], len(df))
-                m2.metric(t["stat_galaxies"], f"{df['num_galaxies'].sum():,}")
-                m3.metric(t["stat_avg_time"], f"{df['calc_time_seconds'].mean():.3f} s")
-                m4.metric(t["stat_last_asym"], f"{df['mean_asymmetry'].iloc[-1]:.4f}")
-                
-                # Graphique d'asymétrie avec Plotly
-                st.subheader(t["chart_title"])
-                
-                fig_chart = px.line(
-                    df, 
-                    x='timestamp', 
-                    y='mean_asymmetry', 
-                    title=t["chart_legend"],
-                    markers=True,
-                    template="plotly_dark",
-                    line_shape="spline"
-                )
-                fig_chart.update_traces(line=dict(color='#FFD700', width=3), marker=dict(size=8, color='#FF5733'))
-                fig_chart.update_layout(
-                    xaxis_title=t["xaxis_time"],
-                    yaxis_title=t["yaxis_asym"],
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    plot_bgcolor='rgba(0,0,0,0)',
-                    margin=dict(l=20, r=20, t=40, b=20),
-                    hovermode="x unified"
-                )
-                
-                st.plotly_chart(fig_chart, use_container_width=True)
-                
-                # Historique complet sous forme de tableau
-                st.subheader(t["log_header"])
-                display_df = df.copy()
-                time_col_name = t["log_col_time"]
-                display_df[time_col_name] = display_df['timestamp'].dt.strftime('%H:%M:%S')
-                display_df = display_df.rename(columns={
-                    "source": t["log_col_source"],
-                    "num_galaxies": t["log_col_galaxies"],
-                    "calc_time_seconds": t["log_col_time_gpu"],
-                    "mean_asymmetry": t["log_col_mean_asym"],
-                    "delta": t["log_col_delta"]
-                })
-                st.dataframe(
-                    display_df[[time_col_name, t["log_col_source"], t["log_col_galaxies"], t["log_col_time_gpu"], t["log_col_mean_asym"], t["log_col_delta"]]].sort_index(ascending=False),
-                    use_container_width=True
-                )
-            else:
-                st.info(t["log_no_data"])
+            # Métriques principales
+            m1, m2, m3, m4 = st.columns(4)
+            m1.metric(t["stat_runs"], len(df))
+            m2.metric(t["stat_galaxies"], f"{df['num_galaxies'].sum():,}")
+            m3.metric(t["stat_avg_time"], f"{df['calc_time_seconds'].mean():.3f} s")
+            m4.metric(t["stat_last_asym"], f"{df['mean_asymmetry'].iloc[-1]:.4f}")
+            
+            # Graphique d'asymétrie avec Plotly
+            st.subheader(t["chart_title"])
+            
+            fig_chart = px.line(
+                df, 
+                x='timestamp', 
+                y='mean_asymmetry', 
+                title=t["chart_legend"],
+                markers=True,
+                template="plotly_dark",
+                line_shape="spline"
+            )
+            fig_chart.update_traces(line=dict(color='#FFD700', width=3), marker=dict(size=8, color='#FF5733'))
+            fig_chart.update_layout(
+                xaxis_title=t["xaxis_time"],
+                yaxis_title=t["yaxis_asym"],
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                margin=dict(l=20, r=20, t=40, b=20),
+                hovermode="x unified"
+            )
+            
+            st.plotly_chart(fig_chart, use_container_width=True)
+            
+            # Historique complet sous forme de tableau
+            st.subheader(t["log_header"])
+            display_df = df.copy()
+            time_col_name = t["log_col_time"]
+            display_df[time_col_name] = display_df['timestamp'].dt.strftime('%H:%M:%S')
+            display_df = display_df.rename(columns={
+                "source": t["log_col_source"],
+                "num_galaxies": t["log_col_galaxies"],
+                "calc_time_seconds": t["log_col_time_gpu"],
+                "mean_asymmetry": t["log_col_mean_asym"],
+                "delta": t["log_col_delta"]
+            })
+            st.dataframe(
+                display_df[[time_col_name, t["log_col_source"], t["log_col_galaxies"], t["log_col_time_gpu"], t["log_col_mean_asym"], t["log_col_delta"]]].sort_index(ascending=False),
+                use_container_width=True
+            )
         except Exception as e:
             st.error(t["err_stat_load"].format(e))
     else:
@@ -409,7 +408,9 @@ with tab3:
                     live_discoveries = r.json()
             except Exception as e:
                 pass
-                
+
+        if live_discoveries:
+            try:
                 # Trier du plus récent au plus ancien
                 live_discoveries = sorted(live_discoveries, key=lambda x: x.get("timestamp", ""), reverse=True)
                 
