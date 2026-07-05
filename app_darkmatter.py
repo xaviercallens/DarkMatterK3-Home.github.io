@@ -1,3 +1,10 @@
+import sys
+import os
+# Ensure parent directory (root) and current directory are in sys.path
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(parent_dir)
+sys.path.append(os.path.dirname(parent_dir))
+
 import streamlit as st
 import torch
 import numpy as np
@@ -5,7 +12,6 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import time
-import os
 import json
 import pandas as pd
 from translations import TRANSLATIONS
