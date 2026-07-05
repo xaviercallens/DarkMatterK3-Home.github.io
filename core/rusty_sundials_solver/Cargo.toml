@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rusty-sundials = { path = "../rusty-SUNDIALS/crates/cvode" }
+rusty-sundials = { path = "../vendor/cvode", package = "cvode" }
 ndarray = "0.15.6"
