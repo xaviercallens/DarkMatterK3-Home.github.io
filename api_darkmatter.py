@@ -28,6 +28,19 @@ def get_pipeline_runs(limit: int = 50):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/v1/discoveries", response_model=List[Dict])
+def get_discoveries(limit: int = 50):
+    """Fetch the latest astrophysical discoveries and anomalies from the sky scan."""
+    discoveries_file = os.path.join(BASE_DIR, "discoveries.json")
+    if not os.path.exists(discoveries_file):
+        return []
+    try:
+        with open(discoveries_file, "r") as f:
+            data = json.load(f)
+        return data[-limit:]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/v1/status")
 def get_status():
     """Returns the current system status and latest metrics."""
@@ -49,6 +62,27 @@ def get_status():
         return {"status": "idle", "runs": 0}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/leaderboard")
+def get_leaderboard():
+    """Fetch the gamification leaderboard."""
+    mock_lb = [
+        {"node": "T4_Worker_Xavier", "points": 18500, "galaxies": 6200000},
+        {"node": "Runux_Core_A100", "points": 12050, "galaxies": 3500000},
+        {"node": "MacBook_M2_Community", "points": 4320, "galaxies": 1200000}
+    ]
+    return {"leaderboard": mock_lb}
+
+@app.get("/badges/{user_id}")
+def get_user_badges(user_id: str):
+    """Fetch the gamification badges for a user/node."""
+    # Mocking badges database
+    mock_badges = [
+        {"name": "First Blood", "earned_at": "2026-07-01T12:00:00Z"},
+        {"name": "Golden Ratio", "earned_at": "2026-07-03T15:30:00Z"},
+        {"name": "Plasma Weaver", "earned_at": "2026-07-05T09:00:00Z"}
+    ]
+    return {"user_id": user_id, "badges": mock_badges}
 
 @app.post("/api/v1/backup")
 def trigger_backup(label: str = "api_backup"):
