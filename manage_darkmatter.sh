@@ -23,6 +23,8 @@ fi
 STREAMLIT_APP="$SCRIPT_DIR/frontend/app_darkmatter.py"
 WORKER_APP="$SCRIPT_DIR/real_euclid_worker.py"
 API_APP="$SCRIPT_DIR/api/api_dispatcher.py"
+T4_WORKER_APP="$SCRIPT_DIR/core/t4_worker.py"
+T4_WORKER_PYTHON="$SCRIPT_DIR/core/venv/bin/python"
 TMUX_SESSION="darkmatter"
 PORT=8501
 LOG_DIR="$SCRIPT_DIR/logs"
@@ -111,20 +113,23 @@ start_services() {
         exit 1
     fi
 
-    echo -e "${CYAN}[1/3] Starting Streamlit Dashboard...${NC}"
+    echo -e "${CYAN}[1/5] Starting Streamlit Dashboard...${NC}"
     
     if check_tmux; then
         # Create detached tmux session for the Dashboard
         tmux new-session -d -s "$TMUX_SESSION" -n "Dashboard" "streamlit run \"$STREAMLIT_APP\" --server.port $PORT --server.address 0.0.0.0 2>&1 | tee \"$LOG_DIR/streamlit.log\""
         
-        echo -e "${CYAN}[2/4] Starting Physics Worker (real_euclid_worker.py)...${NC}"
+        echo -e "${CYAN}[2/5] Starting Physics Worker (real_euclid_worker.py)...${NC}"
         # Add a new window for the background worker (unbuffered for live logging)
         tmux new-window -t "$TMUX_SESSION" -n "Worker" "python3 -u \"$WORKER_APP\" 2>&1 | tee \"$LOG_DIR/worker.log\""
         
-        echo -e "${CYAN}[3/4] Starting Data API Backend (FastAPI)...${NC}"
+        echo -e "${CYAN}[3/5] Starting Data API Backend (FastAPI)...${NC}"
         tmux new-window -t "$TMUX_SESSION" -n "API" "uvicorn api.api_dispatcher:app --host 0.0.0.0 --port 8000 2>&1 | tee \"$LOG_DIR/api.log\""
         
-        echo -e "${GREEN}[4/4] Services started successfully inside tmux!${NC}"
+        echo -e "${CYAN}[4/5] Starting Background T4 GPU Worker...${NC}"
+        tmux new-window -t "$TMUX_SESSION" -n "T4-Worker" "\"$T4_WORKER_PYTHON\" -u \"$T4_WORKER_APP\" 2>&1 | tee \"$LOG_DIR/t4_worker.log\""
+        
+        echo -e "${GREEN}[5/5] Services started successfully inside tmux!${NC}"
         echo -e ""
         echo -e "👉 Your processes are now completely isolated from your SSH session."
         echo -e "👉 You can safely close your terminal or lose SSH connection."
@@ -142,6 +147,9 @@ start_services() {
         
         nohup uvicorn api.api_dispatcher:app --host 0.0.0.0 --port 8000 > "$LOG_DIR/api.log" 2>&1 &
         echo $! > "$PID_DIR/api.pid"
+        
+        nohup "$T4_WORKER_PYTHON" -u "$T4_WORKER_APP" > "$LOG_DIR/t4_worker.log" 2>&1 &
+        echo $! > "$PID_DIR/t4_worker.pid"
         
         echo -e "${GREEN}Services started in background using nohup.${NC}"
         echo -e "Log files are located in ${BOLD}$LOG_DIR/${NC}"
@@ -190,12 +198,23 @@ stop_services() {
         rm -f "$PID_DIR/api.pid"
     fi
     
+    if [ -f "$PID_DIR/t4_worker.pid" ]; then
+        local pid
+        pid=$(cat "$PID_DIR/t4_worker.pid")
+        if kill -0 "$pid" 2>/dev/null; then
+            kill "$pid" || kill -9 "$pid"
+            echo -e "${GREEN}✓ Stopped T4 Worker (PID $pid).${NC}"
+        fi
+        rm -f "$PID_DIR/t4_worker.pid"
+    fi
+    
     # Kill any dangling localtunnel or other ssh tunnel launched by this script
     pkill -f "localhost.run" || true
     pkill -f "serveo.net" || true
     pkill -f "streamlit run" || true
     pkill -f "real_euclid_worker.py" || true
     pkill -f "uvicorn api.api_dispatcher" || true
+    pkill -f "t4_worker.py" || true
     
     echo -e "${GREEN}All services successfully stopped.${NC}"
 }
@@ -228,6 +247,14 @@ check_status() {
         active=1
     else
         echo -e "Physics Worker (real_euclid_worker.py): ${RED}STOPPED${NC}"
+    fi
+    
+    # Check if T4 worker is running
+    if pgrep -f "t4_worker.py" > /dev/null; then
+        echo -e "Background T4 Worker (t4_worker.py):     ${GREEN}${BOLD}RUNNING${NC}"
+        active=1
+    else
+        echo -e "Background T4 Worker (t4_worker.py):     ${RED}STOPPED${NC}"
     fi
     
     # Check for active public tunnels
@@ -271,9 +298,10 @@ view_logs() {
     echo -e "Choose log file to view:"
     echo -e "  ${CYAN}1)${NC} Streamlit Dashboard Log"
     echo -e "  ${CYAN}2)${NC} Physics Worker Log"
-    echo -e "  ${CYAN}3)${NC} Tunnel Log (if active)"
-    echo -e "  ${CYAN}4)${NC} Exit"
-    read -rp "Select option (1-4): " opt
+    echo -e "  ${CYAN}3)${NC} Background T4 GPU Worker Log"
+    echo -e "  ${CYAN}4)${NC} Tunnel Log (if active)"
+    echo -e "  ${CYAN}5)${NC} Exit"
+    read -rp "Select option (1-5): " opt
     
     case $opt in
         1)
@@ -291,6 +319,13 @@ view_logs() {
             fi
             ;;
         3)
+            if [ -f "$LOG_DIR/t4_worker.log" ]; then
+                tail -n 100 -f "$LOG_DIR/t4_worker.log"
+            else
+                echo -e "${RED}No T4 Worker log file found at $LOG_DIR/t4_worker.log${NC}"
+            fi
+            ;;
+        4)
             if [ -f "$LOG_DIR/tunnel.log" ]; then
                 tail -n 100 -f "$LOG_DIR/tunnel.log"
             else
