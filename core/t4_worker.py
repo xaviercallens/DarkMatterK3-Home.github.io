@@ -14,6 +14,24 @@ GCS_BUCKET = os.getenv("GCS_BUCKET", "darkmatter-k3-data")
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Starting DarK3 Worker on device: {device.type.upper()}")
 
+def get_auth_headers():
+    headers = {}
+    try:
+        # Fetch token from GCP metadata server
+        metadata_url = f"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience={API_URL}"
+        res = requests.get(metadata_url, headers={"Metadata-Flavor": "Google"}, timeout=2)
+        if res.status_code == 200:
+            headers["Authorization"] = f"Bearer {res.text}"
+    except Exception:
+        # Fallback to local command if running locally outside Compute Engine
+        try:
+            import subprocess
+            token = subprocess.check_output(["gcloud", "auth", "print-identity-token"], text=True).strip()
+            headers["Authorization"] = f"Bearer {token}"
+        except Exception:
+            pass
+    return headers
+
 def simulate_k3_computation(chunk_data):
     # Simulated tensor workload for K3 integration
     t_size = 64
@@ -45,7 +63,7 @@ def simulate_k3_computation(chunk_data):
 
 def register_worker():
     try:
-        res = requests.post(f"{API_URL}/users/register", json={"user_id": USER_ID, "username": f"T4_Worker_{USER_ID}"})
+        res = requests.post(f"{API_URL}/users/register", json={"user_id": USER_ID, "username": f"T4_Worker_{USER_ID}"}, headers=get_auth_headers())
         if res.status_code == 200:
             print(f"[REGISTER] {res.json().get('message')}")
         else:
@@ -60,7 +78,7 @@ def run_worker():
         try:
             # Request Job
             print(f"\n[{time.strftime('%H:%M:%S')}] Requesting new computation chunk...")
-            req_res = requests.post(f"{API_URL}/jobs/request", json={"user_id": USER_ID})
+            req_res = requests.post(f"{API_URL}/jobs/request", json={"user_id": USER_ID}, headers=get_auth_headers())
             
             if req_res.status_code != 200:
                 print(f"[ERROR] Could not fetch job. API returned: {req_res.status_code}")
@@ -95,7 +113,7 @@ def run_worker():
                 }
             }
             
-            sub_res = requests.post(f"{API_URL}/jobs/submit", json=submit_payload)
+            sub_res = requests.post(f"{API_URL}/jobs/submit", json=submit_payload, headers=get_auth_headers())
             if sub_res.status_code == 200:
                 data = sub_res.json()
                 print(f"[SUCCESS] {data['message']} | Earned {data.get('points_earned', 0)} points.")
