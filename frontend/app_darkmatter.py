@@ -16,6 +16,9 @@ import json
 import pandas as pd
 from translations import TRANSLATIONS
 
+# --- 1. CONFIGURATION DU DASHBOARD ---
+st.set_page_config(page_title="DarkMatterK3@Home - PoC", layout="wide")
+
 # --- 0. MULTI-LANGUAGE CONFIGURATION (English primary default, French secondary default) ---
 languages = ["English", "Français", "Deutsch", "Español", "Italiano", "中文", "Русский"]
 selected_language = st.sidebar.selectbox("🌐 Language / Langue", languages, index=0)
@@ -51,8 +54,6 @@ t = FallbackDict(
     TRANSLATIONS.get("Français")
 )
 
-# --- 1. CONFIGURATION DU DASHBOARD ---
-st.set_page_config(page_title="DarkMatterK3@Home - PoC", layout="wide")
 st.title(t["title"])
 st.markdown(f"**{t['subtitle']}**")
 
