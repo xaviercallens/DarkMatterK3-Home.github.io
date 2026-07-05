@@ -18,5 +18,8 @@ sudo usermod -aG docker $USER
 
 # Installer Google Cloud SDK
 curl https://sdk.cloud.google.com | bash
-exec -l $SHELL
-gcloud init
+
+# Configure automatic startup of the Daily Orchestrator on VM boot
+CRON_JOB="@reboot /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/startup.sh"
+(crontab -u callensxavier_gmail_com -l 2>/dev/null | grep -F -v "startup.sh" ; echo "$CRON_JOB") | crontab -u callensxavier_gmail_com -
+
