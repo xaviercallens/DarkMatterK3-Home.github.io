@@ -84,3 +84,21 @@ except:
     })
     st.dataframe(mock_lb, use_container_width=True)
     st.caption("Affichage du cache (Mockup - API inaccessible)")
+
+# --- 5. MES BADGES (Gamification) ---
+st.sidebar.header("🎖️ Mes Badges")
+user_node = st.sidebar.text_input("ID du Nœud", "T4_Worker_Xavier")
+
+if user_node:
+    try:
+        badges_response = requests.get(f"{API_URL}/badges/{user_node}")
+        if badges_response.status_code == 200:
+            badges = badges_response.json().get("badges", [])
+            for badge in badges:
+                st.sidebar.markdown(f"🏅 **{badge['name']}** ({badge['earned_at'][:10]})")
+        else:
+            st.sidebar.info("Aucun badge encore débloqué.")
+    except:
+        st.sidebar.info("API hors ligne. Impossible de charger les badges.")
+else:
+    st.sidebar.info("Entrez l'ID de votre nœud pour voir vos badges.")
