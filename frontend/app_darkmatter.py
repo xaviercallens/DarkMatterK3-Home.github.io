@@ -237,6 +237,24 @@ with tab1:
     st.header(t["sim_header"])
     st.markdown(t["sim_intro"])
     
+    if selected_language == "Français":
+        st.warning(
+            "⚠️ **DÉMONSTRATION ILLUSTRATIVE & SIMULÉE**\n\n"
+            "Ce simulateur interactif est une **preuve de concept (PoC) illustrative** utilisant des données de cisaillement cosmique simulées. "
+            "Son objectif est de démontrer la puissance de calcul tensoriel et topologique de notre moteur **DarK3 Engine** "
+            "et de convaincre des vulgarisateurs scientifiques de premier plan comme **Zebroloss** et **Hugo Risoir** de nous rejoindre et de soutenir le projet "
+            "pour fédérer la puissance de calcul CPU/GPU mondiale.\n\n"
+            "👉 *Pour voir les véritables observations astrophysiques et anomalies détectées, veuillez consulter le tableau des contributions réelles en bas de page.*"
+        )
+    else:
+        st.warning(
+            "⚠️ **ILLUSTRATIVE & SIMULATED DEMONSTRATION**\n\n"
+            "This interactive simulator is an **illustrative proof of concept (PoC)** using simulated cosmic shear and synthetic datasets. "
+            "Its purpose is to showcase the topological tensor capabilities of our **DarK3 Engine** and convince major scientific communicators "
+            "such as **Zebroloss** and **Hugo Risoir** to join our mission and support the project in building a global federated CPU/GPU computing network.\n\n"
+            "👉 *To view real astrophysical observations and validated anomalies, please check the real contribution ledger at the bottom of this page.*"
+        )
+    
     s12_val = st.sidebar.slider(t["s12_slider"], 0.0, 2.0, 1.5)
     s21_val = st.sidebar.slider(t["s21_slider"], 0.0, 2.0, 0.5)
 
@@ -745,3 +763,104 @@ with tab8:
                 t["chk_col_final_asym"]: asym_formatted
             })
         st.dataframe(pd.DataFrame(display_data), use_container_width=True)
+
+
+# --- GLOBAL BOTTOM SECTION: REAL DATABASE-BACKED CONTRIBUTIONS & DISCOVERIES ---
+st.write("---")
+st.markdown("## 📊 Real-Time Database: Node Contributions & Scientific Discoveries")
+if selected_language == "Français":
+    st.markdown(
+        "Cette section présente les **données physiques réelles** récupérées de notre base de données "
+        "et de nos journaux de production. Contrairement aux démonstrations illustratives ci-dessus, "
+        "ceci constitue le registre vérifié de la collaboration scientifique mondiale."
+    )
+else:
+    st.markdown(
+        "This section displays **real astrophysical data and actual logs** retrieved directly from "
+        "our persistent database. Unlike the illustrative/PoC modules above, "
+        "this represents the verified physical record of the global scientific collaboration."
+    )
+
+real_col1, real_col2 = st.columns(2)
+
+with real_col1:
+    st.subheader("🌐 " + ("Dernières Contributions de Nœuds (Réel)" if selected_language == "Français" else "Latest Node Contributions (Real)"))
+    
+    # Load real pipeline_runs
+    real_runs = None
+    if os.path.exists(LOG_FILE):
+        try:
+            with open(LOG_FILE, "r") as f:
+                real_runs = json.load(f)
+        except Exception as e:
+            pass
+    if not real_runs and API_URL:
+        try:
+            r = requests.get(f"{API_URL}/api/v1/runs", timeout=3.0)
+            if r.status_code == 200:
+                real_runs = r.json()
+        except Exception as e:
+            pass
+            
+    if real_runs:
+        try:
+            df_runs = pd.DataFrame(real_runs)
+            # Sort newest first
+            df_runs['timestamp'] = pd.to_datetime(df_runs['timestamp'])
+            df_runs = df_runs.sort_values('timestamp', ascending=False)
+            
+            # Format and select columns
+            df_display = pd.DataFrame()
+            df_display["Timestamp" if selected_language != "Français" else "Date & Heure"] = df_runs['timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
+            df_display["Source" if selected_language != "Français" else "Source d'observation"] = df_runs['source']
+            df_display["Galaxies" if selected_language != "Français" else "Galaxies traitées"] = df_runs['num_galaxies']
+            df_display["GPU / Device" if selected_language != "Français" else "Processeur"] = df_runs['gpu_name'].fillna(df_runs['device'])
+            df_display["Asymmetry Δ" if selected_language != "Français" else "Asymétrie Δ"] = df_runs['delta'].round(4)
+            df_display["Time (s)" if selected_language != "Français" else "Temps (s)"] = df_runs['calc_time_seconds'].round(3)
+            
+            st.dataframe(df_display.head(15), use_container_width=True, hide_index=True)
+        except Exception as e:
+            st.error(f"Error loading contributions: {e}")
+    else:
+        st.info("No active node contributions found in database." if selected_language != "Français" else "Aucune contribution de nœud trouvée dans la base de données.")
+
+with real_col2:
+    st.subheader("🌌 " + ("Registre des Découvertes Validées" if selected_language == "Français" else "Verified Discoveries Ledger"))
+    
+    # Load real discoveries
+    real_disc_file = os.path.join(os.path.dirname(parent_dir), "discoveries.json")
+    real_disc = None
+    if os.path.exists(real_disc_file):
+        try:
+            with open(real_disc_file, "r") as f:
+                real_disc = json.load(f)
+        except Exception as e:
+            pass
+    if not real_disc and API_URL:
+        try:
+            r = requests.get(f"{API_URL}/api/v1/discoveries", timeout=3.0)
+            if r.status_code == 200:
+                real_disc = r.json()
+        except Exception as e:
+            pass
+            
+    if real_disc:
+        try:
+            df_disc = pd.DataFrame(real_disc)
+            df_disc['timestamp'] = pd.to_datetime(df_disc['timestamp'])
+            df_disc = df_disc.sort_values('timestamp', ascending=False)
+            
+            # Format and select columns
+            df_disc_display = pd.DataFrame()
+            df_disc_display["ID"] = df_disc['id']
+            df_disc_display["Timestamp" if selected_language != "Français" else "Détecté le"] = df_disc['timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
+            df_disc_display["Type"] = df_disc['type']
+            df_disc_display["Asymmetry Δ" if selected_language != "Français" else "Asymétrie Δ"] = df_disc['delta'].round(4)
+            df_disc_display["Author" if selected_language != "Français" else "Auteur"] = df_disc['author']
+            df_disc_display["Details" if selected_language != "Français" else "Détails de l'anomalie"] = df_disc['details']
+            
+            st.dataframe(df_disc_display.head(15), use_container_width=True, hide_index=True)
+        except Exception as e:
+            st.error(f"Error loading discoveries: {e}")
+    else:
+        st.info("No discoveries recorded yet." if selected_language != "Français" else "Aucune découverte enregistrée pour le moment.")
