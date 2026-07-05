@@ -15,7 +15,7 @@ import torch
 from datetime import datetime
 
 # --- PATH CONFIGURATION ---
-BASE_DIR = "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKUP_DIR = os.path.join(BASE_DIR, "backups")
 PIPELINE_FILE = os.path.join(BASE_DIR, "pipeline_runs.json")
 CHECKPOINT_FILE = os.path.join(BASE_DIR, "checkpoint_run.pt")
