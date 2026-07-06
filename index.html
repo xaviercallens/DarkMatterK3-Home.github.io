@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S21 DarK3CosmicWeb@Home — Mission Control</title>
+    <meta name="description" content="Plateforme de calcul distribué pour l'analyse topologique des données de la toile cosmique SDSS DR17 et l'identification des plissements K3.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="glow-container"></div>
+    <canvas id="cosmic-canvas"></canvas>
+
+    <!-- TOP HEADER -->
+    <header class="cyber-header">
+        <div class="logo-area">
+            <span class="cyber-badge neon-cyan">NODE // PROD_P1_P2</span>
+            <h1 id="main-title">NEON K3 // COSMIC LOOM</h1>
+        </div>
+        <div class="stats-ticker">
+            <div class="stat-box" id="node-count-box">
+                <span class="label">ACTIVE CLIENTS</span>
+                <span class="value neon-cyan-text" id="live-nodes">14,812</span>
+            </div>
+            <div class="stat-box" id="tps-box">
+                <span class="label">TPS (TERAFLOPS/S)</span>
+                <span class="value neon-gold-text" id="live-tps">412.8</span>
+            </div>
+            <div class="stat-box" id="anomaly-metric-box">
+                <span class="label">WASSERSTEIN d_W</span>
+                <span class="value neon-magenta-text" id="live-dw">1.1161</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- LEFT CONTROL PANEL (GLASSMORPHIC) -->
+    <aside class="panel left-panel glass-panel" id="control-panel">
+        <div class="panel-header">
+            <span class="header-icon">⚡</span>
+            <h2>ORCHESTRATION DU FILTRES</h2>
+        </div>
+        <div class="panel-body">
+            <div class="control-group">
+                <label for="sector-select">SÉLECTION DU SECTEUR COSMIQUE</label>
+                <select id="sector-select" class="cyber-select">
+                    <option value="0">Secteur 33 (RA: 210-220, DEC: 20-30)</option>
+                    <option value="1">Secteur 24 (RA: 190-200, DEC: 40-50)</option>
+                    <option value="2">Secteur 28 (RA: 200-210, DEC: 30-40)</option>
+                    <option value="3">Secteur 15 (RA: 180-190, DEC: 0-10)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <div class="slider-header">
+                    <label for="galaxy-opacity">OPACITÉ DE LA TOILE CYAN</label>
+                    <span class="slider-value" id="opacity-val">80%</span>
+                </div>
+                <input type="range" id="galaxy-opacity" min="0" max="100" value="80" class="cyber-slider">
+            </div>
+
+            <div class="control-group">
+                <div class="slider-header">
+                    <label for="knot-scale">ÉCHELLE DE L'ÉQUATION S1,2</label>
+                    <span class="slider-value" id="scale-val">1.0x</span>
+                </div>
+                <input type="range" id="knot-scale" min="50" max="200" value="100" class="cyber-slider">
+            </div>
+
+            <div class="control-group">
+                <div class="slider-header">
+                    <label for="simulation-speed">VITESSE DU CHEMIN D'INTÉGRATION</label>
+                    <span class="slider-value" id="speed-val">1.0x</span>
+                </div>
+                <input type="range" id="simulation-speed" min="0" max="200" value="100" class="cyber-slider">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="narrative-sequencer">
+                <h3>SÉQUENCEUR DE NAVIGATION (3 ACTES)</h3>
+                <div class="btn-grid">
+                    <button id="btn-act1" class="cyber-btn active" onclick="triggerAct(1)">ACTE 1 : L'ÉQUATION (K3)</button>
+                    <button id="btn-act2" class="cyber-btn" onclick="triggerAct(2)">ACTE 2 : LA TOILE (SDSS)</button>
+                    <button id="btn-act3" class="cyber-btn" onclick="triggerAct(3)">ACTE 3 : L'ALBUM (COMPOSITE)</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="node-id">CLIENT // @callensxavier_lrg</span>
+        </div>
+    </aside>
+
+    <!-- RIGHT STATS PANEL (GLASSMORPHIC) -->
+    <aside class="panel right-panel glass-panel" id="telemetry-panel">
+        <div class="panel-header">
+            <span class="header-icon">📡</span>
+            <h2>TÉLÉMÉTRIE EN TEMPS RÉEL</h2>
+        </div>
+        <div class="panel-body">
+            <div class="live-logger-container">
+                <div class="logger-header">TELEMETRY SHELL LOG</div>
+                <div class="cyber-console" id="terminal-console">
+                    <p class="green-text">[OK] System diagnostic completed. GPU detected: Tesla T4.</p>
+                    <p class="cyan-text">[RUSTY-SUNDIALS] Initializing high-precision Picard-Fuchs integration...</p>
+                    <p class="gold-text">[RUNUX-TDA] Solved TDA persistent homology in 0.0019s.</p>
+                    <p class="green-text">[SUCCESS] Synced 10,000 galaxies to cloud repository.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>DERNIERS PASSAGES VALIDÉS</h3>
+                <table class="cyber-table" id="runs-table">
+                    <thead>
+                        <tr>
+                            <th>SECTEUR</th>
+                            <th>GALAXIES</th>
+                            <th>ASYMÉTRIE</th>
+                            <th>TEMPS (S)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Secteur 32</td>
+                            <td>10,000</td>
+                            <td>0.9315</td>
+                            <td class="neon-gold-text">1.578</td>
+                        </tr>
+                        <tr>
+                            <td>Secteur 29</td>
+                            <td>8,644</td>
+                            <td>1.1161</td>
+                            <td>3.196</td>
+                        </tr>
+                        <tr>
+                            <td>Secteur 28</td>
+                            <td>9,085</td>
+                            <td>1.1361</td>
+                            <td>2.966</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bounty-panel">
+                <h3>OUTREACH SÉBASTIEN CARASSOU</h3>
+                <p class="pitch-text">
+                    La toile cosmique n'est pas un chaos aléatoire. C'est la projection géométrique macroscopique d'une structure K3 sur S1,2.
+                </p>
+                <button class="cyber-btn pitch-btn" onclick="sendPitch()">LANCER LE PITCH SÉCURISÉ</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- FOOTER / TELEMETRY PANEL -->
+    <footer class="cyber-footer">
+        <p>© 2026 SocrateAI - AGORA COMMUNITY — SCIENCE PARTICIPATIVE HAUTE-PERFORMANCE</p>
+        <p class="pulse-text neon-cyan-text">● CONNECTÉ AU CENTRAL CLOUD ENGINE ON T4</p>
+    </footer>
+
+    <!-- Javascript App Link -->
+    <script src="app.js"></script>
+</body>
+</html>

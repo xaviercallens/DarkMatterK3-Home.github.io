@@ -1,0 +1,16 @@
+<!-- core_boinc/project_xml/config.xml -->
+<project_config>
+    <app>
+        <name>dark3_s12_sieve</name>
+        <user_friendly_name>S21 DarK3CosmicWeb@Home - Picard-Fuchs Native Sieve</user_friendly_name>
+    </app>
+    <app_version>
+        <app_name>dark3_s12_sieve</app_name>
+        <version_num>100</version_num>
+        <platform>x86_64-pc-linux-gnu</platform>
+        <avg_ncpus>1.0</avg_ncpus>
+        <max_ncpus>4.0</max_ncpus>
+        <flops>4.5e10</flops>
+        <api_version>7.18.0</api_version>
+    </app_version>
+</project_config>
