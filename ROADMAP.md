@@ -189,6 +189,14 @@ Phase 1: Streamlit PoC   Phase 2: WASM Core      Phase 3: Cyber-UI      Phase 4:
   - **Native Compiler Optimizations**: Added `core_boinc/speedup_next_run.sh` to compile native clients with aggressive target-hardware flags (`-O3 -march=native -ffast-math -funroll-loops -fopenmp`).
   - **Option C Budget VM Deployment**: Formulated a cost-optimized, always-on Google Cloud Platform architecture leveraging an `e2-small` Compute Engine instance running Dockerized PostgreSQL and Redis, keeping hosting costs to ~$16.00/month (well under the $50/month budget ceiling) while maintaining 24/7 client availability.
 
+### Phase 7: Scientific Rigor & Academic Adoption (Phase 2 Research Roadmap)
+* **Goal**: Eradicate bounding box slicing and geocentric coordinate-pinned template artifacts to guarantee physical and mathematical rigor, enabling international astrophysics collaboration and formal academic journal publication.
+* **Deliverables**:
+  - **Translation-Invariant TDA (Minkowski Functionals)**: Transition from absolute Euclidean distance template-matching to translation-invariant topological data analysis (TDA). Implement multi-scale persistence diagrams ($\beta_0, \beta_1$ Betti numbers) and Euler characteristic curves to trace the $S_{1,2}$ manifolds in a coordinate-free manner.
+  - **6-Parameter Moduli Fitting**: Refactor the native C++ solver to treat the Picard-Fuchs $S_{1,2}$ loop as a free-moving mathematical template. Implement localized fitting with 6 free parameters (translational origin $(\Delta x, \Delta y, \Delta z)$, Euler angles $(\theta, \phi)$, and scale factor $S$) using FGMRES or least-squares optimization to fit density peak pathways.
+  - **Slicing De-biasing & Normalization**: Introduce unit-cube min-max scaling ($[0,1]^3$) and standardized z-score coordinates in the preprocessing step (`tools/dataset_slicer/slice.py` and `boinc_work_generator.py`), isolating genuine physical clustering from bounding-box spatial geometry.
+  - **Open-Science Consortium Integration**: Publish a cryptographic, reproducible open-access anomaly ledger to collaborate with research consortia (such as Euclid or SDSS), laying the groundwork for peer-reviewed publication of candidate topological warping candidates.
+
 ---
 
 ## 🐙 VI. Git Repository Structure

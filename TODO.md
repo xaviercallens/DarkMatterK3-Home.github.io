@@ -133,3 +133,22 @@ This document maps out the specific, engineering-level tasks required to transit
   - [x] Map out Zero-Dollar Serverless (Option A) and Cheap VPS (Option B) architectures.
   - [x] Design **Option C** under GCP ($16.00/mo) utilizing local Docker containers for PostgreSQL and Redis to bypass Cloud SQL/Memorystore minimum fees and remain fully compliant with the under $50/mo budget limit.
 
+---
+
+## 🔬 9. Phase 7: Scientific Rigor & Academic Adoption (Phase 2 Research Roadmap)
+*Resolve spatial boundary biases and coordinate-pinned template artifacts to secure academic journal acceptance.*
+
+- [ ] **Implement Translation-Invariant Topological Data Analysis (TDA)**
+  - [ ] Integrate Minkowski functionals and multi-scale Euler Characteristics calculation into the native C++ solver.
+  - [ ] Implement persistence diagram generators tracing Betti numbers ($\beta_0, \beta_1$) to search for $S_{1,2}$ manifolds without geocentric coordinate bias.
+- [ ] **Develop 6-Parameter Template Moduli Fitting**
+  - [ ] Refactor the Picard-Fuchs knot template in `core_boinc/src/main.cpp` from static geocentric coordinates to a free-moving mathematical path.
+  - [ ] Add 6 degrees of freedom to the fitting solver: 3 translation offsets $(\Delta x, \Delta y, \Delta z)$, 2 rotational Euler angles $(\theta, \phi)$, and 1 scale factor $S$.
+  - [ ] Implement a localized minimization algorithm (e.g., Levenberg-Marquardt or FGMRES preconditioner adjustments) to fit the free-moving loop to local density spikes.
+- [ ] **Slicing De-biasing & Data Normalization**
+  - [ ] Add coordinate standardizations (z-score normalization or min-max $[0,1]^3$ unit cube mapping) inside the preprocessing pipeline (`tools/dataset_slicer/slice.py`).
+  - [ ] Ensure the 3:2 asymmetry ratio solver evaluates normalized coordinates, isolating physical galaxy cluster configurations from bounding-box rectangular prism boundaries.
+- [ ] **Establish Open-Science Anomaly Registry**
+  - [ ] Build a public, cryptographic, reproducible portal for candidate coordinate submissions to integrate with the SDSS/Euclid scientific consortium.
+
+
