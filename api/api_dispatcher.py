@@ -233,26 +233,61 @@ def register_user(user: UserCreate):
 
 @app.post("/jobs/request")
 def request_job(req: JobRequest):
-    job_id = str(uuid.uuid4())
-    chunk_data = {"chunk_id": f"chunk-{job_id[:8]}", "data_url": f"gs://{os.getenv('GCS_BUCKET', 'darkmatter-bucket')}/chunks/{job_id}.h5"}
-    
     conn = get_db_connection()
     if conn:
-        cursor = conn.cursor()
-        cursor.execute("SELECT user_id FROM users WHERE user_id = %s", (req.user_id,))
-        if not cursor.fetchone():
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT user_id FROM users WHERE user_id = %s", (req.user_id,))
+            if not cursor.fetchone():
+                cursor.close()
+                conn.close()
+                raise HTTPException(status_code=404, detail="User not found. Register first.")
+                
+            # Attempt to find an actual pending BOEINC job
+            cursor.execute(
+                "SELECT job_id, chunk_data FROM jobs WHERE status = 'pending' ORDER BY created_at ASC LIMIT 1"
+            )
+            pending_job = cursor.fetchone()
+            
+            if pending_job and len(pending_job) == 2:
+                job_id, chunk_data_raw = pending_job
+                if isinstance(chunk_data_raw, str):
+                    chunk_data = json.loads(chunk_data_raw)
+                else:
+                    chunk_data = chunk_data_raw
+                    
+                cursor.execute(
+                    "UPDATE jobs SET status = 'processing', assigned_to = %s WHERE job_id = %s",
+                    (req.user_id, job_id)
+                )
+                conn.commit()
+                cursor.close()
+                conn.close()
+                return {"job_id": job_id, "chunk_data": chunk_data}
+                
+            # Fallback: create mock job
+            job_id = str(uuid.uuid4())
+            chunk_data = {"chunk_id": f"chunk-{job_id[:8]}", "data_url": f"gs://{os.getenv('GCS_BUCKET', 'darkmatter-bucket')}/chunks/{job_id}.h5"}
+            cursor.execute(
+                "INSERT INTO jobs (job_id, status, assigned_to, chunk_data) VALUES (%s, %s, %s, %s)",
+                (job_id, "processing", req.user_id, json.dumps(chunk_data))
+            )
+            conn.commit()
             cursor.close()
             conn.close()
-            raise HTTPException(status_code=404, detail="User not found. Register first.")
+            return {"job_id": job_id, "chunk_data": chunk_data}
+        except HTTPException as he:
+            if conn:
+                conn.close()
+            raise he
+        except Exception as e:
+            if conn:
+                conn.close()
+            raise HTTPException(status_code=500, detail=f"Database transaction failure: {str(e)}")
             
-        cursor.execute(
-            "INSERT INTO jobs (job_id, status, assigned_to, chunk_data) VALUES (%s, %s, %s, %s)",
-            (job_id, "processing", req.user_id, json.dumps(chunk_data))
-        )
-        conn.commit()
-        cursor.close()
-        conn.close()
-    
+    # Standalone mock fallback if DB is offline
+    job_id = str(uuid.uuid4())
+    chunk_data = {"chunk_id": f"chunk-{job_id[:8]}", "data_url": f"gs://{os.getenv('GCS_BUCKET', 'darkmatter-bucket')}/chunks/{job_id}.h5"}
     return {"job_id": job_id, "chunk_data": chunk_data}
 
 def award_badges(user_id: str, distance: float, chunks_processed: int, cursor):
@@ -329,13 +364,55 @@ def get_leaderboard(limit: int = 10):
     except Exception as e:
         print(f"Redis fallback activated: {e}")
         
-    # Mock fallback for test_api_darkmatter compatibility
+    # Read and aggregate BOEINC offline ledger
+    boinc_data = {}
+    ledger_path = os.path.join(BASE_DIR, "core_boinc", "boinc_offline_ledger.json")
+    if os.path.exists(ledger_path):
+        try:
+            with open(ledger_path, "r") as f:
+                boinc_data = json.load(f)
+        except Exception as e:
+            print(f"Error reading boinc_offline_ledger: {e}")
+
+    boinc_users = {}
+    for wu_id, wu_info in boinc_data.items():
+        user = wu_info.get("user_id", "boinc_worker_node")
+        points = wu_info.get("points_earned", 0)
+        metrics = wu_info.get("metrics", {})
+        galaxies = metrics.get("Galaxies", 0) if isinstance(metrics, dict) else 0
+        
+        if user not in boinc_users:
+            boinc_users[user] = {"points": 0, "galaxies": 0}
+        boinc_users[user]["points"] += points
+        boinc_users[user]["galaxies"] += galaxies
+
+    # Mock base leaderboard for test_api_darkmatter and visual completeness
     mock_lb = [
         {"node": "T4_Worker_Xavier", "points": 18500, "galaxies": 6200000},
         {"node": "Runux_Core_A100", "points": 12050, "galaxies": 3500000},
         {"node": "MacBook_M2_Community", "points": 4320, "galaxies": 1200000}
     ]
-    return {"leaderboard": mock_lb}
+    
+    # Merge aggregated BOEINC offline nodes
+    for user, stats in boinc_users.items():
+        # Avoid duplication of existing mock nodes if user matches
+        found = False
+        for node_info in mock_lb:
+            if node_info["node"] == user:
+                node_info["points"] += stats["points"]
+                node_info["galaxies"] += stats["galaxies"]
+                found = True
+                break
+        if not found:
+            mock_lb.append({
+                "node": user,
+                "points": stats["points"],
+                "galaxies": stats["galaxies"]
+            })
+            
+    # Sort by points descending
+    mock_lb = sorted(mock_lb, key=lambda x: x["points"], reverse=True)
+    return {"leaderboard": mock_lb[:limit]}
 
 @app.get("/badges/{user_id}")
 def get_user_badges(user_id: str):

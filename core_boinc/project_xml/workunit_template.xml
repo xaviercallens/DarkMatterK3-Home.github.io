@@ -1,0 +1,14 @@
+<file_info>
+    <number>0</number>
+</file_info>
+<workunit>
+    <file_ref>
+        <file_name>input_shard.txt</file_name>
+        <open_name>input_shard.txt</open_name>
+    </file_ref>
+    <rsc_fpops_est>4.5e10</rsc_fpops_est>
+    <rsc_fpops_bound>4.5e12</rsc_fpops_bound>
+    <rsc_memory_bound>6.4e7</rsc_memory_bound>
+    <rsc_disk_bound>1.0e7</rsc_disk_bound>
+    <delay_bound>604800</delay_bound>
+</workunit>

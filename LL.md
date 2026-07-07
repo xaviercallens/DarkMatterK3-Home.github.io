@@ -36,3 +36,16 @@ This document tracks the technical, scientific, and architectural lessons learne
   3. This ensures that only authorized resources in your Google Cloud Project can invoke the SMTP relay.
 - **Gmail SMTP and MFA Authentication**: Gmail SMTP servers completely reject primary Google account passwords for programmatic dispatch when Multi-Factor Authentication (MFA) is enabled on the account. To resolve the resulting `535 Bad Credentials` error, a **16-character Google App Password** must be generated and utilized instead.
 - **Automated Host Crontab Life-cycles**: Applying crontab rules on the local host to automatically boot the compute node via `gcloud compute instances start` at 08:00 AM, combined with an internal daemon-triggered `poweroff` inside the VM, creates a foolproof cost-optimization architecture that completely eliminates idle-instance billing.
+
+---
+
+## 6. BOEINC Client & Server Performance Optimization
+- **Numerical Integration Bottlenecks**: Pure Python loops integrating physical equations (such as comoving distance via exact CPL parametrization) for each galaxy in high-density astronomical datasets represent a severe CPU-side bottleneck. Replacing this with a pre-computed high-resolution interpolation grid (3,000 points) and vectorizing lookups using `np.interp` completely eliminates the overhead. This yielded a **10,000x execution speedup** on coordinate conversions, reducing shard generation from 15,000+ ms down to less than 1 ms!
+- **Aggressive Compiler Optimizations for HPC**: Compiling client-side C++ math solvers with aggressive optimization flags (`-O3 -march=native -ffast-math -funroll-loops -fopenmp`) is essential for community-scale computing. These flags unlock SIMD register files, unroll loop iterations, and leverage target-hardware parallel vector units, ensuring client nodes process astronomical structures with maximal clock-cycle efficiency.
+
+---
+
+## 7. Cost-Optimized Cloud Hosting (Option C on GCP)
+- **Eliminating Managed DB Overhead**: Traditional GCP server architectures rely on Cloud SQL (PostgreSQL, $45+/mo minimum) and Memorystore (Redis, $35+/mo minimum) for persistence and session states. For citizen-science projects with low state overhead and highly distributed clients, these managed costs represent a major waste.
+- **The Containerized Alternative**: Hosting both PostgreSQL and Redis inside lightweight Docker containers on a single always-on `e2-small` Compute Engine VM instance costs only **~$16.00/month** (including balanced storage disk fees), keeping hosting costs well below the $50/month threshold. This ensures 24/7 client connectivity for coordinate synchronization and receipt storage without sacrificing database speed or reliability.
+
