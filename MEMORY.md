@@ -43,6 +43,12 @@ To trigger a continuous community-scale simulation loop that runs for 1 hour, ge
 ```
 The results are automatically gathered by the bridge daemon, written to `boinc_offline_ledger.json`, and streamed to `/leaderboard` on the FastAPI server and the Streamlit dashboard!
 
+### 6. Prepare Environment for a Fresh Next Run
+To quickly clean up stale temporary files, re-compile the C++ native solver with maximum hardware acceleration, and generate a fresh optimized batch of coordinates shards before starting:
+```bash
+./prepare_next_run.sh
+```
+
 ---
 
 ## 🏆 Phase 6: System Integration, Testing & BOEINC Validation
