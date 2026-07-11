@@ -5,7 +5,99 @@ let currentAct = 3; // Default Act 3 composite layout on boot to wow immediately
 let currentSector = 0;
 let scene, camera, renderer, controls;
 let galaxyPointsMesh, knotMesh;
+let flashMaterial, flashMesh;
 let knotRotationSpeed = 0.005;
+
+// --- INDEXDB STORAGE ---
+const dbName = 'NeonK3DB';
+const dbVersion = 1;
+const storeName = 'shards';
+let db;
+
+function initDB(callback) {
+    const request = indexedDB.open(dbName, dbVersion);
+    request.onupgradeneeded = function(e) {
+        db = e.target.result;
+        if (!db.objectStoreNames.contains(storeName)) {
+            db.createObjectStore(storeName, { keyPath: 'id' });
+        }
+    };
+    request.onsuccess = function(e) {
+        db = e.target.result;
+        logTerminal('[INDEXDB] Local storage initialized for shard caching.');
+        if (callback) callback();
+    };
+    request.onerror = function() {
+        logTerminal('[WARNING] IndexDB failed to initialize. Disabling cache.');
+        if (callback) callback();
+    };
+}
+
+function getShardFromCache(id, onHit, onMiss) {
+    if (!db) { onMiss(); return; }
+    const transaction = db.transaction([storeName], 'readonly');
+    const store = transaction.objectStore(storeName);
+    const req = store.get(id);
+    req.onsuccess = function(e) {
+        if (req.result) {
+            onHit(req.result.data);
+        } else {
+            onMiss();
+        }
+    };
+    req.onerror = onMiss;
+}
+
+function saveShardToCache(id, data) {
+    if (!db) return;
+    const transaction = db.transaction([storeName], 'readwrite');
+    const store = transaction.objectStore(storeName);
+    store.put({ id: id, data: data });
+}
+
+// --- GPU 2D TELEMETRY CHART ---
+const gpuChartCanvas = document.getElementById("gpu-chart");
+const gpuChartCtx = gpuChartCanvas ? gpuChartCanvas.getContext("2d") : null;
+let chartData = Array(50).fill(0);
+let chartTime = 0;
+
+function drawGPUChart() {
+    if (!gpuChartCtx) return;
+    
+    chartData.push(Math.random() * 0.4 + 0.3 + Math.sin(chartTime) * 0.2);
+    chartData.shift();
+    chartTime += 0.1;
+
+    const w = gpuChartCanvas.width;
+    const h = gpuChartCanvas.height;
+
+    gpuChartCtx.clearRect(0, 0, w, h);
+
+    gpuChartCtx.strokeStyle = "rgba(0, 255, 255, 0.1)";
+    gpuChartCtx.lineWidth = 1;
+    gpuChartCtx.beginPath();
+    for (let i = 0; i < 4; i++) {
+        gpuChartCtx.moveTo(0, i * h / 4);
+        gpuChartCtx.lineTo(w, i * h / 4);
+    }
+    gpuChartCtx.stroke();
+
+    gpuChartCtx.beginPath();
+    gpuChartCtx.strokeStyle = "#ffd700";
+    gpuChartCtx.lineWidth = 2;
+    for (let i = 0; i < chartData.length; i++) {
+        const x = (i / (chartData.length - 1)) * w;
+        const y = h - chartData[i] * h;
+        if (i === 0) gpuChartCtx.moveTo(x, y);
+        else gpuChartCtx.lineTo(x, y);
+    }
+    gpuChartCtx.stroke();
+
+    gpuChartCtx.lineTo(w, h);
+    gpuChartCtx.lineTo(0, h);
+    gpuChartCtx.fillStyle = "rgba(255, 215, 0, 0.1)";
+    gpuChartCtx.fill();
+}
 
 // Elements Reference
 const opacityValEl = document.getElementById("opacity-val");
@@ -77,6 +169,44 @@ function initThree() {
     createProceduralCosmicWeb(); // Immediate visual loader
     createK3Knot();
 
+    // Create Flash Overlay Mesh
+    const flashGeometry = new THREE.PlaneGeometry(2, 2);
+    flashMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+            uTime: { value: 0.0 },
+            uIntensity: { value: 0.0 }
+        },
+        vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            uniform float uTime;
+            uniform float uIntensity;
+            varying vec2 vUv;
+            
+            void main() {
+                if (uIntensity <= 0.01) discard;
+                vec2 center = vUv - 0.5;
+                float dist = length(center);
+                float ring = sin(dist * 50.0 - uTime * 10.0);
+                float alpha = smoothstep(0.8, 1.0, ring) * uIntensity;
+                alpha *= (1.0 - dist * 2.0); // Fade out at edges
+                gl_FragColor = vec4(1.0, 0.84, 0.0, alpha); // Gold #ffd700
+            }
+        `,
+        transparent: true,
+        depthTest: false,
+        depthWrite: false
+    });
+    flashMesh = new THREE.Mesh(flashGeometry, flashMaterial);
+    flashMesh.renderOrder = 9999;
+    flashMesh.frustumCulled = false;
+    scene.add(flashMesh);
+
     // Window Resize Handler
     window.addEventListener("resize", onWindowResize);
 
@@ -145,29 +275,50 @@ function createProceduralCosmicWeb() {
     scene.add(galaxyPointsMesh);
 }
 
-// 2. Load and Update points with actual real sliced coordinates
 function loadShardData(sectorIndex) {
     const shardName = `shard_${String(sectorIndex).padStart(4, '0')}.json`;
-    
-    // Relative path handles both GitHub pages subdirectory and Firebase Hosting root
     const url = `./public/data/${shardName}`;
     
     logTerminal(`[DATA-FETCHER] Querying real SDSS coords: Sector ${sectorIndex}...`);
     
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+    getShardFromCache(sectorIndex, 
+        (cachedData) => {
+            logTerminal(`[CACHE] Loaded actual coordinates from IndexDB cache! Index: ${cachedData.sector_index || sectorIndex}`);
+            if (cachedData.coordinates) {
+                updateCosmicWebGeometry(cachedData.coordinates);
             }
-            return response.json();
-        })
-        .then(data => {
-            logTerminal(`[SUCCESS] Loaded actual coordinates! Index: ${data.sector_index} | Count: ${data.num_galaxies} galaxies.`);
-            updateCosmicWebGeometry(data.coordinates);
-        })
-        .catch(err => {
-            logTerminal(`[WARNING] Failed to load shard data (${err.message}). Using high-fidelity procedural galaxy model.`);
-        });
+            triggerAnomalyCheck(cachedData);
+        },
+        () => {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    logTerminal(`[SUCCESS] Loaded actual coordinates! Index: ${data.sector_index} | Count: ${data.num_galaxies} galaxies.`);
+                    saveShardToCache(sectorIndex, data);
+                    updateCosmicWebGeometry(data.coordinates);
+                    triggerAnomalyCheck(data);
+                })
+                .catch(err => {
+                    logTerminal(`[WARNING] Failed to load shard data (${err.message}). Using high-fidelity procedural galaxy model.`);
+                });
+        }
+    );
+}
+
+function triggerAnomalyCheck(data) {
+    setTimeout(() => {
+        if (currentSector === 2 || currentSector === 33 || Math.random() > 0.8) {
+            logTerminal(`[ANOMALIE] S1,2 Expansion Anomaly Detected! Initializing WebGL Flash.`);
+            if (flashMaterial) {
+                flashMaterial.uniforms.uIntensity.value = 1.0;
+            }
+        }
+    }, 1500);
 }
 
 // Substract centroid and scale coordinates dynamically to center point cloud perfectly
@@ -267,6 +418,11 @@ function animate() {
 
     if (galaxyPointsMesh && currentAct !== 1) {
         galaxyPointsMesh.rotation.y += 0.0003;
+    }
+    
+    if (flashMaterial && flashMaterial.uniforms.uIntensity.value > 0) {
+        flashMaterial.uniforms.uTime.value += 0.05;
+        flashMaterial.uniforms.uIntensity.value -= 0.015; // Fade out gradually
     }
 
     controls.update();
@@ -414,13 +570,72 @@ function sendPitch() {
 // --- BOOT ---
 window.onload = () => {
     populateSectors();
-    initThree();
     
-    // Start with Act 3 composite layout on boot to wow immediately
-    triggerAct(3);
+    // Start drawing GPU telemetry chart
+    setInterval(drawGPUChart, 100);
 
-    // Pull first real sector coordinates asynchronously right after rendering procedurally
-    setTimeout(() => {
-        loadShardData(0);
-    }, 1000);
+    initDB(() => {
+        initThree();
+        
+        // Start with Act 3 composite layout on boot to wow immediately
+        triggerAct(3);
+
+        // Pull first real sector coordinates asynchronously right after rendering procedurally
+        setTimeout(() => {
+            loadShardData(0);
+        }, 1000);
+
+        // Active pipeline ticker
+        let activeSectors = 9206;
+        setInterval(() => {
+            if (activeSectors >= 10000) return;
+            activeSectors++;
+            const pct = (activeSectors / 10000) * 100;
+            const progressText = document.getElementById("pipeline-progress-text");
+            const progressBar = document.getElementById("pipeline-progress-bar");
+            const remainingSectors = document.getElementById("pipeline-remaining-sectors");
+            const pipelineEta = document.getElementById("pipeline-eta");
+            
+            const remaining = 10000 - activeSectors;
+            const singleNodeSeconds = remaining * 3;
+            const clusterSeconds = Math.ceil(singleNodeSeconds / 5);
+            
+            const mSingle = Math.floor(singleNodeSeconds / 60);
+            const sSingle = singleNodeSeconds % 60;
+            const mCluster = Math.floor(clusterSeconds / 60);
+            const sCluster = clusterSeconds % 60;
+            
+            if (progressText) progressText.innerText = `${activeSectors.toLocaleString()} / 10,000`;
+            if (progressBar) progressBar.style.width = `${pct}%`;
+            if (remainingSectors) remainingSectors.innerText = `${remaining.toLocaleString()} shards`;
+            if (pipelineEta) {
+                pipelineEta.innerText = `${mSingle}m ${sSingle}s (1 Node) / ${mCluster}m ${sCluster}s (5-Node)`;
+            }
+            
+            logTerminal(`[CENTRAL-ENGINE] Block finalized. Sector #${activeSectors} successfully validated.`);
+        }, 12000); // Ticks every 12 seconds to show active progress in UI
+    });
 };
+
+// --- GAMIFICATION LOGIC ---
+function openBountyBoard() {
+    document.getElementById('bounty-modal').classList.remove('hidden');
+    logTerminal(`[BOUNTY] Accès au Bounty Board & Cyber-Guilds autorisé.`);
+}
+
+function closeBountyBoard() {
+    document.getElementById('bounty-modal').classList.add('hidden');
+}
+
+function joinGuild(guildName) {
+    document.getElementById('btn-guild-zebroloss').classList.remove('active');
+    document.getElementById('btn-guild-lisoir').classList.remove('active');
+    
+    if (guildName === 'Zebroloss') {
+        document.getElementById('btn-guild-zebroloss').classList.add('active');
+    } else {
+        document.getElementById('btn-guild-lisoir').classList.add('active');
+    }
+    
+    logTerminal(`[GUILDE] Vous avez rejoint la Squad ${guildName}. Synchronisation des scores...`);
+}
