@@ -98,6 +98,7 @@ def init_db():
 # Pydantic models
 class JobRequest(BaseModel):
     user_id: str
+    sector_id: Optional[str] = None
 
 class JobResult(BaseModel):
     job_id: str
@@ -105,6 +106,22 @@ class JobResult(BaseModel):
     wasserstein_distance: float
     result_metadata: Dict[str, Any]
     signature: Optional[str] = None
+    sector_id: Optional[str] = None
+    chunk_url: Optional[str] = None
+    delta: Optional[float] = None
+    s12: Optional[float] = None
+    wasm_version_hash: Optional[str] = None
+
+class BrowserDiscovery(BaseModel):
+    sector_id: int
+    delta: float
+    s12: float
+    s21: float
+    mean_asymmetry: float
+    max_asymmetry: float
+    author: str
+    name: Optional[str] = "Unnamed Anomaly"
+
 
 class UserCreate(BaseModel):
     user_id: str
@@ -321,6 +338,51 @@ def trigger_backup(label: str = "api_backup"):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/v1/wasm/manifest")
+def get_wasm_manifest():
+    return {
+        "wasm_version_hash": "v0.1.0",
+        "cosmological_params": {
+            "h0": 71.92,
+            "w0": -0.5485,
+            "wa": -0.3968,
+            "omega_m": 0.315,
+            "omega_de": 0.685
+        }
+    }
+
+@app.post("/api/v1/discoveries/browser")
+def submit_browser_discovery(disc: BrowserDiscovery):
+    discoveries = []
+    if os.path.exists(DISCOVERIES_FILE):
+        try:
+            with open(DISCOVERIES_FILE, "r") as f:
+                discoveries = json.load(f)
+        except Exception:
+            pass
+    
+    new_discovery = {
+        "id": f"K3-DISC-{len(discoveries) + 1:04d}",
+        "timestamp": datetime.now().isoformat(),
+        "sector_index": disc.sector_id,
+        "delta": disc.delta,
+        "s12": disc.s12,
+        "s21": disc.s21,
+        "mean_asymmetry": disc.mean_asymmetry,
+        "max_asymmetry": disc.max_asymmetry,
+        "type": disc.name if disc.name else "High Gravity Hub (Browser Candidate)",
+        "details": "Browser-sourced high-Delta discovery. Pending server-side Python re-verification.",
+        "author": f"{disc.author} (Browser Node)",
+        "source": "browser_wasm"
+    }
+    discoveries.append(new_discovery)
+    
+    with open(DISCOVERIES_FILE, "w") as f:
+        json.dump(discoveries, f, indent=2)
+        
+    return {"status": "success", "discovery_id": new_discovery["id"], "permalink": f"/discovery.html?id={new_discovery['id']}"}
+
+
 # --- COMMUNITY DISPATCHER API ENDPOINTS (from api_dispatcher.py) ---
 @app.post("/users/register")
 def register_user(user: UserCreate):
@@ -343,6 +405,28 @@ def register_user(user: UserCreate):
     cursor.close()
     conn.close()
     return {"message": "User registered successfully", "user_id": user.user_id}
+
+@app.get("/users/{user_id}")
+def get_user_stats(user_id: str):
+    """Fetch real user statistics (score, chunks_processed) from the database."""
+    conn = get_db_connection()
+    if conn:
+        try:
+            cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+            cursor.execute("SELECT user_id, username, score, chunks_processed FROM users WHERE user_id = %s", (user_id,))
+            user = cursor.fetchone()
+            cursor.close()
+            conn.close()
+            if user:
+                return user
+            raise HTTPException(status_code=404, detail="User not found")
+        except Exception as e:
+            if conn:
+                conn.close()
+            raise HTTPException(status_code=500, detail=str(e))
+    # Fallback for offline mode
+    return {"user_id": user_id, "username": "Offline_User", "score": 100, "chunks_processed": 1}
+
 
 @app.post("/jobs/request")
 def request_job(req: JobRequest):
@@ -424,7 +508,15 @@ def request_job(req: JobRequest):
     # Standalone mock fallback if DB is offline
     job_id = str(uuid.uuid4())
     session_salt = os.urandom(16).hex()
-    chunk_data = {"chunk_id": f"chunk-{job_id[:8]}", "data_url": f"gs://{os.getenv('GCS_BUCKET', 'darkmatter-bucket')}/chunks/{job_id}.h5", "session_salt": session_salt}
+    sector_id = req.sector_id if req.sector_id else str(int(time.time()) % 1620)
+    chunk_data = {
+        "chunk_id": f"chunk-{job_id[:8]}", 
+        "data_url": f"gs://{os.getenv('GCS_BUCKET', 'darkmatter-bucket')}/chunks/{job_id}.h5", 
+        "session_salt": session_salt,
+        "sector_id": sector_id,
+        "s12": 1.6,
+        "s21": 0.5
+    }
     return {"job_id": job_id, "chunk_data": chunk_data}
 
 def award_badges(user_id: str, distance: float, chunks_processed: int, cursor):
@@ -541,7 +633,19 @@ def submit_result(result: JobResult):
         conn.commit()
         cursor.close()
         conn.close()
+        
+        # Check if high-Delta discovery for browser
+        if result.delta is not None and result.delta > 1.10:
+            discovery_id = f"K3-DISC-B-{result.job_id[:8].upper()}"
+            return {
+                "message": "Consensus reached! Results verified.", 
+                "points_earned": 10,
+                "discovery_id": discovery_id,
+                "permalink": f"/discovery.html?id={discovery_id}"
+            }
+            
         return {"message": "Consensus reached! Results verified.", "points_earned": 10}
+
     else:
         conn.commit()
         cursor.close()
@@ -551,16 +655,32 @@ def submit_result(result: JobResult):
 # --- DYNAMIC ROUTING & FALLBACKS FOR TEST COMPATIBILITY ---
 @app.get("/leaderboard")
 def get_leaderboard(limit: int = 10):
-    """Fetch leaderboard from Redis, falling back to local simulation mockup if unavailable."""
+    """Fetch leaderboard from Redis, falling back to PostgreSQL, then to local simulation mockup if unavailable."""
+    # 1. Try Redis first
     try:
-        # Check if Redis returns data (e.g. during test_api_dispatcher or live Redis)
         leaders = redis_client.zrevrange("leaderboard", 0, limit - 1, withscores=True)
         if leaders:
-            return [{"user_id": u, "score": s} for u, s in leaders]
+            return [{"user_id": u, "score": float(s)} for u, s in leaders]
     except Exception as e:
-        print(f"Redis fallback activated: {e}")
-        
-    # Read and aggregate BOEINC offline ledger
+        print(f"Redis leaderboard lookup failed: {e}")
+
+    # 2. Try PostgreSQL
+    conn = get_db_connection()
+    if conn:
+        try:
+            cursor = conn.cursor(cursor_factory=RealDictCursor)
+            cursor.execute("SELECT user_id, score FROM users ORDER BY score DESC LIMIT %s", (limit,))
+            rows = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            if rows:
+                return [{"user_id": r["user_id"], "score": float(r["score"])} for r in rows]
+        except Exception as e:
+            print(f"Postgres leaderboard lookup failed: {e}")
+            if conn:
+                conn.close()
+
+    # 3. Fallback to BOEINC offline ledger + mock entries
     boinc_data = {}
     ledger_path = os.path.join(BASE_DIR, "core_boinc", "boinc_offline_ledger.json")
     if os.path.exists(ledger_path):
@@ -582,33 +702,31 @@ def get_leaderboard(limit: int = 10):
         boinc_users[user]["points"] += points
         boinc_users[user]["galaxies"] += galaxies
 
-    # Mock base leaderboard for test_api_darkmatter and visual completeness
+    # Consistent contract list
     mock_lb = [
-        {"node": "T4_Worker_Xavier", "points": 18500, "galaxies": 6200000},
-        {"node": "Runux_Core_A100", "points": 12050, "galaxies": 3500000},
-        {"node": "MacBook_M2_Community", "points": 4320, "galaxies": 1200000}
+        {"user_id": "T4_Worker_Xavier", "score": 18500.0, "galaxies": 6200000},
+        {"user_id": "Runux_Core_A100", "score": 12050.0, "galaxies": 3500000},
+        {"user_id": "MacBook_M2_Community", "score": 4320.0, "galaxies": 1200000}
     ]
     
-    # Merge aggregated BOEINC offline nodes
     for user, stats in boinc_users.items():
-        # Avoid duplication of existing mock nodes if user matches
         found = False
         for node_info in mock_lb:
-            if node_info["node"] == user:
-                node_info["points"] += stats["points"]
-                node_info["galaxies"] += stats["galaxies"]
+            if node_info["user_id"] == user:
+                node_info["score"] += stats["points"]
+                if "galaxies" in node_info:
+                    node_info["galaxies"] += stats["galaxies"]
                 found = True
                 break
         if not found:
             mock_lb.append({
-                "node": user,
-                "points": stats["points"],
+                "user_id": user,
+                "score": float(stats["points"]),
                 "galaxies": stats["galaxies"]
             })
             
-    # Sort by points descending
-    mock_lb = sorted(mock_lb, key=lambda x: x["points"], reverse=True)
-    return {"leaderboard": mock_lb[:limit]}
+    mock_lb = sorted(mock_lb, key=lambda x: x["score"], reverse=True)
+    return mock_lb[:limit]
 
 @app.get("/badges/{user_id}")
 def get_user_badges(user_id: str):

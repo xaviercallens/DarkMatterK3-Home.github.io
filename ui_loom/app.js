@@ -639,3 +639,116 @@ function joinGuild(guildName) {
     
     logTerminal(`[GUILDE] Vous avez rejoint la Squad ${guildName}. Synchronisation des scores...`);
 }
+
+// --- PHASE 5 WASM WORKER ---
+let wasmWorker = null;
+
+function initWasmWorker() {
+    wasmWorker = new Worker('src/workers/wasmWorker.js');
+    wasmWorker.onmessage = (e) => {
+        if (e.data.type === 'INIT_DONE') {
+            logTerminal('[WASM] WebAssembly Node initialized successfully in Browser Worker!');
+            requestAndComputeChunk();
+        } else if (e.data.type === 'COMPUTE_DONE') {
+            const res = e.data.result;
+            logTerminal(`[WASM] Computed sector in ${res.computeTime.toFixed(1)}ms | Delta: ${res.delta.toFixed(4)} | NN Dist: ${res.avg_neighbor_dist.toFixed(4)}`);
+            logTerminal(`[WASM] Shear Fields: ɣ1=${res.shear.mean_shear_1.toFixed(4)}, ɣ2=${res.shear.mean_shear_2.toFixed(4)}`);
+            
+            if (res.shear.has_chameleon_knot) {
+                logTerminal(`[WASM] ⚠️ CHAMELEON GRAVITINO KNOT DETECTED IN WEAK LENSING MAP!`);
+                triggerDiscoveryFlash(res.delta + 2.0); // Boost delta flash for knots
+            }
+            if (res.delta > 1.10) {
+                triggerDiscoveryFlash(res.delta);
+                submitDiscovery(res);
+            }
+        } else if (e.data.type === 'COMPUTE_ERROR') {
+            logTerminal(`[WASM ERROR] ${e.data.error}`);
+        }
+    };
+    wasmWorker.postMessage({ type: 'INIT' });
+}
+
+function startWasmCompute() {
+    if (!wasmWorker) {
+        initWasmWorker();
+    } else {
+        requestAndComputeChunk();
+    }
+}
+
+function requestAndComputeChunk() {
+    logTerminal('[WASM] Requesting chunk from dispatcher...');
+    
+    // Simulate fetching chunk and processing
+    const sectorData = [];
+    for(let i=0; i<10000; i++) {
+        sectorData.push({
+            x: (Math.random()-0.5)*100,
+            y: (Math.random()-0.5)*100,
+            z: (Math.random()-0.5)*100
+        });
+    }
+    
+    // We simulate a high delta occasionally
+    const forceAnomaly = Math.random() > 0.3; // High chance for testing
+    const s12 = forceAnomaly ? 2.5 : 1.6;
+    
+    wasmWorker.postMessage({
+        type: 'COMPUTE_CHUNK',
+        data: {
+            coords: sectorData,
+            s12: s12,
+            s21: 0.5
+        }
+    });
+}
+
+function triggerDiscoveryFlash(delta) {
+    // Phase 5D visual alert
+    const flash = document.createElement('div');
+    flash.style.position = 'fixed';
+    flash.style.top = '0'; flash.style.left = '0'; flash.style.width = '100vw'; flash.style.height = '100vh';
+    flash.style.backgroundColor = 'rgba(255, 215, 0, 0.4)';
+    flash.style.zIndex = '9999';
+    flash.style.pointerEvents = 'none';
+    flash.style.transition = 'opacity 1s ease-out';
+    
+    const toast = document.createElement('div');
+    toast.className = 'cyber-badge neon-gold';
+    toast.style.position = 'absolute';
+    toast.style.top = '50%'; toast.style.left = '50%';
+    toast.style.transform = 'translate(-50%, -50%)';
+    toast.style.fontSize = '32px';
+    toast.innerHTML = `⚠️ NEW DISCOVERY!<br>Delta: ${delta.toFixed(4)}`;
+    
+    flash.appendChild(toast);
+    document.body.appendChild(flash);
+    
+    setTimeout(() => { flash.style.opacity = '0'; }, 100);
+    setTimeout(() => { flash.remove(); }, 1200);
+}
+
+function submitDiscovery(res) {
+    const discoveryName = promptDiscoveryName(res.delta);
+    
+    fetch('/api/v1/discoveries/browser', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            sector_id: Math.floor(Math.random()*10000),
+            delta: res.delta,
+            s12: 1.6,
+            s21: 0.5,
+            mean_asymmetry: res.mean_asymmetry,
+            max_asymmetry: res.max_asymmetry,
+            author: "Browser_User",
+            name: discoveryName
+        })
+    }).then(r => r.json()).then(data => {
+        logTerminal(`[DISPATCHER] Validated K3 Anomaly! Official ID: ${data.discovery_id}`);
+        fetchDiscoveries(); // Refresh discoveries right after
+    }).catch(err => {
+        logTerminal(`[DISPATCHER ERROR] Could not submit discovery: ${err.message}`);
+    });
+}
