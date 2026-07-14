@@ -1,0 +1,67 @@
+{
+  "status": "DETECTED",
+  "confidence": 1.267,
+  "candidates_count": 5,
+  "ra_alignment_score": 100.0,
+  "dec_coverage_score": 166.7,
+  "delta_elevation_score": 100,
+  "avg_delta": 1.1216,
+  "dec_span": "0.0-50.0",
+  "candidates": [
+    {
+      "id": "K3-DISC-0002",
+      "ra_center": 205.0,
+      "dec_min": 30.0,
+      "dec_max": 40.0,
+      "delta": 1.1054608094617884,
+      "source": "EUCLID_Q1 (2026-Q1 Mission Data)",
+      "num_galaxies": 9512,
+      "mean_asymmetry": 0.0060601793229579926,
+      "max_asymmetry": 134.2945556640625
+    },
+    {
+      "id": "K3-DISC-0027",
+      "ra_center": 205.0,
+      "dec_min": 0.0,
+      "dec_max": 10.0,
+      "delta": 1.1072229551135293,
+      "source": "GAIA_DR3 (Gaia Data Release 3 - Astrometric Survey)",
+      "num_galaxies": 10000,
+      "mean_asymmetry": 0.006672649644315243,
+      "max_asymmetry": 170.72003173828125
+    },
+    {
+      "id": "K3-DISC-0028",
+      "ra_center": 205.0,
+      "dec_min": 10.0,
+      "dec_max": 20.0,
+      "delta": 1.1332738564113505,
+      "source": "EUCLID_Q1 (2026-Q1 Mission Data)",
+      "num_galaxies": 10000,
+      "mean_asymmetry": 0.006686054170131683,
+      "max_asymmetry": 86.93377685546875
+    },
+    {
+      "id": "K3-DISC-0029",
+      "ra_center": 205.0,
+      "dec_min": 20.0,
+      "dec_max": 30.0,
+      "delta": 1.1301077547137783,
+      "source": "SDSS_BOSS_DR17 (Sector RA:200.0-210.0, DEC:20.0-30.0)",
+      "num_galaxies": 10000,
+      "mean_asymmetry": 0.006687231361865997,
+      "max_asymmetry": 143.04501342773438
+    },
+    {
+      "id": "K3-DISC-0030",
+      "ra_center": 205.0,
+      "dec_min": 40.0,
+      "dec_max": 50.0,
+      "delta": 1.1319360887145182,
+      "source": "EUCLID_Q1 (2026-Q1 Mission Data)",
+      "num_galaxies": 8644,
+      "mean_asymmetry": 0.005779987201094627,
+      "max_asymmetry": 105.17211151123047
+    }
+  ]
+}
