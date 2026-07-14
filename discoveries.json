@@ -596,8 +596,8 @@
     "s21": 0.4,
     "mean_asymmetry": 5.12,
     "max_asymmetry": 15.34,
-    "type": "Unnamed Anomaly",
-    "details": "Browser-sourced high-Delta discovery. Pending server-side Python re-verification.",
+    "type": "ALIXE (New Dark Energy Amas)",
+    "details": "Officially claimed and named 'ALIXE' by @callensxavier. The name is an acronym for Alexis, Aurelia, Ilene, and Xavier. This High-Delta discovery represents a Chameleon Gravitino Knot.",
     "author": "@callensxavier (Browser Node)",
     "source": "browser_wasm"
   }
