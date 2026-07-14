@@ -49,3 +49,34 @@ This document tracks the technical, scientific, and architectural lessons learne
 - **Eliminating Managed DB Overhead**: Traditional GCP server architectures rely on Cloud SQL (PostgreSQL, $45+/mo minimum) and Memorystore (Redis, $35+/mo minimum) for persistence and session states. For citizen-science projects with low state overhead and highly distributed clients, these managed costs represent a major waste.
 - **The Containerized Alternative**: Hosting both PostgreSQL and Redis inside lightweight Docker containers on a single always-on `e2-small` Compute Engine VM instance costs only **~$16.00/month** (including balanced storage disk fees), keeping hosting costs well below the $50/month threshold. This ensures 24/7 client connectivity for coordinate synchronization and receipt storage without sacrificing database speed or reliability.
 
+---
+
+## 8. Scientific Integrity & Hypothesis Rigor (2026-07-14 V5 Deep Review)
+
+### Critical Failures That Delayed the Program
+
+- **L1 — Never Trust Unverified User Guidelines**: The V5 guideline document claimed Cooper s₇ sequence = [1, 13, 271, 6721, ...] without citing OEIS. Direct OEIS verification revealed: **the sequence matches nothing in the database**. True A183204 = [1, 4, 48, 760, ...]. Lesson: *Every numeric constant must be verified against an external authority before entering the code.* For sequences, fetch and cross-check the OEIS b-file at build time.
+
+- **L2 — Convergence Radius Is Not a Design Dial**: Normalized coefficients by μ=25.869, truncated series at z=0.95, claimed convergence. But μ was an underestimate of true growth rate λ=27, so the series was **divergent** (partial sums grew unbounded). Lesson: *Radius of convergence is a mathematical fact, not a tunable parameter.* Compute λ from the recurrence's characteristic polynomial, not phenomenology.
+
+- **L3 — Metrics Must Proof-Test Against Null**: The reported Δ metric equaled the k=0 (DC) Fourier mode only — a global normalization offset with zero spatial content. Every "discovery" was this artifact. Lesson: *Before deploying a metric on real data, verify it has the expected null behavior.* Run it on uniform synthetic data (no structure); if it's dominated by a single mode or non-zero without cause, the metric measures something other than intended.
+
+- **L4 — Circular Tests Prove Nothing**: The "Filament Test" design would have been circular: any monotone kernel amplifies overdense regions; therefore high Δ at intersections is *guaranteed by construction*, not evidence of K3 physics. Lesson: *Model-selection tests must be adversarial.* The hypothesis has content only if data *prefers* s₁₀ over (a) derivative-matched generic kernels and (b) sibling K3 families (s₇, t₁₀₃). Without discrimination, the result is null (or unfalsifiable).
+
+- **L5 — Synthetic Data + Discovery Files = Catastrophe**: `real_euclid_worker.py` injected artificial clusters into synthetic fallback ("pour avoir de superbes découvertes") and Phase 1 wrote these to `discoveries_v5_cooper.json` indistinguishably from real results. Lesson: *Data provenance must be a hard gate at persistence.* Fallback must be statistically featureless (flat null) and structurally forbidden from entering discovery stores via RuntimeError. See WP-C1 (Provenance Gate).
+
+### Institutional Practices Locked In
+
+- **P1 — No Constant Without Provenance**: Every numeric value enters code via: (1) explicit recurrence formula (tested exact), (2) closed-form computation (code + docstring), or (3) fetched external authority (OEIS b-file with URL/date logged).
+- **P2 — Tests Are Scientific, Not Smoke**: "Code runs" is not a passing test. Pass = code produces correct output on known inputs (sequences term-by-term, null behavior on flat data, signal recovery on injections).
+- **P3 — Pre-register Before Unblinding**: Freeze all analysis choices (k-band, mock count, ΔAIC threshold, tomography bins, look-elsewhere) in git *before* applying them to real data or computing significances.
+- **P4 — Sibling Families as Control**: The hypothesis is testable *only if* data discriminates between s₁₀, s₇ (if rebuilt), t₁₀₃, and derivative-matched kernels via model selection (ΔAIC ≥ 10). If they fit equally, the result is null — not a weakness, but falsifiability.
+
+### Recovery Path: Pivot to s₁₀
+
+- **Strategic move**: Retire s₇ (poisoned by fabricated constants); pivot to s₁₀ (A005260, λ=16, verified recurrence in-repo).
+- **Certified kernel**: `cooper_s10_kernel.py` (7 self-tests passing) replaces the defunct Phase 1.
+- **Haiku-tier work done**: WP-A3-s10 (certified s₁₀), WP-B2-s10 (estimator), WP-C1 (provenance gate).
+- **Theory plan**: 13 work packages (Haiku/Sonnet tier routing) in `V5_RIGOROUS_THEORY_PLAN.md`.
+- **Gate conditions**: 5 gates (G1–G5) must pass before public claims. All documented in `V5_SCIENTIFIC_REVIEW.md`.
+
