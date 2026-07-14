@@ -11,19 +11,19 @@ This document maps out the specific, engineering-level tasks required to transit
 ## 🛠️ 1. Core WebAssembly Engine (`core_wasm/`)
 *Mathematical logic and client-side processing algorithms compiled to WASM.*
 
-- [ ] **Initialize Crate**
-  - [ ] Bootstrap the Rust project under `core_wasm/` with a static/dynamic library configuration targetable by `wasm-pack`.
-  - [ ] Configure `Cargo.toml` to import geometric equations and physics modules from the local `DarkMatter` crate.
-- [ ] **Implement Archive 01 (SDSS DR17) Calculations**
-  - [ ] Implement comoving distance conversion functions from astronomical redshift ($z$) utilizing exact cosmological parameters ($w_0 = -0.5485$, $w_a = -0.3968$, $H_0 = 71.92$ km/s/Mpc).
-  - [ ] Write 3D nearest-neighbor search algorithms optimized for CPU WebAssembly.
-  - [ ] Implement the Picard-Fuchs $S_{1,2}$ recurrence relation verification checker to identify clusters displaying the characteristic 3:2 asymmetric expansion.
-- [ ] **Implement Archive 02 (Euclid Deep Sieve) Calculations**
-  - [ ] Write weak gravitational lensing shear tensor mapping algorithms ($\gamma_1, \gamma_2$ field calculations).
-  - [ ] Implement asymmetric lensing detection criteria to sweep for Chameleon Gravitino knots.
-- [ ] **Optimize WASM Performance**
-  - [ ] Implement multi-threading within WASM using modern Web Workers.
-  - [ ] Ensure strict memory constraints are met (e.g., maximum memory footprint per worker < 64MB) to prevent smartphone crashes.
+- [x] **Initialize Crate**
+  - [x] Bootstrap the Rust project under `core_wasm/` with a static/dynamic library configuration targetable by `wasm-pack`.
+  - [x] Configure `Cargo.toml` to import geometric equations and physics modules from the local `DarkMatter` crate.
+- [x] **Implement Archive 01 (SDSS DR17) Calculations**
+  - [x] Implement comoving distance conversion functions from astronomical redshift ($z$) utilizing exact cosmological parameters ($w_0 = -0.5485$, $w_a = -0.3968$, $H_0 = 71.92$ km/s/Mpc).
+  - [x] Write 3D nearest-neighbor search algorithms optimized for CPU WebAssembly (Highly-optimized KD-Tree implemented).
+  - [x] Implement the Picard-Fuchs $S_{1,2}$ recurrence relation verification checker to identify clusters displaying the characteristic 3:2 asymmetric expansion.
+- [x] **Implement Archive 02 (Euclid Deep Sieve) Calculations**
+  - [x] Write weak gravitational lensing shear tensor mapping algorithms ($\gamma_1, \gamma_2$ field calculations via 2D FFT-based shear mapping).
+  - [x] Implement asymmetric lensing detection criteria to sweep for Chameleon Gravitino knots.
+- [x] **Optimize WASM Performance**
+  - [x] Implement multi-threading within WASM using modern Web Workers.
+  - [x] Ensure strict memory constraints are met (e.g., maximum memory footprint per worker < 64MB) to prevent smartphone crashes (Implemented via wee_alloc).
 
 ---
 
