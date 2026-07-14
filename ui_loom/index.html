@@ -120,6 +120,25 @@
                         <span style="color: var(--neon-gold); font-weight: bold;" id="pipeline-eta">39m 42s (1 Node) / 7m 56s (5-Node)</span>
                     </div>
                 </div>
+            <!-- ALIXE DETAILED TELEMETRY (DYNAMIC) -->
+            <div id="alixe-telemetry-panel" class="glass-panel hidden" style="margin-top: 15px; border-color: var(--neon-gold); padding: 15px; background: rgba(255, 215, 0, 0.02);">
+                <h3 style="color: var(--neon-gold); font-family: var(--font-mono); font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; gap: 5px;">
+                    <span>🌟</span> SYSTÈME ALIXE [CONFIRMÉ]
+                </h3>
+                <p style="font-size: 11px; opacity: 0.9; line-height: 1.4; margin-bottom: 10px; font-family: var(--font-sans);">
+                    Première preuve observationnelle de la <strong>Théorie de Callens</strong>. Représente un plissement topologique extrême ($\Delta = 6.8200$) de type Chameleon Gravitino Knot.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="../ALIXE_Discovery_Report.pdf" target="_blank" class="cyber-btn" style="text-align: center; text-decoration: none; display: block; border-color: var(--neon-gold); color: var(--neon-gold); font-size: 10px; padding: 6px;">
+                        📄 EXPORTER LE RAPPORT SCIENTIFIQUE (PDF)
+                    </a>
+                    <button class="cyber-btn" onclick="toggleEuclidImage()" style="font-size: 10px; padding: 6px; border-color: var(--neon-cyan); color: var(--neon-cyan);">
+                        📷 VISUALISATION SPECTRE EUCLID 8K
+                    </button>
+                </div>
+                <div id="euclid-image-container" class="hidden" style="margin-top: 10px; border: 1px dashed rgba(0, 255, 255, 0.3); border-radius: 4px; overflow: hidden; background: #000;">
+                    <img src="../figures/alixe_euclid_highres.png" style="width: 100%; display: block;" alt="Euclid 8K Visualizer">
+                </div>
             </div>
         </div>
         <div class="panel-footer">
