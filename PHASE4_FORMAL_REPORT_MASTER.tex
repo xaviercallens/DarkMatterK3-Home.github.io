@@ -303,6 +303,8 @@ P(\text{all 35 with } \Delta > 1.10) \approx 10^{-280}
 
 \input{sections/sec_context_explanation.tex}
 
+\input{sections/sec_hypothesis_foundry_update.tex}
+
 % ===========================================================================
 % CONCLUSIONS
 % ===========================================================================
@@ -315,8 +317,9 @@ P(\text{all 35 with } \Delta > 1.10) \approx 10^{-280}
 \item \textbf{Cryptographic Verification}: HMAC-SHA256 tokens, manifest verified.
 \item \textbf{K3-DISC-0035 Filament}: Detected at 126.7\% confidence.
 \item \textbf{Statistical Significance}: $61.9\sigma$ detection, $P < 10^{-280}$.
-\item \textbf{Lean 4 Formal Validation}: $S_{12}$, $S_{21}$ proven K3 surfaces; $S_{11}$ falsified as elliptic curve.
-\item \textbf{S12/S21/K3*T2 Support}: 100\% prediction confirmation, doubly corroborated by formal proof and empirical pipeline.
+\item \textbf{Lean 4 Formal Validation (superseded, see below)}: $S_{11}$ falsified as elliptic curve (unaffected by the update).
+\item \textbf{Hypothesis Foundry Correction (2026-07-14)}: $S_{12}$ (A112019) is \textbf{formally rejected} as K3-type (Part~VIII, \S\ref{sec:hypothesis_foundry_update}) --- minimal ODE order 2 (elliptic), non-integral mirror map ($q_2=81/8$). Three GATE-C finalists --- t103 (A276536), Cooper $s_7$ (A183204), Cooper $s_{10}$ (A005260) --- are validated K3-type substrates, with two of their governing recurrences independently re-verified in this report via exact-arithmetic Fraction linear algebra (Section~\ref{subsec:independent_reverification}).
+\item \textbf{Empirical Signal Unaffected}: The real-data $\Delta$ measurement (61.9$\sigma$, mean $1.1244$, $3.4\times$ reference) is a direct observational quantity independent of which K3 modulus pair is postulated as the underlying substrate; it remains valid under the corrected hypothesis landscape.
 \end{enumerate}
 
 \section*{Data and Code Availability}
@@ -324,7 +327,10 @@ P(\text{all 35 with } \Delta > 1.10) \approx 10^{-280}
 \item \texttt{discoveries\_with\_sources.json} --- discovery catalog
 \item \texttt{data\_integrity\_verifier.py}, \texttt{formal\_proof\_generator.py} --- verification code
 \item \texttt{figures/generate\_figures.py} --- visualization code
-\item \url{https://github.com/xaviercallens/SocrateAI-Scientific-Agora-K3-DarkMatter} --- Lean 4 proofs
+\item \texttt{hypothesis\_comparison\_t103\_cooper.py} --- independent exact-arithmetic re-verification of Part VIII claims
+\item \texttt{figures/generate\_hypothesis\_comparison\_figures.py} --- hypothesis comparison visualization code
+\item \texttt{logs/hypothesis\_comparison\_t103\_cooper.json/.txt} --- machine- and human-readable comparison results
+\item \url{https://github.com/xaviercallens/SocrateAI-Scientific-Agora-K3-DarkMatter} --- Lean 4 proofs and Part VIII Hypothesis Foundry
 \end{itemize}
 
 \begin{thebibliography}{99}
