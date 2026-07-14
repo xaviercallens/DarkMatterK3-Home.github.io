@@ -1,0 +1,20 @@
+\contentsline {part}{Part I: Scientific Exposition (English)}{2}{part*.1}%
+\contentsline {section}{\numberline {1}Introduction: The Crisis in Modern Cosmology}{2}{section.1}%
+\contentsline {section}{\numberline {2}The Callens Theory: A Paradigm Shift in Cosmic Geometry}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Demystifying the $T^2$ Torus Fiber}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Calabi-Yau $K3$ Surface}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Singularities and the Chameleon Gravitino Knot}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}The ALIXE Discovery: First Observational Proof}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The ALIXE Nomenclature: A Family Tribute}{5}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Multi-Scale Visualization of the ALIXE Amas}{5}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion and Future Implications}{11}{section.5}%
+\contentsline {part}{Partie II : Exposé Scientifique (Français)}{13}{part*.2}%
+\contentsline {section}{\numberline {6}Introduction : La Crise de la Cosmologie Moderne}{13}{section.6}%
+\contentsline {section}{\numberline {7}La Théorie de Callens : Un Changement de Paradigme}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Démystifier la Fibre Torique $T^2$}{14}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}La Surface $K3$ de Calabi-Yau}{14}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Singularités et le N\oe ud de Gravitinos Caméléon}{15}{subsection.7.3}%
+\contentsline {section}{\numberline {8}La Découverte d'ALIXE : Première Preuve Observationnelle}{15}{section.8}%
+\contentsline {subsection}{\numberline {8.1}La Nomenclature ALIXE : Un Hommage Familial}{16}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Visualisation Multi-Échelles de l'Amas ALIXE}{16}{section.9}%
+\contentsline {section}{\numberline {10}Conclusion et Perspectives Futures}{22}{section.10}%
