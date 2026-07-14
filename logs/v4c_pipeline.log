@@ -1,0 +1,126 @@
+[2026-07-14 15:46:23] [INFO] ==============================================================================
+[2026-07-14 15:46:23] [INFO] V4C MULTI-HYPOTHESIS PIPELINE STARTING
+[2026-07-14 15:46:23] [INFO] Hypotheses: ['legacy_S12_S21', 't103_A276536', 'cooper_s7_A183204', 'cooper_s10_A005260']
+[2026-07-14 15:46:23] [INFO] Sector grid: 140 sectors (RA 150-220, DEC 0-50)
+[2026-07-14 15:46:23] [INFO] Relative scales: t103=2.1383, cooper_s7=0.8883, cooper_s10=0.5265
+[2026-07-14 15:46:23] [INFO] ==============================================================================
+[2026-07-14 15:46:25] [INFO] Sector    0 [SDSS_BOSS_DR17          ] n_gal=  2706 | legacy=1.0602 t103=1.4193 s7=1.0199 s10=0.9043
+[2026-07-14 15:46:26] [INFO] Sector    1 [SDSS_BOSS_DR17          ] n_gal=  2937 | legacy=1.0618 t103=1.4208 s7=1.0215 s10=0.9059
+[2026-07-14 15:46:27] [INFO] Sector    2 [SDSS_BOSS_DR17          ] n_gal=  3008 | legacy=1.0633 t103=1.4221 s7=1.0230 s10=0.9074
+[2026-07-14 15:46:27] [INFO] V4C pipeline run complete: 3 sectors processed.
+[2026-07-14 15:46:37] [INFO] ==============================================================================
+[2026-07-14 15:46:37] [INFO] V4C MULTI-HYPOTHESIS PIPELINE STARTING
+[2026-07-14 15:46:37] [INFO] Hypotheses: ['legacy_S12_S21', 't103_A276536', 'cooper_s7_A183204', 'cooper_s10_A005260']
+[2026-07-14 15:46:37] [INFO] Sector grid: 140 sectors (RA 150-220, DEC 0-50)
+[2026-07-14 15:46:37] [INFO] Relative scales: t103=2.1383, cooper_s7=0.8883, cooper_s10=0.5265
+[2026-07-14 15:46:37] [INFO] ==============================================================================
+[2026-07-14 15:46:37] [INFO] Sector    3 [SDSS_BOSS_DR17          ] n_gal=  3118 | legacy=1.0762 t103=1.4339 s7=1.0361 s10=0.9209
+[2026-07-14 15:46:39] [INFO] Sector    4 [SDSS_BOSS_DR17          ] n_gal=  2365 | legacy=1.0785 t103=1.4359 s7=1.0383 s10=0.9232
+[2026-07-14 15:46:41] [INFO] Sector    5 [SDSS_BOSS_DR17          ] n_gal=  2598 | legacy=1.0806 t103=1.4379 s7=1.0405 s10=0.9255
+[2026-07-14 15:46:43] [INFO] Sector    6 [SDSS_BOSS_DR17          ] n_gal=  2735 | legacy=1.0829 t103=1.4399 s7=1.0428 s10=0.9279
+[2026-07-14 15:46:45] [INFO] Sector    7 [SDSS_BOSS_DR17          ] n_gal=  2291 | legacy=1.0851 t103=1.4418 s7=1.0450 s10=0.9301
+[2026-07-14 15:46:47] [INFO] Sector    8 [SDSS_BOSS_DR17          ] n_gal=  1947 | legacy=1.0871 t103=1.4436 s7=1.0471 s10=0.9323
+[2026-07-14 15:46:48] [INFO] Sector    9 [SDSS_BOSS_DR17          ] n_gal=  2132 | legacy=1.0891 t103=1.4454 s7=1.0491 s10=0.9344
+[2026-07-14 15:46:50] [INFO] Sector   10 [SDSS_BOSS_DR17          ] n_gal=  3294 | legacy=1.0914 t103=1.4473 s7=1.0514 s10=0.9368
+[2026-07-14 15:46:52] [INFO] Sector   11 [SDSS_BOSS_DR17          ] n_gal=  2986 | legacy=1.0935 t103=1.4492 s7=1.0535 s10=0.9390
+[2026-07-14 15:46:54] [INFO] Sector   12 [SDSS_BOSS_DR17          ] n_gal=  3078 | legacy=1.0955 t103=1.4509 s7=1.0556 s10=0.9412
+[2026-07-14 15:46:56] [INFO] Sector   13 [SDSS_BOSS_DR17          ] n_gal=  2980 | legacy=1.0976 t103=1.4527 s7=1.0577 s10=0.9433
+[2026-07-14 15:46:58] [INFO] Sector   14 [SDSS_BOSS_DR17          ] n_gal=  2396 | legacy=1.0994 t103=1.4543 s7=1.0596 s10=0.9453
+[2026-07-14 15:47:00] [INFO] Sector   15 [SDSS_BOSS_DR17          ] n_gal=  2526 | legacy=1.1013 t103=1.4559 s7=1.0615 s10=0.9474
+[2026-07-14 15:47:01] [INFO] Sector   16 [SDSS_BOSS_DR17          ] n_gal=  2768 | legacy=1.1033 t103=1.4575 s7=1.0635 s10=0.9494
+[2026-07-14 15:47:03] [INFO] Sector   17 [SDSS_BOSS_DR17          ] n_gal=  3068 | legacy=1.1052 t103=1.4590 s7=1.0654 s10=0.9514
+[2026-07-14 15:47:05] [INFO] Sector   18 [SDSS_BOSS_DR17          ] n_gal=  2912 | legacy=1.1070 t103=1.4606 s7=1.0673 s10=0.9534
+[2026-07-14 15:47:07] [INFO] Sector   19 [SDSS_BOSS_DR17          ] n_gal=  2689 | legacy=1.1088 t103=1.4621 s7=1.0692 s10=0.9554
+[2026-07-14 15:47:09] [INFO] Sector   20 [SDSS_BOSS_DR17          ] n_gal=  2615 | legacy=1.1106 t103=1.4635 s7=1.0710 s10=0.9573
+[2026-07-14 15:47:11] [INFO] Sector   21 [SDSS_BOSS_DR17          ] n_gal=  2954 | legacy=1.1124 t103=1.4649 s7=1.0728 s10=0.9592
+[2026-07-14 15:47:13] [INFO] Sector   22 [SDSS_BOSS_DR17          ] n_gal=  2771 | legacy=1.1141 t103=1.4663 s7=1.0745 s10=0.9611
+[2026-07-14 15:47:15] [INFO] Sector   23 [SDSS_BOSS_DR17          ] n_gal=  3001 | legacy=1.1160 t103=1.4678 s7=1.0765 s10=0.9632
+[2026-07-14 15:47:17] [INFO] Sector   24 [SDSS_BOSS_DR17          ] n_gal=  2507 | legacy=1.1178 t103=1.4692 s7=1.0783 s10=0.9651
+[2026-07-14 15:47:19] [INFO] Sector   25 [SDSS_BOSS_DR17          ] n_gal=  2054 | legacy=1.1193 t103=1.4703 s7=1.0798 s10=0.9668
+[2026-07-14 15:47:21] [INFO] Sector   26 [SDSS_BOSS_DR17          ] n_gal=  2402 | legacy=1.1209 t103=1.4716 s7=1.0815 s10=0.9685
+[2026-07-14 15:47:23] [INFO] Sector   27 [SDSS_BOSS_DR17          ] n_gal=  2490 | legacy=1.1223 t103=1.4726 s7=1.0829 s10=0.9701
+[2026-07-14 15:47:24] [INFO] Sector   28 [SDSS_BOSS_DR17          ] n_gal=  2274 | legacy=1.1237 t103=1.4736 s7=1.0843 s10=0.9716
+[2026-07-14 15:47:26] [INFO] Sector   29 [SDSS_BOSS_DR17          ] n_gal=  2003 | legacy=1.1250 t103=1.4746 s7=1.0857 s10=0.9731
+[2026-07-14 15:47:28] [INFO] Sector   30 [SDSS_BOSS_DR17          ] n_gal=  3134 | legacy=1.1265 t103=1.4757 s7=1.0872 s10=0.9748
+[2026-07-14 15:47:30] [INFO] Sector   31 [SDSS_BOSS_DR17          ] n_gal=  2882 | legacy=1.1278 t103=1.4766 s7=1.0886 s10=0.9763
+[2026-07-14 15:47:32] [INFO] Sector   32 [SDSS_BOSS_DR17          ] n_gal=  2612 | legacy=1.1291 t103=1.4775 s7=1.0900 s10=0.9778
+[2026-07-14 15:47:34] [INFO] Sector   33 [SDSS_BOSS_DR17          ] n_gal=  2361 | legacy=1.1303 t103=1.4783 s7=1.0912 s10=0.9791
+[2026-07-14 15:47:36] [INFO] Sector   34 [SDSS_BOSS_DR17          ] n_gal=  2394 | legacy=1.1315 t103=1.4791 s7=1.0924 s10=0.9805
+[2026-07-14 15:47:38] [INFO] Sector   35 [SDSS_BOSS_DR17          ] n_gal=  2239 | legacy=1.1326 t103=1.4798 s7=1.0935 s10=0.9817
+[2026-07-14 15:47:40] [INFO] Sector   36 [SDSS_BOSS_DR17          ] n_gal=  2649 | legacy=1.1338 t103=1.4806 s7=1.0948 s10=0.9831
+[2026-07-14 15:47:41] [INFO] Sector   37 [SDSS_BOSS_DR17          ] n_gal=  2298 | legacy=1.1348 t103=1.4812 s7=1.0959 s10=0.9843
+[2026-07-14 15:47:43] [INFO] Sector   38 [SDSS_BOSS_DR17          ] n_gal=  2808 | legacy=1.1358 t103=1.4818 s7=1.0969 s10=0.9855
+[2026-07-14 15:47:45] [INFO] Sector   39 [SDSS_BOSS_DR17          ] n_gal=  2045 | legacy=1.1368 t103=1.4823 s7=1.0979 s10=0.9866
+[2026-07-14 15:47:47] [INFO] Sector   40 [SDSS_BOSS_DR17          ] n_gal=  2975 | legacy=1.1377 t103=1.4828 s7=1.0989 s10=0.9878
+[2026-07-14 15:47:49] [INFO] Sector   41 [SDSS_BOSS_DR17          ] n_gal=  2907 | legacy=1.1386 t103=1.4833 s7=1.0998 s10=0.9888
+[2026-07-14 15:47:51] [INFO] Sector   42 [SDSS_BOSS_DR17          ] n_gal=  2942 | legacy=1.1394 t103=1.4837 s7=1.1007 s10=0.9898
+[2026-07-14 15:47:53] [INFO] Sector   43 [SDSS_BOSS_DR17          ] n_gal=  3319 | legacy=1.1402 t103=1.4840 s7=1.1015 s10=0.9908
+[2026-07-14 15:47:55] [INFO] Sector   44 [SDSS_BOSS_DR17          ] n_gal=  2888 | legacy=1.1409 t103=1.4843 s7=1.1023 s10=0.9917
+[2026-07-14 15:47:56] [INFO] Sector   45 [SDSS_BOSS_DR17          ] n_gal=  2455 | legacy=1.1416 t103=1.4845 s7=1.1030 s10=0.9925
+[2026-07-14 15:47:58] [INFO] Sector   46 [SDSS_BOSS_DR17          ] n_gal=  2255 | legacy=1.1422 t103=1.4847 s7=1.1036 s10=0.9933
+[2026-07-14 15:48:01] [INFO] Sector   47 [SDSS_BOSS_DR17          ] n_gal=  2512 | legacy=1.1430 t103=1.4849 s7=1.1046 s10=0.9945
+[2026-07-14 15:48:05] [INFO] Sector   48 [SDSS_BOSS_DR17          ] n_gal=  2472 | legacy=1.1439 t103=1.4850 s7=1.1055 s10=0.9957
+[2026-07-14 15:48:08] [INFO] Sector   49 [SDSS_BOSS_DR17          ] n_gal=  2533 | legacy=1.1445 t103=1.4849 s7=1.1063 s10=0.9967
+[2026-07-14 15:48:11] [INFO] Sector   50 [SDSS_BOSS_DR17          ] n_gal=  2793 | legacy=1.1451 t103=1.4847 s7=1.1069 s10=0.9976
+[2026-07-14 15:48:14] [INFO] Sector   51 [SDSS_BOSS_DR17          ] n_gal=  3500 | legacy=1.1455 t103=1.4843 s7=1.1074 s10=0.9983
+[2026-07-14 15:48:18] [INFO] Sector   52 [SDSS_BOSS_DR17          ] n_gal=  3667 | legacy=1.1458 t103=1.4837 s7=1.1077 s10=0.9989
+[2026-07-14 15:48:20] [INFO] Sector   53 [SDSS_BOSS_DR17          ] n_gal=  2735 | legacy=1.1458 t103=1.4832 s7=1.1079 s10=0.9992
+[2026-07-14 15:48:22] [INFO] Sector   54 [SDSS_BOSS_DR17          ] n_gal=  2950 | legacy=1.1458 t103=1.4827 s7=1.1079 s10=0.9994
+[2026-07-14 15:48:25] [INFO] Sector   55 [SDSS_BOSS_DR17          ] n_gal=  2727 | legacy=1.1458 t103=1.4821 s7=1.1079 s10=0.9996
+[2026-07-14 15:48:28] [INFO] Sector   56 [SDSS_BOSS_DR17          ] n_gal=  2498 | legacy=1.1455 t103=1.4811 s7=1.1078 s10=0.9997
+[2026-07-14 15:48:31] [INFO] Sector   57 [SDSS_BOSS_DR17          ] n_gal=  2071 | legacy=1.1452 t103=1.4800 s7=1.1075 s10=0.9997
+[2026-07-14 15:48:34] [INFO] Sector   58 [SDSS_BOSS_DR17          ] n_gal=  2433 | legacy=1.1446 t103=1.4787 s7=1.1071 s10=0.9995
+[2026-07-14 15:48:37] [INFO] Sector   59 [SDSS_BOSS_DR17          ] n_gal=  2140 | legacy=1.1440 t103=1.4773 s7=1.1065 s10=0.9992
+[2026-07-14 15:48:41] [INFO] Sector   60 [SDSS_BOSS_DR17          ] n_gal=  3032 | legacy=1.1432 t103=1.4757 s7=1.1057 s10=0.9987
+[2026-07-14 15:48:44] [INFO] Sector   61 [SDSS_BOSS_DR17          ] n_gal=  2883 | legacy=1.1421 t103=1.4738 s7=1.1048 s10=0.9980
+[2026-07-14 15:48:47] [INFO] Sector   62 [SDSS_BOSS_DR17          ] n_gal=  3337 | legacy=1.1411 t103=1.4722 s7=1.1039 s10=0.9973
+[2026-07-14 15:48:50] [INFO] Sector   63 [SDSS_BOSS_DR17          ] n_gal=  2601 | legacy=1.1401 t103=1.4704 s7=1.1029 s10=0.9965
+[2026-07-14 15:48:52] [INFO] Sector   64 [SDSS_BOSS_DR17          ] n_gal=  2585 | legacy=1.1393 t103=1.4693 s7=1.1022 s10=0.9959
+[2026-07-14 15:48:54] [INFO] Sector   65 [SDSS_BOSS_DR17          ] n_gal=  3167 | legacy=1.1381 t103=1.4675 s7=1.1011 s10=0.9950
+[2026-07-14 15:48:57] [INFO] Sector   66 [SDSS_BOSS_DR17          ] n_gal=  2672 | legacy=1.1369 t103=1.4656 s7=1.0999 s10=0.9940
+[2026-07-14 15:49:01] [INFO] Sector   67 [SDSS_BOSS_DR17          ] n_gal=  2599 | legacy=1.1348 t103=1.4628 s7=1.0979 s10=0.9923
+[2026-07-14 15:49:03] [INFO] Sector   68 [SDSS_BOSS_DR17          ] n_gal=  2400 | legacy=1.1338 t103=1.4614 s7=1.0970 s10=0.9915
+[2026-07-14 15:49:04] [INFO] Sector   69 [SDSS_BOSS_DR17          ] n_gal=  2118 | legacy=1.1328 t103=1.4599 s7=1.0960 s10=0.9906
+[2026-07-14 15:49:06] [INFO] Sector   70 [SDSS_BOSS_DR17          ] n_gal=  2611 | legacy=1.1316 t103=1.4583 s7=1.0949 s10=0.9896
+[2026-07-14 15:49:08] [INFO] Sector   71 [SDSS_BOSS_DR17          ] n_gal=  3284 | legacy=1.1304 t103=1.4567 s7=1.0937 s10=0.9886
+[2026-07-14 15:49:10] [INFO] Sector   72 [SDSS_BOSS_DR17          ] n_gal=  3064 | legacy=1.1292 t103=1.4551 s7=1.0925 s10=0.9875
+[2026-07-14 15:49:12] [INFO] Sector   73 [SDSS_BOSS_DR17          ] n_gal=  2920 | legacy=1.1279 t103=1.4534 s7=1.0912 s10=0.9864
+[2026-07-14 15:49:14] [INFO] Sector   74 [SDSS_BOSS_DR17          ] n_gal=  2426 | legacy=1.1266 t103=1.4517 s7=1.0900 s10=0.9853
+[2026-07-14 15:49:16] [INFO] Sector   75 [SDSS_BOSS_DR17          ] n_gal=  2386 | legacy=1.1253 t103=1.4500 s7=1.0887 s10=0.9842
+[2026-07-14 15:49:18] [INFO] Sector   76 [SDSS_BOSS_DR17          ] n_gal=  2276 | legacy=1.1239 t103=1.4483 s7=1.0874 s10=0.9830
+[2026-07-14 15:49:19] [INFO] Sector   77 [SDSS_BOSS_DR17          ] n_gal=  1949 | legacy=1.1226 t103=1.4466 s7=1.0861 s10=0.9818
+[2026-07-14 15:49:21] [INFO] Sector   78 [SDSS_BOSS_DR17          ] n_gal=  2233 | legacy=1.1212 t103=1.4449 s7=1.0848 s10=0.9805
+[2026-07-14 15:49:23] [INFO] Sector   79 [SDSS_BOSS_DR17          ] n_gal=  2058 | legacy=1.1197 t103=1.4430 s7=1.0833 s10=0.9792
+[2026-07-14 15:49:25] [INFO] Sector   80 [SDSS_BOSS_DR17          ] n_gal=  2550 | legacy=1.1181 t103=1.4411 s7=1.0818 s10=0.9778
+[2026-07-14 15:49:27] [INFO] Sector   81 [SDSS_BOSS_DR17          ] n_gal=  2595 | legacy=1.1165 t103=1.4391 s7=1.0802 s10=0.9763
+[2026-07-14 15:49:28] [INFO] Sector   82 [SDSS_BOSS_DR17          ] n_gal=  2068 | legacy=1.1149 t103=1.4372 s7=1.0787 s10=0.9749
+[2026-07-14 15:49:30] [INFO] Sector   83 [SDSS_BOSS_DR17          ] n_gal=  2761 | legacy=1.1133 t103=1.4352 s7=1.0770 s10=0.9734
+[2026-07-14 15:49:32] [INFO] Sector   84 [SDSS_BOSS_DR17          ] n_gal=  1801 | legacy=1.1116 t103=1.4332 s7=1.0754 s10=0.9719
+[2026-07-14 15:49:34] [INFO] Sector   85 [SDSS_BOSS_DR17          ] n_gal=  2224 | legacy=1.1100 t103=1.4312 s7=1.0738 s10=0.9703
+[2026-07-14 15:49:36] [INFO] Sector   86 [SDSS_BOSS_DR17          ] n_gal=  2203 | legacy=1.1082 t103=1.4292 s7=1.0721 s10=0.9688
+[2026-07-14 15:49:38] [INFO] Sector   87 [SDSS_BOSS_DR17          ] n_gal=  1884 | legacy=1.1064 t103=1.4270 s7=1.0704 s10=0.9671
+[2026-07-14 15:49:39] [INFO] Sector   88 [SDSS_BOSS_DR17          ] n_gal=  2009 | legacy=1.1046 t103=1.4249 s7=1.0686 s10=0.9655
+[2026-07-14 15:49:41] [INFO] Sector   89 [SDSS_BOSS_DR17          ] n_gal=  2177 | legacy=1.1028 t103=1.4228 s7=1.0668 s10=0.9638
+[2026-07-14 15:49:44] [INFO] Sector   90 [SDSS_BOSS_DR17          ] n_gal=  2471 | legacy=1.0998 t103=1.4193 s7=1.0639 s10=0.9610
+[2026-07-14 15:49:49] [INFO] Sector   91 [SDSS_BOSS_DR17          ] n_gal=  2996 | legacy=1.0951 t103=1.4139 s7=1.0592 s10=0.9565
+[2026-07-14 15:49:51] [INFO] Sector   92 [SDSS_BOSS_DR17          ] n_gal=  2586 | legacy=1.0929 t103=1.4114 s7=1.0571 s10=0.9545
+[2026-07-14 15:49:53] [INFO] Sector   93 [SDSS_BOSS_DR17          ] n_gal=  2725 | legacy=1.0905 t103=1.4087 s7=1.0547 s10=0.9522
+[2026-07-14 15:49:55] [INFO] Sector   94 [SDSS_BOSS_DR17          ] n_gal=  2110 | legacy=1.0884 t103=1.4064 s7=1.0527 s10=0.9503
+[2026-07-14 15:49:57] [INFO] Sector   95 [SDSS_BOSS_DR17          ] n_gal=  2108 | legacy=1.0855 t103=1.4031 s7=1.0497 s10=0.9475
+[2026-07-14 15:49:59] [INFO] Sector   96 [SDSS_BOSS_DR17          ] n_gal=  2301 | legacy=1.0833 t103=1.4007 s7=1.0476 s10=0.9454
+[2026-07-14 15:50:01] [INFO] Sector   97 [SDSS_BOSS_DR17          ] n_gal=  2149 | legacy=1.0811 t103=1.3982 s7=1.0454 s10=0.9433
+[2026-07-14 15:50:03] [INFO] Sector   98 [SDSS_BOSS_DR17          ] n_gal=  2364 | legacy=1.0790 t103=1.3958 s7=1.0433 s10=0.9413
+[2026-07-14 15:50:05] [INFO] Sector   99 [SDSS_BOSS_DR17          ] n_gal=  2403 | legacy=1.0768 t103=1.3934 s7=1.0411 s10=0.9392
+[2026-07-14 15:50:06] [INFO] Sector  100 [SDSS_BOSS_DR17          ] n_gal=  3013 | legacy=1.0744 t103=1.3908 s7=1.0388 s10=0.9369
+[2026-07-14 15:50:08] [INFO] Sector  101 [SDSS_BOSS_DR17          ] n_gal=  2365 | legacy=1.0721 t103=1.3883 s7=1.0365 s10=0.9347
+[2026-07-14 15:50:10] [INFO] Sector  102 [SDSS_BOSS_DR17          ] n_gal=  2893 | legacy=1.0697 t103=1.3857 s7=1.0342 s10=0.9324
+[2026-07-14 15:50:12] [INFO] Sector  103 [SDSS_BOSS_DR17          ] n_gal=  2463 | legacy=1.0674 t103=1.3831 s7=1.0318 s10=0.9302
+[2026-07-14 15:50:14] [INFO] Sector  104 [SDSS_BOSS_DR17          ] n_gal=  2339 | legacy=1.0651 t103=1.3806 s7=1.0296 s10=0.9279
+[2026-07-14 15:50:16] [INFO] Sector  105 [SDSS_BOSS_DR17          ] n_gal=  2245 | legacy=1.0627 t103=1.3781 s7=1.0272 s10=0.9256
+[2026-07-14 15:50:18] [INFO] Sector  106 [SDSS_BOSS_DR17          ] n_gal=  2200 | legacy=1.0593 t103=1.3745 s7=1.0239 s10=0.9224
+[2026-07-14 15:50:21] [INFO] Sector  107 [SDSS_BOSS_DR17          ] n_gal=  2212 | legacy=1.0560 t103=1.3709 s7=1.0206 s10=0.9192
+[2026-07-14 15:50:23] [INFO] Sector  108 [SDSS_BOSS_DR17          ] n_gal=  2132 | legacy=1.0528 t103=1.3675 s7=1.0174 s10=0.9161
+[2026-07-14 15:50:26] [INFO] Sector  109 [SDSS_BOSS_DR17          ] n_gal=  2223 | legacy=1.0493 t103=1.3639 s7=1.0140 s10=0.9127
+[2026-07-14 15:50:28] [INFO] Sector  110 [SDSS_BOSS_DR17          ] n_gal=  2841 | legacy=1.0468 t103=1.3611 s7=1.0114 s10=0.9102
+[2026-07-14 15:50:30] [INFO] Sector  111 [SDSS_BOSS_DR17          ] n_gal=  3066 | legacy=1.0441 t103=1.3584 s7=1.0088 s10=0.9076
+[2026-07-14 15:50:32] [INFO] Sector  112 [SDSS_BOSS_DR17          ] n_gal=  3045 | legacy=1.0415 t103=1.3556 s7=1.0062 s10=0.9051
