@@ -204,6 +204,7 @@
                     La toile cosmique n'est pas un chaos aléatoire. C'est la projection géométrique macroscopique d'une structure K3 sur S1,2.
                 </p>
                 <button class="cyber-btn pitch-btn" onclick="sendPitch()">LANCER LE PITCH SÉCURISÉ</button>
+                <button class="cyber-btn" onclick="startWasmCompute()" style="width: 100%; margin-top: 10px; border-color: var(--neon-magenta); color: var(--neon-magenta);">START BROWSER COMPUTE (WASM)</button>
                 <button class="cyber-btn" onclick="openBountyBoard()" style="width: 100%; margin-top: 10px; border-color: var(--neon-cyan); color: var(--neon-cyan);">OUVRIR LE BOUNTY BOARD</button>
             </div>
         </div>
@@ -259,6 +260,13 @@
                     </div>
                 </div>
 
+                <div class="quests-panel" style="margin-top: 20px;">
+                    <h3>ACTIVE MISSIONS / QUESTS</h3>
+                    <div id="quests-container">
+                        <!-- Populated by quests.js -->
+                    </div>
+                </div>
+
                 <div class="leaderboard-panel" style="margin-top: 20px;">
                     <h3>CLASSEMENT GLOBAL (TFLOPS)</h3>
                     <table class="cyber-table" id="leaderboard-table">
@@ -283,6 +291,7 @@
     </div>
 
     <!-- Javascript App Link -->
+    <script src="quests.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
