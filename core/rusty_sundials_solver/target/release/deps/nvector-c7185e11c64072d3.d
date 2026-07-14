@@ -1,0 +1,11 @@
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/rusty_sundials_solver/target/release/deps/nvector-c7185e11c64072d3.d: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/lib.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/parallel.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/serial.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/simd.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/traits.rs
+
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/rusty_sundials_solver/target/release/deps/libnvector-c7185e11c64072d3.rlib: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/lib.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/parallel.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/serial.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/simd.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/traits.rs
+
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/rusty_sundials_solver/target/release/deps/libnvector-c7185e11c64072d3.rmeta: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/lib.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/parallel.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/serial.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/simd.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/traits.rs
+
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/lib.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/parallel.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/serial.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/simd.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/nvector/src/traits.rs:

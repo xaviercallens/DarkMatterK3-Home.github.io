@@ -1,0 +1,21 @@
+[
+  {
+    "timestamp": "2026-07-14T19:34:24.547106",
+    "source": "SDSS BOSS DR17",
+    "sector_index": 0,
+    "ra_min": 150.0,
+    "ra_max": 160.0,
+    "dec_min": 0.0,
+    "dec_max": 10.0,
+    "num_galaxies": 10000,
+    "grid_size": 128,
+    "total_time_seconds": 5.9834229946136475,
+    "device": "CUDA",
+    "gpu_name": "Tesla T4",
+    "mean_asymmetry": 0.032118090389445124,
+    "max_asymmetry": 663.3817215322813,
+    "num_top_nodes": 20972,
+    "threshold_99": 0.5509655811328059,
+    "status": "PHASE_1_COMPLETE"
+  }
+]

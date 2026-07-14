@@ -1,0 +1,11 @@
+[
+  {
+    "id": "K3-S7-000",
+    "timestamp": "2026-07-14T19:34:24.547505",
+    "sector": "RA 150.0\u2013160.0, DEC 0.0\u201310.0",
+    "anomaly_type": "High-Significance K3 Resonance",
+    "max_delta": 663.3817215322813,
+    "mean_delta": 0.032118090389445124,
+    "num_nodes": 20972
+  }
+]

@@ -1,0 +1,1 @@
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/wasm32-unknown-unknown/release/libcore_wasm.rlib: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/src/fft.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/src/lib.rs

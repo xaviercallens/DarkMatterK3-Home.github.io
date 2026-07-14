@@ -1,0 +1,1 @@
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/runux_integration/target/release/runux_tda_engine: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/runux_integration/src/main.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/ai_runtime/src/lib.rs

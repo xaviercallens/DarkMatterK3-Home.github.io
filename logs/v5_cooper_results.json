@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-07-14T19:21:25.283573",
+  "n_sectors": 3,
+  "sectors": [
+    {
+      "sector_id": 0,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "timestamp": "2026-07-14T19:21:20.716415",
+      "delta_s7": 0.03912957735532698,
+      "mean_delta_s7": 0.0005278823062644929,
+      "max_cooper_warping": 1.000000014136546,
+      "mean_cooper_warping": 0.5542275197451014,
+      "n_high_warping_voxels": 209716,
+      "high_warping_percentile": 0.9999999808660259,
+      "grid_size": 128,
+      "max_density": 62.84800338745117,
+      "mean_density": 0.999999463558197,
+      "data_source": "Synthetic BOSS DR17 (Sector 0)",
+      "n_galaxies": 5681,
+      "processing_time_s": 2.051485538482666,
+      "is_discovery": true,
+      "discovery_type": "MODERATE_COOPER_SIGNAL",
+      "significance_score": 0.03912957735532698
+    },
+    {
+      "sector_id": 1,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "timestamp": "2026-07-14T19:21:23.090954",
+      "delta_s7": 0.5002097142860293,
+      "mean_delta_s7": 0.0005386096656707199,
+      "max_cooper_warping": 0.9999998635546126,
+      "mean_cooper_warping": 0.5643228126411006,
+      "n_high_warping_voxels": 209716,
+      "high_warping_percentile": 0.9999998399780263,
+      "grid_size": 128,
+      "max_density": 65.32442474365234,
+      "mean_density": 0.9999997615814209,
+      "data_source": "Synthetic BOSS DR17 (Sector 1)",
+      "n_galaxies": 7184,
+      "processing_time_s": 2.3687691688537598,
+      "is_discovery": true,
+      "discovery_type": "MODERATE_COOPER_SIGNAL",
+      "significance_score": 0.5002097142860293
+    },
+    {
+      "sector_id": 2,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "timestamp": "2026-07-14T19:21:25.272654",
+      "delta_s7": 0.1640737982152361,
+      "mean_delta_s7": 0.0005568856888939409,
+      "max_cooper_warping": 1.0000000792431207,
+      "mean_cooper_warping": 0.5954739923677475,
+      "n_high_warping_voxels": 209704,
+      "high_warping_percentile": 1.000000068982214,
+      "grid_size": 128,
+      "max_density": 54.235984802246094,
+      "mean_density": 0.9999999403953552,
+      "data_source": "Synthetic BOSS DR17 (Sector 2)",
+      "n_galaxies": 6410,
+      "processing_time_s": 2.1764261722564697,
+      "is_discovery": true,
+      "discovery_type": "MODERATE_COOPER_SIGNAL",
+      "significance_score": 0.1640737982152361
+    }
+  ]
+}

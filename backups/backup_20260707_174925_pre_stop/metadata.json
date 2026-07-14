@@ -1,0 +1,20 @@
+{
+  "backup_name": "backup_20260707_174925_pre_stop",
+  "timestamp": "2026-07-07T17:49:25.340641",
+  "label": "pre_stop",
+  "run_count": 50,
+  "latest_asymmetry": 0.006552758626639843,
+  "galaxy_count": 9885,
+  "files": {
+    "pipeline_runs.json": {
+      "size_bytes": 26680,
+      "size_kb": 26.05,
+      "last_modified": "2026-07-07T15:52:37.528530"
+    },
+    "checkpoint_run.pt": {
+      "size_bytes": 165993,
+      "size_kb": 162.1,
+      "last_modified": "2026-07-07T15:52:37.550532"
+    }
+  }
+}

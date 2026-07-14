@@ -1,0 +1,12 @@
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/rusty_sundials_solver/target/debug/deps/cvode-102df146b50f2a54.d: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/lib.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/adjoint.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/builder.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/constants.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/error.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/nordsieck.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/solver.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/step.rs
+
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/rusty_sundials_solver/target/debug/deps/libcvode-102df146b50f2a54.rmeta: /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/lib.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/adjoint.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/builder.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/constants.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/error.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/nordsieck.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/solver.rs /home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/step.rs
+
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/lib.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/adjoint.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/builder.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/constants.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/error.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/nordsieck.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/solver.rs:
+/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core/vendor/cvode/src/step.rs:

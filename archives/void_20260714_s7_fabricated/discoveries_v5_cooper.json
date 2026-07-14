@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-07-14T19:21:25.283874",
+  "n_discoveries": 3,
+  "discoveries": [
+    {
+      "sector_id": 0,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.03912957735532698,
+      "significance": 0.03912957735532698,
+      "ra": 155.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-14T19:21:20.716415"
+    },
+    {
+      "sector_id": 1,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.5002097142860293,
+      "significance": 0.5002097142860293,
+      "ra": 155.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-14T19:21:23.090954"
+    },
+    {
+      "sector_id": 2,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.1640737982152361,
+      "significance": 0.1640737982152361,
+      "ra": 155.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-14T19:21:25.272654"
+    }
+  ]
+}

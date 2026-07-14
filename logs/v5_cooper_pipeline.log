@@ -1,0 +1,32 @@
+[2026-07-14 19:21:18] [INFO] Starting V5 pipeline with max_sectors=3, use_real_data=False
+[2026-07-14 19:21:18] [INFO] ======================================================================
+[2026-07-14 19:21:18] [INFO] V5 COOPER S_7 PIPELINE: PHASE 1 EXECUTION
+[2026-07-14 19:21:18] [INFO] ======================================================================
+[2026-07-14 19:21:18] [INFO] Device: cuda
+[2026-07-14 19:21:18] [INFO] Grid size: 128³ voxels
+[2026-07-14 19:21:18] [INFO] Sectors to process: 3
+[2026-07-14 19:21:18] [INFO] ======================================================================
+[2026-07-14 19:21:18] [INFO] Processing Sector 0: RA [150.0, 160.0], Dec [0.0, 10.0]
+[2026-07-14 19:21:18] [INFO] Using synthetic fallback for Sector 0
+[2026-07-14 19:21:18] [INFO]   Ingested 5681 galaxies from Synthetic BOSS DR17 (Sector 0)
+[2026-07-14 19:21:20] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-14 19:21:20] [INFO] Analyzing Sector 0 with Cooper s_7 engine
+[2026-07-14 19:21:20] [INFO]   Δ_s7=0.039130, Discovery: MODERATE_COOPER_SIGNAL (sig=0.039), Time: 2.05s
+[2026-07-14 19:21:20] [INFO] Processing Sector 1: RA [150.0, 160.0], Dec [10.0, 20.0]
+[2026-07-14 19:21:20] [INFO] Using synthetic fallback for Sector 1
+[2026-07-14 19:21:20] [INFO]   Ingested 7184 galaxies from Synthetic BOSS DR17 (Sector 1)
+[2026-07-14 19:21:22] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-14 19:21:22] [INFO] Analyzing Sector 1 with Cooper s_7 engine
+[2026-07-14 19:21:23] [INFO]   Δ_s7=0.500210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.500), Time: 2.37s
+[2026-07-14 19:21:23] [INFO] Processing Sector 2: RA [150.0, 160.0], Dec [20.0, 30.0]
+[2026-07-14 19:21:23] [INFO] Using synthetic fallback for Sector 2
+[2026-07-14 19:21:23] [INFO]   Ingested 6410 galaxies from Synthetic BOSS DR17 (Sector 2)
+[2026-07-14 19:21:24] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-14 19:21:24] [INFO] Analyzing Sector 2 with Cooper s_7 engine
+[2026-07-14 19:21:25] [INFO]   Δ_s7=0.164074, Discovery: MODERATE_COOPER_SIGNAL (sig=0.164), Time: 2.18s
+[2026-07-14 19:21:25] [INFO] Saved 3 sector results and 3 discoveries
+[2026-07-14 19:21:25] [INFO] ======================================================================
+[2026-07-14 19:21:25] [INFO] Pipeline complete. 3 sectors processed.
+[2026-07-14 19:21:25] [INFO] Discoveries: 3
+[2026-07-14 19:21:25] [INFO] ======================================================================
+[2026-07-14 19:21:25] [INFO] Pipeline execution complete
