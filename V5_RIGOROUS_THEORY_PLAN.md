@@ -1,29 +1,91 @@
 # V5 Rigorous Theory Plan: From Ansatz to Falsifiable Model
 
-**Date**: 2026-07-14
+**Date**: 2026-07-14 (unified vision added 2026-07-16)
 **Prerequisite reading**: `V5_SCIENTIFIC_REVIEW.md` (findings F1–F9) — nothing
-below makes sense without it.
-**Foundation**: `cooper_exact.py` — the certified kernel. It is the ONLY
-permitted source of Cooper-s₇ numerics.
+below makes sense without it. `PIVOT_MEMO.md` records the 2026-07-14 pivot:
+**s₁₀ is now the primary family; s₇ is retired pending clean rebuild.**
+**Foundation**: `cooper_s10_kernel.py` (primary, A005260, λ=16) and
+`cooper_exact.py` (s₇ reference, A183204, λ=27). These are the ONLY permitted
+sources of Cooper-family numerics.
+
+---
+
+## 0-bis. Unified Vision — Dual-Scale Topological Universe Model
+
+**Full program statement**: `UNIFIED_VISION.md` (hypotheses H-DT1/H-DT2/H-DT3
+in pre-registered form, cross-stream contracts, near-term milestones). This
+section is the plan-local summary; the work packages for the dual-theory
+classification tests are **Track F** below.
+
+The V5 program is one stream of a three-stream architecture. The unifying
+theoretical frame is an **F-theory compactification with K3 × T² base and
+elliptic fiber**: order-3 Picard–Fuchs candidates are interpreted as K3-base
+periods; order-2 candidates as elliptic-fiber (curve) periods.
+
+### Three Parallel Streams
+
+| Stream | Repository | Focus | Goal |
+|---|---|---|---|
+| 1. Theory | `SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal` | F-theory formalization in Lean 4 | Mathematically certify the Dual-Scale Model |
+| 2. K3 Selection | `SocrateAI-Scientific-Agora-K3-DarkMatter` | AutoEvolve for K3 sequence selection | Confirm Cooper s₇/s₁₀ as true K3 surfaces |
+| 3. Experimentation | `DarkMatterK3-Home.github.io` | GPU-based validation (SDSS, Euclid, PTA) | Empirically validate the model |
+
+This repository is the engine room of Streams 2 and 3: the certified kernels,
+estimators, mocks, and gates below are what "validation" means concretely.
+
+### Key Hypotheses (each labeled per practice P1/P2 — status, not slogan)
+
+1. **K3-base identification** — Cooper s₇ (A183204) and s₁₀ (A005260) satisfy
+   order-3 Picard–Fuchs-type ODEs → periods of K3 surfaces, candidates for
+   the F-theory base.
+   *Status: the order-3 classification is verified in-repo (exact recurrence,
+   0 failures; review S1–S2). The identification of these periods with the
+   physical compactification is the declared ansatz that Tracks A/B convert
+   into a testable model. s₁₀ is primary; s₇ retired per `PIVOT_MEMO.md`.*
+2. **Elliptic-fiber identification** — S₁₂/S₂₁ satisfy order-2 Picard–Fuchs
+   ODEs → elliptic-curve periods, candidates for the F-theory fiber.
+   *Status: order-2 classification verified (review S1: S₁₂ rejected as a K3
+   candidate for exactly this reason). Reinterpreting order-2 candidates as
+   the fiber rather than discards is a Stream-1 (Lean) formalization task; no
+   empirical claim attaches to it yet.*
+3. **7-brane / discriminant-locus interpretation** — spatial spikes in Δ_obs
+   correspond to 7-brane intersections (discriminant locus of the elliptic
+   fibration).
+   *Status: interpretive ansatz, currently unsupported. The motivating record
+   K3-DISC-0003 was produced by the legacy Phase 4 max-asymmetry metric,
+   which review F7 classifies as an uncalibrated internal metric; it is
+   motivation only. Any brane-locus claim requires a Δ measured by the WP-B2
+   estimator, calibrated on WP-C2 mocks, and passing gates G1–G5.*
+
+### Stream ↔ Work-Package Mapping
+
+- Stream 1 (Lean 4 theory): consumes the exact recurrences and mirror-map
+  results of WP-A2/WP-A3 as formalization targets; the integrality check of
+  WP-A2 is the natural first Lean theorem.
+- Stream 2 (K3 selection / AutoEvolve): the order-3 vs order-2 classifier is
+  the selection criterion; sibling families (WP-A3, practice P4) are its
+  control set.
+- Stream 3 (GPU experimentation): everything in Tracks B/C/D; no result
+  leaves this stream without gates G1–G5.
 
 ---
 
 ## 0. Epistemic Frame
 
-The hypothesis under construction:
+The hypothesis under construction (s₁₀-primary form, per `PIVOT_MEMO.md`):
 
-> **H(Cooper-s₇)**: Large-scale structure statistics carry a
+> **H(Cooper-s₁₀)**: Large-scale structure statistics carry a
 > density-dependent modulation whose functional form is the fundamental
-> period Π₀ of the level-7 K3 family (OEIS A183204) composed with a
+> period Π₀ of the level-10 K3 family (OEIS A005260, λ=16) composed with a
 > chameleon-screened modulus response z(ρ; M, β) — and this specific form is
 > preferred by data over (a) derivative-matched generic kernels and (b) the
-> sibling K3 families s₁₀ (A005260) and t₁₀₃ (A276536).
+> sibling K3 families s₇ (A183204, if rebuilt cleanly) and t₁₀₃ (A276536).
 
 The sibling-family test is the heart of the program: **if the data cannot
-tell level 7 from level 10, there is no Cooper-s₇ hypothesis** — only a
-generic nonlinearity, and the honest conclusion is null. Both outcomes are
-publishable within the project's own documentation; only one of them is a
-discovery.
+tell level 10 from level 7 (or from t₁₀₃), there is no Cooper-s₁₀
+hypothesis** — only a generic nonlinearity, and the honest conclusion is
+null. Both outcomes are publishable within the project's own documentation;
+only one of them is a discovery.
 
 **Gate conditions G1–G5** (defined in the review, Part III) must all hold
 before any outreach or public claim. No exceptions.
@@ -133,7 +195,8 @@ characteristic polynomial and confirmed by ratios; kernels return certified
 cooper_exact's tests 1–5 and passes.
 **Do NOT**: hardcode any term you did not fetch or compute; reuse μ-style
 growth "constants" for normalization.
-STATUS: TODO.
+STATUS: PARTIAL 2026-07-14 — s₁₀ done as `cooper_s10_kernel.py` (WP-A3-s10,
+b-file verified, λ=16 derived, self-tests pass); t₁₀₃ kernel still TODO.
 
 ---
 
@@ -180,7 +243,9 @@ legacy max-asymmetry and the interim `delta_s7_band`.
 showing (i) zero mean on 50 Poisson mocks, (ii) known injected signal
 recovered within errors, (iii) invariance under galaxy-count downsampling at
 fixed structure.
-STATUS: TODO.
+STATUS: PARTIAL 2026-07-14 — interim `v5_estimator_s10.py` shipped
+(WP-B2-s10: shot-noise handling, null-mock check on 10 mocks); full design
+with mask handling, mock covariance, and 50-mock validation still TODO.
 
 ### WP-B3 — Identifiability harness (the anti-circularity engine)  [SONNET design, HAIKU execution]
 **Objective**: make F4 impossible — the Cooper claim only stands if data
@@ -223,7 +288,8 @@ STATUS: TODO.
 **Definition of Done**: unit test proving a synthetic-provenance record
 cannot be persisted as a discovery; grep shows no cluster-injection code
 remains; void file quarantined.
-STATUS: TODO.
+STATUS: DONE 2026-07-14 — `v5_provenance_gate.py`; void artifacts quarantined
+under `archives/void_20260714_s7_fabricated/`.
 
 ### WP-C2 — Mock ensemble & empirical null  [SONNET design, HAIKU execution]
 **Objective**: replace analytic-fantasy significances (F7) with an empirical
@@ -323,6 +389,89 @@ STATUS: TODO (blocked on all other tracks).
 
 ---
 
+## Track F — Dual-Scale Unification (added 2026-07-16, see `UNIFIED_VISION.md`)
+
+### WP-F1 — Picard-Fuchs order classification  [HAIKU]
+**Objective**: turn hypotheses H-DT1/H-DT2 (order-3 ⇒ K3 base, order-2 ⇒
+elliptic fiber) into a mechanical, reproducible classification — the
+selection criterion for Stream 2.
+**Steps**:
+1. New module `pf_order_classifier.py`: for each candidate family
+   {s₇, s₁₀, t₁₀₃, S₁₂, S₂₁}, derive the operator order from the *verified
+   in-repo recurrence* (`cooper_exact.py`, `cooper_s10_kernel.py`,
+   `logs/hypothesis_comparison_t103_cooper.json`, and the legacy S₁₂/S₂₁
+   definitions). Print the recurrence, its order, and the characteristic
+   roots — derive, don't assume (P1).
+2. Integrality check per class: K3 candidates get the WP-A2 mirror-map
+   criterion; elliptic candidates get the weight-2 (elliptic/modular)
+   integrality analog. S₁₂'s historical GATE-C failure must be *reproduced*
+   by the classifier as "not K3", then re-tested as "elliptic: yes/no".
+3. Output `logs/pf_classification.json`: family → {order, class, integrality
+   pass/fail, evidence pointers}. This file is the Stream-2 → Stream-3
+   kernel allowlist input (cross-stream contract 2 in `UNIFIED_VISION.md`).
+**Definition of Done**: classifier reproduces the known answers (s₁₀
+order-3/K3-integral; S₁₂ not-K3) as a known-answer test (P2); every entry
+carries a provenance pointer; self-test passes.
+**Fails honestly if**: any Cooper family is not order-3, or S₁₂/S₂₁ fail
+elliptic integrality — record the failure in the JSON; that family exits its
+candidate list (H-DT1/H-DT2 failure conditions).
+STATUS: TODO.
+
+### WP-F2 — AutoEvolve selection harness (Stream 2 contract)  [SONNET]
+**Objective**: spec + reference implementation for the
+`SocrateAI-Scientific-Agora-K3-DarkMatter` repo: an AutoEvolve loop that
+proposes candidate sequences and classifies them with WP-F1's classifier.
+**Contract**:
+- Search space: integer sequences with verified holonomic recurrences
+  (OEIS-anchored or generated); fitness = passes classification (order +
+  integrality + λ growth derivable), never "fits the data" — data fitting
+  stays in Stream 3 behind pre-registration (P3).
+- Sibling families are the control set (P4): the harness must rediscover
+  s₁₀ and t₁₀₃ from scratch as a known-answer test before proposing novel
+  candidates.
+- Deliverable here: `STREAM2_AUTOEVOLVE_SPEC.md` + the classifier module;
+  the evolutionary loop itself lives in the Stream-2 repo.
+**Definition of Done**: spec committed; known-answer rediscovery demonstrated;
+interface (classification JSON schema) frozen and referenced by both repos.
+STATUS: TODO (depends on WP-F1).
+
+### WP-F3 — Lean 4 formalization contract (Stream 1 interface)  [SONNET]
+**Objective**: define what the `…-LeanProposal` repo formalizes first and
+what artifacts flow back.
+**Contract** — first three formalization targets, in order:
+1. Recurrence → operator-order statement for s₁₀ (A005260): the certified
+   recurrence implies an order-3 Picard-Fuchs-type ODE.
+2. The GATE-C integrality criterion as a formal definition (so "is a K3
+   period candidate" has a machine-checked meaning — the arbiter for
+   Stream-2 classification disputes, contract 1 in `UNIFIED_VISION.md`).
+3. The LVS perturbative bound: for the observationally bounded regime
+   (S ≤ 1.177), geometric symmetry breaking stays perturbative.
+Artifacts flow back as a pinned commit hash + statement list in
+`lean/STREAM1_STATUS.md` here; no numeric constant may be transcribed from
+Lean files into pipeline code without its own provenance (P1).
+**Definition of Done**: contract doc committed in both repos; target 1 either
+proved or reduced to explicitly named axioms/sorries with an honest count.
+STATUS: TODO.
+
+### WP-F4 — Discriminant-locus (Δ spike) census  [HAIKU, gated]
+**Objective**: test H-DT3 — Δ_obs spikes as 7-brane intersections — as a
+measurement, not an overlay.
+**Steps** (only after WP-C2 null bank and WP-B3 harness exist; runs on
+provenance-gated real-survey sectors only):
+1. Census: top-decile Δ_band sectors per kernel (Cooper-s₁₀ AND every
+   control) with empirical-null p-values and look-elsewhere correction.
+2. Kernel-specificity requirement: a sector is a discriminant-locus
+   *candidate* only if the Cooper kernel's spike is not reproduced by the
+   matched controls (ΔAIC ≥ 10 per WP-B3 convention).
+3. K3-DISC-0003 (RA 205°, Dec 35°): re-measure the sector under the gated
+   pipeline. Until then it is motivation only (review F7) and must not be
+   cited as evidence anywhere.
+**Definition of Done**: census JSON + figure with per-kernel spike maps and
+null statistics; explicit pass/fail against the H-DT3 failure condition.
+STATUS: TODO (blocked on C2, B3).
+
+---
+
 ## 3. Summary Table
 
 | WP | Title | Tier | Depends on | Blocking for |
@@ -340,6 +489,13 @@ STATUS: TODO (blocked on all other tracks).
 | D1 | Persistent homology | Haiku | B2 | observatory doc |
 | D2 | Lensing cross-correlation | Sonnet | C2 | observatory doc |
 | E1 | Observatory document | Haiku | all | outreach |
+| F1 | PF-order classification | Haiku | A1, A3 | F2, Stream-2 allowlist |
+| F2 | AutoEvolve harness spec | Sonnet | F1 | Stream-2 repo work |
+| F3 | Lean 4 contract (Stream 1) | Sonnet | — | Stream-1 repo work |
+| F4 | Discriminant-locus census | Haiku | C2, B3 | H-DT3 verdict |
 
-**First three sessions to schedule**: WP-C1 (Haiku, ~1h), WP-A3 (Haiku, ~2h),
-WP-B1 (Sonnet, ~3h). They are independent and unblock everything else.
+**Original first three sessions** (WP-C1, WP-A3, WP-B1): C1 done, A3 done for
+s₁₀ (t₁₀₃ pending), B1 still open.
+**Next sessions to schedule (2026-07-16)**: WP-B1 (Sonnet, ~3h),
+WP-F1 (Haiku, ~2h), WP-F3 (Sonnet, ~2h) — independent of each other;
+B1 unblocks Track C, F1 unblocks Stream 2, F3 starts Stream 1.
