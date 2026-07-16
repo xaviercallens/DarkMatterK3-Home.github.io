@@ -8,3 +8,6 @@ __pycache__/
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars
+core/venv/
+venv/
+.venv/
