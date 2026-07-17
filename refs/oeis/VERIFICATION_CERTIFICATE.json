@@ -1,0 +1,54 @@
+{
+  "date": "2026-07-17",
+  "method": "every term of each fetched OEIS b-file recomputed independently from the candidate's closed-form definition (exact integer arithmetic, math.comb) as certified in cooper_s10_kernel.py, cooper_exact.py, hypothesis_comparison_t103_cooper.py",
+  "entries": [
+    {
+      "oeis_id": "A005260",
+      "file": "refs/oeis/b005260.txt",
+      "sha256": "6f8e3d990b77368f00db91c421584358c7e90f477ee1f4e586ba4a69ccd661ee",
+      "url": "https://oeis.org/A005260/b005260.txt",
+      "closed_form": "a(n) = sum_k C(n,k)^4",
+      "closed_form_source": "cooper_s10_kernel.py",
+      "terms_in_bfile": 835,
+      "n_range": [
+        0,
+        834
+      ],
+      "terms_verified": 835,
+      "mismatches": [],
+      "verdict": "PASS(all)"
+    },
+    {
+      "oeis_id": "A183204",
+      "file": "refs/oeis/b183204.txt",
+      "sha256": "1b8e61364077467b1cf4d3556ea825bda8226d5caaaa5cf90b9024c66b0c9495",
+      "url": "https://oeis.org/A183204/b183204.txt",
+      "closed_form": "a(n) = sum_j C(n,j)^2*C(2j,n)*C(j+n,j)",
+      "closed_form_source": "cooper_exact.py",
+      "terms_in_bfile": 703,
+      "n_range": [
+        0,
+        702
+      ],
+      "terms_verified": 703,
+      "mismatches": [],
+      "verdict": "PASS(all)"
+    },
+    {
+      "oeis_id": "A276536",
+      "file": "refs/oeis/b276536.txt",
+      "sha256": "d896fe8190747e5b743dc66bee89030b7eb4b98280e0b8d1b416f24727a38078",
+      "url": "https://oeis.org/A276536/b276536.txt",
+      "closed_form": "a(n) = sum_k C(n,k)*C(2k,k)^3",
+      "closed_form_source": "hypothesis_comparison_t103_cooper.py",
+      "terms_in_bfile": 555,
+      "n_range": [
+        0,
+        554
+      ],
+      "terms_verified": 555,
+      "mismatches": [],
+      "verdict": "PASS(all)"
+    }
+  ]
+}
