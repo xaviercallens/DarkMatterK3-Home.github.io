@@ -1,0 +1,707 @@
+{
+  "timestamp": "2026-07-17T12:03:29.308875",
+  "total_sectors_analyzed": 35,
+  "model_framework": "F-theory local D7-brane Elliptic Fibration",
+  "sectors": [
+    {
+      "sector_id": 0,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.12479028501547873,
+      "max_density": 159.82797241210938,
+      "elliptic_modulus_k2": 0.5843734698074698,
+      "period_omega_1": 1.933033157738282,
+      "period_omega_2": 1.788514735308599,
+      "tau_real": 0.0,
+      "tau_imag": 0.9252374839763355,
+      "j_invariant_real": 1666.8885230746105,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 1,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.25020971451886,
+      "max_density": 187.7277069091797,
+      "elliptic_modulus_k2": 0.6198267225617363,
+      "period_omega_1": 1.9715852923559083,
+      "period_omega_2": 1.7640143076807915,
+      "tau_real": 0.0,
+      "tau_imag": 0.8947187395443167,
+      "j_invariant_real": 1732.7876220938674,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 2,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 1.000209715217352,
+      "max_density": 212.55499267578125,
+      "elliptic_modulus_k2": 0.6460534874624602,
+      "period_omega_1": 2.0027011187112125,
+      "period_omega_2": 1.7468645403908043,
+      "tau_real": 0.0,
+      "tau_imag": 0.8722542390723558,
+      "j_invariant_real": 1804.4103065713512,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 3,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.0530341827659678,
+      "max_density": 198.87924194335938,
+      "elliptic_modulus_k2": 0.6321458747610065,
+      "period_omega_1": 1.9859017547741127,
+      "period_omega_2": 1.7558609535100647,
+      "tau_real": 0.0,
+      "tau_imag": 0.8841630505078968,
+      "j_invariant_real": 1763.9065861869985,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 4,
+      "ra_range": [
+        150.0,
+        160.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.24979028524830937,
+      "max_density": 235.26596069335938,
+      "elliptic_modulus_k2": 0.6666428712192204,
+      "period_omega_1": 2.028927790357126,
+      "period_omega_2": 1.7339315752868056,
+      "tau_real": 0.0,
+      "tau_imag": 0.8546048723506341,
+      "j_invariant_real": 1875.4389102776831,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 5,
+      "ra_range": [
+        160.0,
+        170.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.11708972661290318,
+      "max_density": 167.9901885986328,
+      "elliptic_modulus_k2": 0.5955094102632209,
+      "period_omega_1": 1.944745362260873,
+      "period_omega_2": 1.7806465087474002,
+      "tau_real": 0.0,
+      "tau_imag": 0.9156193624636292,
+      "j_invariant_real": 1683.8942665833843,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 6,
+      "ra_range": [
+        160.0,
+        170.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.24979028454981744,
+      "max_density": 127.16838836669922,
+      "elliptic_modulus_k2": 0.5318080117439168,
+      "period_omega_1": 1.8820037519783017,
+      "period_omega_2": 1.8280254267505955,
+      "tau_real": 0.0,
+      "tau_imag": 0.9713186941466159,
+      "j_invariant_real": 1631.459179982335,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 7,
+      "ra_range": [
+        160.0,
+        170.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 1.0002097156830132,
+      "max_density": 126.32647705078125,
+      "elliptic_modulus_k2": 0.5302523803757848,
+      "period_omega_1": 1.8805902066210245,
+      "period_omega_2": 1.8292592526007136,
+      "tau_real": 0.0,
+      "tau_imag": 0.972704870077708,
+      "j_invariant_real": 1631.5530546149216,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 8,
+      "ra_range": [
+        160.0,
+        170.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.5002097142860293,
+      "max_density": 185.2249298095703,
+      "elliptic_modulus_k2": 0.6169295350044384,
+      "period_omega_1": 1.9682913269379383,
+      "period_omega_2": 1.7659577760692469,
+      "tau_real": 0.0,
+      "tau_imag": 0.8972034535235895,
+      "j_invariant_real": 1726.0998166166203,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 9,
+      "ra_range": [
+        160.0,
+        170.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.24979028501547873,
+      "max_density": 241.88827514648438,
+      "elliptic_modulus_k2": 0.6721314478851413,
+      "period_omega_1": 2.036214752868199,
+      "period_omega_2": 1.730558504210424,
+      "tau_real": 0.0,
+      "tau_imag": 0.849889974410985,
+      "j_invariant_real": 1896.731000788248,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 10,
+      "ra_range": [
+        170.0,
+        180.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.24979028548114002,
+      "max_density": 175.04534912109375,
+      "elliptic_modulus_k2": 0.6046024126436892,
+      "period_omega_1": 1.9545715722924244,
+      "period_omega_2": 1.774341012156489,
+      "tau_real": 0.0,
+      "tau_imag": 0.9077902479035078,
+      "j_invariant_real": 1700.268644783258,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 11,
+      "ra_range": [
+        170.0,
+        180.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.07273479283321649,
+      "max_density": 196.55490112304688,
+      "elliptic_modulus_k2": 0.6296545946796458,
+      "period_omega_1": 1.982965104023439,
+      "period_omega_2": 1.7574955623742559,
+      "tau_real": 0.0,
+      "tau_imag": 0.8862967678091233,
+      "j_invariant_real": 1757.2590253856497,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 12,
+      "ra_range": [
+        170.0,
+        180.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 0.25020971638150513,
+      "max_density": 164.4351348876953,
+      "elliptic_modulus_k2": 0.590743655186569,
+      "period_omega_1": 1.939690642463705,
+      "period_omega_2": 1.7839938060064449,
+      "tau_real": 0.0,
+      "tau_imag": 0.9197310988418744,
+      "j_invariant_real": 1676.2080543148463,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 13,
+      "ra_range": [
+        170.0,
+        180.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.06702385008924432,
+      "max_density": 221.37770080566406,
+      "elliptic_modulus_k2": 0.6543976611885521,
+      "period_omega_1": 2.0131262647128203,
+      "period_omega_2": 1.7415690710968883,
+      "tau_real": 0.0,
+      "tau_imag": 0.8651067256058722,
+      "j_invariant_real": 1831.5565584386318,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 14,
+      "ra_range": [
+        170.0,
+        180.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.1247902843169868,
+      "max_density": 242.83094787597656,
+      "elliptic_modulus_k2": 0.6728954953204299,
+      "period_omega_1": 2.0372395625995825,
+      "period_omega_2": 1.7300913679534897,
+      "tau_real": 0.0,
+      "tau_imag": 0.849233148479523,
+      "j_invariant_real": 1899.7770248729157,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 15,
+      "ra_range": [
+        180.0,
+        190.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.24979028361849487,
+      "max_density": 241.40921020507812,
+      "elliptic_modulus_k2": 0.6717415431091174,
+      "period_omega_1": 2.0356927684445774,
+      "period_omega_2": 1.7307971173624135,
+      "tau_real": 0.0,
+      "tau_imag": 0.8502251146104296,
+      "j_invariant_real": 1895.1843590384265,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 16,
+      "ra_range": [
+        180.0,
+        190.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.5002097154501826,
+      "max_density": 196.22421264648438,
+      "elliptic_modulus_k2": 0.6292969786255335,
+      "period_omega_1": 1.9825453114555138,
+      "period_omega_2": 1.7577307917168334,
+      "tau_real": 0.0,
+      "tau_imag": 0.8866030862247332,
+      "j_invariant_real": 1756.319672515734,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 17,
+      "ra_range": [
+        180.0,
+        190.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 0.7502097147516906,
+      "max_density": 128.7390899658203,
+      "elliptic_modulus_k2": 0.534679645205393,
+      "period_omega_1": 1.884626616982218,
+      "period_omega_2": 1.8257581973433135,
+      "tau_real": 0.0,
+      "tau_imag": 0.9687638818700501,
+      "j_invariant_real": 1631.4625395455364,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 18,
+      "ra_range": [
+        180.0,
+        190.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.15051479951944202,
+      "max_density": 196.51548767089844,
+      "elliptic_modulus_k2": 0.6296120137055363,
+      "period_omega_1": 1.982915096754112,
+      "period_omega_2": 1.7575235631523987,
+      "tau_real": 0.0,
+      "tau_imag": 0.8863332404041591,
+      "j_invariant_real": 1757.1469821241778,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 19,
+      "ra_range": [
+        180.0,
+        190.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.7502097170799971,
+      "max_density": 212.08868408203125,
+      "elliptic_modulus_k2": 0.6455993445278854,
+      "period_omega_1": 2.0021413546148215,
+      "period_omega_2": 1.7471549196298963,
+      "tau_real": 0.0,
+      "tau_imag": 0.8726431406068328,
+      "j_invariant_real": 1802.9950930580385,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 20,
+      "ra_range": [
+        190.0,
+        200.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.750209713820368,
+      "max_density": 160.609130859375,
+      "elliptic_modulus_k2": 0.5854694108885152,
+      "period_omega_1": 1.9341705976553363,
+      "period_omega_2": 1.7877330913204585,
+      "tau_real": 0.0,
+      "tau_imag": 0.9242892501248887,
+      "j_invariant_real": 1668.4143650149806,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 21,
+      "ra_range": [
+        190.0,
+        200.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.24979028571397066,
+      "max_density": 183.5331573486328,
+      "elliptic_modulus_k2": 0.6149421856393753,
+      "period_omega_1": 1.9660473745382412,
+      "period_omega_2": 1.7672967451427617,
+      "tau_real": 0.0,
+      "tau_imag": 0.8989085248049227,
+      "j_invariant_real": 1721.6490710061903,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 22,
+      "ra_range": [
+        190.0,
+        200.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 0.24979028571397066,
+      "max_density": 147.5673828125,
+      "elliptic_modulus_k2": 0.5662660891723764,
+      "period_omega_1": 1.9146984867076469,
+      "period_omega_2": 1.8016678475066223,
+      "tau_real": 0.0,
+      "tau_imag": 0.9409668728597669,
+      "j_invariant_real": 1646.3196239306326,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 23,
+      "ra_range": [
+        190.0,
+        200.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.4997902859468013,
+      "max_density": 246.3990020751953,
+      "elliptic_modulus_k2": 0.675749787294775,
+      "period_omega_1": 2.041090941864478,
+      "period_omega_2": 1.72835144201084,
+      "tau_real": 0.0,
+      "tau_imag": 0.8467782628205878,
+      "j_invariant_real": 1911.336232015733,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 24,
+      "ra_range": [
+        190.0,
+        200.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.24979028292000294,
+      "max_density": 199.1372528076172,
+      "elliptic_modulus_k2": 0.6324200292395646,
+      "period_omega_1": 1.9862262340219599,
+      "period_omega_2": 1.7556815065203648,
+      "tau_real": 0.0,
+      "tau_imag": 0.8839282637835474,
+      "j_invariant_real": 1764.6492338856956,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 25,
+      "ra_range": [
+        200.0,
+        210.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.2502097152173519,
+      "max_density": 276.1727600097656,
+      "elliptic_modulus_k2": 0.6974564612346364,
+      "period_omega_1": 2.0716310464994323,
+      "period_omega_2": 1.7153800617358328,
+      "tau_real": 0.0,
+      "tau_imag": 0.8280335751071217,
+      "j_invariant_real": 2008.9674932515159,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 26,
+      "ra_range": [
+        200.0,
+        210.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.07043291686709212,
+      "max_density": 156.10983276367188,
+      "elliptic_modulus_k2": 0.5790653936443655,
+      "period_omega_1": 1.9275698266160666,
+      "period_omega_2": 1.792323519028025,
+      "tau_real": 0.0,
+      "tau_imag": 0.929835845259379,
+      "j_invariant_real": 1659.9527948070224,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 27,
+      "ra_range": [
+        200.0,
+        210.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 0.2502097161486745,
+      "max_density": 217.47564697265625,
+      "elliptic_modulus_k2": 0.6507644494754515,
+      "period_omega_1": 2.008553908237285,
+      "period_omega_2": 1.743865590782886,
+      "tau_real": 0.0,
+      "tau_imag": 0.8682194605935717,
+      "j_invariant_real": 1819.468054148497,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 28,
+      "ra_range": [
+        200.0,
+        210.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.04452355305729579,
+      "max_density": 241.9744415283203,
+      "elliptic_modulus_k2": 0.6722014616781451,
+      "period_omega_1": 2.0363085545648163,
+      "period_omega_2": 1.7305156735347293,
+      "tau_real": 0.0,
+      "tau_imag": 0.8498297910969398,
+      "j_invariant_real": 1897.0092825082465,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 29,
+      "ra_range": [
+        200.0,
+        210.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.9997902847826481,
+      "max_density": 305.1215515136719,
+      "elliptic_modulus_k2": 0.7155024778488144,
+      "period_omega_1": 2.098870558094195,
+      "period_omega_2": 1.7049323358708395,
+      "tau_real": 0.0,
+      "tau_imag": 0.8123094248455907,
+      "j_invariant_real": 2104.3520843628357,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 30,
+      "ra_range": [
+        210.0,
+        220.0
+      ],
+      "dec_range": [
+        0.0,
+        10.0
+      ],
+      "observed_asymmetry_delta": 0.05710131074745476,
+      "max_density": 209.95384216308594,
+      "elliptic_modulus_k2": 0.6435027508063133,
+      "period_omega_1": 1.9995671605980296,
+      "period_omega_2": 1.7484984157352002,
+      "tau_real": 0.0,
+      "tau_imag": 0.8744384535762529,
+      "j_invariant_real": 1796.5437850939643,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 31,
+      "ra_range": [
+        210.0,
+        220.0
+      ],
+      "dec_range": [
+        10.0,
+        20.0
+      ],
+      "observed_asymmetry_delta": 0.1300453704316169,
+      "max_density": 208.43650817871094,
+      "elliptic_modulus_k2": 0.6419949568844291,
+      "period_omega_1": 1.9977259874015036,
+      "period_omega_2": 1.7494676027634304,
+      "tau_real": 0.0,
+      "tau_imag": 0.8757295113525606,
+      "j_invariant_real": 1791.9873112699502,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 32,
+      "ra_range": [
+        210.0,
+        220.0
+      ],
+      "dec_range": [
+        20.0,
+        30.0
+      ],
+      "observed_asymmetry_delta": 0.5002097152173519,
+      "max_density": 127.66670989990234,
+      "elliptic_modulus_k2": 0.5327233588882256,
+      "period_omega_1": 1.8828378922679514,
+      "period_omega_2": 1.827301281242235,
+      "tau_real": 0.0,
+      "tau_imag": 0.9705037745130461,
+      "j_invariant_real": 1631.4354142769487,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 33,
+      "ra_range": [
+        210.0,
+        220.0
+      ],
+      "dec_range": [
+        30.0,
+        40.0
+      ],
+      "observed_asymmetry_delta": 0.7497902857139707,
+      "max_density": 239.81578063964844,
+      "elliptic_modulus_k2": 0.670436761879693,
+      "period_omega_1": 2.0339508412091183,
+      "period_omega_2": 1.731596731079372,
+      "tau_real": 0.0,
+      "tau_imag": 0.8513464022807914,
+      "j_invariant_real": 1890.0467880383499,
+      "j_invariant_imag": 0.0
+    },
+    {
+      "sector_id": 34,
+      "ra_range": [
+        210.0,
+        220.0
+      ],
+      "dec_range": [
+        40.0,
+        50.0
+      ],
+      "observed_asymmetry_delta": 0.25020971382036805,
+      "max_density": 283.08758544921875,
+      "elliptic_modulus_k2": 0.702014934421327,
+      "period_omega_1": 2.078343824339111,
+      "period_omega_2": 1.7127128739333128,
+      "tau_real": 0.0,
+      "tau_imag": 0.8240758116515854,
+      "j_invariant_real": 2031.777551749012,
+      "j_invariant_imag": 0.0
+    }
+  ]
+}

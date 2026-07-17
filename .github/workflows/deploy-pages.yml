@@ -33,6 +33,7 @@ jobs:
           cp index.html dist/
           cp style.css dist/
           cp app.js dist/
+          cp dual_scale_dashboard.html dist/
           cp -r public dist/
           touch dist/.nojekyll
 
