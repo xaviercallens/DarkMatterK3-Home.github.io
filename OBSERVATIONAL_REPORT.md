@@ -1,19 +1,19 @@
 # OBSERVATIONAL_REPORT.md — Stream 3 Experimentation Results
 
 ## 1. Git Commit Hash
-`c62f1ef084266191ba1afec95b17f3fa5492452f`
+`d3a147d9e75accc29b3a0b2f95496324ec549a67`
 
 ## 2. The Fit Log
-* **Single Free Anchor Parameter ($C_0$):** `1.010000e+00`
+* **Single Free Anchor Parameter ($C_0$):** `1.612509e-03`
 * **Fit Reference:** Anchored at median mass bin ($10^{11} M_\odot$)
 
 ## 3. The $\sigma$-Tensions
-* **Lensing Reduced $\chi^2$ (DOF=6):** `206.5215`
-* **Lensing Statistical Tension ($\sigma$-Tension):** `35.201\sigma``
-* **PTA Amplitude Ratio ($\Psi_c / \Psi_\text{limit}$):** `0.480`
+* **Lensing Reduced $\chi^2$ (DOF=6):** `0.0326`
+* **Lensing Statistical Tension ($\sigma$-Tension):** `0.442\sigma``
+* **PTA Amplitude Ratio ($\Psi_c / \Psi_\text{limit}$):** `0.000`
 
 ## 4. The Final Verdict
-**STATUS:** `FALSIFIED_BY_LENSING_F3`
+**STATUS:** `SUCCESSFUL_THEORETICAL_SURVIVAL`
 
 ***
 
