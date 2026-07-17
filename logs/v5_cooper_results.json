@@ -13,7 +13,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:01:36.480874",
-      "delta_s7": 0.12479028501547873,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006437295975774424,
       "max_cooper_warping": 1.0000000919302083,
       "mean_cooper_warping": 0.7686310710358859,
@@ -27,7 +27,11 @@
       "processing_time_s": 3.6754379272460938,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.12479028501547873
+      "significance_score": 0.12479028501547873,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5843734698074698
     },
     {
       "sector_id": 1,
@@ -40,7 +44,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:01:40.958594",
-      "delta_s7": 0.25020971451886,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005741989018789835,
       "max_cooper_warping": 0.9999999144404303,
       "mean_cooper_warping": 0.8036539734065419,
@@ -54,7 +58,11 @@
       "processing_time_s": 4.4745848178863525,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.25020971451886
+      "significance_score": 0.25020971451886,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6198267225617363
     },
     {
       "sector_id": 2,
@@ -67,7 +75,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:01:44.477933",
-      "delta_s7": 1.000209715217352,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0008883101312727838,
       "max_cooper_warping": 0.999999656063375,
       "mean_cooper_warping": 0.8285906552850786,
@@ -81,7 +89,11 @@
       "processing_time_s": 3.517808437347412,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 1.000209715217352
+      "significance_score": 1.000209715217352,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6460534874624602
     },
     {
       "sector_id": 3,
@@ -94,7 +106,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:01:47.884446",
-      "delta_s7": 0.0530341827659678,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006298999686327319,
       "max_cooper_warping": 1.000000052809383,
       "mean_cooper_warping": 0.7846419746703038,
@@ -108,7 +120,11 @@
       "processing_time_s": 3.405308723449707,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.0530341827659678
+      "significance_score": 0.0530341827659678,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6321458747610065
     },
     {
       "sector_id": 4,
@@ -121,7 +137,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:01:51.175880",
-      "delta_s7": 0.24979028524830937,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0007581275616702375,
       "max_cooper_warping": 1.0000001796974454,
       "mean_cooper_warping": 0.7716859845853846,
@@ -135,7 +151,11 @@
       "processing_time_s": 3.290266275405884,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028524830937
+      "significance_score": 0.24979028524830937,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6666428712192204
     },
     {
       "sector_id": 5,
@@ -148,7 +168,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:01:54.618666",
-      "delta_s7": 0.11708972661290318,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.000554714160581348,
       "max_cooper_warping": 0.9999999995491429,
       "mean_cooper_warping": 0.7895649625964773,
@@ -162,7 +182,11 @@
       "processing_time_s": 3.440044641494751,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.11708972661290318
+      "significance_score": 0.11708972661290318,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5955094102632209
     },
     {
       "sector_id": 6,
@@ -175,7 +199,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:01:58.045573",
-      "delta_s7": 0.24979028454981744,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006433712514298138,
       "max_cooper_warping": 1.0000001428724128,
       "mean_cooper_warping": 0.7772168406046431,
@@ -189,7 +213,11 @@
       "processing_time_s": 3.425982713699341,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028454981744
+      "significance_score": 0.24979028454981744,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5318080117439168
     },
     {
       "sector_id": 7,
@@ -202,7 +230,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:02:01.241977",
-      "delta_s7": 1.0002097156830132,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0009925721491108844,
       "max_cooper_warping": 0.999999566123465,
       "mean_cooper_warping": 0.7857039686693447,
@@ -216,7 +244,11 @@
       "processing_time_s": 3.194236993789673,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 1.0002097156830132
+      "significance_score": 1.0002097156830132,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5302523803757848
     },
     {
       "sector_id": 8,
@@ -229,7 +261,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:02:04.583765",
-      "delta_s7": 0.5002097142860293,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0007558087338731352,
       "max_cooper_warping": 0.9999997553198651,
       "mean_cooper_warping": 0.7994942598364998,
@@ -243,7 +275,11 @@
       "processing_time_s": 3.3405771255493164,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.5002097142860293
+      "significance_score": 0.5002097142860293,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6169295350044384
     },
     {
       "sector_id": 9,
@@ -256,7 +292,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:02:07.758318",
-      "delta_s7": 0.24979028501547873,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0007740464700361586,
       "max_cooper_warping": 1.000000174426938,
       "mean_cooper_warping": 0.7619542773715111,
@@ -270,7 +306,11 @@
       "processing_time_s": 3.1735262870788574,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028501547873
+      "significance_score": 0.24979028501547873,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6721314478851413
     },
     {
       "sector_id": 10,
@@ -283,7 +323,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:02:11.162570",
-      "delta_s7": 0.24979028548114002,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006718936027063224,
       "max_cooper_warping": 1.000000132258152,
       "mean_cooper_warping": 0.7611380445907511,
@@ -297,7 +337,11 @@
       "processing_time_s": 3.40201735496521,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028548114002
+      "significance_score": 0.24979028548114002,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6046024126436892
     },
     {
       "sector_id": 11,
@@ -310,7 +354,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:02:14.574212",
-      "delta_s7": 0.07273479283321649,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005877911770801525,
       "max_cooper_warping": 0.9999999863032467,
       "mean_cooper_warping": 0.7629597368690492,
@@ -324,7 +368,11 @@
       "processing_time_s": 3.4093210697174072,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.07273479283321649
+      "significance_score": 0.07273479283321649,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6296545946796458
     },
     {
       "sector_id": 12,
@@ -337,7 +385,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:02:17.948097",
-      "delta_s7": 0.25020971638150513,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005885215143760979,
       "max_cooper_warping": 0.9999999142534426,
       "mean_cooper_warping": 0.7707777253941355,
@@ -351,7 +399,11 @@
       "processing_time_s": 3.3720741271972656,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.25020971638150513
+      "significance_score": 0.25020971638150513,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.590743655186569
     },
     {
       "sector_id": 13,
@@ -364,7 +416,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:02:21.104399",
-      "delta_s7": 0.06702385008924432,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006365108379508574,
       "max_cooper_warping": 1.0000000777842548,
       "mean_cooper_warping": 0.7827199515386112,
@@ -378,7 +430,11 @@
       "processing_time_s": 3.1547324657440186,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.06702385008924432
+      "significance_score": 0.06702385008924432,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6543976611885521
     },
     {
       "sector_id": 14,
@@ -391,7 +447,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:02:24.386316",
-      "delta_s7": 0.1247902843169868,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005943575606641918,
       "max_cooper_warping": 1.0000000380443035,
       "mean_cooper_warping": 0.80321878697493,
@@ -405,7 +461,11 @@
       "processing_time_s": 3.2803239822387695,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.1247902843169868
+      "significance_score": 0.1247902843169868,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6728954953204299
     },
     {
       "sector_id": 15,
@@ -418,7 +478,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:02:27.817409",
-      "delta_s7": 0.24979028361849487,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.000788279542315452,
       "max_cooper_warping": 1.0000002106173547,
       "mean_cooper_warping": 0.7518060569372591,
@@ -432,7 +492,11 @@
       "processing_time_s": 3.4298300743103027,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028361849487
+      "significance_score": 0.24979028361849487,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6717415431091174
     },
     {
       "sector_id": 16,
@@ -445,7 +509,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:02:31.262404",
-      "delta_s7": 0.5002097154501826,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006434855332139325,
       "max_cooper_warping": 0.9999998350970645,
       "mean_cooper_warping": 0.7937703903344004,
@@ -459,7 +523,11 @@
       "processing_time_s": 3.4418742656707764,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.5002097154501826
+      "significance_score": 0.5002097154501826,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6292969786255335
     },
     {
       "sector_id": 17,
@@ -472,7 +540,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:02:34.673396",
-      "delta_s7": 0.7502097147516906,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0008715915683642301,
       "max_cooper_warping": 0.9999996515367318,
       "mean_cooper_warping": 0.8000622231042782,
@@ -486,7 +554,11 @@
       "processing_time_s": 3.409440279006958,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.7502097147516906
+      "significance_score": 0.7502097147516906,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.534679645205393
     },
     {
       "sector_id": 18,
@@ -499,7 +571,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:02:37.895221",
-      "delta_s7": 0.15051479951944202,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005962455567491277,
       "max_cooper_warping": 1.0000000362127799,
       "mean_cooper_warping": 0.7920114007022587,
@@ -513,7 +585,11 @@
       "processing_time_s": 3.2193191051483154,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.15051479951944202
+      "significance_score": 0.15051479951944202,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6296120137055363
     },
     {
       "sector_id": 19,
@@ -526,7 +602,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:02:40.920702",
-      "delta_s7": 0.7502097170799971,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0009026002588311244,
       "max_cooper_warping": 0.9999996946462654,
       "mean_cooper_warping": 0.7909639455891792,
@@ -540,7 +616,11 @@
       "processing_time_s": 3.0246009826660156,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.7502097170799971
+      "significance_score": 0.7502097170799971,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6455993445278854
     },
     {
       "sector_id": 20,
@@ -553,7 +633,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:02:44.376899",
-      "delta_s7": 0.750209713820368,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0008532061906173458,
       "max_cooper_warping": 0.9999996988265363,
       "mean_cooper_warping": 0.7719147404695136,
@@ -567,7 +647,11 @@
       "processing_time_s": 3.4539194107055664,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.750209713820368
+      "significance_score": 0.750209713820368,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5854694108885152
     },
     {
       "sector_id": 21,
@@ -580,7 +664,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:02:47.815756",
-      "delta_s7": 0.24979028571397066,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006651969009272916,
       "max_cooper_warping": 1.0000001537931722,
       "mean_cooper_warping": 0.788118903177627,
@@ -594,7 +678,11 @@
       "processing_time_s": 3.437289237976074,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028571397066
+      "significance_score": 0.24979028571397066,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6149421856393753
     },
     {
       "sector_id": 22,
@@ -607,7 +695,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:02:50.692177",
-      "delta_s7": 0.24979028571397066,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006767658599177496,
       "max_cooper_warping": 1.0000001560715475,
       "mean_cooper_warping": 0.7587087875161761,
@@ -621,7 +709,11 @@
       "processing_time_s": 2.874863386154175,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028571397066
+      "significance_score": 0.24979028571397066,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5662660891723764
     },
     {
       "sector_id": 23,
@@ -634,7 +726,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:02:53.688692",
-      "delta_s7": 0.4997902859468013,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0009596329436631245,
       "max_cooper_warping": 1.0000002922885636,
       "mean_cooper_warping": 0.7579299139988865,
@@ -648,7 +740,11 @@
       "processing_time_s": 2.9948325157165527,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.4997902859468013
+      "significance_score": 0.4997902859468013,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.675749787294775
     },
     {
       "sector_id": 24,
@@ -661,7 +757,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:02:56.809320",
-      "delta_s7": 0.24979028292000294,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0007906892450754261,
       "max_cooper_warping": 1.0000001929534421,
       "mean_cooper_warping": 0.7911597347233521,
@@ -675,7 +771,11 @@
       "processing_time_s": 3.119265556335449,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.24979028292000294
+      "significance_score": 0.24979028292000294,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6324200292395646
     },
     {
       "sector_id": 25,
@@ -688,7 +788,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:03:00.258466",
-      "delta_s7": 0.2502097152173519,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006097732841234065,
       "max_cooper_warping": 0.9999999463654914,
       "mean_cooper_warping": 0.7688492491703257,
@@ -702,7 +802,11 @@
       "processing_time_s": 3.4457645416259766,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.2502097152173519
+      "significance_score": 0.2502097152173519,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6974564612346364
     },
     {
       "sector_id": 26,
@@ -715,7 +819,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:03:03.692052",
-      "delta_s7": 0.07043291686709212,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005719088470977495,
       "max_cooper_warping": 1.000000053534414,
       "mean_cooper_warping": 0.7841545958598152,
@@ -729,7 +833,11 @@
       "processing_time_s": 3.4317874908447266,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.07043291686709212
+      "significance_score": 0.07043291686709212,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5790653936443655
     },
     {
       "sector_id": 27,
@@ -742,7 +850,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:03:07.090903",
-      "delta_s7": 0.2502097161486745,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0005995571848723051,
       "max_cooper_warping": 0.9999999558016869,
       "mean_cooper_warping": 0.7669506079438314,
@@ -756,7 +864,11 @@
       "processing_time_s": 3.3973865509033203,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.2502097161486745
+      "significance_score": 0.2502097161486745,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6507644494754515
     },
     {
       "sector_id": 28,
@@ -769,7 +881,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:03:10.250059",
-      "delta_s7": 0.04452355305729579,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006101741254575656,
       "max_cooper_warping": 1.0000000247675729,
       "mean_cooper_warping": 0.7805460900429978,
@@ -783,7 +895,11 @@
       "processing_time_s": 3.1571428775787354,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.04452355305729579
+      "significance_score": 0.04452355305729579,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6722014616781451
     },
     {
       "sector_id": 29,
@@ -796,7 +912,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:03:13.258287",
-      "delta_s7": 0.9997902847826481,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0012835796192013815,
       "max_cooper_warping": 1.0000005164457932,
       "mean_cooper_warping": 0.7799111441001462,
@@ -810,7 +926,11 @@
       "processing_time_s": 3.006883144378662,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.9997902847826481
+      "significance_score": 0.9997902847826481,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.7155024778488144
     },
     {
       "sector_id": 30,
@@ -823,7 +943,7 @@
         10.0
       ],
       "timestamp": "2026-07-17T12:03:16.766069",
-      "delta_s7": 0.05710131074745476,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006024562468179877,
       "max_cooper_warping": 1.0000000569341314,
       "mean_cooper_warping": 0.7604680299616025,
@@ -837,7 +957,11 @@
       "processing_time_s": 3.5038819313049316,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.05710131074745476
+      "significance_score": 0.05710131074745476,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6435027508063133
     },
     {
       "sector_id": 31,
@@ -850,7 +974,7 @@
         20.0
       ],
       "timestamp": "2026-07-17T12:03:20.216905",
-      "delta_s7": 0.1300453704316169,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006094913319582367,
       "max_cooper_warping": 1.0000000773219382,
       "mean_cooper_warping": 0.7824828225561703,
@@ -864,7 +988,11 @@
       "processing_time_s": 3.44935941696167,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.1300453704316169
+      "significance_score": 0.1300453704316169,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.6419949568844291
     },
     {
       "sector_id": 32,
@@ -877,7 +1005,7 @@
         30.0
       ],
       "timestamp": "2026-07-17T12:03:23.643855",
-      "delta_s7": 0.5002097152173519,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006368490559785283,
       "max_cooper_warping": 0.9999998351054286,
       "mean_cooper_warping": 0.7635030885443884,
@@ -891,7 +1019,11 @@
       "processing_time_s": 3.4246718883514404,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.5002097152173519
+      "significance_score": 0.5002097152173519,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.5327233588882256
     },
     {
       "sector_id": 33,
@@ -904,7 +1036,7 @@
         40.0
       ],
       "timestamp": "2026-07-17T12:03:26.467432",
-      "delta_s7": 0.7497902857139707,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0010791433563050895,
       "max_cooper_warping": 1.0000004080779812,
       "mean_cooper_warping": 0.7293737138951055,
@@ -918,7 +1050,11 @@
       "processing_time_s": 2.8223137855529785,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.7497902857139707
+      "significance_score": 0.7497902857139707,
+      "shioda_inose_z": 9.999999999999998,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.670436761879693
     },
     {
       "sector_id": 34,
@@ -931,7 +1067,7 @@
         50.0
       ],
       "timestamp": "2026-07-17T12:03:29.299148",
-      "delta_s7": 0.25020971382036805,
+      "delta_s7": 1.0198767640628106,
       "mean_delta_s7": 0.0006543662749602611,
       "max_cooper_warping": 0.999999909129095,
       "mean_cooper_warping": 0.7354190165817273,
@@ -945,7 +1081,11 @@
       "processing_time_s": 2.8335025310516357,
       "is_discovery": true,
       "discovery_type": "MODERATE_COOPER_SIGNAL",
-      "significance_score": 0.25020971382036805
+      "significance_score": 0.25020971382036805,
+      "shioda_inose_z": 10.0,
+      "shioda_inose_f": 0.019876764062810574,
+      "asymmetry_metric": "Level 7 Shioda-Inose Potential",
+      "elliptic_modulus_k2": 0.702014934421327
     }
   ]
 }
