@@ -67,6 +67,7 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 - **Threshold:** exact match to the stated requirement.
 - **Failure:** F1 removal.
 - **Tier:** B.
+- **Free-Parameter Ledger link (`EXECUTION_PLAN.md` WP P0-B):** the "structural requirements" this criterion checks against are themselves the GEOMETRIC-class rows of the Free-Parameter Ledger (schema: `templates/free_parameter_ledger.jinja`) — quantities derivable from C1–C5 checker output alone, with no Tier C assumption in their chain. C4's TBD-AT-FREEZE requirement must be stated in terms of that schema so lattice consistency and the ledger's GEOMETRIC/ASSUMED split stay mutually consistent (a requirement invented ad hoc here, disconnected from the ledger, would silently reintroduce a free parameter the ledger was meant to expose).
 
 ### C5 — Swampland / Consistency Bounds
 - **Definition:** the candidate's moduli-space data satisfies each listed bound, with **every inequality written out explicitly at freeze** (bound, normalization, O(1) constant convention, and citation). No bound may be invoked by name alone.

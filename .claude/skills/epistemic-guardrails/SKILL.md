@@ -35,6 +35,30 @@ three tiers; this skill makes the rules operational for every sentence you write
    trace to a checker certificate, a Lean `#eval`/test, or a cited file in `refs/`.
    If you cannot point to the source, do not write the number.
 
+## Finding F-A — Abstracts may not outrun their own sections
+
+Abstracts and summaries (README leads, paper abstracts, release-note
+headlines, one-line PR descriptions) are reviewed **line-by-line against
+the tier ledger of the section they summarize**. A claim may not appear in
+an abstract at a stronger tier than the tier it carries in its own section.
+Compressing "we conjecture X, and if a worked matching exists, would imply
+Y" down to "X implies Y" for brevity is exactly the failure mode this
+finding exists to block — casual summaries are where tier violations
+concentrate.
+
+CI enforcement (`scripts/check_tier_language.py`, wired into
+`.github/workflows/epistemic-guardrails.yml`):
+1. Grep every `## Abstract` / `## Summary` / `## Overview` section (and any
+   text before the first heading) in all `*.md` files for the phrases
+   `"Rigidly locks"`, `"Rigidity Theorem"`, `"zero continuous"` — these are
+   flagged unconditionally, no exceptions.
+2. Flag any sentence in those sections using a forbidden Tier-C verb
+   (*predicts, establishes, shows, implies, locks, governs, determines,
+   demonstrates, proves*) with no conjecture marker (*"we conjecture",
+   "would", "if the matching exists"*) in the same sentence.
+3. A clean run requires zero flags. Run locally with
+   `python3 scripts/check_tier_language.py`.
+
 ## Required artifacts
 
 - **Provenance footer** on every generated file:

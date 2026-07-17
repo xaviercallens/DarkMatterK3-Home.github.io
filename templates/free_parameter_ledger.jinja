@@ -1,0 +1,62 @@
+{#-
+  Free-Parameter Ledger template (EXECUTION_PLAN.md WP P0-B).
+
+  Renders the 7-row table that PREDICTION.md's S3-00 MVM matching must
+  install before any observable is pinned. Each row classifies one EFT
+  degree of freedom as GEOMETRIC / CONTINUOUS-FREE / DISCRETE / ASSUMED
+  and lists which Phase 0 assumptions (ASSUMPTIONS.md) it depends on.
+
+  This is schema only — a T1 draft. The instance below (`ledger`) is the
+  one golden example required by the WP's DoD; it is illustrative
+  scaffolding, not a T0-derived result. S3-00 itself (deriving the actual
+  numbers) is T0/T0s-only per EXECUTION_PLAN.md §1.2.2 (verifier-first
+  principle: no physics derivation below T0).
+
+  Usage: render with `ledger` = a list of 7 dicts, each:
+    { name, class, status, depends: [assumption IDs], note }
+  `class` must be one of: GEOMETRIC, CONTINUOUS-FREE, DISCRETE, ASSUMED.
+-#}
+## Free-Parameter Ledger
+
+*Installed per WP S3-00 step (1). Classifies every quantity the MVM
+matching computation depends on. Every row's `depends` column must
+name an assumption in `ASSUMPTIONS.md` — an empty list is only valid for
+a row derivable from geometry alone (class GEOMETRIC) with no physical
+assumption in its chain.*
+
+| Quantity | Class | Status in MVM | Depends on | Note |
+|---|---|---|---|---|
+{% for row in ledger -%}
+| {{ row.name }} | {{ row["class"] }} | {{ row.status }} | {{ row.depends | join(", ") if row.depends else "—" }} | {{ row.note }} |
+{% endfor %}
+
+*Classes:* **GEOMETRIC** — computed purely from a C1–C5-passing candidate's
+period/fiber data, no physical assumption. **CONTINUOUS-FREE** — a modulus
+value not yet fixed by geometry (stabilization unexhibited, A-VOL).
+**DISCRETE** — a discrete choice (candidate ID, brane wrapping numbers).
+**ASSUMED** — inherits a Tier C assumption with no independent geometric
+derivation; ceiling is Tier C until the assumption is discharged.
+
+---
+
+### Golden example instance (7 rows, per S3-00 spec)
+
+{% raw -%}
+| Quantity | Class | Status in MVM | Depends on | Note |
+|---|---|---|---|---|
+| 𝒱 (volume modulus) | CONTINUOUS-FREE | Input — not eliminated pre-Phase-1 | A-VOL | No explicit stabilization mechanism exhibited yet (VISION §1.2). |
+| g_s (string coupling) | CONTINUOUS-FREE | Input — not eliminated pre-Phase-1 | A-VOL | Paired with 𝒱 at the same vacuum point. |
+| m_φ (modulus mass) | ASSUMED | Derived, step (2)(a) | A-SEQ, A-VOL, A-ONT | From period geometry at the C3b-selected point; inherits A-SEQ (no other light mode) and A-ONT (candidate = real compactification). |
+| α_D (dark gauge coupling) | ASSUMED | Derived, step (2)(b) | A-ONT | From Kodaira fiber data (C2) + RG running. |
+| Λ_D (dark scale) | ASSUMED | Derived, step (2)(b) | A-ONT | Same chain as α_D. |
+| P1 relation (PTA, eliminated) | ASSUMED | Derived, step (2)(c) — relation not number | A-SEQ, A-VOL, A-ONT, A-REL | Only meaningful if A-REL holds (bulk/local sectors share (𝒱, g_s)); kill condition if elimination fails. |
+| P2 relation (lensing, eliminated) | ASSUMED | Derived, step (2)(c) — relation not number | A-SEQ, A-VOL, A-ONT, A-REL | Shape pinned as TEST, normalization as FIT per S3-04; same A-REL dependency as P1. |
+{% endraw %}
+
+*This instance is illustrative scaffolding (T1 draft, unreviewed) showing
+the schema is renderable end-to-end — it is not the S3-00 result. The
+real instance is T0/T0s-derived and replaces this block at MVM completion,
+with every number tracing to a checker certificate or literature citation
+(epistemic-guardrails rule 5), never from memory.*
+
+`Generated-by: Claude Sonnet 5 (T1) | Verified-by: none — schema/template only, no numeric claim | Reviewed-by: T0 N`

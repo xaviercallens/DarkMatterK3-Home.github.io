@@ -1,0 +1,35 @@
+name: Epistemic Guardrails + Pipeline Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  guardrails-and-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install pytest numpy torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Tuning-log discipline self-test (P0-D)
+        run: python3 scripts/check_tuning_log.py --selftest
+
+      - name: Tuning-log discipline (this repo's history)
+        run: python3 scripts/check_tuning_log.py
+
+      - name: Tier-language Finding F-A self-test (P0-C)
+        run: python3 scripts/check_tier_language.py --selftest
+
+      - name: Tier-language Finding F-A (this repo's docs)
+        run: python3 scripts/check_tier_language.py
+
+      - name: Pipeline closure + null tests (S3-02, merge-blocking)
+        run: python3 -m pytest pipeline/tests/ -v

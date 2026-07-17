@@ -118,9 +118,27 @@ This outcome is not a failure — it is a documented result that contributes to 
 
 ---
 
+## 6a. Free-Parameter Ledger (Phase 0 scaffold — instance pending S3-00)
+
+Per `EXECUTION_PLAN.md` WP S3-00 step (1), this document must install a
+Free-Parameter Ledger before any observable in §2 can be pinned. The
+schema lives at `templates/free_parameter_ledger.jinja` (WP P0-B); it
+classifies every quantity the MVM matching depends on as GEOMETRIC /
+CONTINUOUS-FREE / DISCRETE / ASSUMED and tags each with the `ASSUMPTIONS.md`
+IDs (A-SEQ, A-VOL, A-ONT, A-REL) it inherits.
+
+**This section is a placeholder.** The template's golden example (a 7-row
+instance for 𝒱, g_s, m_φ, α_D, Λ_D, and the eliminated P1/P2 relations) is
+illustrative scaffolding only — not a derived result. The real instance is
+produced by the T0/T0s two-model MVM derivation (S3-00) and replaces this
+placeholder before any prediction below can be pinned; every number in it
+must trace to a checker certificate or cited literature value, never to
+memory (`epistemic-guardrails` rule 5).
+
 ## 6. Changelog
 
 - **v1.0-draft (2026-07-17):** Initial draft. Three candidate observables outlined (halo profile, stochastic background, Lyman-α power). Data sources and pre-registration strategy sketched. Ready for Phase 1 consultation with external reviewers. Author: Xavier Callens.
+- **v1.0-draft, +Phase 0 scaffold (2026-07-17):** Added §6a placeholder cross-referencing the Free-Parameter Ledger schema (WP P0-B, `templates/free_parameter_ledger.jinja`) so this document is structurally ready to receive the S3-00 instance. No prediction content changed; not a tuning event (pre-pin).
 
 ---
 

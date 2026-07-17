@@ -1,0 +1,58 @@
+# TUNING_LOG.md — Record of Post-Pin Parameter and Assumption Changes
+
+**Status:** Initialized (Phase 0, WP P0-D). Empty — no tuning events recorded yet.
+
+## Purpose
+
+Per `VISION.md` §5 and the `prereg-pipeline` skill: once `PREDICTION.md` carries a
+`PINNED:` header (GATE G1 / M1), any change to a model parameter, an assumption's
+statement, or an assumption-ID tag list attached to a prediction or Free-Parameter
+Ledger row is a **tuning event**. It is logged here, and every comparison that used
+the old value is demoted (mechanically, forever) from `TEST` to `FIT`.
+
+This file has no privileged authors — anyone (any tier) who makes a post-pin change
+appends an entry in the same commit as the change. A commit that touches a pinned
+assumption tag without a matching entry here is an integrity incident (`VISION.md` F6
+spirit), not a stylistic omission.
+
+## Entry format
+
+Append one row per tuning event, oldest first. Never edit or delete a past row —
+corrections are new rows referencing the one being corrected.
+
+| Date | Commit | Quantity | Old assumption/value | New assumption/value | Justification |
+|---|---|---|---|---|---|
+| _(no entries yet)_ | | | | | |
+
+- **Date** — ISO 8601, date of the commit.
+- **Commit** — short SHA of the commit making the change (self-referential: the commit
+  that adds this row also makes the change).
+- **Quantity** — the `PREDICTION.md` prediction or Free-Parameter Ledger row name
+  (e.g. `m_φ`, `P1 (PTA)`, or an assumption ID `A-SEQ` if the assumption's statement
+  itself changed, not just a downstream use of it).
+- **Old / New assumption or value** — exact prior and new text/number. Copy, don't
+  paraphrase.
+- **Justification** — why the change was needed. "It's obviously reasonable" is not
+  a justification (`prereg-pipeline` skill).
+
+## Enforcement
+
+`scripts/check_tuning_log.py` runs in CI (`.github/workflows/epistemic-guardrails.yml`)
+on every push: for each commit that edits `PREDICTION.md` *after* that file carries a
+`PINNED:` header, the same commit must also edit `TUNING_LOG.md`. Pre-pin edits to the
+draft are exempt (no tuning event possible before a value is frozen). Run locally:
+
+```
+python3 scripts/check_tuning_log.py
+```
+
+## Related Documents
+
+- **VISION.md** §5 — tuning-event definition and TEST/FIT demotion rule.
+- **PREDICTION.md** — the pinned document this log tracks changes against.
+- **prereg-pipeline** skill (`.claude/skills/prereg-pipeline/SKILL.md`) — the workflow
+  discipline this file enforces.
+
+---
+
+`Generated-by: Claude Sonnet 5 (T1) | Verified-by: scripts/check_tuning_log.py (selftest + CI) | Reviewed-by: T0 N`

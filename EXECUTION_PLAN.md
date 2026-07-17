@@ -69,6 +69,8 @@ This document turns `VISION.md` into executable work packages, each with **instr
 
 **Phase 0 exit:** ASSUMPTIONS.md complete + signed, Free-Parameter Ledger schema live, epistemic-guardrails F-A rule in all three repos, TUNING_LOG.md initialized.
 
+**Status (this repo, 2026-07-17):** P0-A done as unsigned draft (`ASSUMPTIONS.md` v0.1 — awaiting Xavier/T0 review, per its own status banner; Phase 0 does not exit until that sign-off lands). P0-B, P0-C, P0-D implemented: `templates/free_parameter_ledger.jinja` (+ golden example, PREDICTION.md §6a placeholder, K3_CRITERIA.md §C4 cross-reference); `epistemic-guardrails` skill Finding F-A + `scripts/check_tier_language.py`; `TUNING_LOG.md` + `scripts/check_tuning_log.py`. Both checkers wired into `.github/workflows/epistemic-guardrails.yml` (self-test + repo scan, merge-blocking). **Not yet done:** mirroring P0-B/C/D into the other two repos (spec says "in all three repos"); Xavier sign-off on ASSUMPTIONS.md.
+
 ---
 
 ## 3. Stream 2 — K3 Selection (AutoEvolve) — Detailed Work Packages
@@ -102,6 +104,8 @@ This document turns `VISION.md` into executable work packages, each with **instr
 | S3-05 | `OBSERVATIONAL_REPORT.md` | Machine-generated results tables (from S3-02/03/04) + T0-written interpretation; every observable result carries TEST/FIT label + assumption list; F3/F4/F5 branches triggered mechanically from thresholds + kill-condition check, not judgment. Report published **even (especially) if all results are exclusions.** | T1 assembles tables; **T0 writes interpretation section only** | Report published; kill-condition evaluation recorded; no hand-entered numbers in evidence sections | T0s adversarial pass (assumption-breaking focus); Xavier sign-off |
 
 **Stream 3 exit criterion (feeds G1/M1 → G2/M2):** `PREDICTION.md` complete with Free-Parameter Ledger + MVM steps 1–4; both T0 and T0s agree; observable(s) chosen and pre-registered; all assumptions tagged; kill condition evaluated; commit timestamp audit clean.
+
+**S3-02 status (this repo, 2026-07-17):** synthetic-data mode scaffolded (`pipeline/`) — gate G1 check (`pipeline/gate.py`), GPU-accelerated (T4, `torch.cuda`) synthetic field generation reusing the certified `cooper_s10_kernel.py` warp as the test kernel, closure + null Monte Carlo tests in `pipeline/tests/` (7/7 passing). This is pipeline plumbing only — it computes no physical observable and produces no `TEST`/`FIT` result (labels everything `SYNTHETIC`); real-data code paths (S3-01, S3-03, S3-04) remain blocked on gate G1 (`PREDICTION.md` unpinned) and are not started. `scripts/fetch_data.py` exists as a gate-checking stub that refuses to run pre-pin.
 
 ---
 
