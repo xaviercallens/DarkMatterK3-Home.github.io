@@ -1,0 +1,54 @@
+---
+name: epistemic-guardrails
+description: Enforce the VISION.md epistemic tier system in ALL written output. Use this skill whenever writing or editing any prose about the project — README files, reports, abstracts, docstrings, commit messages, paper drafts, talk notes, issue comments, or any sentence that describes what the model/mathematics does or shows. Also use when reviewing a PR. Trigger even for one-line descriptions: tier violations happen most in casual summaries.
+---
+
+# Epistemic Guardrails
+
+This project's credibility rests on never overstating a claim. VISION.md §2 defines
+three tiers; this skill makes the rules operational for every sentence you write.
+
+## The three tiers (short form)
+
+- **Tier A** — established/machine-certified mathematics. May be stated as fact.
+- **Tier B** — checkable but unproven (per-candidate Sym², integrality beyond N, Swampland
+  checks). Must carry a hedge + its verification route: "conjectured, tracked as criterion C3",
+  "verified to order N₁ (evidence, not proof)".
+- **Tier C** — physical interpretation (dark sector identification, brane realization,
+  bulk/brane coupling). Must carry an explicit conjecture marker in the SAME sentence.
+
+## Hard language rules
+
+1. **Forbidden for Tier C claims** (unless prefixed by "we conjecture", "would", "if the
+   matching exists"): *predicts, establishes, shows, implies, locks, governs, determines,
+   demonstrates, proves*.
+2. **The Sym² relation implies no physics.** Never write that the symmetric-square /
+   Shioda-Inose structure "links", "locks", or "couples" the bulk to the brane EFT.
+   The binding ruling is VISION §1.3: geometric relation ≠ physical coupling absent a
+   worked EFT matching.
+3. **`PASS(N)` notation.** Finite-order checks (mirror-map integrality to N terms) are
+   always reported as `PASS(N)`, never bare `PASS`.
+4. **`native_decide` and axioms.** Any Lean result whose proof uses `native_decide` or an
+   axiom from `Axioms/` must say so when cited in prose ("kernel-checked modulo compiler
+   trust" / "modulo axioms listed in AXIOMS.md"). It is not plain Tier A.
+5. **No numbers from memory.** Every numeric constant or literature value in prose must
+   trace to a checker certificate, a Lean `#eval`/test, or a cited file in `refs/`.
+   If you cannot point to the source, do not write the number.
+
+## Required artifacts
+
+- **Provenance footer** on every generated file:
+  `Generated-by: <model/tier> | Verified-by: <verifier> | Reviewed-by: <T0 Y/N>`
+- **Tier ruling requests**: if you are unsure of a claim's tier, do NOT guess — add an
+  entry to `TIER_LEDGER.md` with status `RULING-REQUESTED` and flag it for the T0
+  orchestrator session. Writing the cautious (lower-tier) phrasing in the meantime.
+- **F6 discipline**: if you discover an error in a previously claimed Tier A/B result,
+  the fix is not enough — add the disclosure note to the repo README in the same PR.
+
+## Review checklist (run on any prose diff)
+
+- [ ] Every Tier C sentence has a conjecture marker in the sentence itself.
+- [ ] No forbidden verb applied to an unconstructed physical mechanism.
+- [ ] Every number traceable; every `PASS` carries its order.
+- [ ] Provenance footer present.
+- [ ] Nothing in this diff weakens VISION §2/§4 (those may only be strengthened).
