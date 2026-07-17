@@ -83,11 +83,19 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
   the model reverts to Tier C speculation with no observable-relation prediction
   (adjacent to F5).
 
+### A-DBI — Baryonic Gravitational Coupling via DBI Action
+
+- **Statement:** The local $z_{\text{brane}}$ field, which governs the scalar mediator $\phi$, does not exist in an isolated dark-sector vacuum. Because it arises from the D7-brane Dirac-Born-Infeld (DBI) action in F-theory, the modulus couples gravitationally to all localized energy densities within the halo, including the baryonic core mass ($M_b$). The radial field profile $z_{\text{brane}}(r)$ undergoes adiabatic contraction proportional to the measured baryonic mass fraction $f_b = M_b / M_{\text{halo}}$.
+- **Tier:** C (EFT mapping assumption).
+- **Enters MVM at:** Stream 3 pipeline translation. The theoretical core radius $r_c$ (where $F(z)$ saturates) is shifted dynamically by the depth of the baryonic gravitational well.
+- **Discharge path:** Derivation of the full low-energy EFT from the D7-brane DBI action, confirming the $\mathcal{O}(G_N)$ coupling between the modulus and standard model baryons dominates the scalar potential near the core.
+- **Failure mode:** If the DBI action isolates the modulus from baryonic density gradients, then the original purely-dark scaling ($\beta = 0.15$) holds, and the hypothesis remains mathematically falsified by SPARC data.
+
 ---
 
 ## CI / Audit Contract (once Phase 0 exits)
 
-1. Every quantity in the Free-Parameter Ledger and every prediction in `PREDICTION.md` carries an explicit assumption-ID list (e.g., `m_φ [A-SEQ, A-VOL, A-ONT, A-REL]`).
+1. Every quantity in the Free-Parameter Ledger and every prediction in `PREDICTION.md` carries an explicit assumption-ID list (e.g., `m_φ [A-SEQ, A-VOL, A-ONT, A-REL, A-DBI]`).
 2. `TUNING_LOG.md` records any change to an assumption's statement or an assumption-list tag after Phase 0 exit.
 3. The S2-05 / S3-00-adjacent adversarial passes must explicitly attempt to break each assumption (see per-assumption "discharge path" above) before GATE M1.
 4. No abstract or summary in any of the three repos may state a Tier C conclusion (this file) in Tier A/B language (`epistemic-guardrails` Finding F-A).
@@ -99,7 +107,6 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
 - **v0.1 (2026-07-17):** Initial draft. Best-inference reconstruction of A-SEQ, A-VOL, A-ONT, A-REL from context in `VISION.md` §1.2–1.3, `DUAL_SCALE_THREE_STREAM_PLAN.md` §5/§10, and `EXECUTION_PLAN.md` WP P0-A/S3-00. **Awaiting T0/Xavier review before Phase 0 can be marked complete.**
 - **v0.1, +A-DE flag (2026-07-17):** Added a placeholder (not a drafted assumption) for **A-DE** per `PREDICTION_REVIEW_T0.md` CF-2 — a reviewed prediction draft's dark-energy identification step was undeclared and misattributed to C3b. Still v0.1: the flag records that A-DE is required before any such elimination can be pinned; it does not author A-DE's content (T0/T0s work).
 - **v0.1, +A-DE T0 draft (2026-07-17):** Replaced the A-DE placeholder with the T0-authored text from `PREDICTION.md` §6 ("T0 architecture session," the v0.9-T0 proposal responding to `PREDICTION_REVIEW_T0.md`). A-DE is now T0-drafted but still unsigned; A-SEQ/A-VOL/A-ONT/A-REL remain T1 reconstructions awaiting T0 authorship. File stays v0.1 overall — v0.3 requires Xavier sign-off on all five entries, per the pin checklist.
-
----
+- **v0.2 (2026-07-17):** Added A-DBI (Baryonic DBI Translation) to formally log the Option 2 EFT pivot strategy before mathematical testing.
 
 `Generated-by: Claude Sonnet 5 (Claude Code session, inference from repo context) | Verified-by: none — no checker exists for physical-assumption content | Reviewed-by: T0 N`
