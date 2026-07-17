@@ -1,0 +1,321 @@
+{
+  "timestamp": "2026-07-17T12:03:29.311912",
+  "n_discoveries": 35,
+  "discoveries": [
+    {
+      "sector_id": 0,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.12479028501547873,
+      "significance": 0.12479028501547873,
+      "ra": 155.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:01:36.480874"
+    },
+    {
+      "sector_id": 1,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.25020971451886,
+      "significance": 0.25020971451886,
+      "ra": 155.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:01:40.958594"
+    },
+    {
+      "sector_id": 2,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 1.000209715217352,
+      "significance": 1.000209715217352,
+      "ra": 155.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:01:44.477933"
+    },
+    {
+      "sector_id": 3,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.0530341827659678,
+      "significance": 0.0530341827659678,
+      "ra": 155.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:01:47.884446"
+    },
+    {
+      "sector_id": 4,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028524830937,
+      "significance": 0.24979028524830937,
+      "ra": 155.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:01:51.175880"
+    },
+    {
+      "sector_id": 5,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.11708972661290318,
+      "significance": 0.11708972661290318,
+      "ra": 165.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:01:54.618666"
+    },
+    {
+      "sector_id": 6,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028454981744,
+      "significance": 0.24979028454981744,
+      "ra": 165.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:01:58.045573"
+    },
+    {
+      "sector_id": 7,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 1.0002097156830132,
+      "significance": 1.0002097156830132,
+      "ra": 165.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:02:01.241977"
+    },
+    {
+      "sector_id": 8,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.5002097142860293,
+      "significance": 0.5002097142860293,
+      "ra": 165.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:02:04.583765"
+    },
+    {
+      "sector_id": 9,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028501547873,
+      "significance": 0.24979028501547873,
+      "ra": 165.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:02:07.758318"
+    },
+    {
+      "sector_id": 10,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028548114002,
+      "significance": 0.24979028548114002,
+      "ra": 175.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:02:11.162570"
+    },
+    {
+      "sector_id": 11,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.07273479283321649,
+      "significance": 0.07273479283321649,
+      "ra": 175.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:02:14.574212"
+    },
+    {
+      "sector_id": 12,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.25020971638150513,
+      "significance": 0.25020971638150513,
+      "ra": 175.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:02:17.948097"
+    },
+    {
+      "sector_id": 13,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.06702385008924432,
+      "significance": 0.06702385008924432,
+      "ra": 175.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:02:21.104399"
+    },
+    {
+      "sector_id": 14,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.1247902843169868,
+      "significance": 0.1247902843169868,
+      "ra": 175.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:02:24.386316"
+    },
+    {
+      "sector_id": 15,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028361849487,
+      "significance": 0.24979028361849487,
+      "ra": 185.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:02:27.817409"
+    },
+    {
+      "sector_id": 16,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.5002097154501826,
+      "significance": 0.5002097154501826,
+      "ra": 185.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:02:31.262404"
+    },
+    {
+      "sector_id": 17,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.7502097147516906,
+      "significance": 0.7502097147516906,
+      "ra": 185.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:02:34.673396"
+    },
+    {
+      "sector_id": 18,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.15051479951944202,
+      "significance": 0.15051479951944202,
+      "ra": 185.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:02:37.895221"
+    },
+    {
+      "sector_id": 19,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.7502097170799971,
+      "significance": 0.7502097170799971,
+      "ra": 185.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:02:40.920702"
+    },
+    {
+      "sector_id": 20,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.750209713820368,
+      "significance": 0.750209713820368,
+      "ra": 195.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:02:44.376899"
+    },
+    {
+      "sector_id": 21,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028571397066,
+      "significance": 0.24979028571397066,
+      "ra": 195.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:02:47.815756"
+    },
+    {
+      "sector_id": 22,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028571397066,
+      "significance": 0.24979028571397066,
+      "ra": 195.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:02:50.692177"
+    },
+    {
+      "sector_id": 23,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.4997902859468013,
+      "significance": 0.4997902859468013,
+      "ra": 195.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:02:53.688692"
+    },
+    {
+      "sector_id": 24,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.24979028292000294,
+      "significance": 0.24979028292000294,
+      "ra": 195.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:02:56.809320"
+    },
+    {
+      "sector_id": 25,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.2502097152173519,
+      "significance": 0.2502097152173519,
+      "ra": 205.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:03:00.258466"
+    },
+    {
+      "sector_id": 26,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.07043291686709212,
+      "significance": 0.07043291686709212,
+      "ra": 205.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:03:03.692052"
+    },
+    {
+      "sector_id": 27,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.2502097161486745,
+      "significance": 0.2502097161486745,
+      "ra": 205.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:03:07.090903"
+    },
+    {
+      "sector_id": 28,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.04452355305729579,
+      "significance": 0.04452355305729579,
+      "ra": 205.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:03:10.250059"
+    },
+    {
+      "sector_id": 29,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.9997902847826481,
+      "significance": 0.9997902847826481,
+      "ra": 205.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:03:13.258287"
+    },
+    {
+      "sector_id": 30,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.05710131074745476,
+      "significance": 0.05710131074745476,
+      "ra": 215.0,
+      "dec": 5.0,
+      "timestamp": "2026-07-17T12:03:16.766069"
+    },
+    {
+      "sector_id": 31,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.1300453704316169,
+      "significance": 0.1300453704316169,
+      "ra": 215.0,
+      "dec": 15.0,
+      "timestamp": "2026-07-17T12:03:20.216905"
+    },
+    {
+      "sector_id": 32,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.5002097152173519,
+      "significance": 0.5002097152173519,
+      "ra": 215.0,
+      "dec": 25.0,
+      "timestamp": "2026-07-17T12:03:23.643855"
+    },
+    {
+      "sector_id": 33,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.7497902857139707,
+      "significance": 0.7497902857139707,
+      "ra": 215.0,
+      "dec": 35.0,
+      "timestamp": "2026-07-17T12:03:26.467432"
+    },
+    {
+      "sector_id": 34,
+      "type": "MODERATE_COOPER_SIGNAL",
+      "delta_s7": 0.25020971382036805,
+      "significance": 0.25020971382036805,
+      "ra": 215.0,
+      "dec": 45.0,
+      "timestamp": "2026-07-17T12:03:29.299148"
+    }
+  ]
+}

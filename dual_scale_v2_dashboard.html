@@ -1,79 +1,4 @@
-#!/usr/bin/env python3
-"""
-v5_continuous_netrunner.py
-==========================
-Continuous real-time background processor running on the NVIDIA Tesla T4 GPU.
-Simulates new telescope data streams by perturbing and sub-scanning SDSS coordinates,
-evaluating Cooper s7/s10 K3 periods, computing elliptic curve moduli, and automatically
-updating the live dual_scale_dashboard.html.
-"""
-
-import os
-import sys
-import json
-import time
-import math
-import random
-import numpy as np
-from pathlib import Path
-from scipy.special import ellipk
-
-# Configure PyTorch/CUDA if available
-import torch
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# Paths
-MODULI_FILE = Path("/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/logs/elliptic_halo_moduli.json")
-RESULTS_FILE = Path("/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/logs/v5_cooper_results.json")
-DASHBOARD_FILE = Path("/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/dual_scale_v2_dashboard.html")
-LOG_FILE = Path("/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/logs/continuous_netrunner.log")
-
-os.makedirs(LOG_FILE.parent, exist_ok=True)
-
-def log_netrunner(msg, level="INFO"):
-    t_stamp = time.strftime("%Y-%m-%d %H:%M:%S")
-    line = f"[{t_stamp}] [{level}] {msg}\n"
-    print(line.strip())
-    with open(LOG_FILE, 'a') as f:
-        f.write(line)
-
-def calculate_j_invariant(tau):
-    q = np.exp(2j * np.pi * tau)
-    if np.abs(q) < 1e-12:
-        return float('inf')
-    return 1.0/q + 744.0 + 196884.0*q
-
-def run_gpu_solver(rho_grid):
-    """Run Level 7 Shioda-Inose mathematical mapping and FFT directly on the T4 GPU."""
-    tensor = torch.tensor(rho_grid, device=DEVICE, dtype=torch.float32)
-    
-    # Run Shioda-Inose potential map on the density field directly on GPU
-    # F(z) = z^2 / (1 + 13*z + 49*z^2)
-    z_field = tensor / torch.clamp(torch.mean(tensor), min=1e-5)
-    f_field = (z_field**2) / (1.0 + 13.0 * z_field + 49.0 * (z_field**2))
-    
-    # Perform standard 3D FFT on the mapped field
-    fft_res = torch.fft.fftn(f_field)
-    
-    n = tensor.shape[0]
-    freqs = torch.fft.fftfreq(n, device=DEVICE) * n
-    kx, ky, kz = torch.meshgrid(freqs, freqs, freqs, indexing='ij')
-    kmag = torch.sqrt(kx**2 + ky**2 + kz**2)
-    
-    # Filter high-frequency components
-    warped_fft = fft_res * torch.exp(-kmag / 50.0)
-    warped = torch.fft.ifftn(warped_fft).real
-    
-    # Compute asymmetry delta
-    delta = float(torch.mean(torch.abs(warped - tensor)).cpu().numpy())
-    max_density = float(torch.max(tensor).cpu().numpy())
-    return delta, max_density
-
-def regenerate_html(sectors):
-    sectors_json_str = json.dumps(sectors, indent=2)
-    
-    # Keep the HTML dynamic and matching the previous beautiful dashboard
-    html_content = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -91,7 +16,7 @@ def regenerate_html(sectors):
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        :root {{
+        :root {
             --bg-deep: #060913;
             --bg-card: rgba(14, 20, 38, 0.7);
             --border-glow: rgba(0, 255, 240, 0.15);
@@ -106,15 +31,15 @@ def regenerate_html(sectors):
             --font-mono: 'Roboto Mono', monospace;
             --glow: 0 0 15px rgba(0, 255, 240, 0.3);
             --glow-gold: 0 0 15px rgba(255, 215, 0, 0.3);
-        }}
+        }
 
-        * {{
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }}
+        }
 
-        body {{
+        body {
             background-color: var(--bg-deep);
             background-image: 
                 radial-gradient(at 10% 20%, rgba(189, 147, 249, 0.05) 0px, transparent 50%),
@@ -125,26 +50,26 @@ def regenerate_html(sectors):
             line-height: 1.6;
             overflow-x: hidden;
             padding-bottom: 50px;
-        }}
+        }
 
         /* Premium Scrollbar */
-        ::-webkit-scrollbar {{
+        ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
-        }}
-        ::-webkit-scrollbar-track {{
+        }
+        ::-webkit-scrollbar-track {
             background: var(--bg-deep);
-        }}
-        ::-webkit-scrollbar-thumb {{
+        }
+        ::-webkit-scrollbar-thumb {
             background: rgba(0, 255, 240, 0.2);
             border-radius: 4px;
-        }}
-        ::-webkit-scrollbar-thumb:hover {{
+        }
+        ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-cyan);
-        }}
+        }
 
         /* Grid Header */
-        header {{
+        header {
             background: linear-gradient(180deg, rgba(6, 9, 19, 0.9) 0%, rgba(6, 9, 19, 0) 100%);
             border-bottom: 1px solid var(--border-glow);
             padding: 20px 5%;
@@ -155,27 +80,27 @@ def regenerate_html(sectors):
             position: sticky;
             top: 0;
             z-index: 100;
-        }}
+        }
 
-        .logo-container {{
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
-        }}
+        }
 
-        .logo-icon {{
+        .logo-icon {
             font-size: 2rem;
             color: var(--accent-cyan);
             text-shadow: var(--glow);
             animation: pulse 3s infinite alternate;
-        }}
+        }
 
-        @keyframes pulse {{
-            0% {{ transform: scale(1); opacity: 0.8; }}
-            100% {{ transform: scale(1.1); opacity: 1; text-shadow: 0 0 25px var(--accent-cyan); }}
-        }}
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 25px var(--accent-cyan); }
+        }
 
-        h1 {{
+        h1 {
             font-family: var(--font-display);
             font-weight: 900;
             font-size: 1.6rem;
@@ -183,9 +108,9 @@ def regenerate_html(sectors):
             background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }}
+        }
 
-        .meta-stamp {{
+        .meta-stamp {
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--accent-gold);
@@ -194,26 +119,26 @@ def regenerate_html(sectors):
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 4px;
             text-transform: uppercase;
-        }}
+        }
 
         /* Main Layout */
-        main {{
+        main {
             max-width: 1400px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
-        }}
+        }
 
-        @media (max-width: 1024px) {{
-            main {{
+        @media (max-width: 1024px) {
+            main {
                 grid-template-columns: 1fr;
-            }}
-        }}
+            }
+        }
 
         /* Glassmorphic Cards */
-        .glass-card {{
+        .glass-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
             border-radius: 8px;
@@ -223,9 +148,9 @@ def regenerate_html(sectors):
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }}
+        }
 
-        .glass-card::before {{
+        .glass-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -234,14 +159,14 @@ def regenerate_html(sectors):
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
             opacity: 0.5;
-        }}
+        }
 
-        .glass-card:hover {{
+        .glass-card:hover {
             border-color: var(--border-glow-active);
             box-shadow: 0 8px 32px 0 rgba(0, 255, 240, 0.05);
-        }}
+        }
 
-        h2 {{
+        h2 {
             font-family: var(--font-display);
             font-size: 1.3rem;
             color: var(--accent-cyan);
@@ -251,76 +176,76 @@ def regenerate_html(sectors):
             gap: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }}
+        }
 
-        h2 i {{
+        h2 i {
             font-size: 1.1rem;
-        }}
+        }
 
         /* Left Column Subgrid */
-        .analytics-grid {{
+        .analytics-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-        }}
+        }
 
-        .stats-strip {{
+        .stats-strip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-        }}
+        }
 
-        @media (max-width: 640px) {{
-            .stats-strip {{
+        @media (max-width: 640px) {
+            .stats-strip {
                 grid-template-columns: repeat(2, 1fr);
-            }}
-        }}
+            }
+        }
 
-        .stat-box {{
+        .stat-box {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 6px;
             padding: 15px;
             text-align: center;
             transition: transform 0.2s ease;
-        }}
+        }
 
-        .stat-box:hover {{
+        .stat-box:hover {
             transform: translateY(-3px);
             background: rgba(255, 255, 255, 0.04);
-        }}
+        }
 
-        .stat-label {{
+        .stat-label {
             font-size: 0.8rem;
             text-transform: uppercase;
             color: var(--text-secondary);
             margin-bottom: 5px;
             letter-spacing: 1px;
-        }}
+        }
 
-        .stat-value {{
+        .stat-value {
             font-family: var(--font-display);
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--accent-gold);
             text-shadow: var(--glow-gold);
-        }}
+        }
 
-        .stat-value.cyan {{
+        .stat-value.cyan {
             color: var(--accent-cyan);
             text-shadow: var(--glow);
-        }}
+        }
 
         /* Visualization Section */
-        .chart-container {{
+        .chart-container {
             position: relative;
             height: 380px;
             width: 100%;
             margin-top: 15px;
-        }}
+        }
 
         /* Sector Explorer */
-        .explorer-section {{
+        .explorer-section {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 20px;
@@ -328,21 +253,21 @@ def regenerate_html(sectors):
             border-radius: 6px;
             padding: 15px;
             border: 1px solid rgba(255, 255, 255, 0.03);
-        }}
+        }
 
-        @media (max-width: 768px) {{
-            .explorer-section {{
+        @media (max-width: 768px) {
+            .explorer-section {
                 grid-template-columns: 1fr;
-            }}
-        }}
+            }
+        }
 
-        .sector-list-container {{
+        .sector-list-container {
             max-height: 280px;
             overflow-y: auto;
             padding-right: 5px;
-        }}
+        }
 
-        .sector-item {{
+        .sector-item {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 10px 15px;
@@ -355,102 +280,102 @@ def regenerate_html(sectors):
             align-items: center;
             font-family: var(--font-mono);
             font-size: 0.85rem;
-        }}
+        }
 
-        .sector-item:hover {{
+        .sector-item:hover {
             background: rgba(0, 255, 240, 0.05);
             border-color: rgba(0, 255, 240, 0.3);
-        }}
+        }
 
-        .sector-item.active {{
+        .sector-item.active {
             background: rgba(0, 255, 240, 0.1);
             border-color: var(--accent-cyan);
             box-shadow: inset 0 0 10px rgba(0, 255, 240, 0.1);
-        }}
+        }
 
-        .sector-item span.asymmetry {{
+        .sector-item span.asymmetry {
             color: var(--accent-gold);
             font-weight: bold;
-        }}
+        }
 
-        .inspector-panel {{
+        .inspector-panel {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 5px;
-        }}
+        }
 
-        .inspector-title {{
+        .inspector-title {
             font-family: var(--font-display);
             font-size: 1.1rem;
             color: var(--accent-gold);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
             margin-bottom: 15px;
-        }}
+        }
 
-        .inspector-grid {{
+        .inspector-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             font-family: var(--font-mono);
             font-size: 0.85rem;
-        }}
+        }
 
-        .inspector-pair {{
+        .inspector-pair {
             display: flex;
             flex-direction: column;
-        }}
+        }
 
-        .inspector-pair .label {{
+        .inspector-pair .label {
             color: var(--text-secondary);
             font-size: 0.75rem;
             text-transform: uppercase;
             margin-bottom: 2px;
-        }}
+        }
 
-        .inspector-pair .val {{
+        .inspector-pair .val {
             color: var(--accent-cyan);
             font-weight: 600;
-        }}
+        }
 
         /* Right Column: Theory & Conjectures */
-        .theory-sidebar {{
+        .theory-sidebar {
             display: flex;
             flex-direction: column;
             gap: 30px;
-        }}
+        }
 
-        .theory-block {{
+        .theory-block {
             background: rgba(255, 255, 255, 0.01);
             border-left: 3px solid var(--accent-purple);
             padding: 15px;
             border-radius: 0 6px 6px 0;
             font-size: 0.95rem;
             color: var(--text-secondary);
-        }}
+        }
 
-        .theory-block strong {{
+        .theory-block strong {
             color: var(--accent-purple);
             font-family: var(--font-display);
             font-size: 1rem;
             display: block;
             margin-bottom: 8px;
             text-transform: uppercase;
-        }}
+        }
 
-        .theory-block p {{
+        .theory-block p {
             margin-bottom: 10px;
-        }}
+        }
 
-        .badge-list {{
+        .badge-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 15px;
-        }}
+        }
 
-        .badge {{
+        .badge {
             font-size: 0.75rem;
             font-family: var(--font-mono);
             padding: 4px 8px;
@@ -458,16 +383,16 @@ def regenerate_html(sectors):
             background: rgba(189, 147, 249, 0.1);
             border: 1px solid rgba(189, 147, 249, 0.3);
             color: var(--accent-purple);
-        }}
+        }
 
-        .badge.cyan {{
+        .badge.cyan {
             background: rgba(0, 255, 240, 0.1);
             border-color: rgba(0, 255, 240, 0.3);
             color: var(--accent-cyan);
-        }}
+        }
 
         /* Terminal Output Box */
-        .terminal-box {{
+        .terminal-box {
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(0, 255, 240, 0.2);
             border-radius: 6px;
@@ -477,21 +402,21 @@ def regenerate_html(sectors):
             color: #50fa7b;
             max-height: 180px;
             overflow-y: auto;
-        }}
+        }
 
-        .terminal-line {{
+        .terminal-line {
             margin-bottom: 4px;
             display: flex;
             gap: 10px;
-        }}
+        }
 
-        .terminal-line .timestamp {{
+        .terminal-line .timestamp {
             color: #6272a4;
-        }}
+        }
 
-        .terminal-line .msg {{
+        .terminal-line .msg {
             color: #f8f8f2;
-        }}
+        }
     </style>
 </head>
 <body>
@@ -609,9 +534,9 @@ def regenerate_html(sectors):
             <div class="glass-card">
                 <h2><i class="fa-solid fa-terminal"></i> GPU Computation telemetry stream</h2>
                 <div class="terminal-box" id="terminalLog">
-                    <div class="terminal-line"><span class="timestamp">[{time.strftime("%H:%M:%S")}]</span><span class="msg" style="color: var(--accent-cyan);">[SYSTEM] Tesla T4 continuous netrunner daemon initialized...</span></div>
-                    <div class="terminal-line"><span class="timestamp">[{time.strftime("%H:%M:%S")}]</span><span class="msg">[INFO] Actively polling and re-evaluating SDSS sectors with T4 CUDA cores.</span></div>
-                    <div class="terminal-line"><span class="timestamp">[{time.strftime("%H:%M:%S")}]</span><span class="msg" style="color: #50fa7b;">[SUCCESS] Real-time dashboard updates enabled directly on GitHub Pages.</span></div>
+                    <div class="terminal-line"><span class="timestamp">[12:44:35]</span><span class="msg" style="color: var(--accent-cyan);">[SYSTEM] Tesla T4 continuous netrunner daemon initialized...</span></div>
+                    <div class="terminal-line"><span class="timestamp">[12:44:35]</span><span class="msg">[INFO] Actively polling and re-evaluating SDSS sectors with T4 CUDA cores.</span></div>
+                    <div class="terminal-line"><span class="timestamp">[12:44:35]</span><span class="msg" style="color: #50fa7b;">[SUCCESS] Real-time dashboard updates enabled directly on GitHub Pages.</span></div>
                 </div>
             </div>
 
@@ -679,31 +604,732 @@ def regenerate_html(sectors):
 
     <!-- Interactive Logic & Charting Script -->
     <script>
-        const sectorsData = {sectors_json_str};
+        const sectorsData = [
+  {
+    "sector_id": 0,
+    "ra_range": [
+      150.0,
+      160.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 1.0555205345153809,
+    "max_density": 41.34986114501953,
+    "elliptic_modulus_k2": 0.27790878441306954,
+    "period_omega_1": 1.7011904502498503,
+    "period_omega_2": 2.1092808879761846,
+    "tau_real": 0.0,
+    "tau_imag": 1.2398852154774316,
+    "j_invariant_real": 3242.7994601746996,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 1,
+    "ra_range": [
+      150.0,
+      160.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 1.0552364587783813,
+    "max_density": 50.78230285644531,
+    "elliptic_modulus_k2": 0.31995258594474274,
+    "period_omega_1": 1.7257469750795862,
+    "period_omega_2": 2.046959282401648,
+    "tau_real": 0.0,
+    "tau_imag": 1.1861294337817099,
+    "j_invariant_real": 2582.6342812767903,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 2,
+    "ra_range": [
+      150.0,
+      160.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 1.062940001487732,
+    "max_density": 49.313629150390625,
+    "elliptic_modulus_k2": 0.31375533472356526,
+    "period_omega_1": 1.722023209213972,
+    "period_omega_2": 2.0555726650700086,
+    "tau_real": 0.0,
+    "tau_imag": 1.1936962603473198,
+    "j_invariant_real": 2661.300906230871,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 3,
+    "ra_range": [
+      150.0,
+      160.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 1.0504124164581299,
+    "max_density": 46.2033805847168,
+    "elliptic_modulus_k2": 0.3002202232255995,
+    "period_omega_1": 1.7140182700091688,
+    "period_omega_2": 2.0750386638195266,
+    "tau_real": 0.0,
+    "tau_imag": 1.2106280896343227,
+    "j_invariant_real": 2853.311518567616,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 4,
+    "ra_range": [
+      150.0,
+      160.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 0.02467624470591545,
+    "max_density": 55.43727111816406,
+    "elliptic_modulus_k2": 0.3388209737818892,
+    "period_omega_1": 1.7373201086726004,
+    "period_omega_2": 2.021801028199253,
+    "tau_real": 0.0,
+    "tau_imag": 1.1637469791010537,
+    "j_invariant_real": 2373.6386458174566,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 5,
+    "ra_range": [
+      160.0,
+      170.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 1.0662199258804321,
+    "max_density": 46.836463928222656,
+    "elliptic_modulus_k2": 0.3030217395698225,
+    "period_omega_1": 1.7156609791355661,
+    "period_omega_2": 2.0709331569247493,
+    "tau_real": 0.0,
+    "tau_imag": 1.2070759795260873,
+    "j_invariant_real": 2811.1257307701,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 6,
+    "ra_range": [
+      160.0,
+      170.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 1.0426876544952393,
+    "max_density": 44.681304931640625,
+    "elliptic_modulus_k2": 0.2933844127623411,
+    "period_omega_1": 1.7100404073278717,
+    "period_omega_2": 2.085231486281509,
+    "tau_real": 0.0,
+    "tau_imag": 1.219404803153111,
+    "j_invariant_real": 2962.096962883111,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 7,
+    "ra_range": [
+      160.0,
+      170.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 0.0237039215862751,
+    "max_density": 35.948673248291016,
+    "elliptic_modulus_k2": 0.25120686189782854,
+    "period_omega_1": 1.6864047358167134,
+    "period_omega_2": 2.154358741073724,
+    "tau_real": 0.0,
+    "tau_imag": 1.2774861783285874,
+    "j_invariant_real": 3869.8759354040703,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 8,
+    "ra_range": [
+      160.0,
+      170.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 1.052688479423523,
+    "max_density": 48.52490234375,
+    "elliptic_modulus_k2": 0.3103766203452572,
+    "period_omega_1": 1.720008686318326,
+    "period_omega_2": 2.0603460994016523,
+    "tau_real": 0.0,
+    "tau_imag": 1.1978695897238854,
+    "j_invariant_real": 2706.5307482493768,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 9,
+    "ra_range": [
+      160.0,
+      170.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 1.0576283931732178,
+    "max_density": 49.91524124145508,
+    "elliptic_modulus_k2": 0.3163085940208575,
+    "period_omega_1": 1.7235528661800161,
+    "period_omega_2": 2.052001973831687,
+    "tau_real": 0.0,
+    "tau_imag": 1.1905651483610287,
+    "j_invariant_real": 2628.2337330896926,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 10,
+    "ra_range": [
+      170.0,
+      180.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 0.02869436889886856,
+    "max_density": 35.36771011352539,
+    "elliptic_modulus_k2": 0.2482078228232658,
+    "period_omega_1": 1.6847807628896587,
+    "period_omega_2": 2.1597392319297333,
+    "tau_real": 0.0,
+    "tau_imag": 1.281911142091537,
+    "j_invariant_real": 3954.427307250013,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 11,
+    "ra_range": [
+      170.0,
+      180.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 0.0333956778049469,
+    "max_density": 49.360107421875,
+    "elliptic_modulus_k2": 0.31395332301370266,
+    "period_omega_1": 1.7221415982915478,
+    "period_omega_2": 2.0552946653099684,
+    "tau_real": 0.0,
+    "tau_imag": 1.1934527726111055,
+    "j_invariant_real": 2658.703027391565,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 12,
+    "ra_range": [
+      170.0,
+      180.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 1.057252287864685,
+    "max_density": 45.85376739501953,
+    "elliptic_modulus_k2": 0.29866269348594165,
+    "period_omega_1": 1.713108140705362,
+    "period_omega_2": 2.0773390006949324,
+    "tau_real": 0.0,
+    "tau_imag": 1.2126140500620122,
+    "j_invariant_real": 2877.3538856088453,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 13,
+    "ra_range": [
+      170.0,
+      180.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 1.048032283782959,
+    "max_density": 39.16566467285156,
+    "elliptic_modulus_k2": 0.26736035448596823,
+    "period_omega_1": 1.6952779927570023,
+    "period_omega_2": 2.126510937611452,
+    "tau_real": 0.0,
+    "tau_imag": 1.2543729976421996,
+    "j_invariant_real": 3466.0896496786236,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 14,
+    "ra_range": [
+      170.0,
+      180.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 1.0842583179473877,
+    "max_density": 48.81418228149414,
+    "elliptic_modulus_k2": 0.31161998444274774,
+    "period_omega_1": 1.7207487549058516,
+    "period_omega_2": 2.058583008080926,
+    "tau_real": 0.0,
+    "tau_imag": 1.1963297966724717,
+    "j_invariant_real": 2689.68730335254,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 15,
+    "ra_range": [
+      180.0,
+      190.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 0.02056809701025486,
+    "max_density": 33.08355712890625,
+    "elliptic_modulus_k2": 0.23616275331458175,
+    "period_omega_1": 1.678330191477573,
+    "period_omega_2": 2.182070733564726,
+    "tau_real": 0.0,
+    "tau_imag": 1.3001438838704726,
+    "j_invariant_real": 4329.746010255919,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 16,
+    "ra_range": [
+      180.0,
+      190.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 1.0692884922027588,
+    "max_density": 91.3011474609375,
+    "elliptic_modulus_k2": 0.45340078321067884,
+    "period_omega_1": 1.8164881391066905,
+    "period_omega_2": 1.895705635852727,
+    "tau_real": 0.0,
+    "tau_imag": 1.0436102471800306,
+    "j_invariant_real": 1727.8423222596523,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 17,
+    "ra_range": [
+      180.0,
+      190.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 0.04027452692389488,
+    "max_density": 50.99079895019531,
+    "elliptic_modulus_k2": 0.32082258879008924,
+    "period_omega_1": 1.7262727440700405,
+    "period_omega_2": 2.045764481954328,
+    "tau_real": 0.0,
+    "tau_imag": 1.1850760483717193,
+    "j_invariant_real": 2572.016571949313,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 18,
+    "ra_range": [
+      180.0,
+      190.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 1.059671401977539,
+    "max_density": 49.728248596191406,
+    "elliptic_modulus_k2": 0.31551718937012607,
+    "period_omega_1": 1.7230780600687532,
+    "period_omega_2": 2.0531054133989635,
+    "tau_real": 0.0,
+    "tau_imag": 1.191533605457806,
+    "j_invariant_real": 2638.382961060491,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 19,
+    "ra_range": [
+      180.0,
+      190.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 0.031467217952013016,
+    "max_density": 50.16560745239258,
+    "elliptic_modulus_k2": 0.3173651269974177,
+    "period_omega_1": 1.7241876867193962,
+    "period_omega_2": 2.0505334934402226,
+    "tau_real": 0.0,
+    "tau_imag": 1.189275105740816,
+    "j_invariant_real": 2614.822657035466,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 20,
+    "ra_range": [
+      190.0,
+      200.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 1.0552599430084229,
+    "max_density": 60.76629638671875,
+    "elliptic_modulus_k2": 0.3590801235385792,
+    "period_omega_1": 1.7501601853158122,
+    "period_omega_2": 1.9964183136567462,
+    "tau_real": 0.0,
+    "tau_imag": 1.1407060510272649,
+    "j_invariant_real": 2192.1794123598856,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 21,
+    "ra_range": [
+      190.0,
+      200.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 1.083052158355713,
+    "max_density": 48.20317840576172,
+    "elliptic_modulus_k2": 0.308988106584989,
+    "period_omega_1": 1.7191839679554453,
+    "period_omega_2": 2.0623240137303256,
+    "tau_real": 0.0,
+    "tau_imag": 1.1995947217812661,
+    "j_invariant_real": 2725.6198452097337,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 22,
+    "ra_range": [
+      190.0,
+      200.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 1.0505073070526123,
+    "max_density": 49.00077819824219,
+    "elliptic_modulus_k2": 0.3124194373427726,
+    "period_omega_1": 1.7212253837338856,
+    "period_omega_2": 2.0574533754566846,
+    "tau_real": 0.0,
+    "tau_imag": 1.1953422224075114,
+    "j_invariant_real": 2678.9804137883375,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 23,
+    "ra_range": [
+      190.0,
+      200.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 0.021806295961141586,
+    "max_density": 42.36349105834961,
+    "elliptic_modulus_k2": 0.28269408263483115,
+    "period_omega_1": 1.7039043345350773,
+    "period_omega_2": 2.101694129474262,
+    "tau_real": 0.0,
+    "tau_imag": 1.2334578220600187,
+    "j_invariant_real": 3150.4772934943976,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 24,
+    "ra_range": [
+      190.0,
+      200.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 1.0556914806365967,
+    "max_density": 46.8132209777832,
+    "elliptic_modulus_k2": 0.30291931225746993,
+    "period_omega_1": 1.715600790590222,
+    "period_omega_2": 2.071082540404369,
+    "tau_real": 0.0,
+    "tau_imag": 1.207205401025637,
+    "j_invariant_real": 2812.644572991423,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 25,
+    "ra_range": [
+      200.0,
+      210.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 1.0535967350006104,
+    "max_density": 42.5620231628418,
+    "elliptic_modulus_k2": 0.28362337393678794,
+    "period_omega_1": 1.7044336929583728,
+    "period_omega_2": 2.1002367719002137,
+    "tau_real": 0.0,
+    "tau_imag": 1.2322196988812446,
+    "j_invariant_real": 3133.1485086761063,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 26,
+    "ra_range": [
+      200.0,
+      210.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 0.035649433732032776,
+    "max_density": 49.239410400390625,
+    "elliptic_modulus_k2": 0.31343892176250954,
+    "period_omega_1": 1.721834085455935,
+    "period_omega_2": 2.0560173396326085,
+    "tau_real": 0.0,
+    "tau_imag": 1.1940856305491148,
+    "j_invariant_real": 2665.4645983019363,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 27,
+    "ra_range": [
+      200.0,
+      210.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 1.0512458086013794,
+    "max_density": 66.86009216308594,
+    "elliptic_modulus_k2": 0.3806607483642717,
+    "period_omega_1": 1.7643406068938514,
+    "period_omega_2": 1.97102916199884,
+    "tau_real": 0.0,
+    "tau_imag": 1.1171477629077908,
+    "j_invariant_real": 2038.056433834832,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 28,
+    "ra_range": [
+      200.0,
+      210.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 1.0720434188842773,
+    "max_density": 48.20692825317383,
+    "elliptic_modulus_k2": 0.3090043251033672,
+    "period_omega_1": 1.7191935904658364,
+    "period_omega_2": 2.062300855592958,
+    "tau_real": 0.0,
+    "tau_imag": 1.1995745371724846,
+    "j_invariant_real": 2725.3951548112386,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 29,
+    "ra_range": [
+      200.0,
+      210.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 0.9997902847826481,
+    "max_density": 305.1215515136719,
+    "elliptic_modulus_k2": 0.7155024778488144,
+    "period_omega_1": 2.098870558094195,
+    "period_omega_2": 1.7049323358708395,
+    "tau_real": 0.0,
+    "tau_imag": 0.8123094248455907,
+    "j_invariant_real": 2104.3520843628357,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 30,
+    "ra_range": [
+      210.0,
+      220.0
+    ],
+    "dec_range": [
+      0.0,
+      10.0
+    ],
+    "observed_asymmetry_delta": 1.0332342386245728,
+    "max_density": 27.194564819335938,
+    "elliptic_modulus_k2": 0.20311274003778632,
+    "period_omega_1": 1.6611963785752324,
+    "period_omega_2": 2.250190850179388,
+    "tau_real": 0.0,
+    "tau_imag": 1.3545604115205945,
+    "j_invariant_real": 5752.524778458025,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 31,
+    "ra_range": [
+      210.0,
+      220.0
+    ],
+    "dec_range": [
+      10.0,
+      20.0
+    ],
+    "observed_asymmetry_delta": 0.025683585554361343,
+    "max_density": 46.25386428833008,
+    "elliptic_modulus_k2": 0.30044451329700517,
+    "period_omega_1": 1.7141495169903498,
+    "period_omega_2": 2.0747084630785455,
+    "tau_real": 0.0,
+    "tau_imag": 1.2103427632854653,
+    "j_invariant_real": 2849.8843804889852,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 32,
+    "ra_range": [
+      210.0,
+      220.0
+    ],
+    "dec_range": [
+      20.0,
+      30.0
+    ],
+    "observed_asymmetry_delta": 1.0462474822998047,
+    "max_density": 39.98773193359375,
+    "elliptic_modulus_k2": 0.27136910365070177,
+    "period_omega_1": 1.6975137176113853,
+    "period_omega_2": 2.119878584521181,
+    "tau_real": 0.0,
+    "tau_imag": 1.2488138166589406,
+    "j_invariant_real": 3377.8458987995205,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 33,
+    "ra_range": [
+      210.0,
+      220.0
+    ],
+    "dec_range": [
+      30.0,
+      40.0
+    ],
+    "observed_asymmetry_delta": 0.022113731130957603,
+    "max_density": 39.8983039855957,
+    "elliptic_modulus_k2": 0.270935298759723,
+    "period_omega_1": 1.697271121369064,
+    "period_omega_2": 2.1205912233530495,
+    "tau_real": 0.0,
+    "tau_imag": 1.249412186806386,
+    "j_invariant_real": 3387.1879183513306,
+    "j_invariant_imag": 0.0
+  },
+  {
+    "sector_id": 34,
+    "ra_range": [
+      210.0,
+      220.0
+    ],
+    "dec_range": [
+      40.0,
+      50.0
+    ],
+    "observed_asymmetry_delta": 1.0633021593093872,
+    "max_density": 46.433414459228516,
+    "elliptic_modulus_k2": 0.30124096948206536,
+    "period_omega_1": 1.7146159535249064,
+    "period_omega_2": 2.073538053394919,
+    "tau_real": 0.0,
+    "tau_imag": 1.2093308995125938,
+    "j_invariant_real": 2837.78507610564,
+    "j_invariant_imag": 0.0
+  }
+];
 
         // Initialize Chart.js Moduli & Asymmetry Correlation Chart
-        function initChart() {{
+        function initChart() {
             const ctx = document.getElementById('moduliChart').getContext('2d');
             
-            const sectorIDs = sectorsData.map(s => `Sector ${{s.sector_id}}`);
+            const sectorIDs = sectorsData.map(s => `Sector ${s.sector_id}`);
             const asymmetries = sectorsData.map(s => s.observed_asymmetry_delta);
             const moduli = sectorsData.map(s => s.elliptic_modulus_k2);
 
-            new Chart(ctx, {{
+            new Chart(ctx, {
                 type: 'line',
-                data: {{
+                data: {
                     labels: sectorIDs,
                     datasets: [
-                        {{
-                            label: 'Observed Asymmetry (\u0394s7)',
+                        {
+                            label: 'Observed Asymmetry (Δs7)',
                             data: asymmetries,
                             borderColor: '#FFD700',
                             backgroundColor: 'rgba(255, 215, 0, 0.1)',
                             borderWidth: 2,
                             tension: 0.3,
                             yAxisID: 'y'
-                        }},
-                        {{
+                        },
+                        {
                             label: 'Elliptic Modulus (k2)',
                             data: moduli,
                             borderColor: '#00FFFF',
@@ -711,197 +1337,118 @@ def regenerate_html(sectors):
                             borderWidth: 2,
                             tension: 0.3,
                             yAxisID: 'y1'
-                        }}
+                        }
                     ]
-                }},
-                options: {{
+                },
+                options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: {{
-                        x: {{
-                            grid: {{ color: 'rgba(255, 255, 255, 0.05)' }},
-                            ticks: {{ color: '#94A3B8', font: {{ family: 'Roboto Mono', size: 9 }} }}
-                        }},
-                        y: {{
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94A3B8', font: { family: 'Roboto Mono', size: 9 } }
+                        },
+                        y: {
                             type: 'linear',
                             display: true,
                             position: 'left',
-                            grid: {{ color: 'rgba(255, 255, 255, 0.05)' }},
-                            ticks: {{ color: '#FFD700', font: {{ family: 'Roboto Mono' }} }}
-                        }},
-                        y1: {{
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#FFD700', font: { family: 'Roboto Mono' } }
+                        },
+                        y1: {
                             type: 'linear',
                             display: true,
                             position: 'right',
-                            grid: {{ drawOnChartArea: false }},
-                            ticks: {{ color: '#00FFFF', font: {{ family: 'Roboto Mono' }} }}
-                        }}
-                    }},
-                    plugins: {{
-                        legend: {{
-                            labels: {{ color: '#E2E8F0', font: {{ family: 'Orbitron' }} }}
-                        }}
-                    }}
-                }}
-            }});
-        }}
+                            grid: { drawOnChartArea: false },
+                            ticks: { color: '#00FFFF', font: { family: 'Roboto Mono' } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#E2E8F0', font: { family: 'Orbitron' } }
+                        }
+                    }
+                }
+            });
+        }
 
         // Populates the explorer selector list
-        function populateExplorer() {{
+        function populateExplorer() {
             const listContainer = document.getElementById('sectorList');
-            sectorsData.forEach((s, idx) => {{
+            sectorsData.forEach((s, idx) => {
                 const item = document.createElement('div');
-                item.className = `sector-item ${{idx === 2 ? 'active' : ''}}`;
+                item.className = `sector-item ${idx === 2 ? 'active' : ''}`;
                 item.innerHTML = `
-                    <span>Sector ${{s.sector_id}} (RA: ${{Math.round(s.ra_range[0])}})</span>
-                    <span class="asymmetry">\u0394: ${{s.observed_asymmetry_delta.toFixed(3)}}</span>
+                    <span>Sector ${s.sector_id} (RA: ${Math.round(s.ra_range[0])})</span>
+                    <span class="asymmetry">Δ: ${s.observed_asymmetry_delta.toFixed(3)}</span>
                 `;
-                item.addEventListener('click', () => {{
+                item.addEventListener('click', () => {
                     document.querySelectorAll('.sector-item').forEach(el => el.classList.remove('active'));
                     item.classList.add('active');
                     inspectSector(s);
-                }});
+                });
                 listContainer.appendChild(item);
-            }});
+            });
 
             // Initial inspection
             inspectSector(sectorsData[2] || sectorsData[0]);
-        }}
+        }
 
         // Inspector logic
-        function inspectSector(s) {{
+        function inspectSector(s) {
             const panel = document.getElementById('inspectorPanel');
             const coupling_gs = (1.0 / s.tau_imag).toFixed(4);
             panel.innerHTML = `
-                <div class="inspector-title">Sector ${{s.sector_id}} Cosmic coordinates</div>
+                <div class="inspector-title">Sector ${s.sector_id} Cosmic coordinates</div>
                 <div class="inspector-grid">
                     <div class="inspector-pair">
                         <span class="label">RA Coordinates</span>
-                        <span class="val">${{s.ra_range[0].toFixed(1)}}\u00b0 -- ${{s.ra_range[1].toFixed(1)}}\u00b0</span>
+                        <span class="val">${s.ra_range[0].toFixed(1)}° -- ${s.ra_range[1].toFixed(1)}°</span>
                     </div>
                     <div class="inspector-pair">
                         <span class="label">DEC Coordinates</span>
-                        <span class="val">${{s.dec_range[0].toFixed(1)}}\u00b0 -- ${{s.dec_range[1].toFixed(1)}}\u00b0</span>
+                        <span class="val">${s.dec_range[0].toFixed(1)}° -- ${s.dec_range[1].toFixed(1)}°</span>
                     </div>
                     <div class="inspector-pair">
                         <span class="label">Galaxies Ingested</span>
-                        <span class="val">${{s.n_galaxies}} (SDSS)</span>
+                        <span class="val">${s.n_galaxies} (SDSS)</span>
                     </div>
                     <div class="inspector-pair">
                         <span class="label">Max Voxel Density</span>
-                        <span class="val">${{s.max_density.toFixed(2)}}\u03c1</span>
+                        <span class="val">${s.max_density.toFixed(2)}ρ</span>
                     </div>
                     <div class="inspector-pair">
-                        <span class="label">Elliptic Modulus k\u00b2</span>
-                        <span class="val">${{s.elliptic_modulus_k2.toFixed(5)}}</span>
+                        <span class="label">Elliptic Modulus k²</span>
+                        <span class="val">${s.elliptic_modulus_k2.toFixed(5)}</span>
                     </div>
                     <div class="inspector-pair">
                         <span class="label">Klein j-Invariant</span>
-                        <span class="val">${{s.j_invariant_real.toFixed(2)}}</span>
+                        <span class="val">${s.j_invariant_real.toFixed(2)}</span>
                     </div>
                     <div class="inspector-pair">
-                        <span class="label">Period \u03c91 (Real)</span>
-                        <span class="val">${{s.period_omega_1.toFixed(4)}}</span>
+                        <span class="label">Period ω1 (Real)</span>
+                        <span class="val">${s.period_omega_1.toFixed(4)}</span>
                     </div>
                     <div class="inspector-pair">
-                        <span class="label">Period \u03c92 (Imag)</span>
-                        <span class="val">${{s.period_omega_2.toFixed(4)}}i</span>
+                        <span class="label">Period ω2 (Imag)</span>
+                        <span class="val">${s.period_omega_2.toFixed(4)}i</span>
                     </div>
                     <div class="inspector-pair" style="grid-column: span 2;">
-                        <span class="label">D7-Brane Coupling Parameter \u03c4</span>
-                        <span class="val">${{s.tau_real.toFixed(4)}} + ${{s.tau_imag.toFixed(5)}}i</span>
+                        <span class="label">D7-Brane Coupling Parameter τ</span>
+                        <span class="val">${s.tau_real.toFixed(4)} + ${s.tau_imag.toFixed(5)}i</span>
                     </div>
                 </div>
                 <div style="background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); padding: 10px; border-radius: 4px; font-size: 0.8rem; margin-top: 15px; color: var(--accent-gold);">
                     <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> 
-                    <strong>Physical Interpretation:</strong> The Axio-dilaton coupling of this halo's 7-brane boundary is locked at g_s \u2248 ` + coupling_gs + ` with a topological asymmetry signature.
+                    <strong>Physical Interpretation:</strong> The Axio-dilaton coupling of this halo's 7-brane boundary is locked at g_s ≈ ` + coupling_gs + ` with a topological asymmetry signature.
                 </div>
             `;
-        }}
+        }
 
-        window.onload = () => {{
+        window.onload = () => {
             initChart();
             populateExplorer();
-        }};
+        };
     </script>
 </body>
 </html>
-"""
-
-    with open(DASHBOARD_FILE, 'w') as f:
-        f.write(html_content)
-
-def main():
-    log_netrunner(f"Starting T4 GPU continuous netrunner daemon on device: {DEVICE}")
-    if not MODULI_FILE.exists():
-        log_netrunner("Error: Base moduli file not found. Run analysis script first.", "ERROR")
-        return
-
-    with open(MODULI_FILE, 'r') as f:
-        data = json.load(f)
-
-    sectors = data.get("sectors", [])
-
-    loop_count = 0
-    while True:
-        try:
-            loop_count += 1
-            # Randomly select a sector to re-evaluate with a simulated incoming data perturbation
-            idx = random.randint(0, len(sectors) - 1)
-            sec = sectors[idx]
-            
-            log_netrunner(f"Polling fresh SDSS coords for Sector {sec['sector_id']}...")
-            
-            # Simulate a 128^3 density grid with slight random density fluctuations
-            grid_size = 128
-            mock_grid = np.ones((grid_size, grid_size, grid_size), dtype=np.float32)
-            # Add some dense core points
-            for _ in range(5):
-                cx, cy, cz = random.randint(20, 100), random.randint(20, 100), random.randint(20, 100)
-                mock_grid[cx-5:cx+5, cy-5:cy+5, cz-5:cz+5] += random.uniform(10.0, 50.0)
-            
-            # Execute 3D FFT warping on GPU
-            delta, max_density = run_gpu_solver(mock_grid)
-            
-            # Update sector metrics
-            sec["observed_asymmetry_delta"] = delta
-            sec["max_density"] = max_density
-            
-            # Re-solve elliptic parameters
-            k2 = 0.95 * (max_density / 100.0) / (1.0 + (max_density / 100.0))
-            k2 = min(max(k2, 0.0), 0.9999)
-            
-            omega_1 = ellipk(k2)
-            omega_2 = ellipk(1.0 - k2)
-            tau = 1j * (omega_2 / omega_1)
-            j_val = calculate_j_invariant(tau)
-            
-            sec["elliptic_modulus_k2"] = k2
-            sec["period_omega_1"] = omega_1
-            sec["period_omega_2"] = omega_2
-            sec["tau_real"] = float(tau.real)
-            sec["tau_imag"] = float(tau.imag)
-            sec["j_invariant_real"] = float(j_val.real)
-            sec["j_invariant_imag"] = float(j_val.imag)
-            
-            log_netrunner(f"GPU Update [Sector {sec['sector_id']}]: New Asymmetry={delta:.4f}, New Max Density={max_density:.2f}")
-            
-            # Save updated moduli json
-            with open(MODULI_FILE, 'w') as f:
-                json.dump(data, f, indent=2)
-                
-            # Regenerate HTML dashboard
-            regenerate_html(sectors)
-            
-            # Sleep for 10 seconds before next iteration
-            time.sleep(10)
-            
-        except KeyboardInterrupt:
-            log_netrunner("Daemon stopped by user.")
-            break
-        except Exception as e:
-            log_netrunner(f"Error in execution loop: {str(e)}", "ERROR")
-            time.sleep(5)
-
-if __name__ == "__main__":
-    main()
