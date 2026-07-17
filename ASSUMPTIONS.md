@@ -52,25 +52,36 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
 - **Discharge path:** The worked EFT matching itself (VISION §1.3's Phase 1 blocker) *is* the discharge path — if S3-00 completes and both T0 and T0s independently re-derive the same eliminated relation from geometric data alone (not from each other), that is evidence (not proof) for A-REL at the specific candidate point tested.
 - **Failure mode:** **This is the kill condition already pre-committed in `EXECUTION_PLAN.md` WP S3-00 step (4):** if no relation survives the (𝒱, g_s) elimination, the model is generic vdSIDM and triggers **F5** — a reportable, non-post-hoc result, not a silent abandonment.
 
-### A-DE — Dark-Energy Identification (REQUIRED, NOT YET AUTHORED)
+### A-DE — Dark-Energy Identification
 
-- **Status:** ⚠️ **Flagged, not drafted.** Per `PREDICTION_REVIEW_T0.md` CF-2: a
-  reviewed prediction-draft's elimination of the volume modulus 𝒱 silently relied
-  on (i) ρ_vac ∝ 𝒱⁻³, (ii) that vacuum energy being positive, and (iii) its
-  identification with the *measured* dark energy density — i.e. the string-theory
-  de Sitter/uplift problem, smuggled in as an unnumbered proportionality and
-  credited to the (unrelated) C3b geometric criterion instead. This is a
-  first-order Tier C physical assumption and it is the actual load-bearing step
-  in that elimination, not C3b.
-- **What this entry is not:** this is a placeholder, not the assumption. Drafting
-  A-DE's statement/tier/discharge-path/failure-mode (matching the template used
-  by A-SEQ/A-VOL/A-ONT/A-REL above) is T0/T0s content, same as the other four —
-  a T1 session should not author Tier C physical assumptions any more than it
-  should author the elimination itself. See `PREDICTION_REVIEW_T0.md` §4 pin
-  checklist item "ASSUMPTIONS v0.3 with A-DE."
-- **Blocks:** any future PREDICTION.md draft that eliminates (𝒱, g_s) via a
-  measured-ρ_DE identification must carry this assumption once authored; until
-  then such an elimination is undischarged per the same review.
+- **Status:** **T0-drafted** (2026-07-17, `PREDICTION.md` §6, "T0 architecture
+  session"), submitted in direct response to `PREDICTION_REVIEW_T0.md` CF-2's
+  requirement. Unlike A-SEQ/A-VOL/A-ONT/A-REL above (T1 best-inference
+  reconstructions, still awaiting T0 authorship), this entry's text is already
+  T0-authored — but it is **not yet Xavier-signed**, and ASSUMPTIONS.md does not
+  reach v0.3 (the pin-blocking version named in `PREDICTION_REVIEW_T0.md` §4)
+  until it is.
+- **Statement:** We assume the stabilized vacuum of the selected compactification
+  has positive energy density scaling as ρ_vac = a₃𝒱⁻³M_Pl⁴, with a₃ bounded per
+  `PREDICTION_APPENDIX_A.md` §A.3 (not yet authored), and that this vacuum energy
+  is the observed dark energy.
+- **Tier:** C — the strongest assumption in the chain. Obtaining controlled
+  positive-energy vacua is an open problem in string compactifications; this
+  program does not solve it, it declares it.
+- **Enters MVM at:** `PREDICTION.md` §2, the elimination step — ANSATZ-3 = A-DE
+  is the load-bearing step that breaks the (𝒱, g_s) degeneracy using the
+  *measured* ρ_DE, not the C3b geometric map (which only supplies |∂²V| at the
+  C3b-selected vacuum point F(z*)). Any summary crediting C3b alone for the
+  degeneracy-breaking violates the `epistemic-guardrails` skill (Finding F-B).
+- **Discharge path:** an explicit stabilization computation for the selected
+  candidate (positive-energy vacuum realized), or an explicit obstruction —
+  either outcome is reportable, neither is assumed in advance.
+- **Failure mode:** if a₃ cannot be bounded to a finite interval (Appendix A.3
+  fails), this is kill condition **F5b** (`PREDICTION.md` §5); if the sign or
+  identification with observed dark energy cannot be justified even given a
+  bounded a₃, A-DE itself fails and the entire §2 elimination is undischarged —
+  the model reverts to Tier C speculation with no observable-relation prediction
+  (adjacent to F5).
 
 ---
 
@@ -87,6 +98,7 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
 
 - **v0.1 (2026-07-17):** Initial draft. Best-inference reconstruction of A-SEQ, A-VOL, A-ONT, A-REL from context in `VISION.md` §1.2–1.3, `DUAL_SCALE_THREE_STREAM_PLAN.md` §5/§10, and `EXECUTION_PLAN.md` WP P0-A/S3-00. **Awaiting T0/Xavier review before Phase 0 can be marked complete.**
 - **v0.1, +A-DE flag (2026-07-17):** Added a placeholder (not a drafted assumption) for **A-DE** per `PREDICTION_REVIEW_T0.md` CF-2 — a reviewed prediction draft's dark-energy identification step was undeclared and misattributed to C3b. Still v0.1: the flag records that A-DE is required before any such elimination can be pinned; it does not author A-DE's content (T0/T0s work).
+- **v0.1, +A-DE T0 draft (2026-07-17):** Replaced the A-DE placeholder with the T0-authored text from `PREDICTION.md` §6 ("T0 architecture session," the v0.9-T0 proposal responding to `PREDICTION_REVIEW_T0.md`). A-DE is now T0-drafted but still unsigned; A-SEQ/A-VOL/A-ONT/A-REL remain T1 reconstructions awaiting T0 authorship. File stays v0.1 overall — v0.3 requires Xavier sign-off on all five entries, per the pin checklist.
 
 ---
 

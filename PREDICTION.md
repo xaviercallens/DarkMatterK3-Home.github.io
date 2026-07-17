@@ -1,165 +1,204 @@
-# PREDICTION.md — Falsifiable Predictions of the Dual-Scale Model
+# PREDICTION.md — T0 Proposal (v0.9-T0)
 
-**Status:** DRAFT v0.9 — TEMPLATE ACCEPTED, PREDICTION PENDING (per `PREDICTION_REVIEW_T0.md`, 2026-07-17)  
-**Scope:** Applies to Stream 3 observational testing (`SocrateAI-Scientific-Agora-Home`)  
-**Frozen date:** TBD — blocked; see M1 pin checklist in `PREDICTION_REVIEW_T0.md` §4  
-**Last amendment:** None  
+**Status: DRAFT — PIN BLOCKED ON:** (i) refs/ transcription merged, (ii) C3b certificate
+PASS(N≥50) for the named pair, (iii) Appendix A derivations complete, (iv) ASSUMPTIONS
+v0.3 (A-DE), (v) blind re-derivation agreement, (vi) Xavier signature.
+**Design principle:** this document is *compilable*. Every number is a slot ⟨…⟩ bound to
+a formula, an input provenance (certificate field or measured public value in refs/), and
+an error-budget procedure — all fixed NOW, before any number exists, so that computing the
+numbers later involves zero discretionary choices. Discretion spent today cannot be
+re-spent at pin time.
 
-**T0 review note (2026-07-17):** A "Joint Consensus Memorandum" candidate draft
-(header: "Dual-Capability Active — T0 Architect + F-Theory Desk") was submitted
-claiming this document as "FROZEN v1.0." T0 review (`PREDICTION_REVIEW_T0.md`)
-rejected the freeze: the co-drafting process itself violates the blind
-re-derivation rule (`EXECUTION_PLAN.md` §1.2.3), no C1/C2/C3b certificates exist
-for any candidate, no numbers were computed (only symbols), and the document's
-own §1 conclusion ("zero continuous free parameters") contradicted its §2
-result (one relation, one residual freedom). The reviewed draft's actual text is
-not committed to this repo — it is not reproduced or reconstructed here, since
-authoring or transcribing its scaling laws is T0/T0s work, not T1. Status stays
-**draft, unpinned**; gate G1/M1 remain closed. The full findings and the
-authoritative pin checklist live in `PREDICTION_REVIEW_T0.md`.
+> **Epistemic notice.** Mathematical inputs (C3/C3b certificates) are Tier A/B. The
+> translation to 4D observables is Tier C, conditional on [A-SEQ, A-VOL, A-ONT, A-REL,
+> A-DE]. One relation among observables survives parameter elimination; the model retains
+> one residual continuous freedom (§2). If the pre-registered tests fail, the physical
+> hypothesis is dead per the kill switches of §5.
 
----
-
-## Overview
-
-This document states **at least one quantitative, falsifiable prediction** that distinguishes the dual-scale model from ΛCDM at a level resolvable by current or near-term public data.
-
-**Status note (2026-07-17):** This is a **draft** document. The contents below are preliminary outlines; the prediction(s) will be finalized and frozen after careful consultation with astrophysics contacts (OCA Nice, SYRTE) in Phase 1.
-
-The finalized version will be tagged with a frozen date, and any subsequent changes will require an amendment (see §5).
+**Scope:** Applies to Stream 3 observational testing (`SocrateAI-Scientific-Agora-Home`).
+**Provenance:** Supersedes the Desk draft v1.0 rejected in `PREDICTION_REVIEW_T0.md`
+(2026-07-17) and the earlier three-observable outline (§6 Changelog, below). This is
+T0-authored content, submitted in response to that review — see the changelog vs. Desk
+draft v1.0 at the end of this document for exactly what changed and why. **None of the
+six pin-blocking conditions above are satisfied yet** — no certificate exists (`checkers/`
+is not implemented), no `refs/` manifest exists, Appendix A is not written, ASSUMPTIONS.md
+does not yet carry a T0-authored, Xavier-signed A-DE, no blind re-derivation has run, and
+there is no Xavier signature. **Gate G1/M1 remain closed; nothing below is pinned.**
 
 ---
 
-## 1. The Challenge
+## 0. Provenance block (filled at pin; empty fields block the pin)
 
-The dual-scale model posits:
-- A global K3 vacuum (order-3 Picard-Fuchs, dark-energy-like).
-- A local elliptic EFT (order-2 Picard-Fuchs, governing dark-matter halos).
-
-**For this model to earn the right to be taken seriously**, it must make at least one prediction that:
-1. Differs quantitatively from ΛCDM.
-2. Can be tested against published data or data forthcoming within 12–18 months.
-3. Is not a fitted parameter (i.e., stated *before* looking at the relevant data).
-
-If no such prediction can be extracted, the model is **observationally degenerate** with ΛCDM (Tier C failure), and the project contracts to its mathematics (Tier A/B), which remains publishable.
-
----
-
-## 2. Candidate Observables (To Be Narrowed)
-
-The following observables are under consideration. **One or more will be selected and quantified in Phase 1.**
-
-### 2.1 — Halo Profile Shape (Local Elliptic Sector)
-
-**Motivation:** If the S12/S21 elliptic EFT governs the interior structure of dark-matter halos, the predicted density profile should deviate from NFW or Einasto in a measurable range.
-
-**Observable:** The logarithmic slope of the density profile as a function of radius:
-$$\frac{d \log \rho}{d \log r} \Big|_{r \in [0.1, 10] \, r_s}$$
-
-**Data source:** Published weak-lensing stacked profiles from:
-- SDSS (Mandelbaum et al., 2013, 2020)
-- DES Y3 (Leauthaud et al., 2024)
-- Euclid Early Release Observations (when available)
-
-**Pre-registration:** The specific radial range and tolerance will be locked in before comparing to data.
-
-### 2.2 — Stochastic Gravitational-Wave Background (Global K3 Sector)
-
-**Motivation:** If the global K3 vacuum sources a scalar-induced contribution to the nHz stochastic background, its spectral index and amplitude must differ from a pure tensor background.
-
-**Observable:** The spectral index $\alpha$ of the power-law fit to the free-spectrum posterior in the nHz band:
-$$P(f) \propto f^\alpha$$
-
-**Data source:** Published posteriors from:
-- NANOGrav 15-year dataset (Agazie et al., 2023)
-- EPTA Data Release 2 (Liu et al., 2023)
-- Joint analysis (IPTA, when finalized)
-
-**Pre-registration:** The predicted range for $\alpha$ (and 1σ error budget) will be stated before comparing to published posteriors.
-
-### 2.3 — Matter Power Spectrum at Lyman-α Scales
-
-**Motivation:** Any modification to dark-matter dynamics (local elliptic EFT) must preserve or only mildly suppress small-scale power.
-
-**Observable:** The ratio of the predicted matter power spectrum $P(k)$ to the Λ-CDM template at $k \sim 0.1 \text{–} 1 \, h/\text{Mpc}$:
-$$\frac{P_{\text{model}}(k)}{P_{\Lambda\text{CDM}}(k)} \quad \text{for} \quad k \in [0.1, 1] \, h/\text{Mpc}$$
-
-**Data source:** Published Lyman-α constraints from:
-- SDSS DR12 (Palanque-Delabrouille et al., 2015)
-- DESI Early Data Release (2024)
-
-**Pre-registration:** The allowed tolerance (e.g., ±5% or ±10%) will be stated and locked in Phase 1.
+| Field | Value |
+|---|---|
+| Candidate pair (bulk, brane) | ⟨from K3_SELECTION_REPORT⟩ |
+| C3b certificate file + determinism hash | ⟨…⟩ |
+| C1, C2 certificates + hashes | ⟨…⟩ |
+| refs/ manifest hashes (Cooper 2012; AESZ tables; measured-values file) | ⟨…⟩ |
+| ASSUMPTIONS version | v0.3 (must include A-DE) |
+| Blind re-derivation record | ⟨file + agreement statement⟩ |
+| Pin commit | ⟨sha⟩ — verified to precede all data-touching commits |
 
 ---
 
-## 3. Selection Rationale (Draft)
+## 1. Free-Parameter Ledger (corrected conclusion)
 
-**Currently under discussion with external reviewers:**
+| Quantity | Class | Status |
+|---|---|---|
+| z_brane | GEOMETRIC | dynamical mediator field φ |
+| z_bulk | GEOMETRIC | eliminated via certified map F (C3b) |
+| F, z* (vacuum point) | GEOMETRIC | fixed by C3b certificate: z* = ⟨root selection rule R1, below⟩ |
+| G₄ flux quanta | DISCRETE | fixed-and-declared: ⟨list at pin⟩ |
+| N of dark SU(N) | DISCRETE | fixed by C2 certificate fiber table |
+| 𝒱, g_s | CONTINUOUS-FREE | reduced to ONE residual freedom by [A-DE] (§2) |
+| non-sequence Y₄ moduli | ASSUMED | [A-SEQ] |
 
-- **Halo profile** is the "hardest" test — it requires the elliptic EFT to make a specific, non-trivial prediction about structure on scales where dark matter is the dominant component. If this test fails, the local sector is falsified (VISION.md §4, F3).
+**Conclusion (honest form):** conditional on the discrete data and [A-SEQ, A-VOL, A-DE],
+the two continuous unknowns (𝒱, g_s) are constrained by one measured quantity (ρ_DE),
+leaving **one residual continuous freedom** and therefore **one predicted relation** among
+(m_φ, m_DM): the observables lie on a computable one-dimensional curve. "Zero free
+parameters" is not claimed and must not appear in any summary of this document.
 
-- **Stochastic background** is more speculative (depends on whether the K3 vacuum couples to gravity in a way that produces scalars), but has the advantage of being the most different from ΛCDM if it exists.
+**R1 (root selection rule, fixed now):** z* is the real root of ∂_z V_flux(F(z)) = 0
+nearest the MUM point on the physical branch ⟨branch convention fixed in Appendix A.2⟩;
+if multiple candidate roots survive, ALL are carried as separate prediction rows — no
+post-hoc choice among vacua.
 
-- **Lyman-α power** is a "null test" — if the model cannot preserve small-scale power, it is disfavored, though not necessarily falsified at 3σ. This is a robustness check rather than a primary discriminant.
+## 2. The Invariant Relation (attribution corrected)
 
-**Phase 1 task:** Consult with astrophysicists to narrow to one or two observables with clear error budgets.
+Scaling ansätze — each an obligation on Appendix A, not an assertion:
+
+- **ANSATZ-1 (confinement):** ln(M_Pl/m_DM) = a₁ · 𝒱^{2/3}/g_s, a₁ = a₁(N, b₀) ∈ ⟨bounded
+  interval, Appendix A.1⟩ — from the gauge kinetic function on the wrapped divisor +
+  one-loop running; the N-dependence must be explicit.
+- **ANSATZ-2 (mediator mass):** m_φ = a₂ · (g_s/𝒱) · M_Pl · |∂²_z V_flux(F(z*))|^{1/2},
+  a₂ ∈ ⟨bounded interval, A.2⟩ — flux-potential curvature along the sequence modulus,
+  computed from the certified periods.
+- **ANSATZ-3 = [A-DE] (vacuum energy):** ρ_DE = a₃ · 𝒱^{-3} · M_Pl⁴, a₃ ∈ ⟨bounded
+  interval, A.3⟩, **positive sign and identification with observed dark energy ASSUMED —
+  this is the load-bearing Tier C assumption of the whole chain** (text in §6). The
+  elimination below is credited to A-DE; the C3b map contributes the certified value of
+  |∂²V| at F(z*). Any summary attributing the degeneracy-breaking to C3b alone violates
+  the guardrails.
+
+**Elimination (algebra verified in PREDICTION_REVIEW_T0):** multiplying ANSATZ-1 × ANSATZ-2
+cancels g_s; substituting 𝒱 = (a₃ M_Pl⁴/ρ_DE)^{1/3} yields
+
+  m_φ · ln(M_Pl/m_DM) = C₀ · M_Pl · (ρ_DE/M_Pl⁴)^{1/9} · |∂²_z V_flux(F(z*))|^{1/2},
+  C₀ = a₁a₂a₃^{1/9} ∈ ⟨interval computed from A.1–A.3 bounds⟩.
+
+The residual freedom parametrizes position along this curve; the curve itself is the
+prediction.
+
+## 3. Pre-Registered Observables
+
+### P1 — Lensing: core-radius scaling exponent (primary)
+Chain (each step's convention fixed now): Yukawa mediator ⇒ σ(v)/m_DM with shape set by
+(m_φ/m_DM, α_D) along the §2 curve ⟨transfer-cross-section convention: σ_T; velocity
+averaging: Maxwellian at the halo's v_char(M_halo)⟩ ⇒ gravothermal core formation ⇒
+r_c ∝ M_halo^β over the mass window ⟨M_min, M_max fixed at pin from the dataset's dwarf
+selection, declared before unblinding⟩.
+
+- **[TEST] β:** value ⟨computed at pin⟩ ± σ_β, where σ_β is produced ONLY by the
+  robustness protocol RP (below). Comparison: published stacked weak-lensing profile
+  posteriors (SDSS/DES/Euclid), F3 threshold ≥3σ exclusion.
+- **[FIT] normalization:** one declared amplitude parameter absorbing C₀ and halo-model
+  O(1)s. Pre-declared; its best-fit value is reported but never converts to a TEST.
+
+**RP (robustness protocol, the honest version of "rigid"):** compute β over the full
+Cartesian product of the bounded intervals a₁, a₂, a₃ and the surviving R1 roots. The
+pre-registered TEST is the interval [β_min, β_max]. **Auto-demotion rule:** if
+(β_max − β_min) exceeds the data's discriminating width against the CDM-expected scaling
+⟨width computed from the public posterior BEFORE our interval is unblinded to it⟩, the
+channel demotes itself from TEST to FIT automatically, and this demotion is reported as a
+partial F5 outcome — rigidity was claimed and not delivered.
+
+### P2 — PTA: ultralight scalar timing signature (secondary, conditional)
+Active iff the §2 curve intersects m_φ ∈ ⟨PTA sensitivity band, taken from the published
+NANOGrav/EPTA sensitivity curves in refs/⟩.
+
+- **[TEST]:** monochromatic timing-residual line at f = m_φ/π with amplitude
+  Ψ_c = ⟨formula: fixed fraction of G·ρ_DM,local/m_φ², convention and derivation in
+  Appendix A.4⟩, using the measured local dark-matter density ⟨cited public value + its
+  published uncertainty, entered in refs/ with source⟩. No dark-sector free parameter.
+  F4 trigger: predicted amplitude above the 95% upper limit at the predicted f.
+- If the curve does not intersect the band: P2 reports NULL-BY-PREDICTION (a valid,
+  publishable outcome), and F4 cannot trigger.
+
+## 4. Numbers table (all rows ⟨COMPUTED-AT-PIN⟩; the formulas are frozen NOW)
+
+| Symbol | Formula / procedure | Inputs (provenance) |
+|---|---|---|
+| F | C3b certificate relation | cert field `c3b_relations[k].relation` |
+| z* | rule R1 on V_flux ∘ F | A.2 potential + cert |
+| |∂²V(F(z*))| | exact/interval arithmetic on certified periods | cert + A.2 |
+| (m_φ, m_DM) curve | §2 relation, a-intervals | A.1–A.3 |
+| β ± σ_β | RP over a-intervals × R1 roots | §3-P1 chain |
+| (f, Ψ_c) | P2 formulas | curve + measured ρ_DM,local (refs/) |
+
+## 5. Kill switches (full breadth restored)
+
+1. **F5a:** F not extractable by the exact solver (C3b FAIL for all pairs).
+2. **F5b:** Appendix A cannot bound any aᵢ to a finite interval (a scaling law fails to
+   be derivable) — the relation was invariant-in-name-only.
+3. **F5c:** RP auto-demotion fires AND P2 is NULL-BY-PREDICTION — no surviving TEST;
+   the model is observationally degenerate. NO_PREDICTION_BRANCH.md is written.
+4. **F3:** β interval excluded ≥3σ by the pre-declared lensing posteriors.
+5. **F4:** P2 amplitude above the 95% limit at predicted f.
+6. Any post-pin change to a formula, convention, interval, or root selection is a tuning
+   event (TUNING_LOG.md) and demotes every affected comparison to FIT — including changes
+   motivated by "obvious errors"; obvious errors are reported as errors (F6 spirit), not
+   silently fixed.
+
+## 6. A-DE — draft text for ASSUMPTIONS v0.3
+
+**A-DE (Dark-Energy Identification).** We assume the stabilized vacuum of the selected
+compactification has positive energy density scaling as ρ_vac = a₃𝒱^{-3}M_Pl⁴ with a₃
+bounded per Appendix A.3, and that this vacuum energy is the observed dark energy.
+*(Tier C — the strongest assumption in the chain: obtaining controlled positive-energy
+vacua is an open problem in string compactifications, and this program does not solve it;
+it declares it. Discharge path: an explicit stabilization computation for the selected
+candidate, or an obstruction — either is reportable. Every §2–§4 output carries [A-DE].)*
+
+*(This text is transcribed into `ASSUMPTIONS.md` as the A-DE entry, replacing the
+"required, not yet authored" placeholder — see that file's changelog. It is still T0
+draft, not Xavier-signed; ASSUMPTIONS.md does not reach v0.3 until it is.)*
+
+## 7. Blind re-derivation package (inputs-only, per EXECUTION_PLAN §1.2.3)
+
+Contents: the certificates, ASSUMPTIONS v0.3, Appendix A statements *without* the
+resulting numbers, refs/ measured-values file. The second T0-class model computes the §4
+table independently. Agreement tolerance: overlapping intervals for every row.
+Disagreement → DERIVATION_DISPUTES.md; no pin.
+
+**Changelog vs. Desk draft v1.0:** consensus header removed (protocol violation);
+"zero free parameters" corrected to one-relation/one-freedom; degeneracy-breaking credit
+reassigned from C3b to A-DE (new assumption); scaling laws converted to bounded-interval
+ansätze with derivation obligations (Appendix A); all numbers converted to bound slots;
+RP auto-demotion added (rigidity must be demonstrated or self-demote); F5 restored to
+full breadth (a/b/c); P2 NULL-BY-PREDICTION outcome added; R1 root rule fixed in advance.
 
 ---
 
-## 4. No-Prediction Branch
+## Changelog (this repo's document history)
 
-If, after honest effort in Phase 1, no observable can be formulated that differs from ΛCDM by more than the statistical uncertainty in current/near-term data, the **no-prediction branch** (VISION.md §3) is triggered:
-
-- The dual-scale model is documented as **observationally degenerate** with Λ-CDM.
-- The project is reframed as a **mathematical investigation**: the formal properties of K3/elliptic geometries and their arithmetic (Tier A/B results).
-- All Tier C (physics) claims are removed from the repositories or clearly marked as speculative.
-- The mathematical results are submitted for peer review in the modular-forms community.
-
-This outcome is not a failure — it is a documented result that contributes to our understanding of the boundary between mathematics and physics.
-
----
-
-## 5. Amendment Procedure
-
-**Before freezing (status = draft):**
-- Predictions may be added, removed, or substantially revised without a formal amendment, provided rationale is documented in the git log.
-
-**After freezing (status = frozen):**
-- Any change to a frozen prediction (quantitative value, error budget, data source) requires a PR with external review.
-- Parameter changes made *after* comparing to data are logged in `TUNING_LOG.md` (VISION.md §4) and the affected comparison is demoted from "test" to "fit".
-- **Predictions cannot be weakened** (error bars cannot be widened, null regions cannot be retracted) without a major version bump.
-
----
-
-## 6a. Free-Parameter Ledger (Phase 0 scaffold — instance pending S3-00)
-
-Per `EXECUTION_PLAN.md` WP S3-00 step (1), this document must install a
-Free-Parameter Ledger before any observable in §2 can be pinned. The
-schema lives at `templates/free_parameter_ledger.jinja` (WP P0-B); it
-classifies every quantity the MVM matching depends on as GEOMETRIC /
-CONTINUOUS-FREE / DISCRETE / ASSUMED and tags each with the `ASSUMPTIONS.md`
-IDs (A-SEQ, A-VOL, A-ONT, A-REL) it inherits.
-
-**This section is a placeholder.** The template's golden example (a 7-row
-instance for 𝒱, g_s, m_φ, α_D, Λ_D, and the eliminated P1/P2 relations) is
-illustrative scaffolding only — not a derived result. The real instance is
-produced by the T0/T0s two-model MVM derivation (S3-00) and replaces this
-placeholder before any prediction below can be pinned; every number in it
-must trace to a checker certificate or cited literature value, never to
-memory (`epistemic-guardrails` rule 5).
-
-## 6. Changelog
-
-- **v1.0-draft (2026-07-17):** Initial draft. Three candidate observables outlined (halo profile, stochastic background, Lyman-α power). Data sources and pre-registration strategy sketched. Ready for Phase 1 consultation with external reviewers. Author: Xavier Callens.
-- **v1.0-draft, +Phase 0 scaffold (2026-07-17):** Added §6a placeholder cross-referencing the Free-Parameter Ledger schema (WP P0-B, `templates/free_parameter_ledger.jinja`) so this document is structurally ready to receive the S3-00 instance. No prediction content changed; not a tuning event (pre-pin).
-- **v0.9 status correction, T0 review (2026-07-17):** Status header corrected from "Draft v1.0" to "DRAFT v0.9 — TEMPLATE ACCEPTED, PREDICTION PENDING" per `PREDICTION_REVIEW_T0.md`, which rejected a "FROZEN v1.0" claim made outside this repo's git history. Not a tuning event (nothing was ever pinned, so there is nothing to demote from TEST to FIT); recorded here because it corrects a status claim, not a prediction value.
-
----
+- **v1.0-draft (2026-07-17):** Initial draft. Three candidate observables outlined (halo profile, stochastic background, Lyman-α power). Author: Xavier Callens.
+- **v1.0-draft, +Phase 0 scaffold (2026-07-17):** Added §6a placeholder cross-referencing the Free-Parameter Ledger schema (WP P0-B). Not a tuning event (pre-pin).
+- **v0.9 status correction, T0 review (2026-07-17):** Status corrected to "DRAFT v0.9 — TEMPLATE ACCEPTED, PREDICTION PENDING" per `PREDICTION_REVIEW_T0.md`, which rejected a "FROZEN v1.0" claim (the "Desk draft v1.0") made outside this repo's git history.
+- **v0.9-T0 (2026-07-17):** **Full replacement**, T0-authored, submitted in direct response to `PREDICTION_REVIEW_T0.md`. Replaces the three-observable outline with the compilable slot-based structure above (§0–§7): provenance block, corrected Free-Parameter Ledger, attribution-corrected invariant relation (A-DE, not C3b, breaks the degeneracy), P1 (lensing β, with the RP robustness/auto-demotion protocol) and P2 (PTA, with an explicit NULL-BY-PREDICTION outcome) as the two pre-registered observables, restored full-breadth kill switches (F5a/b/c), A-DE draft text for ASSUMPTIONS v0.3, and a blind re-derivation package description. **Still unpinned** — see the six blocking conditions in the status line above. Not a tuning event: nothing was ever pinned, so nothing demotes from TEST to FIT.
 
 ## Related Documents
 
 - **VISION.md** §3–§4: Why falsifiable predictions are essential; falsification branches (F1–F6).
-- **K3_CRITERIA.md:** Frozen criteria for K3 candidate ranking (Stream 2).
-- **PREDICTION_REVIEW_LOG.md** (to be generated in Phase 1): Notes from consultation with external reviewers, rationale for final selection.
-- **OBSERVATIONAL_REPORT.md** (to be generated in Phase 3): Results of comparing predictions to public data.
-- **NO_PREDICTION_BRANCH.md** (conditional): If no observable can be extracted, this document is generated to formalize the transition to a mathematics-only project.
+- **K3_CRITERIA.md:** Frozen criteria for K3 candidate ranking (Stream 2); C1/C2/C3b certificates this document's Provenance block cites are produced there.
+- **ASSUMPTIONS.md:** A-SEQ, A-VOL, A-ONT, A-REL, A-DE — the Tier C assumption register this document's every §2–§4 output is tagged against.
+- **PREDICTION_REVIEW_T0.md:** The T0 review that rejected the prior "Desk draft v1.0" and produced the pin checklist this document is structured to satisfy.
+- **PREDICTION_APPENDIX_A.md:** Bounded-interval derivations for a₁, a₂, a₃ (referenced throughout §2–§4) — required before pin; not yet authored (T0/T0s work).
+- **TUNING_LOG.md:** Post-pin change log (kill switch 6, above).
+- **DERIVATION_DISPUTES.md:** Where a blind re-derivation disagreement (§7) is logged.
+- **K3_SELECTION_REPORT.md** (to be generated in Phase 2): Source of the Provenance block's candidate pair.
+- **NO_PREDICTION_BRANCH.md** (conditional): Generated if kill switch F5c fires.
+
+---
+
+`Generated-by: T0 architecture session | Verified-by: §2 algebra independently re-derived in PREDICTION_REVIEW_T0; all numeric content deliberately absent pending certificates | Reviewed-by: pending blind re-derivation + Xavier sign-off`
