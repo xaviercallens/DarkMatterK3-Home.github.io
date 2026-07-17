@@ -70,6 +70,9 @@ def run_gpu_solver(rho_grid):
     return delta, max_density
 
 def regenerate_html(sectors):
+    max_density = max(s.get("max_density", 0.0) for s in sectors) if sectors else 0.0
+    max_asymmetry = max(s.get("observed_asymmetry_delta", 0.0) for s in sectors) if sectors else 0.0
+    
     sectors_json_str = json.dumps(sectors, indent=2)
     
     # Keep the HTML dynamic and matching the previous beautiful dashboard
@@ -514,18 +517,17 @@ def regenerate_html(sectors):
         <div class="analytics-grid">
             
             <!-- Real-Time Metrics Strip -->
-            <div class="stats-strip">
                 <div class="stat-box">
                     <div class="stat-label">Sectors Surveyed</div>
                     <div class="stat-value">35 / 35</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Max Halo Density</div>
-                    <div class="stat-value cyan">241.89</div>
+                    <div class="stat-value cyan">{max_density:.2f}</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Peak Asymmetry &Delta;</div>
-                    <div class="stat-value">1.000</div>
+                    <div class="stat-value">{max_asymmetry:.3f}</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Core Target</div>
