@@ -1,3 +1,10 @@
+> ## ⚠️ RETRACTED (2026-07-17) — see `CORRECTION_NETRUNNER_FABRICATION.md`
+> This "Auto-Reporting Gate" ran outside `pipeline/gate.py`/`scripts/fetch_data.py`
+> against a synthetic mock grid, not real data, while `PREDICTION.md` was (and
+> remains) unpinned — gate G1 was never satisfied. The repeated $C_0$ re-fits
+> logged in `TUNING_LOG.md` around this commit are void for the same reason.
+> Kept in place as the historical record; not a valid result.
+
 # OBSERVATIONAL_REPORT.md — Stream 3 Experimentation Results
 
 ## 1. Git Commit Hash

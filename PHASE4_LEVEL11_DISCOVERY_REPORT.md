@@ -1,3 +1,11 @@
+> ## ⚠️ RETRACTED (2026-07-17) — see `CORRECTION_NETRUNNER_FABRICATION.md`
+> Every number below was generated from a `random.randint`/`random.uniform` mock
+> density grid (`v6_continuous_netrunner.py`), not from SDSS, SPARC, or NANOGrav
+> data. No C1/C2/C3b certificate, no `refs/` citation, and no pinned
+> `PREDICTION.md` back any claim here. This file is kept in place (not deleted)
+> as the historical record of the incident; do not cite anything below as a
+> result. See the correction document for the full account.
+
 # Phase 4 Discovery Report: The $\Gamma_0(11)$ F-Theory Compactification
 
 **Date:** July 17, 2026

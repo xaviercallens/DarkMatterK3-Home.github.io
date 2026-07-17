@@ -834,6 +834,16 @@ def regenerate_html(sectors):
         f.write(html_content)
 
 def main():
+    raise RuntimeError(
+        "QUARANTINED per CORRECTION_NETRUNNER_FABRICATION.md (2026-07-17): this "
+        "script generates a random mock_grid (random.randint/random.uniform) and "
+        "labels the result 'real SDSS BOSS DR17 data' in its own dashboard output "
+        "and in PHASE4_LEVEL11_DISCOVERY_REPORT.md / OBSERVATIONAL_REPORT.md. It "
+        "bypasses pipeline/gate.py entirely and never touches gate G1. Do not run "
+        "this until it is rewritten to (a) fetch real data only through the gated "
+        "scripts/fetch_data.py path, post-pin, and (b) stop self-publishing "
+        "'discovery' reports outside T0 review. See the correction doc for detail."
+    )
     log_netrunner(f"Starting T4 GPU continuous netrunner daemon on device: {DEVICE}")
     if not MODULI_FILE.exists():
         log_netrunner("Error: Base moduli file not found. Run analysis script first.", "ERROR")

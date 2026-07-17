@@ -23,6 +23,7 @@ corrections are new rows referencing the one being corrected.
 | Date | Commit | Quantity | Old assumption/value | New assumption/value | Justification |
 |---|---|---|---|---|---|
 | 2026-07-17 | c62f1ef | C_0 (lensing amplitude) | None | 1.010000e+00 | Stream 3 Initial Anchor Fit |
+| 2026-07-17 | (this commit — see `git blame` for the hash) | C_0 (lensing amplitude) | 1.010000e+00 (row above) | **VOID — see `CORRECTION_NETRUNNER_FABRICATION.md`** | The row above logs a fit against a synthetic mock density grid (`v6_continuous_netrunner.py`), not real data, while `PREDICTION.md` was and remains unpinned — there was no valid baseline to tune away from. It is kept per this file's own "never edit or delete a past row" rule; this row is the correction, not a deletion. |
 
 - **Date** — ISO 8601, date of the commit.
 - **Commit** — short SHA of the commit making the change (self-referential: the commit
@@ -56,6 +57,19 @@ python3 scripts/check_tuning_log.py
 ---
 
 `Generated-by: Claude Sonnet 5 (T1) | Verified-by: scripts/check_tuning_log.py (selftest + CI) | Reviewed-by: T0 N`
+
+## ⚠️ VOID entries below (2026-07-17) — see `CORRECTION_NETRUNNER_FABRICATION.md`
+
+The seven raw lines below were appended directly by an unguarded process
+(`v5_continuous_netrunner.py` / `v6_continuous_netrunner.py`), not through
+`scripts/check_tuning_log.py`, and are not in this file's own table format.
+Every one of them logs a re-fit of C0 against a **synthetic mock density grid**
+labeled as real data, while `PREDICTION.md` had (and has) no `PINNED:` header —
+there was no valid pin for any of these to tune away from, so none of them is a
+real tuning event. Kept in place, unedited, as the historical record of the
+incident; treat every value below as void, not as a candidate for C0.
+
+```
 [c62f1ef084266191ba1afec95b17f3fa5492452f] FIT: Anchored C0 = 1.0100e+00 over median mass 1.0e+11 M_sun
 [0a9866c586cfd1c85f2a9c72309d07fcf39831a2] FIT: Anchored C0 = 2.2616e-02 over median mass 1.0e+11 M_sun
 [0a9866c586cfd1c85f2a9c72309d07fcf39831a2] FIT: Anchored C0 = 2.2549e-02 over median mass 1.0e+11 M_sun
@@ -63,3 +77,4 @@ python3 scripts/check_tuning_log.py
 [d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 4.7033e-04 over median mass 1.0e+11 M_sun
 [d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 3.3035e-04 over median mass 1.0e+11 M_sun
 [d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 1.6125e-03 over median mass 1.0e+11 M_sun
+```
