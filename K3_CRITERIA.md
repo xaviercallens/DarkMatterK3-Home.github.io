@@ -6,16 +6,18 @@
 
 > **Freeze semantics.** After v1.0 is frozen: (1) AutoEvolve may score candidates *only* through the checker scripts listed here; (2) no criterion, threshold, or weight may change except by a versioned amendment (§6) recorded *before* re-running any ranking; (3) every `TBD-AT-FREEZE` field below must be resolved with a literature citation or a first-principles computation — an unfilled TBD blocks the freeze.
 
+> **2026-07-17 update:** Added criterion **C3b** (Shioda-Inose moduli map) per the Phase 0 architecture revision in `DUAL_SCALE_THREE_STREAM_PLAN.md` and `EXECUTION_PLAN.md` WP S2-01/S2-01b. C3b gates eligibility for `PREDICTION.md`'s S3-00 MVM matching. See `ASSUMPTIONS.md` (draft, unverified) for the load-bearing assumptions this criterion and its downstream use depend on. This file remains **SKELETON v0.1, NOT YET FROZEN** — the C3b addition does not itself constitute a freeze.
+
 ---
 
 ## 1. Candidate Register
 
 | ID | Sequence / family | Defining recurrence (source) | Order-2 partner claimed | Initial flags |
 |---|---|---|---|---|
-| K-s7 | Cooper s7 | TBD-AT-FREEZE: cite exact recurrence + paper/eqn | TBD-AT-FREEZE | `SYM2_UNVERIFIED` |
-| K-s10 | Cooper s10 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED` |
-| K-S22 | Cooper S22 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED` |
-| K-t103 | t103 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED` |
+| K-s7 | Cooper s7 | TBD-AT-FREEZE: cite exact recurrence + paper/eqn | TBD-AT-FREEZE | `SYM2_UNVERIFIED`, `C3B_UNVERIFIED` |
+| K-s10 | Cooper s10 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED`, `C3B_UNVERIFIED` |
+| K-S22 | Cooper S22 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED`, `C3B_UNVERIFIED` |
+| K-t103 | t103 | TBD-AT-FREEZE | TBD-AT-FREEZE | `SYM2_UNVERIFIED`, `C3B_UNVERIFIED` |
 
 *Rule: a candidate without a citable defining recurrence at freeze time is dropped, not guessed.*
 
@@ -49,6 +51,14 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 - **Threshold:** route 1 pass clears `SYM2_UNVERIFIED` → `SYM2_SYMBOLIC`; route 2 kernel proof upgrades to `SYM2_PROVED`.
 - **Failure:** symbolic route fails ⇒ F1 removal *for the dual-scale role* (the candidate may remain of independent mathematical interest, outside this program's physics).
 - **Tier:** B → A on kernel proof.
+
+### C3b — Shioda-Inose Moduli Map (new, per T0 Architecture Review; see `DUAL_SCALE_THREE_STREAM_PLAN.md` §5, `ASSUMPTIONS.md` A-SEQ/A-VOL)
+- **Definition:** for a candidate that has cleared C3 (order-3 operator L₃ = Sym²(L₂) for exhibited L₂), there exists an explicit Shioda-Inose correspondence map F relating the candidate's K3 family to the order-2 elliptic family, constructed as an algebraic relation or q-series expansion (normalization fixed at freeze — state it).
+- **Checking procedure:** given the order-3 and order-2 Picard-Fuchs operators (hauptmoduls, from literature or C1/C3 output), construct F explicitly; expand both sides of the claimed correspondence to order N symbolically (exact rational arithmetic) and confirm equality. This is the *honest, checkable version* of any "rigid locking" claim — a per-candidate criterion, not an asserted theorem (see VISION §1.3 ruling: C3/C3b establish a geometric relation only, never by themselves a physical coupling).
+- **Checker:** `checkers/check_C3b_moduli_map.py` — outputs F (polynomial/q-expansion), margin of agreement, certificate JSON. Golden tests required: one known-good pair (explicit F exists) and one known-bad pair (no F, or F disconnected/multivalued — the adversarial pass in `EXECUTION_PLAN.md` S2-05 must attempt to produce this case deliberately).
+- **Threshold:** exact equality to order N (**N = TBD-AT-FREEZE**, propose matching C1's N₁ unless a different order is justified); report as `PASS(N)`, never `PASS`.
+- **Failure:** F1 removal *for candidacy in the MVM matching pipeline* (S3-00 input) — same non-readmission rule as C3.
+- **Tier:** B → A(N-bounded) on pass. **Only a C3b-passing candidate pair is eligible as S3-00 (MVM) input** — this criterion gates `PREDICTION.md`, not just `K3_SELECTION_REPORT.md`.
 
 ### C4 — Lattice / Picard Data Consistency
 - **Definition:** the candidate family's generic Picard rank and transcendental lattice data (as computable from the Sym²/Shioda-Inose structure, with the method fixed and cited at freeze) are consistent with the structural requirements the physics construction imposes. **The requirements themselves are TBD-AT-FREEZE and must be derived from the EFT-matching draft, not chosen to fit preferred candidates.**

@@ -1,6 +1,6 @@
 # VISION — F-Theory Dual-Scale Topological Dark Sector Model
 
-**Status:** Living document — v1.2 (July 2026)
+**Status:** Living document — v1.3 (July 2026)
 
 **Applies to all three repositories:**
 
@@ -36,6 +36,10 @@ If criterion C3 holds for a candidate, the symmetric-square relation establishes
 ### 1.4 What would make this real
 
 The conjecture earns physical standing only through the chain: *worked EFT matching → quantitative prediction differing from ΛCDM → survival against public data* (§3). Until the first link exists, §1.2 is a research program, not a model of the universe, and must be described as such in every repo, talk, and abstract.
+
+### 1.5 Assumptions underlying §1.2 (Phase 0 addendum)
+
+The §1.2 conjecture and the S3-00 worked-matching calculation it requires (§1.3, `EXECUTION_PLAN.md`) do not rest on geometry alone — they carry additional physical assumptions, which must be stated rather than left implicit. These are enumerated, tiered, and given explicit discharge paths and failure modes in **`ASSUMPTIONS.md`** (currently **draft, unverified, awaiting T0 review** — see that file's status banner). Every quantity derived in the matching calculation must carry the assumption IDs it depends on; a failed assumption is a recorded falsification-relevant result (§4), never a silently patched-over gap.
 
 ---
 
@@ -155,3 +159,4 @@ Horizon for a single owner: **~18–24 months**. Compression comes from de-scopi
 - v1.0 (2026-07-17): Initial version. Reordered roadmap to put falsifiable prediction first; rescoped Lean targets to arithmetic; replaced "submit to NANOGrav" with comparison against public posteriors; added tuning policy and falsification branches.
 - v1.1 (2026-07-17): String-theoretic terminology pass (F-theory, Swampland framing).
 - **v1.2 (2026-07-17): Amendments A1–A3 applied.** §1 fully rewritten with inline tier labels: physical "locking" claims removed and replaced by the explicit ruling that the Sym² relation implies no physical coupling absent a worked EFT matching (§1.3); Sym² demoted from asserted fact to per-candidate criterion C3 with `SYM2_UNVERIFIED` flag; 7-brane realization marked as candidate mechanism, unconstructed; the worked EFT matching designated the Phase 1 blocker, with F5 extended to cover its failure.
+- **v1.3 (2026-07-17): Phase 0 architecture extension.** Added §1.5 cross-referencing the new `ASSUMPTIONS.md` (draft, unverified — A-SEQ, A-VOL, A-ONT, A-REL) which makes explicit the physical assumptions underlying §1.2/§1.3. Companion changes (not in this file): `K3_CRITERIA.md` gains criterion C3b (Shioda-Inose moduli map, per candidate); `EXECUTION_PLAN.md` gains Phase 0 work packages (P0-A–D) and a rewritten S3-00 (MVM matching) with new **GATE M1**. No tier ruling in §2/§4 is weakened by this amendment.
