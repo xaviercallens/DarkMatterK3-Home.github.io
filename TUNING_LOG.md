@@ -22,7 +22,7 @@ corrections are new rows referencing the one being corrected.
 
 | Date | Commit | Quantity | Old assumption/value | New assumption/value | Justification |
 |---|---|---|---|---|---|
-| _(no entries yet)_ | | | | | |
+| 2026-07-17 | c62f1ef | C_0 (lensing amplitude) | None | 1.010000e+00 | Stream 3 Initial Anchor Fit |
 
 - **Date** — ISO 8601, date of the commit.
 - **Commit** — short SHA of the commit making the change (self-referential: the commit
@@ -56,3 +56,4 @@ python3 scripts/check_tuning_log.py
 ---
 
 `Generated-by: Claude Sonnet 5 (T1) | Verified-by: scripts/check_tuning_log.py (selftest + CI) | Reviewed-by: T0 N`
+[c62f1ef084266191ba1afec95b17f3fa5492452f] FIT: Anchored C0 = 1.0100e+00 over median mass 1.0e+11 M_sun
