@@ -30,3 +30,254 @@
 [2026-07-14 19:21:25] [INFO] Discoveries: 3
 [2026-07-14 19:21:25] [INFO] ======================================================================
 [2026-07-14 19:21:25] [INFO] Pipeline execution complete
+[2026-07-17 12:00:02] [INFO] Starting V5 pipeline with max_sectors=3, use_real_data=False
+[2026-07-17 12:00:02] [INFO] ======================================================================
+[2026-07-17 12:00:02] [INFO] V5 COOPER S_7 PIPELINE: PHASE 1 EXECUTION
+[2026-07-17 12:00:02] [INFO] ======================================================================
+[2026-07-17 12:00:02] [INFO] Device: cuda
+[2026-07-17 12:00:02] [INFO] Grid size: 128³ voxels
+[2026-07-17 12:00:02] [INFO] Sectors to process: 3
+[2026-07-17 12:00:02] [INFO] ======================================================================
+[2026-07-17 12:00:02] [INFO] Processing Sector 0: RA [150.0, 160.0], Dec [0.0, 10.0]
+[2026-07-17 12:00:02] [INFO] Using synthetic fallback for Sector 0
+[2026-07-17 12:00:02] [INFO]   Ingested 6232 galaxies from Synthetic BOSS DR17 (Sector 0)
+[2026-07-17 12:00:03] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:00:03] [INFO] Analyzing Sector 0 with Cooper s_7 engine
+[2026-07-17 12:00:04] [INFO]   Δ_s7=0.059136, Discovery: MODERATE_COOPER_SIGNAL (sig=0.059), Time: 2.11s
+[2026-07-17 12:00:04] [INFO] Processing Sector 1: RA [150.0, 160.0], Dec [10.0, 20.0]
+[2026-07-17 12:00:04] [INFO] Using synthetic fallback for Sector 1
+[2026-07-17 12:00:04] [INFO]   Ingested 3162 galaxies from Synthetic BOSS DR17 (Sector 1)
+[2026-07-17 12:00:05] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:00:05] [INFO] Analyzing Sector 1 with Cooper s_7 engine
+[2026-07-17 12:00:05] [INFO]   Δ_s7=0.049369, Discovery: MODERATE_COOPER_SIGNAL (sig=0.049), Time: 1.27s
+[2026-07-17 12:00:05] [INFO] Processing Sector 2: RA [150.0, 160.0], Dec [20.0, 30.0]
+[2026-07-17 12:00:05] [INFO] Using synthetic fallback for Sector 2
+[2026-07-17 12:00:05] [INFO]   Ingested 7478 galaxies from Synthetic BOSS DR17 (Sector 2)
+[2026-07-17 12:00:07] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:00:07] [INFO] Analyzing Sector 2 with Cooper s_7 engine
+[2026-07-17 12:00:07] [INFO]   Δ_s7=0.187574, Discovery: MODERATE_COOPER_SIGNAL (sig=0.188), Time: 2.45s
+[2026-07-17 12:00:07] [INFO] Saved 3 sector results and 3 discoveries
+[2026-07-17 12:00:07] [INFO] ======================================================================
+[2026-07-17 12:00:07] [INFO] Pipeline complete. 3 sectors processed.
+[2026-07-17 12:00:07] [INFO] Discoveries: 3
+[2026-07-17 12:00:07] [INFO] ======================================================================
+[2026-07-17 12:00:07] [INFO] Pipeline execution complete
+[2026-07-17 12:00:45] [INFO] Starting V5 pipeline with max_sectors=2, use_real_data=True
+[2026-07-17 12:00:45] [INFO] ======================================================================
+[2026-07-17 12:00:45] [INFO] V5 COOPER S_7 PIPELINE: PHASE 1 EXECUTION
+[2026-07-17 12:00:45] [INFO] ======================================================================
+[2026-07-17 12:00:45] [INFO] Device: cuda
+[2026-07-17 12:00:45] [INFO] Grid size: 128³ voxels
+[2026-07-17 12:00:45] [INFO] Sectors to process: 2
+[2026-07-17 12:00:45] [INFO] ======================================================================
+[2026-07-17 12:00:45] [INFO] Processing Sector 0: RA [150.0, 160.0], Dec [0.0, 10.0]
+[2026-07-17 12:00:45] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:0.0-10.0)
+[2026-07-17 12:00:48] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:00:48] [INFO] Analyzing Sector 0 with Cooper s_7 engine
+[2026-07-17 12:00:49] [INFO]   Δ_s7=0.124790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.125), Time: 3.50s
+[2026-07-17 12:00:49] [INFO] Processing Sector 1: RA [150.0, 160.0], Dec [10.0, 20.0]
+[2026-07-17 12:00:49] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:10.0-20.0)
+[2026-07-17 12:00:52] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:00:52] [INFO] Analyzing Sector 1 with Cooper s_7 engine
+[2026-07-17 12:00:52] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.59s
+[2026-07-17 12:00:52] [INFO] Saved 2 sector results and 2 discoveries
+[2026-07-17 12:00:52] [INFO] ======================================================================
+[2026-07-17 12:00:52] [INFO] Pipeline complete. 2 sectors processed.
+[2026-07-17 12:00:52] [INFO] Discoveries: 2
+[2026-07-17 12:00:52] [INFO] ======================================================================
+[2026-07-17 12:00:52] [INFO] Pipeline execution complete
+[2026-07-17 12:01:32] [INFO] Starting V5 pipeline with max_sectors=35, use_real_data=True
+[2026-07-17 12:01:32] [INFO] ======================================================================
+[2026-07-17 12:01:32] [INFO] V5 COOPER S_7 PIPELINE: PHASE 1 EXECUTION
+[2026-07-17 12:01:32] [INFO] ======================================================================
+[2026-07-17 12:01:32] [INFO] Device: cuda
+[2026-07-17 12:01:32] [INFO] Grid size: 128³ voxels
+[2026-07-17 12:01:32] [INFO] Sectors to process: 35
+[2026-07-17 12:01:32] [INFO] ======================================================================
+[2026-07-17 12:01:32] [INFO] Processing Sector 0: RA [150.0, 160.0], Dec [0.0, 10.0]
+[2026-07-17 12:01:32] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:0.0-10.0)
+[2026-07-17 12:01:36] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:36] [INFO] Analyzing Sector 0 with Cooper s_7 engine
+[2026-07-17 12:01:36] [INFO]   Δ_s7=0.124790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.125), Time: 3.68s
+[2026-07-17 12:01:36] [INFO] Processing Sector 1: RA [150.0, 160.0], Dec [10.0, 20.0]
+[2026-07-17 12:01:36] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:10.0-20.0)
+[2026-07-17 12:01:40] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:40] [INFO] Analyzing Sector 1 with Cooper s_7 engine
+[2026-07-17 12:01:40] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 4.47s
+[2026-07-17 12:01:40] [INFO] Processing Sector 2: RA [150.0, 160.0], Dec [20.0, 30.0]
+[2026-07-17 12:01:40] [INFO]   Ingested 9885 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:20.0-30.0)
+[2026-07-17 12:01:44] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:44] [INFO] Analyzing Sector 2 with Cooper s_7 engine
+[2026-07-17 12:01:44] [INFO]   Δ_s7=1.000210, Discovery: MODERATE_COOPER_SIGNAL (sig=1.000), Time: 3.52s
+[2026-07-17 12:01:44] [INFO] Processing Sector 3: RA [150.0, 160.0], Dec [30.0, 40.0]
+[2026-07-17 12:01:44] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:30.0-40.0)
+[2026-07-17 12:01:47] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:47] [INFO] Analyzing Sector 3 with Cooper s_7 engine
+[2026-07-17 12:01:47] [INFO]   Δ_s7=0.053034, Discovery: MODERATE_COOPER_SIGNAL (sig=0.053), Time: 3.41s
+[2026-07-17 12:01:47] [INFO] Processing Sector 4: RA [150.0, 160.0], Dec [40.0, 50.0]
+[2026-07-17 12:01:47] [INFO]   Ingested 9680 galaxies from SDSS BOSS DR17 (Sector RA:150.0-160.0, DEC:40.0-50.0)
+[2026-07-17 12:01:50] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:50] [INFO] Analyzing Sector 4 with Cooper s_7 engine
+[2026-07-17 12:01:51] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.29s
+[2026-07-17 12:01:51] [INFO] Saved 5 sector results and 5 discoveries
+[2026-07-17 12:01:51] [INFO] Processing Sector 5: RA [160.0, 170.0], Dec [0.0, 10.0]
+[2026-07-17 12:01:51] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:160.0-170.0, DEC:0.0-10.0)
+[2026-07-17 12:01:54] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:54] [INFO] Analyzing Sector 5 with Cooper s_7 engine
+[2026-07-17 12:01:54] [INFO]   Δ_s7=0.117090, Discovery: MODERATE_COOPER_SIGNAL (sig=0.117), Time: 3.44s
+[2026-07-17 12:01:54] [INFO] Processing Sector 6: RA [160.0, 170.0], Dec [10.0, 20.0]
+[2026-07-17 12:01:54] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:160.0-170.0, DEC:10.0-20.0)
+[2026-07-17 12:01:57] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:01:57] [INFO] Analyzing Sector 6 with Cooper s_7 engine
+[2026-07-17 12:01:58] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.43s
+[2026-07-17 12:01:58] [INFO] Processing Sector 7: RA [160.0, 170.0], Dec [20.0, 30.0]
+[2026-07-17 12:01:58] [INFO]   Ingested 9194 galaxies from SDSS BOSS DR17 (Sector RA:160.0-170.0, DEC:20.0-30.0)
+[2026-07-17 12:02:00] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:00] [INFO] Analyzing Sector 7 with Cooper s_7 engine
+[2026-07-17 12:02:01] [INFO]   Δ_s7=1.000210, Discovery: MODERATE_COOPER_SIGNAL (sig=1.000), Time: 3.19s
+[2026-07-17 12:02:01] [INFO] Processing Sector 8: RA [160.0, 170.0], Dec [30.0, 40.0]
+[2026-07-17 12:02:01] [INFO]   Ingested 9839 galaxies from SDSS BOSS DR17 (Sector RA:160.0-170.0, DEC:30.0-40.0)
+[2026-07-17 12:02:04] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:04] [INFO] Analyzing Sector 8 with Cooper s_7 engine
+[2026-07-17 12:02:04] [INFO]   Δ_s7=0.500210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.500), Time: 3.34s
+[2026-07-17 12:02:04] [INFO] Processing Sector 9: RA [160.0, 170.0], Dec [40.0, 50.0]
+[2026-07-17 12:02:04] [INFO]   Ingested 9130 galaxies from SDSS BOSS DR17 (Sector RA:160.0-170.0, DEC:40.0-50.0)
+[2026-07-17 12:02:07] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:07] [INFO] Analyzing Sector 9 with Cooper s_7 engine
+[2026-07-17 12:02:07] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.17s
+[2026-07-17 12:02:07] [INFO] Saved 10 sector results and 10 discoveries
+[2026-07-17 12:02:07] [INFO] Processing Sector 10: RA [170.0, 180.0], Dec [0.0, 10.0]
+[2026-07-17 12:02:07] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:170.0-180.0, DEC:0.0-10.0)
+[2026-07-17 12:02:10] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:10] [INFO] Analyzing Sector 10 with Cooper s_7 engine
+[2026-07-17 12:02:11] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.40s
+[2026-07-17 12:02:11] [INFO] Processing Sector 11: RA [170.0, 180.0], Dec [10.0, 20.0]
+[2026-07-17 12:02:11] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:170.0-180.0, DEC:10.0-20.0)
+[2026-07-17 12:02:14] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:14] [INFO] Analyzing Sector 11 with Cooper s_7 engine
+[2026-07-17 12:02:14] [INFO]   Δ_s7=0.072735, Discovery: MODERATE_COOPER_SIGNAL (sig=0.073), Time: 3.41s
+[2026-07-17 12:02:14] [INFO] Processing Sector 12: RA [170.0, 180.0], Dec [20.0, 30.0]
+[2026-07-17 12:02:14] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:170.0-180.0, DEC:20.0-30.0)
+[2026-07-17 12:02:17] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:17] [INFO] Analyzing Sector 12 with Cooper s_7 engine
+[2026-07-17 12:02:17] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.37s
+[2026-07-17 12:02:17] [INFO] Processing Sector 13: RA [170.0, 180.0], Dec [30.0, 40.0]
+[2026-07-17 12:02:17] [INFO]   Ingested 9336 galaxies from SDSS BOSS DR17 (Sector RA:170.0-180.0, DEC:30.0-40.0)
+[2026-07-17 12:02:20] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:20] [INFO] Analyzing Sector 13 with Cooper s_7 engine
+[2026-07-17 12:02:21] [INFO]   Δ_s7=0.067024, Discovery: MODERATE_COOPER_SIGNAL (sig=0.067), Time: 3.15s
+[2026-07-17 12:02:21] [INFO] Processing Sector 14: RA [170.0, 180.0], Dec [40.0, 50.0]
+[2026-07-17 12:02:21] [INFO]   Ingested 9578 galaxies from SDSS BOSS DR17 (Sector RA:170.0-180.0, DEC:40.0-50.0)
+[2026-07-17 12:02:24] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:24] [INFO] Analyzing Sector 14 with Cooper s_7 engine
+[2026-07-17 12:02:24] [INFO]   Δ_s7=0.124790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.125), Time: 3.28s
+[2026-07-17 12:02:24] [INFO] Saved 15 sector results and 15 discoveries
+[2026-07-17 12:02:24] [INFO] Processing Sector 15: RA [180.0, 190.0], Dec [0.0, 10.0]
+[2026-07-17 12:02:24] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:180.0-190.0, DEC:0.0-10.0)
+[2026-07-17 12:02:27] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:27] [INFO] Analyzing Sector 15 with Cooper s_7 engine
+[2026-07-17 12:02:27] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.43s
+[2026-07-17 12:02:27] [INFO] Processing Sector 16: RA [180.0, 190.0], Dec [10.0, 20.0]
+[2026-07-17 12:02:27] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:180.0-190.0, DEC:10.0-20.0)
+[2026-07-17 12:02:30] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:30] [INFO] Analyzing Sector 16 with Cooper s_7 engine
+[2026-07-17 12:02:31] [INFO]   Δ_s7=0.500210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.500), Time: 3.44s
+[2026-07-17 12:02:31] [INFO] Processing Sector 17: RA [180.0, 190.0], Dec [20.0, 30.0]
+[2026-07-17 12:02:31] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:180.0-190.0, DEC:20.0-30.0)
+[2026-07-17 12:02:34] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:34] [INFO] Analyzing Sector 17 with Cooper s_7 engine
+[2026-07-17 12:02:34] [INFO]   Δ_s7=0.750210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.750), Time: 3.41s
+[2026-07-17 12:02:34] [INFO] Processing Sector 18: RA [180.0, 190.0], Dec [30.0, 40.0]
+[2026-07-17 12:02:34] [INFO]   Ingested 9496 galaxies from SDSS BOSS DR17 (Sector RA:180.0-190.0, DEC:30.0-40.0)
+[2026-07-17 12:02:37] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:37] [INFO] Analyzing Sector 18 with Cooper s_7 engine
+[2026-07-17 12:02:37] [INFO]   Δ_s7=0.150515, Discovery: MODERATE_COOPER_SIGNAL (sig=0.151), Time: 3.22s
+[2026-07-17 12:02:37] [INFO] Processing Sector 19: RA [180.0, 190.0], Dec [40.0, 50.0]
+[2026-07-17 12:02:37] [INFO]   Ingested 8809 galaxies from SDSS BOSS DR17 (Sector RA:180.0-190.0, DEC:40.0-50.0)
+[2026-07-17 12:02:40] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:40] [INFO] Analyzing Sector 19 with Cooper s_7 engine
+[2026-07-17 12:02:40] [INFO]   Δ_s7=0.750210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.750), Time: 3.02s
+[2026-07-17 12:02:40] [INFO] Saved 20 sector results and 20 discoveries
+[2026-07-17 12:02:40] [INFO] Processing Sector 20: RA [190.0, 200.0], Dec [0.0, 10.0]
+[2026-07-17 12:02:40] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:190.0-200.0, DEC:0.0-10.0)
+[2026-07-17 12:02:44] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:44] [INFO] Analyzing Sector 20 with Cooper s_7 engine
+[2026-07-17 12:02:44] [INFO]   Δ_s7=0.750210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.750), Time: 3.45s
+[2026-07-17 12:02:44] [INFO] Processing Sector 21: RA [190.0, 200.0], Dec [10.0, 20.0]
+[2026-07-17 12:02:44] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:190.0-200.0, DEC:10.0-20.0)
+[2026-07-17 12:02:47] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:47] [INFO] Analyzing Sector 21 with Cooper s_7 engine
+[2026-07-17 12:02:47] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.44s
+[2026-07-17 12:02:47] [INFO] Processing Sector 22: RA [190.0, 200.0], Dec [20.0, 30.0]
+[2026-07-17 12:02:47] [INFO]   Ingested 8243 galaxies from SDSS BOSS DR17 (Sector RA:190.0-200.0, DEC:20.0-30.0)
+[2026-07-17 12:02:50] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:50] [INFO] Analyzing Sector 22 with Cooper s_7 engine
+[2026-07-17 12:02:50] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 2.87s
+[2026-07-17 12:02:50] [INFO] Processing Sector 23: RA [190.0, 200.0], Dec [30.0, 40.0]
+[2026-07-17 12:02:50] [INFO]   Ingested 8537 galaxies from SDSS BOSS DR17 (Sector RA:190.0-200.0, DEC:30.0-40.0)
+[2026-07-17 12:02:53] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:53] [INFO] Analyzing Sector 23 with Cooper s_7 engine
+[2026-07-17 12:02:53] [INFO]   Δ_s7=0.499790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.500), Time: 2.99s
+[2026-07-17 12:02:53] [INFO] Processing Sector 24: RA [190.0, 200.0], Dec [40.0, 50.0]
+[2026-07-17 12:02:53] [INFO]   Ingested 8953 galaxies from SDSS BOSS DR17 (Sector RA:190.0-200.0, DEC:40.0-50.0)
+[2026-07-17 12:02:56] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:56] [INFO] Analyzing Sector 24 with Cooper s_7 engine
+[2026-07-17 12:02:56] [INFO]   Δ_s7=0.249790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.12s
+[2026-07-17 12:02:56] [INFO] Saved 25 sector results and 25 discoveries
+[2026-07-17 12:02:56] [INFO] Processing Sector 25: RA [200.0, 210.0], Dec [0.0, 10.0]
+[2026-07-17 12:02:56] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:200.0-210.0, DEC:0.0-10.0)
+[2026-07-17 12:02:59] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:02:59] [INFO] Analyzing Sector 25 with Cooper s_7 engine
+[2026-07-17 12:03:00] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.45s
+[2026-07-17 12:03:00] [INFO] Processing Sector 26: RA [200.0, 210.0], Dec [10.0, 20.0]
+[2026-07-17 12:03:00] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:200.0-210.0, DEC:10.0-20.0)
+[2026-07-17 12:03:03] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:03] [INFO] Analyzing Sector 26 with Cooper s_7 engine
+[2026-07-17 12:03:03] [INFO]   Δ_s7=0.070433, Discovery: MODERATE_COOPER_SIGNAL (sig=0.070), Time: 3.43s
+[2026-07-17 12:03:03] [INFO] Processing Sector 27: RA [200.0, 210.0], Dec [20.0, 30.0]
+[2026-07-17 12:03:03] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:200.0-210.0, DEC:20.0-30.0)
+[2026-07-17 12:03:06] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:06] [INFO] Analyzing Sector 27 with Cooper s_7 engine
+[2026-07-17 12:03:07] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 3.40s
+[2026-07-17 12:03:07] [INFO] Processing Sector 28: RA [200.0, 210.0], Dec [30.0, 40.0]
+[2026-07-17 12:03:07] [INFO]   Ingested 9085 galaxies from SDSS BOSS DR17 (Sector RA:200.0-210.0, DEC:30.0-40.0)
+[2026-07-17 12:03:09] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:09] [INFO] Analyzing Sector 28 with Cooper s_7 engine
+[2026-07-17 12:03:10] [INFO]   Δ_s7=0.044524, Discovery: MODERATE_COOPER_SIGNAL (sig=0.045), Time: 3.16s
+[2026-07-17 12:03:10] [INFO] Processing Sector 29: RA [200.0, 210.0], Dec [40.0, 50.0]
+[2026-07-17 12:03:10] [INFO]   Ingested 8644 galaxies from SDSS BOSS DR17 (Sector RA:200.0-210.0, DEC:40.0-50.0)
+[2026-07-17 12:03:12] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:12] [INFO] Analyzing Sector 29 with Cooper s_7 engine
+[2026-07-17 12:03:13] [INFO]   Δ_s7=0.999790, Discovery: MODERATE_COOPER_SIGNAL (sig=1.000), Time: 3.01s
+[2026-07-17 12:03:13] [INFO] Saved 30 sector results and 30 discoveries
+[2026-07-17 12:03:13] [INFO] Processing Sector 30: RA [210.0, 220.0], Dec [0.0, 10.0]
+[2026-07-17 12:03:13] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:210.0-220.0, DEC:0.0-10.0)
+[2026-07-17 12:03:16] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:16] [INFO] Analyzing Sector 30 with Cooper s_7 engine
+[2026-07-17 12:03:16] [INFO]   Δ_s7=0.057101, Discovery: MODERATE_COOPER_SIGNAL (sig=0.057), Time: 3.50s
+[2026-07-17 12:03:16] [INFO] Processing Sector 31: RA [210.0, 220.0], Dec [10.0, 20.0]
+[2026-07-17 12:03:16] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:210.0-220.0, DEC:10.0-20.0)
+[2026-07-17 12:03:19] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:19] [INFO] Analyzing Sector 31 with Cooper s_7 engine
+[2026-07-17 12:03:20] [INFO]   Δ_s7=0.130045, Discovery: MODERATE_COOPER_SIGNAL (sig=0.130), Time: 3.45s
+[2026-07-17 12:03:20] [INFO] Processing Sector 32: RA [210.0, 220.0], Dec [20.0, 30.0]
+[2026-07-17 12:03:20] [INFO]   Ingested 10000 galaxies from SDSS BOSS DR17 (Sector RA:210.0-220.0, DEC:20.0-30.0)
+[2026-07-17 12:03:23] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:23] [INFO] Analyzing Sector 32 with Cooper s_7 engine
+[2026-07-17 12:03:23] [INFO]   Δ_s7=0.500210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.500), Time: 3.42s
+[2026-07-17 12:03:23] [INFO] Processing Sector 33: RA [210.0, 220.0], Dec [30.0, 40.0]
+[2026-07-17 12:03:23] [INFO]   Ingested 7543 galaxies from SDSS BOSS DR17 (Sector RA:210.0-220.0, DEC:30.0-40.0)
+[2026-07-17 12:03:26] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:26] [INFO] Analyzing Sector 33 with Cooper s_7 engine
+[2026-07-17 12:03:26] [INFO]   Δ_s7=0.749790, Discovery: MODERATE_COOPER_SIGNAL (sig=0.750), Time: 2.82s
+[2026-07-17 12:03:26] [INFO] Processing Sector 34: RA [210.0, 220.0], Dec [40.0, 50.0]
+[2026-07-17 12:03:26] [INFO]   Ingested 8075 galaxies from SDSS BOSS DR17 (Sector RA:210.0-220.0, DEC:40.0-50.0)
+[2026-07-17 12:03:29] [INFO]   Built 128³ density grid (mean: 1.000)
+[2026-07-17 12:03:29] [INFO] Analyzing Sector 34 with Cooper s_7 engine
+[2026-07-17 12:03:29] [INFO]   Δ_s7=0.250210, Discovery: MODERATE_COOPER_SIGNAL (sig=0.250), Time: 2.83s
+[2026-07-17 12:03:29] [INFO] Saved 35 sector results and 35 discoveries
+[2026-07-17 12:03:29] [INFO] ======================================================================
+[2026-07-17 12:03:29] [INFO] Pipeline complete. 35 sectors processed.
+[2026-07-17 12:03:29] [INFO] Discoveries: 35
+[2026-07-17 12:03:29] [INFO] ======================================================================
+[2026-07-17 12:03:29] [INFO] Pipeline execution complete

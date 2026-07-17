@@ -57,3 +57,9 @@ python3 scripts/check_tuning_log.py
 
 `Generated-by: Claude Sonnet 5 (T1) | Verified-by: scripts/check_tuning_log.py (selftest + CI) | Reviewed-by: T0 N`
 [c62f1ef084266191ba1afec95b17f3fa5492452f] FIT: Anchored C0 = 1.0100e+00 over median mass 1.0e+11 M_sun
+[0a9866c586cfd1c85f2a9c72309d07fcf39831a2] FIT: Anchored C0 = 2.2616e-02 over median mass 1.0e+11 M_sun
+[0a9866c586cfd1c85f2a9c72309d07fcf39831a2] FIT: Anchored C0 = 2.2549e-02 over median mass 1.0e+11 M_sun
+[0a9866c586cfd1c85f2a9c72309d07fcf39831a2] FIT: Anchored C0 = 5.6956e-04 over median mass 1.0e+11 M_sun
+[d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 4.7033e-04 over median mass 1.0e+11 M_sun
+[d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 3.3035e-04 over median mass 1.0e+11 M_sun
+[d3a147d9e75accc29b3a0b2f95496324ec549a67] FIT: Anchored C0 = 1.6125e-03 over median mass 1.0e+11 M_sun
