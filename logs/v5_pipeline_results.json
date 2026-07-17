@@ -1,0 +1,173 @@
+[
+  {
+    "sector_index": 0,
+    "timestamp": "2026-07-17T16:33:10.825482",
+    "ra_min": 150.0,
+    "ra_max": 155.0,
+    "dec_min": 0.0,
+    "dec_max": 5.0,
+    "num_galaxies": 2706,
+    "source": "SDSS_BOSS_DR17",
+    "data_source_type": "REAL",
+    "hypotheses": {
+      "legacy_S12_S21": {
+        "s12": 1.5954103422355952,
+        "s21": 0.5393292444118589,
+        "delta": 1.0560810978237363,
+        "mean_asymmetry": 0.11402107822632314,
+        "max_asymmetry": 17.949429041818917,
+        "relative_scale": 1.0,
+        "k3_type": false,
+        "dual_scale_classification": "Elliptic EFT Local Subhalo",
+        "cross_reference": "Correlates with K3 filament (Cooper_s7)"
+      },
+      "t103_A276536": {
+        "s12": 1.8633556161298481,
+        "s21": 0.44791029946121264,
+        "delta": 1.4154453166686354,
+        "mean_asymmetry": 0.1374619871990807,
+        "max_asymmetry": 21.639544403182978,
+        "relative_scale": 2.138337559774685,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s7_A183204": {
+        "s12": 1.5649252640234286,
+        "s21": 0.5491888662738476,
+        "delta": 1.015736397749581,
+        "mean_asymmetry": 0.1114649582901226,
+        "max_asymmetry": 17.547039464988746,
+        "relative_scale": 0.8883077000280045,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s10_A005260": {
+        "s12": 1.478536790987303,
+        "s21": 0.5785065971161539,
+        "delta": 0.9000301938711491,
+        "mean_asymmetry": 0.10434122452974745,
+        "max_asymmetry": 16.425606869948226,
+        "relative_scale": 0.5264538534910752,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      }
+    }
+  },
+  {
+    "sector_index": 1,
+    "timestamp": "2026-07-17T16:33:12.933594",
+    "ra_min": 150.0,
+    "ra_max": 155.0,
+    "dec_min": 5.0,
+    "dec_max": 10.0,
+    "num_galaxies": 2937,
+    "source": "SDSS_BOSS_DR17",
+    "data_source_type": "REAL",
+    "hypotheses": {
+      "legacy_S12_S21": {
+        "s12": 1.596239140751528,
+        "s21": 0.5373900262621274,
+        "delta": 1.0588491144894006,
+        "mean_asymmetry": 0.1238655136345124,
+        "max_asymmetry": 12.437666447729413,
+        "relative_scale": 1.0,
+        "k3_type": false,
+        "dual_scale_classification": "Elliptic EFT Local Subhalo",
+        "cross_reference": "Correlates with K3 filament (Cooper_s7)"
+      },
+      "t103_A276536": {
+        "s12": 1.8643236093341164,
+        "s21": 0.4462997882731645,
+        "delta": 1.418023821060952,
+        "mean_asymmetry": 0.14932960027113018,
+        "max_asymmetry": 14.994583273803032,
+        "relative_scale": 2.138337559774685,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s7_A183204": {
+        "s12": 1.5657382258690633,
+        "s21": 0.547214196759551,
+        "delta": 1.0185240291095123,
+        "mean_asymmetry": 0.12108774131612735,
+        "max_asymmetry": 12.158742923739094,
+        "relative_scale": 0.8883077000280045,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s10_A005260": {
+        "s12": 1.4793048749502071,
+        "s21": 0.5764265124471121,
+        "delta": 0.902878362503095,
+        "mean_asymmetry": 0.11334463988211413,
+        "max_asymmetry": 11.381237465752134,
+        "relative_scale": 0.5264538534910752,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      }
+    }
+  },
+  {
+    "sector_index": 2,
+    "timestamp": "2026-07-17T16:33:15.049981",
+    "ra_min": 150.0,
+    "ra_max": 155.0,
+    "dec_min": 10.0,
+    "dec_max": 15.0,
+    "num_galaxies": 3008,
+    "source": "SDSS_BOSS_DR17",
+    "data_source_type": "REAL",
+    "hypotheses": {
+      "legacy_S12_S21": {
+        "s12": 1.597028947712033,
+        "s21": 0.5354279633792869,
+        "delta": 1.061600984332746,
+        "mean_asymmetry": 0.12697091062089644,
+        "max_asymmetry": 13.831724731467853,
+        "relative_scale": 1.0,
+        "k3_type": false,
+        "dual_scale_classification": "Elliptic EFT Local Subhalo",
+        "cross_reference": "Correlates with K3 filament (Cooper_s7)"
+      },
+      "t103_A276536": {
+        "s12": 1.8652460624463691,
+        "s21": 0.4446703046460098,
+        "delta": 1.4205757578003593,
+        "mean_asymmetry": 0.15307249270903361,
+        "max_asymmetry": 16.67513112064365,
+        "relative_scale": 2.138337559774685,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s7_A183204": {
+        "s12": 1.5665129412093586,
+        "s21": 0.5452162648814822,
+        "delta": 1.0212966763278764,
+        "mean_asymmetry": 0.12412253877380938,
+        "max_asymmetry": 13.52143401110433,
+        "relative_scale": 0.8883077000280045,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      },
+      "cooper_s10_A005260": {
+        "s12": 1.4800368237272523,
+        "s21": 0.5743219235833693,
+        "delta": 0.905714900143883,
+        "mean_asymmetry": 0.1161809674210606,
+        "max_asymmetry": 12.656309642464462,
+        "relative_scale": 0.5264538534910752,
+        "k3_type": true,
+        "dual_scale_classification": "K3 Global Vacuum",
+        "cross_reference": "N/A"
+      }
+    }
+  }
+]
