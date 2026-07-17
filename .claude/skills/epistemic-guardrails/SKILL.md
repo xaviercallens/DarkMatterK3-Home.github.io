@@ -59,6 +59,22 @@ CI enforcement (`scripts/check_tier_language.py`, wired into
 3. A clean run requires zero flags. Run locally with
    `python3 scripts/check_tier_language.py`.
 
+## Finding F-B — Summary/conclusion lines must match the document's own derivation
+
+Per `PREDICTION_REVIEW_T0.md` CF-3: a document's top-line conclusion (an
+abstract, a §1 "the result is," a release-notes headline) must be checked
+against what its *own* later sections actually derive — not only against
+the tier ledger (Finding F-A covers that axis). A conclusion can be
+tier-correct (properly hedged, correctly marked Tier C) and still be
+**false relative to the document's own math**: e.g. "zero continuous free
+parameters" in §1 when §2 derives one relation constraining one residual
+continuous freedom. That is not a tier violation, it is an internal
+contradiction, and it is the more dangerous failure because it reads as
+honest. Before approving any summary line, re-derive (or at minimum
+re-read) the section it summarizes and confirm the claimed conclusion is
+the one that section actually supports — same document, not memory of a
+prior draft.
+
 ## Required artifacts
 
 - **Provenance footer** on every generated file:

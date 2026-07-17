@@ -1,9 +1,22 @@
 # PREDICTION.md — Falsifiable Predictions of the Dual-Scale Model
 
-**Status:** Draft v1.0 (July 2026)  
+**Status:** DRAFT v0.9 — TEMPLATE ACCEPTED, PREDICTION PENDING (per `PREDICTION_REVIEW_T0.md`, 2026-07-17)  
 **Scope:** Applies to Stream 3 observational testing (`SocrateAI-Scientific-Agora-Home`)  
-**Frozen date:** TBD (target: end of Phase 1, ~2026-09-17)  
+**Frozen date:** TBD — blocked; see M1 pin checklist in `PREDICTION_REVIEW_T0.md` §4  
 **Last amendment:** None  
+
+**T0 review note (2026-07-17):** A "Joint Consensus Memorandum" candidate draft
+(header: "Dual-Capability Active — T0 Architect + F-Theory Desk") was submitted
+claiming this document as "FROZEN v1.0." T0 review (`PREDICTION_REVIEW_T0.md`)
+rejected the freeze: the co-drafting process itself violates the blind
+re-derivation rule (`EXECUTION_PLAN.md` §1.2.3), no C1/C2/C3b certificates exist
+for any candidate, no numbers were computed (only symbols), and the document's
+own §1 conclusion ("zero continuous free parameters") contradicted its §2
+result (one relation, one residual freedom). The reviewed draft's actual text is
+not committed to this repo — it is not reproduced or reconstructed here, since
+authoring or transcribing its scaling laws is T0/T0s work, not T1. Status stays
+**draft, unpinned**; gate G1/M1 remain closed. The full findings and the
+authoritative pin checklist live in `PREDICTION_REVIEW_T0.md`.
 
 ---
 
@@ -139,6 +152,7 @@ memory (`epistemic-guardrails` rule 5).
 
 - **v1.0-draft (2026-07-17):** Initial draft. Three candidate observables outlined (halo profile, stochastic background, Lyman-α power). Data sources and pre-registration strategy sketched. Ready for Phase 1 consultation with external reviewers. Author: Xavier Callens.
 - **v1.0-draft, +Phase 0 scaffold (2026-07-17):** Added §6a placeholder cross-referencing the Free-Parameter Ledger schema (WP P0-B, `templates/free_parameter_ledger.jinja`) so this document is structurally ready to receive the S3-00 instance. No prediction content changed; not a tuning event (pre-pin).
+- **v0.9 status correction, T0 review (2026-07-17):** Status header corrected from "Draft v1.0" to "DRAFT v0.9 — TEMPLATE ACCEPTED, PREDICTION PENDING" per `PREDICTION_REVIEW_T0.md`, which rejected a "FROZEN v1.0" claim made outside this repo's git history. Not a tuning event (nothing was ever pinned, so there is nothing to demote from TEST to FIT); recorded here because it corrects a status claim, not a prediction value.
 
 ---
 

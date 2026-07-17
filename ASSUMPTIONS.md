@@ -52,6 +52,26 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
 - **Discharge path:** The worked EFT matching itself (VISION §1.3's Phase 1 blocker) *is* the discharge path — if S3-00 completes and both T0 and T0s independently re-derive the same eliminated relation from geometric data alone (not from each other), that is evidence (not proof) for A-REL at the specific candidate point tested.
 - **Failure mode:** **This is the kill condition already pre-committed in `EXECUTION_PLAN.md` WP S3-00 step (4):** if no relation survives the (𝒱, g_s) elimination, the model is generic vdSIDM and triggers **F5** — a reportable, non-post-hoc result, not a silent abandonment.
 
+### A-DE — Dark-Energy Identification (REQUIRED, NOT YET AUTHORED)
+
+- **Status:** ⚠️ **Flagged, not drafted.** Per `PREDICTION_REVIEW_T0.md` CF-2: a
+  reviewed prediction-draft's elimination of the volume modulus 𝒱 silently relied
+  on (i) ρ_vac ∝ 𝒱⁻³, (ii) that vacuum energy being positive, and (iii) its
+  identification with the *measured* dark energy density — i.e. the string-theory
+  de Sitter/uplift problem, smuggled in as an unnumbered proportionality and
+  credited to the (unrelated) C3b geometric criterion instead. This is a
+  first-order Tier C physical assumption and it is the actual load-bearing step
+  in that elimination, not C3b.
+- **What this entry is not:** this is a placeholder, not the assumption. Drafting
+  A-DE's statement/tier/discharge-path/failure-mode (matching the template used
+  by A-SEQ/A-VOL/A-ONT/A-REL above) is T0/T0s content, same as the other four —
+  a T1 session should not author Tier C physical assumptions any more than it
+  should author the elimination itself. See `PREDICTION_REVIEW_T0.md` §4 pin
+  checklist item "ASSUMPTIONS v0.3 with A-DE."
+- **Blocks:** any future PREDICTION.md draft that eliminates (𝒱, g_s) via a
+  measured-ρ_DE identification must carry this assumption once authored; until
+  then such an elimination is undischarged per the same review.
+
 ---
 
 ## CI / Audit Contract (once Phase 0 exits)
@@ -66,6 +86,7 @@ Template per assumption: **Statement** · **Tier** · **Where it enters the MVM 
 ## Changelog
 
 - **v0.1 (2026-07-17):** Initial draft. Best-inference reconstruction of A-SEQ, A-VOL, A-ONT, A-REL from context in `VISION.md` §1.2–1.3, `DUAL_SCALE_THREE_STREAM_PLAN.md` §5/§10, and `EXECUTION_PLAN.md` WP P0-A/S3-00. **Awaiting T0/Xavier review before Phase 0 can be marked complete.**
+- **v0.1, +A-DE flag (2026-07-17):** Added a placeholder (not a drafted assumption) for **A-DE** per `PREDICTION_REVIEW_T0.md` CF-2 — a reviewed prediction draft's dark-energy identification step was undeclared and misattributed to C3b. Still v0.1: the flag records that A-DE is required before any such elimination can be pinned; it does not author A-DE's content (T0/T0s work).
 
 ---
 
