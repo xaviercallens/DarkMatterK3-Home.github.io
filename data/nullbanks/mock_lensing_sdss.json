@@ -1,0 +1,16 @@
+{
+  "name": "mock_lensing_sdss",
+  "description": "Mock weak-lensing null: SDSS-like core-radius scaling statistic under \u039bCDM",
+  "observable_type": "lensing",
+  "null_statistic_mean": -0.04919187953730972,
+  "null_statistic_std": 1.1772332796426566,
+  "n_trials": 1000,
+  "seed": 7000,
+  "alpha_thresholds": [
+    2.8728970524662754,
+    1.7826973202934686,
+    1.3709346522508583
+  ],
+  "provenance": "synthetic_mock_v1",
+  "calibration_notes": "Mock null assumes pure-CDM profiles (NFW) with 15% excess kurtosis from observational systematics"
+}

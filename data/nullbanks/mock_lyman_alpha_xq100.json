@@ -1,0 +1,16 @@
+{
+  "name": "mock_lyman_alpha_xq100",
+  "description": "Mock Lyman-\u03b1 null: \u03c7\u00b2(10) goodness-of-fit for \u039bCDM power spectrum",
+  "observable_type": "lyman_alpha",
+  "null_statistic_mean": 10.080268217448912,
+  "null_statistic_std": 4.562216121244395,
+  "n_trials": 1000,
+  "seed": 7002,
+  "alpha_thresholds": [
+    23.406136947343164,
+    18.871734077190908,
+    16.21658894565598
+  ],
+  "provenance": "synthetic_mock_v1",
+  "calibration_notes": "Mock null is \u03c7\u00b2(10) over 10 Lyman-\u03b1 forest k-bins; assumes \u039bCDM power"
+}

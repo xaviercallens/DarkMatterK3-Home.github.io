@@ -1,0 +1,16 @@
+{
+  "name": "mock_pta_nanograv",
+  "description": "Mock PTA null: GW-background-only (no ultralight scalar) under NANOGrav-like conditions",
+  "observable_type": "pta",
+  "null_statistic_mean": 1.0172504414319101,
+  "null_statistic_std": 1.517270344400625,
+  "n_trials": 1000,
+  "seed": 7001,
+  "alpha_thresholds": [
+    7.43938108161638,
+    3.7410452740308027,
+    2.630055173652997
+  ],
+  "provenance": "synthetic_mock_v1",
+  "calibration_notes": "Mock null is \u03c7\u00b2(1) (LRT for scalar amplitude = 0) under GW-background-only hypothesis"
+}
