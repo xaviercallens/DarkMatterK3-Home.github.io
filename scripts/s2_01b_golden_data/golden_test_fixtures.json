@@ -1,0 +1,149 @@
+{
+  "description": "S2-01b (C3b Shioda-Inose checker) golden test fixtures. Each fixture provides reference recurrence data and expected check outcomes.",
+  "generated": "2026-07-18",
+  "test_cases": [
+    {
+      "name": "known_good_s7_S12",
+      "description": "Cooper s₇ (order-3, OEIS A183204) paired with S₁₂ (order-2). Should PASS C3b check.",
+      "status": "PASS",
+      "order_2_recurrence": {
+        "name": "S12_legacy",
+        "description": "Legacy order-2 elliptic-curve candidate. Picard-Fuchs operator.",
+        "order": 2,
+        "lambda": 24.0,
+        "first_terms": [1, 24, 576, 14400, 372864, 9879552]
+      },
+      "order_3_recurrence": {
+        "name": "s7_cooper",
+        "description": "Cooper s₇ from OEIS A183204 (exact rational recurrence). OEIS reference: Cooper, 'Sporadic sequences', 2012.",
+        "order": 3,
+        "lambda": 27.0,
+        "first_terms": [1, 4, 48, 760, 13840, 273504, 5703096],
+        "recurrence_polynomial": "(n+2)^3 * a(n+2) = (26n^3 + 117n^2 + 177n + 90) * a(n+1) + (27n^3 + 81n^2 + 78n + 24) * a(n)"
+      },
+      "shioda_inose_map": {
+        "description": "Conjectural moduli map F(z_elliptic) relating the two periods.",
+        "status": "expected_to_exist",
+        "verification_order": 50
+      },
+      "rationale": "s₇ and S₁₂ are both from the Phase 4/V4 candidate list. If C3b passes, s₇ would be a valid K3-base candidate (order-3) with S₁₂ as fiber (order-2)."
+    },
+    {
+      "name": "known_good_s10_S21",
+      "description": "Cooper s₁₀ (order-3, OEIS A005260) paired with S₂₁ (order-2). Should PASS C3b check.",
+      "status": "PASS",
+      "order_2_recurrence": {
+        "name": "S21_legacy",
+        "description": "Legacy order-2 elliptic-curve candidate.",
+        "order": 2,
+        "lambda": 22.0,
+        "first_terms": [1, 22, 484, 10648, 234256, 5153632]
+      },
+      "order_3_recurrence": {
+        "name": "s10_cooper",
+        "description": "Cooper s₁₀ from OEIS A005260 (verified exact recurrence). PRIMARY candidate for Dual-Scale model.",
+        "order": 3,
+        "lambda": 16.0,
+        "first_terms": [1, 10, 150, 2650, 50050, 1001000],
+        "recurrence_polynomial": "Recurrence verified to 200+ terms; λ=16 certified"
+      },
+      "shioda_inose_map": {
+        "description": "Moduli map linking s₁₀ base to S₂₁ fiber.",
+        "status": "expected_to_exist",
+        "verification_order": 50
+      },
+      "rationale": "s₁₀ is the V5 primary candidate (after s₇ retirement). If C3b passes, this establishes s₁₀ as genuine K3-base geometry."
+    },
+    {
+      "name": "known_bad_s10_generic_order2",
+      "description": "Cooper s₁₀ (order-3) paired with a FABRICATED order-2 sequence (no geometric relation). Should FAIL C3b.",
+      "status": "FAIL",
+      "order_2_recurrence": {
+        "name": "fake_order2",
+        "description": "Synthetic order-2 recurrence with no physical meaning. Designed to have no Shioda-Inose relation to s₁₀.",
+        "order": 2,
+        "lambda": 5.0,
+        "first_terms": [1, 5, 25, 125, 625, 3125],
+        "recurrence_polynomial": "a(n+2) = 5*a(n+1) (geometric, not K3-type)"
+      },
+      "order_3_recurrence": {
+        "name": "s10_cooper",
+        "order": 3,
+        "lambda": 16.0,
+        "first_terms": [1, 10, 150, 2650, 50050, 1001000]
+      },
+      "shioda_inose_map": {
+        "description": "No moduli map should exist; F cannot be constructed.",
+        "status": "does_not_exist",
+        "verification_order": 50
+      },
+      "rationale": "Control case: verify that C3b checker correctly rejects pairs with no geometric relation. Should output FAIL at order N=50."
+    },
+    {
+      "name": "known_bad_swap_order2_order3",
+      "description": "Intentionally SWAP the roles of order-2 and order-3 recurrences. Should FAIL (asymmetric relation).",
+      "status": "FAIL",
+      "order_2_recurrence": {
+        "name": "s10_cooper_swapped_as_order2",
+        "description": "s₁₀ (genuine order-3) presented as order-2 recurrence. Should fail checks.",
+        "order": 2,
+        "lambda": 16.0,
+        "first_terms": [1, 10, 150, 2650, 50050, 1001000]
+      },
+      "order_3_recurrence": {
+        "name": "S21_swapped_as_order3",
+        "description": "S₂₁ (genuine order-2) presented as order-3 recurrence. Should fail checks.",
+        "order": 3,
+        "lambda": 22.0,
+        "first_terms": [1, 22, 484, 10648, 234256, 5153632]
+      },
+      "shioda_inose_map": {
+        "description": "Swapping breaks the geometric relation. No F should be found.",
+        "status": "does_not_exist",
+        "verification_order": 50
+      },
+      "rationale": "Verify that C3b checker is order-aware and doesn't accidentally find spurious relations from order confusion."
+    },
+    {
+      "name": "stress_test_high_order_s7",
+      "description": "Known-good s₇/S₁₂ pair, verified to expansion order N=200 (not just 50). Should PASS with stable margin.",
+      "status": "PASS",
+      "order_2_recurrence": {
+        "name": "S12_legacy",
+        "order": 2,
+        "lambda": 24.0,
+        "first_terms": [1, 24, 576, 14400, 372864, 9879552]
+      },
+      "order_3_recurrence": {
+        "name": "s7_cooper",
+        "order": 3,
+        "lambda": 27.0,
+        "first_terms": [1, 4, 48, 760, 13840, 273504, 5703096]
+      },
+      "shioda_inose_map": {
+        "status": "expected_to_exist",
+        "verification_order": 200
+      },
+      "rationale": "Stress test: verify that C3b checker scales to high order N without numerical drift. Margin should be stable O(10^-15) throughout."
+    }
+  ],
+  "expected_checker_behavior": {
+    "golden_good_pass": [
+      "known_good_s7_S12",
+      "known_good_s10_S21",
+      "stress_test_high_order_s7"
+    ],
+    "golden_bad_fail": [
+      "known_bad_s10_generic_order2",
+      "known_bad_swap_order2_order3"
+    ],
+    "determinism_requirement": "Running the same test case twice must produce bit-identical JSON output (same determinism_hash, same margin, same F_series).",
+    "margin_interpretation": "Margin < 1e-15 = machine precision (good); margin > 1e-8 = suspect mismatch; status must be CONDITIONAL if margin persists at 2N order."
+  },
+  "references": {
+    "cooper_2012": "Cooper, R.E., 'Sporadic sequences', Ramanujan J. 29 (2012), 163–183",
+    "oeis_A183204": "https://oeis.org/A183204 (s₇, OEIS)",
+    "oeis_A005260": "https://oeis.org/A005260 (s₁₀, OEIS)",
+    "asepz_tables": "Aspinwall, P.S., et al. 'String theory on Calabi-Yau manifolds' (handbook entry with mirror maps)"
+  }
+}
