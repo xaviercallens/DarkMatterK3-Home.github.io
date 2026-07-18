@@ -1,9 +1,0 @@
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/wasm32-unknown-unknown/release/deps/transpose-6e63e90d272946d1.d: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/in_place.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/out_of_place.rs
-
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/wasm32-unknown-unknown/release/deps/libtranspose-6e63e90d272946d1.rlib: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/in_place.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/out_of_place.rs
-
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/wasm32-unknown-unknown/release/deps/libtranspose-6e63e90d272946d1.rmeta: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/in_place.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/out_of_place.rs
-
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/lib.rs:
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/in_place.rs:
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/transpose-0.2.3/src/out_of_place.rs:

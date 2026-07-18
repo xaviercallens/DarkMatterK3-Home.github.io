@@ -1,9 +1,0 @@
-[package]
-name = "nvector"
-version = "0.1.0"
-edition = "2021"
-description = "N_Vector trait and serial implementation for rusty-SUNDIALS"
-
-[dependencies]
-sundials-core = { path = "../sundials-core" }
-rayon = "1.8"

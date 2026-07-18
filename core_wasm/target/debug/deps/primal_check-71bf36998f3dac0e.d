@@ -1,9 +1,0 @@
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/debug/deps/primal_check-71bf36998f3dac0e.d: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/perfect_power.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/is_prime.rs
-
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/debug/deps/libprimal_check-71bf36998f3dac0e.rlib: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/perfect_power.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/is_prime.rs
-
-/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/core_wasm/target/debug/deps/libprimal_check-71bf36998f3dac0e.rmeta: /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/lib.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/perfect_power.rs /home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/is_prime.rs
-
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/lib.rs:
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/perfect_power.rs:
-/home/callensxavier_gmail_com/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/primal-check-0.3.4/src/is_prime.rs:
