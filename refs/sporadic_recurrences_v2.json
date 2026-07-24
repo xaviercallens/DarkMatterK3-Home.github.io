@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "status": "CORRECTED-CANDIDATE",
+    "supersedes": "sporadic_recurrences.json (v1.4)",
+    "description": "Corrected Level-11 order-2/order-3 pair. v1.4 kept intact for audit; see refs/RECURRENCE_CORRECTION_order3.md.",
+    "rule": "VISION 6.1 NO-LLM-RECALL — parameters from Gorodetsky arXiv:2102.11839v2 (refs/papers/), not model memory.",
+    "eval_convention": "For each recurrence, iterate n from 1: compute u_{n+1} from u_n=s[-1], u_{n-1}=s[-2]. Order-2 init [1, lambda]; order-3 init [1, b]."
+  },
+  "sequences": {
+    "az_eta_level11": {
+      "type": "order-3",
+      "role": "z_bulk",
+      "corrects": "az_eq14_level11",
+      "source": "Gorodetsky arXiv:2102.11839v2, AZ/Cooper family eq. (1.7); eta row (a,b,c)=(11,5,125), d=0.",
+      "family_form": "(n+1)^3 u_{n+1} = (2n+1)(a n^2 + a n + b) u_n - (c n^3 + d n) u_{n-1}",
+      "abcd": [11, 5, 125, 0],
+      "initial_terms": [1, 5],
+      "index_variable": "n",
+      "recurrence_python": "((2*n+1)*(11*n**2+11*n+5)*s[-1] - 125*n**3*s[-2]) / sp.Rational((n+1)**3)",
+      "first_terms": [1, 5, 35, 275, 2275, 19255, 163925, 1385725, 11483875, 91781375, 688658785, 4581861025, 22550427925],
+      "verification": "Sym^2 partner of az_apery_b_level11 verified exact to x^40 via Gorodetsky identity sum_n u'_n w^{n+1} = (-x) F_b(x)^2, w=-x/(1-11x-x^2); see checkers/check_C3_sym2.py (D<->eta).",
+      "term_confirmation": "PENDING",
+      "caveat": "Recurrence takes negative values from n=13; canonical positive-sporadic identification NOT independently confirmed. See RECURRENCE_CORRECTION_order3.md sec.3 (NEEDS-HUMAN)."
+    },
+    "az_apery_b_level11": {
+      "type": "order-2",
+      "role": "z_brane",
+      "partner_to": "az_eta_level11",
+      "note": "Same recurrence as v1.4 zagier_b_level11 (Apery b_n, (A,B,lambda)=(11,-1,3)); only the eval convention (start n=1) is fixed here.",
+      "source": "Gorodetsky arXiv:2102.11839v2 eq. (1.5), sequence D = Apery b_n; b_n = sum_k C(n,k)^2 C(n+k,k).",
+      "family_form": "(n+1)^2 u_{n+1} = (A n^2 + A n + lambda) u_n - B n^2 u_{n-1}",
+      "ABlambda": [11, -1, 3],
+      "initial_terms": [1, 3],
+      "index_variable": "n",
+      "recurrence_python": "((11*n**2+11*n+3)*s[-1] + n**2*s[-2]) / sp.Rational((n+1)**2)",
+      "first_terms": [1, 3, 19, 147, 1251, 11253, 104959, 1004307, 9793891],
+      "verification": "Matches closed form sum_k C(n,k)^2 C(n+k,k) term-by-term (checkers/tests/test_refs_recurrences.py)."
+    }
+  }
+}
