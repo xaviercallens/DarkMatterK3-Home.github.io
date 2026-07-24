@@ -1,0 +1,45 @@
+{
+  "criterion": "C3",
+  "check": "symmetric_square_generating_function_identity",
+  "identity": "sum_n s_n w^{n+1} == (-x) F(x)^2, w=-x/(1-A x+B x^2)",
+  "source": "Gorodetsky arXiv:2102.11839v2 p.3 (refs/papers/, checksum-verified)",
+  "order2_ABlam": [
+    7,
+    -8,
+    2
+  ],
+  "order3_abcd": [
+    7,
+    3,
+    81,
+    0
+  ],
+  "order2_first_terms": [
+    1,
+    2,
+    10,
+    56,
+    346,
+    2252,
+    15184,
+    104960
+  ],
+  "order3_first_terms": [
+    1,
+    3,
+    9,
+    3,
+    -279,
+    -2997,
+    -19431,
+    -65853
+  ],
+  "N": 40,
+  "status": "PASS",
+  "verdict": "PASS(40)",
+  "margin": 0,
+  "first_mismatch_order": null,
+  "determinism_hash": "680db32af6dc0ff25682bdda6c76bfabac538dd9aa9b01d8edb35c3d0c0b0c4a",
+  "assumptions": [],
+  "tier": "B -> A(N-bounded) on pass"
+}

@@ -1,0 +1,40 @@
+{
+  "criterion": "C1",
+  "check": "inverse_mirror_map_integrality",
+  "normalization": "q = z*exp((sum a_n'(0) z^n)/y0); z(q)=q+sum m_n q^n; integrality is m_n in Z",
+  "source": "Gorodetsky arXiv:2102.11839v2 eq.(1.7) operator (refs/papers/, checksum-verified)",
+  "order3_abcd": [
+    6,
+    2,
+    -64,
+    4
+  ],
+  "holomorphic_first_terms": [
+    1,
+    2,
+    18,
+    164,
+    1810,
+    21252,
+    263844,
+    3395016
+  ],
+  "mirror_map_first_coeffs": [
+    "1",
+    "-4",
+    "-6",
+    "56",
+    "-45",
+    "-360",
+    "894",
+    "960"
+  ],
+  "N1": 40,
+  "status": "PASS",
+  "verdict": "PASS(40)",
+  "margin_max_denominator": 1,
+  "first_non_integral_order": null,
+  "determinism_hash": "f96035e6d1fcf41456b5563440e29f174d6e9a88801c4bc4c98fac77c2d6055f",
+  "assumptions": [],
+  "tier": "B -> A(N1-bounded) on pass"
+}

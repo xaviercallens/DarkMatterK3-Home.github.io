@@ -1,0 +1,40 @@
+{
+  "criterion": "C3b",
+  "check": "shioda_inose_period_correspondence_through_map_F",
+  "map_F": {
+    "expression": "-x / (1 - 11*x - 1*x**2)",
+    "numerator_coeffs": [
+      0,
+      -1
+    ],
+    "denominator_coeffs": [
+      1,
+      -11,
+      -1
+    ]
+  },
+  "correspondence": "Pi3(F(x)) == (1 - A x + B x^2) * Pi2(x)^2",
+  "source": "Gorodetsky arXiv:2102.11839v2 p.3 (refs/papers/, checksum-verified)",
+  "order2_ABlam": [
+    11,
+    -1,
+    3
+  ],
+  "order3_abcd": [
+    11,
+    5,
+    125,
+    0
+  ],
+  "N": 40,
+  "status": "PASS",
+  "verdict": "PASS(40)",
+  "margin": 0,
+  "first_mismatch_order": null,
+  "determinism_hash": "d7b3ae195501d1a3ef390df1f3352ae56db28e6ab46eef876d629ad5fce457bf",
+  "assumptions": [
+    "A-ONT"
+  ],
+  "tier": "B -> A(N-bounded) on pass",
+  "note": "F is a geometric relation between period sequences (VISION \u00a71.3); it is not by itself a physical coupling. [A-ONT]"
+}
