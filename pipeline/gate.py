@@ -40,6 +40,20 @@ _SECTION6_RE = re.compile(r"^##\s*6\.\s.*?(?=^##\s|\Z)", re.MULTILINE | re.DOTAL
 # hash computed over a still-reserved §6 would otherwise verify happily.
 _RESERVED_MARKERS = ("RESERVED", "Empty by design", "TO-BE-DERIVED")
 
+# Schema regex for a valid bounded quantity line in §6.
+# Accepts: `symbol ∈ [lo, hi] unit [tags]` or `symbol in [lo, hi] unit [tags]`
+# - symbol: alphanumeric, underscores, Greek letters via Unicode
+# - bounds: scientific notation (e.g. 1.5e-3, 1.0e0), integers, decimals
+# - ∈ or in
+# - [ and ]
+# - unit: non-whitespace sequence or the literal "dimensionless"
+# This is a permissive schema that fails *closed* (allows broad ranges) rather
+# than trying to validate physics, which is above gate.py's pay grade.
+_BOUNDED_QUANTITY_RE = re.compile(
+    r"^\s*([a-zA-Z_α-ω\d\.]+)\s+(?:∈|in)\s*\[([+\-]?[\d\.e+\-]+),\s*([+\-]?[\d\.e+\-]+)\]\s+(\S+|dimensionless)"
+)
+
+
 
 class GateError(RuntimeError):
     """Raised when code tries to run a gated path before that gate opens."""
@@ -134,17 +148,38 @@ def verify_derived_hash() -> bool:
     return hashlib.sha256(section.encode("utf-8")).hexdigest() == pin.lower()
 
 
+def section6_has_bounded_quantities() -> bool:
+    """Check if §6 contains at least one schema-conformant bounded-quantity line.
+
+    A valid line matches _BOUNDED_QUANTITY_RE: `symbol ∈ [lo, hi] unit [tags]`
+    This is the primary schema validator; the placeholder-wording check is
+    a secondary belt-and-suspenders veto.
+    """
+    section = section6_text()
+    if not section:
+        return False
+    for line in section.split("\n"):
+        if _BOUNDED_QUANTITY_RE.search(line):
+            return True
+    return False
+
+
 def has_derived_quantities() -> bool:
     """True only when §6 carries real, hash-pinned derived quantities.
 
-    Requires all three, so that neither a stray marker nor a hash computed over
-    an un-filled section can open this gate:
+    Requires all four conditions, so that no edge case (stray marker, hash over
+    empty or placeholder §6, or prose-only content) can open this gate:
       1. a `DERIVED: <sha256>` header is present,
       2. it matches the current §6 text,
-      3. §6 no longer carries reserved/placeholder wording.
+      3. §6 contains at least one schema-conformant bounded-quantity line,
+      4. §6 no longer carries reserved/placeholder wording.
     """
     if not verify_derived_hash():
         return False
+    # Schema check (primary gate)
+    if not section6_has_bounded_quantities():
+        return False
+    # Placeholder check (secondary veto)
     section = section6_text()
     return not any(marker in section for marker in _RESERVED_MARKERS)
 

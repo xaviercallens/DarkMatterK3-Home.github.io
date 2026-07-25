@@ -64,7 +64,9 @@ def test_missing_prediction_file_is_unpinned(tmp_path, monkeypatch):
 # ===========================================================================
 
 RESERVED_S6 = "## 6. Derived quantities — RESERVED (v1.1)\n\nEmpty by design.\n"
-FILLED_S6 = "## 6. Derived quantities\n\nm_phi = 3.1e-23 eV +/- 0.4e-23 [A-VOL]\n"
+FILLED_S6 = "## 6. Derived quantities\n\nLambda_D in [6.6e-3, 2.24e1] eV [A-DD]\n"
+PROSE_ONLY_S6 = "## 6. Derived quantities\n\nThis section describes derived results.\n"
+DUMMY_S6 = "## 6. Derived quantities\n\nm_phi = 3.1e-23 eV +/- 0.4e-23 [A-VOL]\n"
 
 
 def _write_with_sections(path, section6: str, pin: bool, derive: bool):
@@ -129,7 +131,7 @@ def test_tampered_section6_fails_derived_hash(tmp_path, monkeypatch):
     monkeypatch.setattr(gate, "PREDICTION_PATH", p)
 
     # Edit a derived value after pinning it -- the classic post-hoc tune.
-    p.write_text(p.read_text().replace("3.1e-23", "9.9e-23"))
+    p.write_text(p.read_text().replace("6.6e-3", "9.9e-3"))
 
     assert gate.derived_pin() is not None       # header still there
     assert gate.verify_derived_hash() is False  # content no longer matches
@@ -167,6 +169,37 @@ def test_adding_derived_marker_preserves_existing_pin_hash(tmp_path, monkeypatch
 
     assert gate.verify_pin_hash() is True, "adding DERIVED: broke the pin hash"
     assert gate.labels_unlocked() is True
+
+
+def test_schema_validator_accepts_valid_bounded_quantity(tmp_path, monkeypatch):
+    """Schema-conformant line in §6 passes validation."""
+    p = tmp_path / "PREDICTION.md"
+    _write_with_sections(p, FILLED_S6, pin=True, derive=True)
+    monkeypatch.setattr(gate, "PREDICTION_PATH", p)
+
+    assert gate.section6_has_bounded_quantities() is True
+    assert gate.has_derived_quantities() is True
+
+
+def test_schema_validator_refuses_prose_only(tmp_path, monkeypatch):
+    """§6 with no schema-conformant line fails validation."""
+    p = tmp_path / "PREDICTION.md"
+    _write_with_sections(p, PROSE_ONLY_S6, pin=True, derive=True)
+    monkeypatch.setattr(gate, "PREDICTION_PATH", p)
+
+    assert gate.section6_has_bounded_quantities() is False
+    assert gate.has_derived_quantities() is False  # fails schema check
+
+
+def test_schema_validator_refuses_dummy_string(tmp_path, monkeypatch):
+    """A dummy string designed to fool the old wording check still fails schema."""
+    p = tmp_path / "PREDICTION.md"
+    # DUMMY_S6 looks plausible (has "eV", "[A-VOL]") but doesn't match the regex
+    _write_with_sections(p, DUMMY_S6, pin=True, derive=True)
+    monkeypatch.setattr(gate, "PREDICTION_PATH", p)
+
+    assert gate.section6_has_bounded_quantities() is False
+    assert gate.has_derived_quantities() is False  # fails schema check
 
 
 def test_this_repo_is_pinned_but_labels_locked():
