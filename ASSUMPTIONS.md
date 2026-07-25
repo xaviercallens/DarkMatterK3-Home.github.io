@@ -181,8 +181,16 @@ rate below declared α) **before** touching real data.
 
 **Next sync:** Gate E verdict (2026-07-27 EOD UTC)
 
+## 2.1 WP-D ledger update (2026-07-25) — Δ Observable Regeneration
+
+| Legacy entry | WP-D outcome (2026-07-25) |
+|---|---|
+| §3 "Dashboard numbers (Δ=1.092, Mean Δ values…) [A-DATA-LEGACY]" | **PARTIALLY LIFTED.** The Δ definition is recovered from `v5_estimator_s10.py` (RELEASE_NOTES.md) and regenerated in `pipeline/delta_observable.py` (WP-D, Haiku). Definition: **Δ = mean(\|A_warped / A_raw − 1\|)** across k-space shells, where A = \|FFT(field − mean)\| (DC-free Fourier amplitude). Golden tests (8/8 pass): determinism, null-field behavior, signal recovery with kernel-dependent warping. Synthetic-data only per hard rule 2.2 (no real-data fetch). Ledger status: **[A-DATA-WD]** Δ observable regenerated & golden-tested; real-data regeneration is WP-G post-pin. The numerical dashboard values (35/35 sectors, Mean Δ=1.092, etc.) remain [A-DATA-LEGACY] until reproduced with manifest-pinned data post-pin. |
+
+---
+
 ## 3. Review process
-Countermands or edits by Xavier: append to §2 ledger with date. All other streams treat this
+Countermands or edits by Xavier: append to §2 or §2.1 ledger with date. All other streams treat this
 file as read-only input. Changes that weaken a firewall (esp. A-REL) require T0s adversarial
 review before merge.
 
