@@ -1,5 +1,12 @@
 # Three-Stream Status (2026-07-24)
 
+> ⚠️ **SUPERSEDED (2026-07-25).** All three Stream 3 gates this document calls "BLOCKED" or
+> "DRAFT" cleared the same day this was written. The empirical path they unblocked (S3-00) was
+> then attempted and reached **Off-Ramp 3 terminus** — untestable at every scale with data that
+> exists today (`NO_PREDICTION_BRANCH.md` §8.5). Current status:
+> `docs/STREAMS_STATUS_2026_07_25.md`. Left here for history; do not act on the gate/blocker
+> tables below as if they still describe the present.
+
 **Summary:** Stream 3 Haiku prep work complete (S3-01/S3-02); Stream 2 now executing C1/C2 candidate selection (K3_SELECTION_REPORT pending); all three gates defined and locked.
 
 **Quick Links:**

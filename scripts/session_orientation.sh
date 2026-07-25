@@ -28,21 +28,22 @@ gate_1_blocked=true
 gate_2_blocked=true
 gate_3_blocked=true
 
-# Check for K3_SELECTION_REPORT.md (Stream 2 unblock)
-if [ -f "briefs/K3_SELECTION_REPORT.md" ]; then
+# Check for K3_SELECTION_REPORT.md (Stream 2 unblock) — lives at repo root, not briefs/
+if [ -f "K3_SELECTION_REPORT.md" ]; then
   echo "✓ Gate 1 (Stream 2 candidate selection): CLEARED"
-  echo "  File: briefs/K3_SELECTION_REPORT.md"
+  echo "  File: K3_SELECTION_REPORT.md"
   gate_1_blocked=false
 else
   echo "✗ Gate 1 (Stream 2 candidate selection): BLOCKED"
   echo "  Stream 2 is executing C1/C2 checkers on candidates."
-  echo "  Awaiting: briefs/K3_SELECTION_REPORT.md (machine-generated tables + rationale)"
+  echo "  Awaiting: K3_SELECTION_REPORT.md (machine-generated tables + rationale)"
   echo "  Reference: briefs/STREAM2_UNBLOCK_EXPECTATIONS.md (full task spec)"
 fi
 
-# Check for ASSUMPTIONS.md signature
-if grep -q "Signed-by:" ASSUMPTIONS.md 2>/dev/null; then
+# Check for ASSUMPTIONS.md signature (actual marker is "Status:** SIGNED", not "Signed-by:")
+if grep -qE '\*\*Status:\*\* SIGNED' ASSUMPTIONS.md 2>/dev/null; then
   echo "✓ Gate 2 (ASSUMPTIONS.md Xavier signature): CLEARED"
+  echo "  $(grep -E '\*\*Status:\*\* SIGNED' ASSUMPTIONS.md | head -1 | sed 's/^- //')"
   gate_2_blocked=false
 else
   echo "✗ Gate 2 (ASSUMPTIONS.md Xavier signature): BLOCKED"
@@ -64,12 +65,33 @@ fi
 echo ""
 
 # ============================================================================
+# TERMINUS CHECK (Off-Ramp 3, 2026-07-25) — checked before gate summary because
+# all three gates below CAN read as cleared while the empirical path is still
+# closed. Gates being clear is necessary, not sufficient.
+# ============================================================================
+terminus_reached=false
+if [ -f "NO_PREDICTION_BRANCH.md" ] && grep -q "Off-Ramp 3" NO_PREDICTION_BRANCH.md 2>/dev/null; then
+  terminus_reached=true
+fi
+
+# ============================================================================
 # BLOCKER SUMMARY
 # ============================================================================
 echo "BLOCKER SUMMARY"
 echo "============================================================================"
 
-if [ "$gate_1_blocked" = false ] && [ "$gate_2_blocked" = false ] && [ "$gate_3_blocked" = false ]; then
+if [ "$terminus_reached" = true ]; then
+  echo "⛔ TERMINUS REACHED — Off-Ramp 3 (NO_PREDICTION_BRANCH.md §8.5, 2026-07-25)"
+  echo "   All three gates below cleared, but S3-00 was attempted and closed:"
+  echo "   F5b (no derivable coefficients) -> Off-Ramp 2 (conditional swampland window)"
+  echo "   -> Gap G-1 adjudicated CLOSED-NEGATIVE -> WP-A2 lab re-scope failed Gate 0."
+  echo "   The hypothesis is untestable at every scale with data that exists today."
+  echo "   DO NOT treat 'gates clear' below as license to run S3-03/S3-04."
+  echo "   See: NO_PREDICTION_BRANCH.md §8.5, WP_A2_CIRCULARITY_AUDIT.md."
+  echo "   Live residue: monitoring trigger F-LAB (WP_A2_CIRCULARITY_AUDIT.md §5)."
+  echo "   Still valid: WP-R series real-data engineering (G1-scope, no TEST/FIT) —"
+  echo "   see docs/WP_R5_3D_FIELD.md, docs/WP_R6_SURVEY_SCALES.md."
+elif [ "$gate_1_blocked" = false ] && [ "$gate_2_blocked" = false ] && [ "$gate_3_blocked" = false ]; then
   echo "✓ ALL GATES CLEAR — Ready to proceed to S3-03/S3-04 (real data comparison)"
 elif [ "$gate_1_blocked" = false ]; then
   echo "⏳ Gate 1 cleared. Awaiting Gates 2–3 (T0 signatures + PREDICTION.md pin)"
@@ -154,7 +176,23 @@ echo ""
 echo "NEXT ACTIONS (Prioritized)"
 echo "============================================================================"
 
-if [ "$gate_1_blocked" = true ]; then
+if [ "$terminus_reached" = true ]; then
+  echo "1. Do NOT run S3-00/S3-03/S3-04/S3-05 on the current [A-DD]-anchored basis."
+  echo "   Off-Ramp 3 is a mechanical falsification result (CLAUDE.md rule 5); overriding"
+  echo "   it requires a written T0 ruling, not gate-clearance alone."
+  echo ""
+  echo "2. Live options:"
+  echo "   - WP-R series: more real-data engineering, G1-scope only (no TEST/FIT)."
+  echo "     See briefs/HAIKU_PLAN_REALDATA_VERIFICATION_2026_07_25.md; through WP-R6,"
+  echo "     T1-reviewed in docs/WP_R5_R6_SONNET_REVIEW_SIGNOFF_2026_07_25.md."
+  echo "   - Monitor F-LAB: watch for public ISL data excluding |α|=1 below 38.6 μm"
+  echo "     (WP_A2_CIRCULARITY_AUDIT.md §5) — the one condition that reopens Gate 0."
+  echo "   - A genuinely different candidate/mechanism/observable would need its own"
+  echo "     fresh pre-registration, not a continuation of this branch."
+  echo ""
+  echo "3. Full detail: NO_PREDICTION_BRANCH.md §8.5, WP_A2_CIRCULARITY_AUDIT.md,"
+  echo "   briefs/STREAM1_NOTICE_S3_TERMINUS_2026_07_25.md"
+elif [ "$gate_1_blocked" = true ]; then
   echo "1. [Stream 2] Monitor progress on K3_SELECTION_REPORT.md"
   echo "   - Verify acceptance criteria (briefs/STREAM2_UNBLOCK_EXPECTATIONS.md §6)"
   echo "   - Confirm C3b verdict matches checker output"
