@@ -1,6 +1,7 @@
 # DERIVATION_DISPUTES.md — Two-Model Disagreement Log
 
-**Status:** One entry (2026-07-25, WP S3-00b) — agreement recorded, no dispute open.
+**Status:** Three entries. WP S3-00b (agreement, closed) ×2; WP-A (`PENDING-BLIND` —
+awaiting Deep Think re-derivation, §0).
 
 ## Purpose
 
@@ -21,6 +22,18 @@ for exactly this outcome.
 |---|---|---|---|---|---|
 | 2026-07-25 | WP S3-00b — flux/tadpole construction of a₁, a₂, a₃ (Appendix A.1–A.3) | Fable 5 (T0) | Deep Think (T0s) | **None.** Both reached the same three obstructions independently | `AGREED (within tolerance)` — unified concurrence on Honest Off-Ramp 3; F5b stands. See §1 below |
 | 2026-07-25 | Appendix A.4.2 invariant relation — coefficient C₀ | Fable 5 (T0) + machine verification | Deep Think (T0s) | **None on the corrected form.** Both concur the prior A.4.2 text was wrong | `AGREED` — C₀ = a₁a₂a₃^(−1/9); F6 disclosure filed in A.4.2. See §2 below |
+
+## 0. WP-A (2026-07-25) — Off-Ramp 2 swampland bounds: PENDING blind re-derivation
+
+**Parties:** Fable 5 (T0, primary — `SWAMPLAND_BOUNDS_A123.md`, machine-checked by
+`scripts/verify_swampland_bounds.py`, executed). Deep Think (T0s): **NOT YET RUN** —
+brief at `briefs/WP_A_BLIND_REDERIVATION_BRIEF_2026_07_25.md`.
+**Status:** `PENDING-BLIND`. No concurrence exists; nothing in the primary may be cited
+as two-model-agreed, and PREDICTION v2.0 §6 may not be pinned from it until this row
+resolves. Items under audit: B1 window (two routes + union), λ_vol = 3√(3/2) and the TCC
+coefficient ambiguity, the a₃ non-derivability finding, the α ∈ (0, 0.5] refusal, gap
+G-1 (scale coherence of κ peaks vs an eV-window scalar), and [A-DD] applicability to
+cooper_s7.
 
 ## 1. WP S3-00b (2026-07-25) — flux/tadpole construction: unified concurrence
 

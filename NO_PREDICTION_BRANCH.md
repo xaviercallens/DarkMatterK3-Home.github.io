@@ -209,6 +209,32 @@ The program's Tier A/B mathematical content — the kernel-verified Sym² identi
 classification, the Shioda–Tate lattice computation — is untouched by this outcome and stands
 on its own merits, exactly as `VISION.md` §3 anticipated for this branch.
 
+## 8.4 Off-Ramp 2 executed — partial closure (2026-07-25, later same day)
+
+Under the T0 pivot ruling (`briefs/T0_RULING_G1L_AND_PIVOT_AUTHORIZATION_2026_07_25.md`),
+WP-A performed the swampland-bound derivation that §6 option (2) of this document reserved.
+Result: **partial closure**, recorded in `SWAMPLAND_BOUNDS_A123.md` and machine-checked by
+`scripts/verify_swampland_bounds.py` (executed, assertions green):
+
+- **B1:** conditional window Λ_D ∈ [6.6 × 10⁻³, 22.4] eV under the Dark Dimension
+  identification **[A-DD]** — scenario-imported, not constructed for this K3; two cited
+  routes, conservative union.
+- **B2:** the 𝒱⁻³ ansatz is swampland-consistent (λ_vol = 3√(3/2) ≈ 3.674 exceeds the dS
+  and TCC candidate bounds — derived, machine-verified). a₃'s magnitude is **not**
+  derivable; the [10⁻³, 1] interval enters only as a declared naturalness prior [A-NAT].
+- **B3:** the ruling's α ∈ (0, 0.5] is **refused** (not derivable from De Giorgi–Nash–Moser
+  for this system; dimensionally cannot bound a mass). Conditional m_φ ~ m_KK inherits B1's
+  window.
+- **⚠ Gap G-1 (new obstruction):** an unscreened scalar in B1's window has micron-scale
+  range; the weak-lensing κ-peak observable is incoherent with that window unless a
+  chameleon m_eff(ρ_cosmic) derivation — which does not exist — bridges it. Pinning κ peaks
+  against B1 while G-1 is open would pre-register a null-by-construction test.
+
+**F5b's core finding stands**: no exact coefficient was, or can currently be, extracted.
+Off-Ramp 2 delivered strictly weaker, conditional content. Two-model status: Deep Think
+blind re-derivation **PENDING** (`DERIVATION_DISPUTES.md` §0); v2.0 §6 may not be pinned
+from WP-A output until that row resolves and T0 rules on G-1.
+
 ---
 
 `Generated-by: Fable 5 (T0) WP S3-00b, session 2026-07-25 | Verified-by: cross-reference to
