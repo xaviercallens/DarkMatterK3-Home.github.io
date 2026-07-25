@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-07-25",
+  "dataset": "sdss_cosmos",
+  "n_objects": 1068,
+  "all_euler_valid": true,
+  "configurations": [
+    {
+      "nbins": 16,
+      "threshold_percentile": 40.0,
+      "beta_0": 47,
+      "beta_1": 44,
+      "beta_2": 0,
+      "euler_char": 3,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.0023963451385498047
+    },
+    {
+      "nbins": 16,
+      "threshold_percentile": 50.0,
+      "beta_0": 47,
+      "beta_1": 44,
+      "beta_2": 0,
+      "euler_char": 3,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.002197265625
+    },
+    {
+      "nbins": 16,
+      "threshold_percentile": 60.0,
+      "beta_0": 47,
+      "beta_1": 44,
+      "beta_2": 0,
+      "euler_char": 3,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.0018968582153320312
+    },
+    {
+      "nbins": 24,
+      "threshold_percentile": 40.0,
+      "beta_0": 422,
+      "beta_1": 1,
+      "beta_2": 0,
+      "euler_char": 421,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.0033416748046875
+    },
+    {
+      "nbins": 24,
+      "threshold_percentile": 50.0,
+      "beta_0": 422,
+      "beta_1": 1,
+      "beta_2": 0,
+      "euler_char": 421,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.0031206607818603516
+    },
+    {
+      "nbins": 24,
+      "threshold_percentile": 60.0,
+      "beta_0": 422,
+      "beta_1": 1,
+      "beta_2": 0,
+      "euler_char": 421,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.002651691436767578
+    },
+    {
+      "nbins": 32,
+      "threshold_percentile": 40.0,
+      "beta_0": 541,
+      "beta_1": 0,
+      "beta_2": 0,
+      "euler_char": 541,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.004507541656494141
+    },
+    {
+      "nbins": 32,
+      "threshold_percentile": 50.0,
+      "beta_0": 541,
+      "beta_1": 0,
+      "beta_2": 0,
+      "euler_char": 541,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.004563570022583008
+    },
+    {
+      "nbins": 32,
+      "threshold_percentile": 60.0,
+      "beta_0": 541,
+      "beta_1": 0,
+      "beta_2": 0,
+      "euler_char": 541,
+      "euler_check": "\u2713",
+      "runtime_sec": 0.0033254623413085938
+    }
+  ]
+}
