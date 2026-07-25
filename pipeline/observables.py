@@ -15,7 +15,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Literal
 
-from pipeline.gate import is_pinned
+from pipeline.gate import labels_unlocked
 
 
 # ============================================================================
@@ -92,7 +92,7 @@ class LensingObservable(Observable):
         Pre-G1: Return stub value.
         Post-G1: Compute from m_φ, α_D, Λ_D via halo-model RG flow.
         """
-        if is_pinned():
+        if labels_unlocked():
             # Post-G1: Real computation (TODO: fill from PREDICTION.md)
             # Step 1: Load m_φ, α_D, Λ_D from PREDICTION.md
             # Step 2: Compute moduli values (𝒱, g_s) from Free-Parameter Ledger
@@ -105,8 +105,9 @@ class LensingObservable(Observable):
         return "lensing_core_radius"
 
     def label(self) -> Literal["TEST", "FIT", "SYNTHETIC"]:
-        # Lensing allows normalization fitting (post-G1)
-        return "SYNTHETIC" if not is_pinned() else "FIT"
+        # Lensing allows normalization fitting, but only once §6 supplies the
+        # prediction being fitted against (gate G1-L, not merely G1).
+        return "FIT" if labels_unlocked() else "SYNTHETIC"
 
     def assumptions(self) -> list[str]:
         return ["A-SEQ", "A-VOL", "A-ONT"]
@@ -148,7 +149,7 @@ class PTAObservable(Observable):
         Pre-G1: Return stub value.
         Post-G1: Compute from m_φ via Bayesian model selection.
         """
-        if is_pinned():
+        if labels_unlocked():
             # Post-G1: Real computation (TODO: fill from PREDICTION.md)
             # Step 1: Load m_φ from PREDICTION.md
             # Step 2: Set frequency f = m_φ / π
@@ -163,8 +164,9 @@ class PTAObservable(Observable):
         return "pta_lrt"
 
     def label(self) -> Literal["TEST", "FIT", "SYNTHETIC"]:
-        # PTA is shape-only (TEST): no fitting allowed
-        return "SYNTHETIC" if not is_pinned() else "TEST"
+        # PTA is shape-only (TEST): no fitting allowed. TEST requires a
+        # pre-registered m_φ to test against (gate G1-L).
+        return "TEST" if labels_unlocked() else "SYNTHETIC"
 
     def assumptions(self) -> list[str]:
         return ["A-SEQ", "A-VOL"]
@@ -204,7 +206,7 @@ class LymanAlphaObservable(Observable):
         Pre-G1: Return stub value (should accept null).
         Post-G1: Compare model power spectrum to Lyman-α constraints.
         """
-        if is_pinned():
+        if labels_unlocked():
             # Post-G1: Real computation (TODO: fill from PREDICTION.md)
             # Step 1: Load model parameters (if any ultralight contribution)
             # Step 2: Compute power spectrum P(k) with ultralight DM
@@ -219,7 +221,9 @@ class LymanAlphaObservable(Observable):
 
     def label(self) -> Literal["TEST", "FIT", "SYNTHETIC"]:
         # Lyman-α is null check (TEST): no fitting allowed
-        return "SYNTHETIC" if not is_pinned() else "TEST"
+        # Lyman-α is a null check (TEST), but "null vs prediction" needs the
+        # prediction: gate G1-L, not merely G1.
+        return "TEST" if labels_unlocked() else "SYNTHETIC"
 
     def assumptions(self) -> list[str]:
         return ["A-SEQ"]

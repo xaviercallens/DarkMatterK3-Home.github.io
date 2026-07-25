@@ -187,11 +187,23 @@ result into an unfalsifiable one.
 
 ### 8.3 Standing disposition (unchanged)
 
-No GPU execution. No real-data fetch. `pipeline/D3_batch_runner_phase2.py` remains
-infrastructure-only with placeholder per-sector statistics; it must not be run against real
-data or reported as a Gate E result. Gate G1's pin remains valid and correctly records the
+No GPU execution. No real-data fetch. Gate G1's pin remains valid and correctly records the
 pre-registration commitments; `PREDICTION.md` §6 (derived quantities) remains empty, as
 designed — and now for a documented reason.
+
+**Update, same day — the constraint is now mechanical, not advisory.** This section previously
+said `pipeline/D3_batch_runner_phase2.py` "must not be run." A written warning is exactly the
+kind of thing a later session overlooks, and opening gate G1 had in fact already started
+causing the pipeline to stamp placeholder computations `FIT`/`TEST`. Under a T0 ruling of
+2026-07-25 a second gate now enforces this in code: **G1-L** requires *both* a valid pin *and*
+hash-pinned §6 derived quantities before any output may carry a TEST or FIT label. Everything
+else is `SYNTHETIC`, mechanically. The batch runner calls `require_derived_for_labels()` in
+pre-flight and therefore now **refuses to start** (`GateError`, exit 1) rather than relying on
+anyone reading this paragraph. Full ruling and cross-stream acknowledgement request:
+`briefs/GATE_G1L_RULING_2026_07_25.md`.
+
+Because F5b means §6 will not be populated on the cooper_s7 branch, G1-L will not open on this
+branch. That is the recorded outcome, not an obstacle to be routed around.
 
 The program's Tier A/B mathematical content — the kernel-verified Sym² identity, the Kodaira
 classification, the Shioda–Tate lattice computation — is untouched by this outcome and stands

@@ -2,14 +2,24 @@
 """Tests for S3-02 observable computation framework (stubs for T2).
 
 Golden tests verify:
-1. Observables compute stub values pre-G1
-2. Labels are mechanical (TEST/FIT per type, SYNTHETIC pre-G1)
+1. Observables compute stub values while labelling is locked
+2. Labels are mechanical (TEST/FIT per type, SYNTHETIC until gate G1-L opens)
 3. Assumptions are correct
 4. Observable registry manages all observables
 5. Observable info is accessible
+
+Gate-state discipline (added 2026-07-25): label tests pin the gate state
+explicitly via the `labels_locked` / `labels_open` fixtures instead of relying on
+whatever state the repo's own PREDICTION.md happens to be in. The earlier
+`*_pre_g1` tests asserted SYNTHETIC while silently assuming the repo was
+unpinned; when gate G1 was genuinely opened they failed for the wrong reason,
+which hid the real defect (labels were keyed on the pin alone, so placeholder
+computations were being stamped FIT/TEST with no §6 prediction behind them).
+A label test must therefore state which gate state it is testing.
 """
 import pytest
 
+import pipeline.observables as observables_mod
 from pipeline.observables import (
     LensingObservable,
     LensingObservableConfig,
@@ -19,6 +29,22 @@ from pipeline.observables import (
     PTAObservableConfig,
     ObservableRegistry,
 )
+
+
+@pytest.fixture
+def labels_locked(monkeypatch):
+    """Gate G1-L closed: no §6 derived quantities, so labels must be SYNTHETIC.
+
+    This is the repo's actual state on the cooper_s7 branch, and permanently so:
+    F5b fired (NO_PREDICTION_BRANCH.md §8).
+    """
+    monkeypatch.setattr(observables_mod, "labels_unlocked", lambda: False)
+
+
+@pytest.fixture
+def labels_open(monkeypatch):
+    """Gate G1-L open: pin valid AND §6 carries hash-pinned derived quantities."""
+    monkeypatch.setattr(observables_mod, "labels_unlocked", lambda: True)
 
 
 class TestLensingObservable:
@@ -37,12 +63,21 @@ class TestLensingObservable:
         obs = LensingObservable()
         assert obs.name() == "lensing_core_radius"
 
-    def test_lensing_label_pre_g1(self):
-        """Pre-G1, lensing label should be SYNTHETIC."""
-        obs = LensingObservable()
-        # Assuming PREDICTION.md is unpinned (pre-G1)
-        label = obs.label()
-        assert label == "SYNTHETIC"
+    def test_lensing_label_locked_is_synthetic(self, labels_locked):
+        """With G1-L closed (no §6 prediction), lensing must label SYNTHETIC."""
+        assert LensingObservable().label() == "SYNTHETIC"
+
+    def test_lensing_label_open_is_fit(self, labels_open):
+        """With G1-L open, lensing labels FIT (normalization fitting allowed)."""
+        assert LensingObservable().label() == "FIT"
+
+    def test_lensing_label_synthetic_in_this_repo_today(self):
+        """No monkeypatch: the repo's real state must not license a FIT label.
+
+        Guards the WP S3-00b defect directly — a valid pin alone must never be
+        enough to label an output, because PREDICTION.md §6 is empty.
+        """
+        assert LensingObservable().label() == "SYNTHETIC"
 
     def test_lensing_assumptions(self):
         """Lensing should carry [A-SEQ, A-VOL, A-ONT]."""
@@ -73,11 +108,13 @@ class TestPTAObservable:
         obs = PTAObservable()
         assert obs.name() == "pta_lrt"
 
-    def test_pta_label_pre_g1(self):
-        """Pre-G1, PTA label should be SYNTHETIC (TEST post-G1)."""
-        obs = PTAObservable()
-        label = obs.label()
-        assert label == "SYNTHETIC"
+    def test_pta_label_locked_is_synthetic(self, labels_locked):
+        """With G1-L closed, PTA must label SYNTHETIC — no m_φ to test against."""
+        assert PTAObservable().label() == "SYNTHETIC"
+
+    def test_pta_label_open_is_test(self, labels_open):
+        """With G1-L open, PTA labels TEST (shape-only, no fitting)."""
+        assert PTAObservable().label() == "TEST"
 
     def test_pta_assumptions(self):
         """PTA should carry [A-SEQ, A-VOL]."""
@@ -108,11 +145,13 @@ class TestLymanAlphaObservable:
         obs = LymanAlphaObservable()
         assert obs.name() == "lyman_alpha_chi2"
 
-    def test_lya_label_pre_g1(self):
-        """Pre-G1, Lyman-α label should be SYNTHETIC (TEST post-G1)."""
-        obs = LymanAlphaObservable()
-        label = obs.label()
-        assert label == "SYNTHETIC"
+    def test_lya_label_locked_is_synthetic(self, labels_locked):
+        """With G1-L closed, Lyman-α must label SYNTHETIC."""
+        assert LymanAlphaObservable().label() == "SYNTHETIC"
+
+    def test_lya_label_open_is_test(self, labels_open):
+        """With G1-L open, Lyman-α labels TEST (null check)."""
+        assert LymanAlphaObservable().label() == "TEST"
 
     def test_lya_assumptions(self):
         """Lyman-α should carry [A-SEQ] only."""
@@ -169,8 +208,8 @@ class TestObservableRegistry:
         with pytest.raises(KeyError):
             registry.get_observable("nonexistent")
 
-    def test_registry_observable_info(self):
-        """Get metadata for a single observable."""
+    def test_registry_observable_info(self, labels_locked):
+        """Get metadata for a single observable (G1-L closed)."""
         registry = ObservableRegistry()
         info = registry.observable_info("lensing")
 
@@ -181,7 +220,7 @@ class TestObservableRegistry:
         assert "statistic" in info
 
         assert info["name"] == "lensing_core_radius"
-        assert info["label"] == "SYNTHETIC"  # Pre-G1
+        assert info["label"] == "SYNTHETIC"  # G1-L closed: no §6 prediction
         assert set(info["assumptions"]) == {"A-SEQ", "A-VOL", "A-ONT"}
 
     def test_registry_all_info(self):
@@ -260,14 +299,27 @@ class TestObservableRegistry_Integration:
         assert pta_assumptions.issubset(lensing_assumptions)
         assert lya_assumptions.issubset(pta_assumptions)
 
-    def test_registry_all_labels_synthetic_pre_g1(self):
-        """All observables should label as SYNTHETIC pre-G1."""
+    def test_registry_all_labels_synthetic_when_locked(self, labels_locked):
+        """All observables label SYNTHETIC while G1-L is closed."""
         registry = ObservableRegistry()
 
         for obs_name in registry.list_observables():
-            obs = registry.get_observable(obs_name)
-            label = obs.label()
-            assert label == "SYNTHETIC"  # Pre-G1
+            assert registry.get_observable(obs_name).label() == "SYNTHETIC"
+
+    def test_registry_no_observable_labels_test_or_fit_in_this_repo(self):
+        """No monkeypatch: nothing in this repo may currently claim TEST/FIT.
+
+        The merge-blocking guard against the WP S3-00b defect. If this fails,
+        something is labelling outputs as tested against a prediction that
+        PREDICTION.md §6 does not contain.
+        """
+        registry = ObservableRegistry()
+
+        for obs_name in registry.list_observables():
+            assert registry.get_observable(obs_name).label() == "SYNTHETIC", (
+                f"{obs_name} claims a TEST/FIT label, but PREDICTION.md §6 has "
+                "no derived quantities (F5b — see NO_PREDICTION_BRANCH.md §8)"
+            )
 
     def test_registry_reproducible_statistics(self):
         """Same registry instance should produce same statistics."""

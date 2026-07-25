@@ -46,7 +46,7 @@ if str(REPO_ROOT) not in sys.path:
 
 from pipeline.comparison import ComparisonPipeline
 from pipeline.core import observed_statistic, null_distribution
-from pipeline.gate import require_pinned_for_real_data
+from pipeline.gate import require_pinned_for_real_data, require_derived_for_labels
 from pipeline.experiment_log import ExperimentLogger
 
 
@@ -278,8 +278,14 @@ class D3BatchRunner:
         Returns:
             List of SectorVerdict objects
         """
-        # Pre-flight checks
+        # Pre-flight gates. G1 (pin) permits real-data access; G1-L additionally
+        # requires §6 derived quantities before any verdict may be emitted.
+        # G1-L is what stops this runner: _evaluate_sector() below still returns
+        # placeholder statistics, and on the cooper_s7 branch §6 is permanently
+        # empty (F5b, NO_PREDICTION_BRANCH.md §8). Failing here is correct — it
+        # prevents placeholder verdicts being written as if they were results.
         require_pinned_for_real_data()
+        require_derived_for_labels()
 
         # Discover sectors
         sectors = self._discover_sectors()

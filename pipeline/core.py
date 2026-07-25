@@ -17,7 +17,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 import cooper_s10_kernel as s10  # noqa: E402  (repo-root module, path shim above)
-from pipeline.gate import is_pinned  # noqa: E402
+from pipeline.gate import is_pinned, labels_unlocked  # noqa: E402
 
 
 def _delta_band_gpu(field: torch.Tensor, rho_scale: float | None = None,
@@ -100,4 +100,7 @@ def run_comparison(field: torch.Tensor, null_stats: np.ndarray, alpha: float = 0
         "alpha": alpha,
         "label": "SYNTHETIC",
         "prediction_pinned": is_pinned(),
+        # Reported separately: a pin (G1) does not by itself license a TEST/FIT
+        # label — §6 derived quantities must also exist (G1-L). See pipeline.gate.
+        "labels_unlocked": labels_unlocked(),
     }

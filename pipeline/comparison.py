@@ -20,7 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from pipeline.gate import is_pinned  # noqa: E402
+from pipeline.gate import labels_unlocked  # noqa: E402
 
 
 # ============================================================================
@@ -144,8 +144,9 @@ class ObservableComparison:
         # (true p-value would come from the actual null distribution in the bank)
         p_value = float(np.clip(1.0 - (observed_statistic / (critical_value + 1e-6)), 0, 1))
 
-        # Label mechanical (pre-G1, always synthetic; post-G1, TEST/FIT per ledger)
-        if synthetic or not is_pinned():
+        # Label mechanical. SYNTHETIC unless BOTH the rules are pinned (G1) and
+        # §6 supplies hash-pinned derived quantities to compare against (G1-L).
+        if synthetic or not labels_unlocked():
             label = "SYNTHETIC"
         else:
             label = self._decide_label()
