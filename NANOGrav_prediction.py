@@ -1,3 +1,11 @@
+# DEPRECATED / EXPERIMENTAL 2026-07-25 (Fable 5, T0-delegated) — DO NOT CITE OUTPUT.
+# base_strain=1.8e-15 and pta_limit=2.5e-15 are hardcoded with no citation (violates
+# P1, LESSONS_LEARNED.md); mu_growth values passed at the bottom of this file
+# (25.869408, 15.331455) are the fabricated cooper_s7/s10 constants from the 2026-07-14
+# review (see cooper-s7-ground-truth memory / LESSONS_LEARNED.md L1). Prints
+# "VERDICT: SUCCESS...experimentally viable" language that this project's own
+# epistemic-guardrails skill forbids without a conjecture marker. No .par file or real
+# NANOGrav data is read anywhere in this file. See LEGACY_CODE_DISPOSITION_2026_07_25.md.
 import numpy as np
 
 def validate_pta_monopole(hypothesis, mu_growth):

@@ -73,6 +73,21 @@
 | Retrieval method | TBD |
 | Notes | Placeholder; depends on Euclid public-data timeline. Check status before fetching. |
 
+### Real raw-catalog access (2026-07-25) — NOT the same product as the two rows above
+
+**This does not fulfill the SDSS/Euclid rows above** — those describe pre-stacked
+weak-lensing profile products (Mandelbaum-style, Euclid ERO), which remain TBD/pending.
+What was fetched instead is **real raw object catalogs** via the standard astroquery
+method, as G1-scope engineering prep (data access only, not a comparison — gate G1-L
+stays closed, `NO_PREDICTION_BRANCH.md` §8.5): 4 SDSS photometric fields (`SDSS.
+query_region`) and 3 Euclid MER-catalogue cone queries (`Euclid.launch_job` ADQL,
+position + ellipticity + photometry columns). Full checksums, exact queries, and paths
+in `data/MANIFEST.md` (table + "Full-fidelity provenance" appendix). Data files on the
+external disk (`/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/`), not in
+git. Fetcher: `scripts/fetch_survey_astroquery.py`. Reducing these raw catalogs into a
+stacked lensing profile or a convergence map (for `pipeline/observables_real.py`) is
+separate, not-yet-done work.
+
 ## Lyman-α Null Test Observable
 
 ### SDSS DR12 Lyman-α Power Spectrum

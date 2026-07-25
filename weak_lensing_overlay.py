@@ -1,3 +1,10 @@
+# DEPRECATED / EXPERIMENTAL 2026-07-25 (Fable 5, T0-delegated) — DO NOT RUN OR CITE.
+# Total stub: kappa_peaks and delta_spikes are both np.random; delta_spikes is
+# literally defined as kappa_peaks * 22.0 + noise, which GUARANTEES correlation > 0.8
+# and therefore the printed "SUCCESS: Strong alignment confirmed" by construction, on
+# every call, for any filament_id. No real convergence map or topology data is read.
+# See LEGACY_CODE_DISPOSITION_2026_07_25.md. Real kappa-peak/Betti computation is
+# pipeline/observables_real.py (exact, golden-tested).
 import numpy as np
 
 def weak_lensing_overlay(filament_id):

@@ -1,3 +1,10 @@
+# DEPRECATED / EXPERIMENTAL 2026-07-25 (Fable 5, T0-delegated) — GPU load-test only,
+# NOT a validation. simulate_euclid_catalog() generates np.random ra/dec/z; there is
+# no real Euclid data path in this file at all. comoving_distance_approx() is a crude
+# polynomial approximation explicitly for load-testing CPU throughput, not cosmology.
+# Do not cite any printed "VALIDATION" output as a result. See
+# LEGACY_CODE_DISPOSITION_2026_07_25.md. For real Euclid data use
+# scripts/fetch_survey_astroquery.py (astroquery.esa.euclid, standard method).
 import time
 import torch
 import numpy as np

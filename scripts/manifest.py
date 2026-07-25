@@ -18,6 +18,13 @@ DATASET_USE_CASES = {
     "epta_dr2": "S3-03 (PTA observable P2, alternative)",
     "sdss_lensing": "S3-04 (lensing observable P1)",
     "lyman_alpha": "S3 null check (small-scale structure)",
+    "sdss_cosmos": "engineering prep (G1-scope; no G1-L target pinned)",
+    "sdss_stripe82_center": "engineering prep (G1-scope; no G1-L target pinned)",
+    "sdss_coma_cluster": "engineering prep (G1-scope; no G1-L target pinned)",
+    "sdss_docs_example": "engineering prep (G1-scope; no G1-L target pinned)",
+    "euclid_edf_north": "engineering prep (G1-scope; no G1-L target pinned)",
+    "euclid_edf_fornax": "engineering prep (G1-scope; no G1-L target pinned)",
+    "euclid_edf_south": "engineering prep (G1-scope; no G1-L target pinned)",
 }
 
 
@@ -75,14 +82,23 @@ def update_manifest(fetch_results: dict) -> None:
         # Append new rows at end of table
         new_lines = lines + new_rows
 
-    # Update the "Status" note at top to reflect that data has been fetched
+    # Update the "Status" note at top to reflect that data has been fetched.
+    # The original "Empty" notice wraps across 3 markdown source lines (soft-wrap,
+    # one logical sentence) — replace all 3 or a dangling fragment survives (found
+    # 2026-07-25: "has not opened..." left orphaned after only line 1 was swapped).
+    start = None
     for i, line in enumerate(new_lines):
         if "**Status:** Empty." in line:
-            new_lines[i] = (
-                f"**Status:** Updated {datetime.now().isoformat()}. "
-                f"{len(fetch_results)} dataset(s) fetched.\n"
-            )
+            start = i
             break
+    if start is not None:
+        end = start + 1
+        while end < len(new_lines) and new_lines[end].strip() and not new_lines[end].startswith("|"):
+            end += 1
+        new_lines[start:end] = [
+            f"**Status:** Updated {datetime.now().isoformat()}. "
+            f"{len(fetch_results)} dataset(s) fetched.\n"
+        ]
 
     # Write updated manifest
     with open(MANIFEST_FILE, "w") as f:
