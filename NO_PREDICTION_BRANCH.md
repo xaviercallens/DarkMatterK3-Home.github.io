@@ -108,8 +108,10 @@ S3-00, one of the following would need to exist:
 3. **A different candidate** whose compactification *has* been explicitly constructed
    elsewhere in the literature, if one exists with a certified Sym² structure.
 
-None of these were pursued in this session; T0 elected to record F5b rather than pursue
-(1)–(3) at this time.
+**Update 2026-07-25 (same day):** T0 elected to pursue option (1). Work package
+`briefs/WP_S3-00b_FLUX_TADPOLE_CONSTRUCTION_BRIEF_2026_07_25.md` prepared and handed to
+Deep Think (T0s, adversarial blind re-derivation) and Fable 5 (T0, primary construction)
+per the project's Two-Model Rule. This section will be updated with the outcome.
 
 ## 7. Disposition
 
