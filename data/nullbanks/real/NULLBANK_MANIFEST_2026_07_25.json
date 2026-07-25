@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-07-25T12:28:01.134495",
+  "nbins": 24,
+  "threshold_percentile": 50.0,
+  "n_realizations_per_scheme": 200,
+  "datasets": [
+    "sdss_cosmos",
+    "sdss_stripe82_center"
+  ],
+  "output_file": "data/nullbanks/real/nullbank_2026_07_25.json",
+  "sha256": "8513bb8d8dddd1b72fa7a84d60031992a0ace234261beeaa74e97a870b0423bd"
+}
