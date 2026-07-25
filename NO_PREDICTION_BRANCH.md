@@ -126,6 +126,81 @@ per the project's Two-Model Rule. This section will be updated with the outcome.
 
 ---
 
-`Generated-by: Claude (session 2026-07-25) at T0 direction | Verified-by: cross-reference
-to certificate files (C1/C2/C3b, both repos), PREDICTION_APPENDIX_A.md, VISION.md §4,
-EXECUTION_PLAN.md S3-00 | Reviewed-by: Xavier Callens (T0 Owner), recorded 2026-07-25`
+---
+
+## 8. Resolution of F5b — WP S3-00b outcome (2026-07-25)
+
+**Agents:** Fable 5 (T0, primary construction), Deep Think (T0s, adversarial blind
+re-derivation). **Outcome:** Honest Off-Ramp 3 invoked — explicit construction failed after
+genuine effort. **F5b stands.**
+
+The attempt to construct exact values for a₁, a₂, a₃ from the certified cooper_s7 geometry
+(ρ=4, T=18, 2× Type II fibres) was obstructed at three independent points. Full detail per
+coefficient is in `PREDICTION_APPENDIX_A.md` A.1.4, A.2.5, A.3.4:
+
+1. **The Type II veto (a₁).** The certified fibres are 2× Type II (cuspal), which under the
+   Kodaira–Tate dictionary carry no gauge algebra — perturbative ADE enhancement starts at
+   Type III. They do not supply the weakly coupled SU(N) dark sector the ansatz requires, and
+   engineering one elsewhere needs the global fourfold X₄, which is unspecified.
+2. **The flat-direction wall (a₂).** The order-3 Picard–Fuchs operator governs a rank-3
+   sub-VHS, while the C2 certificate gives T = 18. Fluxing only the controlled subspace leaves
+   18 − 3 = 15 moduli unstabilized — massless scalars that fifth-force bounds exclude.
+3. **The topology void (a₃).** χ(X₄) depends on a threefold base B₃ that this program never
+   specifies, so the D3 tadpole condition N_flux + N_D3 = χ(X₄)/24 is not merely unsatisfied
+   but not posable. Choosing χ(X₄) to permit a KKLT-style uplift would be a fit dressed as a
+   derivation (`.agents/AGENTS.md` Rule 7).
+
+**Two-model status:** unified concurrence, no dispute — logged in `DERIVATION_DISPUTES.md`.
+Deep Think's independent pass reached the same three obstructions and confirmed no numerical
+fabrication was attempted.
+
+### 8.1 What this work package *did* produce
+
+One real, machine-checked result: the A.4 elimination algebra is now verified by
+`scripts/verify_appendix_A4.py` (executed, assertions green). That verification **corrected two
+errors** in A.4.2 as it had stood since 2026-07-18 — the sign of the a₃ exponent
+(a₃^{+1/9} → a₃^{−1/9}, worth ≈60× in m_φ at mid-range a₃, against a one-decade branch window)
+and the left-hand-side quantity (m_DM → Λ_D). Both are disclosed as F6 items in A.4.2. Neither
+affected any published result, because F5b had already blocked every path to a number.
+
+This is worth stating plainly: the verification found the errors *because* it was executed
+rather than asserted. The relation had been carried as settled algebra for a week.
+
+### 8.2 Proposed empirical pivot — NOT authorized, two blockers flagged
+
+WP S3-00b proposed that the empirical pipeline pivot to testing parameterized correlations
+(suggested example: weak-lensing κ peaks against Δ spikes) instead of exact mass targets.
+**This is recorded as a proposal only.** Two blockers must clear first:
+
+- **The suggested Δ observable is quarantined.** `ASSUMPTIONS.md` (v2.0-SIGNED) classifies the
+  dashboard Δ figures as `[A-DATA-LEGACY]`: *"not reproducible from checkers in this repo
+  today. Not usable in S3-00 or any pre-registered comparison until regenerated with
+  manifest-pinned data."* Any pivot naming Δ collides with that quarantine directly.
+- **A post-hoc pivot needs its own pin.** Substituting a new observable *after* the
+  pre-registered path failed is precisely the move pre-registration exists to prevent. It
+  cannot inherit the v1.0-PINNED commitment, which pinned a branch on m_φ. It would require a
+  fresh pre-registration, pinned before contact with the data it proposes to use, and a
+  written T0 ruling.
+
+Neither blocker is cleared. Pivoting on the current basis would convert a clean negative
+result into an unfalsifiable one.
+
+### 8.3 Standing disposition (unchanged)
+
+No GPU execution. No real-data fetch. `pipeline/D3_batch_runner_phase2.py` remains
+infrastructure-only with placeholder per-sector statistics; it must not be run against real
+data or reported as a Gate E result. Gate G1's pin remains valid and correctly records the
+pre-registration commitments; `PREDICTION.md` §6 (derived quantities) remains empty, as
+designed — and now for a documented reason.
+
+The program's Tier A/B mathematical content — the kernel-verified Sym² identity, the Kodaira
+classification, the Shioda–Tate lattice computation — is untouched by this outcome and stands
+on its own merits, exactly as `VISION.md` §3 anticipated for this branch.
+
+---
+
+`Generated-by: Fable 5 (T0) WP S3-00b, session 2026-07-25 | Verified-by: cross-reference to
+certificate files (C1/C2/C3b, both repos), PREDICTION_APPENDIX_A.md, VISION.md §4,
+EXECUTION_PLAN.md S3-00, ASSUMPTIONS.md [A-DATA-LEGACY] entry; scripts/verify_appendix_A4.py
+executed; Deep Think (T0s) adversarial concurrence | Reviewed-by: T0 N — pending Xavier review
+of §8.2's two flagged blockers`

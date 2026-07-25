@@ -1,6 +1,11 @@
 # PREDICTION.md Appendix A — Derivation of the Three Ansätze
 
-**Status:** v0.1-outline (structure template) completed 2026-07-18; numerical values and full derivations TBD at S3-00 implementation.  
+**Status:** v0.2 — WP S3-00b construction attempted 2026-07-25 and **BLOCKED (F5b)** for all
+three ansätze; see A.1.4, A.2.5, A.3.4 for the per-coefficient obstruction and
+`NO_PREDICTION_BRANCH.md` for the recorded outcome. The A.4 elimination algebra **was**
+verified symbolically (`scripts/verify_appendix_A4.py`, executed, assertions green) and that
+verification corrected two errors in A.4.2 as previously written — see the F6 disclosure
+there. No numerical value for a₁, a₂, or a₃ is derived anywhere in this document.  
 **Purpose:** Make explicit, before any numerical work, the three scaling laws (ANSATZ-1, ANSATZ-2, ANSATZ-3 = A-DE) that are the load-bearing structure of the MVM (Minimal Viable Matching) calculation. Each ansatz is stated as a **proportionality with bounded O(1) coefficients**, not as an assertion of exact functional form.  
 **Tier:** C throughout. These are conjectures, not theorems. Each discharge path is listed.
 
@@ -52,6 +57,28 @@ Define [a_1^{min}, a_1^{max}] conservatively for all ranks 3 ≤ N ≤ 10.
 
 Credibility depends on: A-VOL (𝒱 stabilization), A-REL (K3 + D7 in same compactification).
 
+### A.1.4 — WP S3-00b construction outcome (2026-07-25)
+
+**Status:** BLOCKED (F5b). Tier C, parametrically bounded only — not derived.
+
+**Attempted.** Wrap D7-branes on an explicit divisor D to engineer a dark-sector gauge group
+of definite rank N, so Re(f) ~ 𝒱^{2/3}/g_s could be written concretely and a₁(N, b₀) fixed
+rather than merely bounded.
+
+**Obstruction — the Type II veto.** The certified Kodaira fibre content of the cooper_s7
+partner is 2× Type II, cuspal (`C1loci_cooper_s7_partner.json`). Under the standard
+Kodaira–Tate dictionary a Type II fibre carries no gauge algebra; perturbative ADE
+enhancement begins at Type III (su(2)) and Type IV (su(3)). The certified fibres therefore do
+not supply the weakly coupled SU(N) sector this ansatz needs — in a 4d N=2 setting such cusps
+are instead associated with strongly coupled non-Lagrangian (Argyres–Douglas-type) sectors.
+Engineering SU(N) would require an independent divisor in the full Calabi–Yau fourfold X₄, but
+the certificates fix only the local K3 fibre (ρ=4, T=18); neither X₄ nor its threefold base B₃
+is specified anywhere in this program, so Vol(D) cannot be evaluated.
+
+**Consequence.** a₁ remains bounded by dimensional analysis via generic LVS volume scaling
+(Witten hep-th/0001083). The A.1.2 interval stands as a placeholder, not a result.
+[A-VOL, A-REL, A-ONT]
+
 ---
 
 ## A.2 — ANSATZ-2: Mediator Mass vs. Flux Curvature
@@ -87,6 +114,28 @@ Choice at pin time; robustness protocol (PREDICTION.md §3-P1) computes over Car
 ### A.2.4 — Discharge Path
 
 If flux potential is non-perturbative (gaugino condensation), the form of V_flux changes and a_2 may not be derivable. Flagged as A-VOL / A-ONT contingency.
+
+### A.2.5 — WP S3-00b construction outcome (2026-07-25)
+
+**Status:** BLOCKED (F5b). The |∂²V| factor is algebraically defined but not evaluable.
+
+**Attempted.** Construct the Gukov–Vafa–Witten flux superpotential W(z) = ∫ G₄ ∧ Ω₄ and
+evaluate ∂²_z V_flux at the certified singular loci z ∈ {−1, 1/27}
+(`C1loci_cooper_s7_partner.json`, the F6-corrected loci).
+
+**Obstruction — the flat-direction wall.** The cooper_s7 operator is order 3, so it governs a
+rank-3 sub-variation of Hodge structure. The C2 certificate gives transcendental rank T = 18
+(`C2_cooper_s7_partner.json`). Introducing G₄ flux only along the rank-3 subspace the
+Picard–Fuchs operator actually controls leaves 18 − 3 = 15 moduli unstabilized. Those flat
+directions would correspond to massless scalars, which existing fifth-force bounds do not
+permit as a dark sector. Building a fully stabilizing flux vector would need the full
+18-dimensional intersection data, which the certificates do not contain.
+
+**Consequence.** |∂²V_flux(F(z*))|^{1/2} is carried symbolically (as `C_flux` in
+`scripts/verify_appendix_A4.py`) and assigned no value. A point-mass m_φ obtained from a
+rank-3 flux choice alone would not be physically meaningful absent a stabilizing flux vector
+(Denef–Douglas hep-th/0404116). Note the certified geometric input here (the mirror map F,
+Tier A/B) is real; what is missing is the flux potential to differentiate. [A-VOL, A-ONT]
 
 ---
 
@@ -124,6 +173,26 @@ Requires:
 
 If unavailable before M1 → **F5b** (no prediction), documented honestly in `NO_PREDICTION_BRANCH.md`.
 
+### A.3.4 — WP S3-00b construction outcome (2026-07-25) — **this is the trigger that fired**
+
+**Status:** BLOCKED (F5b). Swampland-boundable in principle; no explicit construction.
+
+**Attempted.** Satisfy the D3 tadpole condition N_flux + N_D3 = χ(X₄)/24, then sign-check
+ρ_vac > 0 and magnitude-check against ρ_DE,obs.
+
+**Obstruction — the topology void.** χ(X₄) is a global invariant of the Calabi–Yau fourfold and
+depends on the choice of threefold base B₃. This program specifies a K3 with certified lattice
+data (ρ=4, T=18) and no global fourfold, so χ(X₄) is undefined and the tadpole condition is not
+merely unsatisfied — it is not posable. Selecting a χ(X₄) to admit a flux landscape large enough
+to tune W₀ for a KKLT-style de Sitter uplift would be a fitted input presented as a derivation,
+which `.agents/AGENTS.md` Rule 7 forbids.
+
+**Consequence.** a₃ is not derived, so the A.3.3 discharge path fails and **F5b fires** exactly
+as pre-committed. Per A.3.2's third option a₃ could instead be bounded phenomenologically via
+the de Sitter swampland conjecture (Obied et al. 1806.08362); that bound was **not** computed in
+this work package and remains open. The A.3.2 placeholder interval is not a result.
+[A-DE, A-VOL, A-ONT]
+
 ---
 
 ## A.4 — Elimination Algebra (Pure Algebra; to be verified at pin time)
@@ -147,17 +216,47 @@ $$𝒱 = (a_3 M_{Pl}^4 / ρ_{DE})^{1/3}$$
 
 ### A.4.2 — Invariant Relation (Pre-Registration Form)
 
-The result has the structure:
+**Verified form (2026-07-25).** Machine-verified by `scripts/verify_appendix_A4.py` (executed;
+assertions green; output log in the WP S3-00b commit). The elimination yields:
 
-$$m_φ \cdot \ln(M_{Pl}/m_{DM}) = C_0(a_1, a_2, a_3) \cdot M_{Pl} \cdot (ρ_{DE}/M_{Pl}^4)^{1/9} \cdot |∂²V(F(z^*))|^{1/2}$$
+$$m_φ \cdot \ln(M_{Pl}/Λ_D) = C_0(a_1, a_2, a_3) \cdot M_{Pl} \cdot (ρ_{DE}/M_{Pl}^4)^{1/9} \cdot |∂²V(F(z^*))|^{1/2}$$
 
 where:
-- C_0 = a_1 a_2 a_3^{1/9} (product of O(1) coefficients; itself O(1))
+- **C_0 = a_1 a_2 a_3^{−1/9}** — verified free of residual dependence on 𝒱, g_s, M_Pl, ρ_DE, Λ_D
 - ρ_DE/M_{Pl}^4 is dimensionless, from measured dark energy
-- |∂²V(F(z*))|^{1/2} from C3b certificate (Tier A/B)
-- m_{DM} is a benchmark dark-matter mass
+- |∂²V(F(z*))|^{1/2} from the C3b certificate (Tier A/B) — certified, but see A.2.5: the flux
+  potential needed to evaluate it was not constructible
+- Λ_D is the confinement scale of A.1, **not** a dark-matter mass
 
-**This is the predicted relation** binding P1 (lensing) to P2 (PTA) via a single constraint.
+Under [A-ONT, A-VOL, A-REL, A-DE] this **would be** the relation constraining the P1 and P2
+observables jointly, *if* the worked EFT matching existed — it does not (F5b, see A.1.4/A.2.5/
+A.3.4). Per VISION §1.3 the certified Sym² geometry does not by itself supply that matching.
+
+> #### F6 disclosure — two errors in this section as previously written
+>
+> The symbolic verification corrected the prior text of A.4.2, which had stood since
+> 2026-07-18 and was never machine-checked:
+>
+> 1. **Sign of the a₃ exponent.** Prior text: `C_0 = a_1 a_2 a_3^{1/9}`. Derivation gives
+>    `a_3^{−1/9}`. This is **not** cosmetic: over A.3.2's placeholder interval
+>    a₃ ∈ [10⁻¹⁰, 10⁻⁶] the two forms differ by a factor of a₃^{−2/9} ≈ 21× to 167×
+>    (≈60× at mid-range a₃ = 10⁻⁸), i.e. roughly 1.3–2.2 decades in m_φ. The observable
+>    decision rule of `PREDICTION.md` §3 branches on whether m_φ falls in the
+>    **one-decade** window [10⁻²³, 10⁻²²] eV, so an error of this size could have flipped
+>    the pre-registered branch between P1 (PTA) and P2 (lensing). Recorded here rather
+>    than silently fixed, per F6 discipline.
+> 2. **Left-hand-side quantity.** Prior text wrote `ln(M_{Pl}/m_{DM})` and glossed m_DM as
+>    "a benchmark dark-matter mass". The elimination of A.1 produces `ln(M_{Pl}/Λ_D)`. Λ_D
+>    and m_DM are distinct quantities; substituting one for the other would be an additional
+>    physical assumption (Λ_D ≈ m_DM) requiring its own tier label and assumption tag, not a
+>    notational convenience. The verified form above uses Λ_D.
+>
+> A third, cosmetic inconsistency is also corrected: the prior closing line labelled
+> "P1 (lensing)" and "P2 (PTA)", which inverts `PREDICTION.md` §3 (P1 = PTA, P2 = lensing).
+>
+> Neither error affected any published result, because no numbers were ever computed from
+> this relation — F5b blocked that path before any value existed. Both are disclosed under
+> the F6 rule because A.4.2 was previously presented as a settled algebraic result.
 
 ### A.4.3 — Robustness Protocol
 
@@ -175,19 +274,22 @@ This appendix is a **template**. At S3-00 pin time, each section will be complet
 4. Sensitivity analysis showing β and P2 dependence on aᵢ intervals
 5. Assumption tags ([A-SEQ, A-VOL, A-ONT, A-REL, A-DE]) on each step
 
-**Status checklist at pin time:**
-- [ ] All three ansätze have derivations
-- [ ] Intervals [a_i^{min}, a_i^{max}] specified for all three
-- [ ] Elimination algebra verified symbolically
-- [ ] C3b certificate loaded; |∂²V(F(z*))| computed
-- [ ] Robustness-protocol β interval computed
-- [ ] P2 observable (if triggered) computed
-- [ ] All assumption IDs tagged on every quantity
-- [ ] Adversarial passes completed
-- [ ] Xavier sign-off on the derivation chain
+**Status checklist — actual state after WP S3-00b (2026-07-25):**
+- [ ] All three ansätze have derivations — **BLOCKED (F5b)**: A.1.4 (Type II veto), A.2.5 (15 flat directions), A.3.4 (χ(X₄) undefined)
+- [ ] Intervals [a_i^{min}, a_i^{max}] specified for all three — placeholders only; not results
+- [x] **Elimination algebra verified symbolically** — `scripts/verify_appendix_A4.py`, executed, assertions green; corrected two errors in A.4.2 (F6 disclosure there)
+- [ ] C3b certificate loaded; |∂²V(F(z*))| computed — certificate loaded and the mirror map F is certified, but |∂²V| is not evaluable (A.2.5)
+- [ ] Robustness-protocol β interval computed — depends on a_i values that do not exist
+- [ ] P2 observable (if triggered) computed — no m_φ, so no branch has been selected
+- [x] All assumption IDs tagged on every quantity
+- [x] Adversarial passes completed — Deep Think (T0s) blind re-derivation; unified concurrence on Off-Ramp 3, no dispute (`DERIVATION_DISPUTES.md`)
+- [ ] Xavier sign-off on the derivation chain — nothing to sign; there is no derivation chain to approve
+
+**Net:** one line of this appendix is now machine-verified (A.4 algebra) and the other three are
+recorded as blocked. That is the honest state; it is not a partial success toward a number.
 
 ---
 
-**Generated by:** T0 outline (Fable 5, 2026-07-18)  
-**To be completed by:** T0 and T0s (blind re-derivation) at S3-00  
-**Reviewed by:** Pending Xavier signature on ASSUMPTIONS.md and C3b certificate
+**Generated by:** Fable 5 (T0) — WP S3-00b construction attempt, 2026-07-25 (outline: Fable 5, 2026-07-18)  
+**Verified by:** `scripts/verify_appendix_A4.py` executed (A.4 algebra only); Deep Think (T0s) adversarial concurrence on A.1.4/A.2.5/A.3.4 obstructions and on the A.4.2 C_0 correction  
+**Reviewed by:** T0 N — pending Xavier review of the F5b outcome and the F6 disclosure in A.4.2

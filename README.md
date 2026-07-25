@@ -7,6 +7,41 @@ By crowdsourcing dormant compute power across standard web browsers and high-per
 
 ---
 
+## ⚠️ Scientific status — read before citing any result (updated 2026-07-25)
+
+The mathematical and the physical halves of this project are at very different evidence
+levels, and the gap widened in a documented way on 2026-07-25.
+
+**What is established (Tier A/B).** The symmetric-square operator identity L₃ = Sym²(L₂) for
+cooper_s7 / cooper_s10 is kernel-verified in Lean 4 with no `sorry` and no custom axiom. The
+Kodaira fibre classification and the Shioda–Tate lattice computation (ρ=4, T=18) are exact
+symbolic results with committed certificates. These stand on their own merits.
+
+**What is not established (Tier C).** No physical prediction currently follows from that
+geometry. Work package S3-00b attempted the F-theory flux/tadpole construction needed to turn
+the certified geometry into observable quantities (m_φ, α_D, Λ_D) and was **blocked at three
+independent points** — falsification branch **F5b** fired as pre-committed. The full record is
+in [`NO_PREDICTION_BRANCH.md`](NO_PREDICTION_BRANCH.md) §8. Consequently: no dark-matter or
+dark-energy observable has been predicted, no comparison against survey data has been run, and
+the Sym² geometry should not be described as linking or coupling a bulk vacuum to a brane EFT
+(`VISION.md` §1.3 is the binding ruling on that point).
+
+**F6 disclosure — error found in a previously claimed algebraic result.** Machine verification
+of the `PREDICTION_APPENDIX_A.md` §A.4 elimination algebra
+([`scripts/verify_appendix_A4.py`](scripts/verify_appendix_A4.py)) found two errors in §A.4.2 as
+it had stood since 2026-07-18: the sign of the a₃ exponent in the invariant coefficient
+(`a₃^{+1/9}` → `a₃^{−1/9}`, a factor of ≈21–167× in m_φ across that parameter's stated range)
+and the left-hand-side quantity (a dark-matter mass had been substituted for the confinement
+scale Λ_D). Neither error propagated into any published number, because F5b had already blocked
+every path to computing one. Both are disclosed in full at §A.4.2 and logged in
+[`DERIVATION_DISPUTES.md`](DERIVATION_DISPUTES.md). The relation had been carried as settled
+algebra for a week before it was executed rather than asserted.
+
+Terms such as "Chameleon Gravitino knots" above are project-internal naming for the
+distributed-computing workloads, not established physics nomenclature.
+
+---
+
 ## 🗺️ Multi-Phase Project Architecture
 
 This project is structured in five progressive phases to establish our baseline theoretical verification and scale out to global citizen-science execution:
