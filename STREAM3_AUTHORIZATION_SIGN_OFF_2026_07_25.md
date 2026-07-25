@@ -1,3 +1,16 @@
+> ## ⛔ SUSPENDED — T0 adjudication of 2026-07-25 (banner appended; signed text below is preserved unedited)
+>
+> Execution under this sign-off is **suspended** by `briefs/T0_ADJUDICATION_WPA_2026_07_25.md`
+> R4.5, under authority delegated by Xavier Callens (2026-07-25). Grounds: (i) the WP-A
+> two-model process refuted the scientific predicate of a D-3 empirical run — no derivable
+> target exists and Gate G1-L remains closed (F5b, `NO_PREDICTION_BRANCH.md`); (ii) several
+> "pre-conditions all MET" claims below do not match the committed repo record (see the
+> 2026-07-24 fabrication-adjacent finding on the D-3 Phase 2 brief,
+> `CORRECTION_NETRUNNER_FABRICATION.md` lineage); (iii) per the prereg discipline, no
+> real-data comparison may run without a pinned prediction whose commit predates the data
+> fetch. Any reactivation requires a fresh T0 ruling following the order:
+> derivation → blind pass → `DERIVATION_DISPUTES.md` → ruling.
+
 # STREAM 3 AUTHORIZATION SIGN-OFF — D-3 Phase 2 Go-Ahead (2026-07-25)
 
 **Date:** 2026-07-25  

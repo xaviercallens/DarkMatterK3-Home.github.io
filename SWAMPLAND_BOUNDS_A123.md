@@ -1,9 +1,11 @@
 # SWAMPLAND_BOUNDS_A123.md — WP-A: Off-Ramp 2 Executed (Partial Closure)
 
 **Work package:** WP-A (`briefs/HAIKU_PLAN_STREAM3_PIVOT_2026_07_25.md` §3)
-**Agents:** Fable 5 (T0, primary derivation). Deep Think (T0s) blind re-derivation: **PENDING**
-(`briefs/WP_A_BLIND_REDERIVATION_BRIEF_2026_07_25.md`) — nothing in this document has
-two-model concurrence yet.
+**Agents:** Fable 5 (T0, primary derivation). Deep Think (T0s) re-derivation: **FILED &
+ADJUDICATED 2026-07-25** (`DERIVATION_DISPUTES.md` §0;
+`briefs/T0_ADJUDICATION_WPA_2026_07_25.md`). Two-model concurrence on all content items;
+two F6 corrections applied below (TCC labels, §3; gap G-1 upgraded to CLOSED-NEGATIVE,
+§4). **Net ruling: nothing here is §6-pinnable; Gate G1-L remains closed.**
 **Machine verification:** `scripts/verify_swampland_bounds.py` — executed 2026-07-25,
 assertions green.
 **Date:** 2026-07-25
@@ -68,9 +70,12 @@ written in canonically normalized volume-modulus variables (K = −3 ln(T+T̄),
 
 This exceeds every candidate swampland lower bound: the dS-conjecture constant c ~ O(1)
 [1806.08362, which states only that c is positive; O(1) is the common reading], and the
-TCC bound in both readings found in [1909.11063] (interior 2/√6 ≈ 0.816; asymptotic
-2/√2 ≈ 1.414 — the exact coefficient is flagged for the blind pass, and the conclusion is
-insensitive to the choice). **Result: the 𝒱⁻³ ansatz is swampland-consistent.** This is a
+TCC bound [1909.11063]. **F6 correction (blind pass, 2026-07-25):** this document
+originally labeled 2/√6 "interior" and 2/√2 "asymptotic"; the blind pass pinned the
+correct reading — the d=4 **asymptotic** bound is c = 2/√((d−1)(d−2)) = 2/√6 ≈ 0.816,
+while the interior regime bounds de Sitter lifetime, not |∇V|/V. The conclusion was and
+remains insensitive to the labeling (3.674 exceeds every candidate).
+**Result: the 𝒱⁻³ ansatz is swampland-consistent.** This is a
 consistency check on the ansatz's *form* — it is not evidence for the ansatz, and it
 bounds nothing about a₃'s magnitude.
 
@@ -115,20 +120,22 @@ model — that work does not exist.
 scenario, we conjecture m_φ ~ m_KK, inheriting B1's union window
 [6.6 × 10⁻³, 22.4] eV [A-DD, A-REL] — a bare-mass statement, subject to gap G-1 below.
 
-**⚠ Gap G-1 — discovered in this work package; blocks the κ-peak pin as scoped.** An
-*unscreened* scalar in B1's window has force range ħc/m ∈ [8.8 nm, 30 μm] (computed in
-the script) — micron-scale, i.e. **no effect whatsoever on weak-lensing κ peaks at
-Mpc scales**. The pivot's observable is coherent only if chameleon density-dependence
-makes the *cosmic-density* effective mass m_eff(ρ_cosmic) many decades smaller than the
-bare window — the mechanism points the right way (m_eff falls with density
-[astro-ph/0309411]), but **the quantitative bridge for this system is underived**: no
-V_eff has been specified, so m_eff(ρ_cosmic) is currently unbounded in both directions.
-Until G-1 is closed (derive m_eff(ρ) from a specified potential) or the observable is
-re-scoped to scales where an eV-window scalar acts (e.g. short-range/laboratory bounds as
-the TEST, with cosmology dropped), **PREDICTION v2.0 must not pin κ peaks against B1's
-window** — doing so would pre-register a test the theory's own numbers say is null by
-construction, which would manufacture a guaranteed-pass FIT. This is the single most
-important sentence in this document for WP-F.
+**⚠ Gap G-1 — discovered in this work package; UPGRADED TO CLOSED-NEGATIVE by the blind
+pass (F6 correction, 2026-07-25; adjudication R3).** An *unscreened* scalar in B1's
+window has force range ħc/m ∈ [8.8 nm, 30 μm] (computed in the script) — micron-scale,
+i.e. **no effect whatsoever on weak-lensing κ peaks at Mpc scales**. This document
+originally held the chameleon bridge "underived… unbounded in both directions" — and
+mis-stated the mechanism's direction ("m_eff falls with density"; it *rises* with density
+[astro-ph/0309411]). The blind pass closed the loophole: under the cited chameleon
+mechanism and B3's own m_φ ~ m_KK anchoring, m_eff(ρ) can never fall below the bare
+window at any density, so the range never exceeds ~30 μm anywhere. **No Mpc-scale
+observable can test the B1/B3 window — in principle, not merely for lack of a
+derivation.** The only escape (an unanchored ultralight mediator) severs the observable
+from the derived window entirely, i.e. yields no prediction (F5b terminus). Consequence:
+**PREDICTION v2.0 must not pin κ peaks — or any cosmological observable — against B1's
+window under any future rewording**; the sole scale-coherent re-scope is
+short-range/laboratory bounds (see adjudication R6.2, mandatory circularity audit).
+This is the single most important paragraph in this document for WP-F.
 
 ## 5. New assumption tags (for ASSUMPTIONS.md ledger, T0 to apply)
 
@@ -149,14 +156,18 @@ Carried over: [A-ONT], [A-REL], [A-DE] as defined in `ASSUMPTIONS.md`.
 
 ## 7. What may and may not enter PREDICTION v2.0 §6
 
-**May enter** (schema-conformant, each with its tags):
+**May enter** (schema-conformant, each with its tags) — **tightened by the adjudication
+(R5), 2026-07-25:**
 - `Lambda_D in [6.6e-3, 2.24e1] eV [A-DD, A-ONT]` (B1)
 - `a_3 in [1.0e-3, 1.0e0] dimensionless [A-NAT, A-DE]` (B2 — declared prior)
 - `m_phi in [6.6e-3, 2.24e1] eV [A-DD, A-REL]` (B3 bare mass — **only if** the v2.0
-  observable set is re-scoped per gap G-1; forbidden alongside a κ-peak TEST as scoped)
+  observable set is re-scoped to short-range/laboratory scales per G-1-CLOSED-NEGATIVE
+  and the WP-A2 circularity audit passes; forbidden alongside **any** Mpc-scale
+  observable, not only κ-peaks)
 
-**May NOT enter:** any α ∈ (0, 0.5] line (§4 refusal); any κ-peak-vs-m_φ TEST while G-1
-is open; any a₃ line presented as *derived*.
+**May NOT enter:** any α ∈ (0, 0.5] line (§4 refusal); any cosmological-observable-vs-m_φ
+TEST (G-1-CLOSED-NEGATIVE — permanent under [A-DD], not pending); any a₃ line presented
+as *derived*.
 
 **Consequence for the batch pipeline:** even after a legitimate v2.0 pin, the observables
 WP-E implements (κ peaks, Betti numbers) test the *profile/topology* predictions, not the
@@ -185,8 +196,9 @@ F5b's core finding stands: **no exact coefficient is extractable** from the cert
 geometry. What Off-Ramp 2 adds is strictly weaker content — one scenario-conditional
 window ([A-DD]), one consistency result (λ_vol), one declared prior ([A-NAT]) — plus a
 new obstruction (G-1) that constrains how even this weaker content may be used. Whether
-that is enough to pin a falsifiable v2.0 is a WP-F/T0 decision, made with G-1 in view.
+that is enough to pin a falsifiable v2.0 was a WP-F/T0 decision — **now made: it is
+not** (`briefs/T0_ADJUDICATION_WPA_2026_07_25.md` R4–R5; G-1-CLOSED-NEGATIVE).
 
 ---
 
-`Generated-by: Fable 5 (T0) WP-A, 2026-07-25 | Verified-by: scripts/verify_swampland_bounds.py executed (assertions green); all citations fetch-verified same day; Deep Think (T0s) blind re-derivation PENDING — no two-model concurrence yet | Reviewed-by: T0 N (pending Xavier + blind pass)`
+`Generated-by: Fable 5 (T0) WP-A, 2026-07-25 | Verified-by: scripts/verify_swampland_bounds.py executed (assertions green); all citations fetch-verified same day; Deep Think (T0s) re-derivation FILED & ADJUDICATED 2026-07-25 (DERIVATION_DISPUTES.md §0) — two-model concurrence, two F6 corrections applied (§3 TCC labels, §4 G-1) | Reviewed-by: T0 Y (briefs/T0_ADJUDICATION_WPA_2026_07_25.md; Xavier countermand window open)`

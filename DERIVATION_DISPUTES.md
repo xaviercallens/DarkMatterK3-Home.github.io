@@ -1,7 +1,7 @@
 # DERIVATION_DISPUTES.md — Two-Model Disagreement Log
 
-**Status:** Three entries. WP S3-00b (agreement, closed) ×2; WP-A (`PENDING-BLIND` —
-awaiting Deep Think re-derivation, §0).
+**Status:** Three entries, all resolved. WP S3-00b (agreement, closed) ×2; WP-A
+(blind pass filed and adjudicated 2026-07-25 — `RESOLVED`, §0).
 
 ## Purpose
 
@@ -21,19 +21,52 @@ for exactly this outcome.
 | Date | Deliverable | Model A | Model B | Point of disagreement | Resolution / status |
 |---|---|---|---|---|---|
 | 2026-07-25 | WP S3-00b — flux/tadpole construction of a₁, a₂, a₃ (Appendix A.1–A.3) | Fable 5 (T0) | Deep Think (T0s) | **None.** Both reached the same three obstructions independently | `AGREED (within tolerance)` — unified concurrence on Honest Off-Ramp 3; F5b stands. See §1 below |
+| 2026-07-25 | WP-A — Off-Ramp 2 swampland bounds (`SWAMPLAND_BOUNDS_A123.md` B1–B3) | Fable 5 (T0) | Deep Think (T0s) | Item 5 only (chameleon bridge: "underived" vs "impossible under [A-DD]"); items 3/4/6 filed as disputes but concur with the primary's own refusals | `RESOLVED` — adjudicated `briefs/T0_ADJUDICATION_WPA_2026_07_25.md`: item 5 to Deep Think (G-1 → CLOSED-NEGATIVE); TCC labels corrected (F6); pivot Steps 5.1/5.4 VOID; **G1-L remains closed**. See §0 |
 | 2026-07-25 | Appendix A.4.2 invariant relation — coefficient C₀ | Fable 5 (T0) + machine verification | Deep Think (T0s) | **None on the corrected form.** Both concur the prior A.4.2 text was wrong | `AGREED` — C₀ = a₁a₂a₃^(−1/9); F6 disclosure filed in A.4.2. See §2 below |
 
-## 0. WP-A (2026-07-25) — Off-Ramp 2 swampland bounds: PENDING blind re-derivation
+## 0. WP-A (2026-07-25) — Off-Ramp 2 swampland bounds: RESOLVED
 
 **Parties:** Fable 5 (T0, primary — `SWAMPLAND_BOUNDS_A123.md`, machine-checked by
-`scripts/verify_swampland_bounds.py`, executed). Deep Think (T0s): **NOT YET RUN** —
-brief at `briefs/WP_A_BLIND_REDERIVATION_BRIEF_2026_07_25.md`.
-**Status:** `PENDING-BLIND`. No concurrence exists; nothing in the primary may be cited
-as two-model-agreed, and PREDICTION v2.0 §6 may not be pinned from it until this row
-resolves. Items under audit: B1 window (two routes + union), λ_vol = 3√(3/2) and the TCC
-coefficient ambiguity, the a₃ non-derivability finding, the α ∈ (0, 0.5] refusal, gap
-G-1 (scale coherence of κ peaks vs an eV-window scalar), and [A-DD] applicability to
-cooper_s7.
+`scripts/verify_swampland_bounds.py`, executed). Deep Think (T0s): filed 2026-07-25.
+**Protocol note:** Deep Think disclosed prior exposure to the primary (as the brief
+required) and asserted independent re-derivation before comparison — accepted as an
+adversarial audit with disclosed exposure; every delta found runs against the pivot.
+**Status:** `RESOLVED` — full adjudication in `briefs/T0_ADJUDICATION_WPA_2026_07_25.md`.
+
+### Deep Think filing (2026-07-25), as adjudicated
+
+1. **Third author & Λ_D bounds:** AGREED. Third author Irene Valenzuela; m_KK ~ meV
+   window established by both routes. → **CONCURRENCE.**
+2. **Volume scaling / TCC:** AGREED. λ_vol = 3√6/2 = √(27/2) ≈ 3.674 — algebraically
+   identical to the primary's 3√(3/2). Deep Think pins the d=4 asymptotic TCC bound to
+   c = 2/√6 ≈ 0.816, resolving the primary's flagged interior/asymptotic label
+   ambiguity. → **CONCURRENCE + F6 label correction adopted** (primary's conclusion
+   unchanged: λ_vol exceeds every candidate bound).
+3. **a₃ swampland bound:** filed DISPUTED ("no swampland theorem bounds a₃"). The
+   primary as committed asserts the same: §3 declares the interval an [A-NAT]
+   naturalness prior, "not a derivation." Dispute target is the pivot ruling's Step 5.1
+   wording, which the primary had already refused (R2(b)). → **CONCURRENCE-ON-CONTENT:
+   both models independently refuse derivability.**
+4. **DGNM Hölder → mass:** filed FATAL DISPUTE (category error). The primary's §4 had
+   already refused exactly this (R2(a): "the m_φ slot cannot be filled by α under any
+   wording"). → **CONCURRENCE-ON-CONTENT: same refusal reached independently twice.**
+5. **Scale coherence:** filed FATAL DISPUTE — the genuine delta. Primary's gap G-1 held
+   the chameleon bridge "underived… unbounded in both directions"; Deep Think: under the
+   cited chameleon mechanism (m_eff rises with density) and B3's own m_φ ~ m_KK
+   anchoring, m_eff can never fall below the bare window, so the range never exceeds
+   ~30 μm at any density — no Mpc observable can test the window *in principle*.
+   → **RESOLVED FOR DEEP THINK.** G-1 upgraded to **G-1-CLOSED-NEGATIVE** (ruling R3).
+6. **[A-DD] applicability:** filed DISPUTED ("pure scenario-import"). Primary §2 already
+   states the identification is "not constructed for this K3." → **CONCURRENCE-ON-
+   CONTENT**; consequence (no pin from scenario-import) decided in ruling R4.
+
+### Outcome
+
+Two-model requirement satisfied — with the concurred content **insufficient to pin**:
+pivot authorization Steps 5.1/5.4 VOID; no PREDICTION v2.0 from WP-A content; **Gate
+G1-L remains closed**; D-3 Phase 2 sign-off suspended; F5b re-affirmed. Authorized
+continuation: WP-A2 laboratory-scale re-scope behind a mandatory circularity audit, or
+honest full stop (Off-Ramp 3). Details: `briefs/T0_ADJUDICATION_WPA_2026_07_25.md` §2.
 
 ## 1. WP S3-00b (2026-07-25) — flux/tadpole construction: unified concurrence
 
