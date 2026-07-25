@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-07-25T16:35:10.237659+00:00",
+  "tag": "SANDBOX-EXPERIMENTAL",
+  "device": "cuda",
+  "r_grid_mpc": [
+    0.3,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "a_grid": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "resolution_floor_mpc": 0.27,
+  "absolute_thresholds": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "n_null_realizations": 30,
+  "deformation_classes": [
+    "chameleon_core_halt",
+    "void_evacuation"
+  ],
+  "fields": [
+    "euclid_z_edf_north",
+    "euclid_z_edf_fornax",
+    "sdss_z_coma_cluster"
+  ],
+  "full_output_file": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/wp_e_sandbox/wp_e_results_2026_07_25.json",
+  "full_output_sha256": "9f0d642424a2e28aa6fd5357b58135c62670e741adbce4b79862cf8d9f6d8eee",
+  "label": "SANDBOX-EXPERIMENTAL",
+  "authorization": "docs/WP_E_T0_AUTHORIZATION_2026_07_25.md",
+  "not_a_test_not_a_fit_not_engineering": true
+}

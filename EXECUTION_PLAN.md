@@ -107,6 +107,25 @@ This document turns `VISION.md` into executable work packages, each with **instr
 
 **S3-02 status (this repo, 2026-07-17):** synthetic-data mode scaffolded (`pipeline/`) — gate G1 check (`pipeline/gate.py`), GPU-accelerated (T4, `torch.cuda`) synthetic field generation reusing the certified `cooper_s10_kernel.py` warp as the test kernel, closure + null Monte Carlo tests in `pipeline/tests/` (7/7 passing). This is pipeline plumbing only — it computes no physical observable and produces no `TEST`/`FIT` result (labels everything `SYNTHETIC`); real-data code paths (S3-01, S3-03, S3-04) remain blocked on gate G1 (`PREDICTION.md` unpinned) and are not started. `scripts/fetch_data.py` exists as a gate-checking stub that refuses to run pre-pin.
 
+### 4.1 Fifth label: `SANDBOX-EXPERIMENTAL` (added 2026-07-25, WP-E series)
+
+The label vocabulary above (`TEST`, `FIT`, `SYNTHETIC`, `ENGINEERING`) covers pre-registered
+comparisons and validated infrastructure. It has no term for **exploratory work that touches
+real data but is neither**: parameter-sweep infrastructure meant to generate candidate
+hypotheses for Stream 2's model-construction process, before any mechanism or observable is
+pre-registered. `SANDBOX-EXPERIMENTAL` fills that gap, defined narrowly:
+
+| Property | Rule |
+|---|---|
+| **May compute against real data** | Yes — this is what distinguishes it from `SYNTHETIC`/`ENGINEERING` |
+| **May carry `TEST` or `FIT`** | **Never.** Gate G1-L governs those labels regardless of this tag; `SANDBOX-EXPERIMENTAL` is not a workaround for G1-L, it is a different kind of artifact |
+| **May feed a pre-registration** | Only as *hypothesis input* (candidate parameter windows) to a memo that itself goes through the normal M1→M2→M3 pin process (`briefs/STREAM2_ASTRO_MODEL_DIRECTIVE_2026_07_25.md` §6) — never inherited directly as a result |
+| **Requires** | An explicit written T0 authorization naming the specific real-data use (see `docs/WP_E_T0_AUTHORIZATION_2026_07_25.md` for the precedent) |
+| **First use** | WP-E series, `docs/WP_E_EMPIRICAL_BOUNDS.md` |
+
+This is a narrow addition, not a general license: absent a fresh T0 authorization document for
+the specific artifact, real-data code defaults to the existing G1/G1-L rules, unchanged.
+
 ---
 
 ## 5. T0 Orchestration Layer — Fable 5 + Deep Think
@@ -167,6 +186,7 @@ Reserved for work where no automated verifier exists and judgment is the product
 
 - **v1.0 (2026-07-17):** Initial execution plan. Adds model-tier routing (T0 Fable 5 / T0s Deep Think / T1 Sonnet–Gemini Pro / T2 Haiku–Flash), verifier-first delegation rule, two-model blind re-derivation rule for physics, per-WP DoD and validation gates, and amendments A1–A3 correcting VISION v1.1 epistemic regressions.
 - **v1.1 (2026-07-17):** **Major revision integrating Phase 0 ASSUMPTIONS (v0.2) and T0 Architecture Review.** New: (1) Phase 0 work packages (P0-A/B/C/D) establishing ASSUMPTIONS.md, Free-Parameter Ledger schema, abstract-tier rule, TUNING_LOG.md; (2) C3b criterion (Shioda-Inose moduli map as checkable claim) added to S2-01 + dedicated checker S2-01b; (3) S3-00 completely rewritten as MVM matching calculation with steps 1–4 (m_φ, α_D, Λ_D, observable elimination) under assumptions [A-SEQ, A-VOL, A-ONT, A-REL]; (4) T0/T0s blind re-derivation gate for MVM (two-model rule); (5) P1 (PTA ultralight) and P2 (lensing shape) observables as checkable outputs; (6) kill condition pre-committed (no invariant → F5); (7) GATE M1 (new) inserted between G0 and G2 as the MVM completion gate; (8) assumption tags on all predictions + TUNING_LOG tracking; (9) adversarial passes extended to explicitly attempt breaking A-SEQ and A-REL. Critical path now: C3b checker → top pair identification → MVM derivation → blind re-derivation agreement → M1 pin.
+- **v1.2 (2026-07-25):** S3-00's cooper_s7/[A-DD] branch reached Off-Ramp 3 terminus (`NO_PREDICTION_BRANCH.md` §8.5) — untestable at every scale with existing data; G1-L stays closed on this branch. WP-R series (R0–R7) delivered validated real-data engineering infrastructure instead (null schemes, accessibility envelope, statistic power map), T0-signed (`docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md`). New Stream 2 directive opens a Phase M model-construction attempt (`briefs/STREAM2_ASTRO_MODEL_DIRECTIVE_2026_07_25.md`), only its M1 memo step authorized. §4.1 adds a fifth output label, `SANDBOX-EXPERIMENTAL`, for real-data-touching exploratory work that generates hypothesis input for Phase M without being `TEST`/`FIT`/`ENGINEERING`; first use is the WP-E series (`docs/WP_E_EMPIRICAL_BOUNDS.md`, T0-authorized per `docs/WP_E_T0_AUTHORIZATION_2026_07_25.md`).
 
 ---
 

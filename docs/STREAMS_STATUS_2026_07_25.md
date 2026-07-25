@@ -101,6 +101,14 @@ inputs for Stream 2's Phase M directive above.
 **Not currently in scope:** S3-00 (already attempted, closed), S3-03/S3-04 (no derived
 observable to compare — G1-L stays closed), S3-05 (no results to interpret).
 
+### WP-E series (new, 2026-07-25, `SANDBOX-EXPERIMENTAL`)
+
+A separately-authorized GPU deformation sweep (`docs/WP_E_T0_AUTHORIZATION_2026_07_25.md`,
+Xavier direct) generating candidate parameter windows for Stream 2's Phase M memo. New label
+`SANDBOX-EXPERIMENTAL` defined in `EXECUTION_PLAN.md` §4.1 — touches real data, never
+TEST/FIT. Results: `docs/WP_E_EMPIRICAL_BOUNDS.md`. Not a test of any hypothesis; Off-Ramp 3
+unaffected.
+
 ### Cross-stream note
 
 A Stream 1 directive requesting an implementation plan for S3-00/S3-03/S3-04/S3-05
