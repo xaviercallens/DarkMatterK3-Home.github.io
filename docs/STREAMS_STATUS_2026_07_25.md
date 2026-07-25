@@ -109,6 +109,26 @@ Xavier direct) generating candidate parameter windows for Stream 2's Phase M mem
 TEST/FIT. Results: `docs/WP_E_EMPIRICAL_BOUNDS.md`. Not a test of any hypothesis; Off-Ramp 3
 unaffected.
 
+### WP-H series (new, 2026-07-25, `SANDBOX-EXPERIMENTAL`)
+
+Triage of an externally-supplied auto-research brief fetched from the
+`DarkMatterK3-Home.github.io` repo (vendored with its SHA256 at
+`briefs/SOURCE_autoresearch_brief_2026_07_25.md`; unreviewed external input, not a repo
+artifact). T0-authorized as sandbox-only per `docs/WP_H_T0_AUTHORIZATION_2026_07_25.md`
+(Xavier direct: *"do not consider as formal proof, launch it as sandbox mode"*).
+
+Its 26 claims became a merge-blocking registry (`pipeline/hypothesis_registry.py`):
+**6 RUNNABLE, 9 BLOCKED_DATA, 7 BLOCKED_PROVENANCE, 4 OUT_OF_SCOPE**. The runnable subset
+ran on the T4 (`scripts/wp_h_auto_research.py`); results in
+`docs/WP_H_AUTO_RESEARCH_TRIAGE.md`. Two constants in the brief (τ = 0.0000 + 1.21145i,
+τ_imag = 0.972) are fabricated and now regression-tested against reimport; its
+r_s ≥ 0.27 Mpc "prediction" is this repo's own resolution floor (circular).
+
+Substantive finding for Stream 2: **no configuration in current data gives both the
+0.22–0.27 Mpc scale window and a non-degenerate β₁/β₂** — deep fields have 2.5–12 Mpc
+transverse bins, and the one field reaching sub-0.27 Mpc has 50 objects and zero topology.
+Tightens the WP-R6 envelope. Off-Ramp 3 unaffected; G1-L stays closed.
+
 ### Cross-stream note
 
 A Stream 1 directive requesting an implementation plan for S3-00/S3-03/S3-04/S3-05
