@@ -4,6 +4,17 @@
 **Duration:** ~6 hours Haiku T2 execution  
 **Status:** ✅ **COMPLETE** — All authorized work items delivered
 
+> ⚠️ **CORRECTION (2026-07-25, Sonnet 5 review, WP-R5):** Section VIII's claim
+> "Real data topology matches null bank exactly... consistent with null
+> hypothesis" is **retracted**. The WP-R3 null bank had zero variance across
+> all 400 "realizations" because both randomization schemes were
+> methodologically degenerate (no-op shuffle, isometric rotation) — see
+> `docs/FINDING_R_NULLDEGENERATE_2026_07_25.md` for full root-cause analysis.
+> No valid null was ever computed at that point; the "100th percentile"
+> result was an artifact of comparing real data to a distribution with no
+> spread, not a finding about the data. Corrected null schemes are in WP-R5
+> (`docs/WP_R5_3D_FIELD.md`).
+
 ---
 
 ## I. Briefs Created & Committed

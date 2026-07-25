@@ -25,6 +25,13 @@ DATASET_USE_CASES = {
     "euclid_edf_north": "engineering prep (G1-scope; no G1-L target pinned)",
     "euclid_edf_fornax": "engineering prep (G1-scope; no G1-L target pinned)",
     "euclid_edf_south": "engineering prep (G1-scope; no G1-L target pinned)",
+    "sdss_z_cosmos": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "sdss_z_stripe82_center": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "sdss_z_coma_cluster": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "sdss_z_docs_example": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "euclid_z_edf_north": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "euclid_z_edf_fornax": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "euclid_z_edf_south": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
 }
 
 
