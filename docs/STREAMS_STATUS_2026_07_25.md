@@ -85,6 +85,7 @@ engineering that makes no physics claim (G1 scope, never TEST/FIT):
 | R4 | Sibling-family control harness (P4) | ✅ Complete (`docs/WP_R4_SIBLINGS_HARNESS.md`) |
 | R5 | Real 3D comoving field + corrected null bank | ✅ Complete, T1-reviewed (`docs/WP_R5_3D_FIELD.md`, `docs/WP_R5_R6_SONNET_REVIEW_SIGNOFF_2026_07_25.md`) — pending final T0 sign-off |
 | R6 | Survey scale characterization | ✅ Complete (`docs/WP_R6_SURVEY_SCALES.md`) — pending final T0 sign-off |
+| R7 | β₁/β₂ discriminating-power scan (follow-on to R5 §7) | ✅ Complete (`docs/WP_R7_BETA_VARIANCE_SCAN.md`) — pending T0 sign-off |
 
 **Not currently in scope:** S3-00 (already attempted, closed), S3-03/S3-04 (no derived
 observable to compare — G1-L stays closed), S3-05 (no results to interpret).
