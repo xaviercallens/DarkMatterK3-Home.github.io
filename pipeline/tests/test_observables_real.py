@@ -107,10 +107,9 @@ class TestBettiNumbers:
 
         b0, b1, b2 = result['beta_0'], result['beta_1'], result['beta_2']
         euler_expected = b0 - b1 + b2
-        # Our simplified computation may not be exact, but the relation should hold approximately
-        # (within reasonable tolerance due to discretization)
+        # Computation is exact (WP-E corrected); should match exactly
         diff = abs(result['euler_char'] - euler_expected)
-        assert diff <= 5, f"Euler mismatch: χ={result['euler_char']}, expected ~{euler_expected}"
+        assert diff == 0, f"Euler mismatch: χ={result['euler_char']}, expected {euler_expected}"
 
     def test_betti_threshold_effect(self, synthetic_density_field_with_structure):
         """Different thresholds should yield different topologies."""
