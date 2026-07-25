@@ -48,6 +48,10 @@ from pipeline.comparison import ComparisonPipeline
 from pipeline.core import observed_statistic, null_distribution
 from pipeline.gate import require_pinned_for_real_data, require_derived_for_labels
 from pipeline.experiment_log import ExperimentLogger
+from pipeline.observables_real import (
+    compute_kappa_peak_statistic,
+    compute_betti_numbers,
+)
 
 
 # ============================================================================
