@@ -2,6 +2,15 @@
 """
 NED Cross-Validator for K3-DISC-0035 Filament
 Independent verification of discoveries against NASA Extragalactic Database
+
+QUARANTINED 2026-07-25 (Fable 5, T0-delegated) — DO NOT RUN OR CITE OUTPUT.
+NED_API_BASE is defined but never called anywhere in this file; there is no
+actual NED query. generate_validation_report() hardcodes "VALIDATED AND
+CONFIRMED" / "Ready for Publication: YES" regardless of input. This is a
+placeholder masquerading as a completed validation, in violation of P1 (no
+constant/result without provenance). See
+DUAL_SCALE_EXPERIMENTATION_BRIEF_2026_07_25.md. Do not remove this banner
+without a T0 ruling.
 """
 
 import json

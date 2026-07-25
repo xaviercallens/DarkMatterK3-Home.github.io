@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# CAUTION 2026-07-25 (Fable 5, T0-delegated) — do not use output for any TEST/FIT
+# comparison as-is. process_pulsar_data() silently substitutes
+# np.random.uniform() for RNAMP/RNIDX when a .par file lacks those fields
+# (lines ~52-53 below), with no flag in the output JSON distinguishing parsed
+# from fabricated values. Must fail loudly (raise) instead of silently
+# fabricating before any real use. See
+# DUAL_SCALE_EXPERIMENTATION_BRIEF_2026_07_25.md.
 import os
 import json
 import numpy as np

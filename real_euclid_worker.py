@@ -1,3 +1,11 @@
+# QUARANTINED 2026-07-25 (Fable 5, T0-delegated) — DO NOT RUN OR IMPORT.
+# fetch_real_sdss_data()'s documented fallback path injects a fabricated cluster
+# into the output ("Injecter un puits de gravite aleatoire... pour avoir de
+# superbes decouvertes") indistinguishable from a real detection in
+# discoveries.json. This is exactly Lesson L5 (LESSONS_LEARNED.md) — the
+# practice P1-P4 discipline this project locked in after that finding forbids
+# it categorically. See DUAL_SCALE_EXPERIMENTATION_BRIEF_2026_07_25.md for the
+# audit that surfaced this. Do not remove this banner without a T0 ruling.
 import time
 import os
 import json
