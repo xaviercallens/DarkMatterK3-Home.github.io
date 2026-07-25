@@ -102,4 +102,4 @@ These are the concrete scales any future chameleon force-range prediction would 
 
 ## Provenance
 
-`Generated-by: Claude Sonnet 5 | Verified-by: manual duplicate-row trace + reuse of WP-R5-tested cosmology functions | Reviewed-by: [pending T0]`
+`Generated-by: Claude Sonnet 5 | Verified-by: manual duplicate-row trace + reuse of WP-R5-tested cosmology functions; duplicate count (36/50) independently recomputed from raw CSV at T0 review | Reviewed-by: T0 Y (Fable 5, 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)`

@@ -36,6 +36,12 @@ stand on their own merits, unaffected by the Stream 3 terminus (`NO_PREDICTION_B
 (below) cleared. Mathematics (Sym², Kodaira, Shioda–Tate) certified and unaffected by the
 Stream 3 terminus.
 
+**New directive (2026-07-25, T0):** `briefs/STREAM2_ASTRO_MODEL_DIRECTIVE_2026_07_25.md`
+(Phase M) — attempt an astrophysical model construction [Tier C conjecture work], designed
+against the three F5b walls up front and constrained to the WP-R6/R7 measured envelope.
+Only step M1 (mechanism memo, ≤2 pages) is authorized; T0 stop-point before any derivation.
+An honest "no route exists" memo is an equally valid deliverable.
+
 ---
 
 ## Stream 3: Empirical Validation — Terminus Reached (Off-Ramp 3)
@@ -83,9 +89,14 @@ engineering that makes no physics claim (G1 scope, never TEST/FIT):
 | R2 | Observable machinery smoke test | ✅ Complete (`docs/WP_R2_REALFIELD_SMOKE.md`) |
 | R3 | Real-data null bank | ⚠️ **Retracted** — both randomization schemes were degenerate no-ops (`docs/FINDING_R_NULLDEGENERATE_2026_07_25.md`); replaced by R5 |
 | R4 | Sibling-family control harness (P4) | ✅ Complete (`docs/WP_R4_SIBLINGS_HARNESS.md`) |
-| R5 | Real 3D comoving field + corrected null bank | ✅ Complete, T1-reviewed (`docs/WP_R5_3D_FIELD.md`, `docs/WP_R5_R6_SONNET_REVIEW_SIGNOFF_2026_07_25.md`) — pending final T0 sign-off |
-| R6 | Survey scale characterization | ✅ Complete (`docs/WP_R6_SURVEY_SCALES.md`) — pending final T0 sign-off |
-| R7 | β₁/β₂ discriminating-power scan (follow-on to R5 §7) | ✅ Complete (`docs/WP_R7_BETA_VARIANCE_SCAN.md`) — pending T0 sign-off |
+| R5 | Real 3D comoving field + corrected null bank | ✅ Complete, T1-reviewed, **T0-signed** (`docs/WP_R5_3D_FIELD.md`, `docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md`) |
+| R6 | Survey scale characterization | ✅ Complete, **T0-signed** (`docs/WP_R6_SURVEY_SCALES.md`) |
+| R7 | β₁/β₂ discriminating-power scan (follow-on to R5 §7) | ✅ Complete, **T0-signed** (`docs/WP_R7_BETA_VARIANCE_SCAN.md`) |
+
+**The WP-R series (R0–R7) is closed** — T0 sign-off with two independent raw-data
+recomputations recorded in `docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md`. Its three durable
+outputs (null infrastructure, accessibility envelope, statistic power map) are the design
+inputs for Stream 2's Phase M directive above.
 
 **Not currently in scope:** S3-00 (already attempted, closed), S3-03/S3-04 (no derived
 observable to compare — G1-L stays closed), S3-05 (no results to interpret).

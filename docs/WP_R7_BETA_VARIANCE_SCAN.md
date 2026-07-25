@@ -100,4 +100,4 @@ Full data: `/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/wp_r7_b
 
 ## Provenance
 
-`Generated-by: Claude Sonnet 5 | Verified-by: reuses pipeline/tests/test_cosmology.py + test_realfield3d.py (24 tests, unchanged), scan output reproduced above | Reviewed-by: [pending T0]`
+`Generated-by: Claude Sonnet 5 | Verified-by: reuses pipeline/tests/test_cosmology.py + test_realfield3d.py (24 tests, unchanged), scan output reproduced above; Coma percentile degeneracy (93.8% empty bins, percentiles 50–90 all → threshold 0) independently recomputed at T0 review | Reviewed-by: T0 Y (Fable 5, 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)`

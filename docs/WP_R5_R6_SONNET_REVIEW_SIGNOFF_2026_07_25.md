@@ -97,4 +97,4 @@ outstanding technical question this tier can still resolve on WP-R5/R6.
 
 ---
 
-`Generated-by: Claude Sonnet 5 (T1 independent verification pass) | Verified-by: pipeline/tests/ 172/172 rerun, check_tier_language.py rerun, direct source read of pipeline/cosmology.py + pipeline/realfield3d.py | Reviewed-by: T0 N — drafted for Fable 5 / Xavier sign-off`
+`Generated-by: Claude Sonnet 5 (T1 independent verification pass) | Verified-by: pipeline/tests/ 172/172 rerun, check_tier_language.py rerun, direct source read of pipeline/cosmology.py + pipeline/realfield3d.py | Reviewed-by: T0 Y (Fable 5, 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)`

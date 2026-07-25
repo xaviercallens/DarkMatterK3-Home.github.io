@@ -97,4 +97,5 @@ def angular_csr_realization(
 
 
 # Generated-by: Claude Sonnet 5 | Verified-by: pipeline/tests/test_realfield3d.py
-# (nonzero-variance check + Euler identity) | Reviewed-by: [pending T0]
+# (nonzero-variance check + Euler identity) | Reviewed-by: T0 Y (Fable 5,
+# 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)

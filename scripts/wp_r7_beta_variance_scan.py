@@ -238,3 +238,9 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# Generated-by: Claude Sonnet 5 (T1) | Verified-by: reuses pipeline/tests/
+# test_cosmology.py + test_realfield3d.py (24 tests); Coma percentile degeneracy
+# + empty-bin fraction independently recomputed at T0 review | Reviewed-by: T0 Y
+# (Fable 5, 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)

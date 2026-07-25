@@ -183,4 +183,4 @@ Held exactly in every real-field and every null-realization computation across a
 
 ## Provenance
 
-`Generated-by: Claude Sonnet 5 (higher-tier review per master plan requirement) | Verified-by: 24 pytest tests (16 cosmology + 8 realfield3d), all passing | Reviewed-by: [pending T0]`
+`Generated-by: Claude Sonnet 5 (higher-tier review per master plan requirement) | Verified-by: 24 pytest tests (16 cosmology + 8 realfield3d), all passing | Reviewed-by: T0 Y (Fable 5, 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)`

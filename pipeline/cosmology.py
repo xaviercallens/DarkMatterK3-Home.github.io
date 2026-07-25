@@ -186,4 +186,5 @@ def drop_invalid_redshifts(
 
 
 # Generated-by: Claude Sonnet 5 | Verified-by: pipeline/tests/test_cosmology.py
-# (two independent comoving-distance references) | Reviewed-by: [pending T0]
+# (two independent comoving-distance references) | Reviewed-by: T0 Y (Fable 5,
+# 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)
