@@ -1,0 +1,243 @@
+{
+  "timestamp": "2026-07-25",
+  "all_pass": false,
+  "datasets": [
+    {
+      "name": "sdss_cosmos",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/sdss/sdss_cosmos.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 1068,
+      "coordinates": {
+        "ra_range": [
+          150.017095944587,
+          150.182532281483
+        ],
+        "dec_range": [
+          2.11687413371619,
+          2.28331808641875
+        ],
+        "ra_centroid": 150.09891027408855,
+        "dec_centroid": 2.2131091797566613,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.013154394568147997,
+      "columns": [
+        "ra",
+        "dec",
+        "objid",
+        "run",
+        "rerun",
+        "camcol",
+        "field"
+      ]
+    },
+    {
+      "name": "sdss_stripe82_center",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/sdss/sdss_stripe82_center.csv",
+      "findings": [
+        "CENTROID_FAR: query (0.0, 0.0), actual (169.48, -0.01), dist=169.48\u00b0"
+      ],
+      "pass": true,
+      "row_count": 14007,
+      "coordinates": {
+        "ra_range": [
+          1.74441884155385e-05,
+          359.999973190819
+        ],
+        "dec_range": [
+          -0.0833228538400063,
+          0.0832870023969715
+        ],
+        "ra_centroid": 169.47599742840157,
+        "dec_centroid": -0.009423730134254552,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 169.4759976904053,
+      "columns": [
+        "ra",
+        "dec",
+        "objid",
+        "run",
+        "rerun",
+        "camcol",
+        "field"
+      ]
+    },
+    {
+      "name": "sdss_coma_cluster",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/sdss/sdss_coma_cluster.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 822,
+      "coordinates": {
+        "ra_range": [
+          194.867057511367,
+          195.032205205691
+        ],
+        "dec_range": [
+          27.8970816558196,
+          28.0630241856011
+        ],
+        "ra_centroid": 194.9575476561191,
+        "dec_centroid": 27.973835160038014,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.009745376578106443,
+      "columns": [
+        "ra",
+        "dec",
+        "objid",
+        "run",
+        "rerun",
+        "camcol",
+        "field"
+      ]
+    },
+    {
+      "name": "sdss_docs_example",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/sdss/sdss_docs_example.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 3035,
+      "coordinates": {
+        "ra_range": [
+          1.94038292831738,
+          2.10671847303433
+        ],
+        "dec_range": [
+          14.7565163192698,
+          14.9229574270164
+        ],
+        "ra_centroid": 2.024410248215805,
+        "dec_centroid": 14.83672042250487,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.003211284690414417,
+      "columns": [
+        "ra",
+        "dec",
+        "objid",
+        "run",
+        "rerun",
+        "camcol",
+        "field"
+      ]
+    },
+    {
+      "name": "euclid_edf_north",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/euclid/euclid_edf_north.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 2000,
+      "coordinates": {
+        "ra_range": [
+          267.34314128204744,
+          268.2618928282424
+        ],
+        "dec_range": [
+          65.33110253786056,
+          65.60837104092438
+        ],
+        "ra_centroid": 267.89339806565084,
+        "dec_centroid": 65.43908249553924,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.14522542825835005,
+      "columns": [
+        "object_id",
+        "right_ascension",
+        "declination",
+        "ellipticity",
+        "ellipticity_err",
+        "semimajor_axis",
+        "position_angle",
+        "flux_vis_2fwhm_aper",
+        "fluxerr_vis_2fwhm_aper",
+        "point_like_flag",
+        "extended_flag",
+        "det_quality_flag",
+        "vis_det"
+      ]
+    },
+    {
+      "name": "euclid_edf_fornax",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/euclid/euclid_edf_fornax.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 2000,
+      "coordinates": {
+        "ra_range": [
+          52.90487233785964,
+          53.27110833820665
+        ],
+        "dec_range": [
+          -28.25425979237377,
+          -28.081172643257805
+        ],
+        "ra_centroid": 53.10255318224631,
+        "dec_centroid": -28.203426534276076,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.10700642876558598,
+      "columns": [
+        "object_id",
+        "right_ascension",
+        "declination",
+        "ellipticity",
+        "ellipticity_err",
+        "semimajor_axis",
+        "position_angle",
+        "flux_vis_2fwhm_aper",
+        "fluxerr_vis_2fwhm_aper",
+        "point_like_flag",
+        "extended_flag",
+        "det_quality_flag",
+        "vis_det"
+      ]
+    },
+    {
+      "name": "euclid_edf_south",
+      "path": "/mnt/disks/disk-socrateai-local-1/SocrateAI-stream3-realdata/euclid/euclid_edf_south.csv",
+      "findings": [],
+      "pass": true,
+      "row_count": 2000,
+      "coordinates": {
+        "ra_range": [
+          60.89676134320779,
+          61.29246999423714
+        ],
+        "dec_range": [
+          -48.599858061238784,
+          -48.42372611488009
+        ],
+        "ra_centroid": 61.04089086299053,
+        "dec_centroid": -48.537297637727534,
+        "ra_null_frac": 0.0,
+        "dec_null_frac": 0.0
+      },
+      "centroid_distance_deg": 0.1432574745054223,
+      "columns": [
+        "object_id",
+        "right_ascension",
+        "declination",
+        "ellipticity",
+        "ellipticity_err",
+        "semimajor_axis",
+        "position_angle",
+        "flux_vis_2fwhm_aper",
+        "fluxerr_vis_2fwhm_aper",
+        "point_like_flag",
+        "extended_flag",
+        "det_quality_flag",
+        "vis_det"
+      ]
+    }
+  ]
+}
