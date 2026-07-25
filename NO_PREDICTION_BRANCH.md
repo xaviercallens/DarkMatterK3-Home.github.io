@@ -232,8 +232,33 @@ Result: **partial closure**, recorded in `SWAMPLAND_BOUNDS_A123.md` and machine-
 
 **F5b's core finding stands**: no exact coefficient was, or can currently be, extracted.
 Off-Ramp 2 delivered strictly weaker, conditional content. Two-model status: Deep Think
-blind re-derivation **PENDING** (`DERIVATION_DISPUTES.md` §0); v2.0 §6 may not be pinned
-from WP-A output until that row resolves and T0 rules on G-1.
+re-derivation **FILED & ADJUDICATED 2026-07-25** (`DERIVATION_DISPUTES.md` §0;
+`briefs/T0_ADJUDICATION_WPA_2026_07_25.md`) — see §8.5.
+
+## 8.5 Terminus — WP-A adjudication + WP-A2 Gate 0: Off-Ramp 3 for the pivot (2026-07-25)
+
+The two-model process on WP-A resolved with concurrence on every content item and one
+adjudicated delta: gap G-1 upgraded to **CLOSED-NEGATIVE** — under the cited chameleon
+mechanism and B3's own m_φ ~ m_KK anchoring, the mediator's range never exceeds ~30 μm
+at any density, so **no Mpc-scale observable can test the B1/B3 window in principle**
+(adjudication R3). The pivot ruling's Steps 5.1/5.4 were voided; G1-L remains closed.
+
+The single authorized continuation — WP-A2, a laboratory-scale re-scope — failed its
+mandatory Gate 0 (`WP_A2_CIRCULARITY_AUDIT.md`, machine-checked by
+`scripts/verify_wpa2_circularity.py`, executed): the size-form window region is
+circular (derived *from* the lab bounds that would test it), and the non-circular
+λ-form region lies wholly below the gravitational-strength reach of every published
+public dataset (ranges ≤ 8.81 μm vs. exclusion reach ≥ 38.6 μm [arXiv:2002.11761];
+short-range limits allow α ≲ 10¹² [hep-ph/0502025]).
+
+**Terminus: Off-Ramp 3.** The hypothesis, as anchored by [A-DD], is untestable at every
+scale with data that exists today — cosmological scales in principle, laboratory scales
+by circularity or reach. Recorded as a clean negative result of the program, with the
+same prominence as a positive. Residue: monitoring trigger **F-LAB**
+(`WP_A2_CIRCULARITY_AUDIT.md` §5) — future public ISL data excluding |α|=1 below
+38.6 μm reopens Gate 0 re-evaluation, and nothing else does. Synthetic-only pipeline
+infrastructure remains valid engineering (G1 scope); no comparison-data fetch, no
+TEST/FIT label, no v2.0 pin.
 
 ---
 
