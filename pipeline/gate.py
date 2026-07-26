@@ -223,6 +223,72 @@ def require_derived_for_labels() -> None:
     )
 
 
+def check_flab_trigger(excluded_alpha: float, excluded_lambda_um: float) -> dict:
+    """Advisory check for the F-LAB monitoring trigger.
+
+    When a new inverse-square-law (ISL) publication appears, use this function
+    to flag whether it meets the F-LAB criterion for potential Gate 0 re-evaluation.
+
+    F-LAB (NO_PREDICTION_BRANCH.md §9) is triggered only if a new public dataset
+    excludes |α|=1 at ranges below 38.6 μm. This function performs a purely
+    advisory numeric check:
+
+    Args:
+        excluded_alpha: The smallest coupling strength |α| the paper excludes.
+                       Must be non-negative. If the paper excludes |α| ≤ X,
+                       pass X as this argument.
+        excluded_lambda_um: The range in micrometers at which the exclusion holds.
+                           Must be positive.
+
+    Returns:
+        A dict with keys:
+        - 'trigger_fired' (bool): True only if excluded_alpha ≤ 1.0 AND
+          excluded_lambda_um < 38.6. This is a mechanical check; a human / T0
+          must still read the paper in full before authorizing Gate 0 re-run.
+        - 'threshold_lambda_um' (float): 38.6, the F-LAB criterion from
+          NO_PREDICTION_BRANCH.md §8.5.
+        - 'reasoning' (str): Human-readable explanation of the result.
+
+    NOTE: This function is advisory-only. It does not modify any gate state,
+    does not touch PREDICTION.md, and does not authorize any policy decision.
+    The numeric check flags candidates for human review; T0 must read the
+    actual paper before any action is taken.
+
+    Reference: NO_PREDICTION_BRANCH.md §9, WP_A2_CIRCULARITY_AUDIT.md §5.
+    """
+    threshold = 38.6
+    trigger_fired = (excluded_alpha <= 1.0) and (excluded_lambda_um < threshold)
+
+    if trigger_fired:
+        reasoning = (
+            f"Numeric criterion met: excluded_alpha={excluded_alpha:.2e} ≤ 1.0 "
+            f"AND excluded_lambda_um={excluded_lambda_um:.2f} μm < {threshold} μm. "
+            "Publication is a F-LAB candidate; human / T0 must read the paper "
+            "in full before authorizing Gate 0 re-run."
+        )
+    else:
+        reasons = []
+        if excluded_alpha > 1.0:
+            reasons.append(
+                f"excluded_alpha={excluded_alpha:.2e} does not constrain |α|=1 "
+                "(α-criterion not met)"
+            )
+        if excluded_lambda_um >= threshold:
+            reasons.append(
+                f"excluded_lambda_um={excluded_lambda_um:.2f} μm ≥ {threshold} μm "
+                "(range criterion not met)"
+            )
+        reasoning = "F-LAB not triggered: " + "; ".join(reasons)
+
+    return {
+        "trigger_fired": trigger_fired,
+        "threshold_lambda_um": threshold,
+        "reasoning": reasoning,
+    }
+
+
 # Generated-by: Claude Opus 5 (T2) under T0 ruling of 2026-07-25 | Verified-by:
 # pipeline/tests/test_gate.py (control-example pinned/unpinned/tampered +
 # G1-L cases), executed | Reviewed-by: T0 Y (Xavier, 2026-07-25 instruction)
+# F-LAB monitoring trigger added by Claude Haiku 4.5 | Verified-by:
+# pipeline/tests/test_flab_trigger.py (advisory check, no state mutation)

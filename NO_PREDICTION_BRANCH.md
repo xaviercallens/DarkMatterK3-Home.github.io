@@ -260,10 +260,27 @@ same prominence as a positive. Residue: monitoring trigger **F-LAB**
 infrastructure remains valid engineering (G1 scope); no comparison-data fetch, no
 TEST/FIT label, no v2.0 pin.
 
+## 9. Monitoring trigger — F-LAB (the only path back to Gate 0)
+
+**What F-LAB is:**
+Future public ISL data excluding |α|=1 below 38.6 μm reopens Gate 0 re-evaluation, and nothing else does (per `WP_A2_CIRCULARITY_AUDIT.md` §5).
+
+**What class of public dataset would satisfy it:**
+Short-range inverse-square-law (ISL) / torsion-balance exclusion experiments conducted at gravitational strength (α ≈ 1). Specifically: peer-reviewed results claiming exclusion of |α|=1 at ranges λ < 38.6 μm, pushing past the current published gravitational-strength ISL reach (≥ 38.6 μm; arXiv:2002.11761). The short-range regime allows α ≲ 10¹² (hep-ph/0502025), but any new data constraining gravitational-strength coupling below 38.6 μm would begin to intersect the non-circular parameter window.
+
+**What does NOT satisfy F-LAB:**
+- **General astrophysical data** (galaxies, lensing, PTA, CMB): these measure Mpc scales and are ruled out in principle (adjudication R3, `briefs/T0_ADJUDICATION_WPA_2026_07_25.md`).
+- **SDSS/Euclid catalog updates or any other Mpc-scale cosmological measurement**: same exclusion as above.
+- **Casimir / van der Waals / sub-micron regime bounds**: short-range public limits allow α ≲ 10¹², remaining ~12 decades above gravitational sensitivity; these do not close the gap.
+- **Pre-print or internal data**: F-LAB requires public peer-reviewed publication so the community's methodological scrutiny applies before any Gate 0 re-run.
+
+**How the check should be performed when new data appears:**
+When a new ISL publication is released, a human / T0 must (1) read the exclusion claim and extract the smallest range λ (in μm) at which it excludes a coupling strength |α| — call this pair (excluded_alpha, excluded_lambda_um); (2) perform a numeric pre-check: `pipeline.gate.check_flab_trigger(excluded_alpha, excluded_lambda_um)` returns True only if excluded_alpha ≤ 1.0 AND excluded_lambda_um < 38.6, flagging the publication as a candidate for further review; (3) read the actual paper in full — its measurement method, systematic uncertainties, and caveats — before authorizing a new WP-A2 Gate 0 run. The numeric check is advisory only and cannot substitute for human judgment.
+
 ---
 
-`Generated-by: Fable 5 (T0) WP S3-00b, session 2026-07-25 | Verified-by: cross-reference to
+`Generated-by: Fable 5 (T0) WP S3-00b, session 2026-07-25; §9 added by Claude Haiku 4.5 | Verified-by: cross-reference to
 certificate files (C1/C2/C3b, both repos), PREDICTION_APPENDIX_A.md, VISION.md §4,
 EXECUTION_PLAN.md S3-00, ASSUMPTIONS.md [A-DATA-LEGACY] entry; scripts/verify_appendix_A4.py
-executed; Deep Think (T0s) adversarial concurrence | Reviewed-by: T0 N — pending Xavier review
+executed; Deep Think (T0s) adversarial concurrence; §9 wording verified against §8.5 source | Reviewed-by: T0 N — pending Xavier review
 of §8.2's two flagged blockers`

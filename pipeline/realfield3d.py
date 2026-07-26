@@ -96,6 +96,38 @@ def angular_csr_realization(
     return ra_random, dec_random, z.copy()
 
 
-# Generated-by: Claude Sonnet 5 | Verified-by: pipeline/tests/test_realfield3d.py
-# (nonzero-variance check + Euler identity) | Reviewed-by: T0 Y (Fable 5,
-# 2026-07-25, docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md)
+def density_shuffle_realization(field: np.ndarray, seed: int) -> np.ndarray:
+    """Permute cell values across a binned density field (voxel shuffle).
+
+    Takes an already-binned density field (2D or 3D), flattens it, randomly
+    permutes the cell values (preserving the exact multiset), and reshapes
+    back to the original shape. This randomization scheme tests whether a
+    topology statistic (e.g., Betti numbers) depends on the spatial
+    arrangement of values vs. only on the value distribution.
+
+    The scheme is valid because it breaks spatial correlations while exactly
+    preserving the marginal distribution (histogram of cell values), so any
+    topological change across realizations reflects the role of arrangement.
+
+    Args:
+        field: Binned density field, 2D or 3D numpy array (output of
+               density_field_cartesian_mpc or similar).
+        seed: Random seed for reproducibility.
+
+    Returns:
+        Shuffled field with identical shape and multiset of values.
+    """
+    field = np.asarray(field, dtype=np.float64)
+    original_shape = field.shape
+    flat = field.flatten()
+    rng = np.random.default_rng(seed)
+    flat_shuffled = rng.permutation(flat)
+    return flat_shuffled.reshape(original_shape)
+
+
+# Generated-by: Claude Sonnet 5 (z-shuffle, angular-csr) + Haiku 4.5 (density-shuffle) |
+# Verified-by: pipeline/tests/test_realfield3d.py (nonzero-variance check + Euler identity)
+# + pipeline/tests/test_density_shuffle_golden.py (conservation + determinism + integration) |
+# Reviewed-by: T0 Y for z-shuffle/angular-csr only (Fable 5, 2026-07-25,
+# docs/T0_SIGNOFF_WP_R5_R6_R7_2026_07_25.md) — density_shuffle_realization (2026-07-26)
+# is NOT covered by that sign-off; pending T0 review

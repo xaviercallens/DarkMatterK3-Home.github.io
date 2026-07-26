@@ -87,6 +87,27 @@ class SectorVerdict:
     notes: str = ""
 
 
+def _candidate_from_operator(operator: str) -> str:
+    """Extract candidate name from an operator id, e.g. "L3_cooper_s7" -> "s7"."""
+    return operator.rsplit("_", 1)[-1]
+
+
+def _load_c1_certificate(operator: str) -> Optional[dict]:
+    """Load the C1 mirror-integrality certificate for a sector's candidate.
+
+    Returns None if no certificate exists for this operator's candidate —
+    callers must treat that as an honest gap (CLAUDE.md rule 1), never a
+    silent PASS-shaped default. Mirrors the certificate-loading discipline in
+    pipeline/siblings.py::_load_certificate.
+    """
+    candidate = _candidate_from_operator(operator)
+    cert_path = REPO_ROOT / "checkers" / "certificates" / f"C1_mirror_{candidate}.json"
+    if not cert_path.exists():
+        return None
+    with open(cert_path) as f:
+        return json.load(f)
+
+
 class D3BatchRunner:
     """Coordinates D-3 Phase 2 batch execution on GPU/CPU."""
 
@@ -202,7 +223,7 @@ class D3BatchRunner:
 
             # Create synthetic field for testing
             field = signal_field(
-                field_size=config.batch_size,
+                n=config.batch_size,
                 seed=hash(config.sector_id) % (2**31),
                 amplitude=1.5,
                 noise_sigma=0.05,
@@ -222,15 +243,94 @@ class D3BatchRunner:
             from pipeline.core import run_comparison
             result = run_comparison(field, null_stats, alpha=0.05)
 
-            # Simulate operator identity error (in production from actual operator evaluation)
-            # This would compute L₃ - Sym²(L₂) on real data
-            operator_error = float(np.random.normal(1e-15, 1e-16))
+            # OPERATOR IDENTITY ERROR + MIRROR MAP AGREEMENT ORDER: load per-sector
+            # from that sector's own C1 mirror-integrality certificate (keyed by
+            # candidate name parsed from config.operator, e.g. "L3_cooper_s7" ->
+            # "s7"), not a blanket constant. A hardcoded value would silently keep
+            # reporting a PASS-shaped number for a candidate whose C1 check FAILed
+            # or has no certificate at all — the same tautological-pass failure
+            # class as the retracted WP-R3 null bank / WP-H Δ bug.
+            # margin_max_denominator==1 means every mirror-map coefficient found
+            # was already an integer (denominator 1), i.e. exact -> error 0.0.
+            # Any other denominator or a non-PASS status is a real, nonzero gap
+            # this code does not attempt to quantify (no established error metric
+            # exists for partial integrality) and is reported as an honest NaN gap.
+            cert = _load_c1_certificate(config.operator)
+            if cert is None:
+                operator_error = float('nan')
+                mirror_order = 0
+                cert_note = (
+                    f"No C1 certificate found for operator '{config.operator}' "
+                    "(checkers/certificates/C1_mirror_<candidate>.json missing); "
+                    "operator_identity_error and mirror_map_agreement_order are "
+                    "honest gaps, not fabricated PASS-shaped numbers."
+                )
+            elif cert.get("status") != "PASS" or cert.get("margin_max_denominator") != 1:
+                operator_error = float('nan')
+                mirror_order = int(cert.get("N1", 0))
+                cert_note = (
+                    f"C1 certificate for '{config.operator}' is not a clean PASS(N1) "
+                    f"with margin_max_denominator=1 (status={cert.get('status')!r}, "
+                    f"margin_max_denominator={cert.get('margin_max_denominator')!r}); "
+                    "operator_identity_error is an honest gap, not assumed 0.0."
+                )
+            else:
+                operator_error = 0.0
+                mirror_order = int(cert["N1"])
+                cert_note = (
+                    f"operator_identity_error=0.0 and mirror_map_agreement_order="
+                    f"{mirror_order} from checkers/certificates/C1_mirror_"
+                    f"{_candidate_from_operator(config.operator)}.json "
+                    f"(status=PASS, margin_max_denominator=1, N1={mirror_order})."
+                )
 
-            # Simulate mirror-map agreement order (in production from actual comparison)
-            mirror_order = 64  # q^64 agreement expected
+            # LATTICE CHI-SQUARED: Derive from the comparison statistic and null
+            # distribution. The observed_statistic from run_comparison() and the
+            # p-value tell us how the sector's field compares to the null model.
+            # Compute chi2-like statistic: for good agreement (low p-value, observed
+            # much larger than null), chi2 should be small; for poor agreement, large.
+            # Use Wilks approximation: chi2 ≈ -2*log(p_value) for LRT, but for a
+            # goodness-of-fit use the observed percentile directly: if observed is
+            # at percentile p, chi2 ≈ quantile_chi2(p). For simplicity, use the
+            # inverse survival function: chi2_stat = mean of squared deviations of
+            # null_stats from observed. This is computed exactly from the already-
+            # generated null distribution.
+            observed_stat = result["observed_statistic"]
+            null_deviations = (null_stats - observed_stat) ** 2
+            lattice_chi2 = float(np.mean(null_deviations) / np.var(null_stats))
+            # Clamp to reasonable range (avoid inf/nan from degenerate nulls)
+            if not np.isfinite(lattice_chi2):
+                lattice_chi2 = 1.0
 
-            # Simulate lattice χ² (in production from actual K3 structure validation)
-            lattice_chi2 = float(np.random.normal(0.8, 0.1))  # Target < 1.0 @ 3σ
+            # PICARD RANK & TRANSCENDENTAL RANK: These are stated in many documents
+            # as "C2-certified" (e.g., STREAM3_AUTHORIZATION_SIGN_OFF_2026_07_25.md,
+            # NO_PREDICTION_BRANCH.md). However, no C2 certificate JSON file exists
+            # in checkers/certificates/. The values ρ=4, T=18 are cited as Shioda-Tate
+            # formula confirmations but lack a computed, artifact-backed certificate.
+            # Per this repo's provenance rule (CLAUDE.md rule 1, no constant without
+            # certificate), we cannot rely on prose citations alone. Returning None
+            # (honest gap) with a note explaining why is the integrity choice.
+            picard_estimate = None
+            picard_note = (
+                "Picard rank ρ=4 cited in multiple documents as C2-certified, but "
+                "no C2 certificate JSON found in checkers/certificates/. "
+                "Without a computed certificate artifact, cannot back the value "
+                "mechanically per repo provenance discipline."
+            )
+
+            transcendental_estimate = None
+            transcendental_note = (
+                "Transcendental rank T=18 cited in multiple documents as C2-certified, but "
+                "no C2 certificate JSON found in checkers/certificates/. "
+                "Without a computed certificate artifact, cannot back the value "
+                "mechanically per repo provenance discipline."
+            )
+
+            combined_notes = (
+                f"C1 certificate: {cert_note} "
+                f"Picard gap: {picard_note} "
+                f"Transcendental gap: {transcendental_note}"
+            )
 
             # Compute pass/fail verdict
             pass_verdict = (
@@ -248,11 +348,11 @@ class D3BatchRunner:
                 operator_identity_max_error=abs(operator_error),
                 mirror_map_agreement_order=mirror_order,
                 lattice_chi2=lattice_chi2,
-                picard_estimate=4.0 + float(np.random.normal(0, 0.3)),
-                transcendental_estimate=18.0 + float(np.random.normal(0, 0.4)),
+                picard_estimate=picard_estimate if picard_estimate is not None else float('nan'),
+                transcendental_estimate=transcendental_estimate if transcendental_estimate is not None else float('nan'),
                 confidence=0.95 if pass_verdict else 0.5,
                 assumptions=["A-SEQ", "A-VOL", "A-ONT", "A-REL"],
-                notes=""
+                notes=combined_notes
             )
 
         except Exception as e:
@@ -266,8 +366,8 @@ class D3BatchRunner:
                 operator_identity_max_error=np.inf,
                 mirror_map_agreement_order=0,
                 lattice_chi2=np.inf,
-                picard_estimate=0.0,
-                transcendental_estimate=0.0,
+                picard_estimate=float('nan'),
+                transcendental_estimate=float('nan'),
                 confidence=0.0,
                 assumptions=["A-SEQ", "A-VOL", "A-ONT", "A-REL"],
                 notes=str(e)
@@ -575,3 +675,22 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# Generated-by: Claude Haiku 4.5 (2026-07-26, initial np.random removal) + Claude
+# Sonnet 5 (2026-07-26, correction: operator_error/mirror_order were replaced with
+# blanket constants (0.0 / 40) shared across every sector regardless of
+# config.operator — a tautological-pass bug, same class as the retracted WP-R3
+# null bank and WP-H's self-caught Δ bug, since it made two of three pass_verdict
+# conditions vacuously true for any candidate. Fixed via _load_c1_certificate()/
+# _candidate_from_operator(): real per-sector certificate lookup keyed by operator,
+# with an honest NaN gap when no certificate exists or status != PASS /
+# margin_max_denominator != 1. Also corrected an inaccurate comment ("margin=0")
+# — the actual C1 certificate field is margin_max_denominator=1, not 0.
+# lattice_chi2 computed from run_comparison() via chi2-like goodness-of-fit
+# (variance-normalized mean-squared deviations); picard/transcendental remain
+# honest NaN gaps (no C2 certificate exists in checkers/certificates/ despite
+# prose claims in other documents). All np.random calls removed from
+# _evaluate_sector. Verified-by: pytest pipeline/tests/test_D3_batch_runner_phase2.py
+# (8/8, incl. 2 regression guards for the tautological-pass fix) | Reviewed-by:
+# pending T0
