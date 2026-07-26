@@ -19,6 +19,69 @@ class ResolvabilityError(Exception):
     pass
 
 
+def null_degeneracy(null_values, min_std_counts: float = 1.0, min_distinct: int = 3) -> dict:
+    """Is a null bank able to support a Gaussian sigma at all?
+
+    The spatial sibling of `resolvability()`. That guard catches deformations too
+    small to move the binned field; this one catches null banks too degenerate to
+    measure a shift against, which is the other half of the same problem and has
+    now produced spurious detections five times (WP-R3, WP-H, WP-E3, the
+    quarantined WP-E5 sweep, and the WP-E5 fixed-fill mode).
+
+    Two criteria, both mechanical:
+
+    1. **std below `min_std_counts`.** Betti numbers are integer counts. If the
+       null's standard deviation is under one count, then a single-unit change in
+       the statistic is already more than 1 sigma — the sigma is reporting
+       quantization, not variation. Measured instances: a null with std 0.218 and
+       values in {0, 1} turned a one-unit shift into 4.59 sigma.
+    2. **fewer than `min_distinct` distinct values.** A null taking one or two
+       values has no shape for a tail probability to be read from, so the Gaussian
+       interpretation of sigma does not apply however large the sample.
+
+    Returns a dict with `degenerate` (bool), `verdict`, the measured statistics,
+    and a plain-language `note`. Callers should record the verdict rather than
+    silently dropping cells, so that "untestable" stays visible as an outcome.
+    """
+    vals = np.asarray(null_values, dtype=np.float64)
+    if vals.size == 0:
+        return {"degenerate": True, "verdict": "DEGENERATE_NULL", "std": 0.0,
+                "n_distinct": 0, "n_realizations": 0,
+                "note": "empty null bank; nothing to measure against"}
+
+    std = float(np.std(vals))
+    n_distinct = int(np.unique(vals).size)
+    reasons = []
+    if std < min_std_counts:
+        reasons.append(f"null std {std:.3f} < {min_std_counts} count(s), so a "
+                       f"one-unit change in the statistic exceeds 1 sigma")
+    if n_distinct < min_distinct:
+        reasons.append(f"null takes only {n_distinct} distinct value(s) "
+                       f"(< {min_distinct}); sigma is not Gaussian-interpretable")
+
+    degenerate = bool(reasons)
+    return {
+        "degenerate": degenerate,
+        "verdict": "DEGENERATE_NULL" if degenerate else "USABLE",
+        "std": std,
+        "n_distinct": n_distinct,
+        "n_realizations": int(vals.size),
+        "min_std_counts": float(min_std_counts),
+        "min_distinct": int(min_distinct),
+        "note": ("; ".join(reasons) if degenerate
+                 else f"null std {std:.3f} over {n_distinct} distinct values"),
+    }
+
+
+def assert_null_usable(null_values, min_std_counts: float = 1.0,
+                       min_distinct: int = 3) -> dict:
+    """Raise if a null bank cannot support a Gaussian sigma. Returns the verdict."""
+    v = null_degeneracy(null_values, min_std_counts, min_distinct)
+    if v["degenerate"]:
+        raise ValueError(f"degenerate null bank: {v['note']}")
+    return v
+
+
 def voxel_edges_mpc(extent_mpc: Tuple[float, float, float], nbins: int) -> Tuple[float, float, float]:
     """Voxel edge length per axis.
 

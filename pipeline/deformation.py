@@ -12,7 +12,7 @@ import numpy as np
 from scipy import ndimage
 
 
-def void_to_filament_deformation(field: np.ndarray, R_voxels: float, amplitude: float) -> np.ndarray:
+def void_to_filament_deformation(field: np.ndarray, R_voxels, amplitude: float) -> np.ndarray:
     """Mass-preserving density redistribution from voids to filaments.
 
     Pushes density from local minima toward local maxima at characteristic scale
@@ -36,9 +36,17 @@ def void_to_filament_deformation(field: np.ndarray, R_voxels: float, amplitude: 
     field : np.ndarray
         3D or lower-dimensional density field (must be non-negative). Converted
         to float64. Any NaN or inf values will propagate into the output.
-    R_voxels : float
+    R_voxels : float or sequence of float
         Gaussian filter sigma in voxel units. Controls the characteristic scale
         of the deformation. Must be non-negative.
+
+        A scalar applies the same sigma to every axis, which is only isotropic in
+        PHYSICAL units when the voxel is square. It generally is not: on
+        euclid_z_edf_north at nbins=32 the voxel is 1.510 x 1.637 Mpc, so a single
+        scalar sigma stretches the deformation ~8% further along one sky axis than
+        the other. Pass a per-axis sequence (one sigma per array axis, in voxel
+        units) to keep a deformation isotropic in Mpc. Forwarded unchanged to
+        scipy.ndimage.gaussian_filter, which accepts either form.
     amplitude : float
         Strength of the deformation, dimensionless. amplitude=0 → identity.
         Positive amplitude pushes density from minima to maxima; negative

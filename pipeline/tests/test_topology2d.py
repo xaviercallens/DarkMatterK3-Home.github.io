@@ -112,3 +112,45 @@ def test_negative_control_shuffle_changes_topology():
 
 # Generated-by: Claude Fable 5 | Verified-by: expected values hand-computed from
 # the definitions before the module was run | Reviewed-by: pending T0
+
+
+# --- WP-E5 self-review: percentile thresholds do not deliver their nominal fill ---
+
+def test_threshold_for_fill_fraction_hits_target_on_continuous_field():
+    import numpy as np
+    from pipeline.topology2d import threshold_for_fill_fraction
+    rng = np.random.default_rng(0)
+    f = rng.random((32, 32))
+    for target in (0.05, 0.08, 0.25, 0.5):
+        t, achieved = threshold_for_fill_fraction(f, target)
+        assert abs(achieved - target) < 0.01, (target, achieved)
+
+
+def test_threshold_for_fill_fraction_reports_shortfall_under_ties():
+    """On a sparse counts field the target may be unreachable; report, don't pretend."""
+    import numpy as np
+    from pipeline.topology2d import threshold_for_fill_fraction
+    f = np.zeros((32, 32))
+    f.flat[:50] = 1.0          # only 50/1024 = 4.9% of cells are non-zero
+    t, achieved = threshold_for_fill_fraction(f, 0.40)
+    assert achieved <= 0.05, achieved
+    assert achieved == (f > t).mean()
+
+
+def test_percentile_threshold_undershoots_fill_on_sparse_field():
+    """The confound this helper exists to remove, pinned as a regression."""
+    import numpy as np
+    f = np.zeros((32, 32))
+    f.flat[:86] = 1.0          # ~8.4% occupied, as in the n=188 mock
+    t = np.percentile(f, 50.0)
+    assert t == 0.0
+    fill = (f > t).mean()
+    assert fill < 0.09, f"expected the 50th-percentile mask to fill ~8%, got {fill:.1%}"
+
+
+def test_threshold_for_fill_fraction_rejects_out_of_range():
+    import numpy as np, pytest
+    from pipeline.topology2d import threshold_for_fill_fraction
+    for bad in (0.0, 1.0, -0.1, 1.5):
+        with pytest.raises(ValueError):
+            threshold_for_fill_fraction(np.ones((4, 4)), bad)

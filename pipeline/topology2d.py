@@ -61,6 +61,35 @@ def _euler_characteristic_pixels(mask: np.ndarray) -> int:
     return v - e + f
 
 
+def threshold_for_fill_fraction(field: np.ndarray, target_fill: float) -> tuple:
+    """Threshold achieving a target mask filling fraction, plus the fill actually achieved.
+
+    A percentile threshold does NOT deliver its nominal filling fraction on a
+    sparse counts field: ties at zero dominate, so `field > percentile(field, 50)`
+    can fill 8% rather than 50%. Measured on WP-E5 mocks the 50th-percentile fill
+    ran from 8.4% (188 objects) to 48.0% (2000), which confounds any comparison
+    across occupancies — mask geometry changes along with the thing being varied.
+
+    This selects the threshold that puts approximately `target_fill` of cells in
+    the mask, so mask geometry can be held fixed while occupancy varies. Ties
+    still make the target unreachable exactly, so the achieved fill is returned
+    and callers are expected to record it rather than assume it.
+
+    Returns (threshold, achieved_fill).
+    """
+    rho = np.asarray(field, dtype=np.float64)
+    if not 0.0 < target_fill < 1.0:
+        raise ValueError(f"target_fill must be in (0, 1), got {target_fill}")
+    size = rho.size
+    k = int(round(target_fill * size))
+    k = max(1, min(k, size - 1))
+    # k-th largest value; `> threshold` then keeps at most k cells.
+    desc = np.sort(rho, axis=None)[::-1]
+    threshold = float(desc[k])
+    achieved = float((rho > threshold).mean())
+    return threshold, achieved
+
+
 def compute_betti_numbers_2d(density_field: np.ndarray,
                              threshold_percentile: float = 50.0,
                              threshold_value: float | None = None) -> dict:

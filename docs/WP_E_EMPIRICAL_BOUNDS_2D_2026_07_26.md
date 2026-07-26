@@ -4,10 +4,10 @@
 transverse extent of `euclid_z_edf_north`, taken from a committed measurement
 (`docs/WP_E4_RESOLVABILITY_FLOOR_2026_07_26.md`), so no real-data access occurs and no
 `TEST`/`FIT` label is emitted.
-**Date:** 2026-07-26
-**Script:** `scripts/wpe_transverse_sweep.py` (rewritten per `docs/WP_E5_AUDIT_2026_07_26.md` §3)
-**Artifact:** `data/derived/wp_e5_sweep_2026_07_26.json` — 288 cells, persisted before any
-summary was printed.
+**Date:** 2026-07-26 (revised same day after self-review — see §6)
+**Script:** `scripts/wpe_transverse_sweep.py`
+**Artifact:** `data/derived/wp_e5_sweep_2026_07_26.json` — 576 cells (2 threshold modes ×
+6 occupancies × 8 r_s × 6 α), 5 field realizations each, persisted before any summary printed.
 **Companion to, and not a replacement for,** `docs/WP_E_EMPIRICAL_BOUNDS.md` (the 3D study,
 T0-signed, untouched).
 
@@ -16,119 +16,165 @@ T0-signed, untouched).
 ## 0. What this is, and what it is not
 
 This is **not** a bounding box on any mechanism. `void_to_filament_deformation` is a generic
-warp, chosen independently of the K3 mathematics (WP-E §8), so a cell where it becomes
+warp chosen independently of the K3 mathematics (WP-E §8), so a cell where it becomes
 detectable constrains **that warp** and nothing else. `ZONE_2` is named
-`GENERIC_DEFORMATION_EXCLUDED` for that reason.
+`GENERIC_DEFORMATION_EXCLUDED` for exactly that reason.
 
 What it *is*: a measurement of **how much data this statistic would need before it responds at
-all**. That question became the live one after Phase 0 returned NO-GO on real data
-(`docs/WP_E5_PHASE0_PREFLIGHT_2026_07_26.md`) and Phase 1 closure **failed** at the real
-field's occupancy — the deformed and undeformed fields gave identical β₁, so the pipeline
-could not recover a signal it had injected itself.
+all** — the question left live by Phase 0's NO-GO on real data and Phase 1's closure failure,
+where deformed and undeformed fields gave identical β₁ so the pipeline could not recover a
+signal it had injected itself.
 
-## 1. Configuration
+## 1. Headline
 
-| Parameter | Value |
+| Regime | Finding |
 |---|---|
-| Field extent | 48.32 × 52.40 Mpc (provenance: voxel 6.04 × 6.55 Mpc at nbins = 8, ×8) |
-| nbins | 32 → **voxel 1.510 × 1.637 Mpc** |
-| Observable | β₁ (2D; there is no β₂ in 2D) |
-| Statistic | **Δσ(α) = σ(α) − σ(0)**, baseline-subtracted per E2.11 |
-| Null | density-shuffle, 40 realizations per occupancy |
-| Swept | n_objects × r_s × α = 6 × 8 × 6 = **288 cells** |
+| r_s < ~1.6 Mpc | **Never measurable.** Sub-voxel at nbins = 32; 108 cells per mode, all r_s ∈ {0.27, 0.5, 1.0}. |
+| n < ~1000 | **Null is degenerate** — σ is not Gaussian-interpretable at all. Includes the real field's 188. |
+| n ≈ 2000–5000 | Marginal only: cells cross 3σ in 3 of 5 realizations. |
+| **n ≈ 10000, r_s ≈ 6–8 Mpc, α ≥ 0.5** | **Robust detection** — 5/5 realizations, monotone in amplitude, low mask drift. |
 
-**α = 0 negative control: PASS**, 0 violations across all 288 cells — Δσ is exactly 0 at zero
-deformation, and `amplitude=0` is bit-exact identity. This control **failed on first run** and
-caught a real defect; see §4.
+The real `edf_north` dz = 0.20 slice holds **188 objects**. Robust detection needs on the order
+of **10⁴ in a single slice** — a shortfall of roughly **50×** — and even then only for warps at
+6–8 Mpc, well above the ~1.6 Mpc voxel.
 
-## 2. Result
+## 2. Zone counts
 
-| Zone | Cells |
-|---|---|
-| `ZONE_0_UNRESOLVABLE` | 108 |
-| `ZONE_0_UNTESTABLE` | 148 |
-| `ZONE_1_DETECTABLE` (3 ≤ \|Δσ\| < 5) | 11 |
-| `ZONE_2_GENERIC_DEFORMATION_EXCLUDED` (\|Δσ\| ≥ 5) | 21 |
+| Zone | `percentile` | `matched_fill` |
+|---|---|---|
+| `ZONE_0_UNRESOLVABLE` | 108 | 108 |
+| `ZONE_0_DEGENERATE_NULL` | 60 | 60 |
+| `ZONE_0_UNTESTABLE` | 108 | 109 |
+| `ZONE_1_DETECTABLE` | 11 | 9 |
+| `ZONE_2_GENERIC_DEFORMATION_EXCLUDED` | 1 | 2 |
+| smallest occupancy with any detection | n = 2000 | n = 2000 |
+| smallest r_s with any detection | 2.0 Mpc | 4.0 Mpc |
 
-**Detectable cells by occupancy** (of 48 per occupancy):
+Two independent thresholding conventions agreeing on the occupancy floor is the main
+robustness check available here, and it holds.
 
-| n_objects | null distinct values | detectable | reading |
-|---|---|---|---|
-| **188** (real dz = 0.20 slice) | **2** | 2 | **artifact — see §3** |
-| 500 | 4 | **0** | |
-| 1000 | 12 | **0** | |
-| 2000 | 21 | **0** | |
-| 5000 | 20 | 7 | first genuine detections |
-| 10000 | 16 | 23 | |
+## 3. Robust cells (`matched_fill`, the clean comparison)
 
-### 2.1 The two floors
+Only cells crossing 3σ in **5 of 5** realizations:
 
-**Scale floor.** All 108 `ZONE_0_UNRESOLVABLE` cells are exactly r_s ∈ {0.27, 0.5, 1.0} Mpc at
-every occupancy — every value below the ~1.57 Mpc mean voxel edge. **No deformation below
-~1.6 Mpc is measurable at this binning at any occupancy**, because a sub-voxel displacement
-leaves the binned field bit-identical. The smallest r_s that ever produces a detection is
-**2.0 Mpc**.
+| n | r_s (Mpc) | α | Δσ | mask drift |
+|---|---|---|---|---|
+| 10000 | 6.0 | 1.0 | +4.74 ± 0.80 | 0.9% |
+| 10000 | 6.0 | 2.0 | +5.11 ± 0.56 | 0.9% |
+| 10000 | 8.0 | 0.5 | +3.49 ± 0.37 | 6.9% |
+| 10000 | 8.0 | 1.0 | +5.19 ± 0.57 | 6.9% |
 
-**Occupancy floor.** Detection begins at **n ≈ 5000 objects in a single slice**. The real
-`edf_north` dz = 0.20 slice holds **188**. That is a shortfall of roughly **27×**, and ~53× to
-reach the n = 10000 regime where most of the r_s ≥ 2 Mpc grid responds even at α = 0.01.
+Everything else that crossed did so in 2–4 realizations of 5. **11 of 20 (n, r_s) rows are
+monotone in \|Δσ\| versus amplitude** — a response that does not grow with the amplitude of the
+thing causing it is not a response, and the non-monotone rows are all in the high-clipping
+regime of §5.
 
-## 3. The n = 188 "detections" are discreteness artifacts, and the sweep's own shape shows it
+## 4. Two guards were added, and both fired
 
-Two cells at n = 188 (r_s = 2.0, α ∈ {1.0, 2.0}) report Δσ = −4.59. They should not be read as
-detections:
+### 4.1 `ZONE_0_DEGENERATE_NULL` — the statistical sibling of the resolvability guard
 
-1. **The null takes 2 distinct values** ([0, 1]) with std 0.218. β₁ moves 1 → 0, a single unit,
-   and dividing one unit by a 0.218 std manufactures a large σ. The Gaussian interpretation of
-   σ is not valid on a two-valued null.
-2. **Detectability is non-monotonic in n across this boundary**, which a real effect cannot be:
-   n = 188 gives 2 detections while n = 500, 1000 and 2000 — all with better-conditioned nulls
-   (4, 12 and 21 distinct values) — give **zero**. A signal that vanishes when you add data and
-   returns when you add more is an artifact of the sparse regime, not a response to the warp.
+`pipeline.resolvability.null_degeneracy()` refuses a null bank that cannot support a Gaussian
+σ, on two mechanical criteria: standard deviation below **one count** (β₁ is an integer, so a
+sub-unit std makes a single-unit change exceed 1σ), or fewer than **3 distinct values** (no
+shape for a tail probability to be read from).
 
-This is the same failure mode Phase 0 §3.2 recorded on real data (σ = 7.31 from a null with
-β₁ = 0 in 37 of 40) and the same one that produced the quarantined sweep's fabricated bounding
-box. **Recorded here as excluded, not as a finding.** The genuine frontier starts at n = 5000.
+It removes **60 cells per mode**, comprising every cell at n = 188 (null std 0.18, 1.8 distinct
+values) and n = 500 (std 0.83). Those are precisely the cells that produced the spurious
+detections in the previous revision of this document. The guard is now mechanical rather than
+argued in prose, which is the difference that matters: this artifact class has appeared **five
+times** in the project (WP-R3, WP-H, WP-E3, the quarantined sweep, and the first revision here).
 
-## 4. The negative control earned its place
+### 4.2 The α = 0 negative control
 
-The α = 0 control **failed on the first run** with 5 violations, all at n = 5000: `amplitude=0`
-was not a bit-exact identity. Cause: the mass-preservation renormalization in
-`void_to_filament_deformation` multiplies the field by `original_mass / deformed_mass`, which
-is 1.0 only up to float64 rounding — measured at **2 ulp (1.42 × 10⁻¹⁴)**.
+**PASS**, 0 violations across all 576 cells and all 5 realizations. It **failed on the previous
+run** and caught a real defect — the mass-preservation renormalization in
+`void_to_filament_deformation` broke its own documented bit-exact identity by 2 ulp
+(1.42 × 10⁻¹⁴). β₁ was unaffected, but a control that cannot assert exactness is not a control.
+Fixed at source with regression tests.
 
-β₁ was unaffected (33 → 33), so **no result changed**. But a control that cannot assert
-exactness is not a control, and the function's own docstring guarantees the identity. Fixed at
-source with a short-circuit at `amplitude == 0`, plus two regression tests (bit-exactness
-across six occupancies × three scales, and a no-aliasing check). This is the fourth time this
-session that a guard written to fail loudly has caught something a summary would have missed.
+## 5. A confound found in this document's own method, and fixed
 
-## 5. For Stream 2
+The first revision thresholded deformed fields at the **baseline's threshold value**. That is
+wrong, and measurably so. The binned counts field is discrete, with many cells tied at exactly
+the percentile; an arbitrarily small smooth perturbation breaks those ties and pushes the whole
+tied block across a fixed threshold. Measured at n = 10000:
 
-1. **The actionable number is ~5000 objects per slice, at r_s ≥ 2 Mpc.** Below either floor
-   this statistic does not respond, at any amplitude down to α = 0.01.
-2. **The current data misses the occupancy floor by ~27×.** Combined with Phase 0's NO-GO and
-   Phase 1's closure failure, the three phases agree from three directions: real data, real
-   occupancy with synthetic fields, and injected-signal recovery.
-3. **Under E2.17 this is a complete answer.** A mechanism whose signature sits below ~1.6 Mpc
-   transverse, or which would need a field 27× denser than the one held, is untestable by
-   construction with current data — and stating that with the number attached is a valid M1/M2
-   deliverable, not a failure.
-4. **Nothing here excludes any mechanism.** G1-L is closed. The warp is generic. Any Δσ in the
-   table above is a statement about `void_to_filament_deformation`, not about a vacuum.
+| α | mask fill at fixed threshold | β₁ |
+|---|---|---|
+| 0.0 | 39.6% | 17 |
+| **0.01** | **47.8%** | **30** |
+| 2.0 | 31.5% | 13 |
 
-## 6. Reproduction
+So β₁ was tracking **mask size**, not topology. This produced a spurious **+5.06σ at α = 0.01**
+— an amplitude far too small to restructure anything — which the previous revision reported as
+its strongest cell.
+
+`matched_fill` holds the mask **size** at the baseline's achieved fill, so a β₁ difference
+reflects the *arrangement* of mass. Under it, **every α = 0.01 cell returns exactly +0.00** and
+the artifact disappears completely.
+
+**Residual effect, stated because it bounds the result:** at large amplitude and large r_s the
+deformation clips many cells to exactly zero, re-creating ties and making the target fill
+unreachable — mask drift reaches 19.5% at n = 5000, r_s = 10, α = 2.0. The sign flips in that
+corner are that clipping, not a topological response. The four robust cells in §3 all sit at
+≤ 6.9% drift.
+
+## 6. Retraction of this document's previous numbers
+
+The revision of earlier today reported **"detection needs n ≈ 5000; 32 detectable cells; the
+smallest detectable occupancy is n = 188."** **That is withdrawn.** It came from a single mock
+realization per cell, a fixed threshold, and no degeneracy guard. Corrected:
+
+| Claim | Previous | Now |
+|---|---|---|
+| detectable cells | 32 | 12 (`percentile`) / 11 (`matched_fill`) |
+| smallest detectable occupancy | n = 188 | n = 2000 (marginal); n ≈ 10000 for 5/5 robustness |
+| strongest cell | n = 10000, r_s = 2.0, **α = 0.01**, +5.06σ | artifact of §5; now +0.00 |
+
+Averaging over 5 realizations alone cut detections from 32 to 12 — the single-draw map was
+roughly a threefold over-count. Nothing downstream cited the withdrawn numbers; they were
+published within this session and are corrected in place, in-band, per D-2.
+
+## 7. Why Δσ here is immune to the objection under review
+
+E2.11's formula is under adversarial review for a moving-denominator defect
+(`briefs/DEEPTHINK_REVIEW_REQUEST_BASELINE_2026_07_26.md` §4.1): differencing two σ values
+whose denominators both depend on the amplitude is an artifact generator.
+
+**That objection does not reach this implementation.** Both terms are taken against the *same*
+null bank, built once from the undeformed field, so the null mean cancels identically:
+
+```
+Δσ = σ(α) − σ(0) = (β₁(α) − m)/s − (β₁(0) − m)/s = (β₁(α) − β₁(0)) / s
+```
+
+One denominator, and the baseline offset cancels exactly rather than approximately. This does
+not resolve the review question for WP-E3's construction, which deformed its null banks too —
+it only records that this sweep is not exposed to it.
+
+## 8. For Stream 2
+
+1. **Two floors, both hard:** ~1.6 Mpc in scale and ~10⁴ objects per slice in occupancy. The
+   available field misses the second by ~50×.
+2. **The real field sits in the degenerate-null regime**, where σ is not interpretable at all —
+   not merely "weak evidence", but a regime where the statistic has no meaning.
+3. **Under E2.17 this is a complete answer.** A mechanism whose signature falls below either
+   floor is untestable by construction with current data, and saying so with the numbers
+   attached is a valid M1/M2 deliverable.
+4. **Nothing here excludes any mechanism.** G1-L is closed; the warp is generic.
+
+## 9. Reproduction
 
 ```bash
-PYTHONPATH=. python3 scripts/wpe_transverse_sweep.py     # ~2 min, exits 1 if the control fails
-python3 -m pytest pipeline/tests/test_deformation.py -q  # 13 passed
+PYTHONPATH=. python3 scripts/wpe_transverse_sweep.py   # ~6 min; exits 1 if the control fails
+python3 -m pytest pipeline/tests/ checkers/tests/ -q
 ```
 
 ---
 
-`Generated-by: Claude Opus 5 (Stream 3) | Verified-by: executed this session, all numbers read
-back from data/derived/wp_e5_sweep_2026_07_26.json rather than stdout; zone counts sum to 288
-(108+148+11+21); the 108 UNRESOLVABLE cells confirmed to be exactly r_s in {0.27,0.5,1.0} at
-all six occupancies; §3 non-monotonicity read from the per-occupancy detectable counts; §4 ulp
-figure measured directly against np.spacing before the fix and re-verified as bit-exact after |
+`Generated-by: Claude Opus 5 (Stream 3) | Verified-by: executed this session; every number read
+back from data/derived/wp_e5_sweep_2026_07_26.json rather than stdout; §5 fill/beta_1 table
+measured directly against the deformation operator; §4.1 guard exercised by
+pipeline/tests/test_resolvability.py against the actual artifact banks; §7 cancellation checked
+algebraically and numerically; zone counts verified to sum to 288 per mode |
 Reviewed-by: T0 N — pending Xavier`

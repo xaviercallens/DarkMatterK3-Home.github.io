@@ -341,3 +341,17 @@ def test_amplitude_zero_identity_does_not_alias_input():
     out = void_to_filament_deformation(f, R_voxels=1.0, amplitude=0.0)
     out[0, 0] = 99.0
     assert f[0, 0] == 1.0, "identity path aliased the input array"
+
+
+def test_per_axis_sigma_is_accepted_and_differs_from_scalar():
+    """Per-axis sigma keeps a warp isotropic in Mpc when voxels are not square."""
+    import numpy as np
+    from pipeline.deformation import void_to_filament_deformation
+    rng = np.random.default_rng(3)
+    f = rng.random((32, 32)) + 0.5
+    iso = void_to_filament_deformation(f, R_voxels=(1.324, 1.222), amplitude=1.0)
+    sca = void_to_filament_deformation(f, R_voxels=1.273, amplitude=1.0)
+    assert iso.shape == f.shape
+    assert not np.allclose(iso, sca), "per-axis sigma should not equal the scalar mean"
+    # Mass preservation must survive the anisotropic path.
+    assert abs(float(iso.sum()) - float(f.sum())) < 1e-9

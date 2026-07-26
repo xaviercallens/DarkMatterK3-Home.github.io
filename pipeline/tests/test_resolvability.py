@@ -249,3 +249,60 @@ class TestMinVoxelsParameterization:
         # For each axis, req_3 should be >= req_1
         for r1, r3 in zip(req_1, req_3):
             assert r3 >= r1, f"min_voxels=3.0 should require more bins: {r1} vs {r3}"
+
+
+# --- WP-E5 self-review: the null-degeneracy guard (statistical sibling of resolvability) ---
+
+def test_null_degeneracy_flags_the_measured_artifact_banks():
+    """The exact null banks that produced spurious sigma in this project."""
+    import numpy as np
+    from pipeline.resolvability import null_degeneracy
+    # WP-E5 n=188: beta_1 in {0,1}, std 0.218 -> a one-unit shift read as 4.59 sigma.
+    bank = np.array([0.0] * 38 + [1.0] * 2)
+    v = null_degeneracy(bank)
+    assert v["degenerate"] is True and v["verdict"] == "DEGENERATE_NULL"
+    assert v["n_distinct"] == 2
+
+    # Phase 0 real-data bank: beta_1 = 0 in 37 of 40 -> sigma 7.31 on beta_1 = 2.
+    v2 = null_degeneracy(np.array([0.0] * 37 + [1.0] * 3))
+    assert v2["degenerate"] is True
+
+    # All-identical bank: zero variance.
+    v3 = null_degeneracy(np.zeros(40))
+    assert v3["degenerate"] is True and v3["std"] == 0.0
+
+
+def test_null_degeneracy_passes_a_healthy_bank():
+    import numpy as np
+    from pipeline.resolvability import null_degeneracy
+    rng = np.random.default_rng(0)
+    bank = rng.normal(45.0, 6.5, 40).round()   # WP-E5 n=2000 regime
+    v = null_degeneracy(bank)
+    assert v["degenerate"] is False and v["verdict"] == "USABLE"
+    assert v["n_distinct"] >= 3 and v["std"] >= 1.0
+
+
+def test_null_degeneracy_boundary_is_one_count():
+    """std just under 1 count is degenerate; just over is not."""
+    import numpy as np
+    from pipeline.resolvability import null_degeneracy
+    lo = np.array([0.0] * 20 + [1.0] * 20)              # std = 0.5
+    assert null_degeneracy(lo)["degenerate"] is True
+    hi = np.array([0.0] * 13 + [2.0] * 13 + [4.0] * 14)  # std > 1, 3 distinct
+    assert null_degeneracy(hi)["degenerate"] is False
+
+
+def test_assert_null_usable_raises_and_returns():
+    import numpy as np, pytest
+    from pipeline.resolvability import assert_null_usable
+    with pytest.raises(ValueError, match="degenerate null bank"):
+        assert_null_usable(np.array([0.0] * 39 + [1.0]))
+    rng = np.random.default_rng(1)
+    v = assert_null_usable(rng.normal(40.0, 6.0, 40).round())
+    assert v["verdict"] == "USABLE"
+
+
+def test_null_degeneracy_handles_empty_bank():
+    from pipeline.resolvability import null_degeneracy
+    v = null_degeneracy([])
+    assert v["degenerate"] is True and v["n_realizations"] == 0

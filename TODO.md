@@ -44,14 +44,27 @@ produced from this data.
 - [x] **Phase 2/3 rewritten and run** — `scripts/wpe_transverse_sweep.py` rebuilt against
   audit §3 (r_s→R_voxels live, Δσ baseline-subtracted per E2.11, provenanced extent,
   `SYNTHETIC`, resolvability before statistics, enforced α=0 control that exits nonzero).
-  288 cells, deliverable `docs/WP_E_EMPIRICAL_BOUNDS_2D_2026_07_26.md`.
-  **Result: detection needs n ≈ 5000 objects/slice and r_s ≥ 2 Mpc; the real slice has 188
-  (~27× short). Nothing below the ~1.57 Mpc voxel is measurable at any occupancy.**
+  576 cells, deliverable `docs/WP_E_EMPIRICAL_BOUNDS_2D_2026_07_26.md`.
+  **Result (after self-review revision): robust detection (5/5 realizations) needs n ≈ 10000
+  objects/slice at r_s ≈ 6–8 Mpc; the real slice has 188 (~50× short) and sits in the
+  degenerate-null regime where σ has no meaning. Nothing below the ~1.6 Mpc voxel is
+  measurable at any occupancy.** The earlier "n ≈ 5000 / 32 detectable cells / detection at
+  n=188" numbers are **retracted in-band** in §6 of that doc.
 - [x] **`void_to_filament_deformation` α=0 identity fixed** — the negative control caught a
   real 2-ulp violation from the mass renormalization at n=5000 (β₁ unaffected, no result
   changed). Short-circuit + 2 regression tests.
 - [x] **Brief Stream 2** — Phase 0 NO-GO, Phase 1 closure FAIL, and the ~5000-object /
   ≥2 Mpc envelope. All three phases agree from three directions.
+- [x] **Self-review of the rewrite** — found 4 more defects in Stream 3's *own* code:
+  scalar σ made the warp anisotropic in Mpc; a single mock realization per cell (averaging
+  over 5 cut detections 32→12); the percentile threshold filled 8.4%–48% so occupancy was
+  confounded with mask geometry; and — the big one — thresholding deformed fields at the
+  baseline's *value* made β₁ track mask SIZE via tie-breaking, producing a spurious +5.06σ at
+  α=0.01. `matched_fill` mode removes it (every α=0.01 cell → +0.00).
+- [x] **`null_degeneracy()` / `assert_null_usable()` added to `pipeline/resolvability.py`** —
+  the statistical sibling of the resolvability guard: refuses a null with std < 1 count or
+  < 3 distinct values. Removes 60 cells/mode and is the **mechanical** fix for the artifact
+  class that has now appeared 5 times. 5 tests against the real artifact banks.
 - [ ] **Add CI that executes each `scripts/wpe_*.py` once** — two committed scripts had never
   been run and both died on the same `rng=`/`seed=` TypeError. Audit §6.
 - [ ] A-9 (cosmetic: unused `z` param in `transverse_extent_mpc`, mock edge-clipping pile-up,
@@ -87,8 +100,9 @@ Stream 3 section is wrong on all 8 operational claims (source vendored,
 
 G1 pin `True` · G1-L `False` (closed) · Off-Ramp 3 terminus stands · no `TEST`/`FIT` labels ·
 `docs/WP_E_EMPIRICAL_BOUNDS.md` (3D, T0-signed) immutable · tier-language clean · full suite
-green: **375 = 329 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +2
-A-8 resolvability regressions, +2 amplitude-0 identity regressions). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
+green: **385 = 339 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +14 from
+this session: resolvability fail-closed, amplitude-0 identity, fill-fraction thresholding,
+per-axis σ, and the null-degeneracy guard). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
 the `EuclidClusterViz/` app layer, which has 14 pre-existing collection errors unrelated to
 the scientific pipeline — run the two directories above, not the repo root.
 
