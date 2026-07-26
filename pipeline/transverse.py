@@ -97,7 +97,6 @@ def project_slice_2d(
 def transverse_extent_mpc(
     ra: np.ndarray,
     dec: np.ndarray,
-    z: np.ndarray,
     z_mid: float,
 ) -> Tuple[float, float]:
     """Transverse extent of (RA, Dec, z) catalog in comoving Mpc at fixed z.
@@ -112,8 +111,6 @@ def transverse_extent_mpc(
     ----------
     ra, dec : np.ndarray
         Sky coordinates in degrees.
-    z : np.ndarray
-        Redshift array (used to identify the slice centroid).
     z_mid : float
         Central redshift of the slice (the z-value at which extents are measured).
 
@@ -125,14 +122,9 @@ def transverse_extent_mpc(
     ra = np.asarray(ra, dtype=np.float64)
     dec = np.asarray(dec, dtype=np.float64)
 
-    ra_extent_deg = float(ra.max() - ra.min())
-    dec_extent_deg = float(dec.max() - dec.min())
-
     # Convert to transverse Mpc at z_mid using tangent-plane geometry.
     # Small angle: x ~ r * theta (in radians), r is comoving distance.
-    # Use the cosmology module's tangent-plane function on corner points
-    # to measure physical extent.
-    from pipeline.cosmology import radec_z_to_tangent_plane_mpc
+    # (radec_z_to_tangent_plane_mpc is imported at module scope.)
 
     # Measure from RA/Dec centroid at four corners of the extent
     ra_min, ra_max = ra.min(), ra.max()
@@ -298,21 +290,31 @@ def generate_mock_slice(
     ra_out = np.zeros(n_objects, dtype=np.float64)
     dec_out = np.zeros(n_objects, dtype=np.float64)
 
-    # Clustered objects: Gaussian scatter (2% of width as sigma) around random centers
+    # Clustered objects: Gaussian scatter (2% of width as sigma) around random centers.
+    # Out-of-box draws are RESAMPLED, not clipped. Clipping would pile every stray
+    # point onto the boundary, and for a cluster centre near an edge that builds a
+    # dense artificial ridge along the frame — in mocks that serve as the null
+    # baseline, so the bias lands directly in beta_0/beta_1. (WP-E5 audit A-9.)
     sigma_ra = 0.02 * ra_width
     sigma_dec = 0.02 * dec_width
     for i in range(n_clustered):
         cluster_idx = rng.integers(0, n_clusters)
-        ra_out[i] = rng.normal(cluster_ra[cluster_idx], sigma_ra)
-        dec_out[i] = rng.normal(cluster_dec[cluster_idx], sigma_dec)
+        for _ in range(100):
+            r = rng.normal(cluster_ra[cluster_idx], sigma_ra)
+            d = rng.normal(cluster_dec[cluster_idx], sigma_dec)
+            if ra_min <= r <= ra_max and dec_min <= d <= dec_max:
+                break
+        else:
+            # Degenerate centre (sigma comparable to the box): fall back to uniform
+            # rather than loop forever or silently pile up on an edge.
+            r = rng.uniform(ra_min, ra_max)
+            d = rng.uniform(dec_min, dec_max)
+        ra_out[i] = r
+        dec_out[i] = d
 
     # Uniform background
     ra_out[n_clustered:] = rng.uniform(ra_min, ra_max, n_uniform)
     dec_out[n_clustered:] = rng.uniform(dec_min, dec_max, n_uniform)
-
-    # Clip to range (Gaussian-scattered points may exceed boundaries)
-    ra_out = np.clip(ra_out, ra_min, ra_max)
-    dec_out = np.clip(dec_out, dec_min, dec_max)
 
     return ra_out, dec_out
 

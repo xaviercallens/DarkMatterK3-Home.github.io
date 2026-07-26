@@ -2,6 +2,7 @@
 
 **Date:** 2026-07-26
 **From:** Stream 3.
+**Numbers:** post-A-9 re-run of the sweep (the mock generator was clipping stray draws onto the box boundary; it now resamples). Both floors are unchanged from the pre-fix run.
 **To:** Stream 2 (Phase M / M1–M2).
 **Re:** completion of WP-E5 (2D transverse protocol), all three phases audited and run.
 **Artifacts:** `docs/WP_E5_PHASE0_PREFLIGHT_2026_07_26.md` (real data, NO-GO) ·
@@ -22,7 +23,7 @@ Betti-number statistic manufactures signal, all measured here, three of them fou
 | Floor | Value | Consequence |
 |---|---|---|
 | **Scale** | ~1.6 Mpc (the transverse voxel at nbins = 32) | A warp below this leaves the binned field **bit-identical**. Not weak — identical. 108 of 288 grid cells. |
-| **Occupancy** | ~10⁴ objects in a single slice for robust detection (5/5 realizations), at r_s ≈ 6–8 Mpc, α ≥ 0.5 | The real `edf_north` dz = 0.20 slice holds **188**. Roughly **50× short**. |
+| **Occupancy** | ~10⁴ objects in a single slice for robust detection (5/5 realizations), at r_s ≈ 4–8 Mpc, α ≥ 0.5 | The real `edf_north` dz = 0.20 slice holds **188**. Roughly **50× short**. |
 
 Between them: at n ≈ 2000–5000 cells cross 3σ in only 3 of 5 mock realizations — marginal, not
 a detection. Below n ≈ 1000 the statistic has no meaning at all (§2.1).
@@ -69,9 +70,9 @@ Measured at n = 10⁴, thresholding deformed fields at the baseline's threshold 
 
 | α | mask fill | β₁ |
 |---|---|---|
-| 0.0 | 39.6% | 17 |
-| **0.01** | **47.8%** | **30** |
-| 2.0 | 31.5% | 13 |
+| 0.0 | 38.4% | 15 |
+| **0.01** | **46.9%** | **32** |
+| 2.0 | 31.0% | 7 |
 
 This produced a spurious **+5.06σ at α = 0.01** — an amplitude far too small to restructure
 anything — and Stream 3 published it as the strongest cell in the first revision of the
@@ -85,7 +86,7 @@ defined by "cells above density X", this applies to it.
 
 ### 2.3 Single-realization maps over-count by ~3×
 
-The first envelope used one mock per cell. Averaging over 5 cut detections from **32 to 12**
+The first envelope used one mock per cell. Averaging over 5 cut detections roughly threefold
 and moved the smallest detectable occupancy from n = 188 to n = 2000. A (r_s, α) map from one
 draw is a picture of that draw.
 
@@ -93,7 +94,7 @@ draw is a picture of that draw.
 
 The deformation clips density to non-negative, so at large α and large r_s many cells go to
 exactly zero — re-creating ties and collapsing the mask (drift up to 19.5%). Sign flips in that
-corner are the clipping, not a response. The four robust cells all sit at |drift| ≤ 0.9%,
+corner are the clipping, not a response. The six robust cells all sit at |drift| ≤ 0.6%,
 outside the clipping regime entirely.
 
 ## 3. Two cheap artifact tests you can run on any result

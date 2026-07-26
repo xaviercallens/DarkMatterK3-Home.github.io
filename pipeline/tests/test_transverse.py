@@ -71,10 +71,9 @@ def test_transverse_extent_mpc_basic():
     # Simple case: a small region near the equator
     ra = np.array([0, 0.1, 0.1, 0])
     dec = np.array([0, 0, 0.1, 0.1])
-    z = np.full(4, 1.0)
     z_mid = 1.0
 
-    extent_ra, extent_dec = transverse_extent_mpc(ra, dec, z, z_mid)
+    extent_ra, extent_dec = transverse_extent_mpc(ra, dec, z_mid)
 
     # Both extents should be positive and of order ~0.1 deg * comoving_distance
     # At z=1, comoving distance ~ 1500 Mpc, so 0.1 deg ~ 0.0017 rad ~ 2.5 Mpc
@@ -213,3 +212,36 @@ def test_resolvable_2d_rejects_bad_nbins():
     import pytest
     with pytest.raises(ValueError):
         resolvable_2d(1.0, (50.0, 50.0), nbins=0)
+
+
+# --- WP-E5 audit A-9: mock generation must not pile mass on the box boundary ---
+
+def test_generate_mock_slice_does_not_pile_up_on_edges():
+    """Clipping stray Gaussian draws would build an artificial ridge along the frame.
+
+    These mocks serve as the null baseline, so a boundary ridge biases beta_0/beta_1
+    in the null itself. Resampling keeps points in-box without stacking them on it.
+    """
+    import numpy as np
+    from pipeline.transverse import generate_mock_slice
+
+    ra_range, dec_range = (0.0, 10.0), (0.0, 10.0)
+    # Clusters with wide scatter relative to the box maximise edge pressure.
+    ra, dec = generate_mock_slice(4000, ra_range, dec_range, seed=7,
+                                  n_clusters=4, clustered_fraction=0.9)
+
+    assert ra.min() >= ra_range[0] and ra.max() <= ra_range[1]
+    assert dec.min() >= dec_range[0] and dec.max() <= dec_range[1]
+
+    # No mass concentration exactly ON the boundary values.
+    on_edge = ((ra == ra_range[0]) | (ra == ra_range[1]) |
+               (dec == dec_range[0]) | (dec == dec_range[1])).sum()
+    assert on_edge == 0, f"{on_edge} points sit exactly on the box boundary"
+
+
+def test_generate_mock_slice_is_deterministic_per_seed():
+    import numpy as np
+    from pipeline.transverse import generate_mock_slice
+    a = generate_mock_slice(300, (0.0, 10.0), (0.0, 10.0), seed=11)
+    b = generate_mock_slice(300, (0.0, 10.0), (0.0, 10.0), seed=11)
+    assert np.array_equal(a[0], b[0]) and np.array_equal(a[1], b[1])

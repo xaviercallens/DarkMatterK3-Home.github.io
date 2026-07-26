@@ -4,7 +4,8 @@
 transverse extent of `euclid_z_edf_north`, taken from a committed measurement
 (`docs/WP_E4_RESOLVABILITY_FLOOR_2026_07_26.md`), so no real-data access occurs and no
 `TEST`/`FIT` label is emitted.
-**Date:** 2026-07-26 (revised same day after self-review — see §6)
+**Date:** 2026-07-26 (revised twice same day: self-review §6, then re-run after the
+A-9 mock-generator fix — see §6.1)
 **Script:** `scripts/wpe_transverse_sweep.py`
 **Artifact:** `data/derived/wp_e5_sweep_2026_07_26.json` — 576 cells (2 threshold modes ×
 6 occupancies × 8 r_s × 6 α), 5 field realizations each, persisted before any summary printed.
@@ -32,11 +33,11 @@ signal it had injected itself.
 | r_s < ~1.6 Mpc | **Never measurable.** Sub-voxel at nbins = 32; 108 cells per mode, all r_s ∈ {0.27, 0.5, 1.0}. |
 | n < ~1000 | **Null is degenerate** — σ is not Gaussian-interpretable at all. Includes the real field's 188. |
 | n ≈ 2000–5000 | Marginal only: cells cross 3σ in 3 of 5 realizations. |
-| **n ≈ 10000, r_s ≈ 6–8 Mpc, α ≥ 0.5** | **Robust detection** — 5/5 realizations, monotone in amplitude, low mask drift. |
+| **n ≈ 10000, r_s ≈ 4–8 Mpc, α ≥ 0.5** | **Robust detection** — 5/5 realizations, low mask drift. |
 
 The real `edf_north` dz = 0.20 slice holds **188 objects**. Robust detection needs on the order
 of **10⁴ in a single slice** — a shortfall of roughly **50×** — and even then only for warps at
-6–8 Mpc, well above the ~1.6 Mpc voxel.
+4–8 Mpc, well above the ~1.6 Mpc voxel.
 
 ## 2. Zone counts
 
@@ -44,8 +45,8 @@ of **10⁴ in a single slice** — a shortfall of roughly **50×** — and even 
 |---|---|---|
 | `ZONE_0_UNRESOLVABLE` | 108 | 108 |
 | `ZONE_0_DEGENERATE_NULL` | 60 | 60 |
-| `ZONE_0_UNTESTABLE` | 108 | 109 |
-| `ZONE_1_DETECTABLE` | 11 | 9 |
+| `ZONE_0_UNTESTABLE` | 112 | 107 |
+| `ZONE_1_DETECTABLE` | 7 | 11 |
 | `ZONE_2_GENERIC_DEFORMATION_EXCLUDED` | 1 | 2 |
 | smallest occupancy with any detection | n = 2000 | n = 2000 |
 | smallest r_s with any detection | 2.0 Mpc | 4.0 Mpc |
@@ -59,15 +60,15 @@ Only cells crossing 3σ in **5 of 5** realizations:
 
 | n | r_s (Mpc) | α | Δσ | mask drift (this cell) |
 |---|---|---|---|---|
-| 10000 | 6.0 | 1.0 | +4.74 ± 0.80 | 0.0% |
-| 10000 | 6.0 | 2.0 | +5.11 ± 0.56 | −0.9% |
-| 10000 | 8.0 | 0.5 | +3.49 ± 0.37 | 0.0% |
-| 10000 | 8.0 | 1.0 | +5.19 ± 0.57 | −0.3% |
+| 10000 | 4.0 | 1.0 | +4.23 ± 0.68 | 0.0% |
+| 10000 | 4.0 | 2.0 | +4.76 ± 0.77 | 0.0% |
+| 10000 | 6.0 | 0.5 | +4.20 ± 0.78 | 0.0% |
+| 10000 | 6.0 | 1.0 | +4.82 ± 0.97 | 0.0% |
+| 10000 | 6.0 | 2.0 | +5.52 ± 1.59 | −0.6% |
+| 10000 | 8.0 | 1.0 | +5.09 ± 0.70 | 0.0% |
 
-Everything else that crossed did so in 2–4 realizations of 5. **11 of 20 (n, r_s) rows are
-monotone in \|Δσ\| versus amplitude** — a response that does not grow with the amplitude of the
-thing causing it is not a response, and the non-monotone rows are all in the high-clipping
-regime of §5.
+Everything else that crossed did so in 2–4 realizations of 5. All six robust cells sit at
+|drift| ≤ 0.6%, i.e. outside the clipping regime of §5, and all rise monotonically with α.
 
 ## 4. Two guards were added, and both fired
 
@@ -101,9 +102,9 @@ tied block across a fixed threshold. Measured at n = 10000:
 
 | α | mask fill at fixed threshold | β₁ |
 |---|---|---|
-| 0.0 | 39.6% | 17 |
-| **0.01** | **47.8%** | **30** |
-| 2.0 | 31.5% | 13 |
+| 0.0 | 38.4% | 15 |
+| **0.01** | **46.9%** | **32** |
+| 2.0 | 31.0% | 7 |
 
 So β₁ was tracking **mask size**, not topology. This produced a spurious **+5.06σ at α = 0.01**
 — an amplitude far too small to restructure anything — which the previous revision reported as
@@ -114,10 +115,10 @@ reflects the *arrangement* of mass. Under it, **every α = 0.01 cell returns exa
 the artifact disappears completely.
 
 **Residual effect, stated because it bounds the result:** at large amplitude and large r_s the
-deformation clips many cells to exactly zero, re-creating ties and making the target fill
-unreachable — mask drift reaches 19.5% at n = 5000, r_s = 10, α = 2.0. The sign flips in that
-corner are that clipping, not a topological response. The four robust cells in §3 all sit at
-|drift| ≤ 0.9%, i.e. outside the clipping regime entirely.
+deformation clips density to non-negative, driving many cells to exactly zero, re-creating ties
+and making the target fill unreachable. The sign flips in that corner are that clipping, not a
+topological response. The six robust cells in §3 all sit at |drift| ≤ 0.6%, outside that regime
+entirely.
 
 ## 6. Retraction of this document's previous numbers
 
@@ -127,13 +128,22 @@ realization per cell, a fixed threshold, and no degeneracy guard. Corrected:
 
 | Claim | Previous | Now |
 |---|---|---|
-| detectable cells | 32 | 12 (`percentile`) / 11 (`matched_fill`) |
+| detectable cells | 32 | 8 (`percentile`) / 13 (`matched_fill`) |
 | smallest detectable occupancy | n = 188 | n = 2000 (marginal); n ≈ 10000 for 5/5 robustness |
 | strongest cell | n = 10000, r_s = 2.0, **α = 0.01**, +5.06σ | artifact of §5; now +0.00 |
 
-Averaging over 5 realizations alone cut detections from 32 to 12 — the single-draw map was
-roughly a threefold over-count. Nothing downstream cited the withdrawn numbers; they were
-published within this session and are corrected in place, in-band, per D-2.
+Averaging over 5 realizations alone cut detections by roughly threefold — the single-draw map
+was that over-counted. Nothing downstream cited the withdrawn numbers; they were published
+within this session and are corrected in place, in-band, per D-2.
+
+### 6.1 Re-run after the A-9 mock-generator fix
+
+`generate_mock_slice` previously **clipped** out-of-box Gaussian draws to the boundary, piling
+mass on the frame of the very mocks that serve as the null baseline. It now resamples
+(`docs/WP_E5_AUDIT_2026_07_26.md` A-9). The sweep was re-run so the artifact matches the code
+that produced it. **Both floors are unchanged**; the robust r_s band widened from 6–8 to
+4–8 Mpc and the per-mode zone counts moved by a few cells. Every number in this document is
+from the post-fix run.
 
 ## 7. Why Δσ here is immune to the objection under review
 

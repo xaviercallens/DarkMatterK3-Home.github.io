@@ -5,16 +5,25 @@
 > this repo's record has since retracted or never held (see `docs/WP_H_AUTO_RESEARCH_TRIAGE.md`).
 > This file now tracks the **scientific program's** live task state. One item = one truth.
 
-## ⛔ Blocked on T0 (Xavier) — nothing below moves without these
+## ✅ Formerly blocked on T0 — CLOSED 2026-07-26 under delegated authority
 
-- [ ] **Ruling 1 variant pick** — annotate `PREDICTION.md` ρ=4/T=18 line via **(a)** annotate+re-hash
-  (one recorded commit) or **(b)** leave body untouched (in-band retraction already exists at
-  line 151). Default (b) until ruled. `docs/WP_E5_T0_RULING_IMPLEMENTATION_2026_07_26.md` §1.
-- [ ] **s7 vs s10 primary-candidate ruling** — Stream 1's S1-10/11/12 makes s7 the anomaly and
-  load-bearing; this repo's V5 record has s7 rejected / s10 primary. One line settles it;
-  Stream 3 then updates `pipeline/siblings.py`. `briefs/STREAM3_TO_STREAM1_CORRECTIONS_2026_07_26.md` §4.
-- [ ] **D1.1 owner** — `K3_CRITERIA.md` C2 `TBD-AT-FREEZE` (the sole blocker on any ρ/T/fibre
-  certificate) is assigned to a parked stream. Needs a new owner or an explicit deferral.
+All six ruled in `docs/T0_DELEGATED_RULINGS_2026_07_26.md`. Countermand window open on all.
+
+- [x] **DR-1 Ruling 1 → variant (b)**, body untouched. **A re-hash is declined on principle**
+  even though authority was granted: a pin's value is that it cannot be edited by whoever
+  currently holds authority, so a grant of authority is exactly when not to exercise it.
+  Variant (a) needs an explicit, personally-issued "re-hash authorized" from T0.
+- [x] **DR-2 E2.2 stands** — chameleon adjudication not reopened; memo Step 2 must be rewritten.
+  Reopening an adjudication needs new evidence, not a new deadline.
+- [x] **DR-3 Roadmap Step 1 withdrawn** — the (r_s, α) bounding box is not producible.
+- [x] **DR-4 s10 stays primary; s7 may supply no parameter** (P1). No position taken on Stream
+  1's mathematics. Neither s7 nor s10 has a C3/C3b certificate — stated narrowly for that
+  reason. Unblocking action sits with Stream 1: produce C1/C3/C3b for s7. No code change.
+- [x] **DR-5 one ρ/T line** — ρ ≤ 19, T ≥ 3, Tier [B] pending Stienstra–Beukers 1985, no prior
+  emitted, no code path consumes a numeric ρ or T. Whether S-B 1985 supports it still needs
+  someone to read the paper; delegation cannot substitute for a citation.
+- [x] **DR-6 D1.1 deferred**, no owner. Nothing live consumes C2; assigning an owner inside a
+  parked stream would read as progress that is not happening.
 
 ## 🔶 WP-E5 — COMPLETE. All three phases audited and run; every phase says the same thing.
 
@@ -67,10 +76,16 @@ produced from this data.
   the statistical sibling of the resolvability guard: refuses a null with std < 1 count or
   < 3 distinct values. Removes 60 cells/mode and is the **mechanical** fix for the artifact
   class that has now appeared 5 times. 5 tests against the real artifact banks.
-- [ ] **Add CI that executes each `scripts/wpe_*.py` once** — two committed scripts had never
-  been run and both died on the same `rng=`/`seed=` TypeError. Audit §6.
-- [ ] A-9 (cosmetic: unused `z` param in `transverse_extent_mpc`, mock edge-clipping pile-up,
-  redundant import) — open, low priority.
+- [x] **Script smoke tests added** — `pipeline/tests/test_wpe_scripts_smoke.py` (9 tests).
+  Calls each phase script's null-bank builder for real, which is precisely the check that was
+  missing when two scripts shipped with `Verified-by:` footers while raising `TypeError`. The
+  `rng=` lint uses the **AST**, not a substring match — the first version false-positived on
+  the docstring explaining the fix. Negative control confirms it catches the real defect.
+- [x] **A-9 closed** — `transverse_extent_mpc` no longer takes an unused `z` (signature changed,
+  caller updated); `generate_mock_slice` **resamples** instead of clipping stray draws onto the
+  box boundary, which was piling an artificial ridge along the frame of the null-baseline mocks;
+  redundant import removed. Sweep re-run so the artifact matches the code — **both floors
+  unchanged**, robust r_s band 6–8 → 4–8 Mpc (envelope §6.1).
 
 ## 🟥 Correction issued to T0 / Stream 2 (2026-07-26)
 
@@ -102,9 +117,9 @@ Stream 3 section is wrong on all 8 operational claims (source vendored,
 
 G1 pin `True` · G1-L `False` (closed) · Off-Ramp 3 terminus stands · no `TEST`/`FIT` labels ·
 `docs/WP_E_EMPIRICAL_BOUNDS.md` (3D, T0-signed) immutable · tier-language clean · full suite
-green: **385 = 339 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +14 from
+green: **396 = 350 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +14 from
 this session: resolvability fail-closed, amplitude-0 identity, fill-fraction thresholding,
-per-axis σ, and the null-degeneracy guard). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
+per-axis σ, the null-degeneracy guard, script smoke tests, and mock edge-resampling). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
 the `EuclidClusterViz/` app layer, which has 14 pre-existing collection errors unrelated to
 the scientific pipeline — run the two directories above, not the repo root.
 
