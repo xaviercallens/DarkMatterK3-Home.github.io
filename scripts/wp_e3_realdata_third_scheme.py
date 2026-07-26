@@ -28,6 +28,7 @@ repo_root = Path(__file__).parent.parent
 sys.path.insert(0, str(repo_root))
 
 import hashlib
+import json
 from datetime import datetime, timezone
 
 import numpy as np
@@ -520,7 +521,28 @@ def main_process(field_info):
     return process_field_third_scheme(field_info)
 
 
+RESULTS_JSON = Path(__file__).resolve().parent.parent / "data" / "derived" / "wp_e3_results_2026_07_26.json"
+
+
+def persist_results(result: dict, path: Path = RESULTS_JSON) -> Path:
+    """Write the full result dict to a machine-readable JSON artifact.
+
+    Added after the first execution attempt produced numbers that existed only in
+    a terminal buffer: the script printed its summary but persisted nothing, so a
+    timeout lost every value and even a clean run left nothing independently
+    checkable (numbers would have to be hand-copied from stdout into the report,
+    with no way to re-verify short of a 40-minute re-run). Any number quoted in
+    docs/WP_E3_REALDATA_THIRD_SCHEME_2026_07_26.md must be traceable to this file.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(result, f, indent=2, default=str)
+    return path
+
+
 if __name__ == "__main__":
     result = main()
-    print("\n" + "=" * 80)
+    out = persist_results(result)
+    print(f"\nResults persisted to {out}")
+    print("=" * 80)
     print("Done.")
