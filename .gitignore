@@ -11,3 +11,9 @@ terraform.tfstate.backup
 core/venv/
 venv/
 .venv/
+# Stream E: Rust build artifacts and runtime outputs
+rust/**/target/
+artifacts/stream_e/**
+!artifacts/stream_e/.gitkeep
+!artifacts/stream_e/*.md
+!artifacts/stream_e/*.json
