@@ -1,0 +1,84 @@
+{
+  "purpose": "WP-E pre-flight go/no-go: sigma_mock-data at zero deformation",
+  "requested_by": "Stream 2 consolidated guidelines 2026-07-26, fix 3",
+  "label": "SYNTHETIC (mock ensemble) vs committed real baseline; not TEST/FIT",
+  "real_source": "data/derived/wp_e3_results_2026_07_26.json",
+  "real_field": "euclid_z_edf_north",
+  "no_new_real_data_access": true,
+  "extent_mpc": [
+    48.3,
+    52.4,
+    8188.8
+  ],
+  "extent_source": "docs/WP_E3_REALDATA_THIRD_SCHEME_2026_07_26.md section 5.1",
+  "n_objects_matched": 1983,
+  "nbins": 8,
+  "n_mocks": 40,
+  "go_no_go_sigma": 5.0,
+  "per_threshold": {
+    "thr_0.5": {
+      "beta_0": {
+        "real": 1.0,
+        "mock_mean": 1.7,
+        "mock_std": 0.8717797887081347,
+        "sigma_mock_data_0": -0.8029550685469662
+      },
+      "beta_1": {
+        "real": 1.0,
+        "mock_mean": 31.7,
+        "mock_std": 4.6701177715342475,
+        "sigma_mock_data_0": -6.573710022288004
+      },
+      "beta_2": {
+        "real": 1.0,
+        "mock_mean": 0.2,
+        "mock_std": 0.45825756949558405,
+        "sigma_mock_data_0": 1.745743121887939
+      },
+      "verdict_beta_2": "GO (|sigma|=1.75 <= 5.0)"
+    },
+    "thr_1.0": {
+      "beta_0": {
+        "real": 1.0,
+        "mock_mean": 11.625,
+        "mock_std": 2.129407194502733,
+        "sigma_mock_data_0": -4.989651592907851
+      },
+      "beta_1": {
+        "real": 1.0,
+        "mock_mean": 0.15,
+        "mock_std": 0.4213074886588179,
+        "sigma_mock_data_0": 2.017528818929551
+      },
+      "beta_2": {
+        "real": 0.0,
+        "mock_mean": 0.0,
+        "mock_std": 0.0,
+        "sigma_mock_data_0": null
+      },
+      "verdict_beta_2": "NO-GO (sigma undefined: zero-variance mock ensemble)"
+    },
+    "thr_1.5": {
+      "beta_0": {
+        "real": 1.0,
+        "mock_mean": 5.25,
+        "mock_std": 0.9682458365518543,
+        "sigma_mock_data_0": -4.389381125701739
+      },
+      "beta_1": {
+        "real": 2.0,
+        "mock_mean": 0.0,
+        "mock_std": 0.0,
+        "sigma_mock_data_0": null
+      },
+      "beta_2": {
+        "real": 0.0,
+        "mock_mean": 0.0,
+        "mock_std": 0.0,
+        "sigma_mock_data_0": null
+      },
+      "verdict_beta_2": "NO-GO (sigma undefined: zero-variance mock ensemble)"
+    }
+  },
+  "overall_verdict": "NO-GO"
+}

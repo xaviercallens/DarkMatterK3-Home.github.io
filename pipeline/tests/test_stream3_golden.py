@@ -8,14 +8,14 @@ from pipeline.stream3_comparison import load_prediction_block, closure_test, nul
 def test_closure_passes():
     pred = load_prediction_block()
     result = closure_test(pred, n_samples=100)
-    assert result.label == "TEST"
+    assert result.label == "SYNTHETIC"
     assert result.value < result.threshold
     assert not result.excluded
 
 def test_null_passes():
     pred = load_prediction_block()
     result = null_test(pred, n_samples=1000)
-    assert result.label == "TEST"
+    assert result.label == "SYNTHETIC"
     assert result.value < result.threshold
     assert not result.excluded
 
