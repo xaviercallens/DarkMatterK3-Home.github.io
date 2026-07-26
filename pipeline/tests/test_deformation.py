@@ -301,3 +301,43 @@ if __name__ == "__main__":
 
 # Generated-by: Haiku 4.5 | Verified-by: test execution against pipeline/deformation.py
 # and scripts/run_synthetic_detectability_sweep.py | Reviewed-by: pending T0
+
+
+# --- WP-E5 sweep finding (2026-07-26): amplitude=0 must be a BIT-EXACT identity ---
+
+def test_amplitude_zero_is_bit_exact_identity_across_occupancies():
+    """amplitude=0 must return the input unchanged, exactly, at every scale.
+
+    Regression: the step-5 mass renormalization multiplied the field by
+    original_mass/deformed_mass, which is 1.0 only up to float64 rounding. On a
+    5000-object mock this was 2 ulp (1.42e-14) — enough that np.array_equal was
+    False and the WP-E5 sweep's alpha=0 negative control failed. beta_1 was
+    unaffected, but a negative control that cannot assert exactness is not a
+    control.
+    """
+    import numpy as np
+    from pipeline.transverse import generate_mock_slice
+    from pipeline.realfield import density_field_from_catalog
+    from pipeline.deformation import void_to_filament_deformation
+
+    for n in (188, 500, 1000, 2000, 5000, 10000):
+        ra, dec = generate_mock_slice(n, (0.0, 10.0), (0.0, 10.0), 1234,
+                                      n_clusters=4, clustered_fraction=0.7)
+        f = density_field_from_catalog(ra, dec, z=None, nbins=32,
+                                       ra_range=(0.0, 10.0), dec_range=(0.0, 10.0))
+        f64 = f.astype(np.float64)
+        for R in (0.5, 2.0, 6.6):
+            out = void_to_filament_deformation(f, R_voxels=R, amplitude=0.0)
+            assert np.array_equal(out, f64), (
+                f"amplitude=0 not exact at n={n}, R_voxels={R}: "
+                f"max|diff|={np.max(np.abs(out - f64)):.3e}")
+
+
+def test_amplitude_zero_identity_does_not_alias_input():
+    """The identity short-circuit must not hand back the caller's own array."""
+    import numpy as np
+    from pipeline.deformation import void_to_filament_deformation
+    f = np.array([[1.0, 2.0], [3.0, 4.0]])
+    out = void_to_filament_deformation(f, R_voxels=1.0, amplitude=0.0)
+    out[0, 0] = 99.0
+    assert f[0, 0] == 1.0, "identity path aliased the input array"

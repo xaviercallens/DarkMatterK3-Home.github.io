@@ -1,0 +1,55 @@
+{
+  "label": "SYNTHETIC",
+  "description": "Closure + null tests for 2D transverse topology",
+  "nbins": 32,
+  "n_mock_objects": 200,
+  "n_null_realizations": 40,
+  "threshold_percentile": 50.0,
+  "sigma_threshold": 5.0,
+  "tests": {
+    "closure": {
+      "passed": false,
+      "beta_1_deformed": 0,
+      "beta_1_undeformed": 0,
+      "null_mean": 0.025,
+      "null_std": 0.15612494995995996,
+      "null_distinct_values": [
+        0,
+        1
+      ],
+      "sigma": -0.16012815380508713,
+      "sigma_baseline": -0.16012815380508713,
+      "delta_sigma": 0.0,
+      "sigma_threshold": 5.0
+    },
+    "negative_control": {
+      "passed": true,
+      "identity_is_exact": true,
+      "beta_1_identity": 0,
+      "null_mean": 0.075,
+      "null_std": 0.26339134382131846,
+      "null_distinct_values": [
+        0,
+        1
+      ],
+      "sigma": -0.2847473987257497,
+      "sigma_threshold": 5.0,
+      "note": "sigma here is the BASELINE OFFSET of an undeformed field against its own shuffle null. It is not a deformation response. A large value does not fail this test (the test only bars >= 5 sigma) but it is exactly the quantity that E2.11 requires be subtracted before any Delta-sigma is quoted."
+    },
+    "null_fpr": {
+      "passed": false,
+      "sigma_threshold": 5.0,
+      "nominal_alpha_from_threshold": 5.733031437583866e-07,
+      "n_trials_total": 80,
+      "n_exceed_mock1": 0,
+      "n_exceed_mock2": 1,
+      "fpr_mock1": 0.0,
+      "fpr_mock2": 0.025,
+      "combined_fpr": 0.0125,
+      "upper_bound_3sigma": 0.0002545350457285675,
+      "null_distinct_values_across_banks": 2,
+      "note": "nominal alpha is derived from the sigma threshold actually applied (two-sided Gaussian tail), not declared independently of it. If the null bank takes few distinct values the Gaussian interpretation of sigma is invalid and a failure here should be read as that, not as a broken null."
+    }
+  },
+  "verdict": "FAIL"
+}

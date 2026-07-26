@@ -16,7 +16,12 @@
 - [ ] **D1.1 owner** — `K3_CRITERIA.md` C2 `TBD-AT-FREEZE` (the sole blocker on any ρ/T/fibre
   certificate) is assigned to a parked stream. Needs a new owner or an explicit deferral.
 
-## 🔶 WP-E5 (revised WP-E protocol, T0-directed) — AUDITED; Phase 0 RUN → NO-GO; sweep QUARANTINED
+## 🔶 WP-E5 — COMPLETE. All three phases audited and run; every phase says the same thing.
+
+**Net:** Phase 0 NO-GO on real data · Phase 1 closure FAIL (cannot recover its own injected
+signal at real occupancy) · Phase 2/3 quantifies why — detection needs ~5000 objects/slice
+and r_s ≥ 2 Mpc, against 188 available. No bounding box on any mechanism exists or can be
+produced from this data.
 
 - [x] **Audit** — done, `docs/WP_E5_AUDIT_2026_07_26.md`. 9 findings. `topology2d.py` and
   `wpe_preflight_baseline.py` PASS; `wpe_transverse_sweep.py` is **BLOCKED**.
@@ -24,20 +29,33 @@
   `docs/WP_E5_PHASE0_PREFLIGHT_2026_07_26.md`, artifact
   `data/derived/wp_e5_preflight_2026_07_26.json`. The 2D framing failed independently of the
   3D one; β₁ spans {0,1,2} against a null that is ~always 0.
-- [x] **Sweep quarantined** — `scripts/wpe_transverse_sweep.py::main` now raises. It never
-  ran (calls `density_shuffle_realization(field, rng=…)`; signature is `(field, seed)`), and
-  repairing only that would emit a `ZONE_1_BOUNDING_BOX` map for an **undeformed** field
-  (r_s never reaches the deformation; σ=+3.00 at amplitude 0, unsubtracted). 4th occurrence
-  of the tautological-pass class.
+- [x] **Sweep quarantined, then rewritten** — the original never ran (called
+  `density_shuffle_realization(field, rng=…)`; signature is `(field, seed)`), and repairing
+  only that would have emitted a `ZONE_1_BOUNDING_BOX` map for an **undeformed** field
+  (r_s never reached the deformation; σ=+3.00 at amplitude 0, unsubtracted). 4th occurrence
+  of the tautological-pass class. Rebuilt from scratch rather than patched — see below.
 - [x] **A-8 fixed** — `resolvable_2d` failed *open* on a degenerate field (zero extent →
   inf voxels → `RESOLVABLE`). Now fails closed; 2 regression tests (13/13 transverse).
-- [ ] **Phase 2/3 rewrite** — only if T0 wants it. Requirements in audit §3: derive
-  `R_voxels` from `r_s`, subtract the α=0 baseline per E2.11, measure extent via
-  `transverse_extent_mpc()`, label `SYNTHETIC`, merge-blocking negative control asserting
-  Δσ=0 at α=0, and raise mock occupancy (A-7). **Phase 0 is NO-GO, so this is not on the
-  critical path.**
-- [ ] **Phase 1** (closure + null) — not run; unblocked but moot while Phase 0 is NO-GO.
-- [x] **Brief Stream 2** — Phase 0 NO-GO is in the correction brief and the Phase 0 doc.
+- [x] **Phase 1 run** — audited (3 more findings, audit §5) and executed: **FAIL, exit 1**,
+  correctly. Closure fails (β₁ identical deformed vs undeformed at 200 objects — the pipeline
+  cannot recover its own injected signal); null FPR fails on a 2-distinct-value null. B-2 was
+  another cannot-fail test: it declared α=0.05 while cutting at 5σ (α≈5.7e-7), a bound 5
+  orders of magnitude too loose. Artifact `data/derived/wp_e5_closure_2026_07_26.json`.
+- [x] **Phase 2/3 rewritten and run** — `scripts/wpe_transverse_sweep.py` rebuilt against
+  audit §3 (r_s→R_voxels live, Δσ baseline-subtracted per E2.11, provenanced extent,
+  `SYNTHETIC`, resolvability before statistics, enforced α=0 control that exits nonzero).
+  288 cells, deliverable `docs/WP_E_EMPIRICAL_BOUNDS_2D_2026_07_26.md`.
+  **Result: detection needs n ≈ 5000 objects/slice and r_s ≥ 2 Mpc; the real slice has 188
+  (~27× short). Nothing below the ~1.57 Mpc voxel is measurable at any occupancy.**
+- [x] **`void_to_filament_deformation` α=0 identity fixed** — the negative control caught a
+  real 2-ulp violation from the mass renormalization at n=5000 (β₁ unaffected, no result
+  changed). Short-circuit + 2 regression tests.
+- [x] **Brief Stream 2** — Phase 0 NO-GO, Phase 1 closure FAIL, and the ~5000-object /
+  ≥2 Mpc envelope. All three phases agree from three directions.
+- [ ] **Add CI that executes each `scripts/wpe_*.py` once** — two committed scripts had never
+  been run and both died on the same `rng=`/`seed=` TypeError. Audit §6.
+- [ ] A-9 (cosmetic: unused `z` param in `transverse_extent_mpc`, mock edge-clipping pile-up,
+  redundant import) — open, low priority.
 
 ## 🟥 Correction issued to T0 / Stream 2 (2026-07-26)
 
@@ -69,8 +87,8 @@ Stream 3 section is wrong on all 8 operational claims (source vendored,
 
 G1 pin `True` · G1-L `False` (closed) · Off-Ramp 3 terminus stands · no `TEST`/`FIT` labels ·
 `docs/WP_E_EMPIRICAL_BOUNDS.md` (3D, T0-signed) immutable · tier-language clean · full suite
-green: **373 = 327 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close + 2 new
-A-8 regression tests). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
+green: **375 = 329 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +2
+A-8 resolvability regressions, +2 amplitude-0 identity regressions). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
 the `EuclidClusterViz/` app layer, which has 14 pre-existing collection errors unrelated to
 the scientific pipeline — run the two directories above, not the repo root.
 

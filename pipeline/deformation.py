@@ -61,6 +61,17 @@ def void_to_filament_deformation(field: np.ndarray, R_voxels: float, amplitude: 
     field = np.asarray(field, dtype=np.float64)
     original_mass = float(np.sum(field))
 
+    # Step 0: amplitude == 0 is documented above as an exact identity, and the
+    # WP-E5 sweep's negative control depends on it (Delta-sigma at alpha=0 must be
+    # exactly 0, not approximately). Without this short-circuit the step-5
+    # renormalization multiplies the field by original_mass/deformed_mass, which
+    # is 1.0 only up to float64 rounding — measured at 2 ulp (1.42e-14) on a
+    # 5000-object mock, enough to make np.array_equal false and fail the control.
+    # beta_1 was unchanged there, but the guarantee must hold exactly for the
+    # control to mean anything. (WP-E5 sweep finding, 2026-07-26.)
+    if amplitude == 0.0:
+        return field.copy()
+
     # Step 1: Smooth the field at scale R_voxels
     smooth = ndimage.gaussian_filter(field, sigma=R_voxels, mode="nearest")
 
