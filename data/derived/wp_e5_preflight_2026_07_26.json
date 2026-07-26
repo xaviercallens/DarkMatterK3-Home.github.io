@@ -1,0 +1,199 @@
+{
+  "label": "SANDBOX-EXPERIMENTAL",
+  "description": "WP-E Phase 0 preflight baseline (2D transverse topology, photo-z)",
+  "euclid_sha256": "8b5b287f3f03165660e6232b904ee264e705788ffd60e67f54169ea2dddac2be",
+  "nbins": 32,
+  "n_mocks": 40,
+  "threshold_multiples": [
+    0.5,
+    1.0,
+    1.5
+  ],
+  "sigma_gate": 5.0,
+  "observable": "betti_1_2D",
+  "note": "dz=0.01 per T0 directive; dz=0.20 (sigma_z-matched) included per DOCUMENTED DEVIATION. dz < sigma_z slices finer than error kernel.",
+  "per_dz": {
+    "dz_0.01": {
+      "dz": 0.01,
+      "slices": {
+        "z_lo_0.6800": {
+          "z_lo": 0.6799999991059305,
+          "n_objects": 25,
+          "field_mean": 1.0,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.0": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            }
+          }
+        },
+        "z_lo_0.8700": {
+          "z_lo": 0.8699999991059305,
+          "n_objects": 24,
+          "field_mean": 0.9999999999999999,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.0": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            }
+          }
+        },
+        "z_lo_0.9300": {
+          "z_lo": 0.9299999991059305,
+          "n_objects": 24,
+          "field_mean": 1.0,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.0": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            },
+            "thr_1.5": {
+              "real_beta_1": 0,
+              "mock_mean": null,
+              "mock_std": null,
+              "sigma": null,
+              "gate": "NO-GO (zero variance)"
+            }
+          }
+        }
+      },
+      "verdict": "NO-GO",
+      "go_no_go": false
+    },
+    "dz_0.20": {
+      "dz": 0.2,
+      "slices": {
+        "z_lo_0.8400": {
+          "z_lo": 0.8399999991059304,
+          "n_objects": 188,
+          "field_mean": 0.9999999999999999,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 2,
+              "mock_mean": 0.075,
+              "mock_std": 0.26339134382131846,
+              "sigma": 7.308516567294243,
+              "gate": "NO-GO"
+            },
+            "thr_1.0": {
+              "real_beta_1": 2,
+              "mock_mean": 0.075,
+              "mock_std": 0.26339134382131846,
+              "sigma": 7.308516567294243,
+              "gate": "NO-GO"
+            },
+            "thr_1.5": {
+              "real_beta_1": 2,
+              "mock_mean": 0.075,
+              "mock_std": 0.26339134382131846,
+              "sigma": 7.308516567294243,
+              "gate": "NO-GO"
+            }
+          }
+        },
+        "z_lo_0.6400": {
+          "z_lo": 0.6399999991059304,
+          "n_objects": 182,
+          "field_mean": 1.0,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 1,
+              "mock_mean": 0.2,
+              "mock_std": 0.45825756949558405,
+              "sigma": 1.745743121887939,
+              "gate": "GO"
+            },
+            "thr_1.0": {
+              "real_beta_1": 1,
+              "mock_mean": 0.2,
+              "mock_std": 0.45825756949558405,
+              "sigma": 1.745743121887939,
+              "gate": "GO"
+            },
+            "thr_1.5": {
+              "real_beta_1": 1,
+              "mock_mean": 0.2,
+              "mock_std": 0.45825756949558405,
+              "sigma": 1.745743121887939,
+              "gate": "GO"
+            }
+          }
+        },
+        "z_lo_1.0400": {
+          "z_lo": 1.0399999991059303,
+          "n_objects": 163,
+          "field_mean": 1.0,
+          "verdicts": {
+            "thr_0.5": {
+              "real_beta_1": 0,
+              "mock_mean": 0.125,
+              "mock_std": 0.3992179855667828,
+              "sigma": -0.31311214554257477,
+              "gate": "GO"
+            },
+            "thr_1.0": {
+              "real_beta_1": 0,
+              "mock_mean": 0.125,
+              "mock_std": 0.3992179855667828,
+              "sigma": -0.31311214554257477,
+              "gate": "GO"
+            },
+            "thr_1.5": {
+              "real_beta_1": 0,
+              "mock_mean": 0.125,
+              "mock_std": 0.3992179855667828,
+              "sigma": -0.31311214554257477,
+              "gate": "GO"
+            }
+          }
+        }
+      },
+      "verdict": "NO-GO",
+      "go_no_go": false
+    }
+  }
+}

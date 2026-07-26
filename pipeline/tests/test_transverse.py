@@ -188,3 +188,28 @@ def test_generate_mock_slice_nonzero_variance():
 
 # Generated-by: Haiku 4.5 | Verified-by: manual hand-checked test execution |
 # Reviewed-by: pending T0
+
+
+# --- WP-E5 audit A-8: the E2.16 guard must fail closed on degenerate input ---
+
+def test_resolvable_2d_zero_extent_fails_closed():
+    """A zero-extent axis must return UNRESOLVABLE, never RESOLVABLE.
+
+    Regression for WP-E5 audit finding A-8: extent 0 gave voxel 0, scale/0 = inf,
+    and inf >= min_voxels reported RESOLVABLE — the guard's most permissive
+    verdict on its most degenerate input.
+    """
+    from pipeline.transverse import resolvable_2d
+    r = resolvable_2d(1.0, (0.0, 50.0), nbins=32)
+    assert r["verdict"] == "UNRESOLVABLE", r
+    assert r["resolvable_per_axis"] == (False, False)
+
+    r2 = resolvable_2d(1.0, (0.0, 0.0), nbins=32)
+    assert r2["verdict"] == "UNRESOLVABLE", r2
+
+
+def test_resolvable_2d_rejects_bad_nbins():
+    from pipeline.transverse import resolvable_2d
+    import pytest
+    with pytest.raises(ValueError):
+        resolvable_2d(1.0, (50.0, 50.0), nbins=0)

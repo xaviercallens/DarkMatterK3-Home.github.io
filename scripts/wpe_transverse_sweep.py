@@ -28,6 +28,37 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+# ---------------------------------------------------------------------------
+# QUARANTINED 2026-07-26 — see docs/WP_E5_AUDIT_2026_07_26.md
+#
+# This script is BLOCKED pending rewrite. It has never executed (A-1: it calls
+# density_shuffle_realization(field, rng=...) but the signature is (field, seed)),
+# and repairing that alone would make it WORSE, not better:
+#
+#   A-2  r_s never reaches the deformation — R_voxels is hardcoded to 2.0 at
+#        line ~198, so every resolvable row of the grid is bit-identical. The
+#        sweep has no scale axis.
+#   A-3  compute_delta_sigma() returns RAW sigma, not sigma(A) - sigma(0), while
+#        the deliverable labels it "|delta_sigma|". Measured: sigma = +3.00 at
+#        amplitude=0 on an UNDEFORMED field, landing exactly on the ZONE_1
+#        boundary. 25 of 48 cells would report a "bounding box" for a field
+#        nothing was done to. (4th occurrence of the tautological-pass class.)
+#   A-4  field extent is a hardcoded 50.0 Mpc placeholder, not measured.
+#   A-5  output hardcodes label SANDBOX-EXPERIMENTAL though no real data is used.
+#
+# Rewrite requirements: derive R_voxels from r_s, subtract the alpha=0 baseline
+# per E2.11, measure the extent via transverse_extent_mpc(), label SYNTHETIC, and
+# add a merge-blocking negative control asserting delta_sigma == 0 at alpha=0.
+# Also raise mock occupancy (A-7: beta_1 spans {0,1} at 200 objects on 32x32).
+# ---------------------------------------------------------------------------
+_QUARANTINE = (
+    "wpe_transverse_sweep.py is QUARANTINED (WP-E5 audit, 2026-07-26).\n"
+    "It cannot run (A-1) and would fabricate a ZONE_1 bounding box if repaired "
+    "naively (A-2/A-3: r_s unused, baseline unsubtracted, sigma=+3.00 at zero "
+    "deformation).\n"
+    "Read docs/WP_E5_AUDIT_2026_07_26.md §3 before touching this file."
+)
+
 from pipeline.transverse import (
     select_slice,
     project_slice_2d,
@@ -121,6 +152,10 @@ def compute_delta_sigma(beta_1_deformed, null_undeformed_vals):
 
 
 def main():
+    raise RuntimeError(_QUARANTINE)
+
+
+def _main_quarantined():
     parser = argparse.ArgumentParser(description="WP-E Phase 2/3: Deformation sweep")
     parser.add_argument("--dz", type=float, default=0.20, help="Redshift slice thickness (default 0.20)")
     parser.add_argument("--output", default=SWEEP_JSON, help=f"Output JSON (default {SWEEP_JSON})")

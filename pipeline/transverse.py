@@ -191,8 +191,30 @@ def resolvable_2d(
     nbins = int(nbins)
     min_voxels = float(min_voxels)
 
+    if nbins <= 0:
+        raise ValueError(f"resolvable_2d needs nbins >= 1, got {nbins}")
+
     voxel_x = extent_mpc_2d[0] / nbins
     voxel_y = extent_mpc_2d[1] / nbins
+
+    # Fail CLOSED on a degenerate field. A zero (or negative) extent means the
+    # slice has no spatial extent on that axis; dividing by it would give inf,
+    # and inf >= min_voxels would report the most permissive verdict for the
+    # most degenerate input. This function is the mandatory pre-statistics guard
+    # (E2.16), so it must refuse rather than wave through. (WP-E5 audit A-8.)
+    if voxel_x <= 0.0 or voxel_y <= 0.0:
+        return {
+            "scale_mpc": scale_mpc,
+            "nbins": nbins,
+            "voxel_size_mpc": (voxel_x, voxel_y),
+            "scale_in_voxels": (float("nan"), float("nan")),
+            "resolvable_per_axis": (False, False),
+            "verdict": "UNRESOLVABLE",
+            "note": (
+                f"Degenerate field: extent {extent_mpc_2d} Mpc gives a non-positive "
+                f"voxel edge on at least one axis; no scale is measurable."
+            ),
+        }
 
     scale_in_voxels_x = scale_mpc / voxel_x
     scale_in_voxels_y = scale_mpc / voxel_y
