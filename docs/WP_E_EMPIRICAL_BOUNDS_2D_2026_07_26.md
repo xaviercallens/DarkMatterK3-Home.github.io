@@ -57,12 +57,12 @@ robustness check available here, and it holds.
 
 Only cells crossing 3σ in **5 of 5** realizations:
 
-| n | r_s (Mpc) | α | Δσ | mask drift |
+| n | r_s (Mpc) | α | Δσ | mask drift (this cell) |
 |---|---|---|---|---|
-| 10000 | 6.0 | 1.0 | +4.74 ± 0.80 | 0.9% |
-| 10000 | 6.0 | 2.0 | +5.11 ± 0.56 | 0.9% |
-| 10000 | 8.0 | 0.5 | +3.49 ± 0.37 | 6.9% |
-| 10000 | 8.0 | 1.0 | +5.19 ± 0.57 | 6.9% |
+| 10000 | 6.0 | 1.0 | +4.74 ± 0.80 | 0.0% |
+| 10000 | 6.0 | 2.0 | +5.11 ± 0.56 | −0.9% |
+| 10000 | 8.0 | 0.5 | +3.49 ± 0.37 | 0.0% |
+| 10000 | 8.0 | 1.0 | +5.19 ± 0.57 | −0.3% |
 
 Everything else that crossed did so in 2–4 realizations of 5. **11 of 20 (n, r_s) rows are
 monotone in \|Δσ\| versus amplitude** — a response that does not grow with the amplitude of the
@@ -117,7 +117,7 @@ the artifact disappears completely.
 deformation clips many cells to exactly zero, re-creating ties and making the target fill
 unreachable — mask drift reaches 19.5% at n = 5000, r_s = 10, α = 2.0. The sign flips in that
 corner are that clipping, not a topological response. The four robust cells in §3 all sit at
-≤ 6.9% drift.
+|drift| ≤ 0.9%, i.e. outside the clipping regime entirely.
 
 ## 6. Retraction of this document's previous numbers
 

@@ -53,8 +53,10 @@ produced from this data.
 - [x] **`void_to_filament_deformation` α=0 identity fixed** — the negative control caught a
   real 2-ulp violation from the mass renormalization at n=5000 (β₁ unaffected, no result
   changed). Short-circuit + 2 regression tests.
-- [x] **Brief Stream 2** — Phase 0 NO-GO, Phase 1 closure FAIL, and the ~5000-object /
-  ≥2 Mpc envelope. All three phases agree from three directions.
+- [x] **Brief Stream 2** — `briefs/STREAM3_TO_STREAM2_EXPERIMENTAL_FINDINGS_2026_07_26.md`.
+  Two floors (~1.6 Mpc scale, ~10⁴ objects/slice), the four artifact mechanisms measured,
+  two cheap artifact tests, and directives **E2.18–E2.23**. All three phases agree from
+  three independent directions.
 - [x] **Self-review of the rewrite** — found 4 more defects in Stream 3's *own* code:
   scalar σ made the warp anisotropic in Mpc; a single mock realization per cell (averaging
   over 5 cut detections 32→12); the percentile threshold filled 8.4%–48% so occupancy was
