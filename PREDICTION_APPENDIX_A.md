@@ -141,6 +141,15 @@ directions would correspond to massless scalars, which existing fifth-force boun
 permit as a dark sector. Building a fully stabilizing flux vector would need the full
 18-dimensional intersection data, which the certificates do not contain.
 
+> **Basis correction (2026-07-27).** "T = 18" above is retracted (Stream 2 E-007); the
+> derived value is T = 3, Tier B (E-011), and the 2026-07-27 U1 execution derived
+> T ≅ U⊕⟨14⟩ [B] with an explicit splitting. The "18 − 3 = 15 unstabilized moduli"
+> count therefore does not survive: the PF operator's rank-3 sub-VHS is the whole of
+> T ⊗ ℂ. The obstruction's operative content is narrower but stands: no G₄ flux
+> superpotential is constructible without the fourfold X₄ (the same missing object as
+> §A.1.4/§A.3.4), so |∂²V| remains unevaluable and BLOCKED (F5b) is unchanged. See
+> Stream 2 `briefs/STREAM2_M1PRIME_MECHANISM_MEMO_2026_07_27.md` route R2.
+
 **Consequence.** |∂²V_flux(F(z*))|^{1/2} is carried symbolically (as `C_flux` in
 `scripts/verify_appendix_A4.py`) and assigned no value. A point-mass m_φ obtained from a
 rank-3 flux choice alone would not be physically meaningful absent a stabilizing flux vector
