@@ -17,3 +17,6 @@ venv/
 # the integrity record and scripts/fetch_data.py reproduces them.
 data/raw
 data/raw/**
+
+# Third-party clones + agent working dirs (lya-mfdm has NO LICENSE - never redistribute via this repo)
+phase1_work/
