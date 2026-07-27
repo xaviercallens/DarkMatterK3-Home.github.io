@@ -13,6 +13,9 @@ or any comparison; **epistemic-guardrails** for all prose.
 ## Non-negotiable rules
 1. No real-data comparison code before `PREDICTION.md` carries `PINNED:` (gate G1). Synthetic-data infra only.
 2. Pinned prediction and `data/raw/` are immutable (hook-enforced). Parameter changes → `TUNING_LOG.md` → label FIT.
+   `data/raw/` is a symlink to the 500GB data disk and is **gitignored — never `git add` raw
+   datasets** (GitHub 100MB limit; caused the 2026-07-27 push failure). `data/MANIFEST.md`
+   SHA256s are the integrity record; `scripts/fetch_data.py` reproduces the files.
 3. Every comparison output labeled `TEST` or `FIT`, mechanically.
 4. Public data products only; never phrase results as collaboration/submission/endorsement.
 5. Falsification triggers (F3/F4) are mechanical; overriding one requires a written T0 ruling.

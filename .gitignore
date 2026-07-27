@@ -11,3 +11,9 @@ terraform.tfstate.backup
 core/venv/
 venv/
 .venv/
+
+# Raw datasets: NEVER git-tracked (GitHub 100MB limit; 2026-07-27 incident).
+# They live on the 500GB disk via the data/raw symlink; data/MANIFEST.md SHA256s are
+# the integrity record and scripts/fetch_data.py reproduces them.
+data/raw
+data/raw/**
