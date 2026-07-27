@@ -75,6 +75,16 @@ Engineering SU(N) would require an independent divisor in the full Calabi–Yau 
 the certificates fix only the local K3 fibre (ρ=4, T=18); neither X₄ nor its threefold base B₃
 is specified anywhere in this program, so Vol(D) cannot be evaluated.
 
+> **Basis correction (2026-07-27).** The certificate basis cited above — "2× Type II"
+> fibres and (ρ=4, T=18) — was retracted by Stream 2 escalation E-007 on 2026-07-26: the
+> labels came from a faulty exponent→Kodaira lookup, and E-008/E-009 subsequently found
+> that no Kodaira reading is available from this family's operators at any locus (the
+> finite singular points are order-2 elliptic points of X₀(7)+, not Kodaira degenerations;
+> current derived lattice data: ρ = 19, T = 3, Tier B, E-011). The obstruction therefore
+> stands in strengthened form: there is still no derivable weakly coupled SU(N) sector —
+> now because no gauge-algebra reading exists at these loci at all — and X₄/B₃ remain
+> unspecified. BLOCKED (F5b) status unchanged.
+
 **Consequence.** a₁ remains bounded by dimensional analysis via generic LVS volume scaling
 (Witten hep-th/0001083). The A.1.2 interval stands as a placeholder, not a result.
 [A-VOL, A-REL, A-ONT]
@@ -186,6 +196,13 @@ data (ρ=4, T=18) and no global fourfold, so χ(X₄) is undefined and the tadpo
 merely unsatisfied — it is not posable. Selecting a χ(X₄) to admit a flux landscape large enough
 to tune W₀ for a KKLT-style de Sitter uplift would be a fitted input presented as a derivation,
 which `.agents/AGENTS.md` Rule 7 forbids.
+
+> **Basis correction (2026-07-27).** "(ρ=4, T=18)" above is retracted (Stream 2 E-007);
+> the derived values are ρ = 19, T = 3, Tier B (E-011). The obstruction is unaffected:
+> χ(X₄) depends on the unspecified threefold base B₃, not on the K3 lattice ranks, so the
+> tadpole condition remains not posable. Standing policy: until a B₃ is specified and the
+> tadpole is posable, no model under this program makes any dark-energy / vacuum-energy
+> claim (T0 decision D4, 2026-07-26; assumption A-DE).
 
 **Consequence.** a₃ is not derived, so the A.3.3 discharge path fails and **F5b fires** exactly
 as pre-committed. Per A.3.2's third option a₃ could instead be bounded phenomenologically via

@@ -34,7 +34,17 @@ The candidate's **pure mathematics** is genuinely certified:
 | Kodaira fibre classification | 2× Type II, exponents [0, 1/2] | `C1loci_cooper_s7_partner.json` |
 | Mirror map F(z_e) | Certified to q¹⁴ | `C3b_symsqrt_cooper_s7.json` |
 
-None of this is in question. What `PREDICTION_APPENDIX_A.md` requires *beyond* this
+> **Correction (2026-07-27) — two rows above are superseded.** The ρ=4/T=18 row and the
+> "2× Type II" Kodaira row were retracted by Stream 2 escalation E-007 on 2026-07-26 — the
+> day after this document was written (the ρ=4 traced to a hardcoded constant in a faulty
+> exponent→Kodaira lookup, not to geometry). Current derived values: **ρ = 19, T = 3**,
+> Tier B (E-011, Zarhin 1983 Thm 1.6(a) route; independently verified by Stream 1). No
+> Kodaira fibre classification is available for this family at all: E-008/E-009 found the
+> finite singular loci are order-2 elliptic points of the X₀(7)+ modular curve, not Kodaira
+> degenerations. The Sym² and mirror-map rows are unaffected. The F5b conclusion of this
+> document does not rest on the retracted rows — see the §8 correction note.
+
+The Sym² and mirror-map rows are not in question. What `PREDICTION_APPENDIX_A.md` requires *beyond* this
 geometric data are three physical coefficients, each needing an **explicit string
 compactification** (flux quanta, brane wrapping, moduli stabilization) that has never
 been constructed for this candidate — only its abstract K3/elliptic lattice data has been
@@ -149,6 +159,16 @@ coefficient is in `PREDICTION_APPENDIX_A.md` A.1.4, A.2.5, A.3.4:
    specifies, so the D3 tadpole condition N_flux + N_D3 = χ(X₄)/24 is not merely unsatisfied
    but not posable. Choosing χ(X₄) to permit a KKLT-style uplift would be a fit dressed as a
    derivation (`.agents/AGENTS.md` Rule 7).
+
+> **Correction (2026-07-27).** The parenthetical "(ρ=4, T=18, 2× Type II fibres)" reflects
+> certificates retracted the day after this section was written (Stream 2 E-007; derived
+> values now ρ=19, T=3, Tier B, E-011). The three obstructions survive on corrected grounds:
+> (1) the Type II veto strengthens — no gauge-algebra reading exists at these loci at all
+> (E-008/E-009: order-2 elliptic points, not Kodaira degenerations), and X₄ remains
+> unspecified; (2) the flat-direction count changes arithmetic (T = 3, not 18) but the flux
+> potential remains unconstructible (A.2.5), so the wall stands; (3) the topology void is
+> independent of the lattice ranks — χ(X₄) depends on the unspecified base B₃ (see also T0
+> decision D4 / assumption A-DE). **F5b stands as recorded.**
 
 **Two-model status:** unified concurrence, no dispute — logged in `DERIVATION_DISPUTES.md`.
 Deep Think's independent pass reached the same three obstructions and confirmed no numerical
