@@ -71,6 +71,24 @@ building the synthetic-data sweep harness (rule 1-compliant) while the v2 amendm
 drafted.
 
 ---
+
+## Addendum (2026-07-27, same day, pre-T0) — data survey results amend this draft
+
+The requested data survey is in (`briefs/WP_E6_DATA_LANDSCAPE_2026_07_27.md`, full detail
+in `docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md`). Two amendments to this DRAFT before T0
+review:
+
+1. **The §1 grid framing is superseded.** Published bounds already cover the entire
+   10⁻²²–10⁻¹⁹ eV interval for a pure-FDM mediator (Lyman-α to 2×10⁻²⁰ eV; UFD kinematics
+   to 8×10⁻¹⁸ eV — sources in the landscape brief). A novel-exclusion framing is
+   therefore not available. Viable framings, T0 to choose (decision D-b of the landscape
+   brief): mixed-fraction f_FDM < 1 (genuinely open above ~10⁻²¹ eV), or
+   reproduction/robustness labeled as such, or defer.
+2. **Q1/Q2 are answered in the landscape brief** (DESI DR1 for spectroscopic needs; DES
+   Y6 / DESI Lyman-α P1D / KiDS-Legacy for lensing/structure), with one file-availability
+   check outstanding on DES Y6. Q3 (statistic) and Q4 (interval vs A.4.3) remain open.
+
+---
 Generated-by: Fable 5 (T1 coordinator) | Verified-by: consistency-checked against
 NO_PREDICTION_BRANCH.md (F5b), WP-E5 floors (TODO.md Stream 2, WP_E5 docs), CLAUDE.md
 rules 1–3, T0 decisions D2/D4 | Reviewed-by: pending T0 (Xavier)
