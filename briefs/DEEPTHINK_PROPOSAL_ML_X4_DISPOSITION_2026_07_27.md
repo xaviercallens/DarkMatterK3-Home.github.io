@@ -101,9 +101,56 @@ stale reference.
    NS-lattice match criterion, tier labeling ((N) for ML screens, (E) for exact
    certifications), explicit non-goals (no 𝒱→m_φ bridge, no grid coupling).
 
-## 4. One-line summary for T0
+## 4. One-line summary for T0 (pre-verification)
 
 Deep Think's Step 1 is the right idea wearing two wrong siblings: ML-guided search with exact
 certification could genuinely open the M1′ gate and deserves a verified, T0-gated WP; the
 volume-to-mass bridge and the constrained sweep are F5b violations that would trade the
 program's falsifiability for the *appearance* of top-down constraint, and are declined.
+
+---
+
+## 5. ADDENDUM — D0-G verification returned (same night): the toolchain claim FAILED
+
+Full report: `briefs/D0_VERIFICATION/D0G_CY_ML_REPOS.md` (coordinator spot-checked the fitness
+sections against the cited primary sources' quoted text).
+
+**All four repos are real. None can do what the proposal assigned them.**
+
+| Repo | Verdict | Fitness for the X₄ search |
+|---|---|---|
+| CYTools (`LiamMcAllisterGroup/cytools`, GPL-3.0, maintained) | CONFIRMED | **CY3-only.** Built on the Kreuzer–Skarke 4d-polytope list → threefolds by construction; its own README example is "the quintic Calabi-Yau *threefold*"; zero matches for "fourfold" or "fibrat" in README/docs. Using it to search for an X₄ is a load-bearing dimension error, exactly as suspected in §2 |
+| P5CY4ML (arXiv:2311.17146, **no LICENSE**) | CONFIRMED | Does handle CY4 weight systems — but is Hodge-number regression only; **zero fibration or lattice logic**. Also unlicensed → same non-redistribution handling as lya-mfdm |
+| cyjax (Apache-2.0) | CONFIRMED | CY3-shaped examples only, no CY4 evidence; **stale since 2023-07** |
+| cymetric | CONFIRMED, canonicity ambiguous | Two variants (paper-linked GPL-3.0 vs Ruehle's MIT fork); no CY4 evidence; CY3-scoped in practice |
+
+**Fitness B (the decisive capability):** *no repo among the four computes fiber lattice /
+Picard / polarization data* — the actual match criterion against the certified U⊕⟨14⟩ result.
+That layer would have to be built in-house regardless of which search tool ran underneath.
+
+**One incidental lead, honestly labeled:** D0-G surfaced arXiv:2511.10601 ("Classifying Fibers
+and Bases in Toric Hypersurface Calabi-Yau *Threefolds*") — adjacent research doing toric
+K3/elliptic-fibration classification, but on CY3s, existence/type-level, unopened and
+unverified here. Filed as a future-diligence pointer only.
+
+## 6. FINAL RULING (T1, delegated authority)
+
+**WP S2-G is NOT opened on the basis of this proposal.** The recommendation to T0 changes
+from "verified toolchain, your gate" to: **the proposed ML shortcut does not exist as
+described.** The load-bearing tool is dimension-wrong (CY3 vs CY4), the CY4-capable tool has
+no fibration/lattice capability, and the one capability the search actually turns on — exact
+fiber-polarization matching — exists in no off-the-shelf tool and would be an in-house build
+sitting on top of a largely classical (non-ML) polytope analysis. That is a genuine research
+work package with real cost, not a clone-and-scan acceleration; if T0 wants the X₄ hunt, it
+should be scoped as such, on its own merits, with the in-house exact-lattice layer as the
+core deliverable and any ML component as optional pre-filtering at (N) tier.
+
+Steps 2–3 remain rejected per §2–§3 (unchanged by verification — they failed on ledger
+grounds, not tooling grounds).
+
+**Net effect of tonight's Deep Think proposal:** one good architectural idea (ML proposes,
+checker certifies) retained for whenever the X₄ hunt is genuinely scoped; zero repos adopted;
+the falsification firewall between Streams 2 and 3 explicitly reaffirmed; the D0 gate caught
+a dimension error *before* any agent cloned a repo or wrote a line of integration code —
+which is the intake protocol doing precisely what it was built to do, at the cost of one
+read-only verification agent.
