@@ -1,0 +1,2207 @@
+{
+  "label": "ENGINEERING (synthetic Fisher/Delta-chi2 pre-flight, no real data)",
+  "generated": "2026-07-27T08:20:42.594810+00:00",
+  "grid": {
+    "m_ev": [
+      1e-22,
+      1.7782794100389228e-22,
+      3.1622776601683793e-22,
+      5.623413251903491e-22,
+      1e-21,
+      1.778279410038923e-21,
+      3.1622776601683792e-21,
+      5.6234132519034906e-21,
+      1e-20,
+      1.7782794100389228e-20,
+      3.162277660168379e-20,
+      5.62341325190349e-20,
+      1e-19
+    ],
+    "f": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "ell_bands": [
+      100.0,
+      300.0,
+      1000.0,
+      3000.0,
+      10000.0,
+      30000.0
+    ],
+    "n_cells": 260
+  },
+  "survey_parameters_des_y6": {
+    "n_eff_arcmin2": 8.22,
+    "sigma_e": 0.29,
+    "area_deg2": 4422.0,
+    "citation": "arXiv:2501.05665 (DES Y6 Metadetection), via docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md"
+  },
+  "baseline_f0": {
+    "c_ell": [
+      3.321646730988685e-09,
+      4.867340992232782e-10,
+      3.64030656852099e-11,
+      2.6474313129233207e-12,
+      1.250403040237317e-13,
+      6.87110357324958e-15
+    ],
+    "cov_diag": [
+      8.13807897994793e-21,
+      1.2618947706131142e-22,
+      5.6210197458604414e-24,
+      5.209970077646181e-25,
+      5.180350909094402e-26,
+      1.1652996640276822e-26
+    ]
+  },
+  "published_pure_fdm_bounds": [
+    {
+      "m_ev_threshold": 1.9e-21,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+      "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL"
+    },
+    {
+      "m_ev_threshold": 2e-20,
+      "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+      "method": "Lyman-alpha forest (high-res + emulator), 95% CL"
+    },
+    {
+      "m_ev_threshold": 3e-19,
+      "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+      "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL"
+    },
+    {
+      "m_ev_threshold": 8e-18,
+      "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+      "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL"
+    }
+  ],
+  "published_mixed_fdm_anchors_context_only": [
+    {
+      "m_ev": 1e-23,
+      "f_fdm_bound": 0.07,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    },
+    {
+      "m_ev": 1e-22,
+      "f_fdm_bound": 0.12,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f_fdm_bound": 0.65,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    }
+  ],
+  "columns": {
+    "1.0000e-22": {
+      "m_ev": 1e-22,
+      "m22": 1.0,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 0.0005898432208344039,
+          "sigma_equiv": 0.024286688140510306,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 0.002359372883337615,
+          "sigma_equiv": 0.048573376281020604,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 0.005308588987509595,
+          "sigma_equiv": 0.07286006442153065,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 0.009437491533350452,
+          "sigma_equiv": 0.09714675256204117,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.014746080520860082,
+          "sigma_equiv": 0.12143344070255147,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.021234355950038458,
+          "sigma_equiv": 0.14572012884306154,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.028902317820885662,
+          "sigma_equiv": 0.17000681698357176,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.03774996613340164,
+          "sigma_equiv": 0.1942935051240819,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.04777730088758642,
+          "sigma_equiv": 0.21858019326459208,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.05898432208343994,
+          "sigma_equiv": 0.24286688140510213,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.0713710297209627,
+          "sigma_equiv": 0.26715356954561303,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.08493742380015362,
+          "sigma_equiv": 0.29144025768612275,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.09968350432101367,
+          "sigma_equiv": 0.315726945826633,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.11560927128354248,
+          "sigma_equiv": 0.3400136339671433,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.13271472468774,
+          "sigma_equiv": 0.3643003221076534,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.15099986453360648,
+          "sigma_equiv": 0.38858701024816367,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.1704646908211419,
+          "sigma_equiv": 0.4128736983886742,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.1911092035503455,
+          "sigma_equiv": 0.43716038652918393,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.21293340272121838,
+          "sigma_equiv": 0.46144707466969426,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.23593728833376013,
+          "sigma_equiv": 0.48573376281020464,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.7783e-22": {
+      "m_ev": 1.7782794100389228e-22,
+      "m22": 1.7782794100389228,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 0.00026263319399775787,
+          "sigma_equiv": 0.016205961680744462,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 0.0010505327759910595,
+          "sigma_equiv": 0.032411923361489355,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 0.0023636987459799115,
+          "sigma_equiv": 0.04861788504223432,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 0.00420213110396428,
+          "sigma_equiv": 0.06482384672297904,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.006565829849944194,
+          "sigma_equiv": 0.08102980840372383,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.00945479498391964,
+          "sigma_equiv": 0.0972357700844686,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.012869026505890602,
+          "sigma_equiv": 0.11344173176521329,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.01680852441585713,
+          "sigma_equiv": 0.1296476934459581,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.02127328871381911,
+          "sigma_equiv": 0.14585365512670262,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.0262633193997768,
+          "sigma_equiv": 0.16205961680744774,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.03177861647372981,
+          "sigma_equiv": 0.1782655784881922,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.037819179935678474,
+          "sigma_equiv": 0.194471540168937,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.04438500978562267,
+          "sigma_equiv": 0.2106775018496818,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.05147610602356244,
+          "sigma_equiv": 0.22688346353042665,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.059092468649497604,
+          "sigma_equiv": 0.24308942521117122,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.06723409766342843,
+          "sigma_equiv": 0.25929538689191606,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.07590099306535471,
+          "sigma_equiv": 0.27550134857266073,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.0850931548552766,
+          "sigma_equiv": 0.29170731025340557,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.09481058303319394,
+          "sigma_equiv": 0.3079132719341502,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.10505327759910703,
+          "sigma_equiv": 0.32411923361489525,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "3.1623e-22": {
+      "m_ev": 3.1622776601683793e-22,
+      "m22": 3.162277660168379,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 0.0001018359431678814,
+          "sigma_equiv": 0.010091379646405213,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 0.00040734377267151917,
+          "sigma_equiv": 0.020182759292810267,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 0.0009165234885109227,
+          "sigma_equiv": 0.030274138939215475,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 0.0016293750906860706,
+          "sigma_equiv": 0.04036551858562046,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.0025458985791969846,
+          "sigma_equiv": 0.050456898232025565,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.0036660939540436584,
+          "sigma_equiv": 0.06054827787843068,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.0049899612152261045,
+          "sigma_equiv": 0.07063965752483589,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.006517500362744292,
+          "sigma_equiv": 0.08073103717124097,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.008248711396598257,
+          "sigma_equiv": 0.09082241681764616,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.010183594316787952,
+          "sigma_equiv": 0.1009137964640512,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.01232214912331345,
+          "sigma_equiv": 0.11100517611045645,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.01466437581617469,
+          "sigma_equiv": 0.1210965557568616,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.01721027439537161,
+          "sigma_equiv": 0.13118793540326645,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.019959844860904383,
+          "sigma_equiv": 0.14127931504967167,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.02291308721277291,
+          "sigma_equiv": 0.15137069469607686,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.02607000145097716,
+          "sigma_equiv": 0.16146207434248191,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.029430587575517142,
+          "sigma_equiv": 0.1715534539888869,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.032994845586392874,
+          "sigma_equiv": 0.1816448336352919,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.03676277548360449,
+          "sigma_equiv": 0.19173621328169724,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.040734377267151775,
+          "sigma_equiv": 0.20182759292810232,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "5.6234e-22": {
+      "m_ev": 5.623413251903491e-22,
+      "m22": 5.623413251903491,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 3.6124524117827706e-05,
+          "sigma_equiv": 0.006010368051777504,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 0.0001444980964713109,
+          "sigma_equiv": 0.01202073610355501,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 0.00032512071706044935,
+          "sigma_equiv": 0.01803110415533251,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 0.0005779923858852385,
+          "sigma_equiv": 0.024041472207109917,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.0009031131029456919,
+          "sigma_equiv": 0.030051840258887505,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.0013004828682417905,
+          "sigma_equiv": 0.03606220831066493,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.0017701016817735422,
+          "sigma_equiv": 0.04207257636244234,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.0023119695435409628,
+          "sigma_equiv": 0.048082944414219925,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.002926086453544043,
+          "sigma_equiv": 0.05409331246599752,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.0036124524117827797,
+          "sigma_equiv": 0.060103680517775114,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.004371067418257145,
+          "sigma_equiv": 0.06611404856955248,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.005201931472967174,
+          "sigma_equiv": 0.07212441662132994,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.0061050445759128595,
+          "sigma_equiv": 0.0781347846731074,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.00708040672709422,
+          "sigma_equiv": 0.08414515272488499,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.008128017926511213,
+          "sigma_equiv": 0.09015552077666245,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.009247878174163865,
+          "sigma_equiv": 0.09616588882843992,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.010439987470052191,
+          "sigma_equiv": 0.10217625688021749,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.01170434581417617,
+          "sigma_equiv": 0.10818662493199505,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.013040953206535796,
+          "sigma_equiv": 0.11419699298377255,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.01444980964713105,
+          "sigma_equiv": 0.12020736103554994,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.0000e-21": {
+      "m_ev": 1e-21,
+      "m22": 9.999999999999998,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 1.360971791725585e-05,
+          "sigma_equiv": 0.003689135117782466,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 5.4438871669024744e-05,
+          "sigma_equiv": 0.007378270235565023,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 0.00012248746125530458,
+          "sigma_equiv": 0.011067405353347486,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 0.00021775548667610095,
+          "sigma_equiv": 0.014756540471130114,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.00034024294793139965,
+          "sigma_equiv": 0.018445675588912424,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.000489949845021218,
+          "sigma_equiv": 0.022134810706694964,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.0006668761779455501,
+          "sigma_equiv": 0.025823945824477522,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.000871021946704389,
+          "sigma_equiv": 0.029513080942259975,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.0011023871512977463,
+          "sigma_equiv": 0.03320221606004253,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.0013609717917256149,
+          "sigma_equiv": 0.03689135117782506,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.0016467758679879917,
+          "sigma_equiv": 0.040580486295607544,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.0019597993800848854,
+          "sigma_equiv": 0.04426962141339008,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.0023000423280162934,
+          "sigma_equiv": 0.04795875653117263,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.0026675047117821894,
+          "sigma_equiv": 0.05164789164895494,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.003062186531382629,
+          "sigma_equiv": 0.05533702676673756,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.003484087786817556,
+          "sigma_equiv": 0.05902616188451995,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.003933208478087023,
+          "sigma_equiv": 0.06271529700230258,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.004409548605190982,
+          "sigma_equiv": 0.06640443212008504,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.004913108168129465,
+          "sigma_equiv": 0.07009356723786758,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.005443887166902448,
+          "sigma_equiv": 0.07378270235565006,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.7783e-21": {
+      "m_ev": 1.778279410038923e-21,
+      "m22": 17.78279410038923,
+      "pure_fdm_exclusion": {
+        "excluded": false,
+        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
+        "excluded_by": []
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 5.170366968682518e-06,
+          "sigma_equiv": 0.002273844095069519,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 2.0681467874729452e-05,
+          "sigma_equiv": 0.004547688190138969,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 4.653330271813999e-05,
+          "sigma_equiv": 0.0068215322852083595,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 8.272587149891679e-05,
+          "sigma_equiv": 0.009095376380277883,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 0.0001292591742170558,
+          "sigma_equiv": 0.011369220475347278,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 0.00018613321087256372,
+          "sigma_equiv": 0.013643064570416858,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 0.00025334798146543183,
+          "sigma_equiv": 0.015916908665486267,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.00033090348599566755,
+          "sigma_equiv": 0.018190752760555776,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.00041879972446326377,
+          "sigma_equiv": 0.020464596855625173,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.0005170366968682315,
+          "sigma_equiv": 0.02273844095069474,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.0006256144032105569,
+          "sigma_equiv": 0.025012285045764148,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.0007445328434902518,
+          "sigma_equiv": 0.02728612914083366,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.0008737920177073114,
+          "sigma_equiv": 0.029559973235903165,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.0010133919258617295,
+          "sigma_equiv": 0.03183381733097257,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.001163332567953519,
+          "sigma_equiv": 0.03410766142604208,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.0013236139439826654,
+          "sigma_equiv": 0.03638150552111148,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.0014942360539491792,
+          "sigma_equiv": 0.03865534961618093,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.0016751988978530629,
+          "sigma_equiv": 0.04092919371125044,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.001866502475694312,
+          "sigma_equiv": 0.04320303780631996,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.0020681467874729157,
+          "sigma_equiv": 0.04547688190138937,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "3.1623e-21": {
+      "m_ev": 3.1622776601683792e-21,
+      "m22": 31.62277660168379,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 1 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 1.780650510326307e-06,
+          "sigma_equiv": 0.001334410173194999,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 7.122602041305295e-06,
+          "sigma_equiv": 0.00266882034639001,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 1.6025854592937103e-05,
+          "sigma_equiv": 0.004003230519585039,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 2.849040816522087e-05,
+          "sigma_equiv": 0.005337640692779992,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 4.4516262758158844e-05,
+          "sigma_equiv": 0.006672050865975082,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 6.410341837174828e-05,
+          "sigma_equiv": 0.00800646103917007,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 8.725187500599059e-05,
+          "sigma_equiv": 0.009340871212365076,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 0.00011396163266088566,
+          "sigma_equiv": 0.010675281385560086,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 0.00014423269133643374,
+          "sigma_equiv": 0.01200969155875511,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 0.00017806505103263454,
+          "sigma_equiv": 0.013344101731950133,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 0.00021545871174948804,
+          "sigma_equiv": 0.014678511905145155,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 0.0002564136734869924,
+          "sigma_equiv": 0.016012922078340118,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 0.0003009299362451507,
+          "sigma_equiv": 0.017347332251535126,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.00034900750002396215,
+          "sigma_equiv": 0.018681742424730145,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.0004006463648234279,
+          "sigma_equiv": 0.020016152597925205,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.0004558465306435432,
+          "sigma_equiv": 0.021350562771120185,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.0005146079974843121,
+          "sigma_equiv": 0.02268497294431519,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.0005769307653457348,
+          "sigma_equiv": 0.02401938311751022,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.0006428148342278069,
+          "sigma_equiv": 0.025353793290705178,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.0007122602041305355,
+          "sigma_equiv": 0.026688203463900217,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "5.6234e-21": {
+      "m_ev": 5.6234132519034906e-21,
+      "m22": 56.2341325190349,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 1 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 5.173059504985428e-07,
+          "sigma_equiv": 0.0007192398421239905,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 2.069223801993956e-06,
+          "sigma_equiv": 0.0014384796842479063,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 4.655753554486778e-06,
+          "sigma_equiv": 0.0021577195263719467,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 8.276895207976294e-06,
+          "sigma_equiv": 0.002876959368495894,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 1.293264876246345e-05,
+          "sigma_equiv": 0.003596199210619936,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 1.8623014217946994e-05,
+          "sigma_equiv": 0.0043154390527438795,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 2.534799157442756e-05,
+          "sigma_equiv": 0.005034678894867831,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 3.310758083190558e-05,
+          "sigma_equiv": 0.005753918736991824,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 4.1901781990380664e-05,
+          "sigma_equiv": 0.006473158579115814,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 5.1730595049852404e-05,
+          "sigma_equiv": 0.007192398421239775,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 6.259402001032103e-05,
+          "sigma_equiv": 0.007911638263363729,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 7.449205687178737e-05,
+          "sigma_equiv": 0.008630878105487724,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 8.74247056342506e-05,
+          "sigma_equiv": 0.00935011794761171,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 0.00010139196629771023,
+          "sigma_equiv": 0.01006935778973566,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 0.00011639383886216801,
+          "sigma_equiv": 0.010788597631859667,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 0.00013243032332762133,
+          "sigma_equiv": 0.011507837473983604,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 0.0001495014196940729,
+          "sigma_equiv": 0.012227077316107594,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 0.00016760712796152065,
+          "sigma_equiv": 0.01294631715823155,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 0.00018674744812996767,
+          "sigma_equiv": 0.01366555700035559,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 0.0002069223801994095,
+          "sigma_equiv": 0.014384796842479546,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.0000e-20": {
+      "m_ev": 1e-20,
+      "m22": 99.99999999999999,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 1 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 1.2935766443736153e-07,
+          "sigma_equiv": 0.00035966326534323954,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 5.174306577494444e-07,
+          "sigma_equiv": 0.0007193265306864779,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 1.1642189799363315e-06,
+          "sigma_equiv": 0.0010789897960297547,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 2.0697226309978107e-06,
+          "sigma_equiv": 0.0014386530613729673,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 3.2339416109341423e-06,
+          "sigma_equiv": 0.0017983163267162267,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 4.656875919745142e-06,
+          "sigma_equiv": 0.0021579795920594665,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 6.338525557431076e-06,
+          "sigma_equiv": 0.0025176428574027487,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 8.278890523991507e-06,
+          "sigma_equiv": 0.0028773061227459805,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 1.0477970819426703e-05,
+          "sigma_equiv": 0.0032369693880892206,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 1.2935766443736686e-05,
+          "sigma_equiv": 0.0035966326534324694,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 1.5652277396921614e-05,
+          "sigma_equiv": 0.003956295918775745,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 1.862750367898073e-05,
+          "sigma_equiv": 0.004315959184118952,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 2.186144528991511e-05,
+          "sigma_equiv": 0.004675622449462222,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 2.5354102229724023e-05,
+          "sigma_equiv": 0.005035285714805469,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 2.9105474498407576e-05,
+          "sigma_equiv": 0.005394948980148707,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 3.311556209596617e-05,
+          "sigma_equiv": 0.005754612245491973,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 3.73843650223991e-05,
+          "sigma_equiv": 0.006114275510835205,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 4.1911883277707065e-05,
+          "sigma_equiv": 0.00647393877617846,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 4.6698116861889935e-05,
+          "sigma_equiv": 0.006833602041521728,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 5.17430657749472e-05,
+          "sigma_equiv": 0.007193265306864971,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.7783e-20": {
+      "m_ev": 1.7782794100389228e-20,
+      "m22": 177.82794100389228,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 1 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 3.027942049510062e-08,
+          "sigma_equiv": 0.00017400982873131226,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 1.2111768198037925e-07,
+          "sigma_equiv": 0.0003480196574625911,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 2.725147844558543e-07,
+          "sigma_equiv": 0.0005220294861938876,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 4.844707279215743e-07,
+          "sigma_equiv": 0.0006960393149252233,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 7.569855123774026e-07,
+          "sigma_equiv": 0.0008700491436564963,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 1.090059137823571e-06,
+          "sigma_equiv": 0.001044058972387849,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 1.4836916042598298e-06,
+          "sigma_equiv": 0.0012180688011191444,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 1.937882911686276e-06,
+          "sigma_equiv": 0.001392078629850439,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 2.452633060102938e-06,
+          "sigma_equiv": 0.0015660884585817424,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 3.0279420495097375e-06,
+          "sigma_equiv": 0.001740098287313029,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 3.6638098799069117e-06,
+          "sigma_equiv": 0.0019141081160443658,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 4.3602365512939945e-06,
+          "sigma_equiv": 0.0020881179447756284,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 5.117222063671618e-06,
+          "sigma_equiv": 0.002262127773506974,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 5.9347664170391956e-06,
+          "sigma_equiv": 0.0024361376022382633,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 6.812869611397111e-06,
+          "sigma_equiv": 0.0026101474309695822,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 7.751531646745136e-06,
+          "sigma_equiv": 0.002784157259700884,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 8.750752523083167e-06,
+          "sigma_equiv": 0.002958167088432154,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 9.810532240411794e-06,
+          "sigma_equiv": 0.0031321769171634914,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 1.0930870798730531e-05,
+          "sigma_equiv": 0.003306186745894813,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 1.2111768198038999e-05,
+          "sigma_equiv": 0.0034801965746260656,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "3.1623e-20": {
+      "m_ev": 3.162277660168379e-20,
+      "m22": 316.2277660168379,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 5.5959928230452935e-09,
+          "sigma_equiv": 7.480636886686383e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 2.2383971292154926e-08,
+          "sigma_equiv": 0.00014961273773363994,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 5.036393540737565e-08,
+          "sigma_equiv": 0.0002244191066005202,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 8.953588516868297e-08,
+          "sigma_equiv": 0.0002992254754673856,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 1.3989982057606212e-07,
+          "sigma_equiv": 0.00037403184433422524,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 2.0145574162952139e-07,
+          "sigma_equiv": 0.0004488382132010613,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 2.7420364832908723e-07,
+          "sigma_equiv": 0.0005236445820679206,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 3.5814354067469566e-07,
+          "sigma_equiv": 0.0005984509509347409,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 4.5327541866645394e-07,
+          "sigma_equiv": 0.0006732573198016149,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 5.595992823042408e-07,
+          "sigma_equiv": 0.0007480636886684454,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 6.771151315881539e-07,
+          "sigma_equiv": 0.0008228700575353036,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 8.058229665180745e-07,
+          "sigma_equiv": 0.0008976764264021166,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 9.457227870942156e-07,
+          "sigma_equiv": 0.000972482795269004,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 1.096814593316283e-06,
+          "sigma_equiv": 0.0010472891641358098,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 1.2590983851845368e-06,
+          "sigma_equiv": 0.001122095533002666,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 1.4325741626988963e-06,
+          "sigma_equiv": 0.0011969019018695294,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 1.6172419258593512e-06,
+          "sigma_equiv": 0.0012717082707363945,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 1.8131016746658795e-06,
+          "sigma_equiv": 0.0013465146396032534,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 2.0201534091183915e-06,
+          "sigma_equiv": 0.0014213210084700752,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 2.238397129216989e-06,
+          "sigma_equiv": 0.0014961273773368994,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "5.6234e-20": {
+      "m_ev": 5.62341325190349e-20,
+      "m22": 562.341325190349,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 1.0641558770085648e-09,
+          "sigma_equiv": 3.262140213124759e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 4.256623508029757e-09,
+          "sigma_equiv": 6.524280426246068e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 9.577402893071593e-09,
+          "sigma_equiv": 9.786420639371472e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 1.702649403213028e-08,
+          "sigma_equiv": 0.00013048560852496448,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 2.6603896925196087e-08,
+          "sigma_equiv": 0.00016310701065618268,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 3.830961157227943e-08,
+          "sigma_equiv": 0.0001957284127874117,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 5.214363797338678e-08,
+          "sigma_equiv": 0.0002283498149186611,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 6.810597612850426e-08,
+          "sigma_equiv": 0.00026097121704989664,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 8.619662603763348e-08,
+          "sigma_equiv": 0.00029359261918112566,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 1.064155877008025e-07,
+          "sigma_equiv": 0.00032621402131239317,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 1.287628611179577e-07,
+          "sigma_equiv": 0.0003588354234436139,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 1.532384462891367e-07,
+          "sigma_equiv": 0.0003914568255748477,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 1.7984234321433446e-07,
+          "sigma_equiv": 0.0004240782277060855,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 2.0857455189355696e-07,
+          "sigma_equiv": 0.000456699629837333,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 2.3943507232679166e-07,
+          "sigma_equiv": 0.0004893210319685755,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 2.7242390451402504e-07,
+          "sigma_equiv": 0.000521942434099801,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 3.075410484552766e-07,
+          "sigma_equiv": 0.00055456383623103,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 3.4478650415055357e-07,
+          "sigma_equiv": 0.0005871852383622681,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 3.841602715998491e-07,
+          "sigma_equiv": 0.0006198066404935084,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 4.256623508031647e-07,
+          "sigma_equiv": 0.0006524280426247516,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    },
+    "1.0000e-19": {
+      "m_ev": 1e-19,
+      "m22": 999.9999999999999,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": null,
+      "smallest_f_reaching_3sigma": null,
+      "monotone_in_f": true,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 1.4371373685722117e-10,
+          "sigma_equiv": 1.1988066435302283e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 5.748549474295595e-10,
+          "sigma_equiv": 2.3976132870618637e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 1.293423631715026e-09,
+          "sigma_equiv": 3.596419930590734e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 2.29941978971676e-09,
+          "sigma_equiv": 4.7952265741221865e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 3.5928434214298227e-09,
+          "sigma_equiv": 5.994033217650552e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 5.1736945268591144e-09,
+          "sigma_equiv": 7.192839861180781e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 7.041973106003646e-09,
+          "sigma_equiv": 8.391646504711483e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 9.197679158862178e-09,
+          "sigma_equiv": 9.590453148241839e-05,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 1.1640812685433698e-08,
+          "sigma_equiv": 0.00010789259791771491,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 1.4371373685717496e-08,
+          "sigma_equiv": 0.00011988066435300356,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 1.7389362159723994e-08,
+          "sigma_equiv": 0.00013186873078832598,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 2.0694778107434648e-08,
+          "sigma_equiv": 0.00014385679722360933,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 2.4287621528868126e-08,
+          "sigma_equiv": 0.00015584486365892244,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 2.816789242401351e-08,
+          "sigma_equiv": 0.00016783293009422646,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 3.233559079286528e-08,
+          "sigma_equiv": 0.00017982099652950786,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 3.679071663544582e-08,
+          "sigma_equiv": 0.0001918090629648292,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 4.1533269951731787e-08,
+          "sigma_equiv": 0.00020379712940012622,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 4.656325074173641e-08,
+          "sigma_equiv": 0.00021578519583543356,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 5.188065900544468e-08,
+          "sigma_equiv": 0.00022777326227071666,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 5.748549474288799e-08,
+          "sigma_equiv": 0.00023976132870604465,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false
+        }
+      ]
+    }
+  },
+  "area_scaling_sensitivity_check": {
+    "note": "Best-case in-grid cell (m=1e-22 eV, f=1.0) sigma_equiv as a function of survey area, holding n_eff and sigma_e fixed at the DES Y6 values -- illustrates how much of the non-detection is attributable to area alone vs. the intrinsic smallness of the FDM-induced signal at these (m, ell) combinations.",
+    "m22": 1.0,
+    "f": 1.0,
+    "rows": [
+      {
+        "area_deg2": 4422.0,
+        "is_des_y6_actual_area": true,
+        "is_full_sky": false,
+        "sigma_equiv": 0.48573376281020464
+      },
+      {
+        "area_deg2": 20000.0,
+        "is_des_y6_actual_area": false,
+        "is_full_sky": false,
+        "sigma_equiv": 1.0330085605974288
+      },
+      {
+        "area_deg2": 41252.96124941928,
+        "is_des_y6_actual_area": false,
+        "is_full_sky": true,
+        "sigma_equiv": 1.4835988470201833
+      },
+      {
+        "area_deg2": 100000.0,
+        "is_des_y6_actual_area": false,
+        "is_full_sky": false,
+        "sigma_equiv": 2.3098773628350613
+      }
+    ]
+  }
+}
