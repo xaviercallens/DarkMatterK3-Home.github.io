@@ -65,7 +65,10 @@ HPC allocation, institutional cluster, etc.), not how many pairs.
 2. Confirm budget class: low end of the 10k-200k core-hour estimate would still be a
    nontrivial cloud spend — get a real quote before committing
 3. Re-check for a public FDM-aware low-z P1D simulation suite (deeper search than Agent 4's
-   quick pass) — might make new sims unnecessary
+   quick pass) — might make new sims unnecessary. Candidate noted 2026-07-27 night from an
+   (otherwise-rejected) inbound review: **GAMER** — real, actively maintained, has genuine
+   wave/fuzzy-DM simulation support; verify fit vs MP-Gadget if this phase reactivates
+   (source vetting: audit in ~/literature_review/phase2_geometry/ANALYSIS_MF_GRID_AUDIT)
 4. If proceeding: start with the 25-50 pair single-z trial, not the full 210-run rebuild
 5. Only once new snapshots exist: evaluate whether a RunuX-based emulator re-implementation is
    worth prototyping vs. just retraining the existing PyTorch pipeline with more data
