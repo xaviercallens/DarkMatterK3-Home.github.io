@@ -217,7 +217,12 @@ def test_fetch_all_datasets_partial_failure(temp_data_dir):
     with patch("scripts.data_fetchers.fetch_nanograv_15yr") as mock_ng, \
          patch("scripts.data_fetchers.fetch_epta_dr2") as mock_epta, \
          patch("scripts.data_fetchers.fetch_sdss_lensing") as mock_sdss, \
-         patch("scripts.data_fetchers.fetch_lyman_alpha"):
+         patch("scripts.data_fetchers.fetch_lyman_alpha"), \
+         patch("scripts.data_fetchers.fetch_eboss_lrg_clustering", return_value={}), \
+         patch("scripts.data_fetchers.fetch_desi_dr1_lrg_clustering",
+               return_value={"status": "error", "error": "mocked: no network in test"}), \
+         patch("scripts.data_fetchers.fetch_desi_dr1_bgs_clustering",
+               return_value={"status": "error", "error": "mocked: no network in test"}):
 
         mock_ng.return_value = mock_results["nanograv_15yr"]
         mock_epta.side_effect = Exception("URL not found")
@@ -303,6 +308,66 @@ def test_s3_01_full_workflow(temp_data_dir):
     assert "lyman_alpha" in content and "ERROR" in content
     assert "Updated" in content  # Status line changed
     assert "_(none yet)_" not in content  # Old placeholder removed
+
+
+# ============================================================================
+# WP-E7 Task B additions: check_url_reachable + DESI HEAD-check-before-GET
+# discipline (T0-approved 2026-07-27). Offline, mocked urlopen only.
+# ============================================================================
+
+def test_check_url_reachable_success():
+    from scripts.data_fetchers import check_url_reachable
+
+    with patch("scripts.data_fetchers.urlopen") as mock_urlopen:
+        mock_resp = MagicMock()
+        mock_resp.headers.get.return_value = "12345"
+        mock_urlopen.return_value.__enter__.return_value = mock_resp
+        result = check_url_reachable("https://example.com/file.fits")
+
+    assert result["reachable"] is True
+    assert result["content_length"] == 12345
+    assert result["error"] is None
+
+
+def test_check_url_reachable_failure_records_error_not_raise():
+    from scripts.data_fetchers import check_url_reachable
+
+    with patch("scripts.data_fetchers.urlopen", side_effect=TimeoutError("connect timed out")):
+        result = check_url_reachable("https://data.desi.lbl.gov/blocked/path.fits")
+
+    assert result["reachable"] is False
+    assert result["content_length"] is None
+    assert "connect timed out" in result["error"]
+
+
+def test_desi_fetch_records_manual_download_note_on_refusal():
+    """A refused DESI portal must be recorded with the manual-download
+    instruction, never scraped around or retried with spoofed headers."""
+    from scripts.data_fetchers import fetch_desi_dr1_lrg_clustering
+
+    with patch("scripts.data_fetchers.check_url_reachable",
+               return_value={"reachable": False, "content_length": None,
+                             "error": "Connection timed out"}):
+        result = fetch_desi_dr1_lrg_clustering()
+
+    assert result["status"] == "error"
+    assert "Connection timed out" in result["error"]
+    assert "manual_download" in result and "data.desi.lbl.gov" in result["manual_download"]
+
+
+def test_desi_fetch_proceeds_to_get_when_reachable():
+    """When the HEAD check succeeds, the normal fetch_file path runs (no
+    blind download skipped, but also no unconditional GET before the check)."""
+    from scripts.data_fetchers import fetch_desi_dr1_bgs_clustering
+
+    with patch("scripts.data_fetchers.check_url_reachable",
+               return_value={"reachable": True, "content_length": 1024, "error": None}), \
+         patch("scripts.data_fetchers.fetch_file",
+               return_value={"status": "new", "sha256": "abc", "path": "raw/x.fits"}) as mock_ff:
+        result = fetch_desi_dr1_bgs_clustering()
+
+    assert result["status"] == "new"
+    mock_ff.assert_called_once()
 
 
 if __name__ == "__main__":

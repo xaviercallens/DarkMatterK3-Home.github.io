@@ -20,12 +20,33 @@ import json
 import logging
 from pathlib import Path
 from typing import Optional
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
+
+
+def check_url_reachable(url: str, timeout: float = 15.0) -> dict:
+    """HEAD/small-ranged-request pre-check before committing to a multi-GB
+    download (WP-E7 Task B discipline, T0-approved 2026-07-27, per
+    briefs/T0_DECISIONS_2026_07_27.md D-a). Never retries with spoofed
+    headers; a refusal here is recorded as-is, not scraped around.
+
+    Returns {"reachable": bool, "content_length": int | None, "error": str | None}.
+    """
+    req = Request(url, method="HEAD")
+    try:
+        with urlopen(req, timeout=timeout) as resp:
+            length = resp.headers.get("Content-Length")
+            return {
+                "reachable": True,
+                "content_length": int(length) if length else None,
+                "error": None,
+            }
+    except Exception as e:
+        return {"reachable": False, "content_length": None, "error": str(e)}
 
 
 def compute_sha256(file_path: Path) -> str:
@@ -180,16 +201,129 @@ def fetch_lyman_alpha() -> dict:
     )
 
 
-def fetch_all_datasets() -> dict:
-    """Fetch all required datasets for Stream 3 observables (P1, P2, nulls).
+# ============================================================================
+# WP-E7 Task B (T0-approved 2026-07-27, briefs/T0_DECISIONS_2026_07_27.md D-a):
+# scoped acquisition of DESI DR1 (+ SDSS/eBOSS DR16 secondary) LSS/clustering
+# catalogs. Priority order per the brief:
+#   (i)   SDSS/eBOSS DR16 LSS combined LRG clustering catalog + random (public,
+#         no auth, data.sdss.org)
+#   (ii)  DESI DR1 LRG clustering (LSS) catalog, public DESI portal
+#   (iii) DESI DR1 BGS clustering catalog, if within the 20 GB cap
+# Only LSS/clustering catalogs — no spectra, no imaging. Files land in
+# data/raw/ (immutable thereafter, hook-enforced: .claude/hooks/prereg_guard.sh).
+# ============================================================================
 
-    Returns:
-        {
-            "nanograv_15yr": {...},
-            "epta_dr2": {...},
-            "sdss_lensing": {...},
-            "lyman_alpha": {...}
+# --- (i) SDSS/eBOSS DR16 LSS combined LRG clustering catalog + randoms -----
+# Ross et al. 2020 (arXiv:2007.09000); combined BOSS+eBOSS LRG, 377,458 objects,
+# 0.6<z<1.0, 9,493 deg^2. Directory verified reachable and file sizes verified
+# via HEAD request 2026-07-27 (no auth, no registration):
+#   data-NGC   7,747,200 bytes   data-SGC   4,852,800 bytes
+#   random-NGC 349,493,760 bytes random-SGC 221,028,480 bytes  (~0.58 GB total)
+EBOSS_LSS_BASE_URL = "https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16"
+
+EBOSS_LRG_FILES = {
+    "eboss_lrg_clustering_data_ngc": "eBOSS_LRG_clustering_data-NGC-vDR16.fits",
+    "eboss_lrg_clustering_data_sgc": "eBOSS_LRG_clustering_data-SGC-vDR16.fits",
+    "eboss_lrg_clustering_random_ngc": "eBOSS_LRG_clustering_random-NGC-vDR16.fits",
+    "eboss_lrg_clustering_random_sgc": "eBOSS_LRG_clustering_random-SGC-vDR16.fits",
+}
+
+
+def fetch_eboss_lrg_clustering() -> dict:
+    """SDSS/eBOSS DR16 combined LRG clustering catalog (data + random, NGC+SGC).
+
+    Returns a dict keyed by the four EBOSS_LRG_FILES entries, each a fetch_file()
+    result (or an error dict). No fallback: a failed fetch is recorded as-is.
+    """
+    out = {}
+    for key, filename in EBOSS_LRG_FILES.items():
+        url = f"{EBOSS_LSS_BASE_URL}/{filename}"
+        try:
+            out[key] = fetch_file(url, f"raw/sdss_eboss_dr16_lss/{filename}")
+        except Exception as e:
+            logger.error(f"eBOSS LRG fetch failed for {key}: {e}")
+            out[key] = {"status": "error", "error": str(e), "url": url}
+    return out
+
+
+# --- (ii)/(iii) DESI DR1 LRG / BGS clustering (LSS) catalogs ----------------
+# arXiv:2404.03000 (BAO/LSS catalog samples); public portal per
+# docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md. Internal production name "iron",
+# LSScats version v1.5 (best-documented path as of 2026-07-27; not independently
+# verified against a live directory listing because the portal is unreachable
+# from this environment -- see check below). Filenames follow the documented
+# DESI LSS convention: "{TRACER}_{NGC,SGC}_clustering.dat.fits" for data,
+# "{TRACER}_{NGC,SGC}_clustering.ran.fits" for randoms.
+DESI_DR1_LSS_BASE_URL = (
+    "https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering"
+)
+
+DESI_DR1_LRG_DATA_URL = f"{DESI_DR1_LSS_BASE_URL}/LRG_NGC_clustering.dat.fits"
+DESI_DR1_BGS_DATA_URL = f"{DESI_DR1_LSS_BASE_URL}/BGS_BRIGHT_NGC_clustering.dat.fits"
+
+DESI_MANUAL_DOWNLOAD_NOTE = (
+    "Manual download: browse "
+    "https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/ "
+    "(DESI DR1, 'iron' spectroscopic production, LSScats v1.5) from a network that can "
+    "reach data.desi.lbl.gov / NERSC (128.55.206.0/24), download the "
+    "{TRACER}_{NGC,SGC}_clustering.dat.fits data files and matching "
+    "{TRACER}_{NGC,SGC}_clustering.ran.fits random files, compute SHA256, and append a "
+    "row to data/MANIFEST.md following the same convention as the eBOSS LRG entries. "
+    "Alternative access path (reachable from this environment, not independently used "
+    "for this fetch): NOIRLab Astro Data Lab TAP, https://datalab.noirlab.edu/tap, "
+    "table desi_dr1 -- whether it re-exposes the LSS clustering/random weight columns "
+    "needed for this analysis is unverified."
+)
+
+
+def _fetch_desi_dr1_catalog(url: str, dest_relpath: str, label: str) -> dict:
+    """Shared DESI DR1 fetch path: HEAD-check first (never a blind multi-GB
+    GET), record an exact failure + manual-download instruction on refusal,
+    and do not retry with spoofed headers or scrape around the refusal."""
+    check = check_url_reachable(url)
+    if not check["reachable"]:
+        logger.error(f"{label}: portal unreachable ({check['error']}). Recording refusal.")
+        return {
+            "status": "error",
+            "url": url,
+            "error": f"unreachable: {check['error']}",
+            "manual_download": DESI_MANUAL_DOWNLOAD_NOTE,
         }
+    try:
+        return fetch_file(url, dest_relpath)
+    except Exception as e:
+        logger.error(f"{label}: fetch failed after reachability check: {e}")
+        return {"status": "error", "url": url, "error": str(e),
+                 "manual_download": DESI_MANUAL_DOWNLOAD_NOTE}
+
+
+def fetch_desi_dr1_lrg_clustering() -> dict:
+    """DESI DR1 LRG clustering (LSS) catalog. HEAD-checked before any GET."""
+    return _fetch_desi_dr1_catalog(
+        DESI_DR1_LRG_DATA_URL,
+        "raw/desi_dr1_lss/LRG_NGC_clustering.dat.fits",
+        "DESI DR1 LRG",
+    )
+
+
+def fetch_desi_dr1_bgs_clustering() -> dict:
+    """DESI DR1 BGS clustering (LSS) catalog. HEAD-checked before any GET."""
+    return _fetch_desi_dr1_catalog(
+        DESI_DR1_BGS_DATA_URL,
+        "raw/desi_dr1_lss/BGS_BRIGHT_NGC_clustering.dat.fits",
+        "DESI DR1 BGS",
+    )
+
+
+def fetch_all_datasets() -> dict:
+    """Fetch all required datasets for Stream 3 observables (P1, P2, nulls),
+    plus the WP-E7 Task B scoped acquisition (eBOSS LRG clustering + DESI DR1
+    LRG/BGS clustering attempts).
+
+    Returns a flat dict of dataset_name -> fetch_file()-shaped result (or an
+    error dict). The four eboss_lrg_* keys are unpacked from
+    fetch_eboss_lrg_clustering()'s nested dict so every entry here is a single
+    dataset, matching data/MANIFEST.md's one-row-per-dataset convention.
     """
     results = {}
     fetchers = {
@@ -200,6 +334,23 @@ def fetch_all_datasets() -> dict:
     }
 
     for name, fetcher in fetchers.items():
+        try:
+            results[name] = fetcher()
+        except Exception as e:
+            logger.error(f"Failed to fetch {name}: {e}")
+            results[name] = {"status": "error", "error": str(e)}
+
+    try:
+        results.update(fetch_eboss_lrg_clustering())
+    except Exception as e:
+        logger.error(f"eBOSS LRG clustering fetch group failed: {e}")
+        for key in EBOSS_LRG_FILES:
+            results.setdefault(key, {"status": "error", "error": str(e)})
+
+    for name, fetcher in {
+        "desi_dr1_lrg_clustering": fetch_desi_dr1_lrg_clustering,
+        "desi_dr1_bgs_clustering": fetch_desi_dr1_bgs_clustering,
+    }.items():
         try:
             results[name] = fetcher()
         except Exception as e:

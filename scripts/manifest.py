@@ -32,6 +32,12 @@ DATASET_USE_CASES = {
     "euclid_z_edf_north": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
     "euclid_z_edf_fornax": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
     "euclid_z_edf_south": "WP-R5 3D field prep (G1-scope; no G1-L target pinned)",
+    "eboss_lrg_clustering_data_ngc": "WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep)",
+    "eboss_lrg_clustering_data_sgc": "WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep)",
+    "eboss_lrg_clustering_random_ngc": "WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep)",
+    "eboss_lrg_clustering_random_sgc": "WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep)",
+    "desi_dr1_lrg_clustering": "WP-E7 Task B (T0-approved 2026-07-27; DESI DR1 resolvability follow-on prep)",
+    "desi_dr1_bgs_clustering": "WP-E7 Task B (T0-approved 2026-07-27; DESI DR1 resolvability follow-on prep)",
 }
 
 
