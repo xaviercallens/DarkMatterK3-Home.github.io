@@ -44,3 +44,18 @@ tiers (Haiku/Sonnet), delicate derivations and gate decisions on larger tiers
 Generated-by: Fable 5 (T1 coordinator) | Verified-by: n/a (decision record) |
 Reviewed-by: Xavier (T0) — records his own in-session decisions; D-b ruling pending his
 review at v2-pin time
+
+## D-e — WP-E6 statistic re-scoped to Lyman-α P1D (decided 2026-07-27, later same day)
+
+Following the filed negative of the DES-Y6 broadband adequacy pre-flight
+(`docs/WP_E6_SYNTHETIC_ADEQUACY_PREFLIGHT_2026_07_27.md`: no (m, f) cell reaches 2σ;
+best case σ≈0.49, full-sky check σ≈1.48), T0 directed: "rescope WP-E6 as proposed."
+Effect: the WP-E6 observable statistic becomes the **DESI DR1 Lyman-α 1D flux power
+spectrum** (the landscape brief's (b)-primary; >300,000 forests, arXiv:2505.07974), with
+eBOSS DR14 P1D (Chabanier et al. 2019) as the fallback error-bar source. Mixed-fraction
+framing (D-b) and the pre-flight-before-pin discipline are unchanged: a NEW adequacy
+pre-flight on synthetic data precedes any v2 amendment drafting; if it also returns
+negative, WP-E6 stops there and the negatives are banked. The DES Y6 result stands as
+filed; D-c (DES Y6 as lensing product) is superseded for WP-E6's statistic but retained
+as the lensing reference if a lensing-based observable ever re-enters via its own
+pre-registration.

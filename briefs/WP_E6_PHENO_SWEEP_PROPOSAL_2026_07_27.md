@@ -88,6 +88,15 @@ review:
    Y6 / DESI Lyman-α P1D / KiDS-Legacy for lensing/structure), with one file-availability
    check outstanding on DES Y6. Q3 (statistic) and Q4 (interval vs A.4.3) remain open.
 
+## Addendum 2 (2026-07-27, post-pre-flight) — Q3 answered by re-scope (T0 decision D-e)
+
+The DES-Y6 broadband adequacy pre-flight returned a filed negative (no (m, f) cell at
+2σ; `docs/WP_E6_SYNTHETIC_ADEQUACY_PREFLIGHT_2026_07_27.md`). Per T0 decision D-e
+(`briefs/T0_DECISIONS_2026_07_27.md`), the WP-E6 statistic is re-scoped to the **DESI
+DR1 Lyman-α 1D flux power spectrum** (eBOSS DR14 P1D as fallback error-bar source).
+A new synthetic adequacy pre-flight (WP-E6b) precedes any v2 amendment drafting; a
+second negative stops WP-E6 with both negatives banked. Q4 remains open.
+
 ---
 Generated-by: Fable 5 (T1 coordinator) | Verified-by: consistency-checked against
 NO_PREDICTION_BRANCH.md (F5b), WP-E5 floors (TODO.md Stream 2, WP_E5 docs), CLAUDE.md
