@@ -1,0 +1,4173 @@
+{
+  "label": "ENGINEERING (linear-theory Lya P1D ratio pre-flight, published error bars, no real-data COMPARISON -- optimistic proxy, see module docstring caveats)",
+  "generated": "2026-07-27T10:20:18.022829+00:00",
+  "grid": {
+    "m_ev": [
+      1e-22,
+      1.7782794100389228e-22,
+      3.1622776601683793e-22,
+      5.623413251903491e-22,
+      1e-21,
+      1.778279410038923e-21,
+      3.1622776601683792e-21,
+      5.6234132519034906e-21,
+      1e-20,
+      1.7782794100389228e-20,
+      3.162277660168379e-20,
+      5.62341325190349e-20,
+      1e-19
+    ],
+    "f": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "n_cells": 260
+  },
+  "data_source": {
+    "csv": "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/data/literature/desi_dr1_lya_p1d_2026_07_27.csv",
+    "citation": "DESI DR1 Lyman-alpha 1D flux power spectrum, baseline QMLE, arXiv:2505.07974, via Zenodo DOI 10.5281/zenodo.16943723 (data/MANIFEST.md provenance entry)",
+    "n_total_bins": 1020,
+    "n_valid_bins": 755,
+    "validity_range": "k_par > 0.001 s/km and k_par < 0.5*pi/R_z(z) (paper's own recommended cuts)"
+  },
+  "published_mixed_fdm_anchors": [
+    {
+      "m_ev": 1e-23,
+      "f_fdm_bound": 0.07,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    },
+    {
+      "m_ev": 1e-22,
+      "f_fdm_bound": 0.12,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f_fdm_bound": 0.65,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)"
+    }
+  ],
+  "columns": {
+    "1.0000e-22": {
+      "m_ev": 1e-22,
+      "m22": 1.0,
+      "chi2_shape": 94651.29229321974,
+      "sigma_shape": 307.65450150001016,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 236.62823073304938,
+          "sigma_equiv": 15.382725075000508,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 946.5129229321975,
+          "sigma_equiv": 30.765450150001016,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 2129.6540765974446,
+          "sigma_equiv": 46.14817522500152,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 3786.05169172879,
+          "sigma_equiv": 61.53090030000203,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 5915.705768326235,
+          "sigma_equiv": 76.91362537500254,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 8518.616306389778,
+          "sigma_equiv": 92.29635045000305,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 11594.78330591942,
+          "sigma_equiv": 107.67907552500355,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 15144.20676691516,
+          "sigma_equiv": 123.06180060000406,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 19166.886689377,
+          "sigma_equiv": 138.44452567500457,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 23662.82307330494,
+          "sigma_equiv": 153.82725075000508,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 28632.015918698973,
+          "sigma_equiv": 169.20997582500559,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 34074.46522555911,
+          "sigma_equiv": 184.5927009000061,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 39990.170993885346,
+          "sigma_equiv": 199.9754259750066,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 46379.13322367768,
+          "sigma_equiv": 215.3581510500071,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 53241.35191493611,
+          "sigma_equiv": 230.74087612500762,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 60576.82706766064,
+          "sigma_equiv": 246.12360120000812,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 68385.55868185127,
+          "sigma_equiv": 261.50632627500863,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 76667.546757508,
+          "sigma_equiv": 276.88905135000914,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 85422.79129463082,
+          "sigma_equiv": 292.27177642500965,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 94651.29229321975,
+          "sigma_equiv": 307.65450150001016,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.7783e-22": {
+      "m_ev": 1.7782794100389228e-22,
+      "m22": 1.7782794100389228,
+      "chi2_shape": 67236.85990405153,
+      "sigma_shape": 259.3007132733181,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 168.09214976012882,
+          "sigma_equiv": 12.965035663665905,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 672.3685990405153,
+          "sigma_equiv": 25.93007132733181,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 1512.829347841159,
+          "sigma_equiv": 38.89510699099771,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 2689.474396162061,
+          "sigma_equiv": 51.86014265466362,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 4202.303744003219,
+          "sigma_equiv": 64.82517831832952,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 6051.317391364636,
+          "sigma_equiv": 77.79021398199542,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 8236.51533824631,
+          "sigma_equiv": 90.75524964566132,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 10757.897584648244,
+          "sigma_equiv": 103.72028530932724,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 13615.464130570432,
+          "sigma_equiv": 116.68532097299314,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 16809.214976012878,
+          "sigma_equiv": 129.65035663665904,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 20339.15012097559,
+          "sigma_equiv": 142.61539230032497,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 24205.269565458544,
+          "sigma_equiv": 155.58042796399084,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 28407.57330946177,
+          "sigma_equiv": 168.54546362765677,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 32946.06135298524,
+          "sigma_equiv": 181.51049929132265,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 37820.73369602898,
+          "sigma_equiv": 194.47553495498858,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 43031.59033859298,
+          "sigma_equiv": 207.44057061865448,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 48578.63128067721,
+          "sigma_equiv": 220.40560628232035,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 54461.85652228173,
+          "sigma_equiv": 233.37064194598628,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 60681.26606340648,
+          "sigma_equiv": 246.33567760965215,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 67236.85990405151,
+          "sigma_equiv": 259.3007132733181,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "3.1623e-22": {
+      "m_ev": 3.1622776601683793e-22,
+      "m22": 3.162277660168379,
+      "chi2_shape": 47372.7297275309,
+      "sigma_shape": 217.65277330539783,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 118.43182431882727,
+          "sigma_equiv": 10.882638665269893,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 473.72729727530907,
+          "sigma_equiv": 21.765277330539785,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 1065.8864188694454,
+          "sigma_equiv": 32.647915995809676,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 1894.9091891012363,
+          "sigma_equiv": 43.53055466107957,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 2960.795607970681,
+          "sigma_equiv": 54.41319332634946,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 4263.5456754777815,
+          "sigma_equiv": 65.29583199161935,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 5803.159391622534,
+          "sigma_equiv": 76.17847065688923,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 7579.636756404945,
+          "sigma_equiv": 87.06110932215914,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 9592.977769825005,
+          "sigma_equiv": 97.94374798742902,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 11843.182431882724,
+          "sigma_equiv": 108.82638665269891,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 14330.250742578097,
+          "sigma_equiv": 119.70902531796881,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 17054.182701911126,
+          "sigma_equiv": 130.5916639832387,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 20014.978309881808,
+          "sigma_equiv": 141.4743026485086,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 23212.637566490135,
+          "sigma_equiv": 152.35694131377846,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 26647.160471736126,
+          "sigma_equiv": 163.23957997904836,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 30318.54702561978,
+          "sigma_equiv": 174.12221864431828,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 34226.79722814107,
+          "sigma_equiv": 185.00485730958815,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 38371.91107930002,
+          "sigma_equiv": 195.88749597485804,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 42753.88857909664,
+          "sigma_equiv": 206.77013464012794,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 47372.729727530896,
+          "sigma_equiv": 217.65277330539783,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "5.6234e-22": {
+      "m_ev": 5.623413251903491e-22,
+      "m22": 5.623413251903491,
+      "chi2_shape": 33130.14830239062,
+      "sigma_shape": 182.01689015690445,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 82.82537075597655,
+          "sigma_equiv": 9.100844507845222,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 331.3014830239062,
+          "sigma_equiv": 18.201689015690445,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 745.428336803789,
+          "sigma_equiv": 27.30253352353567,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 1325.2059320956248,
+          "sigma_equiv": 36.40337803138089,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 2070.6342688994137,
+          "sigma_equiv": 45.50422253922611,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 2981.713347215156,
+          "sigma_equiv": 54.60506704707134,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 4058.4431670428503,
+          "sigma_equiv": 63.705911554916554,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 5300.823728382499,
+          "sigma_equiv": 72.80675606276178,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 6708.8550312341,
+          "sigma_equiv": 81.907600570607,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 8282.537075597655,
+          "sigma_equiv": 91.00844507845223,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 10021.869861473164,
+          "sigma_equiv": 100.10928958629745,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 11926.853388860623,
+          "sigma_equiv": 109.21013409414267,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 13997.487657760039,
+          "sigma_equiv": 118.3109786019879,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 16233.772668171401,
+          "sigma_equiv": 127.41182310983311,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 18635.708420094725,
+          "sigma_equiv": 136.51266761767835,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 21203.294913529997,
+          "sigma_equiv": 145.61351212552356,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 23936.532148477225,
+          "sigma_equiv": 154.7143566333688,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 26835.4201249364,
+          "sigma_equiv": 163.815201141214,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 29899.95884290753,
+          "sigma_equiv": 172.9160456490592,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 33130.14830239062,
+          "sigma_equiv": 182.01689015690445,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.0000e-21": {
+      "m_ev": 1e-21,
+      "m22": 9.999999999999998,
+      "chi2_shape": 23011.216407024243,
+      "sigma_shape": 151.69448377256256,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 57.528041017560625,
+          "sigma_equiv": 7.584724188628129,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 230.1121640702425,
+          "sigma_equiv": 15.169448377256257,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 517.7523691580456,
+          "sigma_equiv": 22.754172565884385,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 920.44865628097,
+          "sigma_equiv": 30.338896754512515,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 1438.2010254390154,
+          "sigma_equiv": 37.92362094314064,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 2071.009476632182,
+          "sigma_equiv": 45.50834513176877,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 2818.87400986047,
+          "sigma_equiv": 53.09306932039689,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 3681.79462512388,
+          "sigma_equiv": 60.67779350902503,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 4659.77132242241,
+          "sigma_equiv": 68.26251769765315,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 5752.804101756062,
+          "sigma_equiv": 75.84724188628128,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 6960.892963124835,
+          "sigma_equiv": 83.43196607490941,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 8284.037906528729,
+          "sigma_equiv": 91.01669026353754,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 9722.238931967746,
+          "sigma_equiv": 98.60141445216567,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 11275.49603944188,
+          "sigma_equiv": 106.18613864079379,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 12943.80922895114,
+          "sigma_equiv": 113.77086282942193,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 14727.17850049552,
+          "sigma_equiv": 121.35558701805006,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 16625.60385407502,
+          "sigma_equiv": 128.9403112066782,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 18639.08528968964,
+          "sigma_equiv": 136.5250353953063,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 20767.62280733938,
+          "sigma_equiv": 144.10975958393442,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 23011.216407024247,
+          "sigma_equiv": 151.69448377256256,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.7783e-21": {
+      "m_ev": 1.778279410038923e-21,
+      "m22": 17.78279410038923,
+      "chi2_shape": 15881.50940423457,
+      "sigma_shape": 126.02186081880623,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 39.70377351058643,
+          "sigma_equiv": 6.301093040940312,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 158.81509404234572,
+          "sigma_equiv": 12.602186081880625,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 357.33396159527774,
+          "sigma_equiv": 18.903279122820933,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 635.2603761693829,
+          "sigma_equiv": 25.20437216376125,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 992.5943377646606,
+          "sigma_equiv": 31.505465204701558,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 1429.335846381111,
+          "sigma_equiv": 37.80655824564187,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 1945.4849020187341,
+          "sigma_equiv": 44.107651286582175,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 2541.0415046775315,
+          "sigma_equiv": 50.4087443275225,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 3216.0056543575006,
+          "sigma_equiv": 56.70983736846281,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 3970.3773510586425,
+          "sigma_equiv": 63.010930409403116,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 4804.156594780958,
+          "sigma_equiv": 69.31202345034343,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 5717.343385524444,
+          "sigma_equiv": 75.61311649128373,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 6709.937723289106,
+          "sigma_equiv": 81.91420953222405,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 7781.939608074937,
+          "sigma_equiv": 88.21530257316435,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 8933.349039881947,
+          "sigma_equiv": 94.51639561410468,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 10164.166018710126,
+          "sigma_equiv": 100.817488655045,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 11474.390544559477,
+          "sigma_equiv": 107.1185816959853,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 12864.022617430002,
+          "sigma_equiv": 113.41967473692561,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 14333.062237321697,
+          "sigma_equiv": 119.72076777786592,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 15881.50940423457,
+          "sigma_equiv": 126.02186081880623,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "3.1623e-21": {
+      "m_ev": 3.1622776601683792e-21,
+      "m22": 31.62277660168379,
+      "chi2_shape": 10896.183979107249,
+      "sigma_shape": 104.38478806371764,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 3 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 27.240459947768123,
+          "sigma_equiv": 5.219239403185882,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 108.96183979107249,
+          "sigma_equiv": 10.438478806371764,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 245.16413952991306,
+          "sigma_equiv": 15.657718209557645,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 435.84735916428997,
+          "sigma_equiv": 20.876957612743528,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 681.0114986942029,
+          "sigma_equiv": 26.09619701592941,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 980.6565581196522,
+          "sigma_equiv": 31.31543641911529,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 1334.7825374406375,
+          "sigma_equiv": 36.53467582230117,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 1743.3894366571599,
+          "sigma_equiv": 41.753915225487056,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 2206.4772557692177,
+          "sigma_equiv": 46.97315462867294,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 2724.0459947768118,
+          "sigma_equiv": 52.19239403185882,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 3296.095653679943,
+          "sigma_equiv": 57.411633435044706,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 3922.626232478609,
+          "sigma_equiv": 62.63087283823058,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 4603.637731172813,
+          "sigma_equiv": 67.85011224141647,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 5339.13014976255,
+          "sigma_equiv": 73.06935164460234,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 6129.103488247827,
+          "sigma_equiv": 78.28859104778823,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 6973.5577466286395,
+          "sigma_equiv": 83.50783045097411,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 7872.492924904987,
+          "sigma_equiv": 88.72706985415999,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 8825.90902307687,
+          "sigma_equiv": 93.94630925734587,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 9833.806041144291,
+          "sigma_equiv": 99.16554866053175,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 10896.183979107247,
+          "sigma_equiv": 104.38478806371764,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "5.6234e-21": {
+      "m_ev": 5.6234132519034906e-21,
+      "m22": 56.2341325190349,
+      "chi2_shape": 7434.726236176725,
+      "sigma_shape": 86.22485857440837,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 3 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 18.586815590441812,
+          "sigma_equiv": 4.311242928720419,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 74.34726236176725,
+          "sigma_equiv": 8.622485857440838,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 167.2813403139763,
+          "sigma_equiv": 12.933728786161256,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 297.389049447069,
+          "sigma_equiv": 17.244971714881675,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 464.6703897610453,
+          "sigma_equiv": 21.556214643602093,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 669.1253612559052,
+          "sigma_equiv": 25.86745757232251,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 910.7539639316487,
+          "sigma_equiv": 30.17870050104293,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 1189.556197788276,
+          "sigma_equiv": 34.48994342976335,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 1505.5320628257869,
+          "sigma_equiv": 38.80118635848377,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 1858.6815590441813,
+          "sigma_equiv": 43.112429287204186,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 2249.00468644346,
+          "sigma_equiv": 47.42367221592461,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 2676.501445023621,
+          "sigma_equiv": 51.73491514464502,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 3141.1718347846668,
+          "sigma_equiv": 56.04615807336545,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 3643.015855726595,
+          "sigma_equiv": 60.35740100208586,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 4182.033507849408,
+          "sigma_equiv": 64.66864393080628,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 4758.224791153104,
+          "sigma_equiv": 68.9798868595267,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 5371.589705637684,
+          "sigma_equiv": 73.29112978824712,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 6022.128251303147,
+          "sigma_equiv": 77.60237271696754,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 6709.840428149494,
+          "sigma_equiv": 81.91361564568795,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 7434.726236176725,
+          "sigma_equiv": 86.22485857440837,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.0000e-20": {
+      "m_ev": 1e-20,
+      "m22": 99.99999999999999,
+      "chi2_shape": 5046.908416120081,
+      "sigma_shape": 71.04159637930499,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 3 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.05,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 12.617271040300201,
+          "sigma_equiv": 3.55207981896525,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 50.469084161200804,
+          "sigma_equiv": 7.1041596379305,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 113.5554393627018,
+          "sigma_equiv": 10.656239456895749,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 201.87633664480322,
+          "sigma_equiv": 14.208319275861,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 315.431776007505,
+          "sigma_equiv": 17.760399094826248,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 454.2217574508072,
+          "sigma_equiv": 21.312478913791498,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 618.2462809747097,
+          "sigma_equiv": 24.864558732756745,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 807.5053465792129,
+          "sigma_equiv": 28.416638551722,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 1021.9989542643161,
+          "sigma_equiv": 31.968718370687245,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 1261.72710403002,
+          "sigma_equiv": 35.520798189652496,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 1526.6897958763245,
+          "sigma_equiv": 39.07287800861775,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 1816.8870298032289,
+          "sigma_equiv": 42.624957827582996,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 2132.3188058107335,
+          "sigma_equiv": 46.17703764654824,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 2472.985123898839,
+          "sigma_equiv": 49.72911746551349,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 2838.885984067545,
+          "sigma_equiv": 53.28119728447874,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 3230.0213863168515,
+          "sigma_equiv": 56.833277103444,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 3646.391330646758,
+          "sigma_equiv": 60.385356922409244,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 4087.9958170572645,
+          "sigma_equiv": 63.93743674137449,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 4554.834845548372,
+          "sigma_equiv": 67.48951656033974,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 5046.90841612008,
+          "sigma_equiv": 71.04159637930499,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.7783e-20": {
+      "m_ev": 1.7782794100389228e-20,
+      "m22": 177.82794100389228,
+      "chi2_shape": 3409.600552029651,
+      "sigma_shape": 58.391784970401886,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 3 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.1,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 8.52400138007413,
+          "sigma_equiv": 2.9195892485200945,
+          "reaches_2sigma": true,
+          "reaches_3sigma": false,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 34.09600552029652,
+          "sigma_equiv": 5.839178497040189,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 76.71601242066716,
+          "sigma_equiv": 8.758767745560283,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 136.3840220811861,
+          "sigma_equiv": 11.678356994080378,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 213.10003450185323,
+          "sigma_equiv": 14.597946242600472,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 306.8640496826686,
+          "sigma_equiv": 17.517535491120565,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 417.67606762363226,
+          "sigma_equiv": 20.43712473964066,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 545.5360883247444,
+          "sigma_equiv": 23.356713988160756,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 690.4441117860044,
+          "sigma_equiv": 26.27630323668085,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 852.4001380074129,
+          "sigma_equiv": 29.195892485200943,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 1031.4041669889698,
+          "sigma_equiv": 32.11548173372104,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 1227.4561987306745,
+          "sigma_equiv": 35.03507098224113,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 1440.556233232528,
+          "sigma_equiv": 37.95466023076123,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 1670.704270494529,
+          "sigma_equiv": 40.87424947928132,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 1917.900310516679,
+          "sigma_equiv": 43.793838727801415,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 2182.1443532989774,
+          "sigma_equiv": 46.71342797632151,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 2463.436398841423,
+          "sigma_equiv": 49.6330172248416,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 2761.7764471440178,
+          "sigma_equiv": 52.5526064733617,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 3077.16449820676,
+          "sigma_equiv": 55.47219572188179,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 3409.6005520296517,
+          "sigma_equiv": 58.391784970401886,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "3.1623e-20": {
+      "m_ev": 3.162277660168379e-20,
+      "m22": 316.2277660168379,
+      "chi2_shape": 2293.157607488812,
+      "sigma_shape": 47.88692522483368,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.05,
+      "smallest_f_reaching_3sigma": 0.1,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 5.732894018722032,
+          "sigma_equiv": 2.3943462612416844,
+          "reaches_2sigma": true,
+          "reaches_3sigma": false,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 22.931576074888127,
+          "sigma_equiv": 4.788692522483369,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 51.59604616849827,
+          "sigma_equiv": 7.183038783725052,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 91.72630429955251,
+          "sigma_equiv": 9.577385044966737,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 143.3223504680508,
+          "sigma_equiv": 11.97173130620842,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 206.38418467399308,
+          "sigma_equiv": 14.366077567450104,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 280.9118069173795,
+          "sigma_equiv": 16.76042382869179,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 366.90521719821004,
+          "sigma_equiv": 19.154770089933475,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 464.36441551648454,
+          "sigma_equiv": 21.549116351175158,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 573.2894018722031,
+          "sigma_equiv": 23.94346261241684,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 693.6801762653658,
+          "sigma_equiv": 26.337808873658528,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 825.5367386959723,
+          "sigma_equiv": 28.732155134900207,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 968.8590891640232,
+          "sigma_equiv": 31.126501396141894,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 1123.647227669518,
+          "sigma_equiv": 33.52084765738358,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 1289.9011542124572,
+          "sigma_equiv": 35.91519391862526,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 1467.6208687928402,
+          "sigma_equiv": 38.30954017986695,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 1656.806371410667,
+          "sigma_equiv": 40.70388644110863,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 1857.4576620659382,
+          "sigma_equiv": 43.098232702350316,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 2069.5747407586528,
+          "sigma_equiv": 45.492578963591995,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 2293.1576074888126,
+          "sigma_equiv": 47.88692522483368,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "5.6234e-20": {
+      "m_ev": 5.62341325190349e-20,
+      "m22": 562.341325190349,
+      "chi2_shape": 1535.8168483733025,
+      "sigma_shape": 39.18949921054494,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.1,
+      "smallest_f_reaching_3sigma": 0.1,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 3.839542120933256,
+          "sigma_equiv": 1.959474960527247,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 15.358168483733024,
+          "sigma_equiv": 3.918949921054494,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 34.5558790883993,
+          "sigma_equiv": 5.878424881581741,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 61.4326739349321,
+          "sigma_equiv": 7.837899842108988,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 95.98855302333139,
+          "sigma_equiv": 9.797374802636234,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 138.2235163535972,
+          "sigma_equiv": 11.756849763163482,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 188.1375639257295,
+          "sigma_equiv": 13.716324723690727,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 245.7306957397284,
+          "sigma_equiv": 15.675799684217976,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 311.0029117955938,
+          "sigma_equiv": 17.635274644745223,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 383.95421209332557,
+          "sigma_equiv": 19.59474960527247,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 464.58459663292405,
+          "sigma_equiv": 21.554224565799718,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 552.8940654143888,
+          "sigma_equiv": 23.513699526326963,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 648.8826184377202,
+          "sigma_equiv": 25.47317448685421,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 752.550255702918,
+          "sigma_equiv": 27.432649447381454,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 863.8969772099825,
+          "sigma_equiv": 29.392124407908703,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 982.9227829589136,
+          "sigma_equiv": 31.351599368435952,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 1109.6276729497108,
+          "sigma_equiv": 33.311074328963194,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 1244.011647182375,
+          "sigma_equiv": 35.27054928949045,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 1386.0747056569055,
+          "sigma_equiv": 37.23002425001769,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 1535.8168483733023,
+          "sigma_equiv": 39.18949921054494,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    },
+    "1.0000e-19": {
+      "m_ev": 1e-19,
+      "m22": 999.9999999999999,
+      "chi2_shape": 1024.547512613103,
+      "sigma_shape": 32.00855374135331,
+      "pure_fdm_exclusion": {
+        "excluded": true,
+        "note": "excluded by 2 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
+      },
+      "smallest_f_reaching_2sigma": 0.1,
+      "smallest_f_reaching_3sigma": 0.1,
+      "cells": [
+        {
+          "f": 0.05,
+          "delta_chi2": 2.561368781532758,
+          "sigma_equiv": 1.6004276870676657,
+          "reaches_2sigma": false,
+          "reaches_3sigma": false,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.1,
+          "delta_chi2": 10.245475126131032,
+          "sigma_equiv": 3.2008553741353314,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.15,
+          "delta_chi2": 23.052319033794813,
+          "sigma_equiv": 4.801283061202996,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.2,
+          "delta_chi2": 40.98190050452413,
+          "sigma_equiv": 6.401710748270663,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.25,
+          "delta_chi2": 64.03421953831894,
+          "sigma_equiv": 8.002138435338328,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.3,
+          "delta_chi2": 92.20927613517925,
+          "sigma_equiv": 9.602566122405992,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.35,
+          "delta_chi2": 125.50707029510508,
+          "sigma_equiv": 11.202993809473657,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.4,
+          "delta_chi2": 163.9276020180965,
+          "sigma_equiv": 12.803421496541326,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.45,
+          "delta_chi2": 207.47087130415338,
+          "sigma_equiv": 14.40384918360899,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.5,
+          "delta_chi2": 256.13687815327575,
+          "sigma_equiv": 16.004276870676655,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.55,
+          "delta_chi2": 309.92562256546375,
+          "sigma_equiv": 17.604704557744324,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.6,
+          "delta_chi2": 368.837104540717,
+          "sigma_equiv": 19.205132244811985,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.65,
+          "delta_chi2": 432.87132407903607,
+          "sigma_equiv": 20.805559931879653,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.7,
+          "delta_chi2": 502.0282811804203,
+          "sigma_equiv": 22.405987618947314,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.75,
+          "delta_chi2": 576.3079758448704,
+          "sigma_equiv": 24.006415306014983,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.8,
+          "delta_chi2": 655.710408072386,
+          "sigma_equiv": 25.60684299308265,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.85,
+          "delta_chi2": 740.2355778629668,
+          "sigma_equiv": 27.207270680150312,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.9,
+          "delta_chi2": 829.8834852166135,
+          "sigma_equiv": 28.80769836721798,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 0.95,
+          "delta_chi2": 924.6541301333253,
+          "sigma_equiv": 30.408126054285642,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": true,
+          "governing_constraint": "none published (unconstrained)"
+        },
+        {
+          "f": 1.0,
+          "delta_chi2": 1024.547512613103,
+          "sigma_equiv": 32.00855374135331,
+          "reaches_2sigma": true,
+          "reaches_3sigma": true,
+          "genuinely_open": false,
+          "governing_constraint": "pure_fdm_bound"
+        }
+      ]
+    }
+  },
+  "optimism_calibration_vs_published_anchors": [
+    {
+      "m_ev": 1e-22,
+      "published_f_fdm_bound": 0.12,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+      "proxy_sigma_equiv_at_published_bound": 36.918540180001216,
+      "overstatement_factor_vs_2sigma": 18.459270090000608
+    },
+    {
+      "m_ev": 1e-21,
+      "published_f_fdm_bound": 0.65,
+      "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+      "proxy_sigma_equiv_at_published_bound": 98.60141445216567,
+      "overstatement_factor_vs_2sigma": 49.300707226082835
+    }
+  ],
+  "decisive_cells_reachable_and_open": [
+    {
+      "m_ev": 1e-22,
+      "f": 0.05,
+      "sigma_equiv": 15.382725075000508,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+    },
+    {
+      "m_ev": 1e-22,
+      "f": 0.1,
+      "sigma_equiv": 30.765450150001016,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.12 at m=1e-22 eV)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.05,
+      "sigma_equiv": 12.965035663665905,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.1,
+      "sigma_equiv": 25.93007132733181,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.15,
+      "sigma_equiv": 38.89510699099771,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.2,
+      "sigma_equiv": 51.86014265466362,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.25,
+      "sigma_equiv": 64.82517831832952,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.3,
+      "sigma_equiv": 77.79021398199542,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.35,
+      "sigma_equiv": 90.75524964566132,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.4,
+      "sigma_equiv": 103.72028530932724,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.45,
+      "sigma_equiv": 116.68532097299314,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.5,
+      "sigma_equiv": 129.65035663665904,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.55,
+      "sigma_equiv": 142.61539230032497,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.6,
+      "sigma_equiv": 155.58042796399084,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.65,
+      "sigma_equiv": 168.54546362765677,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.7,
+      "sigma_equiv": 181.51049929132265,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.75,
+      "sigma_equiv": 194.47553495498858,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.8,
+      "sigma_equiv": 207.44057061865448,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.85,
+      "sigma_equiv": 220.40560628232035,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.9,
+      "sigma_equiv": 233.37064194598628,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-22,
+      "f": 0.95,
+      "sigma_equiv": 246.33567760965215,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.05,
+      "sigma_equiv": 10.882638665269893,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.1,
+      "sigma_equiv": 21.765277330539785,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.15,
+      "sigma_equiv": 32.647915995809676,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.2,
+      "sigma_equiv": 43.53055466107957,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.25,
+      "sigma_equiv": 54.41319332634946,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.3,
+      "sigma_equiv": 65.29583199161935,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.35,
+      "sigma_equiv": 76.17847065688923,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.4,
+      "sigma_equiv": 87.06110932215914,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.45,
+      "sigma_equiv": 97.94374798742902,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.5,
+      "sigma_equiv": 108.82638665269891,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.55,
+      "sigma_equiv": 119.70902531796881,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.6,
+      "sigma_equiv": 130.5916639832387,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.65,
+      "sigma_equiv": 141.4743026485086,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.7,
+      "sigma_equiv": 152.35694131377846,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.75,
+      "sigma_equiv": 163.23957997904836,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.8,
+      "sigma_equiv": 174.12221864431828,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.85,
+      "sigma_equiv": 185.00485730958815,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.9,
+      "sigma_equiv": 195.88749597485804,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683793e-22,
+      "f": 0.95,
+      "sigma_equiv": 206.77013464012794,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.05,
+      "sigma_equiv": 9.100844507845222,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.1,
+      "sigma_equiv": 18.201689015690445,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.15,
+      "sigma_equiv": 27.30253352353567,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.2,
+      "sigma_equiv": 36.40337803138089,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.25,
+      "sigma_equiv": 45.50422253922611,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.3,
+      "sigma_equiv": 54.60506704707134,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.35,
+      "sigma_equiv": 63.705911554916554,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.4,
+      "sigma_equiv": 72.80675606276178,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.45,
+      "sigma_equiv": 81.907600570607,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.5,
+      "sigma_equiv": 91.00844507845223,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.55,
+      "sigma_equiv": 100.10928958629745,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.6,
+      "sigma_equiv": 109.21013409414267,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.65,
+      "sigma_equiv": 118.3109786019879,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.7,
+      "sigma_equiv": 127.41182310983311,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.75,
+      "sigma_equiv": 136.51266761767835,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.8,
+      "sigma_equiv": 145.61351212552356,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.85,
+      "sigma_equiv": 154.7143566333688,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.9,
+      "sigma_equiv": 163.815201141214,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.623413251903491e-22,
+      "f": 0.95,
+      "sigma_equiv": 172.9160456490592,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.05,
+      "sigma_equiv": 7.584724188628129,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.1,
+      "sigma_equiv": 15.169448377256257,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.15,
+      "sigma_equiv": 22.754172565884385,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.2,
+      "sigma_equiv": 30.338896754512515,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.25,
+      "sigma_equiv": 37.92362094314064,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.3,
+      "sigma_equiv": 45.50834513176877,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.35,
+      "sigma_equiv": 53.09306932039689,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.4,
+      "sigma_equiv": 60.67779350902503,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.45,
+      "sigma_equiv": 68.26251769765315,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.5,
+      "sigma_equiv": 75.84724188628128,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.55,
+      "sigma_equiv": 83.43196607490941,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1e-21,
+      "f": 0.6,
+      "sigma_equiv": 91.01669026353754,
+      "governing_constraint": "mixed_fdm_bound (Liu, Gong & Zhou 2026 (arXiv:2606.06969), f<0.65 at m=1e-21 eV)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.05,
+      "sigma_equiv": 6.301093040940312,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.1,
+      "sigma_equiv": 12.602186081880625,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.15,
+      "sigma_equiv": 18.903279122820933,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.2,
+      "sigma_equiv": 25.20437216376125,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.25,
+      "sigma_equiv": 31.505465204701558,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.3,
+      "sigma_equiv": 37.80655824564187,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.35,
+      "sigma_equiv": 44.107651286582175,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.4,
+      "sigma_equiv": 50.4087443275225,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.45,
+      "sigma_equiv": 56.70983736846281,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.5,
+      "sigma_equiv": 63.010930409403116,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.55,
+      "sigma_equiv": 69.31202345034343,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.6,
+      "sigma_equiv": 75.61311649128373,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.65,
+      "sigma_equiv": 81.91420953222405,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.7,
+      "sigma_equiv": 88.21530257316435,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.75,
+      "sigma_equiv": 94.51639561410468,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.8,
+      "sigma_equiv": 100.817488655045,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.85,
+      "sigma_equiv": 107.1185816959853,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.9,
+      "sigma_equiv": 113.41967473692561,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.778279410038923e-21,
+      "f": 0.95,
+      "sigma_equiv": 119.72076777786592,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.05,
+      "sigma_equiv": 5.219239403185882,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.1,
+      "sigma_equiv": 10.438478806371764,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.15,
+      "sigma_equiv": 15.657718209557645,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.2,
+      "sigma_equiv": 20.876957612743528,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.25,
+      "sigma_equiv": 26.09619701592941,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.3,
+      "sigma_equiv": 31.31543641911529,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.35,
+      "sigma_equiv": 36.53467582230117,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.4,
+      "sigma_equiv": 41.753915225487056,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.45,
+      "sigma_equiv": 46.97315462867294,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.5,
+      "sigma_equiv": 52.19239403185882,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.55,
+      "sigma_equiv": 57.411633435044706,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.6,
+      "sigma_equiv": 62.63087283823058,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.65,
+      "sigma_equiv": 67.85011224141647,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.7,
+      "sigma_equiv": 73.06935164460234,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.75,
+      "sigma_equiv": 78.28859104778823,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.8,
+      "sigma_equiv": 83.50783045097411,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.85,
+      "sigma_equiv": 88.72706985415999,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.9,
+      "sigma_equiv": 93.94630925734587,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.1622776601683792e-21,
+      "f": 0.95,
+      "sigma_equiv": 99.16554866053175,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.05,
+      "sigma_equiv": 4.311242928720419,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.1,
+      "sigma_equiv": 8.622485857440838,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.15,
+      "sigma_equiv": 12.933728786161256,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.2,
+      "sigma_equiv": 17.244971714881675,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.25,
+      "sigma_equiv": 21.556214643602093,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.3,
+      "sigma_equiv": 25.86745757232251,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.35,
+      "sigma_equiv": 30.17870050104293,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.4,
+      "sigma_equiv": 34.48994342976335,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.45,
+      "sigma_equiv": 38.80118635848377,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.5,
+      "sigma_equiv": 43.112429287204186,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.55,
+      "sigma_equiv": 47.42367221592461,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.6,
+      "sigma_equiv": 51.73491514464502,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.65,
+      "sigma_equiv": 56.04615807336545,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.7,
+      "sigma_equiv": 60.35740100208586,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.75,
+      "sigma_equiv": 64.66864393080628,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.8,
+      "sigma_equiv": 68.9798868595267,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.85,
+      "sigma_equiv": 73.29112978824712,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.9,
+      "sigma_equiv": 77.60237271696754,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.6234132519034906e-21,
+      "f": 0.95,
+      "sigma_equiv": 81.91361564568795,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.05,
+      "sigma_equiv": 3.55207981896525,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.1,
+      "sigma_equiv": 7.1041596379305,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.15,
+      "sigma_equiv": 10.656239456895749,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.2,
+      "sigma_equiv": 14.208319275861,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.25,
+      "sigma_equiv": 17.760399094826248,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.3,
+      "sigma_equiv": 21.312478913791498,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.35,
+      "sigma_equiv": 24.864558732756745,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.4,
+      "sigma_equiv": 28.416638551722,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.45,
+      "sigma_equiv": 31.968718370687245,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.5,
+      "sigma_equiv": 35.520798189652496,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.55,
+      "sigma_equiv": 39.07287800861775,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.6,
+      "sigma_equiv": 42.624957827582996,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.65,
+      "sigma_equiv": 46.17703764654824,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.7,
+      "sigma_equiv": 49.72911746551349,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.75,
+      "sigma_equiv": 53.28119728447874,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.8,
+      "sigma_equiv": 56.833277103444,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.85,
+      "sigma_equiv": 60.385356922409244,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.9,
+      "sigma_equiv": 63.93743674137449,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-20,
+      "f": 0.95,
+      "sigma_equiv": 67.48951656033974,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.05,
+      "sigma_equiv": 2.9195892485200945,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.1,
+      "sigma_equiv": 5.839178497040189,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.15,
+      "sigma_equiv": 8.758767745560283,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.2,
+      "sigma_equiv": 11.678356994080378,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.25,
+      "sigma_equiv": 14.597946242600472,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.3,
+      "sigma_equiv": 17.517535491120565,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.35,
+      "sigma_equiv": 20.43712473964066,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.4,
+      "sigma_equiv": 23.356713988160756,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.45,
+      "sigma_equiv": 26.27630323668085,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.5,
+      "sigma_equiv": 29.195892485200943,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.55,
+      "sigma_equiv": 32.11548173372104,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.6,
+      "sigma_equiv": 35.03507098224113,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.65,
+      "sigma_equiv": 37.95466023076123,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.7,
+      "sigma_equiv": 40.87424947928132,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.75,
+      "sigma_equiv": 43.793838727801415,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.8,
+      "sigma_equiv": 46.71342797632151,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.85,
+      "sigma_equiv": 49.6330172248416,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.9,
+      "sigma_equiv": 52.5526064733617,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1.7782794100389228e-20,
+      "f": 0.95,
+      "sigma_equiv": 55.47219572188179,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.05,
+      "sigma_equiv": 2.3943462612416844,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.1,
+      "sigma_equiv": 4.788692522483369,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.15,
+      "sigma_equiv": 7.183038783725052,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.2,
+      "sigma_equiv": 9.577385044966737,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.25,
+      "sigma_equiv": 11.97173130620842,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.3,
+      "sigma_equiv": 14.366077567450104,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.35,
+      "sigma_equiv": 16.76042382869179,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.4,
+      "sigma_equiv": 19.154770089933475,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.45,
+      "sigma_equiv": 21.549116351175158,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.5,
+      "sigma_equiv": 23.94346261241684,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.55,
+      "sigma_equiv": 26.337808873658528,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.6,
+      "sigma_equiv": 28.732155134900207,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.65,
+      "sigma_equiv": 31.126501396141894,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.7,
+      "sigma_equiv": 33.52084765738358,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.75,
+      "sigma_equiv": 35.91519391862526,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.8,
+      "sigma_equiv": 38.30954017986695,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.85,
+      "sigma_equiv": 40.70388644110863,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.9,
+      "sigma_equiv": 43.098232702350316,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 3.162277660168379e-20,
+      "f": 0.95,
+      "sigma_equiv": 45.492578963591995,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.1,
+      "sigma_equiv": 3.918949921054494,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.15,
+      "sigma_equiv": 5.878424881581741,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.2,
+      "sigma_equiv": 7.837899842108988,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.25,
+      "sigma_equiv": 9.797374802636234,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.3,
+      "sigma_equiv": 11.756849763163482,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.35,
+      "sigma_equiv": 13.716324723690727,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.4,
+      "sigma_equiv": 15.675799684217976,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.45,
+      "sigma_equiv": 17.635274644745223,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.5,
+      "sigma_equiv": 19.59474960527247,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.55,
+      "sigma_equiv": 21.554224565799718,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.6,
+      "sigma_equiv": 23.513699526326963,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.65,
+      "sigma_equiv": 25.47317448685421,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.7,
+      "sigma_equiv": 27.432649447381454,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.75,
+      "sigma_equiv": 29.392124407908703,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.8,
+      "sigma_equiv": 31.351599368435952,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.85,
+      "sigma_equiv": 33.311074328963194,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.9,
+      "sigma_equiv": 35.27054928949045,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 5.62341325190349e-20,
+      "f": 0.95,
+      "sigma_equiv": 37.23002425001769,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.1,
+      "sigma_equiv": 3.2008553741353314,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.15,
+      "sigma_equiv": 4.801283061202996,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.2,
+      "sigma_equiv": 6.401710748270663,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.25,
+      "sigma_equiv": 8.002138435338328,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.3,
+      "sigma_equiv": 9.602566122405992,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.35,
+      "sigma_equiv": 11.202993809473657,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.4,
+      "sigma_equiv": 12.803421496541326,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.45,
+      "sigma_equiv": 14.40384918360899,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.5,
+      "sigma_equiv": 16.004276870676655,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.55,
+      "sigma_equiv": 17.604704557744324,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.6,
+      "sigma_equiv": 19.205132244811985,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.65,
+      "sigma_equiv": 20.805559931879653,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.7,
+      "sigma_equiv": 22.405987618947314,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.75,
+      "sigma_equiv": 24.006415306014983,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.8,
+      "sigma_equiv": 25.60684299308265,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.85,
+      "sigma_equiv": 27.207270680150312,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.9,
+      "sigma_equiv": 28.80769836721798,
+      "governing_constraint": "none published (unconstrained)"
+    },
+    {
+      "m_ev": 1e-19,
+      "f": 0.95,
+      "sigma_equiv": 30.408126054285642,
+      "governing_constraint": "none published (unconstrained)"
+    }
+  ],
+  "n_decisive_cells": 221
+}

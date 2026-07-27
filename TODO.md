@@ -1,4 +1,4 @@
-# Stream 3 — TODO (session close 2026-07-26)
+# Stream 3 — TODO (last updated 2026-07-27, WP-E6b filing)
 
 > Previous content of this file described the "NEON K3" browser-app layer; it is preserved
 > in git history (`git log -- TODO.md`) and several of its checked items describe artifacts
@@ -102,6 +102,54 @@ Stream 3 section is wrong on all 8 operational claims (source vendored,
   uncertified for C3/C3b (no `C3_sym2_*_s7`, no `C3b_map_*_s7`).
 - [ ] **R-5** confirm the single ρ/T status line: [B]-pending-S-B-1985, no prior emitted.
 
+## 🔶 WP-E6 line — DES-Y6 negative FILED, statistic re-scoped, WP-E6b FILED (2026-07-27)
+
+**Net:** the broadband-lensing route is closed by its own stop condition; the Lyman-α P1D
+route is *not* closed, but its pre-flight is optimistic by a factor of 18.5–49.3 at the only
+two points where an independent published answer exists. **WP-E6 v2 drafting is blocked on a
+T0 decision** (below).
+
+- [x] **WP-E6 (DES-Y6 broadband convergence) — HONEST NEGATIVE, filed.**
+  `docs/WP_E6_SYNTHETIC_ADEQUACY_PREFLIGHT_2026_07_27.md`, artifact
+  `data/derived/wp_e6_adequacy_preflight_2026_07_27.json`. **0 of 260 cells reach 2σ**;
+  best σ ≈ 0.49, and ≈ 1.48 even at full sky. Filed per the proposal's own stop condition.
+- [x] **T0 D-e** (`briefs/T0_DECISIONS_2026_07_27.md`, commit `c4171f0`) re-scoped the WP-E6
+  statistic to DESI DR1 Lyman-α P1D, with WP-E6b required *before* any v2 drafting.
+- [x] **Pure-FDM exclusion-direction bug found and fixed** — `pure_fdm_exclusion_status()`
+  compared `m > threshold`; every cited bound is a **lower** limit on mass, so the excluded
+  region is *below* the threshold. Both the function and its two (equally inverted) tests
+  were wrong. Correction note appended in-band to the WP-E6 report; the §2 status column is
+  superseded (under the corrected direction the whole 10⁻²²–10⁻¹⁹ eV grid is pure-FDM
+  excluded at f=1). No effect on the DES-Y6 negative itself — σ reachability is independent
+  of that label.
+- [x] **WP-E6b (DESI DR1 Lyman-α P1D) — ADEQUACY PRE-FLIGHT FILED.**
+  `docs/WP_E6B_LYA_ADEQUACY_PREFLIGHT_2026_07_27.md`, artifact
+  `data/derived/wp_e6b_lya_adequacy_preflight_2026_07_27.json`, module
+  `pipeline/wp_e6b_lya.py`, data `data/literature/desi_dr1_lya_p1d_2026_07_27.csv`
+  (arXiv:2505.07974 via Zenodo DOI 10.5281/zenodo.16943723; SHA256 in `data/MANIFEST.md`).
+  **221 of 260 cells reach σ_equiv ≥ 2 and are open under the published landscape** — the
+  opposite outcome to WP-E6, hence a decision point rather than an automatic stop. **The
+  number carries no sensitivity content:** at the two masses where Liu, Gong & Zhou 2026
+  publish a mixed-fraction bound, the same proxy assigns σ_equiv ≈ 37 and ≈ 99 where they
+  place their 95% limit — **18.5× and 49.3×** this pre-flight's own 2σ threshold. Computed
+  in the artifact (`optimism_calibration_vs_published_anchors`), not asserted in prose.
+- [x] **WP-E6b audit — two real defects in the interrupted work.** (1) The filed headline had
+  **no checker**: `run_grid` was never invoked by any test. (2) One negative control **could
+  not fail** — it computed `sum((zeros/σ)²)` inside the test itself, with no module code
+  between the injected null and the asserted zero. That control was deleted; six end-to-end
+  controls now drive `run_grid` (zero-suppression injection, errors inflated ×10⁶, errors
+  shrunk ×10⁻⁶, scrambled error-to-bin correspondence, all-bins-invalid fail-closed, inert-cut
+  guard) plus four filed-artifact tests. Each control was checked against a deliberate
+  mutation of `run_grid` and fires. `pipeline/tests/test_wp_e6b_lya.py`: 34 tests.
+- [x] **Validity cuts re-verified at source** — arXiv:2505.07974 **§4.1** (not §4.3 as
+  previously recorded in `data/MANIFEST.md`); both arms of the cut are checked to actually
+  remove bins (755 of 1020 survive).
+- [ ] **Open, cheap, and worth doing either way:** 207 of the 221 decisive cells are open only
+  because `docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md` §4 lists no mixed-fraction bound at
+  their masses. Whether that reflects the literature or only this repo's survey of it is
+  unverified. A targeted check on published f_FDM constraints above 10⁻²¹ eV would move the
+  openness overlay materially.
+
 ## 🔷 Awaiting external returns
 
 - [ ] **Deep Think verdict** on the Δσ moving-denominator objection
@@ -112,6 +160,16 @@ Stream 3 section is wrong on all 8 operational claims (source vendored,
   guard `pipeline.resolvability.assert_resolvable` is mandatory pre-statistics per E2.16).
 - [ ] **F-LAB monitoring** (the only path back to Gate 0): future public ISL data excluding
   |α|=1 below 38.6 μm → `pipeline.gate.check_flab_trigger()` → T0. Nothing else reopens it.
+- [ ] **T0 (Xavier) — WP-E6 v2 decision, the live blocker on the WP-E6 line.**
+  `docs/WP_E6B_LYA_ADEQUACY_PREFLIGHT_2026_07_27.md` §7 states the ask in two options:
+  **(A) PROCEED** — authorize drafting a WP-E6 v2 proposal on the Lyman-α P1D statistic,
+  scoped to that report's §5 list (hydro-simulation-calibrated or emulator-anchored modeling,
+  IGM nuisance marginalization, full covariance, a real mixed-fraction transfer function) plus
+  the `PREDICTION` v2 pre-registration text, with **no real-data comparison before the pin**;
+  or **(B) STOP** — file WP-E6b as the terminal artifact of the WP-E6 line, on the ground that
+  the 18.5×–49.3× overstatement means no headroom has been exhibited that survives realistic
+  modeling. Neither option is exercised; WP-E6b stops at the filing. **No v2 drafting until
+  this returns** (T0 D-e made the pre-flight a precondition).
 
 ## ✅ Standing invariants (verify at every session start — `python3 -c` one-liner in the skill)
 
@@ -119,9 +177,14 @@ G1 pin `True` · G1-L `False` (closed) · Off-Ramp 3 terminus stands · no `TEST
 `docs/WP_E_EMPIRICAL_BOUNDS.md` (3D, T0-signed) immutable · tier-language clean · full suite
 green: **396 = 350 `pipeline/tests/` + 46 `checkers/tests/`** (371 at previous close, +14 from
 this session: resolvability fail-closed, amplitude-0 identity, fill-fraction thresholding,
-per-axis σ, the null-degeneracy guard, script smoke tests, and mock edge-resampling). Verified at 2026-07-26 close. Note: a repo-wide `pytest` also collects
+per-axis σ, the null-degeneracy guard, script smoke tests, and mock edge-resampling). Verified at 2026-07-26 close.
+**Count moved 2026-07-27** to **473 = 427 `pipeline/tests/` + 46 `checkers/tests/`** (+77 from
+WP-E6, WP-E7 and WP-E6b). **473/473 passing, verified at the 2026-07-27 WP-E6b filing**
+(`python3 -m pytest pipeline/tests/ checkers/tests/ -q`, 244 s).
+Note: a repo-wide `pytest` also collects
 the `EuclidClusterViz/` app layer, which has 14 pre-existing collection errors unrelated to
 the scientific pipeline — run the two directories above, not the repo root.
 
-<!-- Generated-by: Claude Fable 5 (Stream 3, session close 2026-07-26) | Verified-by: every
+<!-- Generated-by: Claude Fable 5 (Stream 3, session close 2026-07-26); WP-E6 line section and
+the WP-E6 v2 T0 ask added by Claude Opus 5 (Stream 3, WP-E6b, 2026-07-27) | Verified-by: every
 item traced to its committed artifact | Reviewed-by: pending T0 -->

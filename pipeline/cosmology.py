@@ -31,6 +31,20 @@ def comoving_distance_mpc(z: np.ndarray) -> np.ndarray:
     return Planck18.comoving_distance(z).to(u.Mpc).value
 
 
+def hubble_kms_mpc(z: np.ndarray) -> np.ndarray:
+    """H(z) in km/s/Mpc, using Planck18 (same cosmology as
+    comoving_distance_mpc above -- one place for the cosmology choice).
+
+    Added for WP-E6b (Lyman-alpha P1D unit conversion: velocity-space
+    wavenumber k [s/km] <-> comoving wavenumber k [Mpc^-1] via
+    k_comoving = k_velocity * H(z)/(1+z), the standard local-Hubble-drift
+    relation used throughout the Lya P1D literature, e.g. McDonald 2003,
+    Palanque-Delabrouille et al. 2013).
+    """
+    z = np.asarray(z, dtype=np.float64)
+    return Planck18.H(z).to(u.km / u.s / u.Mpc).value
+
+
 def radec_z_to_cartesian_mpc(
     ra_deg: np.ndarray,
     dec_deg: np.ndarray,

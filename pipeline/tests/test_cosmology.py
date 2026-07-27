@@ -22,6 +22,7 @@ from astropy.constants import c as speed_of_light
 
 from pipeline.cosmology import (
     comoving_distance_mpc,
+    hubble_kms_mpc,
     radec_z_to_cartesian_mpc,
     radec_z_to_tangent_plane_mpc,
     drop_invalid_redshifts,
@@ -85,6 +86,45 @@ def test_low_z_hubble_law_approximation():
         rel_err = abs(d_astropy - d_hubble) / d_astropy
         # Low-z approximation should be good to a few percent at z<=0.01
         assert rel_err < 0.02, f"z={z}: astropy={d_astropy:.4f}, hubble={d_hubble:.4f}"
+
+
+def test_hubble_kms_mpc_matches_h0_at_z_zero():
+    """H(0) must equal the cited Planck18 H0 = 67.66 km/s/Mpc exactly (by
+    definition of H0), added for WP-E6b's k [s/km] <-> k [Mpc^-1] unit
+    conversion."""
+    assert hubble_kms_mpc(0.0) == pytest.approx(H0_KM_S_MPC, rel=1e-10)
+
+
+def test_hubble_kms_mpc_matches_independent_friedmann_equation():
+    """Independent check: H(z) = H0*E(z) with E(z) from the same manual
+    Friedmann-equation form used in test_manual_integration_matches_astropy_
+    moderate_z above (matter+radiation+dark energy, flat), not astropy
+    internals.
+
+    Tolerance loosens with z (0.2% at z=0.5 up to ~1% at z=4.4), same reason
+    as the comoving-distance cross-check above: our manual E(z) treats
+    massive neutrinos as pure radiation (w=1/3 at all z), while astropy
+    integrates their actual Fermi-Dirac phase-space transition -- the
+    approximation error grows with z. This is WP-E6b's own redshift range
+    (2.2-4.4), so it is checked out to z=4.4, not just z=2 as the distance
+    test does.
+    """
+    tolerances = {0.0: 1e-9, 0.5: 2e-3, 1.0: 3e-3, 2.0: 6e-3, 3.0: 8e-3, 4.4: 1.2e-2}
+    for z, tol in tolerances.items():
+        e_z_manual = np.sqrt(OM0 * (1 + z) ** 3 + (OGAMMA0 + ONU0) * (1 + z) ** 4 + ODE0)
+        h_manual = H0_KM_S_MPC * e_z_manual
+        h_astropy = hubble_kms_mpc(z)
+        rel_err = abs(h_astropy - h_manual) / h_manual
+        assert rel_err < tol, f"z={z}: astropy={h_astropy:.4f}, manual={h_manual:.4f}"
+
+
+def test_hubble_kms_mpc_monotone_increasing_with_z():
+    """H(z) must increase monotonically with z over the WP-E6b Lya redshift
+    range (2.2-4.4): matter+radiation domination at these z means H(z) is
+    still rising, well before any low-z dark-energy-driven turnover."""
+    z_grid = np.linspace(2.2, 4.4, 12)
+    h_z = hubble_kms_mpc(z_grid)
+    assert np.all(np.diff(h_z) > 0)
 
 
 def test_coma_cluster_known_redshift_sanity():

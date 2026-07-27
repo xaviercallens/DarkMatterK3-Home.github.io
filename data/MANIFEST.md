@@ -91,3 +91,51 @@ new row, not editing the old one.
   Manual-download instruction: Manual download: browse https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/ (DESI DR1, 'iron' spectroscopic production, LSScats v1.5) from a network that can reach data.desi.lbl.gov / NERSC (128.55.206.0/24), download the {TRACER}_{NGC,SGC}_clustering.dat.fits data files and matching {TRACER}_{NGC,SGC}_clustering.ran.fits random files, compute SHA256, and append a row to data/MANIFEST.md following the same convention as the eBOSS LRG entries. Alternative access path (reachable from this environment, not independently used for this fetch): NOIRLab Astro Data Lab TAP, https://datalab.noirlab.edu/tap, table desi_dr1 -- whether it re-exposes the LSS clustering/random weight columns needed for this analysis is unverified.
 
 **Integrity check (2026-07-27T07:58:43.928388+00:00):** eboss_lrg_clustering_data_ngc + eboss_lrg_clustering_data_sgc row-count total = 174816; published (docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md §3, arXiv:2007.09000) = 377458. Verdict: MISMATCH.
+
+## Literature derived tables (`data/literature/`, git-COMMITTED — small, published, not raw survey data)
+
+These are small (MB-scale or smaller) machine-readable tables transcribed/extracted
+directly from a published paper's own accompanying data release — not a raw survey
+catalog, so the `data/raw/` gitignore rule (rule 2, `CLAUDE.md`) does not apply. Fetched
+for WP-E6b (`briefs/T0_DECISIONS_2026_07_27.md` D-e).
+
+- **desi_dr1_lya_p1d_2026_07_27.csv** — DESI DR1 Lyman-α 1D flux power spectrum, baseline
+  QMLE estimator, metal (SB1) subtracted, continuum-corrected (arXiv:2505.07974, "DESI DR1
+  Lyα Forest 1D Power Spectrum"). 1020 rows = 12 redshift bins (z = 2.2–4.4, Δz = 0.2; the
+  paper's own z=2.0 and z=4.6 edge bins are already dropped upstream) × 85 k bins (k =
+  2.5×10⁻⁴–5.27×10⁻² s/km). Columns: `z, k_s_per_km, p1d_kms, e_stat_kms, e_syst_kms,
+  e_total_kms, pfid_kms` — `e_total_kms` is `E_PK` from the source FITS and was verified
+  in-session to equal `sqrt(e_stat_kms² + e_syst_kms²)` and `sqrt(diag(COVARIANCE))`
+  exactly (max relative discrepancy ~4×10⁻¹⁶, floating-point noise). `pfid_kms` is the
+  paper's own fiducial/smooth P1D model (`PFID` column) used to build its covariance
+  matrix. The paper calls this a "cosmologically blind" measurement (analysis choices
+  fixed before looking at cosmological-parameter implications) — a methodology note, not
+  a data-quality caveat.
+  - **Source:** paper's own Zenodo data release, DOI 10.5281/zenodo.16943723 (linked from
+    the paper's "Data Availability" paragraph, verified against the arXiv source
+    `main.tex`), file `data_points.tar` →
+    `desi_y1_baseline_p1d_sb1subt_qmle_power_estimate_contcorr_v3.fits`, HDU
+    `P1D_BLIND` (+ `COVARIANCE`, cross-checked, not stored here — only the diagonal
+    is needed and is already carried in `e_total_kms`).
+  - **Source file SHA256:** `bbb98dc3d1865a50bb878e949a644604ce729da419db8e7db5adbb532a894857`
+    (`desi_y1_baseline_p1d_sb1subt_qmle_power_estimate_contcorr_v3.fits`, matches Zenodo's
+    published md5 `33d7fc21bfd3d745ed71a0bbe80ca433` for the parent `data_points.tar`).
+  - **Derived CSV SHA256:** `ba2cbd746a13931d7a487dbe36002544241afe3233c59e1cd25025d30d4887ed`
+  - **Retrieved:** 2026-07-27 (this session), via direct `curl` to `arxiv.org` (e-print
+    source, to find the data-availability statement) and `zenodo.org` (data file itself);
+    both hosts reachable from this environment (unlike `data.desi.lbl.gov`, which remains
+    blocked per the WP-E7 fetch log above).
+  - **Used by:** WP-E6b (`pipeline/wp_e6b_lya.py`, `scripts/wp_e6b_lya_adequacy_preflight.py`,
+    `docs/WP_E6B_LYA_ADEQUACY_PREFLIGHT_2026_07_27.md`). ENGINEERING pre-flight only — no
+    TEST/FIT label; ratio-statistic uses `e_total_kms / p1d_kms` as the published relative
+    error, restricted in-code to the paper's stated validity range (**§4.1** of the paper,
+    "recommended k cuts" — section number re-verified against the arXiv HTML during the
+    WP-E6b audit, correcting an earlier "§4.3" in this entry: k > 10⁻³ s/km; k < 0.5π/R_z
+    with R_z = cΔλ/((1+z)λ_Lyα), Δλ = 0.8 Å). 755 of the 1020 tabulated bins survive these
+    cuts (pinned mechanically in `pipeline/tests/test_wp_e6b_lya.py`).
+  - eBOSS DR14 Chabanier et al. 2019 (arXiv:1812.03554) fallback was **not fetched**: its
+    arXiv source package contains only TeX/plots (no machine-readable table; the paper
+    states its full P1D table is "available online as fits files in the accompanying
+    material attached to the paper" — a journal/JCAP-hosted supplement, not in the arXiv
+    package or an obvious Zenodo record), and the DESI DR1 primary fetch above succeeded,
+    so the fallback path was not needed this session.
