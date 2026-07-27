@@ -169,16 +169,17 @@ T0 decision** (below).
   guard `pipeline.resolvability.assert_resolvable` is mandatory pre-statistics per E2.16).
 - [ ] **F-LAB monitoring** (the only path back to Gate 0): future public ISL data excluding
   |α|=1 below 38.6 μm → `pipeline.gate.check_flab_trigger()` → T0. Nothing else reopens it.
-- [ ] **T0 (Xavier) — WP-E6 v2 decision, the live blocker on the WP-E6 line.**
-  `docs/WP_E6B_LYA_ADEQUACY_PREFLIGHT_2026_07_27.md` §7 states the ask in two options:
-  **(A) PROCEED** — authorize drafting a WP-E6 v2 proposal on the Lyman-α P1D statistic,
-  scoped to that report's §5 list (hydro-simulation-calibrated or emulator-anchored modeling,
-  IGM nuisance marginalization, full covariance, a real mixed-fraction transfer function) plus
-  the `PREDICTION` v2 pre-registration text, with **no real-data comparison before the pin**;
-  or **(B) STOP** — file WP-E6b as the terminal artifact of the WP-E6 line, on the ground that
-  the 18.5×–49.3× overstatement means no headroom has been exhibited that survives realistic
-  modeling. Neither option is exercised; WP-E6b stops at the filing. **No v2 drafting until
-  this returns** (T0 D-e made the pre-flight a precondition).
+- [x] ~~**T0 (Xavier) — WP-E6 v2 decision.**~~ **ANSWERED 2026-07-27 → D-f, option (A) PROCEED**
+  (verbal via T1 coordinator). Superseded by the item below.
+- [ ] **T0 sign-off on the WP-E6 v2 proposal — the live blocker on the WP-E6 line.**
+  `briefs/WP_E6_V2_PROPOSAL_LYA_P1D_2026_07_27.md`. D-f authorized *drafting* only; the draft
+  is filed, and **no phase of it executes without a separate T0 sign-off**. §8 asks T0 to
+  (a) approve/amend/reject the scope, (b) answer Q1–Q5 (author-held models under rule 4; the
+  significance threshold; whether to require a reproduction arm against the Liu/Gong/Zhou
+  anchors; v1's still-open Q4 on the mass interval vs Appendix A.4.3; and the stopping posture
+  if P2 returns a narrow region), and (c) if approved, authorize **Phase 0 only** — the
+  literature re-survey — with every later phase gated on the prior phase's filed artifact and
+  no stop condition having fired. Phase 3's `PREDICTION` v2 pin remains T0's alone.
 
 ## ✅ Standing invariants (verify at every session start — `python3 -c` one-liner in the skill)
 
