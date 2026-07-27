@@ -258,3 +258,40 @@ monotonicity in f for both the suppression factor and the full Δχ²
 statistic, a zero-signal negative control, a scrambled-covariance negative
 control, and exclusion-status lookup checks) | Reviewed-by: pending T0
 (Xavier)
+
+---
+
+## CORRECTION NOTE (2026-07-27, later same day, filed during WP-E6b audit)
+
+**§2's "published pure-FDM (f=1) status" column had the exclusion direction
+inverted, and has been corrected in the underlying artifact.**
+`scripts/wp_e6_adequacy_preflight.py::pure_fdm_exclusion_status()` compared
+`m_ev > threshold` to decide "excluded"; all cited bounds are published as
+**lower** limits on the FDM mass (independently verified against the primary
+arXiv abstracts this session: Liu, Gong & Zhou 2026, "we obtain the FDM mass
+m_FDM > 1.9×10⁻²¹ eV at 95% credible level"; Rogers & Peiris 2021, "a 95%
+lower limit m_a > 2×10⁻²⁰ eV ... strongly disfavors ... 10⁻²²eV < m_a <
+10⁻²¹eV"). The excluded region is mass **below** a threshold (light bosons
+suppress structure that is observed to exist); the allowed/open region is
+mass **above** it — the opposite of what the code (and its two matching
+tests in `pipeline/tests/test_wp_e6_sweep.py`) asserted.
+
+**Effect on this document:** none on the central finding (§3's decisive
+sentence concerns σ_equiv reachability, which does not depend on this
+label). The §2 table's "published pure-FDM (f=1) status" column is
+superseded: under the corrected direction, **every mass in the 1e-22–1e-19
+eV grid is pure-FDM EXCLUDED** (the tightest applicable bound covering the
+whole grid is May, Dalal & Kravtsov 2025's 8×10⁻¹⁸ eV UFD-kinematics
+threshold, three orders of magnitude above the grid's own maximum) — which
+is exactly what `docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md` §4's "Net
+position" paragraph already stated in prose ("the 1e-22–1e-19 eV window is
+fully covered by published exclusions"). The code, its tests, and the
+regenerated `data/derived/wp_e6_adequacy_preflight_2026_07_27.json` are
+fixed; this document's §2 table is left as originally filed (audit trail)
+with this note as the correction record per the repo's ledger-correction
+convention (`CLAUDE.md`).
+
+Generated-by: Sonnet (Stream 3 agent, WP-E6b audit) | Verified-by: two
+independent primary-source arXiv abstract fetches (2606.06969, 2007.12705)
++ `pipeline/tests/test_wp_e6_sweep.py` (17/17 passing post-fix) | Reviewed-by:
+pending T0 (Xavier)

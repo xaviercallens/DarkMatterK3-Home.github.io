@@ -224,18 +224,31 @@ class TestNegativeControls:
             f"sigma={np.sqrt(dchi2_scrambled)}"
         )
 
-    def test_pure_fdm_exclusion_status_open_below_lowest_bound(self):
-        """Below the lowest published pure-FDM threshold (1.9e-21 eV, Liu,
-        Gong & Zhou 2026), the status must be OPEN (not excluded) -- a
-        negative control on the exclusion-status lookup itself."""
+    def test_pure_fdm_exclusion_status_excluded_below_lowest_bound(self):
+        """CORRECTED 2026-07-27 (WP-E6b audit): published FDM mass bounds are
+        LOWER limits (m > threshold is the allowed region; verified against
+        the arXiv abstracts of Liu Gong & Zhou 2026 and Rogers & Peiris 2021
+        this session) -- so a mass BELOW even the lowest published threshold
+        (1.9e-21 eV) must be EXCLUDED, not open. This test previously
+        asserted the opposite (a since-fixed direction bug in both this test
+        and pure_fdm_exclusion_status itself)."""
         status = pure_fdm_exclusion_status(1e-22)
-        assert status["excluded"] is False
-        assert status["excluded_by"] == []
-
-    def test_pure_fdm_exclusion_status_excluded_above_lowest_bound(self):
-        status = pure_fdm_exclusion_status(1e-19)
         assert status["excluded"] is True
         assert len(status["excluded_by"]) >= 1
+
+    def test_pure_fdm_exclusion_status_open_above_highest_bound(self):
+        """Above the HIGHEST published pure-FDM threshold in the landscape
+        survey (8e-18 eV, May, Dalal & Kravtsov 2025), the status must be
+        OPEN (not excluded) -- a negative control on the exclusion-status
+        lookup itself. Note this point sits above the WP-E6/E6b grid's own
+        span (1e-22-1e-19 eV): within that grid, every mass is excluded at
+        f=1 under the corrected direction (consistent with
+        docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md Sec.4's explicit "Net
+        position": the 1e-22-1e-19 eV window is fully covered by published
+        pure-FDM exclusions)."""
+        status = pure_fdm_exclusion_status(1e-17)
+        assert status["excluded"] is False
+        assert status["excluded_by"] == []
 
 
 # ---------------------------------------------------------------------------

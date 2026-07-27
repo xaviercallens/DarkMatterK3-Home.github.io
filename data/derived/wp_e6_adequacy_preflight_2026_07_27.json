@@ -1,6 +1,6 @@
 {
   "label": "ENGINEERING (synthetic Fisher/Delta-chi2 pre-flight, no real data)",
-  "generated": "2026-07-27T08:20:42.594810+00:00",
+  "generated": "2026-07-27T09:03:01.778219+00:00",
   "grid": {
     "m_ev": [
       1e-22,
@@ -117,9 +117,30 @@
       "m_ev": 1e-22,
       "m22": 1.0,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -271,9 +292,30 @@
       "m_ev": 1.7782794100389228e-22,
       "m22": 1.7782794100389228,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -425,9 +467,30 @@
       "m_ev": 3.1622776601683793e-22,
       "m22": 3.162277660168379,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -579,9 +642,30 @@
       "m_ev": 5.623413251903491e-22,
       "m22": 5.623413251903491,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -733,9 +817,30 @@
       "m_ev": 1e-21,
       "m22": 9.999999999999998,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -887,9 +992,30 @@
       "m_ev": 1.778279410038923e-21,
       "m22": 17.78279410038923,
       "pure_fdm_exclusion": {
-        "excluded": false,
-        "note": "not excluded by any published pure-FDM bound in the landscape survey -- genuinely open even at f=1",
-        "excluded_by": []
+        "excluded": true,
+        "note": "excluded by 4 published pure-FDM bound(s)",
+        "excluded_by": [
+          {
+            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
+            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
+            "m_ev_threshold": 1.9e-21
+          },
+          {
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
+          }
+        ]
       },
       "smallest_f_reaching_2sigma": null,
       "smallest_f_reaching_3sigma": null,
@@ -1042,12 +1168,22 @@
       "m22": 31.62277660168379,
       "pure_fdm_exclusion": {
         "excluded": true,
-        "note": "excluded by 1 published pure-FDM bound(s)",
+        "note": "excluded by 3 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -1202,12 +1338,22 @@
       "m22": 56.2341325190349,
       "pure_fdm_exclusion": {
         "excluded": true,
-        "note": "excluded by 1 published pure-FDM bound(s)",
+        "note": "excluded by 3 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -1362,12 +1508,22 @@
       "m22": 99.99999999999999,
       "pure_fdm_exclusion": {
         "excluded": true,
-        "note": "excluded by 1 published pure-FDM bound(s)",
+        "note": "excluded by 3 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -1522,12 +1678,22 @@
       "m22": 177.82794100389228,
       "pure_fdm_exclusion": {
         "excluded": true,
-        "note": "excluded by 1 published pure-FDM bound(s)",
+        "note": "excluded by 3 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
+            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
+            "m_ev_threshold": 2e-20
+          },
+          {
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
+          },
+          {
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -1685,14 +1851,14 @@
         "note": "excluded by 2 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
           },
           {
-            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
-            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
-            "m_ev_threshold": 2e-20
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -1850,14 +2016,14 @@
         "note": "excluded by 2 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
           },
           {
-            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
-            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
-            "m_ev_threshold": 2e-20
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },
@@ -2015,14 +2181,14 @@
         "note": "excluded by 2 published pure-FDM bound(s)",
         "excluded_by": [
           {
-            "citation": "Liu, Gong & Zhou 2026 (arXiv:2606.06969)",
-            "method": "Lyman-alpha P1D z=4.2-5.0, pure FDM, 95% CL",
-            "m_ev_threshold": 1.9e-21
+            "citation": "Dalal & Kravtsov 2022 (arXiv:2203.05750)",
+            "method": "UFD sizes + stellar kinematics (Segue 1/2), 99% CL",
+            "m_ev_threshold": 3e-19
           },
           {
-            "citation": "Rogers & Peiris 2021 (PRL 126, 071302)",
-            "method": "Lyman-alpha forest (high-res + emulator), 95% CL",
-            "m_ev_threshold": 2e-20
+            "citation": "May, Dalal & Kravtsov 2025 (arXiv:2509.02781)",
+            "method": "UFD kinematics (Ursa Major III/UNIONS I), 95% CL",
+            "m_ev_threshold": 8e-18
           }
         ]
       },

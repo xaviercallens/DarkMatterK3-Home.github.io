@@ -112,11 +112,28 @@ PUBLISHED_MIXED_FDM_ANCHORS = [
 
 def pure_fdm_exclusion_status(m_ev: float) -> dict:
     """Published pure-FDM (f=1) exclusion status at mass m_ev, per the
-    docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md Sec.4 bound list. Excluded
-    if m_ev exceeds the LOWEST applicable threshold (the most constraining
-    published bound, since a higher-mass-only bound cannot be evaded by a
-    tighter one that already excludes a lower mass)."""
-    applicable = [b for b in PURE_FDM_EXCLUSION_BOUNDS if m_ev > b["m_ev_threshold"]]
+    docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md Sec.4 bound list.
+
+    CORRECTED 2026-07-27 (WP-E6b audit): all of these published results are
+    LOWER bounds on the FDM mass (e.g. Liu, Gong & Zhou 2026 abstract: "we
+    obtain the FDM mass m_FDM > 1.9e-21 eV at 95% credible level"; Rogers &
+    Peiris 2021 abstract: "a 95% lower limit m_a > 2e-20 eV ... strongly
+    disfavors ... 1e-22 eV < m_a < 1e-21 eV" -- both independently verified
+    against the arXiv abstract this session). The EXCLUDED region is
+    therefore m_ev BELOW a threshold (light bosons suppress structure we
+    observe to exist), and the OPEN/allowed region is m_ev ABOVE it -- the
+    opposite of this function's previous `m_ev > threshold` comparison,
+    which had the direction inverted. That inverted version was already
+    committed and passed its own (equally inverted) tests in
+    pipeline/tests/test_wp_e6_sweep.py; both are fixed together here. See
+    the correction note appended to
+    docs/WP_E6_SYNTHETIC_ADEQUACY_PREFLIGHT_2026_07_27.md. This does not
+    change the DES-Y6 non-detection finding itself (sigma_equiv reachability
+    is independent of this label), only the "published pure-FDM status"
+    overlay column and this function's own published_pure_fdm_bounds
+    text/JSON output.
+    """
+    applicable = [b for b in PURE_FDM_EXCLUSION_BOUNDS if m_ev < b["m_ev_threshold"]]
     if not applicable:
         return {
             "excluded": False,
