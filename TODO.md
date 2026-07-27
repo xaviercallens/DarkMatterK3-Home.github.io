@@ -144,7 +144,16 @@ T0 decision** (below).
 - [x] **Validity cuts re-verified at source** — arXiv:2505.07974 **§4.1** (not §4.3 as
   previously recorded in `data/MANIFEST.md`); both arms of the cut are checked to actually
   remove bins (755 of 1020 survive).
-- [ ] **Open, cheap, and worth doing either way:** 207 of the 221 decisive cells are open only
+- [x] **T0 D-f — WP-E6b decision ANSWERED: option (A) PROCEED.** Verbal ruling via the T1
+  coordinator, 2026-07-27, recorded in `briefs/T0_DECISIONS_2026_07_27.md` **D-f**. Scope:
+  **proposal DRAFTING only.** Deliverable filed:
+  `briefs/WP_E6_V2_PROPOSAL_LYA_P1D_2026_07_27.md` — 5 gated phases (P0 literature re-survey
+  → P1 modeling adequacy → P2 statistical design + calibrated sensitivity re-derivation → P3
+  `PREDICTION` v2 pin → P4 pre-registered comparison), each with its own mechanical stop
+  condition. **EXECUTION of every phase remains gated on a separate T0 sign-off of the
+  proposal**, and Phases 3–4 additionally on the pin. Nothing was executed.
+- [ ] **Open, cheap, and worth doing either way** (now formalized as the proposal's **Phase 0**,
+  do-first, with stop condition P0): 207 of the 221 decisive cells are open only
   because `docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md` §4 lists no mixed-fraction bound at
   their masses. Whether that reflects the literature or only this repo's survey of it is
   unverified. A targeted check on published f_FDM constraints above 10⁻²¹ eV would move the

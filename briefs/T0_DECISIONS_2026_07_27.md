@@ -59,3 +59,38 @@ negative, WP-E6 stops there and the negatives are banked. The DES Y6 result stan
 filed; D-c (DES Y6 as lensing product) is superseded for WP-E6's statistic but retained
 as the lensing reference if a lensing-based observable ever re-enters via its own
 pre-registration.
+
+## D-f — WP-E6b outcome: option (A) PROCEED to v2 proposal DRAFTING (decided 2026-07-27)
+
+**Channel:** verbal, via T1 coordinator. **Recorded by:** Stream 3 agent (Opus tier).
+
+`docs/WP_E6B_LYA_ADEQUACY_PREFLIGHT_2026_07_27.md` (commit `002c37e`) §7 put two options to
+T0 after the DESI DR1 Lyman-α P1D adequacy pre-flight returned **adequacy not refuted**
+(221 of 260 (m, f) cells reach σ_equiv ≥ 2 and are open, under a proxy that is optimistic
+by **18.5×** and **49.3×** at the only two masses where an emulator-grade published
+mixed-fraction bound exists). T0 ruled **option (A): PROCEED**.
+
+**What is authorized — exactly this and nothing more:** drafting a **WP-E6 v2 proposal**
+built on the DESI DR1 Lyman-α P1D statistic, scoped to the pre-flight's §5 requirements
+list. Deliverable: `briefs/WP_E6_V2_PROPOSAL_LYA_P1D_2026_07_27.md`.
+
+**What is NOT authorized:** execution of any phase of that proposal. **EXECUTION of WP-E6
+v2 remains gated on a separate T0 sign-off of the proposal itself**, and — for any
+real-data touch — on a pinned `PREDICTION` v2 amendment (CLAUDE.md rules 1 and 5). No
+pipeline code, no data acquisition and no comparison follow from this ruling. The
+"proceed" is a licence to write a plan, not to run one.
+
+**Carried forward into the draft as a binding constraint:** the §7 embedded third question
+(207 of the 221 decisive cells are open only because
+`docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md` §4 lists no mixed-fraction bound at their
+masses — a statement about this repo's survey, not about the literature) becomes the
+proposal's Phase 0, and is do-first and cheap.
+
+**Cross-stream note (not Stream 3's to execute):** in the same exchange T0 approved Stream 2
+serializing the base-change matrix P in future certificates. Recorded here only so the
+ruling's full scope is on the record; the action sits with Stream 2.
+
+---
+Generated-by: Claude Opus 5 (Stream 3 agent, D-f recording) | Verified-by: n/a (decision
+record — transcribes a T0 ruling relayed by the T1 coordinator) | Reviewed-by: pending T0
+(Xavier) — confirm the channel and scope wording at v2-proposal sign-off
