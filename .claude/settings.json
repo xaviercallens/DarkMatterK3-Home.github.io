@@ -8,6 +8,7 @@
       "Grep",
       "Glob",
       "WebSearch",
+      "Bash(cd *)",
       "Bash(git status*)",
       "Bash(git log*)",
       "Bash(git diff*)",
