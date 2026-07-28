@@ -7,6 +7,40 @@
 
 ---
 
+## RESOLUTION — 2026-07-28 17:21 UTC: blocker dissolved, full pipeline measured, GO confirmed
+
+**The desimodel blocker (CORRECTION section below) was moot.** The desimodel data
+(260 MB, including the `focalplane/` directory `sim_spectra` needs) was already installed
+on disk at `phase1_work/agent3_synthetic/desimodel_data_test/` by the 2026-07-27 Phase-1
+session — which ran `sim_spectra` successfully (the 86.6%/56.4% degradation numbers in the
+Phase-1 record came from it). The only missing piece was the `DESIMODEL` environment
+variable pointing at that directory. No new download occurred; no public-data-rule question
+arises — this is the same already-fetched public desimodel data Phase 1 used.
+
+**Full-pipeline measurement (N=50, coordinator-run, fixed seed, same harness
+`scripts/wp_e6_full_pipeline_timing_benchmark.py`):**
+
+| Step | Component | Wall-clock | % of total |
+|---|---|---|---|
+| 1 | MockMaker.get_lya_skewers() | 0.0209 s | 0.2% |
+| 2 | resample_flux() | 0.0770 s | 0.6% |
+| 3 | Continuum | 0.0007 s | 0.0% |
+| 4 | **sim_spectra() instrument sim** | **11.9099 s** | **99.2%** |
+| | **Total** | **12.0096 s** | |
+
+Peak RSS 563.26 MB. Per-skewer marginal 0.240 s.
+
+**N=200 linear extrapolation (full pipeline): ~48.0 s (0.80 min), ~563+ MB.**
+The original MockMaker-only extrapolation (0.42 s) was a **114× underestimate** — the
+scope-gap correction was warranted; `sim_spectra` utterly dominates.
+
+**Verdict: GO for N=200 confirmed on full-pipeline numbers** — ~48 s is comfortably within
+any session budget. (Recommendation for the coordinator/T0 to act on, per house rule.)
+Practical note for P2-A: export `DESIMODEL=<repo>/phase1_work/agent3_synthetic/desimodel_data_test`
+before any `sim_spectra` call.
+
+---
+
 ## CORRECTION — 2026-07-28 17:10 UTC
 
 **Scope Gap Identified by Coordinator**

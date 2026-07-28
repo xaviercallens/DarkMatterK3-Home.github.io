@@ -9,7 +9,7 @@
     "fixed_seed": 12345
   },
   "n50_results_original_scope": {
-    "note": "INCOMPLETE SCOPE — measures MockMaker only, not full pipeline",
+    "note": "INCOMPLETE SCOPE \u2014 measures MockMaker only, not full pipeline",
     "n_skewers": 50,
     "total_wall_clock_seconds": 0.105386,
     "per_skewer_marginal_seconds": 0.00210771,
@@ -23,11 +23,11 @@
     "assumption_note": "Linear scaling; assumes per-skewer cost is constant",
     "estimated_wall_clock_seconds": 0.42,
     "estimated_wall_clock_minutes": 0.01,
-    "WARNING": "Based on incomplete pipeline — does not include sim_spectra instrument simulation"
+    "WARNING": "Based on incomplete pipeline \u2014 does not include sim_spectra instrument simulation"
   },
   "correction_2026_07_28_extended_scope_attempt": {
     "date": "2026-07-28 17:10:00",
-    "reason": "Coordinator identified that initial benchmark measured only MockMaker.get_lya_skewers(), missing the sim_spectra() instrument simulation (resolution convolution + Poisson/read noise) that ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md §1 specifies as part of the Phase A pipeline. Extended benchmark attempted to measure full pipeline per reference script run_mock_and_compare.py lines ~14-60.",
+    "reason": "Coordinator identified that initial benchmark measured only MockMaker.get_lya_skewers(), missing the sim_spectra() instrument simulation (resolution convolution + Poisson/read noise) that ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md \u00a71 specifies as part of the Phase A pipeline. Extended benchmark attempted to measure full pipeline per reference script run_mock_and_compare.py lines ~14-60.",
     "partial_measurements_n50": {
       "step1_mockmaker_seconds": 0.0207,
       "step1_percent_of_total": 10.4,
@@ -47,5 +47,27 @@
       "concerns": "desimodel contains DESI collab-internal instrument configurations; downloading may violate public-data-only rule (CLAUDE.md rule 4) or require credentials. This is a legitimate infrastructure blocker requiring T0 decision.",
       "recommendation": "Pending T0 decision on whether to: (a) install desimodel data if public-data compliant, or (b) use alternative instrument-simulation approach for Phase 2."
     }
+  },
+  "resolution_2026_07_28_full_pipeline_measured": {
+    "date": "2026-07-28 17:21 UTC",
+    "blocker_resolution": "The desimodel data blocker was moot: the data (260MB incl. focalplane/) was already installed on disk at phase1_work/agent3_synthetic/desimodel_data_test/ by the 2026-07-27 Phase-1 session (which ran sim_spectra successfully). The only missing piece was the DESIMODEL environment variable pointing at it. No new download, no public-data-rule question: this is the same already-fetched public desimodel data Phase 1 used.",
+    "command": "DESIMODEL=phase1_work/agent3_synthetic/desimodel_data_test python scripts/wp_e6_full_pipeline_timing_benchmark.py",
+    "n50_full_pipeline": {
+      "total_wall_clock_seconds": 12.0096,
+      "step1_mockmaker_seconds": 0.0209,
+      "step2_resample_flux_seconds": 0.077,
+      "step3_continuum_seconds": 0.0007,
+      "step4_sim_spectra_seconds": 11.9099,
+      "step4_percent_of_total": 99.2,
+      "per_skewer_marginal_seconds": 0.240192,
+      "peak_rss_mb": 563.26
+    },
+    "n200_extrapolation_full_pipeline": {
+      "extrapolation_method": "linear",
+      "estimated_wall_clock_seconds": 48.04,
+      "estimated_wall_clock_minutes": 0.8
+    },
+    "comparison_to_original_scope": "Original MockMaker-only extrapolation for N=200 was 0.42s; the true full-pipeline figure is ~48s \u2014 a 114x underestimate, dominated entirely by sim_spectra. The scope-gap correction was warranted.",
+    "verdict": "GO for N=200 confirmed on full-pipeline numbers (~48s, ~563MB peak) \u2014 well within session budget. Recommendation only; coordinator/T0 rules."
   }
 }
