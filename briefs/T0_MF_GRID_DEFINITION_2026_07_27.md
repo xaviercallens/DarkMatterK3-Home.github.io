@@ -95,4 +95,9 @@ next deliverable and is now unblocked.
 - At the eventual PREDICTION v2 pin (Phase 3), this grid — as then amended — freezes for real,
   under the full pin protocol.
 
-*Countermand log: (empty)*
+*Countermand log:*
+- **2026-07-28 — WINDOW CLOSED (T0, no amendments).** All three built-in controls pass
+  (`data/derived/wp_e6_grid_controls_report_2026_07_28.json`); T0 ratified the grid as a
+  stable dependency (briefs/T0_DECISIONS_2026_07_28_PENDING_ITEMS.md, D1). The grid stands
+  exactly as anchored at commit 27cff4a. Next freeze point remains the PREDICTION v2 pin
+  (Phase 3), unchanged.

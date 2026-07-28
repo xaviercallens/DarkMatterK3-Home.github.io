@@ -213,13 +213,32 @@ def fetch_lyman_alpha() -> dict:
 # data/raw/ (immutable thereafter, hook-enforced: .claude/hooks/prereg_guard.sh).
 # ============================================================================
 
-# --- (i) SDSS/eBOSS DR16 LSS combined LRG clustering catalog + randoms -----
-# Ross et al. 2020 (arXiv:2007.09000); combined BOSS+eBOSS LRG, 377,458 objects,
-# 0.6<z<1.0, 9,493 deg^2. Directory verified reachable and file sizes verified
-# via HEAD request 2026-07-27 (no auth, no registration):
+# --- (i) SDSS/eBOSS DR16 LSS LRG clustering catalogs + randoms --------------
+# Two distinct, correctly-published DR16 catalogs at the same base URL (see
+# briefs/WP_E7_EBOSS_LRG_SAMPLE_IDENTITY_INVESTIGATION_2026_07_28.md; the
+# original comment here described the combined sample while the dict pointed
+# at the eBOSS-only filenames — that mismatch was the root cause of the
+# 174,816-vs-377,458 row-count "mystery"):
+#
+#   PRIMARY (T0 decision D3, briefs/T0_DECISIONS_2026_07_28_PENDING_ITEMS.md):
+#   eBOSS_LRGpCMASS_* — SDSS-recommended combined BOSS+eBOSS LRG sample,
+#   377,458 objects, 0.6<z<1.0, 9,493 deg^2 (Ross et al. 2020,
+#   arXiv:2007.09000). SDSS DR16 LSS docs recommend it in place of the z>0.6
+#   BOSS bin for clustering work — WP-E7's stated purpose.
+#
+#   SECONDARY/CROSS-CHECK: eBOSS_LRG_* — eBOSS-only sample, 174,816 objects,
+#   4,242 deg^2. Already fetched 2026-07-27; kept for eBOSS-specific
+#   systematics isolation. File sizes HEAD-verified 2026-07-27:
 #   data-NGC   7,747,200 bytes   data-SGC   4,852,800 bytes
 #   random-NGC 349,493,760 bytes random-SGC 221,028,480 bytes  (~0.58 GB total)
 EBOSS_LSS_BASE_URL = "https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16"
+
+EBOSS_LRGPCMASS_FILES = {
+    "eboss_lrgpcmass_clustering_data_ngc": "eBOSS_LRGpCMASS_clustering_data-NGC-vDR16.fits",
+    "eboss_lrgpcmass_clustering_data_sgc": "eBOSS_LRGpCMASS_clustering_data-SGC-vDR16.fits",
+    "eboss_lrgpcmass_clustering_random_ngc": "eBOSS_LRGpCMASS_clustering_random-NGC-vDR16.fits",
+    "eboss_lrgpcmass_clustering_random_sgc": "eBOSS_LRGpCMASS_clustering_random-SGC-vDR16.fits",
+}
 
 EBOSS_LRG_FILES = {
     "eboss_lrg_clustering_data_ngc": "eBOSS_LRG_clustering_data-NGC-vDR16.fits",
@@ -229,8 +248,28 @@ EBOSS_LRG_FILES = {
 }
 
 
+def fetch_eboss_lrgpcmass_clustering() -> dict:
+    """SDSS DR16 combined BOSS+eBOSS LRGpCMASS clustering catalog (data +
+    random, NGC+SGC). PRIMARY WP-E7 LRG sample per T0 decision D3 2026-07-28.
+
+    Returns a dict keyed by the four EBOSS_LRGPCMASS_FILES entries, each a
+    fetch_file() result (or an error dict). No fallback: a failed fetch is
+    recorded as-is.
+    """
+    out = {}
+    for key, filename in EBOSS_LRGPCMASS_FILES.items():
+        url = f"{EBOSS_LSS_BASE_URL}/{filename}"
+        try:
+            out[key] = fetch_file(url, f"raw/sdss_eboss_dr16_lss/{filename}")
+        except Exception as e:
+            logger.error(f"eBOSS LRGpCMASS fetch failed for {key}: {e}")
+            out[key] = {"status": "error", "error": str(e), "url": url}
+    return out
+
+
 def fetch_eboss_lrg_clustering() -> dict:
-    """SDSS/eBOSS DR16 combined LRG clustering catalog (data + random, NGC+SGC).
+    """SDSS/eBOSS DR16 eBOSS-only LRG clustering catalog (data + random,
+    NGC+SGC). SECONDARY/cross-check sample per T0 decision D3 2026-07-28.
 
     Returns a dict keyed by the four EBOSS_LRG_FILES entries, each a fetch_file()
     result (or an error dict). No fallback: a failed fetch is recorded as-is.
@@ -339,6 +378,13 @@ def fetch_all_datasets() -> dict:
         except Exception as e:
             logger.error(f"Failed to fetch {name}: {e}")
             results[name] = {"status": "error", "error": str(e)}
+
+    try:
+        results.update(fetch_eboss_lrgpcmass_clustering())
+    except Exception as e:
+        logger.error(f"eBOSS LRGpCMASS clustering fetch group failed: {e}")
+        for key in EBOSS_LRGPCMASS_FILES:
+            results.setdefault(key, {"status": "error", "error": str(e)})
 
     try:
         results.update(fetch_eboss_lrg_clustering())

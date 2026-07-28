@@ -41,8 +41,14 @@ MANIFEST_FILE = REPO_ROOT / "data" / "MANIFEST.md"
 # (docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md §3; arXiv:2007.09000 for eBOSS).
 # A mismatch is recorded as a finding, not silently corrected.
 PUBLISHED_ROW_COUNTS = {
-    # Combined NGC+SGC eBOSS LRG clustering sample (Ross et al. 2020).
-    ("eboss_lrg_clustering_data_ngc", "eboss_lrg_clustering_data_sgc"): 377_458,
+    # PRIMARY: combined BOSS+eBOSS LRGpCMASS sample (Ross et al. 2020;
+    # T0 decision D3 2026-07-28).
+    ("eboss_lrgpcmass_clustering_data_ngc",
+     "eboss_lrgpcmass_clustering_data_sgc"): 377_458,
+    # SECONDARY: eBOSS-only LRG sample. Was wrongly compared against 377,458
+    # (the combined sample's count) — root cause of the WP-E7 row-count
+    # "mismatch", see briefs/WP_E7_EBOSS_LRG_SAMPLE_IDENTITY_INVESTIGATION_2026_07_28.md.
+    ("eboss_lrg_clustering_data_ngc", "eboss_lrg_clustering_data_sgc"): 174_816,
 }
 
 
