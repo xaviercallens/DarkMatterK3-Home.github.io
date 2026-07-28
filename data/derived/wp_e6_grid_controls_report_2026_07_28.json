@@ -1,0 +1,394 @@
+{
+  "label": "CONTROL",
+  "purpose": "Built-in structural/pipeline controls for the WP-E6 (m,f) grid defined in briefs/T0_MF_GRID_DEFINITION_2026_07_27.md, plus one additional positive control (check 3) added to make sure checks 1/2 aren't vacuously passing because m isn't plumbed through at all. NOT a physics result, NOT a comparison against real data, NOT gated by the PREDICTION.md pin (rule 1 in CLAUDE.md) -- this exercises only the emulator's own internal consistency.",
+  "grid_source": "briefs/T0_MF_GRID_DEFINITION_2026_07_27.md",
+  "z_str": "4.2",
+  "igm_nuisance_point": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": 0.0,
+    "taueff": 1.0
+  },
+  "igm_nuisance_point_source": "emu_predict.py __main__ smoke test (training-LHS medians); NOT a profiled/marginalized value -- that is a separate, later Phase 2 task.",
+  "environment_provenance": {
+    "runtime_sklearn_version": "1.7.2",
+    "pickle_load_warnings": [
+      "Trying to unpickle estimator MinMaxScaler from version 1.3.2 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "Trying to unpickle estimator MinMaxScaler from version 1.3.2 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations"
+    ]
+  },
+  "generated_utc": "2026-07-28T05:44:03.556362+00:00",
+  "checks": [
+    {
+      "check": "f0_column_byte_identity",
+      "label": "CONTROL",
+      "reference_mass": -22.9,
+      "grid_mass_values": [
+        -22.9,
+        -22.5,
+        -22.0,
+        -21.5,
+        -21.0,
+        -20.5,
+        -20.0,
+        -19.1
+      ],
+      "per_mass": [
+        {
+          "m": -22.9,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -22.5,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -22.0,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -21.5,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -21.0,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -20.5,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -20.0,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        },
+        {
+          "m": -19.1,
+          "byte_identical_to_ref": true,
+          "max_abs_diff_vs_ref": 0.0
+        }
+      ],
+      "all_byte_identical": true,
+      "verdict": "PASS",
+      "k_bins_s_per_km": [
+        0.00630957344480193,
+        0.007943282347242814,
+        0.01,
+        0.012589254117941675,
+        0.015848931924611134,
+        0.0199526231496888,
+        0.025118864315095794,
+        0.03162277660168379,
+        0.039810717055349734,
+        0.05011872336272722,
+        0.06309573444801933,
+        0.07943282347242814,
+        0.1,
+        0.12589254117941673,
+        0.15848931924611134,
+        0.19952623149688797
+      ],
+      "pk_reference": [
+        82.50188446044922,
+        75.78329467773438,
+        66.46317291259766,
+        56.17559814453125,
+        48.54179763793945,
+        42.23802185058594,
+        30.3680477142334,
+        24.618885040283203,
+        17.32600212097168,
+        11.496224403381348,
+        6.492599964141846,
+        3.1820478439331055,
+        1.4359714984893799,
+        0.7043911814689636,
+        0.31505686044692993,
+        0.11226441711187363
+      ]
+    },
+    {
+      "check": "null_row_m_minus_19_1_suppression",
+      "label": "CONTROL",
+      "m": -19.1,
+      "grid_frac_values": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.35,
+        0.6,
+        0.99
+      ],
+      "threshold_max_abs_suppression": 0.1,
+      "per_f": [
+        {
+          "f": 0.0,
+          "suppression_per_k": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "signed_min_suppression": 0.0,
+          "signed_max_suppression": 0.0,
+          "max_abs_suppression": 0.0,
+          "mean_abs_suppression": 0.0
+        },
+        {
+          "f": 0.05,
+          "suppression_per_k": [
+            0.0009794831275939941,
+            0.0009403228759765625,
+            0.0005880594253540039,
+            -0.00012004375457763672,
+            -0.0008295774459838867,
+            -0.0010527372360229492,
+            -0.0006666183471679688,
+            0.00017398595809936523,
+            0.00030881166458129883,
+            -0.0009098052978515625,
+            -0.0010640621185302734,
+            -0.0024471282958984375,
+            -0.0031479597091674805,
+            -0.003312230110168457,
+            -0.0027801990509033203,
+            -0.0005285739898681641
+          ],
+          "signed_min_suppression": -0.003312230110168457,
+          "signed_max_suppression": 0.0009794831275939941,
+          "max_abs_suppression": 0.003312230110168457,
+          "mean_abs_suppression": 0.001240599900484085
+        },
+        {
+          "f": 0.1,
+          "suppression_per_k": [
+            0.0016114115715026855,
+            0.0015063881874084473,
+            0.000982522964477539,
+            -0.00024950504302978516,
+            -0.0015058517456054688,
+            -0.0018311738967895508,
+            -0.0010260343551635742,
+            0.0005310177803039551,
+            0.0008431673049926758,
+            -0.0013915300369262695,
+            -0.0016137361526489258,
+            -0.004086971282958984,
+            -0.0055419206619262695,
+            -0.005857944488525391,
+            -0.0051146745681762695,
+            -0.0008302927017211914
+          ],
+          "signed_min_suppression": -0.005857944488525391,
+          "signed_max_suppression": 0.0016114115715026855,
+          "max_abs_suppression": 0.005857944488525391,
+          "mean_abs_suppression": 0.0021577589213848114
+        },
+        {
+          "f": 0.2,
+          "suppression_per_k": [
+            0.002010345458984375,
+            0.0017328262329101562,
+            0.0013320446014404297,
+            -0.00048410892486572266,
+            -0.0023843050003051758,
+            -0.0026967525482177734,
+            -0.0011191368103027344,
+            0.0015050172805786133,
+            0.0022164583206176758,
+            -0.0014744997024536133,
+            -0.001654505729675293,
+            -0.005506277084350586,
+            -0.008493542671203613,
+            -0.009158730506896973,
+            -0.008636832237243652,
+            -0.0008580684661865234
+          ],
+          "signed_min_suppression": -0.009158730506896973,
+          "signed_max_suppression": 0.0022164583206176758,
+          "max_abs_suppression": 0.009158730506896973,
+          "mean_abs_suppression": 0.003203965723514557
+        },
+        {
+          "f": 0.35,
+          "suppression_per_k": [
+            0.0009452104568481445,
+            0.00043851137161254883,
+            0.001128077507019043,
+            -0.0006768703460693359,
+            -0.0025103092193603516,
+            -0.0026928186416625977,
+            -0.0005598068237304688,
+            0.0028739571571350098,
+            0.004082858562469482,
+            -0.0005671977996826172,
+            -0.0005220174789428711,
+            -0.004767060279846191,
+            -0.009723901748657227,
+            -0.011282563209533691,
+            -0.011679649353027344,
+            0.00016373395919799805
+          ],
+          "signed_min_suppression": -0.011679649353027344,
+          "signed_max_suppression": 0.004082858562469482,
+          "max_abs_suppression": 0.011679649353027344,
+          "mean_abs_suppression": 0.0034134089946746826
+        },
+        {
+          "f": 0.6,
+          "suppression_per_k": [
+            -0.004070162773132324,
+            -0.004429221153259277,
+            -0.0004521608352661133,
+            -0.0007746219635009766,
+            6.341934204101562e-05,
+            -0.0007845163345336914,
+            3.075599670410156e-05,
+            0.0036236047744750977,
+            0.005151808261871338,
+            0.0007030367851257324,
+            0.0008756518363952637,
+            -0.0011820793151855469,
+            -0.007392168045043945,
+            -0.012388229370117188,
+            -0.01263129711151123,
+            0.0033755898475646973
+          ],
+          "signed_min_suppression": -0.01263129711151123,
+          "signed_max_suppression": 0.005151808261871338,
+          "max_abs_suppression": 0.01263129711151123,
+          "mean_abs_suppression": 0.003620520234107971
+        },
+        {
+          "f": 0.99,
+          "suppression_per_k": [
+            -0.01720106601715088,
+            -0.01554250717163086,
+            -0.005082368850708008,
+            -0.0036783218383789062,
+            0.005341768264770508,
+            -0.0004975795745849609,
+            -0.0032095909118652344,
+            0.0028859376907348633,
+            0.006986260414123535,
+            0.0006308555603027344,
+            0.002190530300140381,
+            0.0030516386032104492,
+            0.002297639846801758,
+            -0.016384005546569824,
+            -0.005725502967834473,
+            0.010504841804504395
+          ],
+          "signed_min_suppression": -0.01720106601715088,
+          "signed_max_suppression": 0.010504841804504395,
+          "max_abs_suppression": 0.01720106601715088,
+          "mean_abs_suppression": 0.0063256509602069855
+        }
+      ],
+      "max_abs_suppression_overall": 0.01720106601715088,
+      "verdict": "PASS",
+      "k_bins_s_per_km": [
+        0.00630957344480193,
+        0.007943282347242814,
+        0.01,
+        0.012589254117941675,
+        0.015848931924611134,
+        0.0199526231496888,
+        0.025118864315095794,
+        0.03162277660168379,
+        0.039810717055349734,
+        0.05011872336272722,
+        0.06309573444801933,
+        0.07943282347242814,
+        0.1,
+        0.12589254117941673,
+        0.15848931924611134,
+        0.19952623149688797
+      ]
+    },
+    {
+      "check": "mass_contrast_positive_control",
+      "label": "CONTROL",
+      "f_fixed": 0.1,
+      "grid_mass_values": [
+        -22.9,
+        -22.5,
+        -22.0,
+        -21.5,
+        -21.0,
+        -20.5,
+        -20.0,
+        -19.1
+      ],
+      "per_mass": [
+        {
+          "m": -22.9,
+          "max_abs_suppression": 0.2054990530014038,
+          "mean_abs_suppression": 0.1186709851026535
+        },
+        {
+          "m": -22.5,
+          "max_abs_suppression": 0.16318386793136597,
+          "mean_abs_suppression": 0.08502061665058136
+        },
+        {
+          "m": -22.0,
+          "max_abs_suppression": 0.08558571338653564,
+          "mean_abs_suppression": 0.04109187424182892
+        },
+        {
+          "m": -21.5,
+          "max_abs_suppression": 0.020900487899780273,
+          "mean_abs_suppression": 0.010933972895145416
+        },
+        {
+          "m": -21.0,
+          "max_abs_suppression": 0.04023778438568115,
+          "mean_abs_suppression": 0.013246912509202957
+        },
+        {
+          "m": -20.5,
+          "max_abs_suppression": 0.03344452381134033,
+          "mean_abs_suppression": 0.012304816395044327
+        },
+        {
+          "m": -20.0,
+          "max_abs_suppression": 0.022421836853027344,
+          "mean_abs_suppression": 0.00835420936346054
+        },
+        {
+          "m": -19.1,
+          "max_abs_suppression": 0.005857944488525391,
+          "mean_abs_suppression": 0.0021577589213848114
+        }
+      ],
+      "max_discrimination_mass_value": 0.2054990530014038,
+      "null_row_mass_value": 0.005857944488525391,
+      "ratio_max_discrim_over_null": 35.08040293040293,
+      "verdict": "PASS",
+      "verdict_rule": "PASS iff ratio(-22.9 suppression / -19.1 suppression) > 3.0"
+    }
+  ],
+  "overall_verdict": "PASS",
+  "overall_verdict_note": "check2's PASS is only meaningful if check3 also PASSes (i.e. mass measurably discriminates elsewhere on the grid); overall_verdict requires all three."
+}
