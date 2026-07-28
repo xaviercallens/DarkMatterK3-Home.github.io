@@ -1,0 +1,25 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-07-28 16:56:36",
+    "python_version": "3.10.12",
+    "desisim_version": "0.39.0.dev2516",
+    "desisim_path": "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/phase1_work/agent3_synthetic/desisim/py/desisim/__init__.py",
+    "platform": "Linux-6.8.0-1064-gcp-x86_64-with-glibc2.35",
+    "fixed_seed": 12345
+  },
+  "n50_results": {
+    "n_skewers": 50,
+    "total_wall_clock_seconds": 0.105386,
+    "per_skewer_marginal_seconds": 0.00210771,
+    "peak_rss_mb": 52.71,
+    "initialization_time_seconds": 0.0003,
+    "command_used": "MockMaker.get_lya_skewers(Ns=50, new_seed=12345)"
+  },
+  "n200_extrapolation": {
+    "n_skewers": 200,
+    "extrapolation_method": "linear",
+    "assumption_note": "Linear scaling; assumes per-skewer cost is constant",
+    "estimated_wall_clock_seconds": 0.42,
+    "estimated_wall_clock_minutes": 0.01
+  }
+}
