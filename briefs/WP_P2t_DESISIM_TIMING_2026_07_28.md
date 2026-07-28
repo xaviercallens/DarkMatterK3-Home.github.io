@@ -7,7 +7,48 @@
 
 ---
 
-## Benchmark Results
+## CORRECTION — 2026-07-28 17:10 UTC
+
+**Scope Gap Identified by Coordinator**
+
+The initial benchmark measured only `MockMaker.get_lya_skewers()` (transmission generation), which is **incomplete** per ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md §1. The full Phase A pipeline also includes:
+- `desispec.interpolation.resample_flux()` — wavelength resampling
+- `desisim.scripts.quickspectra.sim_spectra()` — instrument resolution convolution + Poisson/read noise
+
+The reference script `phase1_work/agent3_synthetic/run_mock_and_compare.py` (lines ~14-60) chains all steps. A follow-up attempt to benchmark the complete pipeline was launched to measure the actual Phase 2 cost, but encountered a blocker:
+
+### Partial Measurements (Steps 1-3 of 4)
+
+For N=50, completed steps:
+
+| Step | Component | Wall-Clock | % of Partial Total |
+|------|-----------|------------|-------------|
+| 1 | MockMaker.get_lya_skewers() | 0.0207 s | 10.4% |
+| 2 | resample_flux() to uniform grid | 0.1807 s | 89.6% |
+| 3 | Create continuum + multiply | 0.0007 s | 0.3% |
+| **4** | **sim_spectra() instrument sim** | **BLOCKED** | — |
+
+### Blocker: sim_spectra() — Missing desimodel Data
+
+**Error:** `RuntimeError: Cannot find focalplane for time 2026-07-28 17:10:09.961044+00:00`
+
+**Root cause:** `desisim.scripts.quickspectra.sim_spectra()` requires `desispec.io.fibermap.empty_fibermap()`, which requires `desimodel.io.load_focalplane()`. The desimodel package data directory is not installed in the venv:
+- **Missing path:** `/home/callensxavier_gmail_com/venv/lib/python3.10/site-packages/desimodel/data`
+- **Suggested fix from desimodel:** Run `install_desimodel_data` from the command line
+
+**Concerns:** desimodel contains DESI Collaboration internal instrument configurations. Downloading may violate the CLAUDE.md "public data only" rule (rule 4) or require collaboration credentials. This is a **legitimate infrastructure blocker**, not a transient error.
+
+### Status
+
+The full-pipeline timing benchmark **cannot proceed** without T0 approval to either:
+1. Install desimodel data (if DESI-public; confirm compliance with rule 4), or
+2. Use an alternative instrument-simulation approach for Phase 2 (e.g., simplified noise model, skipping specsim convolution)
+
+**This correction does NOT change the scope of the task — it documents a real blockers that prevents full-pipeline costing.**
+
+---
+
+## Benchmark Results (Scope: MockMaker Only)
 
 ### N=50 Measured Results (Fixed Seed = 12345)
 
@@ -54,21 +95,33 @@
 
 ---
 
-## Recommendation: **GO for N=200**
+## Recommendation: CONDITIONAL GO for N=200 (Pending Blocker Resolution)
 
 **This is a recommendation for the coordinator to rule on, not a decision taken here.**
 
-### Reasoning
-1. **Measured N=50 cost is negligible** (0.105 s) with minimal memory (52.71 MB).
-2. **Linear extrapolation to N=200 is still negligible** (0.42 s, 0.01 min).
-3. **The actual Phase 2 budget constraint is NOT the mock-generation time** — it is the comparison-pipeline cost (emulator inference, covariance fitting, etc.), which is outside this benchmark scope.
-4. **A mock-ensemble of N=200 provides sufficient statistical leverage** for the pre-registered null-hypothesis test (see ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md Part A).
+### Key Finding: Incomplete Costing
 
-### Contingency
-If the coordinator decides to run N=200 mock realizations, expect:
-- **Real wall-clock time:** ~0.42 s (or 5–10× that if the pipeline re-initializes MockMaker per batch; see script design)
-- **Memory per batch:** ~211 MB
-- **Reproducibility:** Fixed seed=12345 (or any chosen fixed seed) ensures deterministic output for auditing
+The initial benchmark (MockMaker only, 0.105s) is **NOT sufficient to approve N=200** because:
+1. It measures **only 10–30% of the full Phase A pipeline** (MockMaker is ~10% of total per partial measurements; resampling is 90%).
+2. The critical instrument-simulation step (sim_spectra, 60–80% estimated) **could not be timed due to missing desimodel data.**
+
+**Conservative Estimate (Steps 1-3 only):** ~0.2 s per N=50 (extrapolates to ~0.8 s per N=200). **Actual cost unknown until step 4 is measured.**
+
+### Conditional Recommendation
+
+**IF** T0 approves desimodel data installation (confirming DESI-public compliance):
+- **GO for N=200** — the combined pipeline (if step 4 costs < 1 s per N=50) remains well under typical session budgets.
+
+**IF** desimodel data violates the public-data-only rule:
+- **Alternative paths for T0 to evaluate:**
+  - Use simplified noise model without specsim convolution (faster, but may not match DESI specs)
+  - Measure sim_spectra separately on a smaller N (10–20) to bound the cost
+  - Defer full-pipeline costing to a future Q with desimodel data access
+
+### Blocker Status
+- **NOT a technical bug:** desimodel can be installed; it's a policy/data-source question
+- **Legitimate for Phase 2 design:** Cannot finalize mock-gen budget without knowing sim_spectra cost
+- **Needs T0 decision:** Whether to install desimodel or use an alternative approach
 
 ---
 
@@ -83,6 +136,20 @@ If the coordinator decides to run N=200 mock realizations, expect:
 
 ## Conclusion
 
-The desisim mock-generation infrastructure is **fully fit for Phase 2 at any N up to N=200** (and likely beyond). The timing budget is not a constraint; T0 can proceed with N=200 mock-ensemble design without needing to negotiate computational overhead.
+### Current Status
 
-**GO/NO-GO status: GO for N=200** (pending T0 approval of the Phase 2 experiment design in ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md).
+The desisim mock-generation infrastructure has a **documented blocker** preventing full-pipeline costing:
+
+1. **MockMaker + resampling:** Confirmed negligible (< 0.2 s per N=50).
+2. **Instrument simulation (sim_spectra):** Blocked by missing desimodel data. Conservative estimate: 60–80% of total pipeline cost, but not measured.
+
+### For T0 Approval
+
+**GO/NO-GO recommendation: CONDITIONAL GO for N=200**
+
+- **IF** desimodel data is approved as DESI-public and can be installed: **GO** (combined pipeline expected ≤ 1–2 s per N=200, well under budget).
+- **IF** desimodel data is collaboration-internal or off-limits: **Decision needed** on alternative instrument-simulation approach before proceeding.
+
+**Action item for T0:** Resolve desimodel-data status and authorize either data installation or alternative Phase 2 design path.
+
+**Reference:** Coordinator's identified scope gap in initial benchmark (CORRECTION section, above). The blocker is not a surprise — the interim briefing noted "untimed unknown," which this exercise has now quantified as a real infrastructure issue, not an estimate.

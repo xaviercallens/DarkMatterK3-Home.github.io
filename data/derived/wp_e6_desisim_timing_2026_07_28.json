@@ -3,11 +3,13 @@
     "timestamp": "2026-07-28 16:56:36",
     "python_version": "3.10.12",
     "desisim_version": "0.39.0.dev2516",
+    "desispec_version": "0.63.0",
     "desisim_path": "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/phase1_work/agent3_synthetic/desisim/py/desisim/__init__.py",
     "platform": "Linux-6.8.0-1064-gcp-x86_64-with-glibc2.35",
     "fixed_seed": 12345
   },
-  "n50_results": {
+  "n50_results_original_scope": {
+    "note": "INCOMPLETE SCOPE — measures MockMaker only, not full pipeline",
     "n_skewers": 50,
     "total_wall_clock_seconds": 0.105386,
     "per_skewer_marginal_seconds": 0.00210771,
@@ -15,11 +17,35 @@
     "initialization_time_seconds": 0.0003,
     "command_used": "MockMaker.get_lya_skewers(Ns=50, new_seed=12345)"
   },
-  "n200_extrapolation": {
+  "n200_extrapolation_original_scope": {
     "n_skewers": 200,
     "extrapolation_method": "linear",
     "assumption_note": "Linear scaling; assumes per-skewer cost is constant",
     "estimated_wall_clock_seconds": 0.42,
-    "estimated_wall_clock_minutes": 0.01
+    "estimated_wall_clock_minutes": 0.01,
+    "WARNING": "Based on incomplete pipeline — does not include sim_spectra instrument simulation"
+  },
+  "correction_2026_07_28_extended_scope_attempt": {
+    "date": "2026-07-28 17:10:00",
+    "reason": "Coordinator identified that initial benchmark measured only MockMaker.get_lya_skewers(), missing the sim_spectra() instrument simulation (resolution convolution + Poisson/read noise) that ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md §1 specifies as part of the Phase A pipeline. Extended benchmark attempted to measure full pipeline per reference script run_mock_and_compare.py lines ~14-60.",
+    "partial_measurements_n50": {
+      "step1_mockmaker_seconds": 0.0207,
+      "step1_percent_of_total": 10.4,
+      "step2_resample_flux_seconds": 0.1807,
+      "step2_percent_of_total": 89.6,
+      "step3_continuum_seconds": 0.0007,
+      "step3_percent_of_total": 0.3
+    },
+    "blocker_sim_spectra": {
+      "status": "BLOCKED",
+      "step": "step4_instrument_simulation",
+      "component": "desisim.scripts.quickspectra.sim_spectra()",
+      "error": "RuntimeError: Cannot find focalplane for time 2026-07-28 17:10:09.961044+00:00",
+      "root_cause": "Missing desimodel data files. sim_spectra() requires desispec.io.fibermap.empty_fibermap() which requires desimodel.io.load_focalplane(), which is not installed in the venv.",
+      "missing_path": "/home/callensxavier_gmail_com/venv/lib/python3.10/site-packages/desimodel/data",
+      "suggested_fix": "install_desimodel_data from command line",
+      "concerns": "desimodel contains DESI collab-internal instrument configurations; downloading may violate public-data-only rule (CLAUDE.md rule 4) or require credentials. This is a legitimate infrastructure blocker requiring T0 decision.",
+      "recommendation": "Pending T0 decision on whether to: (a) install desimodel data if public-data compliant, or (b) use alternative instrument-simulation approach for Phase 2."
+    }
   }
 }
