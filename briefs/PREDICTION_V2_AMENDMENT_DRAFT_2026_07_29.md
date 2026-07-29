@@ -1,11 +1,18 @@
-# PREDICTION v2 Amendment — DRAFT (WP-E6-PIN)
+# PREDICTION v2 Amendment — PINNED (WP-E6-PIN)
 
-**Status: DRAFT. NOT PINNED.** This document is a proposal for a `PREDICTION.md` v2
-amendment. It carries no `PINNED:` header, is not itself hash-anchored as a pin, and
-authorizes nothing by its own existence. Per `CLAUDE.md` rule 5 and the `prereg-pipeline`
-skill, real-data comparison for the WP-E6 (m, f) sweep remains gated (synthetic-data infra
-only) until a T0 session pins this amendment (or a revised version of it). **WP-E6-SWEEP may
-not start before that pin — see §7.**
+**PINNED: 2026-07-29, by T0 ratification D1 (`T0_RATIFICATION_2026_07_29_PM.md`). The git
+commit introducing this revision IS the hash-pin (v1.0 `23b947e` precedent, §9 option 2 —
+standalone pinned file; `PREDICTION.md` v1.0 itself is immutability-hook-protected and is
+deliberately not edited).** The three §8 open items are resolved by the same ratification —
+see the §8 resolution block. Real-data contact is authorized ONLY per the resolved scheme
+(real DESI CSV observed vector, 9-bin restriction, real published covariance) and only
+after the sequencing gates in §7 are met. This pin commit predates any commit building the
+real-data `obs` vector, per the `prereg-pipeline` invariant.
+
+*(Original DRAFT header, superseded 2026-07-29, retained for the audit trail: "This
+document is a proposal for a `PREDICTION.md` v2 amendment... real-data comparison for the
+WP-E6 (m, f) sweep remains gated (synthetic-data infra only) until a T0 session pins this
+amendment (or a revised version of it).")*
 
 **Date:** 2026-07-29.
 **Authority:** drafted per `briefs/EXECUTION_PLAN_2026_07_29_TWISTED_AND_WPE6.md` WP-E6-PIN
@@ -249,6 +256,25 @@ listed, not decided:
 the WP-E6-PIN escalation trigger, they are listed for a T0 ruling; whichever is chosen must
 be recorded (in this file, on amendment, or in a superseding pinned version) before
 WP-E6-SWEEP treats any output as touching real data.
+
+### §8 RESOLUTION (2026-07-29, T0 ruling D1, `T0_RATIFICATION_2026_07_29_PM.md`) — all three items ruled
+
+1. **Observed vector: the real DESI DR1 P1D CSV** (`data/literature/desi_dr1_lya_p1d_
+   2026_07_27.csv`, provenance per `data/MANIFEST.md`), central values at z=4.2 — not the
+   synthetic mock-ensemble mean, which remains a null-cell sanity construction only.
+2. **k-bin scheme: strict restriction to the intersection of the emulator's 9 natively
+   resolved bins and the CSV's valid range — no interpolation, no rebinning across the
+   gap.** Verified numerically (coordinator, 2026-07-29): all 9 resolved bins
+   (log₁₀k = −2.2…−1.4, k ≈ 0.00631…0.03981 s/km, upper band edge ≈ 0.04467) lie inside
+   the CSV's k-range (max 0.0527412 s/km at every z), so the intersection is exactly the
+   9-bin set of the D2-ratified design — one bin set governs synthetic and real sides.
+   The mechanical mapping (which CSV rows feed which emulator bin, band-averaging scheme)
+   is built by WP-E6-BINMAP and verified before the sweep consumes it.
+3. **Covariance for the real comparison: the real published DESI uncertainties**
+   (`e_total_kms` / the full `COVARIANCE` HDU per `data/MANIFEST.md`), not the synthetic
+   `desisim`-mock covariance. The synthetic covariance (WP-E6-P2A) remains the
+   engineering/validation instrument for the pipeline itself; the final exclusion/FIT
+   constraint carries the survey's own uncertainties.
 
 ---
 

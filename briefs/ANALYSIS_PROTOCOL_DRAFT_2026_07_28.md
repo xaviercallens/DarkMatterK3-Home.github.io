@@ -219,6 +219,18 @@ Initialization: use the training-LHS medians already used as the grid-controls f
 goodness-of-fit or exclusion-significance statement (none is made in this document — F3/F4
 are mechanical triggers reserved for the gated, pinned comparison, CLAUDE.md rule 5).
 
+> **AMENDMENT (2026-07-29, T0 ruling D2, `T0_RATIFICATION_2026_07_29_PM.md`):** the
+> working design is now **9 k-bins, not 16**. WP-E6-P2A
+> (`WP_E6_P2A_COVARIANCE_RESULT_2026_07_29.md`) established that only the 9 bins at
+> log₁₀k = −2.2…−1.4 lie within the synthetic pipeline's native FFT-resolved range
+> (Nyquist k ≈ 0.0516 s/km); the 7 higher-k bins are not measurable by this pipeline and
+> are excluded, not extrapolated. With the same 4 profiled nuisance parameters:
+> **9 − 4 = 5 degrees of freedom** per cell. The same 9-bin set governs the real-data
+> comparison (T0 ruling D1: all 9 verified inside the real DESI CSV's k-range, so the
+> emulator∩real intersection is exactly this set). Downstream documents should cite 9
+> bins / 5 dof; the 16-bin/12-dof figures above are retained for the historical record
+> only.
+
 ### 2.4 Cost across 56 grid cells
 
 `predict_pk()` is a millisecond-scale MLP forward pass (5-fold ensemble, established by the
@@ -287,10 +299,20 @@ this repo's intake protocol.
 **Recommend: mock-calibrated multiplicative correction (DESI's approach), reusing Part A's
 ensemble.** This pipeline is uniquely positioned to do this cheaply: `compare_p1d.py`
 already computes `p_clean` and `p_masked` from the same underlying realization and writes
-them to `p1d_comparison.npz` — the ratio `p_masked / p_clean` **is** the correction
-function, and Part A's N-realization ensemble (§1) gives N independent draws of that ratio
-at z=4.2 to average/fit, at zero additional simulation cost beyond what Part A already
-requires.
+them to `p1d_comparison.npz` — the ratio `p_clean / p_masked` **is** the correction
+function A(k) (applied by *multiplying* the masked power by A(k)), and Part A's
+N-realization ensemble (§1) gives N independent draws of that ratio at z=4.2 to
+average/fit, at zero additional simulation cost beyond what Part A already requires.
+
+> **CORRECTION NOTE (2026-07-29, T0 ruling D3, `T0_RATIFICATION_2026_07_29_PM.md`):**
+> this paragraph originally stated the ratio as `p_masked / p_clean` — the *inverse* of
+> the correct direction. Ravoux et al. 2023 (arXiv:2306.06311) eq. (22)/(23) defines the
+> correction as "the ratio between the unmasked and the masked power spectra"
+> (A = P_CONT / P_masked), verified twice independently against the fetched paper PDF
+> (WP-E6-P2C producing session + coordinator pass, see
+> `WP_E6_P2C_MASKING_FIX_2026_07_29.md`). The implementation
+> (`pipeline/compare_p1d.py::calibrate_window_correction`) always had the correct
+> direction and pins it with a regression test; only this document was wrong.
 
 - **Against (i) interpolation across gaps:** interpolated values are correlated with their
   neighbors by construction, which does not remove bias so much as relocate and reshape it,
