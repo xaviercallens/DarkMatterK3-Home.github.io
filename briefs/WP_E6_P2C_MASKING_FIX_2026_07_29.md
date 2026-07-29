@@ -104,5 +104,20 @@ rejection; full ensemble before/after (above).
    regenerated with masking applied (P2A explicitly built unmasked, pending this fix).
 3. No gap interpolation was added (T0 ruling 2026-07-28, honored as instructed).
 
+## Coordinator verification (separate pass, after the above landed)
+
+The producing session's paper-citation claims above were checked, not just transcribed:
+confirmed `ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md` L290 reads exactly "the ratio
+`p_masked / p_clean` **is** the correction function" (grepped, not paraphrased). Then
+independently fetched arXiv:2306.06311 (WebFetch on the abstract page alone does return
+metadata only, as this brief already noted — the PDF itself had to be fetched and run
+through `pdftotext -layout`) and read Sec 5.3 directly: confirms verbatim "we impose a
+value of δF = 0 ... and infinite standard deviation to the masked spectrum pixels", eq.
+(22)/(23) "the ratio between the unmasked and the masked power spectra"
+(A = P_CONT / P_masked — unmasked-over-masked, opposite of the DRAFT's stated ratio),
+Sec 5.3.1 "we choose to model A_line(k,z) by a second-order polynomial fit", Sec 5.3.2
+"we apply a k-independent correction A_dla(k,z) = A_dla(z)". All match this brief and the
+module docstring exactly — no discrepancy found in the citation.
+
 ---
-Generated-by: T1 agent (WP-E6-P2C) | Verified-by: pytest pipeline/tests/test_compare_p1d.py (8/8 pass, this session) | Reviewed-by: pending T0.
+Generated-by: T1 agent (WP-E6-P2C) | Verified-by: pytest pipeline/tests/test_compare_p1d.py (8/8 pass, this session) + coordinator independent fetch/read of the cited paper (this session) | Reviewed-by: pending T0.
