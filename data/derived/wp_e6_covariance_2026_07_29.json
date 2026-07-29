@@ -1,0 +1,1470 @@
+{
+  "provenance": {
+    "generated_by": "pipeline/wp_e6_covariance.py (T1 agent, WP-E6-P2A)",
+    "verified_by": "pending (producer != verifier, not yet re-run by coordinator)",
+    "reviewed_by_t0": "pending",
+    "generated_at_utc": "2026-07-29T10:00:36.199255+00:00",
+    "status": "DRAFT -- not promoted to LIVE, producer != verifier",
+    "wp": "WP-E6-P2A",
+    "execution_plan": "briefs/EXECUTION_PLAN_2026_07_29_TWISTED_AND_WPE6.md",
+    "analysis_protocol": "briefs/ANALYSIS_PROTOCOL_DRAFT_2026_07_28.md Part A",
+    "timing_reference": "briefs/WP_P2t_DESISIM_TIMING_2026_07_28.md (48s benchmark, N=200)",
+    "desimodel_path": "/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/phase1_work/agent3_synthetic/desimodel_data_test"
+  },
+  "headline_finding": "Dimension conflict: only 9 of 16 K_BINS targets (log10 k = -2.2..-1.4) are fully within this pipeline's native FFT resolution (Nyquist k=0.05164 s/km, set by the DESI B-camera's ~1.0 Angstrom native pixel scale). The other 7 (log10 k = -1.3..-0.7) were NOT computed -- no extrapolation was performed (EXECUTION_PLAN Sec.0 rule 7, never fabricate a fallback result). This blocks a literal 16x16 covariance and needs T0/coordinator disposition before WP-E6-P2B / WP-E6-SWEEP proceed.",
+  "k_bins_target_s_per_km_16": [
+    0.00630957344480193,
+    0.007943282347242814,
+    0.01,
+    0.012589254117941675,
+    0.015848931924611134,
+    0.0199526231496888,
+    0.025118864315095794,
+    0.03162277660168379,
+    0.039810717055349734,
+    0.05011872336272722,
+    0.06309573444801933,
+    0.07943282347242814,
+    0.1,
+    0.12589254117941673,
+    0.15848931924611134,
+    0.19952623149688797
+  ],
+  "measurable_target_indices_0based": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "unmeasurable_target_indices_0based": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "k_bins_delivered_s_per_km": [
+    0.00630957344480193,
+    0.007943282347242814,
+    0.01,
+    0.012589254117941675,
+    0.015848931924611134,
+    0.0199526231496888,
+    0.025118864315095794,
+    0.03162277660168379,
+    0.039810717055349734
+  ],
+  "native_fft_nyquist_s_per_km": 0.051635662492067434,
+  "band_mode_counts_16": [
+    19,
+    23,
+    30,
+    37,
+    48,
+    59,
+    74,
+    94,
+    119,
+    90,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "n_realizations": 200,
+  "n_batches": 4,
+  "batch_size": 50,
+  "batch_seeds": [
+    20260729,
+    20260730,
+    20260731,
+    20260732
+  ],
+  "seed_records_per_realization": [
+    {
+      "realization_id": 0,
+      "batch_seed": 20260729,
+      "row_in_batch": 0
+    },
+    {
+      "realization_id": 1,
+      "batch_seed": 20260729,
+      "row_in_batch": 1
+    },
+    {
+      "realization_id": 2,
+      "batch_seed": 20260729,
+      "row_in_batch": 2
+    },
+    {
+      "realization_id": 3,
+      "batch_seed": 20260729,
+      "row_in_batch": 3
+    },
+    {
+      "realization_id": 4,
+      "batch_seed": 20260729,
+      "row_in_batch": 4
+    },
+    {
+      "realization_id": 5,
+      "batch_seed": 20260729,
+      "row_in_batch": 5
+    },
+    {
+      "realization_id": 6,
+      "batch_seed": 20260729,
+      "row_in_batch": 6
+    },
+    {
+      "realization_id": 7,
+      "batch_seed": 20260729,
+      "row_in_batch": 7
+    },
+    {
+      "realization_id": 8,
+      "batch_seed": 20260729,
+      "row_in_batch": 8
+    },
+    {
+      "realization_id": 9,
+      "batch_seed": 20260729,
+      "row_in_batch": 9
+    },
+    {
+      "realization_id": 10,
+      "batch_seed": 20260729,
+      "row_in_batch": 10
+    },
+    {
+      "realization_id": 11,
+      "batch_seed": 20260729,
+      "row_in_batch": 11
+    },
+    {
+      "realization_id": 12,
+      "batch_seed": 20260729,
+      "row_in_batch": 12
+    },
+    {
+      "realization_id": 13,
+      "batch_seed": 20260729,
+      "row_in_batch": 13
+    },
+    {
+      "realization_id": 14,
+      "batch_seed": 20260729,
+      "row_in_batch": 14
+    },
+    {
+      "realization_id": 15,
+      "batch_seed": 20260729,
+      "row_in_batch": 15
+    },
+    {
+      "realization_id": 16,
+      "batch_seed": 20260729,
+      "row_in_batch": 16
+    },
+    {
+      "realization_id": 17,
+      "batch_seed": 20260729,
+      "row_in_batch": 17
+    },
+    {
+      "realization_id": 18,
+      "batch_seed": 20260729,
+      "row_in_batch": 18
+    },
+    {
+      "realization_id": 19,
+      "batch_seed": 20260729,
+      "row_in_batch": 19
+    },
+    {
+      "realization_id": 20,
+      "batch_seed": 20260729,
+      "row_in_batch": 20
+    },
+    {
+      "realization_id": 21,
+      "batch_seed": 20260729,
+      "row_in_batch": 21
+    },
+    {
+      "realization_id": 22,
+      "batch_seed": 20260729,
+      "row_in_batch": 22
+    },
+    {
+      "realization_id": 23,
+      "batch_seed": 20260729,
+      "row_in_batch": 23
+    },
+    {
+      "realization_id": 24,
+      "batch_seed": 20260729,
+      "row_in_batch": 24
+    },
+    {
+      "realization_id": 25,
+      "batch_seed": 20260729,
+      "row_in_batch": 25
+    },
+    {
+      "realization_id": 26,
+      "batch_seed": 20260729,
+      "row_in_batch": 26
+    },
+    {
+      "realization_id": 27,
+      "batch_seed": 20260729,
+      "row_in_batch": 27
+    },
+    {
+      "realization_id": 28,
+      "batch_seed": 20260729,
+      "row_in_batch": 28
+    },
+    {
+      "realization_id": 29,
+      "batch_seed": 20260729,
+      "row_in_batch": 29
+    },
+    {
+      "realization_id": 30,
+      "batch_seed": 20260729,
+      "row_in_batch": 30
+    },
+    {
+      "realization_id": 31,
+      "batch_seed": 20260729,
+      "row_in_batch": 31
+    },
+    {
+      "realization_id": 32,
+      "batch_seed": 20260729,
+      "row_in_batch": 32
+    },
+    {
+      "realization_id": 33,
+      "batch_seed": 20260729,
+      "row_in_batch": 33
+    },
+    {
+      "realization_id": 34,
+      "batch_seed": 20260729,
+      "row_in_batch": 34
+    },
+    {
+      "realization_id": 35,
+      "batch_seed": 20260729,
+      "row_in_batch": 35
+    },
+    {
+      "realization_id": 36,
+      "batch_seed": 20260729,
+      "row_in_batch": 36
+    },
+    {
+      "realization_id": 37,
+      "batch_seed": 20260729,
+      "row_in_batch": 37
+    },
+    {
+      "realization_id": 38,
+      "batch_seed": 20260729,
+      "row_in_batch": 38
+    },
+    {
+      "realization_id": 39,
+      "batch_seed": 20260729,
+      "row_in_batch": 39
+    },
+    {
+      "realization_id": 40,
+      "batch_seed": 20260729,
+      "row_in_batch": 40
+    },
+    {
+      "realization_id": 41,
+      "batch_seed": 20260729,
+      "row_in_batch": 41
+    },
+    {
+      "realization_id": 42,
+      "batch_seed": 20260729,
+      "row_in_batch": 42
+    },
+    {
+      "realization_id": 43,
+      "batch_seed": 20260729,
+      "row_in_batch": 43
+    },
+    {
+      "realization_id": 44,
+      "batch_seed": 20260729,
+      "row_in_batch": 44
+    },
+    {
+      "realization_id": 45,
+      "batch_seed": 20260729,
+      "row_in_batch": 45
+    },
+    {
+      "realization_id": 46,
+      "batch_seed": 20260729,
+      "row_in_batch": 46
+    },
+    {
+      "realization_id": 47,
+      "batch_seed": 20260729,
+      "row_in_batch": 47
+    },
+    {
+      "realization_id": 48,
+      "batch_seed": 20260729,
+      "row_in_batch": 48
+    },
+    {
+      "realization_id": 49,
+      "batch_seed": 20260729,
+      "row_in_batch": 49
+    },
+    {
+      "realization_id": 50,
+      "batch_seed": 20260730,
+      "row_in_batch": 0
+    },
+    {
+      "realization_id": 51,
+      "batch_seed": 20260730,
+      "row_in_batch": 1
+    },
+    {
+      "realization_id": 52,
+      "batch_seed": 20260730,
+      "row_in_batch": 2
+    },
+    {
+      "realization_id": 53,
+      "batch_seed": 20260730,
+      "row_in_batch": 3
+    },
+    {
+      "realization_id": 54,
+      "batch_seed": 20260730,
+      "row_in_batch": 4
+    },
+    {
+      "realization_id": 55,
+      "batch_seed": 20260730,
+      "row_in_batch": 5
+    },
+    {
+      "realization_id": 56,
+      "batch_seed": 20260730,
+      "row_in_batch": 6
+    },
+    {
+      "realization_id": 57,
+      "batch_seed": 20260730,
+      "row_in_batch": 7
+    },
+    {
+      "realization_id": 58,
+      "batch_seed": 20260730,
+      "row_in_batch": 8
+    },
+    {
+      "realization_id": 59,
+      "batch_seed": 20260730,
+      "row_in_batch": 9
+    },
+    {
+      "realization_id": 60,
+      "batch_seed": 20260730,
+      "row_in_batch": 10
+    },
+    {
+      "realization_id": 61,
+      "batch_seed": 20260730,
+      "row_in_batch": 11
+    },
+    {
+      "realization_id": 62,
+      "batch_seed": 20260730,
+      "row_in_batch": 12
+    },
+    {
+      "realization_id": 63,
+      "batch_seed": 20260730,
+      "row_in_batch": 13
+    },
+    {
+      "realization_id": 64,
+      "batch_seed": 20260730,
+      "row_in_batch": 14
+    },
+    {
+      "realization_id": 65,
+      "batch_seed": 20260730,
+      "row_in_batch": 15
+    },
+    {
+      "realization_id": 66,
+      "batch_seed": 20260730,
+      "row_in_batch": 16
+    },
+    {
+      "realization_id": 67,
+      "batch_seed": 20260730,
+      "row_in_batch": 17
+    },
+    {
+      "realization_id": 68,
+      "batch_seed": 20260730,
+      "row_in_batch": 18
+    },
+    {
+      "realization_id": 69,
+      "batch_seed": 20260730,
+      "row_in_batch": 19
+    },
+    {
+      "realization_id": 70,
+      "batch_seed": 20260730,
+      "row_in_batch": 20
+    },
+    {
+      "realization_id": 71,
+      "batch_seed": 20260730,
+      "row_in_batch": 21
+    },
+    {
+      "realization_id": 72,
+      "batch_seed": 20260730,
+      "row_in_batch": 22
+    },
+    {
+      "realization_id": 73,
+      "batch_seed": 20260730,
+      "row_in_batch": 23
+    },
+    {
+      "realization_id": 74,
+      "batch_seed": 20260730,
+      "row_in_batch": 24
+    },
+    {
+      "realization_id": 75,
+      "batch_seed": 20260730,
+      "row_in_batch": 25
+    },
+    {
+      "realization_id": 76,
+      "batch_seed": 20260730,
+      "row_in_batch": 26
+    },
+    {
+      "realization_id": 77,
+      "batch_seed": 20260730,
+      "row_in_batch": 27
+    },
+    {
+      "realization_id": 78,
+      "batch_seed": 20260730,
+      "row_in_batch": 28
+    },
+    {
+      "realization_id": 79,
+      "batch_seed": 20260730,
+      "row_in_batch": 29
+    },
+    {
+      "realization_id": 80,
+      "batch_seed": 20260730,
+      "row_in_batch": 30
+    },
+    {
+      "realization_id": 81,
+      "batch_seed": 20260730,
+      "row_in_batch": 31
+    },
+    {
+      "realization_id": 82,
+      "batch_seed": 20260730,
+      "row_in_batch": 32
+    },
+    {
+      "realization_id": 83,
+      "batch_seed": 20260730,
+      "row_in_batch": 33
+    },
+    {
+      "realization_id": 84,
+      "batch_seed": 20260730,
+      "row_in_batch": 34
+    },
+    {
+      "realization_id": 85,
+      "batch_seed": 20260730,
+      "row_in_batch": 35
+    },
+    {
+      "realization_id": 86,
+      "batch_seed": 20260730,
+      "row_in_batch": 36
+    },
+    {
+      "realization_id": 87,
+      "batch_seed": 20260730,
+      "row_in_batch": 37
+    },
+    {
+      "realization_id": 88,
+      "batch_seed": 20260730,
+      "row_in_batch": 38
+    },
+    {
+      "realization_id": 89,
+      "batch_seed": 20260730,
+      "row_in_batch": 39
+    },
+    {
+      "realization_id": 90,
+      "batch_seed": 20260730,
+      "row_in_batch": 40
+    },
+    {
+      "realization_id": 91,
+      "batch_seed": 20260730,
+      "row_in_batch": 41
+    },
+    {
+      "realization_id": 92,
+      "batch_seed": 20260730,
+      "row_in_batch": 42
+    },
+    {
+      "realization_id": 93,
+      "batch_seed": 20260730,
+      "row_in_batch": 43
+    },
+    {
+      "realization_id": 94,
+      "batch_seed": 20260730,
+      "row_in_batch": 44
+    },
+    {
+      "realization_id": 95,
+      "batch_seed": 20260730,
+      "row_in_batch": 45
+    },
+    {
+      "realization_id": 96,
+      "batch_seed": 20260730,
+      "row_in_batch": 46
+    },
+    {
+      "realization_id": 97,
+      "batch_seed": 20260730,
+      "row_in_batch": 47
+    },
+    {
+      "realization_id": 98,
+      "batch_seed": 20260730,
+      "row_in_batch": 48
+    },
+    {
+      "realization_id": 99,
+      "batch_seed": 20260730,
+      "row_in_batch": 49
+    },
+    {
+      "realization_id": 100,
+      "batch_seed": 20260731,
+      "row_in_batch": 0
+    },
+    {
+      "realization_id": 101,
+      "batch_seed": 20260731,
+      "row_in_batch": 1
+    },
+    {
+      "realization_id": 102,
+      "batch_seed": 20260731,
+      "row_in_batch": 2
+    },
+    {
+      "realization_id": 103,
+      "batch_seed": 20260731,
+      "row_in_batch": 3
+    },
+    {
+      "realization_id": 104,
+      "batch_seed": 20260731,
+      "row_in_batch": 4
+    },
+    {
+      "realization_id": 105,
+      "batch_seed": 20260731,
+      "row_in_batch": 5
+    },
+    {
+      "realization_id": 106,
+      "batch_seed": 20260731,
+      "row_in_batch": 6
+    },
+    {
+      "realization_id": 107,
+      "batch_seed": 20260731,
+      "row_in_batch": 7
+    },
+    {
+      "realization_id": 108,
+      "batch_seed": 20260731,
+      "row_in_batch": 8
+    },
+    {
+      "realization_id": 109,
+      "batch_seed": 20260731,
+      "row_in_batch": 9
+    },
+    {
+      "realization_id": 110,
+      "batch_seed": 20260731,
+      "row_in_batch": 10
+    },
+    {
+      "realization_id": 111,
+      "batch_seed": 20260731,
+      "row_in_batch": 11
+    },
+    {
+      "realization_id": 112,
+      "batch_seed": 20260731,
+      "row_in_batch": 12
+    },
+    {
+      "realization_id": 113,
+      "batch_seed": 20260731,
+      "row_in_batch": 13
+    },
+    {
+      "realization_id": 114,
+      "batch_seed": 20260731,
+      "row_in_batch": 14
+    },
+    {
+      "realization_id": 115,
+      "batch_seed": 20260731,
+      "row_in_batch": 15
+    },
+    {
+      "realization_id": 116,
+      "batch_seed": 20260731,
+      "row_in_batch": 16
+    },
+    {
+      "realization_id": 117,
+      "batch_seed": 20260731,
+      "row_in_batch": 17
+    },
+    {
+      "realization_id": 118,
+      "batch_seed": 20260731,
+      "row_in_batch": 18
+    },
+    {
+      "realization_id": 119,
+      "batch_seed": 20260731,
+      "row_in_batch": 19
+    },
+    {
+      "realization_id": 120,
+      "batch_seed": 20260731,
+      "row_in_batch": 20
+    },
+    {
+      "realization_id": 121,
+      "batch_seed": 20260731,
+      "row_in_batch": 21
+    },
+    {
+      "realization_id": 122,
+      "batch_seed": 20260731,
+      "row_in_batch": 22
+    },
+    {
+      "realization_id": 123,
+      "batch_seed": 20260731,
+      "row_in_batch": 23
+    },
+    {
+      "realization_id": 124,
+      "batch_seed": 20260731,
+      "row_in_batch": 24
+    },
+    {
+      "realization_id": 125,
+      "batch_seed": 20260731,
+      "row_in_batch": 25
+    },
+    {
+      "realization_id": 126,
+      "batch_seed": 20260731,
+      "row_in_batch": 26
+    },
+    {
+      "realization_id": 127,
+      "batch_seed": 20260731,
+      "row_in_batch": 27
+    },
+    {
+      "realization_id": 128,
+      "batch_seed": 20260731,
+      "row_in_batch": 28
+    },
+    {
+      "realization_id": 129,
+      "batch_seed": 20260731,
+      "row_in_batch": 29
+    },
+    {
+      "realization_id": 130,
+      "batch_seed": 20260731,
+      "row_in_batch": 30
+    },
+    {
+      "realization_id": 131,
+      "batch_seed": 20260731,
+      "row_in_batch": 31
+    },
+    {
+      "realization_id": 132,
+      "batch_seed": 20260731,
+      "row_in_batch": 32
+    },
+    {
+      "realization_id": 133,
+      "batch_seed": 20260731,
+      "row_in_batch": 33
+    },
+    {
+      "realization_id": 134,
+      "batch_seed": 20260731,
+      "row_in_batch": 34
+    },
+    {
+      "realization_id": 135,
+      "batch_seed": 20260731,
+      "row_in_batch": 35
+    },
+    {
+      "realization_id": 136,
+      "batch_seed": 20260731,
+      "row_in_batch": 36
+    },
+    {
+      "realization_id": 137,
+      "batch_seed": 20260731,
+      "row_in_batch": 37
+    },
+    {
+      "realization_id": 138,
+      "batch_seed": 20260731,
+      "row_in_batch": 38
+    },
+    {
+      "realization_id": 139,
+      "batch_seed": 20260731,
+      "row_in_batch": 39
+    },
+    {
+      "realization_id": 140,
+      "batch_seed": 20260731,
+      "row_in_batch": 40
+    },
+    {
+      "realization_id": 141,
+      "batch_seed": 20260731,
+      "row_in_batch": 41
+    },
+    {
+      "realization_id": 142,
+      "batch_seed": 20260731,
+      "row_in_batch": 42
+    },
+    {
+      "realization_id": 143,
+      "batch_seed": 20260731,
+      "row_in_batch": 43
+    },
+    {
+      "realization_id": 144,
+      "batch_seed": 20260731,
+      "row_in_batch": 44
+    },
+    {
+      "realization_id": 145,
+      "batch_seed": 20260731,
+      "row_in_batch": 45
+    },
+    {
+      "realization_id": 146,
+      "batch_seed": 20260731,
+      "row_in_batch": 46
+    },
+    {
+      "realization_id": 147,
+      "batch_seed": 20260731,
+      "row_in_batch": 47
+    },
+    {
+      "realization_id": 148,
+      "batch_seed": 20260731,
+      "row_in_batch": 48
+    },
+    {
+      "realization_id": 149,
+      "batch_seed": 20260731,
+      "row_in_batch": 49
+    },
+    {
+      "realization_id": 150,
+      "batch_seed": 20260732,
+      "row_in_batch": 0
+    },
+    {
+      "realization_id": 151,
+      "batch_seed": 20260732,
+      "row_in_batch": 1
+    },
+    {
+      "realization_id": 152,
+      "batch_seed": 20260732,
+      "row_in_batch": 2
+    },
+    {
+      "realization_id": 153,
+      "batch_seed": 20260732,
+      "row_in_batch": 3
+    },
+    {
+      "realization_id": 154,
+      "batch_seed": 20260732,
+      "row_in_batch": 4
+    },
+    {
+      "realization_id": 155,
+      "batch_seed": 20260732,
+      "row_in_batch": 5
+    },
+    {
+      "realization_id": 156,
+      "batch_seed": 20260732,
+      "row_in_batch": 6
+    },
+    {
+      "realization_id": 157,
+      "batch_seed": 20260732,
+      "row_in_batch": 7
+    },
+    {
+      "realization_id": 158,
+      "batch_seed": 20260732,
+      "row_in_batch": 8
+    },
+    {
+      "realization_id": 159,
+      "batch_seed": 20260732,
+      "row_in_batch": 9
+    },
+    {
+      "realization_id": 160,
+      "batch_seed": 20260732,
+      "row_in_batch": 10
+    },
+    {
+      "realization_id": 161,
+      "batch_seed": 20260732,
+      "row_in_batch": 11
+    },
+    {
+      "realization_id": 162,
+      "batch_seed": 20260732,
+      "row_in_batch": 12
+    },
+    {
+      "realization_id": 163,
+      "batch_seed": 20260732,
+      "row_in_batch": 13
+    },
+    {
+      "realization_id": 164,
+      "batch_seed": 20260732,
+      "row_in_batch": 14
+    },
+    {
+      "realization_id": 165,
+      "batch_seed": 20260732,
+      "row_in_batch": 15
+    },
+    {
+      "realization_id": 166,
+      "batch_seed": 20260732,
+      "row_in_batch": 16
+    },
+    {
+      "realization_id": 167,
+      "batch_seed": 20260732,
+      "row_in_batch": 17
+    },
+    {
+      "realization_id": 168,
+      "batch_seed": 20260732,
+      "row_in_batch": 18
+    },
+    {
+      "realization_id": 169,
+      "batch_seed": 20260732,
+      "row_in_batch": 19
+    },
+    {
+      "realization_id": 170,
+      "batch_seed": 20260732,
+      "row_in_batch": 20
+    },
+    {
+      "realization_id": 171,
+      "batch_seed": 20260732,
+      "row_in_batch": 21
+    },
+    {
+      "realization_id": 172,
+      "batch_seed": 20260732,
+      "row_in_batch": 22
+    },
+    {
+      "realization_id": 173,
+      "batch_seed": 20260732,
+      "row_in_batch": 23
+    },
+    {
+      "realization_id": 174,
+      "batch_seed": 20260732,
+      "row_in_batch": 24
+    },
+    {
+      "realization_id": 175,
+      "batch_seed": 20260732,
+      "row_in_batch": 25
+    },
+    {
+      "realization_id": 176,
+      "batch_seed": 20260732,
+      "row_in_batch": 26
+    },
+    {
+      "realization_id": 177,
+      "batch_seed": 20260732,
+      "row_in_batch": 27
+    },
+    {
+      "realization_id": 178,
+      "batch_seed": 20260732,
+      "row_in_batch": 28
+    },
+    {
+      "realization_id": 179,
+      "batch_seed": 20260732,
+      "row_in_batch": 29
+    },
+    {
+      "realization_id": 180,
+      "batch_seed": 20260732,
+      "row_in_batch": 30
+    },
+    {
+      "realization_id": 181,
+      "batch_seed": 20260732,
+      "row_in_batch": 31
+    },
+    {
+      "realization_id": 182,
+      "batch_seed": 20260732,
+      "row_in_batch": 32
+    },
+    {
+      "realization_id": 183,
+      "batch_seed": 20260732,
+      "row_in_batch": 33
+    },
+    {
+      "realization_id": 184,
+      "batch_seed": 20260732,
+      "row_in_batch": 34
+    },
+    {
+      "realization_id": 185,
+      "batch_seed": 20260732,
+      "row_in_batch": 35
+    },
+    {
+      "realization_id": 186,
+      "batch_seed": 20260732,
+      "row_in_batch": 36
+    },
+    {
+      "realization_id": 187,
+      "batch_seed": 20260732,
+      "row_in_batch": 37
+    },
+    {
+      "realization_id": 188,
+      "batch_seed": 20260732,
+      "row_in_batch": 38
+    },
+    {
+      "realization_id": 189,
+      "batch_seed": 20260732,
+      "row_in_batch": 39
+    },
+    {
+      "realization_id": 190,
+      "batch_seed": 20260732,
+      "row_in_batch": 40
+    },
+    {
+      "realization_id": 191,
+      "batch_seed": 20260732,
+      "row_in_batch": 41
+    },
+    {
+      "realization_id": 192,
+      "batch_seed": 20260732,
+      "row_in_batch": 42
+    },
+    {
+      "realization_id": 193,
+      "batch_seed": 20260732,
+      "row_in_batch": 43
+    },
+    {
+      "realization_id": 194,
+      "batch_seed": 20260732,
+      "row_in_batch": 44
+    },
+    {
+      "realization_id": 195,
+      "batch_seed": 20260732,
+      "row_in_batch": 45
+    },
+    {
+      "realization_id": 196,
+      "batch_seed": 20260732,
+      "row_in_batch": 46
+    },
+    {
+      "realization_id": 197,
+      "batch_seed": 20260732,
+      "row_in_batch": 47
+    },
+    {
+      "realization_id": 198,
+      "batch_seed": 20260732,
+      "row_in_batch": 48
+    },
+    {
+      "realization_id": 199,
+      "batch_seed": 20260732,
+      "row_in_batch": 49
+    }
+  ],
+  "p_bar_delivered": [
+    12.650549593105547,
+    10.941353872530595,
+    8.895506948952876,
+    7.328725344863019,
+    5.4846030964836,
+    3.867891566764265,
+    2.59070032646623,
+    1.7460831019202816,
+    1.346080618191702
+  ],
+  "covariance_delivered": [
+    [
+      10.500827277418889,
+      1.771977059095598,
+      0.179716122098621,
+      0.9015487153135483,
+      0.6909475652438054,
+      0.25209754458440453,
+      0.11842368840806661,
+      0.15462387278725495,
+      0.11539382083611535
+    ],
+    [
+      1.771977059095598,
+      5.850682153501806,
+      0.4121542340846702,
+      1.1121860795082745,
+      0.48006705779688114,
+      0.20477173045416863,
+      0.09146784307979086,
+      0.045477108260332376,
+      0.0886407803699605
+    ],
+    [
+      0.179716122098621,
+      0.4121542340846702,
+      3.442895897687559,
+      0.5162594443616603,
+      0.5081541802174948,
+      0.20007520106434917,
+      0.08394863533869652,
+      0.03941438768393512,
+      0.022983345304266902
+    ],
+    [
+      0.9015487153135483,
+      1.1121860795082745,
+      0.5162594443616603,
+      2.3215625215865883,
+      0.6360374656753006,
+      0.1700576260275084,
+      0.15331521607686166,
+      0.06879941120516878,
+      0.06088522515633431
+    ],
+    [
+      0.6909475652438054,
+      0.48006705779688114,
+      0.5081541802174948,
+      0.6360374656753006,
+      1.1465563192472745,
+      0.22579440671190337,
+      0.11152501783601944,
+      0.07355588114185804,
+      0.06183378581293401
+    ],
+    [
+      0.25209754458440453,
+      0.20477173045416863,
+      0.20007520106434917,
+      0.1700576260275084,
+      0.22579440671190337,
+      0.37377467236816164,
+      0.05000493813239671,
+      0.0244427512231007,
+      0.03193254214691188
+    ],
+    [
+      0.11842368840806661,
+      0.09146784307979086,
+      0.08394863533869652,
+      0.15331521607686166,
+      0.11152501783601944,
+      0.05000493813239671,
+      0.11686600940372682,
+      0.016921909392402276,
+      0.013280703995147266
+    ],
+    [
+      0.15462387278725495,
+      0.045477108260332376,
+      0.03941438768393512,
+      0.06879941120516878,
+      0.07355588114185804,
+      0.0244427512231007,
+      0.016921909392402276,
+      0.039305650314948024,
+      0.012669679234218165
+    ],
+    [
+      0.11539382083611535,
+      0.0886407803699605,
+      0.022983345304266902,
+      0.06088522515633431,
+      0.06183378581293401,
+      0.03193254214691188,
+      0.013280703995147266,
+      0.012669679234218165,
+      0.02577995058945666
+    ]
+  ],
+  "hartlap_factor_p16_task_specified": 0.914572864321608,
+  "hartlap_factor_p16_formula": "(N-p-2)/(N-1), N=200, p=16 -> 182/199",
+  "hartlap_factor_p16_applied_to_stored_inverse": false,
+  "hartlap_factor_p_delivered_applied": 0.949748743718593,
+  "p_delivered": 9,
+  "hartlap_formula_applied": "(N-p-2)/(N-1), N=200, p=9 -> 189/199",
+  "covariance_inverse_naive_delivered": [
+    [
+      0.10793400949661788,
+      -0.023812891874159716,
+      0.00729714192370929,
+      -0.01277499051365619,
+      -0.022139153198493355,
+      -0.012176127423236564,
+      0.007591484149244563,
+      -0.2795661606200607,
+      -0.17591474015472808
+    ],
+    [
+      -0.023812891874159716,
+      0.19956294777836894,
+      -0.00813918475875211,
+      -0.07515527747027977,
+      -0.007567291624433309,
+      -0.026049637586907988,
+      0.01607080749774596,
+      0.1658994013278833,
+      -0.4342219943378872
+    ],
+    [
+      0.007297141923709291,
+      -0.00813918475875211,
+      0.3181747913060305,
+      -0.03350393852600659,
+      -0.10640096175826187,
+      -0.09880099146456237,
+      -0.058223314202799525,
+      -0.06893888675927809,
+      0.2322507800172913
+    ],
+    [
+      -0.012774990513656194,
+      -0.07515527747027978,
+      -0.033503938526006596,
+      0.5725644317868439,
+      -0.20065708818345496,
+      0.017388632236679535,
+      -0.4142342840835123,
+      -0.21485329934023695,
+      -0.22805066477666083
+    ],
+    [
+      -0.022139153198493345,
+      -0.00756729162443331,
+      -0.10640096175826184,
+      -0.20065708818345498,
+      1.2969624351444158,
+      -0.38878718968456377,
+      -0.4125456776308646,
+      -1.0677848482394603,
+      -1.198053165236019
+    ],
+    [
+      -0.012176127423236555,
+      -0.02604963758690796,
+      -0.09880099146456235,
+      0.01738863223667955,
+      -0.38878718968456366,
+      3.2898750980873226,
+      -0.6536297790427599,
+      -0.0563074857570477,
+      -2.5870357352660722
+    ],
+    [
+      0.007591484149244574,
+      0.016070807497745934,
+      -0.05822331420279951,
+      -0.4142342840835123,
+      -0.41254567763086464,
+      -0.6536297790427597,
+      10.262536104637007,
+      -2.0008064300295665,
+      -1.563402225355685
+    ],
+    [
+      -0.2795661606200608,
+      0.1658994013278833,
+      -0.0689388867592781,
+      -0.21485329934023692,
+      -1.0677848482394605,
+      -0.056307485757047616,
+      -2.0008064300295674,
+      33.39668746726484,
+      -11.50154982479542
+    ],
+    [
+      -0.17591474015472805,
+      -0.4342219943378873,
+      0.2322507800172913,
+      -0.22805066477666103,
+      -1.198053165236019,
+      -2.5870357352660722,
+      -1.5634022253556845,
+      -11.501549824795422,
+      53.93769400111259
+    ]
+  ],
+  "covariance_inverse_hartlap_corrected_delivered": [
+    [
+      0.10251018992392352,
+      -0.022616264141789882,
+      0.0069304513747791745,
+      -0.01213303119136191,
+      -0.021026632937262535,
+      -0.011564261723576436,
+      0.007210002533704635,
+      -0.265517609835133,
+      -0.1670748034635357
+    ],
+    [
+      -0.022616264141789882,
+      0.18953465894528507,
+      -0.007730180499518336,
+      -0.07137863036122048,
+      -0.007187025713657766,
+      -0.024740610572490503,
+      0.01526322923152757,
+      0.15756274799482384,
+      -0.4124017936173904
+    ],
+    [
+      0.006930451374779176,
+      -0.007730180499518336,
+      0.30218610832582793,
+      -0.031820323524699726,
+      -0.10105417976035927,
+      -0.09383611752161954,
+      -0.055297519519241764,
+      -0.0654746210929827,
+      0.2205798865490857
+    ],
+    [
+      -0.012133031191361913,
+      -0.0713786303612205,
+      -0.03182032352469973,
+      0.543792349787505,
+      -0.19057381742046728,
+      0.016514831621771014,
+      -0.3934184909134866,
+      -0.20405665113218485,
+      -0.2165908323758236
+    ],
+    [
+      -0.021026632937262524,
+      -0.007187025713657767,
+      -0.10105417976035924,
+      -0.1905738174204673,
+      1.231788443428616,
+      -0.36925014497679676,
+      -0.39181473905644926,
+      -1.014127318177176,
+      -1.1378494885909929
+    ],
+    [
+      -0.011564261723576427,
+      -0.024740610572490475,
+      -0.09383611752161952,
+      0.016514831621771028,
+      -0.36925014497679665,
+      3.1245547413995176,
+      -0.6207840615029226,
+      -0.05347796385970862,
+      -2.4570339395240586
+    ],
+    [
+      0.007210002533704646,
+      0.015263229231527545,
+      -0.05529751951924175,
+      -0.3934184909134866,
+      -0.3918147390564493,
+      -0.6207840615029225,
+      9.746830772745701,
+      -1.9002633933446638,
+      -1.4848392994584143
+    ],
+    [
+      -0.2655176098351331,
+      0.15756274799482384,
+      -0.06547462109298272,
+      -0.20405665113218482,
+      -1.0141273181771762,
+      -0.053477963859708544,
+      -1.9002633933446644,
+      31.71846196639726,
+      -10.923582496916254
+    ],
+    [
+      -0.16707480346353568,
+      -0.41240179361739043,
+      0.2205798865490857,
+      -0.2165908323758238,
+      -1.1378494885909929,
+      -2.4570339395240586,
+      -1.4848392994584139,
+      -10.923582496916255,
+      51.22725711663457
+    ]
+  ],
+  "validation": {
+    "symmetry_exact": true,
+    "min_eigenvalue": 0.01689079879486377,
+    "positive_definite": true,
+    "stability_check_n100_subsample": {
+      "subsample_size": 100,
+      "subsample_rng_seed": 20260729,
+      "max_relative_diagonal_drift": 0.184051615144526,
+      "max_relative_diagonal_drift_percent": 18.4051615144526,
+      "max_drift_at_delivered_bin_index": 3,
+      "max_drift_at_target_k_bin_index": 3,
+      "exceeds_20_percent_flag": false
+    },
+    "wall_clock_seconds": 29.472127199172974,
+    "benchmark_seconds": 48.0,
+    "wall_clock_ratio_vs_benchmark": 0.6140026499827703
+  },
+  "per_batch_timing": [
+    {
+      "mockmaker_seconds": 0.018483400344848633,
+      "resample_seconds": 0.06253552436828613,
+      "sim_spectra_seconds": 7.856220722198486,
+      "batch_total_seconds": 7.944302797317505,
+      "dv_kms": 60.7958177938167,
+      "n_forest_pixels": 1331
+    },
+    {
+      "mockmaker_seconds": 0.014256954193115234,
+      "resample_seconds": 0.06502890586853027,
+      "sim_spectra_seconds": 6.7631144523620605,
+      "batch_total_seconds": 6.8497419357299805,
+      "dv_kms": 60.7958177938167,
+      "n_forest_pixels": 1331
+    },
+    {
+      "mockmaker_seconds": 0.01287078857421875,
+      "resample_seconds": 0.06475019454956055,
+      "sim_spectra_seconds": 6.90822172164917,
+      "batch_total_seconds": 6.993224382400513,
+      "dv_kms": 60.7958177938167,
+      "n_forest_pixels": 1331
+    },
+    {
+      "mockmaker_seconds": 0.013141632080078125,
+      "resample_seconds": 0.06544780731201172,
+      "sim_spectra_seconds": 6.606877088546753,
+      "batch_total_seconds": 6.693390607833862,
+      "dv_kms": 60.7958177938167,
+      "n_forest_pixels": 1331
+    }
+  ],
+  "estimator_notes": {
+    "flux_power_1d_delta": "Uses flux-contrast delta_F = flux/mean_spec - 1 (units s/km, matches the emulator's P1D quantity), NOT compare_p1d.py's mean-subtracted absolute flux (units flux^2*km/s). Intentional deviation, documented in module docstring.",
+    "masking": "No MASK_FRAC pixel masking applied. ANALYSIS_PROTOCOL Sec 1.3 notes Part A should consume Part C's (WP-E6-P2C) corrected masking estimator once it lands; P2C has not landed as of this run, so this covariance is built on unmasked sim_spectra output and may need regeneration.",
+    "band_averaging": "Native FFT modes are averaged into 0.05-dex-half-width log bands centered on each K_BINS value (uniform 0.1 dex spacing), not point interpolation -- point interpolation would give single-mode chi^2(2 dof)-level scatter per bin instead of a band-averaged estimate."
+  }
+}
