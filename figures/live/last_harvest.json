@@ -1,0 +1,10 @@
+{
+  "harvested_utc": "2026-07-30T06:01:06Z",
+  "run_id": "20260729_074350",
+  "n_checkpoints": 75,
+  "latest_generation": 75,
+  "best_chi2_loss": 4.905883986492089e-06,
+  "best_candidate_id": "cooper_s10_g63_32",
+  "f5b_label": "PHENOMENOLOGICAL CONVERGENCE (F5b) \u2014 evolutionary population, not a Bayesian posterior",
+  "kodaira_field_policy": "ignored per E-008/E-009 retraction"
+}
