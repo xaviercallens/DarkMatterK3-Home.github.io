@@ -354,6 +354,129 @@ def fetch_desi_dr1_bgs_clustering() -> dict:
     )
 
 
+# ============================================================================
+# WP-E6-BINMAP-C (T1 delegated ruling R2, briefs/T1_DELEGATED_RULINGS_2026_07_31.md,
+# executing T0-ratified D1 `dbf1337`): DESI DR1 Lya P1D data release from the
+# paper's own Zenodo record (arXiv:2505.07974 Data Availability). The artifact
+# is already hash-pinned in data/MANIFEST.md (literature section, 2026-07-27
+# entry): file data_points.tar -> the contcorr_v3 FITS whose COVARIANCE HDU is
+# the real published covariance. HARD GATE: the extracted FITS SHA-256 must
+# equal the MANIFEST-pinned value below BEFORE anything reads the FITS;
+# a mismatch raises and nothing downstream may proceed.
+# ============================================================================
+
+DESI_DR1_LYA_P1D_ZENODO_TAR_URL = (
+    "https://zenodo.org/records/16943723/files/data_points.tar"
+)
+# Zenodo-published md5 for the parent tar (also recorded in data/MANIFEST.md).
+DESI_DR1_LYA_P1D_TAR_MD5 = "33d7fc21bfd3d745ed71a0bbe80ca433"
+DESI_DR1_LYA_P1D_FITS_NAME = (
+    "desi_y1_baseline_p1d_sb1subt_qmle_power_estimate_contcorr_v3.fits"
+)
+# MANIFEST-pinned SHA-256 of the FITS (data/MANIFEST.md "Source file SHA256",
+# 2026-07-27 literature entry). This is the hard gate value.
+DESI_DR1_LYA_P1D_FITS_SHA256 = (
+    "bbb98dc3d1865a50bb878e949a644604ce729da419db8e7db5adbb532a894857"
+)
+DESI_DR1_LYA_P1D_RAW_SUBDIR = "raw/desi_dr1_lya_p1d_zenodo"
+
+
+def _compute_md5(file_path: Path) -> str:
+    md5_hash = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for byte_block in iter(lambda: f.read(1 << 20), b""):
+            md5_hash.update(byte_block)
+    return md5_hash.hexdigest()
+
+
+def fetch_desi_dr1_lya_p1d_covariance() -> dict:
+    """DESI DR1 Lya P1D data release (Zenodo DOI 10.5281/zenodo.16943723):
+    fetch data_points.tar, verify its Zenodo-published md5, extract ONLY the
+    baseline contcorr_v3 FITS, and hard-gate its SHA-256 against the
+    MANIFEST-pinned value. Idempotent: if the FITS is already present with
+    the pinned SHA-256, nothing is re-downloaded.
+
+    Returns a fetch_file()-shaped dict describing the FITS (path relative to
+    data/, full SHA-256). Raises ValueError on any checksum failure — a hash
+    mismatch is a hard stop, never worked around.
+    """
+    from datetime import datetime
+
+    dest_dir = DATA_DIR / DESI_DR1_LYA_P1D_RAW_SUBDIR
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    fits_path = dest_dir / DESI_DR1_LYA_P1D_FITS_NAME
+    tar_path = dest_dir / "data_points.tar"
+
+    # Idempotency: FITS already present and hash-verified -> cached.
+    if fits_path.exists():
+        computed = compute_sha256(fits_path)
+        if computed == DESI_DR1_LYA_P1D_FITS_SHA256:
+            logger.info(f"DESI DR1 Lya P1D FITS already cached + SHA-256 verified: {fits_path}")
+            return {
+                "url": DESI_DR1_LYA_P1D_ZENODO_TAR_URL,
+                "version": "cached",
+                "sha256": computed,
+                "path": str(fits_path.relative_to(DATA_DIR)),
+                "retrieved": datetime.now().isoformat(),
+                "status": "cached",
+            }
+        raise ValueError(
+            "HARD-GATE FAILURE (WP-E6-BINMAP-C): cached FITS SHA-256 mismatch: "
+            f"got {computed}, MANIFEST pin {DESI_DR1_LYA_P1D_FITS_SHA256}. "
+            "Stopping — do not read this file; escalate."
+        )
+
+    # Fetch the parent tar (md5-verified against Zenodo's published checksum).
+    if not tar_path.exists() or _compute_md5(tar_path) != DESI_DR1_LYA_P1D_TAR_MD5:
+        result = fetch_file(DESI_DR1_LYA_P1D_ZENODO_TAR_URL, tar_path)
+        logger.info(f"Fetched {tar_path} ({result['status']}), verifying md5...")
+    tar_md5 = _compute_md5(tar_path)
+    if tar_md5 != DESI_DR1_LYA_P1D_TAR_MD5:
+        raise ValueError(
+            "HARD-GATE FAILURE (WP-E6-BINMAP-C): data_points.tar md5 mismatch: "
+            f"got {tar_md5}, Zenodo published {DESI_DR1_LYA_P1D_TAR_MD5}. "
+            "Stopping — escalate."
+        )
+
+    # Extract ONLY the baseline FITS member (no blanket extraction).
+    import tarfile
+    with tarfile.open(tar_path, "r") as tar:
+        members = [m for m in tar.getmembers()
+                   if m.isfile() and Path(m.name).name == DESI_DR1_LYA_P1D_FITS_NAME]
+        if len(members) != 1:
+            raise ValueError(
+                f"Expected exactly 1 tar member named {DESI_DR1_LYA_P1D_FITS_NAME}, "
+                f"found {len(members)}."
+            )
+        src = tar.extractfile(members[0])
+        with open(fits_path, "wb") as out:
+            while True:
+                chunk = src.read(1 << 20)
+                if not chunk:
+                    break
+                out.write(chunk)
+
+    # HARD GATE: SHA-256 of the extracted FITS vs the MANIFEST pin, BEFORE
+    # any consumer reads it.
+    computed = compute_sha256(fits_path)
+    if computed != DESI_DR1_LYA_P1D_FITS_SHA256:
+        raise ValueError(
+            "HARD-GATE FAILURE (WP-E6-BINMAP-C): extracted FITS SHA-256 mismatch: "
+            f"got {computed}, MANIFEST pin {DESI_DR1_LYA_P1D_FITS_SHA256}. "
+            "Stopping — do not read this file; escalate."
+        )
+    logger.info(f"SHA-256 hard gate PASSED for {fits_path.name}: {computed}")
+
+    return {
+        "url": DESI_DR1_LYA_P1D_ZENODO_TAR_URL,
+        "version": "retrieved",
+        "sha256": computed,
+        "path": str(fits_path.relative_to(DATA_DIR)),
+        "retrieved": datetime.now().isoformat(),
+        "status": "new",
+    }
+
+
 def fetch_all_datasets() -> dict:
     """Fetch all required datasets for Stream 3 observables (P1, P2, nulls),
     plus the WP-E7 Task B scoped acquisition (eBOSS LRG clustering + DESI DR1
@@ -396,6 +519,7 @@ def fetch_all_datasets() -> dict:
     for name, fetcher in {
         "desi_dr1_lrg_clustering": fetch_desi_dr1_lrg_clustering,
         "desi_dr1_bgs_clustering": fetch_desi_dr1_bgs_clustering,
+        "desi_dr1_lya_p1d_covariance_fits": fetch_desi_dr1_lya_p1d_covariance,
     }.items():
         try:
             results[name] = fetcher()

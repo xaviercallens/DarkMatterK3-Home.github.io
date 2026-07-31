@@ -208,7 +208,8 @@ class TestIndependentVerification:
 
 
 class TestCovarianceBlocking:
-    """Test that covariance_block() is intentionally blocked."""
+    """covariance_block() without an explicit path stays blocked: real-data
+    contact must be a deliberate act (WP-E6-BINMAP-C keeps this invariant)."""
 
     def test_covariance_raises_not_implemented(self):
         """covariance_block() should always raise NotImplementedError."""
@@ -224,6 +225,136 @@ class TestCovarianceBlocking:
         except NotImplementedError as e:
             assert '10.5281/zenodo.16943723' in str(e)
             assert 'COVARIANCE' in str(e)
+
+
+# --------------------------------------------------------------------------
+# WP-E6-BINMAP-C (2026-07-31, T1 ruling R2 executing T0 D1): real covariance
+# extraction tests. The raw FITS lives in data/raw/ (gitignored), so the
+# FITS-dependent tests skip on a clean checkout; the derived-artifact tests
+# below run everywhere (npy/json + CSV are all tracked).
+# --------------------------------------------------------------------------
+
+COVARIANCE_FITS_PATH = os.path.join(
+    repo_root, 'data', 'raw', 'desi_dr1_lya_p1d_zenodo',
+    'desi_y1_baseline_p1d_sb1subt_qmle_power_estimate_contcorr_v3.fits')
+
+needs_fits = pytest.mark.skipif(
+    not os.path.isfile(COVARIANCE_FITS_PATH),
+    reason="raw Zenodo FITS not fetched (run scripts/fetch_data.py)")
+
+
+class TestCovarianceHashGate:
+    """The SHA-256 hard gate must refuse to read any non-pinned file."""
+
+    def test_wrong_hash_hard_stops(self, tmp_path):
+        """A file with a non-pinned SHA-256 raises RuntimeError, unread."""
+        fake = tmp_path / 'tampered.fits'
+        fake.write_bytes(b'not the pinned DESI FITS')
+        map_out = binmap.restriction_map(DESI_CSV_PATH, z_target=4.2)
+        with pytest.raises(RuntimeError, match='HARD-GATE FAILURE'):
+            binmap.covariance_block(map_out, covariance_fits_path=str(fake))
+
+    def test_pin_matches_manifest_value(self):
+        """The module pin must be the data/MANIFEST.md value, verbatim."""
+        assert binmap.COVARIANCE_FITS_SHA256_PIN == (
+            'bbb98dc3d1865a50bb878e949a644604ce729da419db8e7db5adbb532a894857')
+
+
+@pytest.fixture(scope='module')
+def result():
+    """Shared real-extraction result (module-scoped: one FITS read)."""
+    map_out = binmap.restriction_map(DESI_CSV_PATH, z_target=4.2)
+    return binmap.covariance_block(
+        map_out, covariance_fits_path=COVARIANCE_FITS_PATH)
+
+
+@needs_fits
+class TestCovarianceBlockReal:
+    """Real member-level sub-block extraction from the hash-gated FITS."""
+
+    def test_shape_66x66(self, result):
+        assert result['cov_member'].shape == (66, 66)
+        assert len(result['member_csv_indices']) == 66
+
+    def test_grouping_member_counts(self, result):
+        counts = [len(g['member_csv_indices']) for g in result['grouping']]
+        assert counts == [3, 4, 4, 6, 8, 9, 11, 11, 10]
+        # positions partition 0..65 in order
+        flat = [p for g in result['grouping'] for p in g['member_positions']]
+        assert flat == list(range(66))
+
+    def test_mandatory_checks_all_pass(self, result):
+        checks = result['checks']
+        assert checks['diag_matches_csv_e_total_sq_rtol1e6']
+        assert checks['symmetric']
+        assert checks['positive_definite_cholesky']
+        assert checks['max_rel_diag_discrepancy'] <= 1e-6
+
+    def test_diag_matches_csv_independently(self, result):
+        """Independent re-derivation of check 1, not reusing the module's."""
+        df = pd.read_csv(DESI_CSV_PATH)
+        e_sq = df.loc[result['member_csv_indices'], 'e_total_kms'].values ** 2
+        np.testing.assert_allclose(np.diag(result['cov_member']), e_sq, rtol=1e-6)
+
+    def test_symmetry_and_cholesky_independently(self, result):
+        sub = result['cov_member']
+        assert np.allclose(sub, sub.T)
+        np.linalg.cholesky(sub)  # raises LinAlgError if not positive-definite
+
+    def test_no_aggregated_block_fabricated(self, result):
+        """No aggregation rule is pinned; a 9x9 must NOT be fabricated."""
+        assert result['aggregated_9x9'] is None
+        assert 'band-aggregation rule' in result['aggregation_note']
+
+    def test_provenance_sha_is_pin(self, result):
+        assert result['provenance']['fits_sha256'] == \
+            binmap.COVARIANCE_FITS_SHA256_PIN
+        assert result['provenance']['hdu'] == 'COVARIANCE'
+        assert result['provenance']['z_selected'] == 4.2
+
+
+class TestDerivedCovarianceArtifacts:
+    """The committed data/derived/ artifacts must stay self-consistent with
+    the committed CSV (runs on a clean checkout, no raw FITS needed)."""
+
+    NPY = os.path.join(repo_root, 'data', 'derived',
+                       'wp_e6_binmap_c_cov_member66_z4p2_2026_07_31.npy')
+    JSON = os.path.join(repo_root, 'data', 'derived',
+                        'wp_e6_binmap_c_cov_z4p2_2026_07_31.json')
+
+    def test_artifacts_exist(self):
+        assert os.path.isfile(self.NPY)
+        assert os.path.isfile(self.JSON)
+
+    def test_npy_consistent_with_csv_and_map(self):
+        sub = np.load(self.NPY)
+        assert sub.shape == (66, 66)
+        with open(self.JSON) as f:
+            meta = json.load(f)
+        # member indices in the JSON must equal a fresh restriction_map's
+        map_out = binmap.restriction_map(DESI_CSV_PATH, z_target=4.2)
+        fresh = [i for b in map_out['bands'] for i in b['members']]
+        assert meta['member_csv_indices'] == fresh
+        # diagonal must equal the CSV's e_total_kms**2 (rtol 1e-6)
+        df = pd.read_csv(DESI_CSV_PATH)
+        e_sq = df.loc[fresh, 'e_total_kms'].values ** 2
+        np.testing.assert_allclose(np.diag(sub), e_sq, rtol=1e-6)
+        # symmetric + positive-definite
+        assert np.allclose(sub, sub.T)
+        np.linalg.cholesky(sub)
+
+    def test_json_label_and_checks(self):
+        with open(self.JSON) as f:
+            meta = json.load(f)
+        assert meta['label'].startswith('DRAFT')
+        assert all([
+            meta['checks']['diag_matches_csv_e_total_sq_rtol1e6'],
+            meta['checks']['symmetric'],
+            meta['checks']['positive_definite_cholesky'],
+        ])
+        assert meta['aggregated_9x9'] is None
+        assert meta['provenance']['fits_sha256'] == \
+            binmap.COVARIANCE_FITS_SHA256_PIN
 
 
 class TestEscalationFlags:

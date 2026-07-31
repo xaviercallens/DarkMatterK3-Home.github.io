@@ -198,3 +198,51 @@ The 2026-07-27 row-count "mismatch" note earlier in this file is superseded: it 
 the eBOSS-only fetch against the combined sample's published count (root cause:
 `briefs/WP_E7_EBOSS_LRG_SAMPLE_IDENTITY_INVESTIGATION_2026_07_28.md`). Both catalogs now
 carry correct comparators in `scripts/fetch_data.py::PUBLISHED_ROW_COUNTS`.
+| nanograv_15yr | ERROR | HTTP Error 404: Not Found | | | |
+| epta_dr2 | ERROR | HTTP Error 404: NOT FOUND | | | |
+| sdss_lensing | ERROR | HTTP Error 404: Not Found | | | |
+| lyman_alpha | ERROR | HTTP Error 404: Not Found | | | |
+| eboss_lrgpcmass_clustering_data_ngc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_data-NGC-vDR16.fits | cached | 4059343f572f10d8... | 2026-07-31T17:56:26.652895 | unknown |
+| eboss_lrgpcmass_clustering_data_sgc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_data-SGC-vDR16.fits | cached | ff2398f3d963124b... | 2026-07-31T17:56:26.786973 | unknown |
+| eboss_lrgpcmass_clustering_random_ngc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_random-NGC-vDR16.fits | cached | 3310efb5e279a988... | 2026-07-31T17:56:37.038093 | unknown |
+| eboss_lrgpcmass_clustering_random_sgc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_random-SGC-vDR16.fits | cached | 57977bf3cb320dc6... | 2026-07-31T17:56:41.945545 | unknown |
+| eboss_lrg_clustering_data_ngc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_data-NGC-vDR16.fits | cached | 5eb836c7e6e69eb2... | 2026-07-31T17:56:42.156797 | WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep) |
+| eboss_lrg_clustering_data_sgc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_data-SGC-vDR16.fits | cached | aec4b569ad957d82... | 2026-07-31T17:56:42.176184 | WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep) |
+| eboss_lrg_clustering_random_ngc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_random-NGC-vDR16.fits | cached | 5da0bf41e2679683... | 2026-07-31T17:56:46.222283 | WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep) |
+| eboss_lrg_clustering_random_sgc | https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_random-SGC-vDR16.fits | cached | 4aabcaa99cc2855d... | 2026-07-31T17:56:48.011750 | WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep) |
+| desi_dr1_lrg_clustering | ERROR | unreachable: HTTP Error 404: Not Found | | | |
+| desi_dr1_bgs_clustering | ERROR | unreachable: HTTP Error 404: Not Found | | | |
+| desi_dr1_lya_p1d_covariance_fits | https://zenodo.org/records/16943723/files/data_points.tar | retrieved | bbb98dc3d1865a50... | 2026-07-31T17:57:23.009479 | WP-E6-BINMAP-C (T1 ruling R2 2026-07-31, executing T0 D1 dbf1337; real COVARIANCE HDU for the 9-bin z=4.2 sub-block) |
+
+## Full-fidelity provenance — scripts/fetch_data.py (WP-E7 Task B, 2026-07-31T17:57:23.010211+00:00)
+
+- **nanograv_15yr**: ERROR — HTTP Error 404: Not Found (url: n/a)
+- **epta_dr2**: ERROR — HTTP Error 404: NOT FOUND (url: n/a)
+- **sdss_lensing**: ERROR — HTTP Error 404: Not Found (url: n/a)
+- **lyman_alpha**: ERROR — HTTP Error 404: Not Found (url: n/a)
+- **eboss_lrgpcmass_clustering_data_ngc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRGpCMASS_clustering_data-NGC-vDR16.fits`, sha256: `4059343f572f10d831ac6d524ebc53e0150f9d8772df41e64a664f89ddf990ff`, retrieved: 2026-07-31T17:56:26.652895, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_data-NGC-vDR16.fits`
+- **eboss_lrgpcmass_clustering_data_sgc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRGpCMASS_clustering_data-SGC-vDR16.fits`, sha256: `ff2398f3d963124b8685c58249c01af48f42d28c62759d680778f3851891c94e`, retrieved: 2026-07-31T17:56:26.786973, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_data-SGC-vDR16.fits`
+- **eboss_lrgpcmass_clustering_random_ngc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRGpCMASS_clustering_random-NGC-vDR16.fits`, sha256: `3310efb5e279a98855dddf95c5724a57422d2a59b5bf097458853f58e5b03525`, retrieved: 2026-07-31T17:56:37.038093, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_random-NGC-vDR16.fits`
+- **eboss_lrgpcmass_clustering_random_sgc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRGpCMASS_clustering_random-SGC-vDR16.fits`, sha256: `57977bf3cb320dc6aa7db31ae75e36ce26948c23b45b6df13e8d6c571088fc73`, retrieved: 2026-07-31T17:56:41.945545, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRGpCMASS_clustering_random-SGC-vDR16.fits`
+- **eboss_lrg_clustering_data_ngc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRG_clustering_data-NGC-vDR16.fits`, sha256: `5eb836c7e6e69eb2cbc3b2dfe2f27826b6e5ac59d1c87e279a81a916f6edc77e`, retrieved: 2026-07-31T17:56:42.156797, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_data-NGC-vDR16.fits`
+- **eboss_lrg_clustering_data_sgc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRG_clustering_data-SGC-vDR16.fits`, sha256: `aec4b569ad957d829aa8337bf2c7d00e25dc777e2e5849552893cbead70071dc`, retrieved: 2026-07-31T17:56:42.176184, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_data-SGC-vDR16.fits`
+- **eboss_lrg_clustering_random_ngc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRG_clustering_random-NGC-vDR16.fits`, sha256: `5da0bf41e267968310ada55ea3bf27c9a3808bba77050e66c54d84dec62b6281`, retrieved: 2026-07-31T17:56:46.222283, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_random-NGC-vDR16.fits`
+- **eboss_lrg_clustering_random_sgc** — path: `data/raw/sdss_eboss_dr16_lss/eBOSS_LRG_clustering_random-SGC-vDR16.fits`, sha256: `4aabcaa99cc2855d38eddd5fac903d3281e9436e5ba5b8c230050db3da92d230`, retrieved: 2026-07-31T17:56:48.011750, status: cached
+  url: `https://data.sdss.org/sas/dr16/eboss/lss/catalogs/DR16/eBOSS_LRG_clustering_random-SGC-vDR16.fits`
+- **desi_dr1_lrg_clustering**: ERROR — unreachable: HTTP Error 404: Not Found (url: https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/LRG_NGC_clustering.dat.fits)
+  Manual-download instruction: Manual download: browse https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/ (DESI DR1, 'iron' spectroscopic production, LSScats v1.5) from a network that can reach data.desi.lbl.gov / NERSC (128.55.206.0/24), download the {TRACER}_{NGC,SGC}_clustering.dat.fits data files and matching {TRACER}_{NGC,SGC}_clustering.ran.fits random files, compute SHA256, and append a row to data/MANIFEST.md following the same convention as the eBOSS LRG entries. Alternative access path (reachable from this environment, not independently used for this fetch): NOIRLab Astro Data Lab TAP, https://datalab.noirlab.edu/tap, table desi_dr1 -- whether it re-exposes the LSS clustering/random weight columns needed for this analysis is unverified.
+- **desi_dr1_bgs_clustering**: ERROR — unreachable: HTTP Error 404: Not Found (url: https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/BGS_BRIGHT_NGC_clustering.dat.fits)
+  Manual-download instruction: Manual download: browse https://data.desi.lbl.gov/public/dr1/survey/catalogs/dr1/LSS/iron/LSScats/v1.5/clustering/ (DESI DR1, 'iron' spectroscopic production, LSScats v1.5) from a network that can reach data.desi.lbl.gov / NERSC (128.55.206.0/24), download the {TRACER}_{NGC,SGC}_clustering.dat.fits data files and matching {TRACER}_{NGC,SGC}_clustering.ran.fits random files, compute SHA256, and append a row to data/MANIFEST.md following the same convention as the eBOSS LRG entries. Alternative access path (reachable from this environment, not independently used for this fetch): NOIRLab Astro Data Lab TAP, https://datalab.noirlab.edu/tap, table desi_dr1 -- whether it re-exposes the LSS clustering/random weight columns needed for this analysis is unverified.
+- **desi_dr1_lya_p1d_covariance_fits** — path: `data/raw/desi_dr1_lya_p1d_zenodo/desi_y1_baseline_p1d_sb1subt_qmle_power_estimate_contcorr_v3.fits`, sha256: `bbb98dc3d1865a50bb878e949a644604ce729da419db8e7db5adbb532a894857`, retrieved: 2026-07-31T17:57:23.009479, status: new
+  url: `https://zenodo.org/records/16943723/files/data_points.tar`
+
+**Integrity check (2026-07-31T17:57:24.267053+00:00):** eboss_lrgpcmass_clustering_data_ngc + eboss_lrgpcmass_clustering_data_sgc row-count total = 377458; published (docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md §3, arXiv:2007.09000) = 377458. Verdict: MATCH.
+
+**Integrity check (2026-07-31T17:57:24.267165+00:00):** eboss_lrg_clustering_data_ngc + eboss_lrg_clustering_data_sgc row-count total = 174816; published (docs/DATA_LANDSCAPE_RESEARCH_2026_07_27.md §3, arXiv:2007.09000) = 174816. Verdict: MATCH.

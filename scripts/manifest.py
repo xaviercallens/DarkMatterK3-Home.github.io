@@ -38,6 +38,7 @@ DATASET_USE_CASES = {
     "eboss_lrg_clustering_random_sgc": "WP-E7 Task B (T0-approved 2026-07-27; DESI/eBOSS resolvability follow-on prep)",
     "desi_dr1_lrg_clustering": "WP-E7 Task B (T0-approved 2026-07-27; DESI DR1 resolvability follow-on prep)",
     "desi_dr1_bgs_clustering": "WP-E7 Task B (T0-approved 2026-07-27; DESI DR1 resolvability follow-on prep)",
+    "desi_dr1_lya_p1d_covariance_fits": "WP-E6-BINMAP-C (T1 ruling R2 2026-07-31, executing T0 D1 dbf1337; real COVARIANCE HDU for the 9-bin z=4.2 sub-block)",
 }
 
 
