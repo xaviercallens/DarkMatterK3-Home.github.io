@@ -44,7 +44,11 @@ in this repo contradicts it, the document carries (or needs) a dated correction 
    (a₁, a₂, a₃). The A.4 elimination relation is symbols-only (`scripts/verify_appendix_A4.py`
    must stay green). The tadpole condition is not posable until a threefold base B₃ is
    specified; until then no dark-energy / vacuum-energy claim (T0 decision D4, A-DE).
-5. **Empirical pivot is T0-gated.** No pipeline may depend on a single predicted scalar mass —
+5. **Stream-4 ("K4 Oligon"/CAG) is an EXPLORATORY SANDBOX** (T0 ruling DL-3, 2026-07-31):
+   no claim originating from Stream 4 — including the 24.18 nHz "Oligon resonance" and any
+   AlphaEvolve S₈ evaluation — may be cited as evidence in Streams 1–3. Material lives in
+   the datalake's `stream4_bridge/` and S2 branch `experimental/stream4-cag-poc`.
+6. **Empirical pivot is T0-gated.** No pipeline may depend on a single predicted scalar mass —
    none exists under F5b. Parameter sweeps / exclusion-bound pipelines enter only via a
    pre-registered PREDICTION v2 amendment under the pin protocol (rule 1 above applies:
    synthetic-data infra only until pinned), and every output is labeled exclusion/FIT — never
