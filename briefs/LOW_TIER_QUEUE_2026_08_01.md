@@ -91,6 +91,21 @@ has seen the firewall ruling.
 
 ---
 
+## 2.5 Track A completeness health checks (added mid-continuation, all three repos)
+
+Not originally scoped, added once the written queue was exhausted (all items done/blocked/
+deferred) — rounds out Track A verification across all three repos rather than leaving S1/S3
+untouched while S2 got a regression pass.
+
+| # | Task | Result |
+|---|---|---|
+| A-S3-5 | `pytest pipeline/tests/` (S3) — full pipeline test suite, not run yet this session. | **DONE 2026-08-01**: 492 passed, 0 failed, 280s. |
+| A-S1-1 | `lake build Agora` + `lake build Tests` (S1) — not run yet this session. | **DONE 2026-08-01**: both green (3114 / 3000 jobs, matching `TODO.md`'s last recorded 3106/3000 — small expected increase, not a regression). Only lint warnings (unused simp args, deprecated `push_neg`, unused variable bindings), zero errors. `sorry` count confirmed exactly 1 (`OpenGoals/PartnerIntegrality.lean:201`, the disclosed open goal) — the other grep hit (`GrowthBounds.lean:31`) is a docstring sentence ("PROVED (0 sorry), not open."), not a real tactic, checked in context before counting it. |
+
+**All three repos now have a fresh, clean baseline as of this continuation**: S1 (Lean build +
+tests), S2 (13-command regression suite), S3 (492 pipeline tests). No regressions found
+anywhere from this session's work (G0-s10 cert, C2-s10-v4, archive move, script fixes).
+
 ## 3. What was implemented this session (2026-08-01)
 
 ### 3.1 `scripts/certificate_status.py` (S2, Track A)
