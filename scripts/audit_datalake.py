@@ -62,6 +62,11 @@ ANALYSIS_RELEVANT_PATTERNS = [
     "dark_matter/",
     "checkpoints/",
     "mcmc_posteriors/",
+    "planck_2018/",  # added 2026-08-01, WP-DL-PLANCK (DL-2 P1): the WP scope
+                      # explicitly requires status AUDITED with a real SHA-256
+                      # in the manifest, not PRESENT -- without this pattern
+                      # the newly staged plik_lite files were silently falling
+                      # through to PRESENT (no hash), missing that requirement.
 ]
 
 # Seed rows: fixed status regardless of bucket state

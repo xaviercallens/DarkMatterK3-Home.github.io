@@ -37,7 +37,13 @@ PLA_URL = (
 )
 # Verified 2026-08-01 via the PLA wiki (wiki.cosmos.esa.int, "CMB spectrum &
 # Likelihood Code" page) -- not guessed or recalled from memory.
-PLIK_LITE_MEMBER_PREFIX = "plc_3.0/hi_l/plik_lite/"
+PLIK_LITE_MEMBER_PREFIX = "baseline/plc_3.0/hi_l/plik_lite/"
+# CORRECTED 2026-08-01, same session: the PLA wiki text describes the path
+# relative to the archive's own top level, but the actual downloaded tarball
+# wraps everything in a `baseline/` directory the wiki text didn't mention.
+# First run failed loudly (no members found) rather than silently guessing --
+# confirmed the real layout by downloading and listing the tarball directly
+# (`tar tzf`) before adjusting this constant, not by re-guessing.
 BUCKET_STAGING_PREFIX = "gs://socrateai-datalake-gen-lang-client-0625573011/planck_2018/"
 
 
