@@ -1,0 +1,35 @@
+[Unit]
+Description=SocrateAI K3-DarkMatter datalake harvest daemon (Stream 3)
+Documentation=file:///home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/scripts/datalake_harvest_daemon.py
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home
+ExecStart=/home/callensxavier_gmail_com/venv/bin/python scripts/datalake_harvest_daemon.py --interval 1800
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/logs/harvest_daemon.log
+StandardError=append:/home/callensxavier_gmail_com/SocrateAI-Scientific-Agora-Home/logs/harvest_daemon.log
+
+[Install]
+WantedBy=default.target
+
+# Installed 2026-08-01 (coordinator, low-tier-queue item A-S3-1). Fixes the
+# recurring gap flagged in session logs 07-30/07-31/08-01: the daemon was a
+# plain nohup+disown background process, so it died every time the VM/shell
+# session that launched it ended, and had to be manually relaunched each time.
+#
+# NOT enabled/started automatically by this commit. To activate:
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now datalake-harvest-daemon.service
+#   systemctl --user status datalake-harvest-daemon.service
+#
+# For the unit to survive past the end of an interactive login session
+# entirely (not just a shell-tool restart within one), the user's systemd
+# instance needs linger enabled, which requires root:
+#   sudo loginctl enable-linger callensxavier_gmail_com
+# Checked this session: Linger=no as of 2026-08-01. Not enabled here —
+# it's a system-level privilege change outside a low-tier task's scope;
+# flagged to Xavier in briefs/LOW_TIER_QUEUE_2026_08_01.md.
