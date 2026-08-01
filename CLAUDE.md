@@ -54,3 +54,31 @@ in this repo contradicts it, the document carries (or needs) a dated correction 
    synthetic-data infra only until pinned), and every output is labeled exclusion/FIT — never
    TEST — until pinned. The WP-E5 2D transverse route stays CLOSED by its data floors
    (~1.6 Mpc, ~10⁴ objects per slice); a sweep does not reopen it.
+7. **DarkMatterK3@Home / "AutoEvolve R2 Hypothesis Foundry" / K3-T2-Chameleon track is an
+   EXPLORATORY SANDBOX** (T0 ruling, 2026-08-01, same standing as rule 5's Stream-4 firewall —
+   a separate track from Stream-4/AlphaEvolve; THREE similarly-named systems exist in this
+   program, disambiguated below — do not conflate them). Covers: `api/` (`api_dispatcher.py`,
+   **`discoveries.json`** — 35 pre-existing `K3-DISC-*` entries with stated Δ/asymmetry values
+   and prose claims, e.g. "la brisure de symétrie topologique K3 atteint un niveau record"),
+   `ui_loom/`, `core_wasm/`, `public/wasm/`, and their planning docs `AGORA_K3_T2_BRIDGE_PLAN.md`,
+   `PHASE5_IMPLEMENTATION_PLAN.md` (this repo); mirrored by `AUTORESEARCH_IMPLEMENTATION_GUIDE.md`
+   in the S2 repo (its "AutoEvolve R2 Hypothesis Foundry" pipeline — sieve + G1/G2/QT
+   physics-viability gates + candidate_pool.yaml 13→5→3 funnel). **No claim from this material —
+   including any `K3-DISC-*` entry, the Chameleon mass formula `m_eff ≈ m₀(1+κΔ)^(1/4)`, or any
+   BOINC/WASM-computed Δ/asymmetry value — may be cited as evidence in Streams 1–3.** Rationale:
+   this track's commits predate the epistemic ledger (2026-07-05 through 2026-07-26, vs. the
+   ledger "added 2026-07-27"); its "Discoveries" are asserted as fact with no
+   checker/certificate behind them, the same shape as three prior incidents this project caught
+   and quarantined (Discovery PDF 0/24 supported, vacuous Lean "oracle," barred 24.18 nHz
+   resonance). It sat un-firewalled on `main` until this rule was added.
+   **Three similarly-named systems, disambiguated:**
+   (a) **"AutoEvolve"** (current, S2, `autoevolve-harness` skill) — a checker-certificate-ONLY
+   scoring/ranking harness, sanctioned, part of Streams 1–3, never an oracle by design.
+   (b) **"AutoEvolve R2 Hypothesis Foundry"** (this rule) — the pre-ledger 2026-07-14
+   sieve+physics-gate candidate funnel (`AUTORESEARCH_IMPLEMENTATION_GUIDE.md`, S2) — THIS is
+   the sandboxed one, despite sharing the "AutoEvolve" word with (a).
+   (c) **"AlphaEvolve"** (Stream-4, Vertex AI MCMC sweep, rule 5) — already firewalled,
+   unrelated codebase to both (a) and (b).
+   Resumed work on (b)/this track's DarkMatterK3@Home side stays on its own branch(es) — not
+   `main` directly — labeled `sandbox/` — until a future T0 ruling reconciles it against
+   Tier A/B/C or formally retires it.
