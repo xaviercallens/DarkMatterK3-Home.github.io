@@ -42,7 +42,11 @@ Outputs:
   - restriction_map(k_desi_csv, emulator_k_targets, z_target=4.2)
     → dict with band membership, verification status, escalation flags
   - covariance_block(map_output)
-    → raises NotImplementedError with pointer to Zenodo FITS and remediation.
+    → raises NotImplementedError with pointer to Zenodo FITS and remediation
+      when called without an explicit hash-gated FITS path; with one, returns
+      the member-level block AND (since 2026-09-16) the pinned 9×9 aggregation.
+  - aggregate_bands(cov_member, grouping, data_member, k_member)
+    → the T0-ruled Option-1 band aggregation (pinned design 2026-09-16 §1.2).
 """
 
 import os
@@ -51,7 +55,7 @@ import json
 import numpy as np
 import pandas as pd
 
-__all__ = ['restriction_map', 'covariance_block', 'verify_bins']
+__all__ = ['restriction_map', 'covariance_block', 'aggregate_bands', 'verify_bins']
 
 
 def restriction_map(desi_csv_path, emulator_k_targets=None, z_target=4.2):
@@ -279,6 +283,137 @@ def _sha256_of_file(path, chunk=1 << 20):
     return h.hexdigest()
 
 
+def aggregate_bands(cov_member, grouping, data_member=None, k_member=None):
+    """
+    Band-aggregate a member-level covariance (and optionally the observed
+    vector) into the 9 emulator bins — T0-ruled Option 1, PINNED.
+
+    Authority: T0 ruling A1 2026-09-16 (`briefs/T0_RULINGS_2026_09_16.md`;
+    ruling text in `briefs/T0_DECISION_REQUEST_SWEEP_AGGREGATION_2026_07_31.md`),
+    pinned as `briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md` §1.2. This
+    function implements that section verbatim and introduces no other choice.
+
+    Rule (σ_i² = cov_member[i, i]; M_b = member positions of band b):
+        w_{b,i} = (1/σ_i²) / Σ_{j∈M_b} (1/σ_j²)   for i ∈ M_b, else 0
+        C_9     = W C_66 Wᵀ        (FULL member covariance propagated)
+        P_9     = W P_66           (if data_member given)
+        k_eff,b = Σ_i w_{b,i} k_i  (if k_member given; diagnostic, design §4)
+
+    Weights use the diagonal only (auditability); propagation keeps every
+    off-diagonal. Every comparison consuming C_9/P_9 is labeled
+    exclusion/FIT (TUNING_LOG.md row 2026-09-16). No Hartlap factor: the
+    input is the survey's published covariance, not a mock sample covariance.
+
+    Parameters
+    ----------
+    cov_member : (n, n) array — symmetric positive-definite member covariance.
+    grouping : list of dicts with 'member_positions' (disjoint, covering
+        0..n-1) and 'log10k_target' — covariance_block()'s 'grouping'.
+    data_member : (n,) array, optional — observed values at member rows.
+    k_member : (n,) array, optional — k of each member row (s/km).
+
+    Returns
+    -------
+    dict: 'weights' (9, n), 'cov_agg' (9, 9), 'data_agg' (9,) or None,
+          'k_eff' (9,) or None, 'k_eff_over_k_target' (9,) or None,
+          'diag_if_uncorrelated' (9,), 'bands' (per-band summaries),
+          'checks', 'eigenvalues', 'condition_number', 'rule'.
+
+    Raises
+    ------
+    ValueError  — malformed grouping (overlap, gap, empty band), bad shapes.
+    RuntimeError — C_9 fails symmetry or Cholesky (hard stop, no fallback).
+    """
+    cov_member = np.asarray(cov_member, dtype=np.float64)
+    n = cov_member.shape[0]
+    if cov_member.shape != (n, n):
+        raise ValueError(f"cov_member must be square, got {cov_member.shape}")
+    if not np.allclose(cov_member, cov_member.T, rtol=1e-12, atol=0.0):
+        raise ValueError("cov_member is not symmetric")
+    nb = len(grouping)
+    positions = [list(g['member_positions']) for g in grouping]
+    flat = [p for ps in positions for p in ps]
+    if any(len(ps) == 0 for ps in positions):
+        raise ValueError("every band must have at least one member")
+    if sorted(flat) != list(range(n)):
+        raise ValueError("member_positions must partition 0..n-1 exactly (no overlap, no gap)")
+
+    sigma2 = np.diag(cov_member)
+    if np.any(sigma2 <= 0):
+        raise ValueError("cov_member diagonal must be strictly positive")
+    inv_var = 1.0 / sigma2
+
+    W = np.zeros((nb, n))
+    for b, ps in enumerate(positions):
+        W[b, ps] = inv_var[ps] / inv_var[ps].sum()
+
+    cov_agg = W @ cov_member @ W.T
+    cov_agg = 0.5 * (cov_agg + cov_agg.T)  # remove floating-point asymmetry only
+    diag_if_uncorrelated = np.array([1.0 / inv_var[ps].sum() for ps in positions])
+
+    data_agg = None
+    if data_member is not None:
+        data_member = np.asarray(data_member, dtype=np.float64)
+        if data_member.shape != (n,):
+            raise ValueError(f"data_member must have shape ({n},)")
+        data_agg = W @ data_member
+
+    k_eff = k_ratio = None
+    k_targets = np.array([10.0 ** g['log10k_target'] for g in grouping])
+    if k_member is not None:
+        k_member = np.asarray(k_member, dtype=np.float64)
+        if k_member.shape != (n,):
+            raise ValueError(f"k_member must have shape ({n},)")
+        k_eff = W @ k_member
+        k_ratio = k_eff / k_targets
+
+    symmetric = bool(np.allclose(cov_agg, cov_agg.T, rtol=1e-12, atol=0.0))
+    try:
+        np.linalg.cholesky(cov_agg)
+        pos_def = True
+    except np.linalg.LinAlgError:
+        pos_def = False
+    row_sums_one = bool(np.allclose(W.sum(axis=1), 1.0, rtol=0, atol=1e-12))
+    if not (symmetric and pos_def and row_sums_one):
+        raise RuntimeError(
+            "Band aggregation FAILURE (WP-E6-SWEEP, pinned design §1.2):\n"
+            f"  symmetric: {symmetric}\n  positive-definite (Cholesky): {pos_def}\n"
+            f"  weight rows sum to 1: {row_sums_one}\n"
+            "Do not use this block; escalate."
+        )
+    eig = np.linalg.eigvalsh(cov_agg)
+
+    bands = []
+    for b, (g, ps) in enumerate(zip(grouping, positions)):
+        bands.append({
+            'bin_index': g.get('bin_index', b),
+            'log10k_target': g['log10k_target'],
+            'k_target': float(k_targets[b]),
+            'n_members': len(ps),
+            'weights': W[b, ps].tolist(),
+        })
+
+    return {
+        'weights': W,
+        'cov_agg': cov_agg,
+        'data_agg': data_agg,
+        'k_eff': k_eff,
+        'k_eff_over_k_target': k_ratio,
+        'diag_if_uncorrelated': diag_if_uncorrelated,
+        'bands': bands,
+        'checks': {
+            'symmetric': symmetric,
+            'positive_definite_cholesky': pos_def,
+            'weight_rows_sum_to_one': row_sums_one,
+        },
+        'eigenvalues': eig.tolist(),
+        'condition_number': float(eig.max() / eig.min()),
+        'rule': ('Option 1 — inverse-variance diagonal weights, full member covariance '
+                 'propagated: C_9 = W C_66 W^T (pinned 2026-09-16, '
+                 'briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md Sec.1.2)'),
+    }
+
+
 def covariance_block(map_output, covariance_fits_path=None):
     """
     Extract the real DESI DR1 P1D covariance sub-block for the 9-bin member rows.
@@ -298,14 +433,13 @@ def covariance_block(map_output, covariance_fits_path=None):
     RuntimeError and nothing is read.
 
     Deliverable is the MEMBER-LEVEL sub-block (66×66 at z=4.2 for the default
-    map) plus the 9-bin index grouping. NO 9×9 band-aggregated block is
-    produced: neither the pinned PREDICTION v2 amendment
-    (`briefs/PREDICTION_V2_AMENDMENT_DRAFT_2026_07_29.md`, §8 resolution
-    item 2) nor this module defines a band-aggregation (band-averaging)
-    rule — the pin names the scheme as something WP-E6-BINMAP builds *and
-    verifies before the sweep consumes it*, and no LIVE/pinned document fixes
-    the rule. Inventing one here would be a free analysis choice; it is left
-    to a ruled design, not fabricated (WP-E6-P2A precedent).
+    map) plus the 9-bin index grouping, AND — since 2026-09-16 — the 9×9
+    band-aggregated block. Until that date no aggregation was produced: neither
+    the pinned PREDICTION v2 amendment (§8 resolution item 2) nor this module
+    fixed a rule, and inventing one would have been a free analysis choice.
+    T0 ruled Option 1 on 2026-09-16 (`briefs/T0_RULINGS_2026_09_16.md` A1),
+    pinned in `briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md` §1.2; the
+    aggregation is applied here via aggregate_bands() (see its docstring).
 
     Mandatory built-in cross-checks (all must pass or this function raises):
       1. diag(sub-block) == e_total_kms**2 from the CSV, row-for-row
@@ -336,8 +470,11 @@ def covariance_block(map_output, covariance_fits_path=None):
                    symmetric, positive_definite, all mandatory checks True
         'eigenvalues' : list of float (ascending)
         'condition_number' : float
-        'aggregated_9x9' : None (see docstring — no aggregation rule defined)
-        'aggregation_note' : str
+        'aggregated_9x9' : np.ndarray, (9, 9) — the pinned Option-1
+                           aggregation C_9 = W C_66 W^T (None before 2026-09-16)
+        'aggregation' : dict — full aggregate_bands() output (weights, data_agg,
+                        k_eff, checks, ...)
+        'aggregation_note' : str — pointer to the pin
         'provenance' : dict — fits path, sha256 (verified == pin), HDU name,
                        z_selected
 
@@ -437,6 +574,13 @@ def covariance_block(map_output, covariance_fits_path=None):
 
     eigenvalues = np.linalg.eigvalsh(sub)
 
+    # ---- Pinned Option-1 band aggregation (2026-09-16) ----------------------
+    agg = aggregate_bands(
+        sub, grouping,
+        data_member=df.loc[member_indices, 'p1d_kms'].values,
+        k_member=df.loc[member_indices, 'k_s_per_km'].values,
+    )
+
     return {
         'cov_member': sub,
         'member_csv_indices': list(member_indices),
@@ -449,13 +593,12 @@ def covariance_block(map_output, covariance_fits_path=None):
         },
         'eigenvalues': eigenvalues.tolist(),
         'condition_number': float(eigenvalues.max() / eigenvalues.min()),
-        'aggregated_9x9': None,
+        'aggregated_9x9': agg['cov_agg'],
+        'aggregation': agg,
         'aggregation_note': (
-            "No 9x9 band-aggregated block is produced: neither the pinned "
-            "PREDICTION v2 amendment (§8 resolution item 2) nor pipeline/binmap.py "
-            "defines a band-aggregation rule. Deliverable is the member-level "
-            "sub-block plus the 9-bin index grouping; the aggregation scheme "
-            "requires its own ruled design before the sweep consumes it."
+            "9x9 block = pinned Option-1 band aggregation (T0 ruling A1 2026-09-16; "
+            "briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md Sec.1.2). Before that "
+            "date this key was None by design: no LIVE/pinned document fixed a rule."
         ),
         'provenance': {
             'fits_path': str(covariance_fits_path),

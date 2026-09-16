@@ -301,10 +301,12 @@ class TestCovarianceBlockReal:
         assert np.allclose(sub, sub.T)
         np.linalg.cholesky(sub)  # raises LinAlgError if not positive-definite
 
-    def test_no_aggregated_block_fabricated(self, result):
-        """No aggregation rule is pinned; a 9x9 must NOT be fabricated."""
-        assert result['aggregated_9x9'] is None
-        assert 'band-aggregation rule' in result['aggregation_note']
+    def test_aggregated_block_is_pinned_option1(self, result):
+        """Since the 2026-09-16 pin the 9x9 IS produced, by the pinned rule
+        only (it was correctly None before that pin)."""
+        assert result['aggregated_9x9'].shape == (9, 9)
+        assert 'WP_E6_SWEEP_DESIGN_PINNED_2026_09_16' in result['aggregation_note']
+        assert result['aggregation']['checks']['positive_definite_cholesky']
 
     def test_provenance_sha_is_pin(self, result):
         assert result['provenance']['fits_sha256'] == \
@@ -413,3 +415,205 @@ class TestOutputFormat:
 
 if __name__ == '__main__':
     pytest.main([__file__, '-v'])
+
+
+# --------------------------------------------------------------------------
+# WP-E6-SWEEP aggregation step (pinned 2026-09-16, T0 ruling A1 Option 1):
+# briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md Sec.1.2. Synthetic-matrix
+# tests run everywhere; the tracked 66x66 artifact test runs on a clean
+# checkout; the FITS-dependent test skips without the raw file.
+# --------------------------------------------------------------------------
+
+def _independent_option1(cov, groups):
+    """Plain-loop re-derivation of Sec.1.2, sharing no code with binmap."""
+    nb = len(groups)
+    C9 = [[0.0] * nb for _ in range(nb)]
+    W = [[0.0] * cov.shape[0] for _ in range(nb)]
+    for b, ps in enumerate(groups):
+        norm = sum(1.0 / cov[j, j] for j in ps)
+        for i in ps:
+            W[b][i] = (1.0 / cov[i, i]) / norm
+    for a in range(nb):
+        for b in range(nb):
+            acc = 0.0
+            for i in groups[a]:
+                for j in groups[b]:
+                    acc += W[a][i] * cov[i, j] * W[b][j]
+            C9[a][b] = acc
+    return np.array(W), np.array(C9)
+
+
+def _synthetic_cov(n, rng, corr=0.3):
+    sig = rng.uniform(1.0, 5.0, n)
+    R = np.full((n, n), corr) + (1 - corr) * np.eye(n)
+    return np.outer(sig, sig) * R
+
+
+def _groups_from_sizes(sizes):
+    groups, pos = [], 0
+    for s in sizes:
+        groups.append(list(range(pos, pos + s)))
+        pos += s
+    return groups
+
+
+def _grouping(groups):
+    return [{'bin_index': b, 'log10k_target': -2.2 + 0.1 * b, 'member_positions': ps}
+            for b, ps in enumerate(groups)]
+
+
+class TestBandAggregation:
+    SIZES = [3, 4, 4, 6, 8, 9, 11, 11, 10]  # the real z=4.2 band sizes
+
+    def test_weights_rows_sum_to_one_and_disjoint_support(self):
+        rng = np.random.default_rng(0)
+        cov = _synthetic_cov(66, rng)
+        out = binmap.aggregate_bands(cov, _grouping(_groups_from_sizes(self.SIZES)))
+        W = out['weights']
+        assert W.shape == (9, 66)
+        np.testing.assert_allclose(W.sum(axis=1), 1.0, atol=1e-12)
+        assert np.count_nonzero(W) == 66  # each member in exactly one band
+
+    def test_uncorrelated_reduces_to_inverse_variance(self):
+        """Design Sec.1.2 property 2: diagonal C_66 -> C_9 diagonal, 1/sum(1/sigma^2)."""
+        rng = np.random.default_rng(1)
+        sig2 = rng.uniform(1.0, 25.0, 66)
+        groups = _groups_from_sizes(self.SIZES)
+        out = binmap.aggregate_bands(np.diag(sig2), _grouping(groups))
+        expected = np.array([1.0 / np.sum(1.0 / sig2[ps]) for ps in groups])
+        np.testing.assert_allclose(np.diag(out['cov_agg']), expected, rtol=1e-12)
+        off = out['cov_agg'][~np.eye(9, dtype=bool)]
+        assert np.all(np.abs(off) < 1e-15)
+        np.testing.assert_allclose(out['diag_if_uncorrelated'], expected, rtol=1e-12)
+
+    def test_single_member_band_is_identity(self):
+        """Design Sec.1.2 property 3."""
+        rng = np.random.default_rng(2)
+        cov = _synthetic_cov(5, rng)
+        groups = [[0], [1, 2], [3, 4]]
+        data = rng.normal(size=5)
+        out = binmap.aggregate_bands(cov, _grouping(groups), data_member=data)
+        assert out['cov_agg'][0, 0] == pytest.approx(cov[0, 0], rel=1e-14)
+        assert out['data_agg'][0] == pytest.approx(data[0], rel=1e-14)
+
+    def test_positive_correlation_inflates_diagonal(self):
+        """Design Sec.1.2 property 2, second sentence: with positively
+        correlated members, (C_9)_bb exceeds the uncorrelated value."""
+        rng = np.random.default_rng(3)
+        cov = _synthetic_cov(66, rng, corr=0.3)
+        out = binmap.aggregate_bands(cov, _grouping(_groups_from_sizes(self.SIZES)))
+        assert np.all(np.diag(out['cov_agg']) > out['diag_if_uncorrelated'])
+
+    def test_member_permutation_invariance(self):
+        """Design Sec.1.2 property 4."""
+        rng = np.random.default_rng(4)
+        cov = _synthetic_cov(12, rng)
+        data = rng.normal(size=12)
+        g1 = [[0, 1, 2, 3], [4, 5, 6, 7, 8], [9, 10, 11]]
+        g2 = [[3, 1, 0, 2], [8, 4, 7, 5, 6], [11, 9, 10]]
+        a = binmap.aggregate_bands(cov, _grouping(g1), data_member=data)
+        b = binmap.aggregate_bands(cov, _grouping(g2), data_member=data)
+        np.testing.assert_allclose(a['cov_agg'], b['cov_agg'], rtol=1e-13)
+        np.testing.assert_allclose(a['data_agg'], b['data_agg'], rtol=1e-13)
+
+    def test_matches_independent_loop_derivation(self):
+        rng = np.random.default_rng(5)
+        cov = _synthetic_cov(66, rng, corr=0.2)
+        groups = _groups_from_sizes(self.SIZES)
+        out = binmap.aggregate_bands(cov, _grouping(groups))
+        W_ref, C9_ref = _independent_option1(cov, groups)
+        np.testing.assert_allclose(out['weights'], W_ref, rtol=1e-13)
+        np.testing.assert_allclose(out['cov_agg'], C9_ref, rtol=1e-12)
+
+    def test_symmetric_positive_definite_output(self):
+        rng = np.random.default_rng(6)
+        cov = _synthetic_cov(66, rng, corr=0.5)
+        out = binmap.aggregate_bands(cov, _grouping(_groups_from_sizes(self.SIZES)))
+        assert out['checks'] == {'symmetric': True, 'positive_definite_cholesky': True,
+                                 'weight_rows_sum_to_one': True}
+        np.linalg.cholesky(out['cov_agg'])
+
+    def test_k_eff_is_weighted_mean_of_member_k(self):
+        rng = np.random.default_rng(7)
+        cov = _synthetic_cov(7, rng)
+        k = np.sort(rng.uniform(0.005, 0.04, 7))
+        groups = [[0, 1, 2], [3, 4, 5, 6]]
+        out = binmap.aggregate_bands(cov, _grouping(groups), k_member=k)
+        for b, ps in enumerate(groups):
+            assert out['k_eff'][b] == pytest.approx(np.dot(out['weights'][b, ps], k[ps]))
+        assert out['k_eff_over_k_target'].shape == (2,)
+
+    @pytest.mark.parametrize('groups', [
+        [[0, 1], [1, 2]],       # overlap
+        [[0, 1], [3]],          # gap
+        [[0, 1, 2], []],        # empty band
+    ])
+    def test_malformed_grouping_rejected(self, groups):
+        cov = np.eye(4)
+        with pytest.raises(ValueError):
+            binmap.aggregate_bands(cov, _grouping(groups))
+
+    def test_non_symmetric_input_rejected(self):
+        cov = np.eye(3); cov[0, 1] = 0.5
+        with pytest.raises(ValueError, match='symmetric'):
+            binmap.aggregate_bands(cov, _grouping([[0, 1, 2]]))
+
+    def test_tracked_member_artifact_aggregates_cleanly(self):
+        """Runs on a clean checkout: the committed 66x66 BINMAP-C artifact
+        through the pinned rule, cross-checked by the independent loop."""
+        sub = np.load(TestDerivedCovarianceArtifacts.NPY)
+        with open(TestDerivedCovarianceArtifacts.JSON) as f:
+            grouping = json.load(f)['grouping']
+        out = binmap.aggregate_bands(sub, grouping)
+        groups = [g['member_positions'] for g in grouping]
+        _, C9_ref = _independent_option1(sub, groups)
+        np.testing.assert_allclose(out['cov_agg'], C9_ref, rtol=1e-12)
+        assert out['checks']['positive_definite_cholesky']
+        assert [b['n_members'] for b in out['bands']] == self.SIZES
+
+
+class TestSweepAggregatedArtifacts:
+    """The committed 2026-09-16 9x9 artifacts must equal what the pinned rule
+    gives from the committed 66x66 artifact + CSV (clean checkout, no FITS)."""
+
+    NPY = os.path.join(repo_root, 'data', 'derived',
+                       'wp_e6_sweep_cov_agg9_z4p2_2026_09_16.npy')
+    JSON = os.path.join(repo_root, 'data', 'derived',
+                        'wp_e6_sweep_cov_agg9_z4p2_2026_09_16.json')
+
+    def test_artifacts_exist(self):
+        assert os.path.isfile(self.NPY)
+        assert os.path.isfile(self.JSON)
+
+    def test_npy_reproduces_from_member_artifact(self):
+        sub = np.load(TestDerivedCovarianceArtifacts.NPY)
+        with open(TestDerivedCovarianceArtifacts.JSON) as f:
+            grouping = json.load(f)['grouping']
+        out = binmap.aggregate_bands(sub, grouping)
+        np.testing.assert_allclose(np.load(self.NPY), out['cov_agg'], rtol=1e-12)
+
+    def test_json_consistent_with_csv(self):
+        with open(self.JSON) as f:
+            meta = json.load(f)
+        assert meta['label'].startswith('DRAFT')
+        assert 'TEST' not in meta['label'].split(';')[-1]
+        assert meta['matrix_shape'] == [9, 9]
+        assert all(meta['checks'].values())
+        np.testing.assert_allclose(meta['row_sums'], 1.0, atol=1e-12)
+        # P_9 and k_eff must be W applied to the CSV columns at the member rows
+        df = pd.read_csv(DESI_CSV_PATH)
+        idx = meta['member_csv_indices']
+        W = np.array(meta['weights_9x66'])
+        np.testing.assert_allclose(meta['data_agg_p1d_kms'],
+                                   W @ df.loc[idx, 'p1d_kms'].values, rtol=1e-12)
+        np.testing.assert_allclose(meta['k_eff_s_per_km'],
+                                   W @ df.loc[idx, 'k_s_per_km'].values, rtol=1e-12)
+        assert meta['provenance']['fits_sha256'] == binmap.COVARIANCE_FITS_SHA256_PIN
+
+
+@needs_fits
+class TestSweepAggregationFromFits:
+    def test_fits_path_matches_tracked_artifact(self, result):
+        np.testing.assert_allclose(
+            result['aggregated_9x9'],
+            np.load(TestSweepAggregatedArtifacts.NPY), rtol=1e-12)
