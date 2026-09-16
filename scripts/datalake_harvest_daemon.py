@@ -10,6 +10,8 @@ Usage: python3 scripts/datalake_harvest_daemon.py [--interval 1800]
 """
 
 import json
+import os
+import shutil
 import subprocess
 import sys
 import time
@@ -22,6 +24,12 @@ HARVEST_SCRIPT = REPO / "scripts" / "datalake_harvest.py"
 HEARTBEAT_FILE = REPO / "figures" / "live" / "last_harvest.json"
 STALE_FILE = REPO / "figures" / "live" / "HARVEST_STALE.md"
 LOG_FILE = REPO / "logs" / "harvest_daemon.log"
+DIAGNOSTICS_BRANCH = "experimental/stream4-alphaevolve-diagnostics"
+DIAGNOSTICS_WORKTREE = Path(os.environ.get(
+    "STREAM4_DIAGNOSTICS_WORKTREE",
+    str(REPO.resolve().parent / "DarkMatterK3-Home-stream4-diagnostics"),
+))
+DIAGNOSTICS_FILES = ("chi2_loss_curve.png", "phenotype_corner.png", "last_harvest.json")
 
 # Under systemd, stdout is appended to LOG_FILE by the unit (StandardOutput=append:...),
 # so a stdout handler there would write every line twice. Echo to stdout only on a TTY.
@@ -111,6 +119,69 @@ def run_harvest():
         return False
 
 
+def snapshot_to_diagnostics_branch():
+    """Copy harvested figures into the Stream-4 diagnostics worktree and commit if state changed.
+
+    T0 ruling 2026-09-16 (briefs/T0_RULINGS_2026_09_16.md A4): AlphaEvolve figures are not
+    refreshed on main. Harvest output stays in figures/live/ (gitignored on main; heartbeat
+    contract unchanged) and is snapshotted to DIAGNOSTICS_BRANCH. Commits only when the
+    harvested state changes, not on every heartbeat. Push failures are logged, not fatal.
+    """
+    if not (DIAGNOSTICS_WORKTREE / ".git").exists():
+        logger.warning(f"Diagnostics worktree missing, snapshot skipped: {DIAGNOSTICS_WORKTREE}")
+        return
+
+    def state(path):
+        try:
+            d = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            return None
+        d.pop("harvested_utc", None)
+        return d
+
+    dest = DIAGNOSTICS_WORKTREE / "figures" / "live"
+    new_state = state(HEARTBEAT_FILE)
+    if new_state is None or new_state == state(dest / HEARTBEAT_FILE.name):
+        logger.info("Diagnostics snapshot: harvested state unchanged, no commit")
+        return
+
+    def git(*args):
+        return subprocess.run(
+            ["git", "-C", str(DIAGNOSTICS_WORKTREE),
+             "-c", "user.name=SocrateAI", "-c", "user.email=bot@socrateai.com", *args],
+            capture_output=True, text=True, timeout=300,
+        )
+
+    try:
+        current = git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+        if current != DIAGNOSTICS_BRANCH:
+            logger.error(f"Diagnostics worktree on '{current}', expected '{DIAGNOSTICS_BRANCH}'; snapshot skipped")
+            return
+        dest.mkdir(parents=True, exist_ok=True)
+        for name in DIAGNOSTICS_FILES:
+            src = HEARTBEAT_FILE.parent / name
+            if src.exists():
+                shutil.copy2(src, dest / name)
+        git("add", "figures/live")
+        msg = (
+            f"snapshot: AlphaEvolve run {new_state.get('run_id')} gen {new_state.get('latest_generation')} "
+            f"({new_state.get('n_checkpoints')} checkpoints)\n\n"
+            "Automated harvest-daemon snapshot. Stream-4 EXPLORATORY SANDBOX, F5b-labeled, non-citable."
+        )
+        result = git("commit", "-q", "-m", msg)
+        if result.returncode != 0:
+            logger.error(f"Diagnostics commit failed: {result.stderr.strip() or result.stdout.strip()}")
+            return
+        logger.info("Diagnostics snapshot committed")
+        result = git("push", "-q", "origin", DIAGNOSTICS_BRANCH)
+        if result.returncode != 0:
+            logger.warning(f"Diagnostics push failed (commit kept locally): {result.stderr.strip()}")
+        else:
+            logger.info("Diagnostics snapshot pushed")
+    except Exception as e:
+        logger.error(f"Diagnostics snapshot crashed: {e}")
+
+
 def main():
     interval_seconds = 1800  # 30 min default
     if len(sys.argv) > 2 and sys.argv[1] == "--interval":
@@ -129,6 +200,8 @@ def main():
 
         # Run harvest
         success = run_harvest()
+        if success:
+            snapshot_to_diagnostics_branch()
 
         # Check staleness
         check_staleness(interval_seconds)
