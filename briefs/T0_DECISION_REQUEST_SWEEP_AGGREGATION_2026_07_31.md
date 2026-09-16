@@ -3,7 +3,7 @@
 **Date:** 2026-07-31
 **From:** Fable 5 (T1 coordinator)
 **To:** T0 (Xavier Callens)
-**Status:** DECISION REQUESTED — one item, blocks WP-E6-SWEEP
+**Status:** RULED 2026-09-16 — Option 1 APPROVED (see §T0 Ruling at end); WP-E6-SWEEP aggregation blocker cleared
 **Scope note:** This is filed as a decision request, not ruled under the 2026-07-31
 delegation ("no Deep Think needed"). That delegation covers execution-level interpretation
 of already-ratified decisions; this is new preregistration content — per the WP-E6-PIN
@@ -71,3 +71,30 @@ resolves separately.
 claim were read directly from `briefs/WP_E6_BINMAP_C_RESULT_2026_07_31.md` and
 `data/derived/wp_e6_binmap_c_cov_member66_z4p2_2026_07_31.json`, not restated from the
 agent's prose summary alone.*
+
+---
+
+## T0 Ruling — 2026-09-16
+
+**Ruled by:** T0 (Xavier Callens), in session 2026-09-16. Recorded verbatim in substance by
+Claude (Opus 5).
+
+**Decision: Option 1 APPROVED** — inverse-variance weighted mean with diagonal weights
+(`w_i ∝ 1/σ²_diag,i`, normalized per emulator bin) and **full** 66×66 member covariance
+propagated to the 9×9 block via `C_9 = W C_66 Wᵀ`.
+
+**T0 rationale (as given):** collapsing 66 native k-bins to 9 without carrying the
+cross-correlations would artificially shrink downstream error bars; Option 1 is the standard
+approach for this data product and retains the full covariance.
+
+**What this ruling does and does not do:**
+- Clears the aggregation-rule blocker on WP-E6-SWEEP (low-tier queue item A-S3-4).
+- Does **not** itself implement anything. Owed next, in order, under the prereg-pipeline
+  discipline: (1) write the formula into the pinned SWEEP design doc alongside the settled
+  5-dof/2-dof statistic split; (2) append the aggregation step to
+  `pipeline/binmap.py::covariance_block()` with closure/null tests; (3) coordinator
+  verification. No SWEEP output exists yet; every output, when produced, is labeled
+  exclusion/FIT per CLAUDE.md ledger item 6.
+- The separate TW2-A CY4/M₁₉ track noted above is unaffected by this ruling.
+
+Generated-by: Claude (Opus 5) | Verified-by: n/a (ruling record) | Reviewed-by: T0 Y (ruling given in session)

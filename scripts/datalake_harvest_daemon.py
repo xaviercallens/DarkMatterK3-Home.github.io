@@ -23,13 +23,15 @@ HEARTBEAT_FILE = REPO / "figures" / "live" / "last_harvest.json"
 STALE_FILE = REPO / "figures" / "live" / "HARVEST_STALE.md"
 LOG_FILE = REPO / "logs" / "harvest_daemon.log"
 
+# Under systemd, stdout is appended to LOG_FILE by the unit (StandardOutput=append:...),
+# so a stdout handler there would write every line twice. Echo to stdout only on a TTY.
+_handlers = [logging.FileHandler(LOG_FILE)]
+if sys.stdout.isatty():
+    _handlers.append(logging.StreamHandler(sys.stdout))
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE),
-        logging.StreamHandler(sys.stdout),
-    ],
+    handlers=_handlers,
 )
 logger = logging.getLogger("harvest-daemon")
 
