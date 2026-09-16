@@ -90,3 +90,13 @@ quantile = **5.9915** (P2B's "6.0" is this value rounded); χ²₂ 68.3 % = 2.29
 three independent computations (nested loops; einsum from CSV `e_total_kms`; FITS re-extraction)
 agree to ≤1.2e-9; `pytest pipeline/tests/` 509 passed; `check_tier_language.py` 0 violations |
 Reviewed-by: T0 N (pending); coordinator re-run pending*
+
+---
+
+**Status note (2026-09-16, later same day, Claude Opus 5):** §3 item 2 — a re-run by a
+different session/model, with new code that does not import `pipeline/`, reproduces
+`C₉` to 2.2e-16, and `P₉` and `k_eff/k_target` exactly
+(`scripts/wp_e6_sweep_rerun_and_keff_audit_2026_09_16.py`; details and scope of
+independence in `T0_DECISION_REQUEST_SWEEP_KEFF_2026_09_16.md` § Independent re-run
+status). Same repo/machine/T1 role, so whether it counts as producer ≠ verifier is left to
+T0. §3 item 1 is still open.
