@@ -1,0 +1,29 @@
+{
+ "label": "ENGINEERING/DESIGN \u2014 WP-E6-SWEEP K3 gate; not TEST, not FIT",
+ "pin": "briefs/WP_E6_SWEEP_KEFF_RULING_PINNED_2026_09_17.md",
+ "items": {
+  "1_precheck_sha256": {
+   "pass": true,
+   "sha256": "508717c8fa87e07e77a871b7d184e6525975cfea6357922ba9f02adf2bbace2c"
+  },
+  "2_precheck_flags": {
+   "pass": true,
+   "control_1_pass": true,
+   "control_2_cap_fires": true,
+   "band0_within_cap": true,
+   "wrapper_regression": true
+  },
+  "3_emulator_regression": {
+   "pass": true,
+   "max_rel_diff": 0.0
+  },
+  "4_augmented_covariance": {
+   "pass": true,
+   "max_rel_diff_vs_artifact_term": 6.472600233564663e-14,
+   "max_abs_diff_vs_pinned_table": 4.9423641767729065e-09,
+   "cholesky": true,
+   "k_eff_within_cap": true
+  }
+ },
+ "passes": true
+}
