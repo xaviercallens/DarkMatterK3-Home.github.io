@@ -148,3 +148,15 @@ No `TUNING_LOG.md` row is added: that records a choice after T0 rules, not a pro
 *Generated-by: Claude (Fable 5.1) | Verified-by: all numbers computed this session from
 `data/literature/desi_dr1_lya_p1d_2026_07_27.csv` and the tracked 9×9 artifact; no emulator
 run | Audit: Claude Opus 5 — slope table not reproduced; corrected in-band, JSON `wp_e6_sweep_rerun_keff_audit_2026_09_16.json` | Reviewed-by: T0 — pending*
+
+---
+
+## Correction note (2026-09-17, Claude Fable 5.1)
+
+Option 1 above says the other 7 native bins "bracket" the 9 targets and that "every `k_eff` lies
+inside the native range" with "no extrapolation". **Both statements are wrong.**
+`emu_predict.K_BINS` is log₁₀k = −2.2 … −0.7, so the 9 targets are the lowest nine and the other
+7 all lie above them. Band 0 has `k_eff` 0.003 dex **below** the lowest native bin, so Option 1
+needs a small extrapolation there; bands 1–8 are bracketed. The proposed ruling
+`T0_PROPOSED_RULING_SWEEP_KEFF_2026_09_17.md` handles this explicitly: a 0.01-dex cap and an edge
+acceptance check. The recommendation is unchanged.
