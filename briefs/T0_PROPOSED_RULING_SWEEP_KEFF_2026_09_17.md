@@ -47,8 +47,16 @@ uses the (−2.2, −2.1, −2.0) nodes, because no node exists below −2.2. Ev
 point and at the corners of the (m, f) grid.
 **Pass:** err_b ≤ **0.1 σ_b** for every band at every checked point (σ_b from the pinned `C₉`
 diagonal). The JSON is persisted before print.
-**Negative control:** the same procedure with interpolation linear in k (not ln k) must give a
-larger bound or a larger error. If it does not, the check is not discriminating and counts as a failure.
+**Negative controls (both must behave as stated, otherwise the check counts as FAILED):**
+1. *Check can fail:* on the emulator curve at the fiducial point, multiply P at each band's
+   curvature node by 1.10 and evaluate at worst-case placement (δ = h/2 for bands 1–8; 0.05 dex
+   beyond the edge for band 0). The bound must exceed 0.1σ_b in **all 9 bands**.
+   (On the `pfid_kms` stand-in: 9/9 fail with the 10 % bump, 3/9 without it.)
+2. *Cap can fire:* a synthetic k_eff 0.02 dex below −2.2 must trigger the R-KEFF-1 hard stop.
+
+Bands whose k_eff sits almost on a node (2, 3, 7, 8: |offset| ≤ 0.0025 dex) are *correctly*
+insensitive to curvature at their real placement. This is why control 1 uses worst-case
+placement rather than the real k_eff.
 
 *Why this form (tested 2026-09-17 on DESI's smooth fiducial `pfid_kms` at z = 4.2 as a stand-in
 curve, not the emulator):*
@@ -88,13 +96,14 @@ interpolation scheme as a post-pin analysis choice; (c) every consuming output s
 ## Why this option (engineering reasons only)
 It removes the k mismatch rather than estimating it. Its only new ingredients are one interpolation
 rule and one capped 0.003-dex edge extrapolation. Their error is bounded on the emulator alone,
-before any data contact. On a smooth stand-in curve that bound is ≤ 0.034σ in every band. And the choice does
-not depend on the disputed size of the shift: whether the bias is 0.4σ or 1σ, the rule is the same.
+before any data contact. On a smooth stand-in curve the true error is ≤ 0.034σ and the bound
+≤ 0.032σ in every band. And the choice does not depend on the disputed size of the shift:
+whether the bias is 0.4σ or 1σ, the rule is the same.
 
 ## Not covered by this proposal
 Whether the 2026-09-16 Opus-5 re-run satisfies producer ≠ verifier — a separate T0 item.
 
 ---
 *Generated-by: Claude (Fable 5.1) | Verified-by: numbers quoted from the committed decision
-request and `wp_e6_sweep_rerun_keff_audit_2026_09_16.json`; emulator K_BINS grid read from `pipeline/wp_e6_covariance.py` docstring; R-KEFF-2 design tested on `pfid_kms` stand-in (table above); no emulator run | Reviewed-by:
+request and `wp_e6_sweep_rerun_keff_audit_2026_09_16.json`; emulator K_BINS grid read from `pipeline/wp_e6_covariance.py` docstring; R-KEFF-2 bound and negative control 1 tested on `pfid_kms` stand-in; no emulator run | Reviewed-by:
 T0 — PENDING APPROVAL (not a ruling until signed)*
