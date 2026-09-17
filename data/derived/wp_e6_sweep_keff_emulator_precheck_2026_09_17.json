@@ -1,0 +1,132 @@
+{
+ "label": "DRAFT (ENGINEERING/DESIGN) \u2014 pre-approval run of PROPOSED R-KEFF-2; not TEST, not FIT; no data vector used",
+ "generated_utc": "2026-09-17T05:39:54.429354+00:00",
+ "threshold_sigma": 0.1,
+ "proposal_commit_fixing_threshold": "f17f3b7",
+ "emulator": "lya-mfdm 9182aa4, emu_N100, rebuilt standalone wrapper",
+ "wrapper_regression": {
+  "cdm_max_rel_diff_vs_2026_07_28": 0.0,
+  "suppression_max_abs_diff_vs_2026_07_28": 0.0,
+  "pass": true
+ },
+ "nuisance_training_box": {
+  "min": [
+   6.053877742616146,
+   0.06581892956245214,
+   -0.9872537042719687,
+   0.3
+  ],
+  "max": [
+   14.91187775745422,
+   3.9892995994435343,
+   0.9955540158198699,
+   1.8
+  ],
+  "order": [
+   "zrei",
+   "ha",
+   "hs",
+   "taueff"
+  ]
+ },
+ "points_checked": 952,
+ "bound_sigma_max_per_band": [
+  0.16104888225880504,
+  0.20826505990066962,
+  0.062253252888268405,
+  0.02904155507766672,
+  0.1623142246248889,
+  0.3118392963350424,
+  0.05512941839905868,
+  0.0031392431911289286,
+  0.029493883754444197
+ ],
+ "bound_sigma_max_location": [
+  {
+   "nuisance": "corner1001",
+   "m": -22.9,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner1001",
+   "m": -22.9,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner1001",
+   "m": -22.9,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner1101",
+   "m": -22.5,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner1101",
+   "m": -22.9,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner1001",
+   "m": -22.0,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner0101",
+   "m": -21.5,
+   "f": 0.99
+  },
+  {
+   "nuisance": "corner0111",
+   "m": -20.0,
+   "f": 0.2
+  },
+  {
+   "nuisance": "corner0001",
+   "m": -19.1,
+   "f": 0.99
+  }
+ ],
+ "bound_sigma_median_per_band": [
+  0.0072395630517931575,
+  0.011305163443827352,
+  0.005006744417891023,
+  0.0011311057619099207,
+  0.009250961726165421,
+  0.03058911515027275,
+  0.010711010895755723,
+  0.0007309767959433294,
+  0.002138516248979952
+ ],
+ "pass_R_KEFF_2": false,
+ "control_1_beyond_spec_all_points_min_bands_failing": 1,
+ "control_1_fiducial_fails_per_band": [
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "control_1_pass": true,
+ "fiducial_bound_sigma_per_band": [
+  0.012876801751158741,
+  0.0203165078985952,
+  0.0050189898113790245,
+  0.0028516279241526665,
+  0.004617364616587598,
+  0.14786829992101794,
+  0.02949184218951664,
+  0.0015274756337637836,
+  0.004765149332353826
+ ],
+ "fiducial_pass": false,
+ "control_2_cap_fires": true,
+ "band0_extrapolation_dex": 0.0030445120713054052,
+ "band0_within_cap": true,
+ "overall": false
+}
