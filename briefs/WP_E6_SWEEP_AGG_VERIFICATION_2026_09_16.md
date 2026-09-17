@@ -100,3 +100,6 @@ different session/model, with new code that does not import `pipeline/`, reprodu
 independence in `T0_DECISION_REQUEST_SWEEP_KEFF_2026_09_16.md` § Independent re-run
 status). Same repo/machine/T1 role, so whether it counts as producer ≠ verifier is left to
 T0. §3 item 1 is still open.
+
+
+**Status note (2026-09-17):** §3 item 2 (independent re-run) is **CLOSED**: T0 ruled the Opus-5 re-run counts (`T0_RULINGS_2026_09_17.md` A1). The artifact is VERIFIED. §3 item 1 (design §4) remains open.
