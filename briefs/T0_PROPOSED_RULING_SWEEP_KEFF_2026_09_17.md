@@ -35,16 +35,41 @@ spacing). It is allowed only up to a fixed cap of **0.01 dex beyond a grid edge*
 evaluation past the cap is a hard stop, not a silent clamp.
 
 **R-KEFF-2. Acceptance check before the sweep runs, threshold fixed now.**
-On the emulator's own output, with no data involved:
-- **Interior (bands 1–8):** for each native bin log₁₀k = −2.1 … −1.4, predict its value by
-  log-log interpolation from its two neighbours (a 0.2-dex span, twice the span the sweep uses,
-  so a conservative bound) and compare to the native value.
-- **Edge (band 0):** predict the −2.2 bin by log-log **extrapolation** from the (−2.1, −2.0)
-  segment, i.e. 0.1 dex out, about 33× the real 0.003-dex distance, and compare to the native value.
-Evaluated at the fiducial point and at the corners of the (m, f) grid.
-**Pass:** |interpolated − native| ≤ **0.1 σ_b** for every target band at every checked point
-(σ_b from the pinned `C₉` diagonal; the edge check uses σ₀). The JSON is persisted before print. A negative control ships with it
-(a deliberately wrong rule, linear in k rather than in ln k, must give a larger error).
+On the emulator's own output, with no data involved, bound each band's interpolation error by
+the local curvature of ln P in ln k:
+
+    f''_b ≈ |ln P(t−0.1) − 2 ln P(t) + ln P(t+0.1)| / h²,   h = 0.1·ln10,  t = log₁₀k_target,b
+    bands 1–8 (interpolation):  err_b ≤ ½ f''_b · δ_b (h − δ_b) · P(k_eff,b)
+    band 0 (extrapolation):     err_0 ≤ ½ f''_0 · δ_0 (h + δ_0) · P(k_eff,0)
+
+Here δ_b is the ln-k distance from k_eff,b to the nearest node of its segment. Band 0's curvature
+uses the (−2.2, −2.1, −2.0) nodes, because no node exists below −2.2. Evaluate at the fiducial
+point and at the corners of the (m, f) grid.
+**Pass:** err_b ≤ **0.1 σ_b** for every band at every checked point (σ_b from the pinned `C₉`
+diagonal). The JSON is persisted before print.
+**Negative control:** the same procedure with interpolation linear in k (not ln k) must give a
+larger bound or a larger error. If it does not, the check is not discriminating and counts as a failure.
+
+*Why this form (tested 2026-09-17 on DESI's smooth fiducial `pfid_kms` at z = 4.2 as a stand-in
+curve, not the emulator):*
+
+| band | true error at real k_eff (σ) | leave-one-out 0.2-dex check (σ) | curvature bound (σ) |
+|---|---|---|---|
+| 0 | 0.004 | 0.383 | 0.005 |
+| 1 | 0.010 | 0.208 | 0.009 |
+| 2 | 0.004 | 0.253 | 0.003 |
+| 3 | 0.004 | 0.348 | 0.004 |
+| 4 | 0.025 | 0.420 | 0.025 |
+| 5 | 0.034 | 0.424 | 0.032 |
+| 6 | 0.012 | 0.338 | 0.012 |
+| 7 | 0.000 | 0.205 | 0.000 |
+| 8 | 0.001 | 0.071 | 0.002 |
+
+An earlier draft of this proposal used a leave-one-out check over a 0.2-dex span. **It would
+fail 8 of 9 bands at 0.1σ while the true error is ≤ 0.034σ**, so under R-KEFF-3 it would stop
+the sweep for a reason unrelated to the real interpolation error. The curvature bound tracks the true
+error in every band. This test is on a stand-in curve; the pre-registered check runs on the
+emulator itself.
 
 **R-KEFF-3. Failure is a hard stop.** If R-KEFF-2 fails anywhere, the sweep does not run and
 the item returns to T0. No silent fallback to `k_target`, no covariance inflation (Option 2),
@@ -62,8 +87,8 @@ interpolation scheme as a post-pin analysis choice; (c) every consuming output s
 
 ## Why this option (engineering reasons only)
 It removes the k mismatch rather than estimating it. Its only new ingredients are one interpolation
-rule and one capped 0.003-dex edge extrapolation. The error of each can be measured on the
-emulator alone, before any data contact, with the edge check deliberately ~33× harsher than the real case. And the choice does
+rule and one capped 0.003-dex edge extrapolation. Their error is bounded on the emulator alone,
+before any data contact. On a smooth stand-in curve that bound is ≤ 0.034σ in every band. And the choice does
 not depend on the disputed size of the shift: whether the bias is 0.4σ or 1σ, the rule is the same.
 
 ## Not covered by this proposal
@@ -71,5 +96,5 @@ Whether the 2026-09-16 Opus-5 re-run satisfies producer ≠ verifier — a separ
 
 ---
 *Generated-by: Claude (Fable 5.1) | Verified-by: numbers quoted from the committed decision
-request and `wp_e6_sweep_rerun_keff_audit_2026_09_16.json`; emulator K_BINS grid read from `pipeline/wp_e6_covariance.py` docstring; no emulator run | Reviewed-by:
+request and `wp_e6_sweep_rerun_keff_audit_2026_09_16.json`; emulator K_BINS grid read from `pipeline/wp_e6_covariance.py` docstring; R-KEFF-2 design tested on `pfid_kms` stand-in (table above); no emulator run | Reviewed-by:
 T0 — PENDING APPROVAL (not a ruling until signed)*
