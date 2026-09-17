@@ -160,3 +160,12 @@ inside the native range" with "no extrapolation". **Both statements are wrong.**
 needs a small extrapolation there; bands 1–8 are bracketed. The proposed ruling
 `T0_PROPOSED_RULING_SWEEP_KEFF_2026_09_17.md` handles this explicitly: a 0.01-dex cap and an edge
 acceptance check. The recommendation is unchanged.
+
+## Correction note 2 (2026-09-17, Claude Opus 5): the real emulator reverses part of the audit correction
+
+The audit correction above said Option 3 was "less clearly ruled out" because smooth data-side estimators
+gave ≤ 0.41σ. **On the real emulator (restored 2026-09-17, commit `b8cf11e`) the `k_target` mismatch in band 5
+is 1.19σ at p95 and 1.46σ max** across 952 grid × nuisance points. The emulator and its training simulations
+bend sharply at log₁₀k = −1.7; the smooth estimators could not see this. The original draft's "~1σ in band 5"
+was right in size for the model. Its slope table and χ² = 3.16 remain unreproduced. Option 3 is ruled out by the
+emulator numbers. See `T0_PROPOSED_RULING_SWEEP_KEFF_2026_09_17.md` § "Emulator pre-check result".
