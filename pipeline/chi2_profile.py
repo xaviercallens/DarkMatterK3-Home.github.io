@@ -64,6 +64,7 @@ class ProfileLikelihoodResult(NamedTuple):
     n_calls: int
     valid_minimum: bool
     messages: list
+    start_fvals: tuple = ()   # χ² reached from each start (multi-start only), in start order
 
 
 def hartlap_correction(n_realizations: int, n_bins: int = 9) -> float:
@@ -186,7 +187,7 @@ class Chi2Profiler:
         return chi2_val
 
     def profile_likelihood(
-        self, m: float, f: float, verbose: bool = False
+        self, m: float, f: float, verbose: bool = False, starts: Optional[list] = None
     ) -> ProfileLikelihoodResult:
         """
         Minimize χ² over nuisance parameters (zrei, ha, hs, taueff) at fixed (m, f).
@@ -195,10 +196,16 @@ class Chi2Profiler:
             m: FDM log10 mass parameter.
             f: FDM abundance parameter.
             verbose: If True, print Minuit summary after minimization.
+            starts: Optional list of nuisance dicts. None = single start at NUISANCE_INIT (original
+                behaviour). Given, Migrad runs from every start (re-running Migrad once if a run is not
+                valid) and the lowest χ² is kept. Added 2026-09-17: on the real emulator the χ² surface
+                has flat, slightly rugged directions, and a single start overestimated χ²_min by up to ~1.0.
 
         Returns:
             ProfileLikelihoodResult with χ²_min and best-fit nuisances.
         """
+        if starts is not None:
+            return self._profile_multistart(m, f, starts)
         # Wrap chi2 function for the fixed (m, f) point.
         def chi2_nuisances(zrei, ha, hs, taueff):
             return self._chi2_single_cell(m, f, zrei, ha, hs, taueff)
@@ -260,6 +267,38 @@ class Chi2Profiler:
             n_calls=n_calls,
             valid_minimum=valid_minimum,
             messages=messages,
+        )
+
+    def _profile_multistart(self, m, f, starts):
+        def chi2_nuisances(zrei, ha, hs, taueff):
+            return self._chi2_single_cell(m, f, zrei, ha, hs, taueff)
+
+        best, fvals, n_calls = None, [], 0
+        for start in starts:
+            mi = Minuit(chi2_nuisances, **{k: float(start[k]) for k in ("zrei", "ha", "hs", "taueff")})
+            for param_name, (lower, upper) in NUISANCE_BOUNDS.items():
+                mi.limits[param_name] = (lower, upper)
+            mi.errordef = Minuit.LEAST_SQUARES
+            mi.migrad()
+            if not mi.valid:
+                mi.migrad()
+            n_calls += mi.nfcn
+            fvals.append(float(mi.fval))
+            if best is None or mi.fval < best.fval:
+                best = mi
+        at_limit = [n for n in best.parameters
+                    if min(abs(best.values[n] - NUISANCE_BOUNDS[n][0]), abs(best.values[n] - NUISANCE_BOUNDS[n][1])) < 1e-4]
+        messages = []
+        if not best.valid:
+            messages.append("Minuit did not converge to valid minimum (best of multi-start)")
+        if at_limit:
+            messages.append(f"Nuisance parameters at boundary: {', '.join(at_limit)}. Interior minimization may be unreliable.")
+        return ProfileLikelihoodResult(
+            chi2_min=float(best.fval),
+            nuisance_params=dict(zip(best.parameters, best.values)),
+            nuisance_errors=dict(zip(best.parameters, best.errors)),
+            at_boundary=bool(at_limit), n_calls=int(n_calls), valid_minimum=bool(best.valid),
+            messages=messages, start_fvals=tuple(fvals),
         )
 
     def profile_likelihood_grid(
