@@ -15,7 +15,9 @@
     "holds": true,
     "defect": "0",
     "consequence_1": "An order-2 L2 exists for every member, including s7 and s10; branch (iii) of the audit sec.3 is EXCLUDED.",
-    "consequence_2": "C3 has NO discriminating power inside this family \u2014 every member satisfies it by the shape of the recurrence. C3 cannot rank or separate register candidates drawn from it."
+    "consequence_2": "C3 has NO discriminating power inside this family \u2014 every member satisfies it by the shape of the recurrence. C3 cannot rank or separate register candidates drawn from it.",
+    "consequence_2_scope": "Applies to register entries IN THIS FAMILY (s7, s10). K3_CRITERIA.md also registers S22 and t103, whose defining recurrences are TBD-AT-FREEZE and are absent from ORDER3_AZ_COOPER, so whether they belong to this family is UNRESOLVED and is not claimed either way here.",
+    "consequence_3": "C1 is left as the only committed checker with per-candidate discriminating power on this register (C1 certificates exist at PASS(40) for s7, s10, alpha, gamma, delta, eta), since C3 is non-discriminating here and C3b is gated on C3."
   },
   "scope_limits": [
     "Tests projective (gauge) equivalence in the variable z, NOT C3's equality in a fixed normalization. SYM2_EXISTS_UP_TO_GAUGE is not a C3 pass.",
@@ -218,38 +220,46 @@
       }
     }
   },
-  "negative_control_NC3_known_good_families": {
+  "negative_control_NC3_anchored_to_committed_certificates": {
     "pass": true,
+    "anchoring_certificates_found": 3,
+    "minimum_required": 3,
     "detail": {
       "alpha": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": "C3_sym2_C_alpha.json",
+        "certificate_status": "PASS",
+        "anchored": true,
         "ok": true
       },
       "delta": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": "C3_sym2_A_delta.json",
+        "certificate_status": "PASS",
+        "anchored": true,
         "ok": true
       },
       "epsilon": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": null,
-        "ok": true
+        "anchored": false
       },
       "eta": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": "C3_sym2_D_eta.json",
+        "certificate_status": "PASS",
+        "anchored": true,
         "ok": true
       },
       "gamma": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": null,
-        "ok": true
+        "anchored": false
       },
       "zeta": {
         "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
         "committed_certificate": null,
-        "ok": true
+        "anchored": false
       }
     }
   }

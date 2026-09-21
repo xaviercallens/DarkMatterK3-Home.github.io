@@ -40,8 +40,9 @@ NO-LLM-RECALL (VISION sec.6.1). Nothing is a cited formula. Derived at run time:
   D2. The projective normal form: the substitution y = w*u with w'/w = -p2/3 is carried out
       symbolically and P, Q are read off; the classical closed forms are never typed in.
       The u'' coefficient must come out 0, which is checked.
-  D3. The adjoint condition: the formal adjoint of d^3 + P d + Q is built by parts
-      symbolically and L* = -L is solved, yielding the test 2Q - P' == 0.
+  D3. (consistency check, NOT a derivation — see `derive_adjoint_condition`.) The formal
+      adjoint of d^3 + P d + Q is hand-supplied as -d^3 - (P .)' + Q, and L* + L is
+      confirmed to collapse to (2Q - P') f, so L* = -L iff 2Q - P' == 0.
 Vanishing is tested by `cancel` + zero-polynomial test on the numerator — never by
 sampling, never by eyeballing `simplify`.
 
@@ -54,8 +55,13 @@ NEGATIVE CONTROLS (all enforced; exit 1 on any failure):
         property of the shape.
   NC-2  OFF-FAMILY controls: explicit d/dz-form operators with 2Q - P' provably nonzero
         (hand-computed in the table) must come out NO_SYM2_IN_ANY_GAUGE.
-  NC-3  the six d = 0 sporadic families must come out SYM2_EXISTS_UP_TO_GAUGE, consistent
-        with the three committed C3_sym2_*.json certificates.
+  NC-3  ANCHOR to committed data: every family carrying a committed C3_sym2_*.json whose
+        own recorded status is PASS must come out SYM2_EXISTS_UP_TO_GAUGE, and at least
+        three such certificates must be found. Anchored this way it can fail — if the
+        certificates were absent, unreadable, or not PASS, NC-3 fails rather than passing
+        vacuously. (An earlier version asserted only "the six d = 0 families come out
+        SYM2_EXISTS", which the symbolic identity makes true for every input in the family:
+        a control that cannot fail. Fixed.)
 
 DOCUMENTED EXPECTED NON-MATCH. P/4 does NOT equal the projective normal form R of the
 Zagier order-2 partner (checked, reported in `order2_partner_coordinate_note`). That is
@@ -146,10 +152,13 @@ def derive_sym2_form():
 
 # ---- D3: derive the adjoint condition, i.e. that the test is 2Q - P' ---------
 def derive_adjoint_condition():
-    """(d^3 + P d + Q)* = -d^3 - P d - P' + Q ; L* = -L  <=>  2Q - P' = 0.
+    """CONSISTENCY CHECK, not a derivation — the adjoint is supplied, then checked.
 
-    Built by integration by parts on a test pairing: <L f, g> - <f, L* g> must be a total
-    derivative, which for these coefficients reduces to comparing the two operators' action.
+    The formal adjoint of d^3 + P d + Q is written down as -d^3 - (P .)' + Q and this
+    function confirms that L* + L collapses exactly to (2Q - P') f, so that L* = -L iff
+    2Q - P' = 0. The adjoint itself is hand-supplied rather than derived by parts, so this
+    is weaker than D1: it verifies the algebra of the step, not the step's premise. Recorded
+    honestly rather than described as a derivation (VISION sec.6.1). D1 IS a real derivation.
     """
     P, Q = sp.Function("P")(z), sp.Function("Q")(z)
     f = sp.Function("f")(z)
@@ -254,11 +263,25 @@ def main() -> int:
     nc0_pass = all(nc0.values())
 
     known_good = sorted(set(BIJECTION.values()))
-    certs = {n: next((p.name for p in CERT_DIR.glob(f"C3_sym2_*_{n}.json")), None)
-             for n in known_good}
-    nc3 = {n: {"verdict": rows[n]["verdict"], "committed_certificate": certs[n],
-               "ok": rows[n]["verdict"] == "SYM2_EXISTS_UP_TO_GAUGE"} for n in known_good}
-    nc3_pass = all(v["ok"] for v in nc3.values())
+    nc3 = {}
+    for n in known_good:
+        cert_path = next(iter(CERT_DIR.glob(f"C3_sym2_*_{n}.json")), None)
+        if cert_path is None:
+            nc3[n] = {"verdict": rows[n]["verdict"], "committed_certificate": None,
+                      "anchored": False}
+            continue
+        cert = json.loads(cert_path.read_text())
+        nc3[n] = {
+            "verdict": rows[n]["verdict"],
+            "committed_certificate": cert_path.name,
+            "certificate_status": cert.get("status"),
+            "anchored": True,
+            "ok": cert.get("status") == "PASS"
+                 and rows[n]["verdict"] == "SYM2_EXISTS_UP_TO_GAUGE",
+        }
+    anchored = [v for v in nc3.values() if v["anchored"]]
+    # Must find at least 3 anchoring certificates AND agree with every one of them.
+    nc3_pass = len(anchored) >= 3 and all(v["ok"] for v in anchored)
 
     # ---- documented expected non-match against the Zagier partner's R
     note = {}
@@ -290,6 +313,15 @@ def main() -> int:
             "consequence_2": "C3 has NO discriminating power inside this family — every "
                              "member satisfies it by the shape of the recurrence. C3 cannot "
                              "rank or separate register candidates drawn from it.",
+            "consequence_2_scope": "Applies to register entries IN THIS FAMILY (s7, s10). "
+                                   "K3_CRITERIA.md also registers S22 and t103, whose defining "
+                                   "recurrences are TBD-AT-FREEZE and are absent from "
+                                   "ORDER3_AZ_COOPER, so whether they belong to this family is "
+                                   "UNRESOLVED and is not claimed either way here.",
+            "consequence_3": "C1 is left as the only committed checker with per-candidate "
+                             "discriminating power on this register (C1 certificates exist at "
+                             "PASS(40) for s7, s10, alpha, gamma, delta, eta), since C3 is "
+                             "non-discriminating here and C3b is gated on C3.",
         },
         "scope_limits": [
             "Tests projective (gauge) equivalence in the variable z, NOT C3's equality in a "
@@ -313,7 +345,9 @@ def main() -> int:
         "negative_control_NC0_operator_annihilates_own_series": {"pass": nc0_pass, "detail": nc0},
         "negative_control_NC1_shape_breaks_the_identity": {"pass": nc1_pass, "detail": nc1},
         "negative_control_NC2_off_family_detected": {"pass": nc2_pass, "detail": nc2},
-        "negative_control_NC3_known_good_families": {"pass": nc3_pass, "detail": nc3},
+        "negative_control_NC3_anchored_to_committed_certificates": {
+            "pass": nc3_pass, "anchoring_certificates_found": len(anchored),
+            "minimum_required": 3, "detail": nc3},
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -328,7 +362,7 @@ def main() -> int:
     print(f"  NC-0 annihilates own series  : {'PASS' if nc0_pass else 'FAIL'}")
     print(f"  NC-1 shape controls break it : {'PASS' if nc1_pass else 'FAIL'}")
     print(f"  NC-2 off-family detected     : {'PASS' if nc2_pass else 'FAIL'}")
-    print(f"  NC-3 known-good families     : {'PASS' if nc3_pass else 'FAIL'}")
+    print(f"  NC-3 anchored to {len(anchored)} certs      : {'PASS' if nc3_pass else 'FAIL'}")
     print(f"  artifact: {OUT.relative_to(REPO)}")
     all_ok = all([ok_d1, ok_d3, family_identity, nc0_pass, nc1_pass, nc2_pass, nc3_pass])
     return 0 if all_ok else 1

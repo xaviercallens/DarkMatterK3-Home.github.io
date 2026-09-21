@@ -22,8 +22,9 @@ register's primary candidates sit on the other branch of it (ρ = 19, Tier B).
 
 Three gaps found while checking this, none previously filed: criterion C3 cannot be run on either
 register primary with the committed checker (§3); C3 is in any case satisfied by every member of that
-family by the shape of the recurrence, so it cannot select among candidates (§3.1); and the one Lean
-statement that names a Cooper candidate is vacuous (§5).
+family by the shape of the recurrence, so it cannot select among the register candidates drawn from
+it, leaving C1 as the only committed checker with per-candidate discriminating power (§3.1); and the
+one Lean statement that names a Cooper candidate is vacuous (§5).
 
 ## 1. A DESI sweep is candidate-blind — checked, not argued
 
@@ -123,9 +124,12 @@ Resolved 2026-09-21 by exact symbolic computation. An order-3 operator in projec
 `u''' + P u' + Q u` is the symmetric square of a second-order operator exactly when it is
 anti-self-adjoint, i.e. when `2Q − P′` vanishes. Both ingredients are **derived at run time**, not
 cited: `Sym²(∂² + r) = ∂³ + 4r∂ + 2r′` is obtained by substituting a generic product of solutions of
-`y″ = −ry` (residual 0), and the adjoint condition is obtained by building the formal adjoint
-symbolically. The normal form itself is produced by executing the `y = w·u` substitution with
-`w′/w = −p₂/3` and reading off P and Q, so no classical closed form is typed in (VISION §6.1).
+`y″ = −ry` (residual 0). The normal form is produced by executing the `y = w·u` substitution with
+`w′/w = −p₂/3` and reading off P and Q, so no classical closed form is typed in (VISION §6.1). The
+adjoint step is weaker and is labelled as such in the script: the formal adjoint is **hand-supplied**
+as `−∂³ − (P·)′ + Q` and then confirmed to make `L* + L` collapse to `(2Q − P′)f`. That verifies the
+algebra of the step, not its premise — it is a consistency check, not a derivation, and is recorded
+that way rather than described as one.
 
 **The result is stronger than a per-candidate verdict: `2Q − P′` vanishes identically in the symbolic
 parameters (a, b, c, d) of the AZ/Cooper shape** `θ³ − z(2θ+1)(aθ²+aθ+b) + z²(c(θ+1)³ + d(θ+1))`.
@@ -143,6 +147,18 @@ Two consequences:
    independent direction with the sandbox R2 result that ODE order 3 alone does not make a sequence
    K3-type.
 
+   **Scope of consequence 2.** This covers the register entries that are *in this family* — s7 and
+   s10. `K3_CRITERIA.md` §1 also registers **S22** and **t103**, whose defining recurrences are
+   `TBD-AT-FREEZE` and which are absent from the checker's `ORDER3_AZ_COOPER` table. Whether they
+   belong to this family is **unresolved**, and nothing is claimed about them either way. Settling it
+   needs their citable recurrences, which the register's own rule already requires before freeze.
+
+3. **C1 is left as the only committed checker with per-candidate discriminating power on this
+   register.** C3 is non-discriminating here, and C3b is defined only for candidates that have
+   cleared C3, so it inherits the problem. C1 certificates do exist and are candidate-specific —
+   `PASS(40)` for s7, s10, alpha, gamma, delta, eta. Whether C1 alone can carry a selection is a
+   freeze question for T0 and Stream 2, not one this brief answers.
+
 - Script: `scripts/c3_sym2_gauge_existence_2026_09_21.py` · Artifact:
   `data/derived/c3_sym2_gauge_existence_2026_09_21.json`
 - Label: `MATH-EXISTENCE` — gauge equivalence only; not a C3 verdict, not exclusion, not FIT, not TEST
@@ -157,8 +173,13 @@ Two consequences:
   family-wide vanishing is a property of the recurrence shape and not of the normal-form code;
   **NC-2** off-family operators with a hand-computed nonzero defect (e.g. `∂³ + z∂ + 1`, where
   `2Q − P′ = 1`) are correctly reported `NO_SYM2_IN_ANY_GAUGE`, so the criterion is falsifiable;
-  **NC-3** the six d = 0 families come out `SYM2_EXISTS_UP_TO_GAUGE`, consistent with the three
-  committed `C3_sym2_*.json` certificates.
+  **NC-3** *anchored to committed data* — every family carrying a committed `C3_sym2_*.json` whose
+  own recorded status is `PASS` must come out `SYM2_EXISTS_UP_TO_GAUGE`, and at least three such
+  certificates must be found. A first version of NC-3 asserted only that the six d = 0 families come
+  out `SYM2_EXISTS`, which the symbolic identity makes true for *every* input in the family — a
+  control that could not fail. It was rebuilt and now fails both when an anchoring certificate is
+  removed (2 found, below the minimum) and when one's recorded status is altered; both were checked
+  by mutation.
 - **Documented expected non-match.** `P/4` does not equal the projective normal form R of the Zagier
   order-2 partner. This is expected rather than a defect, and is recorded in the artifact: the
   Gorodetsky identity carries the change of variable `w = −x/(1 − Ax + Bx²)`, so the Zagier L₂ lives
