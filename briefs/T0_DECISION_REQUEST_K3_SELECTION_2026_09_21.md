@@ -45,18 +45,29 @@ and the sporadic order-3 landscape is exactly the nine sequences in `ORDER3_AZ_C
 2's Doran Thm 5.13 record says the same from the framework side. **So C3 as written cannot
 discriminate between candidates — it is passed by construction.**
 
-But Stream 2's table records that s7's square-root partner **A279619 is integral** while **s10's is
-dyadic and non-integral**, and asks whether C3 requires integrality.
+Stream 2's table records that s7's square-root partner **A279619 is integral** while **s10's is
+dyadic**, and asked whether C3 requires integrality.
 
-**What T0 is asked.** Rule on it, because the two readings have opposite consequences:
+> **Amended 2026-09-21, same day.** Stream 2's later brief
+> (`STREAM2_TO_STREAMS1_3_LEANMASTER_RESULTS_AND_DIRECTIONS_2026_09_21.md`, result **R7**,
+> `PARTNER_GLOBAL_BOUNDEDNESS` PASS(160), 16 controls) supersedes the framing above:
+> **integrality is coordinate-dependent.** The s10 and s18 partners **are** integral in the
+> coordinate `2z` — sharply, `2ⁿ⁻¹·a(n) ∈ ℤ`. So the s7/s10 asymmetry is not a fact about the
+> candidates; it is a fact about which coordinate C3 is read in.
 
-- **If C3 requires integrality**, it stops being non-discriminating: it separates s7 from s10, and
+**What T0 is asked, restated.** Not "does C3 require integrality?" but **"integral in which
+coordinate?"** Stream 2 states both readings and both are now computable:
+
+- **C3 wants an exhibited L₂ over ℚ** → **s10 passes** C3, and C3 remains non-discriminating: it is
+  a well-formedness check, C3b inherits that (being defined only for C3-cleared candidates), and
+  **C1 is left as the only committed checker with per-candidate discriminating power**.
+- **C3 wants an integral partner in the given coordinate** → **s10 fails and s7 passes**, and C3
   becomes the second candidate-dependent predicate in the program.
-- **If it does not**, C3 is a well-formedness check on the family and nothing more, C3b inherits
-  that (being defined only for C3-cleared candidates), and **C1 is left as the only committed
-  checker with per-candidate discriminating power**.
 
-Either way `K3_CRITERIA.md` C3's normalization is still `TBD-AT-FREEZE` and must be fixed at freeze.
+The choice is T0's. Note what it is *not*: it is not a measurement, and it does not turn on any new
+computation — both branches are already computed. It is a decision about what the criterion means,
+which is exactly why `K3_CRITERIA.md` C3's normalization being `TBD-AT-FREEZE` is load-bearing
+rather than housekeeping. Fixing the coordinate at freeze **is** answering this question.
 
 ## D-3. The candidate register may be down to two entries
 
