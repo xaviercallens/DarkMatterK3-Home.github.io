@@ -24,7 +24,9 @@ Three gaps found while checking this, none previously filed: criterion C3 cannot
 register primary with the committed checker (§3); C3 is in any case satisfied by every member of that
 family by the shape of the recurrence, so it cannot select among the register candidates drawn from
 it, leaving C1 as the only committed checker with per-candidate discriminating power (§3.1); and the
-one Lean statement that names a Cooper candidate is vacuous (§5).
+one Lean statement that names a Cooper candidate is vacuous (§5). A fourth surfaced on verifying the
+checker against its vendored source: two of the register's four candidates — K-S22 and K-t103 — have
+no citable defining recurrence, and the source names only three Cooper sporadic sequences (§3.2).
 
 ## 1. A DESI sweep is candidate-blind — checked, not argued
 
@@ -147,11 +149,12 @@ Two consequences:
    independent direction with the sandbox R2 result that ODE order 3 alone does not make a sequence
    K3-type.
 
-   **Scope of consequence 2.** This covers the register entries that are *in this family* — s7 and
-   s10. `K3_CRITERIA.md` §1 also registers **S22** and **t103**, whose defining recurrences are
-   `TBD-AT-FREEZE` and which are absent from the checker's `ORDER3_AZ_COOPER` table. Whether they
-   belong to this family is **unresolved**, and nothing is claimed about them either way. Settling it
-   needs their citable recurrences, which the register's own rule already requires before freeze.
+   **Scope of consequence 2 — tightened 2026-09-21 (§3.2).** An earlier version of this paragraph
+   left the scope open, because `K3_CRITERIA.md` §1 also registers **S22** and **t103** whose
+   recurrences are `TBD-AT-FREEZE`. §3.2 closes it against the vendored source: the sporadic
+   order-3 landscape is exactly the nine sequences already in `ORDER3_AZ_COOPER`, so **the identity
+   covers every sporadic order-3 Apéry-like sequence there is** — not merely the register. S22 and
+   t103 need no family-membership test; they need a citable recurrence or removal.
 
 3. **C1 is left as the only committed checker with per-candidate discriminating power on this
    register.** C3 is non-discriminating here, and C3b is defined only for candidates that have
@@ -198,6 +201,48 @@ routes, one computational and one from the framework, reach the same conclusion.
 - **Scope limit, stated rather than buried.** "Anti-self-adjoint ⟺ symmetric square" requires L₃
   irreducible. Irreducibility is **not** checked here and is not claimed; for a reducible L₃ the
   reading can degenerate.
+
+### 3.2 The committed C3 checker is faithful to its source — and the register has two entries with nothing behind them
+
+The §3/§3.1 findings all rest on `checkers/check_C3_sym2.py`'s parameter tables, so those tables
+were checked against the vendored primary source rather than trusted. The source is
+`refs/papers/Gorodetsky_sporadic_apery_like_sequences_2102.11839.pdf` (arXiv:2102.11839v2); its
+SHA256 is read from `refs/README.md` and the file is hashed and compared **before any of its text is
+parsed**, so a substituted PDF cannot feed the check.
+
+All six verifications pass, each parsed out of the paper at run time and compared to the committed
+Python — no expected value is typed in except as a control:
+
+| | verified against the source |
+|---|---|
+| **V1** | SHA256 matches `refs/README.md` — `520da4b0…71ee1` |
+| **V2** | Cooper's table: s7 = (13, 4, −27, 3), s10 = (6, 2, −64, 4), s18 = (14, 6, 192, −12) — matches `ORDER3_AZ_COOPER` exactly |
+| **V3** | the Almkvist–van Straten–Zudilin bijection order — A–F ↦ δ, ζ, α, η, ε, γ *in this order* — matches the committed `BIJECTION` |
+| **V4** | the paper's operator (1.7) is character-for-character the operator this session's scripts apply |
+| **V5** | "Cooper found **3** additional sporadic solutions, named s7, s10 and s18" |
+| **V6** | 15 sporadic = 6 Zagier (order 2) + 6 Almkvist–Zudilin (order 3) + 3 Cooper (order 3) |
+
+- Script: `scripts/verify_checker_against_source_2026_09_21.py` · Artifact:
+  `data/derived/checker_source_verification_2026_09_21.json` · Label: `SOURCE-VERIFICATION`
+- Three enforced controls, all passing: a corrupted hash, a perturbed (a, b, c, d) expectation and a
+  permuted bijection order must each be rejected. Each re-runs the real comparator with one value
+  altered, so a comparator that always returned true would be caught — and was, by mutation.
+
+**Two consequences.**
+
+1. **V6 tightens §3.1.** The nine order-3 sporadic sequences *are* `ORDER3_AZ_COOPER`. The family
+   identity therefore covers every sporadic order-3 Apéry-like sequence, so C3's lack of
+   discriminating power is not a fact about this register's particular choices — it is a fact about
+   the whole sporadic order-3 landscape.
+2. **V5 is a register finding.** `K3_CRITERIA.md` §1 registers four candidates. The source names
+   **exactly three** Cooper sporadic solutions — s7, s10, s18 — and **no "Cooper S22" exists in it**.
+   So the register entry **K-S22** has no citable defining recurrence behind it, and **K-t103** was
+   separately vetoed by T0 on 2026-07-26 (`ROADMAP.md` §52). The register's own rule is explicit:
+   *"a candidate without a citable defining recurrence at freeze time is dropped, not guessed."*
+   Under that rule the register's effective content at freeze is **s7 and s10** — exactly the two
+   candidates this brief's findings cover. Stream 3 takes no position on whether S22 was a
+   mis-transcription of s18 or of something else; recovering or dropping it is Stream 2's, and the
+   primary Cooper source is still unfetched (`refs/README.md` line 25: Springer paywall).
 
 ## 4. What the arithmetic route already answers (Tier A, Stream 1)
 

@@ -30,7 +30,8 @@ SCRIPTS = REPO_ROOT / "scripts"
 WPE_SCRIPTS = ["wpe_preflight_baseline.py", "wpe_closure_tests.py",
                "wpe_transverse_sweep.py",
                "c3_normalization_applicability_2026_09_21.py",
-               "c3_sym2_gauge_existence_2026_09_21.py"]
+               "c3_sym2_gauge_existence_2026_09_21.py",
+               "verify_checker_against_source_2026_09_21.py"]
 
 
 def _load(script_name):
@@ -255,3 +256,62 @@ def test_c3_gauge_verdicts_are_never_pass_or_fail():
     for name in ("s7", "s10"):
         v = mod.classify(mod.l3_applied(*mod.ORDER3_AZ_COOPER[name], y), y, name)["verdict"]
         assert v in ("SYM2_EXISTS_UP_TO_GAUGE", "NO_SYM2_IN_ANY_GAUGE")
+
+
+# ---------------------------------------------------------------------------
+# Source verification of the C3 checker against the vendored PDF (2026-09-21).
+# ---------------------------------------------------------------------------
+SRC_VERIFY = "verify_checker_against_source_2026_09_21.py"
+
+
+def _need_pdftotext():
+    import shutil
+    if shutil.which("pdftotext") is None:
+        pytest.skip("pdftotext not installed")
+
+
+def test_source_verification_runs_and_controls_fire():
+    """main() returns 0 only if V1-V6 and NC-A/B/C all hold against the vendored PDF."""
+    _need_pdftotext()
+    mod = _load(SRC_VERIFY)
+    if not mod.PDF.exists():
+        pytest.skip("vendored Gorodetsky PDF not present")
+    assert mod.main() == 0
+
+
+def test_source_verification_hash_gate_actually_compares():
+    """V1 must reject a wrong hash — otherwise the whole parse is ungated."""
+    _need_pdftotext()
+    mod = _load(SRC_VERIFY)
+    if not mod.PDF.exists():
+        pytest.skip("vendored Gorodetsky PDF not present")
+    assert mod.check_hash(mod.actual_sha()) is True
+    assert mod.check_hash("0" * 64) is False
+
+
+def test_source_verification_table_comparison_can_fail():
+    """V2's comparator must reject a perturbed expectation, so a PASS means agreement
+    with the paper rather than a function that returns True."""
+    _need_pdftotext()
+    mod = _load(SRC_VERIFY)
+    if not mod.PDF.exists():
+        pytest.skip("vendored Gorodetsky PDF not present")
+    parsed = mod.parse_cooper_table(mod.pdf_text())
+    assert mod.compare_table(parsed, mod.ORDER3_AZ_COOPER) is True
+    bad = dict(mod.ORDER3_AZ_COOPER)
+    bad["s10"] = (6, 2, -64, 5)          # d: 4 -> 5
+    assert mod.compare_table(parsed, bad) is False
+
+
+def test_source_says_cooper_has_exactly_three_sporadic_solutions():
+    """The register lists K-S22; the source names only s7, s10, s18. Guards the finding
+    that K-S22 has no citable recurrence behind it."""
+    _need_pdftotext()
+    mod = _load(SRC_VERIFY)
+    if not mod.PDF.exists():
+        pytest.skip("vendored Gorodetsky PDF not present")
+    import re
+    text = mod.pdf_text()
+    m = re.search(r"Cooper found (\w+) additional sporadic solutions, named ([^.]+)\.", text)
+    assert m is not None and m.group(1) == "3"
+    assert "s22" not in m.group(2).lower()

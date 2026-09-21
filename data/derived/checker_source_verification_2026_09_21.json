@@ -1,0 +1,78 @@
+{
+  "artifact": "checker_source_verification",
+  "date": "2026-09-21",
+  "label": "SOURCE-VERIFICATION \u2014 documentary; not a C3 verdict, not exclusion, not FIT, not TEST",
+  "source": {
+    "file": "refs/papers/Gorodetsky_sporadic_apery_like_sequences_2102.11839.pdf",
+    "arxiv": "2102.11839v2",
+    "sha256_recorded_in_refs_README": "520da4b0171128d22971d7398f79a1aa6cd760c2412b34a78ba5120adc371ee1",
+    "sha256_actual": "520da4b0171128d22971d7398f79a1aa6cd760c2412b34a78ba5120adc371ee1"
+  },
+  "V1_sha256_gate": true,
+  "V2_cooper_abcd_table_matches_ORDER3_AZ_COOPER": {
+    "pass": true,
+    "parsed": {
+      "s7": [
+        13,
+        4,
+        -27,
+        3
+      ],
+      "s10": [
+        6,
+        2,
+        -64,
+        4
+      ],
+      "s18": [
+        14,
+        6,
+        192,
+        -12
+      ]
+    }
+  },
+  "V3_avsz_bijection_order_matches_BIJECTION": {
+    "pass": true,
+    "parsed_order": [
+      "delta",
+      "zeta",
+      "alpha",
+      "eta",
+      "epsilon",
+      "gamma"
+    ]
+  },
+  "V4_operator_1_7_matches_the_one_this_repo_applies": true,
+  "V5_cooper_has_exactly_three_sporadic_solutions": {
+    "pass": true,
+    "count_word": "3",
+    "names": [
+      "s10",
+      "s18",
+      "s7"
+    ],
+    "consequence": "There is no 'Cooper S22' in the source. K3_CRITERIA.md register entry K-S22 has no citable defining recurrence behind it; the register's own rule drops such a candidate at freeze rather than guessing it. K-t103 is separately vetoed (ROADMAP.md, T0 2026-07-26)."
+  },
+  "V6_order3_sporadic_landscape_is_exactly_the_committed_table": {
+    "pass": true,
+    "landscape": "15 sporadic = 6 Zagier (order 2) + 6 Almkvist-Zudilin (order 3) + 3 Cooper (order 3)",
+    "order3_keys": [
+      "alpha",
+      "delta",
+      "epsilon",
+      "eta",
+      "gamma",
+      "s10",
+      "s18",
+      "s7",
+      "zeta"
+    ],
+    "consequence": "The sec.3.1 family identity therefore covers EVERY sporadic order-3 Apery-like sequence, not merely the register entries. The scope qualifier can be tightened rather than left open."
+  },
+  "negative_controls": {
+    "NC_A_corrupted_hash_rejected": true,
+    "NC_B_perturbed_abcd_rejected": true,
+    "NC_C_permuted_bijection_rejected": true
+  }
+}
