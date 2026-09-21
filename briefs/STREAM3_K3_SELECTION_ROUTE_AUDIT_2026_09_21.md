@@ -221,12 +221,20 @@ Python — no expected value is typed in except as a control:
 | **V4** | the paper's operator (1.7) is character-for-character the operator this session's scripts apply |
 | **V5** | "Cooper found **3** additional sporadic solutions, named s7, s10 and s18" |
 | **V6** | 15 sporadic = 6 Zagier (order 2) + 6 Almkvist–Zudilin (order 3) + 3 Cooper (order 3) |
+| **V7** | "S22" occurs **zero times in the full text of both vendored papers** (Gorodetsky and the AESZ tables) |
 
 - Script: `scripts/verify_checker_against_source_2026_09_21.py` · Artifact:
   `data/derived/checker_source_verification_2026_09_21.json` · Label: `SOURCE-VERIFICATION`
-- Three enforced controls, all passing: a corrupted hash, a perturbed (a, b, c, d) expectation and a
-  permuted bijection order must each be rejected. Each re-runs the real comparator with one value
-  altered, so a comparator that always returned true would be caught — and was, by mutation.
+- Four enforced controls, all passing: a corrupted hash, a perturbed (a, b, c, d) expectation and a
+  permuted bijection order must each be rejected; and the V7 search must *find* a token known to be
+  present (`s7`), so that "zero hits for S22" cannot be confused with a search that never matches.
+  Each re-runs the real comparator with one value altered, so a comparator that always returned true
+  would be caught — and was, by mutation.
+- **V5 and V7 are separate claims and are kept separate.** V5 establishes only that S22 is absent
+  from the sentence enumerating Cooper's solutions. The stronger statement — that the vendored
+  sources contain no such sequence at all — rests on V7's full-text search, and is scoped to what
+  this repo holds. Cooper's primary paper is unfetched (Springer paywall, `refs/README.md` line 25),
+  so nothing here rules on what that paper contains.
 
 **Two consequences.**
 
@@ -236,8 +244,11 @@ Python — no expected value is typed in except as a control:
    the whole sporadic order-3 landscape.
 2. **V5 is a register finding.** `K3_CRITERIA.md` §1 registers four candidates. The source names
    **exactly three** Cooper sporadic solutions — s7, s10, s18 — and **no "Cooper S22" exists in it**.
-   So the register entry **K-S22** has no citable defining recurrence behind it, and **K-t103** was
-   separately vetoed by T0 on 2026-07-26 (`ROADMAP.md` §52). The register's own rule is explicit:
+   So the register entry **K-S22** has no citable defining recurrence behind it in anything this repo
+   holds. **K-t103** is separately off the roadmap, quoted exactly: *"t103 (vetoed by T0 2026-07-26
+   **pending certificates**)"* (`ROADMAP.md`) — a **conditional** veto, not an absolute one; it lifts
+   if certificates are produced, and no certificate is possible without a citable recurrence. The
+   register's own rule is explicit:
    *"a candidate without a citable defining recurrence at freeze time is dropped, not guessed."*
    Under that rule the register's effective content at freeze is **s7 and s10** — exactly the two
    candidates this brief's findings cover. Stream 3 takes no position on whether S22 was a
@@ -343,6 +354,15 @@ Routed, with the owner each already has in the record:
    bridge, and it does not supply a C3 certificate for s7 or s10 (see item 3).
 5. **Stream 3 — no action available on selection.** The WP-E6-SWEEP line stays blocked on C1–C5 and
    remains, when unblocked, an (m, f) exclusion instrument rather than a selection instrument.
+
+7. **T0 — the candidate register may be down to two entries, and that is a freeze question.**
+   If K-S22 and K-t103 both drop under `K3_CRITERIA.md`'s own rule (§3.2), the register goes from
+   four candidates to two — s7 and s10. `K3_CRITERIA.md` is the document gating the freeze, and C3b
+   gates `PREDICTION.md`'s S3-00 input, so this is a structural change to a freeze-blocking
+   document, not a bookkeeping edit. It belongs with the ρ = 20 fork and items 3 and 6 rather than
+   inside a Stream 2 task: **Stream 2** recovers the recurrence or confirms the drop; **T0** rules on
+   what a two-entry register means for the freeze, and on whether a freeze is still the right
+   instrument given §3.1 (C3 non-discriminating) and §3.2 (C1 the only per-candidate discriminator).
 
 6. **T0 — ledger item 3's U1 line is stale.** CLAUDE.md records "The open geometric item is U1
    (is T ≅ U⊕⟨14⟩?)". U1 was closed Tier B on 2026-07-27 with an explicit det-1 base change and

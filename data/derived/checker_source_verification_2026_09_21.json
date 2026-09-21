@@ -51,8 +51,15 @@
       "s10",
       "s18",
       "s7"
-    ],
-    "consequence": "There is no 'Cooper S22' in the source. K3_CRITERIA.md register entry K-S22 has no citable defining recurrence behind it; the register's own rule drops such a candidate at freeze rather than guessing it. K-t103 is separately vetoed (ROADMAP.md, T0 2026-07-26)."
+    ]
+  },
+  "V7_S22_absent_from_full_text_of_both_vendored_papers": {
+    "pass": true,
+    "occurrences": {
+      "gorodetsky": 0,
+      "aesz_tables": 0
+    },
+    "consequence": "K3_CRITERIA.md register entry K-S22 has no citable defining recurrence behind it in anything this repo holds; the register's own rule drops such a candidate at freeze rather than guessing it. K-t103 is separately off the roadmap, quoted exactly: 'vetoed by T0 2026-07-26 pending certificates' (ROADMAP.md) \u2014 a CONDITIONAL veto."
   },
   "V6_order3_sporadic_landscape_is_exactly_the_committed_table": {
     "pass": true,
@@ -73,6 +80,7 @@
   "negative_controls": {
     "NC_A_corrupted_hash_rejected": true,
     "NC_B_perturbed_abcd_rejected": true,
-    "NC_C_permuted_bijection_rejected": true
+    "NC_C_permuted_bijection_rejected": true,
+    "NC_D_same_search_finds_a_token_known_present": true
   }
 }

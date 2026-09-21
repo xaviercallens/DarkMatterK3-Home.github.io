@@ -21,9 +21,12 @@ CHECKS
   V3  the Almkvist-van Straten-Zudilin bijection order (A-F correspond to delta, zeta, alpha,
       eta, epsilon, gamma, IN THIS ORDER) matches the committed `BIJECTION` dict.
   V4  the paper's operator (1.7) matches the operator this repo's scripts apply.
-  V5  Cooper's sporadic solutions number exactly THREE and are named s7, s10, s18 — so there
-      is no "Cooper S22" in the source, and K3_CRITERIA.md's K-S22 entry has no citable
-      recurrence behind it.
+  V5  Cooper's sporadic solutions number exactly THREE and are named s7, s10, s18.
+  V7  "S22" does not occur ANYWHERE in the full text of either vendored paper (Gorodetsky and
+      the AESZ tables). V5 alone would only establish that S22 is absent from one sentence;
+      V7 is what licenses the stronger statement that the vendored sources contain no such
+      sequence, and hence that K3_CRITERIA.md's K-S22 entry has no citable recurrence behind
+      it in anything this repo holds.
   V6  the sporadic landscape is 15 = 6 Zagier (order 2) + 6 AZ (order 3) + 3 Cooper (order 3),
       so the 9 order-3 sequences are exactly `ORDER3_AZ_COOPER`'s keys: the family identity of
       sec.3.1 covers EVERY sporadic order-3 Apery-like sequence, not merely the register.
@@ -55,6 +58,7 @@ sys.path.insert(0, str(REPO))
 from checkers.check_C3_sym2 import BIJECTION, ORDER3_AZ_COOPER  # noqa: E402
 
 PDF = REPO / "refs/papers/Gorodetsky_sporadic_apery_like_sequences_2102.11839.pdf"
+AESZ = REPO / "refs/papers/AESZ_tables_calabi_yau_equations_math0507430.pdf"
 README = REPO / "refs/README.md"
 OUT = REPO / "data/derived/checker_source_verification_2026_09_21.json"
 
@@ -86,9 +90,15 @@ def check_hash(expected: str) -> bool:
     return actual_sha() == expected
 
 
-def pdf_text() -> str:
+def pdf_text(path: Path = None) -> str:
     return normalize(subprocess.run(
-        ["pdftotext", str(PDF), "-"], capture_output=True, text=True, check=True).stdout)
+        ["pdftotext", str(path or PDF), "-"], capture_output=True, text=True,
+        check=True).stdout)
+
+
+def count_token(text: str, pattern: str) -> int:
+    """V7 helper — real search, reused by NC-D with a token known to be present."""
+    return len(re.findall(pattern, text, flags=re.IGNORECASE))
 
 
 def parse_cooper_table(text: str) -> dict[str, tuple[int, ...]]:
@@ -148,6 +158,15 @@ def main() -> int:
     v5_names = re.findall(r"\bs(?:7|10|18|22)\b", m5.group(2)) if m5 else []
     v5 = v5_count == "3" and set(v5_names) == {"s7", "s10", "s18"}
 
+    # V7 — full-text absence of "S22" in BOTH vendored papers.
+    s22_hits = {"gorodetsky": count_token(text, r"s\s?22")}
+    if AESZ.exists():
+        s22_hits["aesz_tables"] = count_token(pdf_text(AESZ), r"\bs\s?22\b")
+    v7 = all(v == 0 for v in s22_hits.values()) and len(s22_hits) == 2
+    # NC-D: the same search must FIND a token that is certainly present, else "0 hits"
+    # would be indistinguishable from a search that never matches anything.
+    nc_d = count_token(text, r"\bs7\b") > 0
+
     v6_15 = "15 sporadic Apéry-like sequences" in text or "15 sporadic Ap" in text
     v6 = v6_15 and set(ORDER3_AZ_COOPER) == set(BIJECTION.values()) | {"s7", "s10", "s18"}
 
@@ -172,11 +191,14 @@ def main() -> int:
         "V3_avsz_bijection_order_matches_BIJECTION": {"pass": v3, "parsed_order": order},
         "V4_operator_1_7_matches_the_one_this_repo_applies": v4,
         "V5_cooper_has_exactly_three_sporadic_solutions": {
-            "pass": v5, "count_word": v5_count, "names": sorted(set(v5_names)),
-            "consequence": "There is no 'Cooper S22' in the source. K3_CRITERIA.md register "
-                           "entry K-S22 has no citable defining recurrence behind it; the "
-                           "register's own rule drops such a candidate at freeze rather than "
-                           "guessing it. K-t103 is separately vetoed (ROADMAP.md, T0 2026-07-26)."},
+            "pass": v5, "count_word": v5_count, "names": sorted(set(v5_names))},
+        "V7_S22_absent_from_full_text_of_both_vendored_papers": {
+            "pass": v7, "occurrences": s22_hits,
+            "consequence": "K3_CRITERIA.md register entry K-S22 has no citable defining "
+                           "recurrence behind it in anything this repo holds; the register's own "
+                           "rule drops such a candidate at freeze rather than guessing it. "
+                           "K-t103 is separately off the roadmap, quoted exactly: 'vetoed by T0 "
+                           "2026-07-26 pending certificates' (ROADMAP.md) — a CONDITIONAL veto."},
         "V6_order3_sporadic_landscape_is_exactly_the_committed_table": {
             "pass": v6,
             "landscape": "15 sporadic = 6 Zagier (order 2) + 6 Almkvist-Zudilin (order 3) "
@@ -189,6 +211,7 @@ def main() -> int:
             "NC_A_corrupted_hash_rejected": nc_a,
             "NC_B_perturbed_abcd_rejected": nc_b,
             "NC_C_permuted_bijection_rejected": nc_c,
+            "NC_D_same_search_finds_a_token_known_present": nc_d,
         },
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -198,6 +221,8 @@ def main() -> int:
                     ("V3 AvSZ bijection order", v3), ("V4 operator (1.7)", v4),
                     ("V5 exactly three Cooper solutions", v5),
                     ("V6 order-3 landscape == table", v6),
+                    ("V7 S22 absent from both papers", v7),
+                    ("NC-D search finds a present token", nc_d),
                     ("NC-A corrupted hash rejected", nc_a),
                     ("NC-B perturbed abcd rejected", nc_b),
                     ("NC-C permuted bijection rejected", nc_c)):
@@ -205,7 +230,7 @@ def main() -> int:
     print(f"  parsed Cooper table: {parsed}")
     print(f"  parsed bijection   : {order}")
     print(f"  artifact: {OUT.relative_to(REPO)}")
-    return 0 if all([v1, v2, v3, v4, v5, v6, nc_a, nc_b, nc_c]) else 1
+    return 0 if all([v1, v2, v3, v4, v5, v6, v7, nc_a, nc_b, nc_c, nc_d]) else 1
 
 
 if __name__ == "__main__":
