@@ -1,7 +1,7 @@
 # WP-E6-SWEEP — three layered defects found by trying to finish the synthetic validation
 
 **Date:** 2026-09-21 · **Stream:** 3 (experimentation) · **Status:** defect report, diagnosis
-complete, **no fix applied yet** (the fix is a driver design decision — §5).
+complete. **Fix applied 2026-09-21, same day, under T0 ruling R2 — see §6.** Sections 1–5 are kept as filed.
 **Label:** ENGINEERING / SYNTHETIC — no real data touched. `REAL_DATA_RULING_PIN` is still `None`.
 
 ## Summary
@@ -177,6 +177,45 @@ measurement should precede the ruling rather than follow it.
 **Asks.** Stream 3 can implement (a)–(c) with controls on request. It has not, because the sweep's
 acceptance rule is pre-registration territory and the driver's outputs are destined to be labelled
 `exclusion`/`FIT`. The real-data path is blocked on C1–C5 regardless, so nothing is waiting on this.
+
+## 6. Fix applied, 2026-09-21 — at the most conservative setting
+
+T0 ruled the same day: *"adopt decision 1 and implement what you could at this stage waiting for
+others streams"* (`briefs/T0_RULINGS_2026_09_21.md`). Stream 3 reads the second clause as the
+request §5 invited, records that reading as an interpretation with a countermand window (R2 item 2),
+and has implemented (a)–(c) with (c) at its **most conservative** setting so that the
+implementation decides no acceptance rule. Commit `691a4fa`.
+
+- **(a) Counted guard.** The multi-start objective returns a finite penalty (1e30) for a non-finite
+  nuisance. Every such evaluation is counted, **per start**, and persisted per cell. Non-finite
+  *parameters* only: an emulator returning NaN for finite inputs is a different defect and still
+  fails the cell rather than being penalised away.
+- **(b) Isolation.** A raising cell is recorded verbatim in the artifact instead of destroying the
+  sweep through `pool.map`.
+- **(c) Eligibility.** A guarded or failed cell is `contour_eligible: false`: it keeps its χ²_min
+  for diagnosis, gets `null` in every grid, receives no inside/outside verdict, and cannot anchor
+  Δχ² even when it holds the lowest χ². Any ineligible cell makes the sweep's
+  `contour_status` **WITHHELD**; a sweep with no eligible cell refuses to report at all.
+
+**Confirmed on the real defect cell, real unwrapped predictor.** (m, f) = (−22.5, 0.05) now reports
+χ²_min **3.65299** with **guard = 17** — exactly the diagnosis — eligible false, its three
+neighbours untouched, contour WITHHELD. Before the fix the identical call raised and produced
+nothing.
+
+**What the per-start counter adds to §2.** All 17 evaluations come from **start #9 alone**:
+`zrei` 14.30 (bound 14.91), `ha` 0.47 (bound 0.066), `hs` 0.81, `taueff` 0.44 (bound 0.3) — the LHS
+point nearest the box's edges. That is consistent with §2's near-bound-start hypothesis and narrows
+it to a single start; it still does not isolate Migrad's internal step, and is not claimed to.
+
+10 new tests (61 pre-existing unchanged), each path with its control, mutation-verified. The
+validation script is now null-aware — `not None` is `True`, so an unchecked read would have counted
+an ineligible cell as *inside* the region.
+
+**Still T0's:** whether an ineligible cell may ever contribute to a contour, and therefore whether a
+WITHHELD sweep is a dead end or a partial result. The incidence measurement across all eight
+scenarios — the number that decides how heavy that question is — is what the fix was needed to
+produce; see `data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/summary.json` once the run
+recorded in `launches.log` completes.
 
 ---
 *Generated-by: Claude Opus 5 (Stream 3, 2026-09-21) | Verified-by: two exhaustive scans (952 corner
