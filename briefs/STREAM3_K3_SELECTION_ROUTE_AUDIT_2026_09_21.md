@@ -69,7 +69,15 @@ Two independent reasons, the second load-bearing:
    a GPU cannot represent the arithmetic these checkers depend on. Selection work here is
    CPU-and-exactness bound, not throughput bound.
 
-## 3. New finding — criterion C3 cannot be run on either register primary
+## 3. New finding — `check_C3_sym2.py` cannot be run on either register primary
+
+> **Correction note, 2026-09-21 (same day, F6 in-band).** This section was headed "criterion C3
+> cannot be run on either register primary". That over-stated it. What cannot run is **this repo's
+> `checkers/check_C3_sym2.py`**; the underlying Sym² identity for d ≠ 0 *is* coded elsewhere in the
+> program — `checkers/check_C3b_symsqrt.py` in the K3-DarkMatter repo, and independently in Stream
+> 1's Lean — under names this checker does not search for. Stream 2 established this in
+> `briefs/STREAM2_TO_STREAM3_C3_BRANCH_REPLY_2026_09_21.md`. It is a **coverage gap in one
+> checker**, not a program-wide inability. See §8.
 
 `docs/T0_DELEGATED_RULINGS_2026_07_26.md` DR-4 records that neither s7 nor s10 has a C3/C3b
 certificate. This brief adds the reason, which had not been established: **it is a normalization gap,
@@ -81,9 +89,16 @@ have d ≠ 0, and inverting the bijection on them yields no usable order-2 partn
 
 | candidate | (a, b, c, d) | implied (A, B, λ) | why C3 is not runnable |
 |---|---|---|---|
-| s7 | (13, 4, −27, 3) | (13, 49, 9/2) | d = 3 ≠ 0; **λ = 9/2 ∉ ℤ**, so no integral order-2 partner exists |
+| s7 | (13, 4, −27, 3) | (13, 49, 9/2) | d = 3 ≠ 0; **λ = 9/2 ∉ ℤ**, so no integral order-2 partner exists *of the bijection-implied kind* — see the note below |
 | s10 | (6, 2, −64, 4) | (6, 25, 2) | d = 4 ≠ 0; the implied partner is **non-integral at n = 1** (u₂ = 3/4) |
 | s18 | (14, 6, 192, −12) | (14, 1, 4) | d = −12 ≠ 0; implied partner non-integral at n = 1 (127/4) |
+
+> **Which object the table is about.** "No integral order-2 partner exists" refers to the sequence
+> the Gorodetsky bijection would imply, and to that object the rows are correct. It is **a different
+> object** from the order-2 partner obtained as the exact power-series square root of the bulk
+> series, which for s7 is **A279619 and is integral** (Stream 1, axiom-free; Stream 2's reply §4).
+> The s10 figure u₂ = 3/4 is right for the object computed here; s10's square-root partner is
+> dyadic and non-integral, which is a separate and still-open question (§8).
 
 (6, 25, 2) is not among the six Zagier sporadic cases coded in the checker
 (`ORDER2_ZAGIER`: (7,−8,2), (9,27,3), (10,9,3), (11,−1,3), (12,32,4), (17,72,6)). Zagier's
@@ -371,6 +386,79 @@ Routed, with the owner each already has in the record:
    line is the stale one. A wording fix to CLAUDE.md is T0's call, raised for the same reason as
    item 3. Until it is fixed, ledger item 3 will keep propagating into new documents — it
    propagated into this one.
+
+## 8. Stream 2's reply, and what it changes (2026-09-21, same day)
+
+Stream 2 answered this brief the day it was filed, in
+`briefs/STREAM2_TO_STREAM3_C3_BRANCH_REPLY_2026_09_21.md` and
+`briefs/STREAM2_TO_STREAM3_MODULAR_RAIL_AND_CM_POINTS_2026_09_21.md` (K3-DarkMatter repo).
+Stream 3 re-ran their controls before citing any of it, per ruling A1's producer ≠ verifier
+pattern: **46/46** CM-point controls and **35/35** A₂ controls pass on this side, and
+`check_A2_membership.py` independently re-verifies this brief's own §4.2 citation
+(`reducedForms 3 = [(1, 1, 1)]`) against LeanMaster at commit `4109a51`.
+
+**8.1 The branch question is answered: branch (i).** An explicit order-2 L₂ with L₃ = Sym²(L₂) is
+exhibited and machine-verified for **both** primaries. Under the monic d/dz normalization the
+residual is a literal zero — `{D0: 0, D1: 0, D2: 0}` — so there is no cofactor. This agrees with
+§3.1 (branch (iii) excluded) and goes further: §3.1 established that *an* L₂ exists up to gauge,
+Stream 2 exhibits it. Branch (ii) needs no adjudication, since the d ≠ 0 identity is proved directly
+rather than by a detour through a d = 0 case.
+
+**8.2 What §3.1 contributes back.** Stream 2 flags one honest gap in their uniform-in-(a, b, c, d)
+route: it is proved over *transcribed* Cooper coefficients `cooperC0..3`, "with no Lean-checked link
+back to `SatisfiesCooperRecurrence` — so this route's uniformity is a fact about the transcribed
+template, not (by itself) about the recurrence." Two results here bear on exactly that:
+
+- **§3.2 V4 closes the transcription leg from the source side.** The operator this repo applies was
+  compared character-for-character with Gorodetsky eq. (1.7), parsed out of the vendored PDF behind
+  a SHA256 gate. The template is the paper's operator.
+- **§3.1 reaches the uniformity by a different route.** `2Q − P′ ≡ 0` is derived symbolically from
+  the operator *shape* in (a, b, c, d), with no Lean template and no transcription step. Two
+  independent derivations of the same uniformity, with disjoint failure modes.
+
+What neither closes is the kernel-side link from the template to `SatisfiesCooperRecurrence`. That
+is a Lean item and is routed to Stream 1 (§6 item 4).
+
+**8.3 The ρ = 20 fork now has concrete content inside the register families.** Stream 2 computed
+what the cut of §4.2 picks out. All three singular points of the s7 operator are ρ = 20 CM points —
+z = 1/27 (D = −28), z = −1 (D = −7), and z = ∞ (D = −3), the last being **A₂ itself**, the minimal
+case §4.2 named. **A₂ is in the s7 family and not in the s10 family**, the latter by an exact
+all-vector congruence (−3 is not a square mod 40), not a bounded search. This *sharpens* ledger item
+3 rather than contradicting it: the loci are elliptic points of X₀(7)⁺ **and** the members over them
+carry rank-2 transcendental lattices. No Kodaira reading is made or implied.
+
+Two cautions Stream 2 states and this brief adopts: the agreement between the binary-form side and
+the modular side is **forced** by Shioda–Inose, so it is not independent corroboration; and **no
+ranking of s7 over s10 follows** from "A₂ is in s7" — a minimum-|D| rule has no warrant.
+
+**8.4 The first candidate-dependent label.** §1 showed the sweep is bit-identical across candidates.
+Stream 2 observes that **`D is a square mod 4n`** is an exact, cheap, *candidate-dependent*
+predicate — the first one this program has. It is bookkeeping vocabulary for hypotheses, **not an
+observable**: §1's conclusion is unchanged, and no (m, f) prior, m_φ, α_D or Λ_D follows from any row
+(Tier C, BLOCKED under F5b, tadpole unposable without B₃).
+
+**8.5 DR-4's standing ask is largely discharged.** For s7, C1 (mirror integrality, PASS(60)), C3b
+(`SYM2_OPERATOR_IDENTITY_PROVEN`), T1, T2 and T3 all now exist. For s10 the same, minus a LIVE T2 —
+its lattice certificate is DRAFT by T0 ruling D6′, so **every s10 row is advisory**.
+
+**8.6 Mirrored, with a drift detector.** Stream 2's certificates are mirrored at
+`data/mirrors/stream2/` with `MIRROR_MANIFEST.json` pinning each SHA256 and carrying each
+`not_claimed` block, alongside the source commit `4794e7d`.
+`pipeline/tests/test_stream2_cm_mirror_consistency.py` (7 tests) implements their requested check:
+s7's `locus_hits` must reproduce the ledger loci {−1, 1/27}, and every s10 row must stay advisory.
+It fails closed on drift — verified by mutation (dropping one `advisory`, and altering a locus, each
+trip it). A negative control asserts s7 rows are *not* advisory, so the flag still discriminates.
+
+**8.7 Independent agreement on the "modular rail" text.** Stream 3 and Stream 2 reviewed it
+separately and reached the same two verdicts: "the universe evolves along this rail" is **Tier C,
+unsupported, not adopted** — no dynamics on the moduli curve is defined anywhere in the program; and
+"this explains exactly why reverse-to-zero could not reach zero parameters" is **not established**.
+One detail differs and Stream 2's is better sourced: they locate `reverse-to-zero` in the
+**DualScaleSimulator** repo, where its own pre-registration addenda A6–A9 close "zero-parameter" as
+*not derivable*; Stream 3's search found only a pointer in LeanMaster's `NEXT_DIRECTIONS.md`
+attributing it to LeanFlow. Either way it is not in any repo on this disk, and the "explains exactly"
+claim asserts an identification of that leftover parameter with the modular coordinate that nothing
+computes.
 
 ## 7. What this brief does not claim
 

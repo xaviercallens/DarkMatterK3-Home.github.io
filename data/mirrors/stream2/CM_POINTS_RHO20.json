@@ -1,0 +1,8133 @@
+{
+ "certificate": "CM_POINTS_RHO20",
+ "checker": "checkers/check_CM_points_rho20.py",
+ "checker_version": "f091e43",
+ "date": "2026-09-21",
+ "status": "RECORD, NOT A GATE. The rho = 20 cut is not adopted by the program (open T0 decision). K3_CRITERIA.md unchanged. No scoring. cooper_s10 rows advisory.",
+ "claim": "For each primitive v of negative norm in a logged window of T_n = U+<2n>: the exact tau with B(v, omega(tau)) = 0, the exact rank-2 lattice v^perp with its reduced form and discriminant, and a numeric recognition of z(tau).",
+ "tier": "B",
+ "tier_links": {
+  "exact": [
+   "T_n re-derived from the C2 certificate",
+   "v^2, tau, v^perp, Gauss reduction, D",
+   "det(v^perp) = -v^2 * 2n / div(v)^2, asserted per row",
+   "1/z = alpha t + beta + gamma/t, PASS(40)",
+   "stage-0 sympy identities"
+  ],
+  "numeric_recognition_tier_B": [
+   "every t, z value and minimal polynomial: LLL at 120 digits, re-checked at 200 digits (second tier 320/420); each row records the precision actually used"
+  ],
+  "framework_cited_tier_B": [
+   "Dolgachev 1996 sec 7 (docs/literature/MANIFEST.md, read, hash-pinned): period domain H/Gamma_0(n)+, T = U+<2n>",
+   "Lefschetz (1,1) theorem (standard; not among the statements pinned in the MANIFEST): v.omega = 0 => v algebraic => rho = 20, T_X = v^perp",
+   "caveat: Dolgachev Thm 7.3 (pinned) removes the (-2)-walls from the ample locus; at rows with -v^2 = 2 the statement refers at best to a pseudo-ample / resolved surface"
+  ],
+  "tier_L_external": [
+   "LeanMaster docs/STREAM8_WHICH_K3.md sec G10 + DualScaleDyons/FrickeRepair.lean, commit 4109a51, read as source, no Lean build run: rho=20 <=> rank-2 positive definite T(X); Shioda-Inose / CM locus (Huybrechts, quoted there)"
+  ],
+  "stream1_read_as_source": [
+   "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal commit 3a96018, Agora/Geometry/{MnLattice,SelfDual,ModularAction}.lean, no Lean build run"
+  ]
+ },
+ "external_citations_verified_at_run_time": {
+  "leanmaster": {
+   "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+   "commit": "4109a51",
+   "paths": {
+    "docs/STREAM8_WHICH_K3.md": "present_contains_G10",
+    "DualScaleDyons/FrickeRepair.lean": "present_contains_repair_selects"
+   },
+   "status": "VERIFIED"
+  },
+  "stream1": {
+   "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+   "commit": "3a96018",
+   "paths": {
+    "Agora/Geometry/MnLattice.lean": "present_contains_swap_is_fricke",
+    "Agora/Geometry/SelfDual.lean": "present_contains_root_orthogonal_iff_selfdual",
+    "Agora/Geometry/ModularAction.lean": "present_contains_root2_norm"
+   },
+   "status": "VERIFIED"
+  }
+ },
+ "inputs": {
+  "sha256": {
+   "data/certificates/C2_cooper_s7_v5.json": "54565d3919f1bd5592618e8fd1cbfe7d807a29d010d99c308641bc5d253730f3",
+   "data/certificates/C2_cooper_s10_v4_DRAFT.json": "3558343b84751a0682cadc985a76272b50d7bc98b0f2d0f44a9c46edf9ae57ac",
+   "data/certificates/C1_L3_cooper_s7.json": "c9d82f76bef8eee279ce91540a2b7cfddd98d79965162e8598b29aee458edbfc",
+   "data/certificates/C1_L3_cooper_s10.json": "503cfe63b7d20d78c53344ee091e4b39517bd2966181c1ff38a45e21f44721e8",
+   "refs/recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76",
+   "docs/literature/MANIFEST.md": "701ad5dd37c1b54a481c39de0677b3a8281da4f24ad4357fc12e466a7cc667a6"
+  }
+ },
+ "not_claimed": [
+  "that rho = 20 is a selection criterion of the program: the rho = 20 cut is NOT adopted; adopting it is an open T0 decision, and nothing here scores or ranks a candidate",
+  "that any member of either family is singled out or preferred: this is a table of lattice/modular arithmetic",
+  "that the table is complete at any discriminant: the enumeration window is logged and is not shown to be a fundamental domain",
+  "that any z-value IS the algebraic number recorded: every minimal polynomial is a numeric recognition, fitted at DPS_FIT digits and re-checked at DPS_VERIFY digits (Tier B)",
+  "that the step from 'v.omega = 0' to 'rho = 20, T_X = v^perp' is proved here: it is the cited framework (Dolgachev 1996 sec 7 period domain, read and pinned, plus the Lefschetz (1,1) theorem, standard and not among the pinned statements; Tier B). The checker computes the lattice side only",
+  "that a smooth M_n-polarized member with rho = 20 sits at the (-2)-vector rows: Dolgachev Thm 7.3 (pinned) removes the (-2)-walls from the ample locus, and those rows include C1 singular loci of the operator; 'T_X = v^perp' there refers at best to a pseudo-ample / resolved surface and is recorded as lattice arithmetic only",
+  "anything certified about T(cooper_s10): C2_cooper_s10_v4_DRAFT.json is DRAFT by T0 ruling; every s10 row carries LATTICE_CERT_DRAFT and is advisory",
+  "any Kodaira fibre type at any locus (CLAUDE.md ledger item 3): the loci are elliptic points of the modular curve and are treated only as such",
+  "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b)"
+ ],
+ "window": {
+  "BOUND_minus_v2": 44,
+  "Y_MIN_im_tau": "1/20",
+  "re_tau": "(-1/2, 1/2]",
+  "abs_tau_squared_min": "1/n",
+  "x_positive": true,
+  "dedup": "by z up to complex conjugation (tau -> -conj(tau)); numeric clustering at 40 digits, tolerance 10^-28 relative to 1 + |1/z|",
+  "complete": "NOT CLAIMED"
+ },
+ "precision": {
+  "DPS_FIT": 120,
+  "DPS_VERIFY": 200,
+  "degrees_tried": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   8
+  ],
+  "tier2_for_rows_unrecognised_by_tier1": {
+   "dps_fit": 320,
+   "dps_verify": 420,
+   "degrees": [
+    6,
+    8,
+    12
+   ]
+  }
+ },
+ "stage0_selftest": {
+  "omega_isotropic": true,
+  "pairing_is_y_minus_nx_tau2_plus_2nz_tau": true,
+  "norm_is_2xy_plus_2n_z2": true,
+  "quadratic_discriminant_is_2n_v2": true,
+  "root_is_z_over_x_plus_i_sqrt_m_over_2n_over_x": true,
+  "root_1_m1_0_pairs_to_minus_n_tau2_minus_1": true,
+  "swap_is_fricke": true
+ },
+ "prediction": {
+  "statement": "PRE-REGISTERED (orchestrator hand estimate, unverified before this run): the Fricke fixed point n tau^2 = -1 is v = (1,-1,0), v^2 = -2, T_X = <2> + <2n>; for s7 it maps to one of {-1, 1/27} and the OTHER locus is another (-2)-vector CM point with t = -1/7. For s10: which of {-1/4, 1/16, infinity} come from (-2)- or other small-norm vectors (no value predicted).",
+  "clauses": {
+   "cooper_s7: v=(1,-1,0) has v^2=-2 and T_X = <2>+<14>": true,
+   "cooper_s10: v=(1,-1,0) has v^2=-2 and T_X = <2>+<20> [ADVISORY: n from a DRAFT lattice certificate]": true,
+   "cooper_s7: Fricke fixed point maps to one of the C1 loci": true,
+   "cooper_s7: the OTHER locus is a (-2)-vector CM point": true,
+   "cooper_s7: ... at t = -1/7": true
+  },
+  "clause_kinds": {
+   "cooper_s7: v=(1,-1,0) has v^2=-2 and T_X = <2>+<14>": "arithmetic_identity: holds for every n once n is fixed; carries no content beyond the lattice certificate's n",
+   "cooper_s10: v=(1,-1,0) has v^2=-2 and T_X = <2>+<20> [ADVISORY: n from a DRAFT lattice certificate]": "arithmetic_identity: holds for every n once n is fixed; carries no content beyond the lattice certificate's n",
+   "cooper_s7: Fricke fixed point maps to one of the C1 loci": "non_trivial: depends on the numeric evaluation of z(tau) and could have failed",
+   "cooper_s7: the OTHER locus is a (-2)-vector CM point": "non_trivial: depends on the numeric evaluation of z(tau) and could have failed",
+   "cooper_s7: ... at t = -1/7": "non_trivial: depends on the numeric evaluation of z(tau) and could have failed"
+  },
+  "non_trivial_clauses_confirmed": "3/3",
+  "s7_fricke_locus": "1/27",
+  "s10_observed": {
+   "infinity": [
+    {
+     "v": [
+      10,
+      -10,
+      -3
+     ],
+     "minus_v2": 20,
+     "div_v": 10,
+     "D": -4,
+     "t_minpoly": "4*t + 1",
+     "v_is_reflective": true
+    }
+   ],
+   "-1/4": [
+    {
+     "v": [
+      2,
+      -6,
+      1
+     ],
+     "minus_v2": 4,
+     "div_v": 2,
+     "D": -20,
+     "t_minpoly": "16*t**2 + 12*t + 1",
+     "v_is_reflective": true
+    }
+   ],
+   "1/16": [
+    {
+     "v": [
+      1,
+      -1,
+      0
+     ],
+     "minus_v2": 2,
+     "div_v": 1,
+     "D": -40,
+     "t_minpoly": "4*t - 1",
+     "v_is_reflective": true
+    }
+   ]
+  },
+  "s10_loci_not_hit_in_window": [],
+  "outcome": "CONFIRMED"
+ },
+ "checks": {
+  "same_z_different_form_violations": 0,
+  "same_z_different_norm_or_div_violations": 0,
+  "fricke_consistency_violations": 0,
+  "external_citations_not_phantom": true,
+  "all_C1_singular_loci_reproduced": true
+ },
+ "controls": "checkers/test_CM_points_rho20_controls.py",
+ "families": {
+  "cooper_s7": {
+   "candidate": "cooper_s7",
+   "n": 7,
+   "lattice_cert": "C2_cooper_s7_v5.json",
+   "lattice_cert_status": "LIVE",
+   "flags": [],
+   "advisory": false,
+   "lattice_leg": {
+    "gram": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      14,
+      0
+     ],
+     [
+      -1,
+      0,
+      0
+     ]
+    ],
+    "det_recomputed": -14,
+    "u_splitting_d_recomputed": 14,
+    "witness_det": 1,
+    "sylvester_diagonal": [
+     2,
+     14,
+     -2
+    ],
+    "signature": [
+     2,
+     1
+    ],
+    "n_lattice": 7
+   },
+   "relation_1_over_z": {
+    "alpha": "49",
+    "beta": "13",
+    "gamma": "1"
+   },
+   "relation_order_checked": 40,
+   "eta_exponents_t": {
+    "1": -4,
+    "7": 4
+   },
+   "singular_loci_from_C1_cert": [
+    "-1",
+    "1/27"
+   ],
+   "vectors_enumerated": 180,
+   "distinct_z_up_to_conj": 71,
+   "unrecognised_rows": 0,
+   "same_z_different_form_violations": [],
+   "same_z_different_norm_or_div_violations": [],
+   "fricke_consistency_violations": [],
+   "fricke_consistency_vectors_checked": 180,
+   "rows": [
+    {
+     "v": [
+      14,
+      -14,
+      -5
+     ],
+     "minus_v2": 42,
+     "div_v": 14,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-5/14",
+      "im_squared": "3/196"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      1,
+      1
+     ],
+     "D": -3,
+     "det_T_X": 3,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       5,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1326530612244897959183673 - 0.05302196349700644776104428j)",
+     "t_minpoly": "49*t**2 + 13*t + 1",
+     "z_numeric": "infinity",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "infinity",
+     "z_minpoly": null,
+     "z_minpoly_coeffs_ascending": null,
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": "infinity",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      2,
+      -4,
+      1
+     ],
+     "minus_v2": 2,
+     "div_v": 2,
+     "v_is_reflective": true,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/28"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      1,
+      2
+     ],
+     "D": -7,
+     "det_T_X": 7,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.1428571428571428571428571",
+     "t_minpoly": "7*t + 1",
+     "z_numeric": "-1.0",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1",
+     "z_minpoly": "z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      1
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": "-1",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      7,
+      -7,
+      -2
+     ],
+     "minus_v2": 42,
+     "div_v": 7,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/7",
+      "im_squared": "3/49"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      3
+     ],
+     "D": -12,
+     "det_T_X": 12,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       4,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1122448979591836734693878 - 0.08836993916167741293507379j)",
+     "t_minpoly": "49*t**2 + 11*t + 1",
+     "z_numeric": "0.5",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/2",
+     "z_minpoly": "2*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -1,
+      0
+     ],
+     "minus_v2": 2,
+     "div_v": 1,
+     "v_is_reflective": true,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/7"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      7
+     ],
+     "D": -28,
+     "det_T_X": 28,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.1428571428571428571428571",
+     "t_minpoly": "7*t - 1",
+     "z_numeric": "0.03703703703703703703703704",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/27",
+     "z_minpoly": "27*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      27
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": "1/27",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      2,
+      -6,
+      1
+     ],
+     "minus_v2": 10,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "5/28"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      1,
+      3
+     ],
+     "D": -35,
+     "det_T_X": 35,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.05456657303572930739934474",
+     "t_minpoly": "49*t**2 + 21*t + 1",
+     "z_numeric": "-0.125",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/8",
+     "z_minpoly": "8*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      8
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -2,
+      0
+     ],
+     "minus_v2": 4,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "2/7"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      7
+     ],
+     "D": -56,
+     "det_T_X": 56,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.04028166858017069330665948",
+     "t_minpoly": null,
+     "z_numeric": "0.02512626584708366459704473",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "8*z**2 - 40*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40,
+      8
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      3,
+      -3,
+      -1
+     ],
+     "minus_v2": 4,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "2/63"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      14
+     ],
+     "D": -56,
+     "det_T_X": 56,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       14,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.1306019374818707212573841 - 0.05789038945531161355530583j)",
+     "t_minpoly": null,
+     "z_numeric": "4.974873734152916335402955",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "8*z**2 - 40*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40,
+      8
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -8,
+      1
+     ],
+     "minus_v2": 18,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "9/28"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      1,
+      4
+     ],
+     "D": -63,
+     "det_T_X": 63,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       4,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.02545051235453426734700732",
+     "t_minpoly": null,
+     "z_numeric": "-0.03631211945876352018446532",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "125*z**2 - 23*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      -23,
+      125
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      4,
+      -4,
+      -1
+     ],
+     "minus_v2": 18,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "9/112"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      1,
+      16
+     ],
+     "D": -63,
+     "det_T_X": 63,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       7,
+       2
+      ]
+     ],
+     "t_numeric": "(-0.08633658232300571405042689 - 0.1138163337051803813262946j)",
+     "t_minpoly": null,
+     "z_numeric": "0.2203121194587635201844653",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "125*z**2 - 23*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      -23,
+      125
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -3,
+      0
+     ],
+     "minus_v2": 6,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/7"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      0,
+      7
+     ],
+     "D": -84,
+     "det_T_X": 84,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0174875222882561848114494",
+     "t_minpoly": null,
+     "z_numeric": "0.01407647386529753827325287",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "216*z**2 + 68*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      68,
+      216
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -5,
+      1
+     ],
+     "minus_v2": 6,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "3/28"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      0,
+      7
+     ],
+     "D": -84,
+     "det_T_X": 84,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       5,
+       0
+      ],
+      [
+       -14,
+       -42,
+       1
+      ]
+     ],
+     "t_numeric": "-0.08378775302222112581929121",
+     "t_minpoly": null,
+     "z_numeric": "-0.3288912886801123530880677",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "216*z**2 + 68*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      68,
+      216
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -10,
+      1
+     ],
+     "minus_v2": 26,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "13/28"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      3,
+      5
+     ],
+     "D": -91,
+     "det_T_X": 91,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       5,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.01309615525771658004588116",
+     "t_minpoly": "49*t**2 + 77*t + 1",
+     "z_numeric": "-0.015625",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/64",
+     "z_minpoly": "64*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      64
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -4,
+      0
+     ],
+     "minus_v2": 8,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "4/7"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      0,
+      7
+     ],
+     "D": -112,
+     "det_T_X": 112,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       4,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.008963723829461175499307534",
+     "t_minpoly": "49*t**2 - 112*t + 1",
+     "z_numeric": "0.008",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/125",
+     "z_minpoly": "125*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      125
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      2,
+      -12,
+      1
+     ],
+     "minus_v2": 34,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "17/28"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      5,
+      6
+     ],
+     "D": -119,
+     "det_T_X": 119,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       6,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.007259847932841191041254869",
+     "t_minpoly": null,
+     "z_numeric": "-0.007993626550464546162258522",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "1331*z**5 + 670*z**4 + 14262*z**3 - 1775*z**2 + 110*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      110,
+      -1775,
+      14262,
+      670,
+      1331
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      4,
+      -6,
+      -1
+     ],
+     "minus_v2": 34,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "17/112"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      -1,
+      6
+     ],
+     "D": -119,
+     "det_T_X": 119,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       3,
+       0
+      ],
+      [
+       7,
+       14,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.02777607452202173592185861 - 0.07790893081629439237470046j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.06604603122339396909749496 - 0.06597240722334892047933417j)",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "1331*z**5 + 670*z**4 + 14262*z**3 - 1775*z**2 + 110*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      110,
+      -1775,
+      14262,
+      670,
+      1331
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      8,
+      -10,
+      -3
+     ],
+     "minus_v2": 34,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/8",
+      "im_squared": "17/448"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      1,
+      10
+     ],
+     "D": -119,
+     "det_T_X": 119,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       4,
+       5,
+       0
+      ],
+      [
+       -21,
+       -21,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1251822826512611418036908 - 0.04984473858072460575941152j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.3137396762501902459788 - 3.269102288101358594392408j)",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "1331*z**5 + 670*z**4 + 14262*z**3 - 1775*z**2 + 110*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      110,
+      -1775,
+      14262,
+      670,
+      1331
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      1,
+      -5,
+      0
+     ],
+     "minus_v2": 10,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "5/7"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      0,
+      7
+     ],
+     "D": -140,
+     "det_T_X": 140,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.005039990223992566606865317",
+     "t_minpoly": null,
+     "z_numeric": "0.004724557298615909824528027",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "1000*z**3 - 500*z**2 + 214*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      214,
+      -500,
+      1000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      3,
+      -4,
+      -1
+     ],
+     "minus_v2": 10,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "5/63"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      2,
+      12
+     ],
+     "D": -140,
+     "det_T_X": 140,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       4,
+       0
+      ],
+      [
+       -14,
+       -14,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.09359173770554982653774827 - 0.06450145229356038254360359j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.247637721350692045087736 - 0.3877313525581816438715396j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "1000*z**3 - 500*z**2 + 214*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      214,
+      -500,
+      1000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      2,
+      -14,
+      1
+     ],
+     "minus_v2": 42,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "3/4"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      7,
+      7
+     ],
+     "D": -147,
+     "det_T_X": 147,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       1,
+       7,
+       0
+      ],
+      [
+       0,
+       -7,
+       1
+      ]
+     ],
+     "t_numeric": "-0.00425943168412408156542809",
+     "t_minpoly": "2401*t**2 + 245*t + 1",
+     "z_numeric": "-0.004504873484508571075640329",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "448*z**2 + 224*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      224,
+      448
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      6,
+      -14,
+      3
+     ],
+     "minus_v2": 42,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/12"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      7,
+      7
+     ],
+     "D": -147,
+     "det_T_X": 147,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       3,
+       7,
+       0
+      ],
+      [
+       21,
+       42,
+       1
+      ]
+     ],
+     "t_numeric": "-0.09778138464240653067946987",
+     "t_minpoly": "2401*t**2 + 245*t + 1",
+     "z_numeric": "-0.4954951265154914289243597",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "448*z**2 + 224*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      224,
+      448
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -6,
+      0
+     ],
+     "minus_v2": 12,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "6/7"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      0,
+      7
+     ],
+     "D": -168,
+     "det_T_X": 168,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       6,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.003012029859476235613529691",
+     "t_minpoly": null,
+     "z_numeric": "0.00289729430461067447459453",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "10648*z**2 - 376*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -376,
+      10648
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -3,
+      0
+     ],
+     "minus_v2": 12,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/14"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      0,
+      7
+     ],
+     "D": -168,
+     "det_T_X": 168,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       3,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0691454804502693383903502",
+     "t_minpoly": null,
+     "z_numeric": "0.03241450133776348029625446",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "10648*z**2 - 376*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -376,
+      10648
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -7,
+      0
+     ],
+     "minus_v2": 14,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      7
+     ],
+     "D": -196,
+     "det_T_X": 196,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       1,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.001881483763760387759034753",
+     "t_minpoly": null,
+     "z_numeric": "0.001836251835033559290118843",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "1728*z**4 + 5120*z**3 + 9024*z**2 + 528*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      528,
+      9024,
+      5120,
+      1728
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -7,
+      1
+     ],
+     "minus_v2": 14,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/4"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      7
+     ],
+     "D": -196,
+     "det_T_X": 196,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       2,
+       7,
+       0
+      ],
+      [
+       -14,
+       -56,
+       1
+      ]
+     ],
+     "t_numeric": "-0.03674877718969546569774431",
+     "t_minpoly": null,
+     "z_numeric": "-0.06245128848553120513184372",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "1728*z**4 + 5120*z**3 + 9024*z**2 + 528*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      528,
+      9024,
+      5120,
+      1728
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      5,
+      -7,
+      -2
+     ],
+     "minus_v2": 14,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "1/25"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      7
+     ],
+     "D": -196,
+     "det_T_X": 196,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       5,
+       7,
+       0
+      ],
+      [
+       56,
+       84,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1254234961441753181735024 - 0.04278785122969941657620476j)",
+     "t_minpoly": null,
+     "z_numeric": "(-1.451173963156232658560619 - 1.714790104137183071116403j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "1728*z**4 + 5120*z**3 + 9024*z**2 + 528*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      528,
+      9024,
+      5120,
+      1728
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -8,
+      0
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "8/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      8
+     ],
+     "D": -224,
+     "det_T_X": 224,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       8,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.001216036814220288550615397",
+     "t_minpoly": null,
+     "z_numeric": "0.001197026905212441105821383",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304*z**4 + 21136*z**3 - 524*z**2 + 836*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      836,
+      -524,
+      21136,
+      39304
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -5,
+      -1
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "8/63"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      4,
+      15
+     ],
+     "D": -224,
+     "det_T_X": 224,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       5,
+       0
+      ],
+      [
+       14,
+       28,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.06203500981099724540594619 - 0.05622737843034670763035764j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.03834351532962554509326555 - 0.1818093048641619597330199j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304*z**4 + 21136*z**3 - 524*z**2 + 836*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      836,
+      -524,
+      21136,
+      39304
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      4,
+      -9,
+      2
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/14"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      8
+     ],
+     "D": -224,
+     "det_T_X": 224,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       4,
+       9,
+       0
+      ],
+      [
+       28,
+       56,
+       1
+      ]
+     ],
+     "t_numeric": "-0.1060911519141783744892083",
+     "t_minpoly": null,
+     "z_numeric": "-0.6156410288650945103275652",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304*z**4 + 21136*z**3 - 524*z**2 + 836*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      836,
+      -524,
+      21136,
+      39304
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -9,
+      0
+     ],
+     "minus_v2": 18,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "9/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      9
+     ],
+     "D": -252,
+     "det_T_X": 252,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       9,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0008077661860440567853973697",
+     "t_minpoly": null,
+     "z_numeric": "0.0007993467211911444173497016",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "27*z**2 + 1251*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      1251,
+      27
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      8,
+      -9,
+      -3
+     ],
+     "minus_v2": 18,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/8",
+      "im_squared": "9/448"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      63
+     ],
+     "D": -252,
+     "det_T_X": 252,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       8,
+       9,
+       0
+      ],
+      [
+       -42,
+       -42,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1328732894027771520333514 - 0.05246763029327655309845453j)",
+     "t_minpoly": null,
+     "z_numeric": "-46.33413268005452447775068",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "27*z**2 + 1251*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      1251,
+      27
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -10,
+      0
+     ],
+     "minus_v2": 20,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "10/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      10
+     ],
+     "D": -280,
+     "det_T_X": 280,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       10,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0005488692156149823482540854",
+     "t_minpoly": null,
+     "z_numeric": "0.0005449726278555736752582406",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "97336*z**2 - 1888*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1888,
+      97336
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -5,
+      0
+     ],
+     "minus_v2": 20,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "5/14"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      10
+     ],
+     "D": -280,
+     "det_T_X": 280,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.02578516977410902565838465",
+     "t_minpoly": null,
+     "z_numeric": "0.01885175622888807718362234",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "97336*z**2 - 1888*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1888,
+      97336
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -11,
+      0
+     ],
+     "minus_v2": 22,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "11/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      11
+     ],
+     "D": -308,
+     "det_T_X": 308,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       11,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0003801782461303889006681078",
+     "t_minpoly": null,
+     "z_numeric": "0.000378305859322435906597093",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "10648000*z**4 + 255552*z**3 + 114528*z**2 + 2600*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2600,
+      114528,
+      255552,
+      10648000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -9,
+      1
+     ],
+     "minus_v2": 22,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "11/28"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      11
+     ],
+     "D": -308,
+     "det_T_X": 308,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       9,
+       0
+      ],
+      [
+       -14,
+       -70,
+       1
+      ]
+     ],
+     "t_numeric": "-0.01806301019638251357515728",
+     "t_minpoly": null,
+     "z_numeric": "-0.02312307377518455773182894",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "10648000*z**4 + 255552*z**3 + 114528*z**2 + 2600*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2600,
+      114528,
+      255552,
+      10648000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -6,
+      -1
+     ],
+     "minus_v2": 22,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "11/63"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      2,
+      39
+     ],
+     "D": -308,
+     "det_T_X": 308,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       14,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.04199521906879388348614374 - 0.04532006398589949276189419j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.0006276160420689390873840759 - 0.1036128680216466272712027j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "10648000*z**4 + 255552*z**3 + 114528*z**2 + 2600*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2600,
+      114528,
+      255552,
+      10648000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -12,
+      0
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "12/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      12
+     ],
+     "D": -336,
+     "det_T_X": 336,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       12,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0002677249349552069792195536",
+     "t_minpoly": null,
+     "z_numeric": "0.0002667954366461819362947385",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "195112*z**4 + 108616*z**3 + 104208*z**2 - 3776*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -3776,
+      104208,
+      108616,
+      195112
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -4,
+      0
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "4/21"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      12
+     ],
+     "D": -336,
+     "det_T_X": 336,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       4,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.08560289307189828102193144",
+     "t_minpoly": null,
+     "z_numeric": "0.03463036765733082942429469",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "195112*z**4 + 108616*z**3 + 104208*z**2 - 3776*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -3776,
+      104208,
+      108616,
+      195112
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      5,
+      -8,
+      -2
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "12/175"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      0,
+      28
+     ],
+     "D": -336,
+     "det_T_X": 336,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       5,
+       8,
+       0
+      ],
+      [
+       -56,
+       -84,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1042928453721377646444574 - 0.03879571623428377998582248j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.2957912770244578566171925 - 0.6835466866568464834255134j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "195112*z**4 + 108616*z**3 + 104208*z**2 - 3776*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -3776,
+      104208,
+      108616,
+      195112
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -13,
+      0
+     ],
+     "minus_v2": 26,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "13/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      13
+     ],
+     "D": -364,
+     "det_T_X": 364,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       13,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001912797588335398313516901",
+     "t_minpoly": null,
+     "z_numeric": "0.0001908049541237146114336866",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "287496*z**3 - 68428*z**2 + 5254*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      5254,
+      -68428,
+      287496
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      4,
+      -5,
+      -1
+     ],
+     "minus_v2": 26,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "13/112"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      -4,
+      19
+     ],
+     "D": -364,
+     "det_T_X": 364,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       4,
+       5,
+       0
+      ],
+      [
+       -14,
+       -14,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.04827828348819475833277593 - 0.09701421368913618495717526j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.1189114706620426867575049 - 0.06395092821577685906021093j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "287496*z**3 - 68428*z**2 + 5254*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      5254,
+      -68428,
+      287496
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      1,
+      -14,
+      0
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "2"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      14
+     ],
+     "D": -392,
+     "det_T_X": 392,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       1,
+       14,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001384207795596489690071205",
+     "t_minpoly": null,
+     "z_numeric": "0.0001381720134245718418195626",
+     "z_recognised": true,
+     "z_degree": 8,
+     "z_value_if_rational": null,
+     "z_minpoly": "64000000*z**8 + 81920000*z**7 - 60612608*z**6 - 53286912*z**5 + 155062656*z**4 + 1089536*z**3 + 655872*z**2 - 7328*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7328,
+      655872,
+      1089536,
+      155062656,
+      -53286912,
+      -60612608,
+      81920000,
+      64000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "8/8"
+    },
+    {
+     "v": [
+      2,
+      -7,
+      0
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/2"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      14
+     ],
+     "D": -392,
+     "det_T_X": 392,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       2,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.01233892798528088912587854",
+     "t_minpoly": null,
+     "z_numeric": "0.0105653603350238728474524",
+     "z_recognised": true,
+     "z_degree": 8,
+     "z_value_if_rational": null,
+     "z_minpoly": "64000000*z**8 + 81920000*z**7 - 60612608*z**6 - 53286912*z**5 + 155062656*z**4 + 1089536*z**3 + 655872*z**2 - 7328*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7328,
+      655872,
+      1089536,
+      155062656,
+      -53286912,
+      -60612608,
+      81920000,
+      64000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "8/8"
+    },
+    {
+     "v": [
+      3,
+      -7,
+      -1
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "2/9"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      14
+     ],
+     "D": -392,
+     "det_T_X": 392,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       3,
+       7,
+       0
+      ],
+      [
+       -14,
+       -28,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.02943070335163976107124618 - 0.03573885803892171992992455j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.009554717926487913119283476 - 0.06562191259117323111263336j)",
+     "z_recognised": true,
+     "z_degree": 8,
+     "z_value_if_rational": null,
+     "z_minpoly": "64000000*z**8 + 81920000*z**7 - 60612608*z**6 - 53286912*z**5 + 155062656*z**4 + 1089536*z**3 + 655872*z**2 - 7328*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7328,
+      655872,
+      1089536,
+      155062656,
+      -53286912,
+      -60612608,
+      81920000,
+      64000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "8/8"
+    },
+    {
+     "v": [
+      6,
+      -7,
+      -2
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "1/18"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      14
+     ],
+     "D": -392,
+     "det_T_X": 392,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       6,
+       7,
+       0
+      ],
+      [
+       -28,
+       -28,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.113426439505503096071611 - 0.06411471268878513825292615j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.7746353600909309149385706 - 0.6468041807318568403180305j)",
+     "z_recognised": true,
+     "z_degree": 8,
+     "z_value_if_rational": null,
+     "z_minpoly": "64000000*z**8 + 81920000*z**7 - 60612608*z**6 - 53286912*z**5 + 155062656*z**4 + 1089536*z**3 + 655872*z**2 - 7328*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7328,
+      655872,
+      1089536,
+      155062656,
+      -53286912,
+      -60612608,
+      81920000,
+      64000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "8/8"
+    },
+    {
+     "v": [
+      7,
+      -11,
+      -3
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/7",
+      "im_squared": "2/49"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      14
+     ],
+     "D": -392,
+     "det_T_X": 392,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       7,
+       11,
+       0
+      ],
+      [
+       -84,
+       -126,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1282544017655850854237113 - 0.03325971790720727799477979j)",
+     "t_minpoly": null,
+     "z_numeric": "(-1.410432408338667224163923 - 0.6329239698184915970630045j)",
+     "z_recognised": true,
+     "z_degree": 8,
+     "z_value_if_rational": null,
+     "z_minpoly": "64000000*z**8 + 81920000*z**7 - 60612608*z**6 - 53286912*z**5 + 155062656*z**4 + 1089536*z**3 + 655872*z**2 - 7328*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7328,
+      655872,
+      1089536,
+      155062656,
+      -53286912,
+      -60612608,
+      81920000,
+      64000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "8/8"
+    },
+    {
+     "v": [
+      1,
+      -15,
+      0
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "15/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      15
+     ],
+     "D": -420,
+     "det_T_X": 420,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       15,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001013190280296830428650206",
+     "t_minpoly": null,
+     "z_numeric": "0.0001011857006531602012432526",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304000*z**4 + 29200000*z**3 - 584256*z**2 - 9824*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9824,
+      -584256,
+      29200000,
+      39304000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -11,
+      1
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "15/28"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      15
+     ],
+     "D": -420,
+     "det_T_X": 420,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       11,
+       0
+      ],
+      [
+       -14,
+       -84,
+       1
+      ]
+     ],
+     "t_numeric": "-0.009672453954427298699251969",
+     "t_minpoly": null,
+     "z_numeric": "-0.01100590320760444557814282",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304000*z**4 + 29200000*z**3 - 584256*z**2 - 9824*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9824,
+      -584256,
+      29200000,
+      39304000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -5,
+      0
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "5/21"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      15
+     ],
+     "D": -420,
+     "det_T_X": 420,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.05693650766351890281434288",
+     "t_minpoly": null,
+     "z_numeric": "0.02998202958094446300986082",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304000*z**4 + 29200000*z**3 - 584256*z**2 - 9824*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9824,
+      -584256,
+      29200000,
+      39304000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      6,
+      -13,
+      3
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "5/84"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      15
+     ],
+     "D": -420,
+     "det_T_X": 420,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       6,
+       13,
+       0
+      ],
+      [
+       42,
+       84,
+       1
+      ]
+     ],
+     "t_numeric": "-0.1157005328873949860760358",
+     "t_minpoly": null,
+     "z_numeric": "-0.7620042406308830616142354",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "39304000*z**4 + 29200000*z**3 - 584256*z**2 - 9824*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9824,
+      -584256,
+      29200000,
+      39304000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -16,
+      0
+     ],
+     "minus_v2": 32,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "16/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      16
+     ],
+     "D": -448,
+     "det_T_X": 448,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       16,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00007492794510657405016362791",
+     "t_minpoly": null,
+     "z_numeric": "0.00007485501099627262500513953",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "68921*z**2 + 13354*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      13354,
+      68921
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      4,
+      -11,
+      2
+     ],
+     "minus_v2": 32,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      16
+     ],
+     "D": -448,
+     "det_T_X": 448,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       4,
+       11,
+       0
+      ],
+      [
+       -28,
+       -84,
+       1
+      ]
+     ],
+     "t_numeric": "-0.06728521126690837127611667",
+     "t_minpoly": null,
+     "z_numeric": "-0.1938329258457200868470855",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "68921*z**2 + 13354*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      13354,
+      68921
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -17,
+      0
+     ],
+     "minus_v2": 34,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "17/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      17
+     ],
+     "D": -476,
+     "det_T_X": 476,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       17,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00005592978970489073433350308",
+     "t_minpoly": null,
+     "z_numeric": "0.00005588914485272336854921598",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "59776471*z**5 + 20349646*z**4 + 9066068*z**3 + 224263*z**2 + 17880*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      17880,
+      224263,
+      9066068,
+      20349646,
+      59776471
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      3,
+      -8,
+      -1
+     ],
+     "minus_v2": 34,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "17/63"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      2,
+      24
+     ],
+     "D": -476,
+     "det_T_X": 476,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       8,
+       0
+      ],
+      [
+       14,
+       42,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.02130791423060744561954525 - 0.02811782064040054222217112j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.01083310444791351406835029 - 0.04450304229636601757372809j)",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "59776471*z**5 + 20349646*z**4 + 9066068*z**3 + 224263*z**2 + 17880*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      17880,
+      224263,
+      9066068,
+      20349646,
+      59776471
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      5,
+      -9,
+      -2
+     ],
+     "minus_v2": 34,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "17/175"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      2,
+      40
+     ],
+     "D": -476,
+     "det_T_X": 476,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       5,
+       9,
+       0
+      ],
+      [
+       28,
+       56,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.08572649131976746686662472 - 0.03599537584630958121079325j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.1594093547953437837546602 - 0.342444711483969384983474j)",
+     "z_recognised": true,
+     "z_degree": 5,
+     "z_value_if_rational": null,
+     "z_minpoly": "59776471*z**5 + 20349646*z**4 + 9066068*z**3 + 224263*z**2 + 17880*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      17880,
+      224263,
+      9066068,
+      20349646,
+      59776471
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "5/5"
+    },
+    {
+     "v": [
+      1,
+      -18,
+      0
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "18/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      18
+     ],
+     "D": -504,
+     "det_T_X": 504,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       18,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00004210504259976696566801774",
+     "t_minpoly": null,
+     "z_numeric": "0.00004208200470433979769000964",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6644672*z**4 + 36511744*z**3 - 4109552*z**2 + 23936*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      23936,
+      -4109552,
+      36511744,
+      6644672
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -9,
+      0
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "9/14"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      18
+     ],
+     "D": -504,
+     "det_T_X": 504,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       9,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00666058144541362490665109",
+     "t_minpoly": null,
+     "z_numeric": "0.006117576976526056168596658",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6644672*z**4 + 36511744*z**3 - 4109552*z**2 + 23936*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      23936,
+      -4109552,
+      36511744,
+      6644672
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      5,
+      -5,
+      -1
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/5",
+      "im_squared": "18/175"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      126
+     ],
+     "D": -504,
+     "det_T_X": 504,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       14,
+       5
+      ]
+     ],
+     "t_numeric": "(-0.03481104246404844925679089 - 0.1385509097331097935343125j)",
+     "t_minpoly": null,
+     "z_numeric": "0.104291405287098274513722",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6644672*z**4 + 36511744*z**3 - 4109552*z**2 + 23936*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      23936,
+      -4109552,
+      36511744,
+      6644672
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      10,
+      -13,
+      -4
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "9/350"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      126
+     ],
+     "D": -504,
+     "det_T_X": 504,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       10,
+       13,
+       0
+      ],
+      [
+       168,
+       224,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1344734823001529044889219 - 0.04821872896890362829600226j)",
+     "t_minpoly": null,
+     "z_numeric": "-5.605341406485371136985504",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6644672*z**4 + 36511744*z**3 - 4109552*z**2 + 23936*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      23936,
+      -4109552,
+      36511744,
+      6644672
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -19,
+      0
+     ],
+     "minus_v2": 38,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "19/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      19
+     ],
+     "D": -532,
+     "det_T_X": 532,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       19,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00003194559666370438906051825",
+     "t_minpoly": null,
+     "z_numeric": "0.00003193233379998155161871201",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "5268024*z**2 + 31148*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      31148,
+      5268024
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -13,
+      1
+     ],
+     "minus_v2": 38,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "19/28"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      19
+     ],
+     "D": -532,
+     "det_T_X": 532,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       13,
+       0
+      ],
+      [
+       -14,
+       -98,
+       1
+      ]
+     ],
+     "t_numeric": "-0.005526403560022510226319342",
+     "t_minpoly": null,
+     "z_numeric": "-0.005944585730975089333967464",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "5268024*z**2 + 31148*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      31148,
+      5268024
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -20,
+      0
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "20/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      20
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       20,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00002441228794742874928090955",
+     "t_minpoly": null,
+     "z_numeric": "0.00002440454221551329331772153",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "1191016*z**6 + 731240*z**5 + 1044534156*z**4 - 16336272*z**3 + 411034*z**2 - 40986*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40986,
+      411034,
+      -16336272,
+      1044534156,
+      731240,
+      1191016
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      3,
+      -9,
+      -1
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "20/63"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      2,
+      47
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       14,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.01586045914379180074946419 - 0.02222960539783679340839455j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.009976810464546637356649832 - 0.0316756514880621167076686j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "1191016*z**6 + 731240*z**5 + 1044534156*z**4 - 16336272*z**3 + 411034*z**2 - 40986*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40986,
+      411034,
+      -16336272,
+      1044534156,
+      731240,
+      1191016
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      4,
+      -5,
+      0
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "5/28"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      20
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       4,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.09610675611116150294919483",
+     "t_minpoly": null,
+     "z_numeric": "0.03556905370596624467233778",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "1191016*z**6 + 731240*z**5 + 1044534156*z**4 - 16336272*z**3 + 411034*z**2 - 40986*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40986,
+      411034,
+      -16336272,
+      1044534156,
+      731240,
+      1191016
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      11,
+      -12,
+      -4
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-4/11",
+      "im_squared": "20/847"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      -2,
+      47
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       11,
+       12,
+       0
+      ],
+      [
+       -56,
+       -56,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1317946857979794560987192 - 0.05267638298412378631129277j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.314801520921814437828412 - 29.61285822952132046197221j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "1191016*z**6 + 731240*z**5 + 1044534156*z**4 - 16336272*z**3 + 411034*z**2 - 40986*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -40986,
+      411034,
+      -16336272,
+      1044534156,
+      731240,
+      1191016
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      1,
+      -21,
+      0
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      21
+     ],
+     "D": -588,
+     "det_T_X": 588,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       1,
+       21,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0000187799439423085798805933",
+     "t_minpoly": null,
+     "z_numeric": "0.00001877535981517705385035437",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "729000000*z**6 + 867240000*z**5 + 453452848*z**4 - 47158880*z**3 + 3340572*z**2 - 53324*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -53324,
+      3340572,
+      -47158880,
+      453452848,
+      867240000,
+      729000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      3,
+      -7,
+      0
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/3"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      21
+     ],
+     "D": -588,
+     "det_T_X": 588,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       3,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.02969025727795934595775635",
+     "t_minpoly": null,
+     "z_numeric": "0.0207745133525844095269817",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "729000000*z**6 + 867240000*z**5 + 453452848*z**4 - 47158880*z**3 + 3340572*z**2 - 53324*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -53324,
+      3340572,
+      -47158880,
+      453452848,
+      867240000,
+      729000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      4,
+      -7,
+      -1
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "3/16"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      21
+     ],
+     "D": -588,
+     "det_T_X": 588,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       4,
+       7,
+       0
+      ],
+      [
+       14,
+       28,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.01660261913081033786257223 - 0.06196181282419612604011592j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.03863875587611327121545754 - 0.05698239270190951524318689j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "729000000*z**6 + 867240000*z**5 + 453452848*z**4 - 47158880*z**3 + 3340572*z**2 - 53324*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -53324,
+      3340572,
+      -47158880,
+      453452848,
+      867240000,
+      729000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      7,
+      -12,
+      -3
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/7",
+      "im_squared": "3/49"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      21
+     ],
+     "D": -588,
+     "det_T_X": 588,
+     "T_X_form_content": 7,
+     "T_X_kernel_basis": [
+      [
+       7,
+       12,
+       0
+      ],
+      [
+       -126,
+       -210,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1112944397813052038966921 - 0.02898794481172771692213737j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.6438502150471278793206884 - 0.5722026651048986040431179j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "729000000*z**6 + 867240000*z**5 + 453452848*z**4 - 47158880*z**3 + 3340572*z**2 - 53324*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -53324,
+      3340572,
+      -47158880,
+      453452848,
+      867240000,
+      729000000
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      1,
+      -22,
+      0
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "22/7"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      22
+     ],
+     "D": -616,
+     "det_T_X": 616,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       22,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00001453663021065264967055473",
+     "t_minpoly": null,
+     "z_numeric": "0.00001453388350219353273523928",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "354894912*z**4 + 77546368*z**3 + 18387984*z**2 - 69072*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -69072,
+      18387984,
+      77546368,
+      354894912
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -11,
+      0
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "11/14"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      22
+     ],
+     "D": -616,
+     "det_T_X": 616,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       2,
+       11,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.003871510000906397631089698",
+     "t_minpoly": null,
+     "z_numeric": "0.003683419601211898243696644",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "354894912*z**4 + 77546368*z**3 + 18387984*z**2 - 69072*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -69072,
+      18387984,
+      77546368,
+      354894912
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      5,
+      -10,
+      -2
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "22/175"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      77
+     ],
+     "D": -616,
+     "det_T_X": 616,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       28,
+       5
+      ]
+     ],
+     "t_numeric": "(-0.07053975249139692999362664 - 0.03281435990604440636020559j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.1111015545871473369364009 - 0.2007250943065939991139526j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "354894912*z**4 + 77546368*z**3 + 18387984*z**2 - 69072*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -69072,
+      18387984,
+      77546368,
+      354894912
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [],
+     "advisory": false,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    }
+   ],
+   "locus_hits": {
+    "infinity": [
+     {
+      "v": [
+       14,
+       -14,
+       -5
+      ],
+      "minus_v2": 42,
+      "div_v": 14,
+      "v_is_reflective": false,
+      "D": -3,
+      "T_X_reduced_form_abc": [
+       1,
+       1,
+       1
+      ],
+      "t_minpoly": "49*t**2 + 13*t + 1",
+      "tau": {
+       "re": "-5/14",
+       "im_squared": "3/196"
+      }
+     }
+    ],
+    "-1": [
+     {
+      "v": [
+       2,
+       -4,
+       1
+      ],
+      "minus_v2": 2,
+      "div_v": 2,
+      "v_is_reflective": true,
+      "D": -7,
+      "T_X_reduced_form_abc": [
+       1,
+       1,
+       2
+      ],
+      "t_minpoly": "7*t + 1",
+      "tau": {
+       "re": "1/2",
+       "im_squared": "1/28"
+      }
+     }
+    ],
+    "1/27": [
+     {
+      "v": [
+       1,
+       -1,
+       0
+      ],
+      "minus_v2": 2,
+      "div_v": 1,
+      "v_is_reflective": true,
+      "D": -28,
+      "T_X_reduced_form_abc": [
+       1,
+       0,
+       7
+      ],
+      "t_minpoly": "7*t - 1",
+      "tau": {
+       "re": "0",
+       "im_squared": "1/7"
+      }
+     }
+    ]
+   }
+  },
+  "cooper_s10": {
+   "candidate": "cooper_s10",
+   "n": 10,
+   "lattice_cert": "C2_cooper_s10_v4_DRAFT.json",
+   "lattice_cert_status": "DRAFT",
+   "flags": [
+    "LATTICE_CERT_DRAFT"
+   ],
+   "advisory": true,
+   "lattice_leg": {
+    "gram": [
+     [
+      0,
+      0,
+      -1
+     ],
+     [
+      0,
+      20,
+      0
+     ],
+     [
+      -1,
+      0,
+      0
+     ]
+    ],
+    "det_recomputed": -20,
+    "u_splitting_d_recomputed": 20,
+    "witness_det": 1,
+    "sylvester_diagonal": [
+     2,
+     20,
+     -2
+    ],
+    "signature": [
+     2,
+     1
+    ],
+    "n_lattice": 10
+   },
+   "relation_1_over_z": {
+    "alpha": "16",
+    "beta": "8",
+    "gamma": "1"
+   },
+   "relation_order_checked": 40,
+   "eta_exponents_t": {
+    "1": -4,
+    "2": 4,
+    "5": -4,
+    "10": 4
+   },
+   "singular_loci_from_C1_cert": [
+    "-1/4",
+    "1/16"
+   ],
+   "vectors_enumerated": 182,
+   "distinct_z_up_to_conj": 69,
+   "unrecognised_rows": 0,
+   "same_z_different_form_violations": [],
+   "same_z_different_norm_or_div_violations": [],
+   "fricke_consistency_violations": [],
+   "fricke_consistency_vectors_checked": 182,
+   "rows": [
+    {
+     "v": [
+      10,
+      -10,
+      -3
+     ],
+     "minus_v2": 20,
+     "div_v": 10,
+     "v_is_reflective": true,
+     "tau": {
+      "re": "-3/10",
+      "im_squared": "1/100"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      1
+     ],
+     "D": -4,
+     "det_T_X": 4,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       6,
+       1
+      ]
+     ],
+     "t_numeric": "-0.25",
+     "t_minpoly": "4*t + 1",
+     "z_numeric": "infinity",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "infinity",
+     "z_minpoly": null,
+     "z_minpoly_coeffs_ascending": null,
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": "infinity",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      4,
+      -4,
+      -1
+     ],
+     "minus_v2": 12,
+     "div_v": 4,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "3/80"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      1,
+      4
+     ],
+     "D": -15,
+     "det_T_X": 15,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       5,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.21875 - 0.121030729568981777661852j)",
+     "t_minpoly": "16*t**2 + 7*t + 1",
+     "z_numeric": "1.0",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1",
+     "z_minpoly": "z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      1
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      5,
+      -10,
+      -2
+     ],
+     "minus_v2": 20,
+     "div_v": 5,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "1/25"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      2
+     ],
+     "D": -16,
+     "det_T_X": 16,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       8,
+       1
+      ]
+     ],
+     "t_numeric": "-0.125",
+     "t_minpoly": "8*t + 1",
+     "z_numeric": "-0.5",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/2",
+     "z_minpoly": "2*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      2
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      2,
+      -6,
+      1
+     ],
+     "minus_v2": 4,
+     "div_v": 2,
+     "v_is_reflective": true,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/20"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      2,
+      3
+     ],
+     "D": -20,
+     "det_T_X": 20,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.09549150281252628794885329",
+     "t_minpoly": "16*t**2 + 12*t + 1",
+     "z_numeric": "-0.25",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/4",
+     "z_minpoly": "4*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      4
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": "-1/4",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      5,
+      -5,
+      -1
+     ],
+     "minus_v2": 30,
+     "div_v": 5,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/5",
+      "im_squared": "3/50"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      6
+     ],
+     "D": -24,
+     "det_T_X": 24,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       4,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.125 - 0.2165063509461096616909308j)",
+     "t_minpoly": "16*t**2 + 4*t + 1",
+     "z_numeric": "0.25",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/4",
+     "z_minpoly": "4*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      4
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -1,
+      0
+     ],
+     "minus_v2": 2,
+     "div_v": 1,
+     "v_is_reflective": true,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/10"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      10
+     ],
+     "D": -40,
+     "det_T_X": 40,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.25",
+     "t_minpoly": "4*t - 1",
+     "z_numeric": "0.0625",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/16",
+     "z_minpoly": "16*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      16
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": "1/16",
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      4,
+      -8,
+      -1
+     ],
+     "minus_v2": 44,
+     "div_v": 4,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "11/80"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      1,
+      7
+     ],
+     "D": -55,
+     "det_T_X": 55,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       5,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.03580931355469735798081998 - 0.08852299233609358750874263j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.04320987654320987654320988 - 0.1023649626652901187998436j)",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "81*z**2 - 7*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7,
+      81
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -8,
+      1
+     ],
+     "minus_v2": 12,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "3/20"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      2,
+      4
+     ],
+     "D": -60,
+     "det_T_X": 60,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       4,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.0625",
+     "t_minpoly": "16*t + 1",
+     "z_numeric": "-0.1111111111111111111111111",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/9",
+     "z_minpoly": "9*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      9
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -2,
+      0
+     ],
+     "minus_v2": 4,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/5"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      10
+     ],
+     "D": -80,
+     "det_T_X": 80,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.07725424859373685602557335",
+     "t_minpoly": "64*t**2 + 8*t - 1",
+     "z_numeric": "0.04508497187473712051146709",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "4*z**2 + 22*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      22,
+      4
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      3,
+      -4,
+      -1
+     ],
+     "minus_v2": 4,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "1/45"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      10
+     ],
+     "D": -80,
+     "det_T_X": 80,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       3,
+       4,
+       0
+      ],
+      [
+       -20,
+       -20,
+       1
+      ]
+     ],
+     "t_numeric": "-0.2022542485937368560255734",
+     "t_minpoly": "64*t**2 + 8*t - 1",
+     "z_numeric": "-5.545084971874737120511467",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "4*z**2 + 22*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      22,
+      4
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -10,
+      1
+     ],
+     "minus_v2": 20,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/4"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      0,
+      5
+     ],
+     "D": -100,
+     "det_T_X": 100,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       1,
+       5,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.03647450843757886384655987",
+     "t_minpoly": "16*t**2 + 28*t + 1",
+     "z_numeric": "-0.05",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/20",
+     "z_minpoly": "20*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      20
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -3,
+      0
+     ],
+     "minus_v2": 6,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/10"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      0,
+      10
+     ],
+     "D": -120,
+     "det_T_X": 120,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.03647450843757886384655987",
+     "t_minpoly": "16*t**2 - 28*t + 1",
+     "z_numeric": "0.02777777777777777777777778",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/36",
+     "z_minpoly": "36*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      36
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      2,
+      -12,
+      1
+     ],
+     "minus_v2": 28,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "7/20"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      2,
+      6
+     ],
+     "D": -140,
+     "det_T_X": 140,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       6,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.02207549758804991948618574",
+     "t_minpoly": null,
+     "z_numeric": "-0.02655880242209311309073185",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "784*z**3 - 192*z**2 + 32*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      32,
+      -192,
+      784
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      4,
+      -6,
+      -1
+     ],
+     "minus_v2": 28,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "7/80"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      2,
+      6
+     ],
+     "D": -140,
+     "det_T_X": 140,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       3,
+       0
+      ],
+      [
+       10,
+       20,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.08440336960211969544284074 - 0.1222766076887067408407122j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.1357283808028832912392435 - 0.1720572569607819060251193j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "784*z**3 - 192*z**2 + 32*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      32,
+      -192,
+      784
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      1,
+      -4,
+      0
+     ],
+     "minus_v2": 8,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "2/5"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      0,
+      10
+     ],
+     "D": -160,
+     "det_T_X": 160,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       4,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.02028470752104741649986169",
+     "t_minpoly": "64*t**2 + 48*t - 1",
+     "z_numeric": "0.01735424877062899172836091",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "324*z**2 + 52*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      52,
+      324
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -7,
+      1
+     ],
+     "minus_v2": 8,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/10"
+     },
+     "T_X_reduced_form_abc": [
+      4,
+      0,
+      10
+     ],
+     "D": -160,
+     "det_T_X": 160,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       7,
+       0
+      ],
+      [
+       -20,
+       -80,
+       1
+      ]
+     ],
+     "t_numeric": "-0.08113883008418966599944677",
+     "t_minpoly": "4*t**2 - 12*t - 1",
+     "z_numeric": "-0.1778480759311228188888547",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "324*z**2 + 52*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      52,
+      324
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -14,
+      1
+     ],
+     "minus_v2": 36,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "9/20"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      4,
+      7
+     ],
+     "D": -180,
+     "det_T_X": 180,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       7,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.01393202250021030359082633",
+     "t_minpoly": "16*t**2 + 72*t + 1",
+     "z_numeric": "-0.015625",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "-1/64",
+     "z_minpoly": "64*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      64
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -5,
+      0
+     ],
+     "minus_v2": 10,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/2"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      0,
+      10
+     ],
+     "D": -200,
+     "det_T_X": 200,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       1,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.01233210039316660070626231",
+     "t_minpoly": null,
+     "z_numeric": "0.01119990131278004947246556",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "256*z**3 + 112*z**2 + 88*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      88,
+      112,
+      256
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      3,
+      -5,
+      -1
+     ],
+     "minus_v2": 10,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "1/18"
+     },
+     "T_X_reduced_form_abc": [
+      5,
+      0,
+      10
+     ],
+     "D": -200,
+     "det_T_X": 200,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       3,
+       5,
+       0
+      ],
+      [
+       20,
+       40,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1364946207761064107492831 - 0.05000586852945188674704173j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.2243499506563900247362328 - 0.5462989055949431837821623j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "256*z**3 + 112*z**2 + 88*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      88,
+      112,
+      256
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      2,
+      -16,
+      1
+     ],
+     "minus_v2": 44,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "11/20"
+     },
+     "T_X_reduced_form_abc": [
+      8,
+      6,
+      8
+     ],
+     "D": -220,
+     "det_T_X": 220,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       8,
+       0
+      ],
+      [
+       0,
+       -10,
+       1
+      ]
+     ],
+     "t_numeric": "-0.009118627109394715961639969",
+     "t_minpoly": "256*t**2 + 112*t + 1",
+     "z_numeric": "-0.009822070299625882899120599",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "121*z**2 + 103*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      103,
+      121
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      8,
+      -14,
+      -3
+     ],
+     "minus_v2": 44,
+     "div_v": 2,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/8",
+      "im_squared": "11/320"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      2,
+      28
+     ],
+     "D": -220,
+     "det_T_X": 220,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       4,
+       7,
+       0
+      ],
+      [
+       30,
+       60,
+       1
+      ]
+     ],
+     "t_numeric": "-0.1458980337503154553862395",
+     "t_minpoly": "t**2 + 7*t + 1",
+     "z_numeric": "-0.8414175991218617204066645",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "121*z**2 + 103*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      103,
+      121
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -6,
+      0
+     ],
+     "minus_v2": 12,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/5"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      0,
+      10
+     ],
+     "D": -240,
+     "det_T_X": 240,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       6,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.007938540862036444676295913",
+     "t_minpoly": "256*t**2 - 128*t + 1",
+     "z_numeric": "0.007457413497246458443278225",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "2401*z**2 - 152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -152,
+      2401
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      2,
+      -3,
+      0
+     ],
+     "minus_v2": 12,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/20"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      0,
+      10
+     ],
+     "D": -240,
+     "det_T_X": 240,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       3,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.1270166537925831148207346",
+     "t_minpoly": "t**2 - 8*t + 1",
+     "z_numeric": "0.05584954193798886017396459",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "2401*z**2 - 152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -152,
+      2401
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -7,
+      0
+     ],
+     "minus_v2": 14,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "7/10"
+     },
+     "T_X_reduced_form_abc": [
+      7,
+      0,
+      10
+     ],
+     "D": -280,
+     "det_T_X": 280,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00532155906305204692591912",
+     "t_minpoly": "16*t**2 - 188*t + 1",
+     "z_numeric": "0.005102040816326530612244898",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/196",
+     "z_minpoly": "196*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      196
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -8,
+      0
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "4/5"
+     },
+     "T_X_reduced_form_abc": [
+      8,
+      0,
+      10
+     ],
+     "D": -320,
+     "det_T_X": 320,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       8,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.003678226643776045511178205",
+     "t_minpoly": null,
+     "z_numeric": "0.003572334494539536227589515",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      264,
+      4414,
+      12384,
+      58564
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -9,
+      1
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/5"
+     },
+     "T_X_reduced_form_abc": [
+      8,
+      0,
+      10
+     ],
+     "D": -320,
+     "det_T_X": 320,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       9,
+       0
+      ],
+      [
+       -20,
+       -100,
+       1
+      ]
+     ],
+     "t_numeric": "-0.0476119658236407480641414",
+     "t_minpoly": null,
+     "z_numeric": "-0.07264846900721288318898548",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      264,
+      4414,
+      12384,
+      58564
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -6,
+      -1
+     ],
+     "minus_v2": 16,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "4/45"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      40
+     ],
+     "D": -320,
+     "det_T_X": 320,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       2,
+       0
+      ],
+      [
+       0,
+       20,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.09549150281252628794885329 - 0.05934865986451452755295615j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.07119241563417626962428119 - 0.2464270797421808919626157j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      264,
+      4414,
+      12384,
+      58564
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -9,
+      0
+     ],
+     "minus_v2": 18,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "9/10"
+     },
+     "T_X_reduced_form_abc": [
+      9,
+      0,
+      10
+     ],
+     "D": -360,
+     "det_T_X": 360,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       9,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.002604726250028008173859076",
+     "t_minpoly": null,
+     "z_numeric": "0.002551286084109509013579626",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "16*z**2 - 392*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -392,
+      16
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      7,
+      -7,
+      -2
+     ],
+     "minus_v2": 18,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/7",
+      "im_squared": "9/490"
+     },
+     "T_X_reduced_form_abc": [
+      1,
+      0,
+      90
+     ],
+     "D": -360,
+     "det_T_X": 360,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       1,
+       0
+      ],
+      [
+       0,
+       40,
+       7
+      ]
+     ],
+     "t_numeric": "(-0.2487243569579452454932102 - 0.02522289150467556019891363j)",
+     "t_minpoly": null,
+     "z_numeric": "24.49744871391589049098642",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "16*z**2 - 392*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -392,
+      16
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -10,
+      0
+     ],
+     "minus_v2": 20,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      10
+     ],
+     "D": -400,
+     "det_T_X": 400,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       1,
+       10,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.001881457518294235335712018",
+     "t_minpoly": null,
+     "z_numeric": "0.001853454967820319400801336",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -572,
+      17644,
+      -68688,
+      104976
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -5,
+      0
+     ],
+     "minus_v2": 20,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/4"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      10
+     ],
+     "D": -400,
+     "det_T_X": 400,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       2,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.05158280670222308097854337",
+     "t_minpoly": null,
+     "z_numeric": "0.03544637510936743600294776",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -572,
+      17644,
+      -68688,
+      104976
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 3,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      4,
+      -5,
+      -1
+     ],
+     "minus_v2": 20,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "1/16"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      10
+     ],
+     "D": -400,
+     "det_T_X": 400,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       4,
+       5,
+       0
+      ],
+      [
+       -20,
+       -20,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1352549156242113615344013 - 0.1348355154885623195249689j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.3085105787885666161252859 - 0.223197788767200108919355j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -572,
+      17644,
+      -68688,
+      104976
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -11,
+      0
+     ],
+     "minus_v2": 22,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "11/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      11
+     ],
+     "D": -440,
+     "det_T_X": 440,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       11,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.001381811960074373400593675",
+     "t_minpoly": null,
+     "z_numeric": "0.001366662443814201014594134",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "30976*z**3 + 2672*z**2 + 728*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      728,
+      2672,
+      30976
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      3,
+      -7,
+      -1
+     ],
+     "minus_v2": 22,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "11/90"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      -4,
+      19
+     ],
+     "D": -440,
+     "det_T_X": 440,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       7,
+       0
+      ],
+      [
+       -20,
+       -40,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.06866271656936484869642424 - 0.0559200821189345469376034j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.04381349651116329885440451 - 0.1473166662655544333178861j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "30976*z**3 + 2672*z**2 + 728*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      728,
+      2672,
+      30976
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      1,
+      -12,
+      0
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "6/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      12
+     ],
+     "D": -480,
+     "det_T_X": 480,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       12,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.001029397279261408520537325",
+     "t_minpoly": null,
+     "z_numeric": "0.001020972082081293595388274",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -964,
+      -15564,
+      412016,
+      2085136
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -11,
+      1
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "3/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      12
+     ],
+     "D": -480,
+     "det_T_X": 480,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       11,
+       0
+      ],
+      [
+       -20,
+       -120,
+       1
+      ]
+     ],
+     "t_numeric": "-0.02822237566335078303777223",
+     "t_minpoly": null,
+     "z_numeric": "-0.03586229937292109613400297",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -964,
+      -15564,
+      412016,
+      2085136
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -4,
+      0
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "2/15"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      12
+     ],
+     "D": -480,
+     "det_T_X": 480,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       3,
+       4,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.1549016919602249028527652",
+     "t_minpoly": null,
+     "z_numeric": "0.05905232424678982368434825",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -964,
+      -15564,
+      412016,
+      2085136
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      4,
+      -13,
+      2
+     ],
+     "minus_v2": 24,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "3/40"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      12
+     ],
+     "D": -480,
+     "det_T_X": 480,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       4,
+       13,
+       0
+      ],
+      [
+       40,
+       120,
+       1
+      ]
+     ],
+     "t_numeric": "-0.0903994091263754444282787",
+     "t_minpoly": null,
+     "z_numeric": "-0.2218077004803244504395542",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -964,
+      -15564,
+      412016,
+      2085136
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -13,
+      0
+     ],
+     "minus_v2": 26,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "13/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      13
+     ],
+     "D": -520,
+     "det_T_X": 520,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       13,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0007764050037854646348739628",
+     "t_minpoly": "16*t**2 - 1288*t + 1",
+     "z_numeric": "0.0007716049382716049382716049",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/1296",
+     "z_minpoly": "1296*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      1296
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -14,
+      0
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "7/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      14
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       14,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0005920011385628699508227955",
+     "t_minpoly": null,
+     "z_numeric": "0.0005892073432702390517833921",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1736,
+      65640,
+      367280,
+      7381040,
+      6850944,
+      4477456
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      2,
+      -7,
+      0
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "7/20"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      14
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.02681711414212183484232303",
+     "t_minpoly": null,
+     "z_numeric": "0.02187289077899289137812918",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1736,
+      65640,
+      367280,
+      7381040,
+      6850944,
+      4477456
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      3,
+      -8,
+      -1
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "7/45"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      -4,
+      24
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       3,
+       8,
+       0
+      ],
+      [
+       20,
+       60,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.05079065694114686426083183 - 0.04912589986280841505178767j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.03285056483510412774390215 - 0.09963084944499802800317431j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1736,
+      65640,
+      367280,
+      7381040,
+      6850944,
+      4477456
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      6,
+      -9,
+      -2
+     ],
+     "minus_v2": 28,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "7/180"
+     },
+     "T_X_reduced_form_abc": [
+      6,
+      4,
+      24
+     ],
+     "D": -560,
+     "det_T_X": 560,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       3,
+       0
+      ],
+      [
+       40,
+       80,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.1647016156002784292017177 - 0.03302588399819144259086639j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.7434292083229253187679334 - 1.010925221802914543083822j)",
+     "z_recognised": true,
+     "z_degree": 6,
+     "z_value_if_rational": null,
+     "z_minpoly": "4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -1736,
+      65640,
+      367280,
+      7381040,
+      6850944,
+      4477456
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 8,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "6/6"
+    },
+    {
+     "v": [
+      1,
+      -15,
+      0
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "3/2"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      15
+     ],
+     "D": -600,
+     "det_T_X": 600,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       1,
+       15,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0004557898441767573128200498",
+     "t_minpoly": null,
+     "z_numeric": "0.0004541324231104824314946696",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -2216,
+      30736,
+      198144,
+      331776
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      3,
+      -5,
+      0
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/6"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      15
+     ],
+     "D": -600,
+     "det_T_X": 600,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       3,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.1061250594248784713994205",
+     "t_minpoly": null,
+     "z_numeric": "0.05229894092893166556838239",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -2216,
+      30736,
+      198144,
+      331776
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      5,
+      -11,
+      -2
+     ],
+     "minus_v2": 30,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "3/50"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      15
+     ],
+     "D": -600,
+     "det_T_X": 600,
+     "T_X_form_content": 5,
+     "T_X_kernel_basis": [
+      [
+       5,
+       11,
+       0
+      ],
+      [
+       -40,
+       -80,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.1108173023735936204686566 - 0.0181630315786792260882436j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.3249876477871321851110496 - 0.1459050735467953546428624j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -2216,
+      30736,
+      198144,
+      331776
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -16,
+      0
+     ],
+     "minus_v2": 32,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "8/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      16
+     ],
+     "D": -640,
+     "det_T_X": 640,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       16,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0003539848564756836176819669",
+     "t_minpoly": null,
+     "z_numeric": "0.0003529845393305224587968343",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2784,
+      138804,
+      -83456,
+      26244
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -13,
+      1
+     ],
+     "minus_v2": 32,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "2/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      16
+     ],
+     "D": -640,
+     "det_T_X": 640,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       13,
+       0
+      ],
+      [
+       -20,
+       -140,
+       1
+      ]
+     ],
+     "t_numeric": "-0.01745082378478412179312532",
+     "t_minpoly": null,
+     "z_numeric": "-0.02016816286007232536632685",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2784,
+      138804,
+      -83456,
+      26244
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      7,
+      -8,
+      -2
+     ],
+     "minus_v2": 32,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/7",
+      "im_squared": "8/245"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      16
+     ],
+     "D": -640,
+     "det_T_X": 640,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       7,
+       8,
+       0
+      ],
+      [
+       -40,
+       -40,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.2094305849579051670002766 - 0.06543412186508755716540952j)",
+     "t_minpoly": null,
+     "z_numeric": "(1.599909113318273660179569 - 1.671132327282501313430065j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      2784,
+      138804,
+      -83456,
+      26244
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 8,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -17,
+      0
+     ],
+     "minus_v2": 34,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "17/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      17
+     ],
+     "D": -680,
+     "det_T_X": 680,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       17,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0002770911451408813173077864",
+     "t_minpoly": null,
+     "z_numeric": "0.0002764779288082778278896041",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "614656*z**3 + 32112*z**2 + 3608*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      3608,
+      32112,
+      614656
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      3,
+      -9,
+      -1
+     ],
+     "minus_v2": 34,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "17/90"
+     },
+     "T_X_reduced_form_abc": [
+      3,
+      2,
+      57
+     ],
+     "D": -680,
+     "det_T_X": 680,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       3,
+       0
+      ],
+      [
+       0,
+       20,
+       3
+      ]
+     ],
+     "t_numeric": "(-0.03855038731600156890983361 - 0.04205013717334231126489794j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.0262601673275861464108211 - 0.07207547673167075982448564j)",
+     "z_recognised": true,
+     "z_degree": 3,
+     "z_value_if_rational": null,
+     "z_minpoly": "614656*z**3 + 32112*z**2 + 3608*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      3608,
+      32112,
+      614656
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "3/3"
+    },
+    {
+     "v": [
+      1,
+      -18,
+      0
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "9/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      18
+     ],
+     "D": -720,
+     "det_T_X": 720,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       18,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0002184606826196657775974446",
+     "t_minpoly": null,
+     "z_numeric": "0.0002180793819288743553469885",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -4664,
+      360536,
+      -2351584,
+      14776336
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -9,
+      0
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "9/20"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      18
+     ],
+     "D": -720,
+     "det_T_X": 720,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       9,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.01568047156228524021706438",
+     "t_minpoly": null,
+     "z_numeric": "0.01388416830751802139374366",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -4664,
+      360536,
+      -2351584,
+      14776336
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      4,
+      -7,
+      -1
+     ],
+     "minus_v2": 36,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/4",
+      "im_squared": "9/80"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      18
+     ],
+     "D": -720,
+     "det_T_X": 720,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       4,
+       7,
+       0
+      ],
+      [
+       20,
+       40,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.0541752799932702850935574 - 0.1048668753127558004933314j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.07252151175316766667509675 - 0.1307353176736930364724719j)",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -4664,
+      360536,
+      -2351584,
+      14776336
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      1,
+      -19,
+      0
+     ],
+     "minus_v2": 38,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "19/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      19
+     ],
+     "D": -760,
+     "det_T_X": 760,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       19,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001733704023780760630679673",
+     "t_minpoly": "16*t**2 - 5768*t + 1",
+     "z_numeric": "0.0001731301939058171745152355",
+     "z_recognised": true,
+     "z_degree": 1,
+     "z_value_if_rational": "1/5776",
+     "z_minpoly": "5776*z - 1",
+     "z_minpoly_coeffs_ascending": [
+      -1,
+      5776
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": null
+    },
+    {
+     "v": [
+      1,
+      -20,
+      0
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "2"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       1,
+       20,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001384207689626448581520961",
+     "t_minpoly": null,
+     "z_numeric": "0.0001382676136993538316059648",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      2,
+      -15,
+      1
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/2"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       2,
+       15,
+       0
+      ],
+      [
+       -20,
+       -160,
+       1
+      ]
+     ],
+     "t_numeric": "-0.01122442767651695848254826",
+     "t_minpoly": null,
+     "z_numeric": "-0.01230451312590152777321865",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      3,
+      -10,
+      -1
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/3",
+      "im_squared": "2/9"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       3,
+       10,
+       0
+      ],
+      [
+       -20,
+       -60,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.02991948121831256912762316 - 0.03565674205836471816103206j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.02153936999113015634236745 - 0.05441859892846381705851448j)",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      4,
+      -15,
+      2
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "1/2",
+      "im_squared": "1/8"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       4,
+       15,
+       0
+      ],
+      [
+       -40,
+       -160,
+       1
+      ]
+     ],
+     "t_numeric": "-0.07146684645550068947569053",
+     "t_minpoly": null,
+     "z_numeric": "-0.1401350857655690552464591",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      4,
+      -5,
+      0
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "1/8"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       4,
+       5,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.172556940802547732369299",
+     "t_minpoly": null,
+     "z_numeric": "0.06040069984088233659624053",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      5,
+      -12,
+      -2
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-2/5",
+      "im_squared": "2/25"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       5,
+       12,
+       0
+      ],
+      [
+       80,
+       200,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.09702991558841007230609483 - 0.02591862377804062584809782j)",
+     "t_minpoly": null,
+     "z_numeric": "(-0.2157006799791440569466672 - 0.1465290570849135220464313j)",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      5,
+      -6,
+      -1
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-1/5",
+      "im_squared": "2/25"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       5,
+       6,
+       0
+      ],
+      [
+       -20,
+       -20,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.06637198264773557026351214 - 0.1835585118669063405516761j)",
+     "t_minpoly": null,
+     "z_numeric": "(0.1701576815506526819336254 - 0.0615992963490739466527205j)",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 6,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      10,
+      -11,
+      -3
+     ],
+     "minus_v2": 40,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/10",
+      "im_squared": "1/50"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      20
+     ],
+     "D": -800,
+     "det_T_X": 800,
+     "T_X_form_content": 10,
+     "T_X_kernel_basis": [
+      [
+       10,
+       11,
+       0
+      ],
+      [
+       -60,
+       -60,
+       1
+      ]
+     ],
+     "t_numeric": "(-0.2326423172045867814750001 - 0.02102899965944989829063231j)",
+     "t_minpoly": null,
+     "z_numeric": "(5.442478748278007668613424 - 18.8665522990359062608253j)",
+     "z_recognised": true,
+     "z_degree": 12,
+     "z_value_if_rational": null,
+     "z_minpoly": "23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -7152,
+      -581184,
+      379360,
+      19187200,
+      2763570688,
+      8799789184,
+      -140016653312,
+      -304517160960,
+      2066503731200,
+      9045353742336,
+      -251684421632,
+      23612624896
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 320 digits, re-checked at 420 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 8,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "12/12"
+    },
+    {
+     "v": [
+      1,
+      -21,
+      0
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "21/10"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      21
+     ],
+     "D": -840,
+     "det_T_X": 840,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       1,
+       21,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.0001111359674611112877978584",
+     "t_minpoly": null,
+     "z_numeric": "0.0001110372236837918230461611",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "234256*z**2 - 9032*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9032,
+      234256
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      3,
+      -7,
+      0
+     ],
+     "minus_v2": 42,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "7/30"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      21
+     ],
+     "D": -840,
+     "det_T_X": 840,
+     "T_X_form_content": 1,
+     "T_X_kernel_basis": [
+      [
+       3,
+       7,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.05856844396705759602453355",
+     "t_minpoly": null,
+     "z_numeric": "0.03844507233167444873429282",
+     "z_recognised": true,
+     "z_degree": 2,
+     "z_value_if_rational": null,
+     "z_minpoly": "234256*z**2 - 9032*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -9032,
+      234256
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "2/2"
+    },
+    {
+     "v": [
+      1,
+      -22,
+      0
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "11/5"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      22
+     ],
+     "D": -880,
+     "det_T_X": 880,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       1,
+       22,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.00008969359357232300363734106",
+     "t_minpoly": null,
+     "z_numeric": "0.00008962926866576141040177784",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -11264,
+      1192711,
+      3542616,
+      6561
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      2,
+      -11,
+      0
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "0",
+      "im_squared": "11/20"
+     },
+     "T_X_reduced_form_abc": [
+      10,
+      0,
+      22
+     ],
+     "D": -880,
+     "det_T_X": 880,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       2,
+       11,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "t_numeric": "0.009836304577024946663737627",
+     "t_minpoly": null,
+     "z_numeric": "0.009105678730633385277480694",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -11264,
+      1192711,
+      3542616,
+      6561
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 1,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      7,
+      -16,
+      -3
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-3/7",
+      "im_squared": "11/245"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      110
+     ],
+     "D": -880,
+     "det_T_X": 880,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       7,
+       16,
+       0
+      ],
+      [
+       180,
+       420,
+       1
+      ]
+     ],
+     "t_numeric": "-0.1094254345517596815488868",
+     "t_minpoly": null,
+     "z_numeric": "-0.3460866108698014845976602",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -11264,
+      1192711,
+      3542616,
+      6561
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 2,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    },
+    {
+     "v": [
+      13,
+      -14,
+      -4
+     ],
+     "minus_v2": 44,
+     "div_v": 1,
+     "v_is_reflective": false,
+     "tau": {
+      "re": "-4/13",
+      "im_squared": "11/845"
+     },
+     "T_X_reduced_form_abc": [
+      2,
+      0,
+      110
+     ],
+     "D": -880,
+     "det_T_X": 880,
+     "T_X_form_content": 2,
+     "T_X_kernel_basis": [
+      [
+       13,
+       14,
+       0
+      ],
+      [
+       -80,
+       -80,
+       1
+      ]
+     ],
+     "t_numeric": "-0.2446765316979248630648737",
+     "t_minpoly": null,
+     "z_numeric": "-539.6137259810801149460408",
+     "z_recognised": true,
+     "z_degree": 4,
+     "z_value_if_rational": null,
+     "z_minpoly": "6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
+     "z_minpoly_coeffs_ascending": [
+      1,
+      -11264,
+      1192711,
+      3542616,
+      6561
+     ],
+     "recognition": "Tier B numeric recognition: LLL at 120 digits, re-checked at 200 digits",
+     "vectors_in_window_with_this_z_up_to_conj": 4,
+     "flags": [
+      "LATTICE_CERT_DRAFT"
+     ],
+     "advisory": true,
+     "singular_locus_match": null,
+     "conjugates_in_table": "4/4"
+    }
+   ],
+   "locus_hits": {
+    "infinity": [
+     {
+      "v": [
+       10,
+       -10,
+       -3
+      ],
+      "minus_v2": 20,
+      "div_v": 10,
+      "v_is_reflective": true,
+      "D": -4,
+      "T_X_reduced_form_abc": [
+       1,
+       0,
+       1
+      ],
+      "t_minpoly": "4*t + 1",
+      "tau": {
+       "re": "-3/10",
+       "im_squared": "1/100"
+      }
+     }
+    ],
+    "-1/4": [
+     {
+      "v": [
+       2,
+       -6,
+       1
+      ],
+      "minus_v2": 4,
+      "div_v": 2,
+      "v_is_reflective": true,
+      "D": -20,
+      "T_X_reduced_form_abc": [
+       2,
+       2,
+       3
+      ],
+      "t_minpoly": "16*t**2 + 12*t + 1",
+      "tau": {
+       "re": "1/2",
+       "im_squared": "1/20"
+      }
+     }
+    ],
+    "1/16": [
+     {
+      "v": [
+       1,
+       -1,
+       0
+      ],
+      "minus_v2": 2,
+      "div_v": 1,
+      "v_is_reflective": true,
+      "D": -40,
+      "T_X_reduced_form_abc": [
+       1,
+       0,
+       10
+      ],
+      "t_minpoly": "4*t - 1",
+      "tau": {
+       "re": "0",
+       "im_squared": "1/10"
+      }
+     }
+    ]
+   }
+  }
+ },
+ "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: test_CM_points_rho20_controls.py | Reviewed-by: N"
+}

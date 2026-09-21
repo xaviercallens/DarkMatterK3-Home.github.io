@@ -1,0 +1,5238 @@
+{
+ "certificate": "A2_MEMBERSHIP",
+ "checker": "checkers/check_A2_membership.py",
+ "checker_version": "f091e43",
+ "checker_commit_state": {
+  "head": "f091e43",
+  "code_files_not_as_in_head": [],
+  "label": "f091e43"
+ },
+ "date": "2026-09-21",
+ "status": "RECORD, NOT A GATE. The rho = 20 cut is not adopted by the program (open T0 decision). K3_CRITERIA.md unchanged. No scoring. cooper_s10 advisory (lattice certificate DRAFT).",
+ "claim": "Tier B: T_7 = U+<14> contains a primitive v with v^perp isometric to A2, so -- within the cited framework -- the M_7-polarized family (Dolgachev moduli space X_0(7)+), of which cooper_s7 is the period operator, contains a point whose transcendental lattice is A2; in the s7 coordinate that point is z = infinity (relation PASS(40) + Tier B numeric recognition), a singular point of L3, and the explicit projective model is not examined there (see not_claimed). T_10 = U+<20> contains no such v (exact congruence over all v), so the M_10-polarized family as the DRAFT cooper_s10 lattice certificate records it does not.",
+ "tier": "B",
+ "headline": {
+  "cooper_s7": {
+   "n": 7,
+   "A2": "PRESENT",
+   "fired": "explicit_vector_with_target_form",
+   "advisory": false
+  },
+  "cooper_s10": {
+   "n": 10,
+   "A2": "ABSENT",
+   "fired": "D_not_square_mod_4n",
+   "advisory": true
+  }
+ },
+ "tier_links": {
+  "finite_order": [
+   "the relation 1/z = alpha t + beta + gamma/t per family: PASS(40) (T3.modular_leg, q-order 40); every z statement, z = infinity included, depends on it"
+  ],
+  "exact": [
+   "stage-0 sympy identities (leg A i, ii, iv)",
+   "squares modulo 4n by exhaustion",
+   "every witness vector and its v^perp",
+   "box enumeration |coords| <= 80",
+   "criterion == box on both inclusions for |D| <= 100",
+   "tau; the Gamma_0(n) stabilizer"
+  ],
+  "argument_in_docstring_not_machine_proved": [
+   "leg A (iii): c = +-Gv/div(v); cross-checked by CM.verify_TX's det identity on every vector touched"
+  ],
+  "numeric_recognition_tier_B": [
+   "every t, 1/z value; two precisions (120 and 200 digits)"
+  ],
+  "framework_cited_tier_B": [
+   "as check_CM_points_rho20.py: Dolgachev 1996 sec 7 (read, hash-pinned); Lefschetz (1,1) (standard, not among the pinned statements)"
+  ],
+  "read_as_source_no_lean_build": [
+   "LeanMaster @ 4109a51: AttractorCharges.lean `smallest_black_hole` (statement only), STREAM8_WHICH_K3.md sec G10",
+   "Stream 1 @ 3a96018: SymSquareForms.lean no_isometry_G0N_TN, ModularAction.lean g3_fixes and its docstring"
+  ]
+ },
+ "external_citations_verified_at_run_time": {
+  "leanmaster_target": {
+   "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+   "commit": "4109a51",
+   "paths": {
+    "DualScaleDyons/AttractorCharges.lean": "present_contains_reducedForms 3 = [(1, 1, 1)]",
+    "docs/STREAM8_WHICH_K3.md": "present_contains_the same computation in two languages"
+   },
+   "status": "VERIFIED"
+  },
+  "stream1_G0N": {
+   "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+   "commit": "3a96018",
+   "paths": {
+    "Agora/Geometry/SymSquareForms.lean": "present_contains_no_isometry_G0N_TN",
+    "Agora/Geometry/ModularAction.lean": "present_contains_g3_fixes"
+   },
+   "status": "VERIFIED"
+  },
+  "stream1_elliptic_point_already_on_record": {
+   "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+   "commit": "3a96018",
+   "paths": {
+    "Agora/Geometry/ModularAction.lean": "present_contains_is the order-3 elliptic point of"
+   },
+   "status": "VERIFIED"
+  }
+ },
+ "inputs": {
+  "sha256": {
+   "checkers/check_A2_membership.py": "f4a0dd0ec88f9393d8ef53da1205f4534d048da90e1c4d29289d3664fd835955",
+   "checkers/check_C1_mirror_integrality.py": "320d0de61a0a70dfa3e730178154b92d33fdf12a0d293b6f99a2dae94f7f07e7",
+   "checkers/check_CM_points_rho20.py": "f7dd388f53454d7e4e32ff552a4c3e3d62429390f6a6bd529fa5529449a7e62c",
+   "checkers/check_T3_level_consistency.py": "62db82b635a863170199b7fba2ba39462ecd123593a6f7f38ff044ce3cffd296",
+   "checkers/check_s10_hauptmodul_gamma010star.py": "3f8d034460d7d5b310cca0448bda9e8ebf44f8b50164a68651dc88e411fcc995",
+   "checkers/check_s7_hauptmodul_gamma07plus.py": "ddc3a34f7d97cef1f767d03717f566338c8580042c938c42365ef1d8110363ab",
+   "data/certificates/C1_L3_cooper_s10.json": "503cfe63b7d20d78c53344ee091e4b39517bd2966181c1ff38a45e21f44721e8",
+   "data/certificates/C1_L3_cooper_s7.json": "c9d82f76bef8eee279ce91540a2b7cfddd98d79965162e8598b29aee458edbfc",
+   "data/certificates/C2_cooper_s10_v4_DRAFT.json": "3558343b84751a0682cadc985a76272b50d7bc98b0f2d0f44a9c46edf9ae57ac",
+   "data/certificates/C2_cooper_s7_v5.json": "54565d3919f1bd5592618e8fd1cbfe7d807a29d010d99c308641bc5d253730f3",
+   "data/certificates/CM_POINTS_RHO20.json": "328add3fb9864bc09ab20d050c73d36c7fb71d514eab138a8a8fc1feff4e625d",
+   "data/certificates/HAUPTMODUL_S10_GAMMA010STAR.json": "8cd79878b7d4828c44ef15e4881b2cf35a1344ded9057b3dd20458da5aca1e40",
+   "data/certificates/HAUPTMODUL_S7_GAMMA07PLUS.json": "c1f7bb0798eac4a3eac5aced9f535c3826444bd3bbd33592f4460b2cc73adcc1",
+   "data/certificates/L3_RIEMANN_SCHEME.json": "b15dc064214b55685c892ac6de7fd751b72945b97defad9f151cf8c8007bf151",
+   "docs/literature/MANIFEST.md": "701ad5dd37c1b54a481c39de0677b3a8281da4f24ad4357fc12e466a7cc667a6",
+   "refs/recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76"
+  }
+ },
+ "not_claimed": [
+  "that rho = 20 is a selection criterion of the program: the rho = 20 cut is NOT adopted; adopting it is an open T0 decision, and nothing here scores, ranks or prefers a candidate or a member of a family",
+  "that agreement between the binary-form route and the modular route corroborates anything: LeanMaster docs/STREAM8_WHICH_K3.md sec G10 (read as source) states that the binary-form enumeration and the modular side are the same computation in two languages (Shioda-Inose), so their agreement is forced, not corroboration. The Heegner congruence and the lattice enumeration of this checker agree for the same reason",
+  "that the step from 'v in T_n, v.omega = 0' to 'a member of the family has rho = 20 and T_X = v^perp' is proved here: it is the cited framework (Dolgachev 1996 sec 7, read and pinned; Lefschetz (1,1), standard, not among the pinned statements). Tier B. The checker computes the lattice side only",
+  "that the explicit Almkvist-van Straten geometric family has a smooth fibre at the point found: for n = 7 the A2 point is z = infinity, which is a regular singular point of L3 (exponent denominators 3 in L3_RIEMANN_SCHEME.json) and an order-3 elliptic point of Gamma_0(7) (one of two, tau = (+-5 + i sqrt 3)/14, which the Fricke involution swaps, so THE order-3 point of X_0(7)+). What is established is a point of the period domain, not a fibre of a specific projective model",
+  "that z = infinity IS the value at the A2 point: the statement rests on (a) the relation 1/z = alpha t + beta + gamma/t, certified by T3.modular_leg to a finite q-order only (PASS(N), N = relation_order_checked in the point record), and (b) |1/z| below 10^-(dps-20) at two precisions (Tier B numeric recognition), supported by an exact proportionality that itself rests on a numerically recognised minimal polynomial of t",
+  "that the singular-point reading of the hand estimate was unanticipated program-wide: the docstring of Stream 1's g3_fixes (ModularAction.lean, read as source) already says that (14,-14,5) corresponds to the order-3 elliptic point of X_0(7)",
+  "that the per-discriminant form lists are complete: they record what the stated box and the constructed witnesses contain. Only the discriminant criterion covers all v",
+  "anything certified about T(cooper_s10): C2_cooper_s10_v4_DRAFT.json is DRAFT by T0 ruling; the s10 negative is arithmetic of U + <20> as that draft records it, and is advisory",
+  "any Kodaira fibre type at any locus (CLAUDE.md ledger item 3); elliptic points are treated only as elliptic points of the modular curve",
+  "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b). The LeanMaster theorem name is quoted as an identifier only"
+ ],
+ "parameters": {
+  "TARGET_FORM": [
+   1,
+   1,
+   1
+  ],
+  "BOX": 80,
+  "D_MAX": 100,
+  "WINDOW_BOUND": 42,
+  "STAB_BOUND": 30,
+  "DPS_FIT": 120,
+  "DPS_VERIFY": 200
+ },
+ "stage0_symbolic": {
+  "i_det_UtGU_equals_ct_adjG_c": true,
+  "ii_Gv_adjG_Gv_equals_detG_vGv": true,
+  "detTn_is_minus_2n": true,
+  "iv_D_equals_beta2_plus_4n_xp_yp": true
+ },
+ "hand_estimate": {
+  "statement": "orchestrator's hand estimate, issued UNVERIFIED; scored here. Its last sentence ('it should not be one of the singular loci') is scored under two readings: the finite loci of the C1 certificate, and the singular points of L3 on P^1 including z = infinity",
+  "clauses": {
+   "det(v^perp) = |v^2| * 2n / d^2 (asserted on every box vector and witness; leg A i-iii)": true,
+   "n = 7: D = -3 forces d = 14, -v^2 = 42": true,
+   "the example v = (14,-14,5) has v^perp = A2": true,
+   "A2 occurs for n = 7": true,
+   "n = 10: z^2 = -3 mod 40 has no solution": true,
+   "A2 does not occur for n = 10": true,
+   "Heegner form of the criterion: -3 is a square mod 4n for n = 7 and not for n = 10": true,
+   "the n = 7 A2 point is not one of the FINITE singular loci of the C1 certificate": true,
+   "the n = 7 A2 point is not a singular point of L3 at all": false
+  },
+  "refuted": [
+   "the n = 7 A2 point is not a singular point of L3 at all"
+  ],
+  "outcome": "CONFIRMED except 1 clause(s): the n = 7 A2 point is not a singular point of L3 at all"
+ },
+ "p2_certificate_agreement": {
+  "cooper_s7": {
+   "A2_rows_in_P2_cert": [
+    {
+     "v": [
+      14,
+      -14,
+      -5
+     ],
+     "z": "infinity"
+    }
+   ],
+   "consistent": true
+  },
+  "cooper_s10": {
+   "A2_rows_in_P2_cert": [],
+   "consistent": true
+  },
+  "status": "CONSISTENT"
+ },
+ "discriminants_admitted_summary": [
+  {
+   "D": -3,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -4,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -7,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -12,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -15,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -16,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -19,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -20,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -24,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -27,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -28,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -31,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -35,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -36,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -39,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -40,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -44,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -47,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -48,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -52,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -55,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -56,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -59,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -60,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -63,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -64,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -68,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -71,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -75,
+   "fundamental": false,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -76,
+   "fundamental": false,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -79,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -80,
+   "fundamental": false,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -83,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -84,
+   "fundamental": true,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -87,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -91,
+   "fundamental": true,
+   "n7": true,
+   "n10": false
+  },
+  {
+   "D": -95,
+   "fundamental": true,
+   "n7": false,
+   "n10": true
+  },
+  {
+   "D": -96,
+   "fundamental": false,
+   "n7": true,
+   "n10": true
+  },
+  {
+   "D": -100,
+   "fundamental": false,
+   "n7": false,
+   "n10": true
+  }
+ ],
+ "discriminants_admitted_by_both": [
+  -20,
+  -24,
+  -31,
+  -40,
+  -55,
+  -56,
+  -76,
+  -80,
+  -84,
+  -96
+ ],
+ "checks": {
+  "stage0_all_hold": true,
+  "criterion_equals_box_both_inclusions": true,
+  "per_vector_violations_all_clauses": 0,
+  "external_citations_not_phantom": true,
+  "p2_certificate_not_contradicted": true,
+  "stabilizer_order_matches_L3_exponent_denominator": true,
+  "all_A2_vectors_in_window_share_one_z": true
+ },
+ "controls": "checkers/test_A2_membership_controls.py",
+ "families": {
+  "cooper_s7": {
+   "candidate": "cooper_s7",
+   "n": 7,
+   "flags": [],
+   "advisory": false,
+   "lattice_cert": "C2_cooper_s7_v5.json",
+   "box": {
+    "abs_coords_max": 80,
+    "primitive_negative_norm_vectors_checked": 145465,
+    "det_identity_held_on": 145465,
+    "violations_by_clause": {},
+    "violation_examples": []
+   },
+   "level_relation": {
+    "relation_1_over_z": {
+     "alpha": "49",
+     "beta": "13",
+     "gamma": "1"
+    },
+    "relation_form": "1/z = alpha*t + beta + gamma/t, t the eta quotient of T3.LEVEL_COORD",
+    "relation_order_checked": 40,
+    "relation_verdict": "PASS(40)"
+   },
+   "membership_A2": {
+    "verdict": "PRESENT",
+    "fired": "explicit_vector_with_target_form",
+    "D": -3,
+    "scope": "existence (one explicit exact vector suffices)",
+    "v": [
+     14,
+     -14,
+     -5
+    ],
+    "minus_v2": 42,
+    "div_v": 14,
+    "kernel_basis": [
+     [
+      1,
+      1,
+      0
+     ],
+     [
+      0,
+      5,
+      1
+     ]
+    ],
+    "gram": [
+     [
+      2,
+      5
+     ],
+     [
+      5,
+      14
+     ]
+    ],
+    "reduced_form": [
+     1,
+     1,
+     1
+    ],
+    "witnesses_by_beta": [
+     {
+      "beta_mod_2n": 5,
+      "v": [
+       14,
+       -14,
+       5
+      ],
+      "minus_v2": 42,
+      "div_v": 14,
+      "reduced_form": [
+       1,
+       1,
+       1
+      ]
+     },
+     {
+      "beta_mod_2n": 9,
+      "v": [
+       14,
+       -42,
+       9
+      ],
+      "minus_v2": 42,
+      "div_v": 14,
+      "reduced_form": [
+       1,
+       1,
+       1
+      ]
+     }
+    ],
+    "minus_v2_and_div_of_every_such_vector_in_box": [
+     [
+      42,
+      14
+     ]
+    ],
+    "forced_minus_v2_and_div_exact": [
+     [
+      42,
+      14
+     ]
+    ]
+   },
+   "discriminant_table": [
+    {
+     "D": -3,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        14,
+        -14,
+        5
+       ],
+       "minus_v2": 42,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        1
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        14,
+        -42,
+        9
+       ],
+       "minus_v2": 42,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        1
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       42,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -4,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -7,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        2,
+        -4,
+        1
+       ],
+       "minus_v2": 2,
+       "div_v": 2,
+       "reduced_form": [
+        1,
+        1,
+        2
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       2
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -8,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -11,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -12,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        7,
+        -7,
+        2
+       ],
+       "minus_v2": 42,
+       "div_v": 7,
+       "reduced_form": [
+        1,
+        0,
+        3
+       ]
+      },
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        7,
+        -28,
+        5
+       ],
+       "minus_v2": 42,
+       "div_v": 7,
+       "reduced_form": [
+        1,
+        0,
+        3
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       3
+      ],
+      [
+       2,
+       2,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       3
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       42,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -15,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       4
+      ],
+      [
+       2,
+       1,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -16,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       4
+      ],
+      [
+       2,
+       0,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -19,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 3,
+       "v": [
+        14,
+        -14,
+        3
+       ],
+       "minus_v2": 266,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 11,
+       "v": [
+        14,
+        -70,
+        11
+       ],
+       "minus_v2": 266,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       266,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -20,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        7,
+        -14,
+        3
+       ],
+       "minus_v2": 70,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        2,
+        3
+       ]
+      },
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        7,
+        -21,
+        4
+       ],
+       "minus_v2": 70,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        2,
+        3
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       5
+      ],
+      [
+       2,
+       2,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       2,
+       3
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       70,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -23,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       6
+      ],
+      [
+       2,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -24,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 2,
+       "v": [
+        7,
+        -7,
+        1
+       ],
+       "minus_v2": 84,
+       "div_v": 7,
+       "reduced_form": [
+        1,
+        0,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        7,
+        -42,
+        6
+       ],
+       "minus_v2": 84,
+       "div_v": 7,
+       "reduced_form": [
+        1,
+        0,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       6
+      ],
+      [
+       2,
+       0,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       84,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -27,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 1,
+       "v": [
+        14,
+        -14,
+        1
+       ],
+       "minus_v2": 378,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 13,
+       "v": [
+        14,
+        -98,
+        13
+       ],
+       "minus_v2": 378,
+       "div_v": 14,
+       "reduced_form": [
+        1,
+        1,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       7
+      ],
+      [
+       3,
+       3,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       378,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -28,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 0,
+       "v": [
+        1,
+        -1,
+        0
+       ],
+       "minus_v2": 2,
+       "div_v": 1,
+       "reduced_form": [
+        1,
+        0,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       7
+      ],
+      [
+       2,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -31,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        14,
+        -28,
+        5
+       ],
+       "minus_v2": 434,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        -1,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        14,
+        -56,
+        9
+       ],
+       "minus_v2": 434,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        1,
+        4
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       8
+      ],
+      [
+       2,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       8
+      ],
+      [
+       2,
+       1,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       434,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -32,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       8
+      ],
+      [
+       2,
+       0,
+       4
+      ],
+      [
+       3,
+       2,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -35,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        2,
+        -6,
+        1
+       ],
+       "minus_v2": 10,
+       "div_v": 2,
+       "reduced_form": [
+        3,
+        1,
+        3
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       9
+      ],
+      [
+       3,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       1,
+       3
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       10,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -36,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       9
+      ],
+      [
+       2,
+       2,
+       5
+      ],
+      [
+       3,
+       0,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -39,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       10
+      ],
+      [
+       2,
+       1,
+       5
+      ],
+      [
+       3,
+       3,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -40,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        7,
+        -14,
+        2
+       ],
+       "minus_v2": 140,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        0,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        7,
+        -35,
+        5
+       ],
+       "minus_v2": 140,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        0,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       10
+      ],
+      [
+       2,
+       0,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       0,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       140,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -43,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       11
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -44,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       11
+      ],
+      [
+       2,
+       2,
+       6
+      ],
+      [
+       3,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -47,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 3,
+       "v": [
+        14,
+        -28,
+        3
+       ],
+       "minus_v2": 658,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        1,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 11,
+       "v": [
+        14,
+        -84,
+        11
+       ],
+       "minus_v2": 658,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        -1,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       12
+      ],
+      [
+       2,
+       1,
+       6
+      ],
+      [
+       3,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       12
+      ],
+      [
+       2,
+       1,
+       6
+      ],
+      [
+       3,
+       1,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       658,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -48,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        7,
+        -21,
+        3
+       ],
+       "minus_v2": 168,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        0,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        7,
+        -28,
+        4
+       ],
+       "minus_v2": 168,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        0,
+        4
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       12
+      ],
+      [
+       2,
+       0,
+       6
+      ],
+      [
+       3,
+       0,
+       4
+      ],
+      [
+       4,
+       4,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       0,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       168,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -51,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       13
+      ],
+      [
+       3,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -52,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 2,
+       "v": [
+        7,
+        -14,
+        1
+       ],
+       "minus_v2": 182,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        2,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        7,
+        -49,
+        6
+       ],
+       "minus_v2": 182,
+       "div_v": 7,
+       "reduced_form": [
+        2,
+        2,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       13
+      ],
+      [
+       2,
+       2,
+       7
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       2,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       182,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -55,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 1,
+       "v": [
+        14,
+        -28,
+        1
+       ],
+       "minus_v2": 770,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        -1,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 13,
+       "v": [
+        14,
+        -112,
+        13
+       ],
+       "minus_v2": 770,
+       "div_v": 14,
+       "reduced_form": [
+        2,
+        1,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       14
+      ],
+      [
+       2,
+       1,
+       7
+      ],
+      [
+       4,
+       3,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       1,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       770,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -56,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 0,
+       "v": [
+        1,
+        -2,
+        0
+       ],
+       "minus_v2": 4,
+       "div_v": 1,
+       "reduced_form": [
+        2,
+        0,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       14
+      ],
+      [
+       2,
+       0,
+       7
+      ],
+      [
+       3,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       14
+      ],
+      [
+       2,
+       0,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       4,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -59,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        14,
+        -42,
+        5
+       ],
+       "minus_v2": 826,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        1,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        14,
+        -70,
+        9
+       ],
+       "minus_v2": 826,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        -1,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       15
+      ],
+      [
+       3,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       15
+      ],
+      [
+       3,
+       1,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       826,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -60,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       15
+      ],
+      [
+       2,
+       2,
+       8
+      ],
+      [
+       3,
+       0,
+       5
+      ],
+      [
+       4,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -63,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        2,
+        -8,
+        1
+       ],
+       "minus_v2": 18,
+       "div_v": 2,
+       "reduced_form": [
+        4,
+        1,
+        4
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       16
+      ],
+      [
+       2,
+       1,
+       8
+      ],
+      [
+       3,
+       3,
+       6
+      ],
+      [
+       4,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       16
+      ],
+      [
+       4,
+       1,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -64,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       16
+      ],
+      [
+       2,
+       0,
+       8
+      ],
+      [
+       4,
+       0,
+       4
+      ],
+      [
+       4,
+       4,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -67,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       17
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -68,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        7,
+        -21,
+        2
+       ],
+       "minus_v2": 238,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        2,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        7,
+        -42,
+        5
+       ],
+       "minus_v2": 238,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        -2,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       17
+      ],
+      [
+       2,
+       2,
+       9
+      ],
+      [
+       3,
+       2,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       2,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       238,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -71,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       18
+      ],
+      [
+       2,
+       1,
+       9
+      ],
+      [
+       3,
+       1,
+       6
+      ],
+      [
+       4,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -72,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       18
+      ],
+      [
+       2,
+       0,
+       9
+      ],
+      [
+       3,
+       0,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -75,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 3,
+       "v": [
+        14,
+        -42,
+        3
+       ],
+       "minus_v2": 1050,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        3,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 11,
+       "v": [
+        14,
+        -98,
+        11
+       ],
+       "minus_v2": 1050,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        3,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       19
+      ],
+      [
+       3,
+       3,
+       7
+      ],
+      [
+       5,
+       5,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       3,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       1050,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -76,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        7,
+        -28,
+        3
+       ],
+       "minus_v2": 266,
+       "div_v": 7,
+       "reduced_form": [
+        4,
+        2,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        7,
+        -35,
+        4
+       ],
+       "minus_v2": 266,
+       "div_v": 7,
+       "reduced_form": [
+        4,
+        -2,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       19
+      ],
+      [
+       2,
+       2,
+       10
+      ],
+      [
+       4,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       19
+      ],
+      [
+       4,
+       2,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       266,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -79,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       20
+      ],
+      [
+       2,
+       1,
+       10
+      ],
+      [
+       4,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -80,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 2,
+       "v": [
+        7,
+        -21,
+        1
+       ],
+       "minus_v2": 280,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        -2,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        7,
+        -56,
+        6
+       ],
+       "minus_v2": 280,
+       "div_v": 7,
+       "reduced_form": [
+        3,
+        2,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       20
+      ],
+      [
+       2,
+       0,
+       10
+      ],
+      [
+       3,
+       2,
+       7
+      ],
+      [
+       4,
+       0,
+       5
+      ],
+      [
+       4,
+       4,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       2,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       280,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -83,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 1,
+       "v": [
+        14,
+        -42,
+        1
+       ],
+       "minus_v2": 1162,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        -1,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 13,
+       "v": [
+        14,
+        -126,
+        13
+       ],
+       "minus_v2": 1162,
+       "div_v": 14,
+       "reduced_form": [
+        3,
+        1,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       21
+      ],
+      [
+       3,
+       1,
+       7
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       21
+      ],
+      [
+       3,
+       1,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       1162,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -84,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 0,
+       "v": [
+        1,
+        -3,
+        0
+       ],
+       "minus_v2": 6,
+       "div_v": 1,
+       "reduced_form": [
+        3,
+        0,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       21
+      ],
+      [
+       2,
+       2,
+       11
+      ],
+      [
+       3,
+       0,
+       7
+      ],
+      [
+       5,
+       4,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       0,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       6,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -87,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        14,
+        -56,
+        5
+       ],
+       "minus_v2": 1218,
+       "div_v": 14,
+       "reduced_form": [
+        4,
+        3,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        14,
+        -84,
+        9
+       ],
+       "minus_v2": 1218,
+       "div_v": 14,
+       "reduced_form": [
+        4,
+        -3,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       22
+      ],
+      [
+       2,
+       1,
+       11
+      ],
+      [
+       3,
+       3,
+       8
+      ],
+      [
+       4,
+       3,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       22
+      ],
+      [
+       4,
+       3,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       1218,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -88,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       22
+      ],
+      [
+       2,
+       0,
+       11
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -91,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        2,
+        -10,
+        1
+       ],
+       "minus_v2": 26,
+       "div_v": 2,
+       "reduced_form": [
+        5,
+        3,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       23
+      ],
+      [
+       5,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       5,
+       3,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       26,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -92,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       23
+      ],
+      [
+       2,
+       2,
+       12
+      ],
+      [
+       3,
+       2,
+       8
+      ],
+      [
+       4,
+       2,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -95,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       24
+      ],
+      [
+       2,
+       1,
+       12
+      ],
+      [
+       3,
+       1,
+       8
+      ],
+      [
+       4,
+       1,
+       6
+      ],
+      [
+       5,
+       5,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -96,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        7,
+        -28,
+        2
+       ],
+       "minus_v2": 336,
+       "div_v": 7,
+       "reduced_form": [
+        4,
+        4,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        7,
+        -49,
+        5
+       ],
+       "minus_v2": 336,
+       "div_v": 7,
+       "reduced_form": [
+        4,
+        4,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       24
+      ],
+      [
+       2,
+       0,
+       12
+      ],
+      [
+       3,
+       0,
+       8
+      ],
+      [
+       4,
+       0,
+       6
+      ],
+      [
+       4,
+       4,
+       7
+      ],
+      [
+       5,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       4,
+       4,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       336,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -99,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       25
+      ],
+      [
+       3,
+       3,
+       9
+      ],
+      [
+       5,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -100,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       25
+      ],
+      [
+       2,
+       2,
+       13
+      ],
+      [
+       5,
+       0,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    }
+   ],
+   "point": {
+    "relation_1_over_z": {
+     "alpha": "49",
+     "beta": "13",
+     "gamma": "1"
+    },
+    "relation_form": "1/z = alpha*t + beta + gamma/t, t the eta quotient of T3.LEVEL_COORD",
+    "relation_order_checked": 40,
+    "relation_verdict": "PASS(40)",
+    "v": [
+     14,
+     -14,
+     -5
+    ],
+    "tau": {
+     "re": "-5/14",
+     "im_squared": "3/196"
+    },
+    "tau_readable": "-5/14 + i*sqrt(3/196)",
+    "z": "infinity",
+    "z_recognition": "given the relation (PASS(40)), Tier B numeric recognition of 1/z = 0: |1/z| < 10^-(dps-20) at 120 and at 200 digits",
+    "log10_abs_one_over_z": {
+     "120": -144.78226344501377,
+     "200": -224.24101783094363
+    },
+    "t_numeric": "(-0.1326530612244897959183673 - 0.05302196349700644776104428j)",
+    "t_minpoly": "49*t**2 + 13*t + 1",
+    "t_exact_support": {
+     "t_minpoly_coeffs_ascending": [
+      1,
+      13,
+      49
+     ],
+     "alpha_t2_plus_beta_t_plus_gamma_proportional_to_it": true
+    },
+    "finite_singular_loci_from_C1_cert": [
+     "-1",
+     "1/27"
+    ],
+    "is_a_finite_singular_locus": false,
+    "is_a_singular_point_of_L3_on_P1": true,
+    "L3_exponents_there": [
+     "2/3",
+     "1",
+     "4/3"
+    ],
+    "L3_exponent_denominator_lcm": 3,
+    "gamma0_n_stabilizer": {
+     "tau_quadratic_primitive": [
+      7,
+      5,
+      1
+     ],
+     "elements": [
+      {
+       "matrix": [
+        [
+         2,
+         1
+        ],
+        [
+         -7,
+         -3
+        ]
+       ],
+       "trace": -1
+      },
+      {
+       "matrix": [
+        [
+         3,
+         1
+        ],
+        [
+         -7,
+         -2
+        ]
+       ],
+       "trace": 1
+      },
+      {
+       "matrix": [
+        [
+         -3,
+         -1
+        ],
+        [
+         7,
+         2
+        ]
+       ],
+       "trace": -1
+      },
+      {
+       "matrix": [
+        [
+         -2,
+         -1
+        ],
+        [
+         7,
+         3
+        ]
+       ],
+       "trace": 1
+      }
+     ],
+     "order_in_PSL2": 3,
+     "search_bound": 30
+    },
+    "stabilizer_order_equals_exponent_denominator": true,
+    "v_is_reflective": false
+   },
+   "elliptic_pair": {
+    "fricke_image_of_v": [
+     14,
+     -14,
+     5
+    ],
+    "fricke_image_vperp_reduced_form": [
+     1,
+     1,
+     1
+    ],
+    "count_x_mod_n_with_x2_plus_x_plus_1_zero": 2,
+    "count_is_the_standard_nu3_formula": true,
+    "t_differs_at_the_two_points_numeric": true,
+    "one_over_z_agrees_at_the_two_points_numeric": true
+   },
+   "all_A2_vectors_in_window_share_one_z": {
+    "window": "CM.enumerate_vectors(n, 42), Im tau >= 1/20",
+    "vectors": [
+     [
+      14,
+      -14,
+      -5
+     ],
+     [
+      14,
+      -14,
+      5
+     ]
+    ],
+    "count": 2,
+    "all_same_one_over_z": true
+   }
+  },
+  "cooper_s10": {
+   "candidate": "cooper_s10",
+   "n": 10,
+   "flags": [
+    "LATTICE_CERT_DRAFT"
+   ],
+   "advisory": true,
+   "lattice_cert": "C2_cooper_s10_v4_DRAFT.json",
+   "box": {
+    "abs_coords_max": 80,
+    "primitive_negative_norm_vectors_checked": 121667,
+    "det_identity_held_on": 121667,
+    "violations_by_clause": {},
+    "violation_examples": []
+   },
+   "level_relation": {
+    "relation_1_over_z": {
+     "alpha": "16",
+     "beta": "8",
+     "gamma": "1"
+    },
+    "relation_form": "1/z = alpha*t + beta + gamma/t, t the eta quotient of T3.LEVEL_COORD",
+    "relation_order_checked": 40,
+    "relation_verdict": "PASS(40)"
+   },
+   "membership_A2": {
+    "verdict": "ABSENT",
+    "fired": "D_not_square_mod_4n",
+    "D": -3,
+    "scope": "ALL primitive v of negative norm (exact congruence, leg A)",
+    "D_mod_4n": 37,
+    "squares_mod_4n": [
+     0,
+     1,
+     4,
+     9,
+     16,
+     20,
+     24,
+     25,
+     36
+    ],
+    "box_cross_check": "no vector with D = -3 among 121667 in the box |coords| <= 80"
+   },
+   "discriminant_table": [
+    {
+     "D": -3,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -4,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        10,
+        -10,
+        3
+       ],
+       "minus_v2": 20,
+       "div_v": 10,
+       "reduced_form": [
+        1,
+        0,
+        1
+       ]
+      },
+      {
+       "beta_mod_2n": 14,
+       "v": [
+        10,
+        -50,
+        7
+       ],
+       "minus_v2": 20,
+       "div_v": 10,
+       "reduced_form": [
+        1,
+        0,
+        1
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       20,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -7,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -8,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -11,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -12,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       3
+      ],
+      [
+       2,
+       2,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -15,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        4,
+        -4,
+        1
+       ],
+       "minus_v2": 12,
+       "div_v": 4,
+       "reduced_form": [
+        1,
+        1,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 15,
+       "v": [
+        4,
+        -24,
+        3
+       ],
+       "minus_v2": 12,
+       "div_v": 4,
+       "reduced_form": [
+        1,
+        1,
+        4
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       4
+      ],
+      [
+       2,
+       1,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       12,
+       4
+      ]
+     ]
+    },
+    {
+     "D": -16,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        5,
+        -10,
+        2
+       ],
+       "minus_v2": 20,
+       "div_v": 5,
+       "reduced_form": [
+        2,
+        0,
+        2
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        5,
+        -20,
+        3
+       ],
+       "minus_v2": 20,
+       "div_v": 5,
+       "reduced_form": [
+        2,
+        0,
+        2
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       4
+      ],
+      [
+       2,
+       0,
+       2
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       0,
+       2
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       20,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -19,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -20,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        2,
+        -6,
+        1
+       ],
+       "minus_v2": 4,
+       "div_v": 2,
+       "reduced_form": [
+        2,
+        2,
+        3
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       5
+      ],
+      [
+       2,
+       2,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       2,
+       3
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       4,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -23,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       6
+      ],
+      [
+       2,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -24,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        5,
+        -5,
+        1
+       ],
+       "minus_v2": 30,
+       "div_v": 5,
+       "reduced_form": [
+        1,
+        0,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 16,
+       "v": [
+        5,
+        -35,
+        4
+       ],
+       "minus_v2": 30,
+       "div_v": 5,
+       "reduced_form": [
+        1,
+        0,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       6
+      ],
+      [
+       2,
+       0,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       30,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -27,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       7
+      ],
+      [
+       3,
+       3,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -28,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       7
+      ],
+      [
+       2,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -31,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 3,
+       "v": [
+        20,
+        -20,
+        3
+       ],
+       "minus_v2": 620,
+       "div_v": 20,
+       "reduced_form": [
+        1,
+        1,
+        8
+       ]
+      },
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        20,
+        -40,
+        7
+       ],
+       "minus_v2": 620,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        1,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 13,
+       "v": [
+        20,
+        -100,
+        13
+       ],
+       "minus_v2": 620,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        -1,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 17,
+       "v": [
+        20,
+        -160,
+        17
+       ],
+       "minus_v2": 620,
+       "div_v": 20,
+       "reduced_form": [
+        1,
+        1,
+        8
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       8
+      ],
+      [
+       2,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       8
+      ],
+      [
+       2,
+       1,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       620,
+       20
+      ]
+     ]
+    },
+    {
+     "D": -32,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       8
+      ],
+      [
+       2,
+       0,
+       4
+      ],
+      [
+       3,
+       2,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -35,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       9
+      ],
+      [
+       3,
+       1,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -36,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 2,
+       "v": [
+        10,
+        -10,
+        1
+       ],
+       "minus_v2": 180,
+       "div_v": 10,
+       "reduced_form": [
+        1,
+        0,
+        9
+       ]
+      },
+      {
+       "beta_mod_2n": 18,
+       "v": [
+        10,
+        -90,
+        9
+       ],
+       "minus_v2": 180,
+       "div_v": 10,
+       "reduced_form": [
+        1,
+        0,
+        9
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       9
+      ],
+      [
+       2,
+       2,
+       5
+      ],
+      [
+       3,
+       0,
+       3
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       9
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       180,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -39,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 1,
+       "v": [
+        20,
+        -20,
+        1
+       ],
+       "minus_v2": 780,
+       "div_v": 20,
+       "reduced_form": [
+        1,
+        1,
+        10
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        20,
+        -60,
+        9
+       ],
+       "minus_v2": 780,
+       "div_v": 20,
+       "reduced_form": [
+        3,
+        3,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 11,
+       "v": [
+        20,
+        -80,
+        11
+       ],
+       "minus_v2": 780,
+       "div_v": 20,
+       "reduced_form": [
+        3,
+        3,
+        4
+       ]
+      },
+      {
+       "beta_mod_2n": 19,
+       "v": [
+        20,
+        -200,
+        19
+       ],
+       "minus_v2": 780,
+       "div_v": 20,
+       "reduced_form": [
+        1,
+        1,
+        10
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       10
+      ],
+      [
+       2,
+       1,
+       5
+      ],
+      [
+       3,
+       3,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       10
+      ],
+      [
+       3,
+       3,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       780,
+       20
+      ]
+     ]
+    },
+    {
+     "D": -40,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 0,
+       "v": [
+        1,
+        -1,
+        0
+       ],
+       "minus_v2": 2,
+       "div_v": 1,
+       "reduced_form": [
+        1,
+        0,
+        10
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       10
+      ],
+      [
+       2,
+       0,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       0,
+       10
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -43,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       11
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -44,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        10,
+        -20,
+        3
+       ],
+       "minus_v2": 220,
+       "div_v": 10,
+       "reduced_form": [
+        2,
+        2,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 14,
+       "v": [
+        10,
+        -60,
+        7
+       ],
+       "minus_v2": 220,
+       "div_v": 10,
+       "reduced_form": [
+        2,
+        2,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       11
+      ],
+      [
+       2,
+       2,
+       6
+      ],
+      [
+       3,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       2,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       220,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -47,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       12
+      ],
+      [
+       2,
+       1,
+       6
+      ],
+      [
+       3,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -48,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       12
+      ],
+      [
+       2,
+       0,
+       6
+      ],
+      [
+       3,
+       0,
+       4
+      ],
+      [
+       4,
+       4,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -51,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       13
+      ],
+      [
+       3,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -52,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       13
+      ],
+      [
+       2,
+       2,
+       7
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -55,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        4,
+        -8,
+        1
+       ],
+       "minus_v2": 44,
+       "div_v": 4,
+       "reduced_form": [
+        2,
+        -1,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 15,
+       "v": [
+        4,
+        -28,
+        3
+       ],
+       "minus_v2": 44,
+       "div_v": 4,
+       "reduced_form": [
+        2,
+        1,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       14
+      ],
+      [
+       2,
+       1,
+       7
+      ],
+      [
+       4,
+       3,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       1,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       44,
+       4
+      ]
+     ]
+    },
+    {
+     "D": -56,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        5,
+        -15,
+        2
+       ],
+       "minus_v2": 70,
+       "div_v": 5,
+       "reduced_form": [
+        3,
+        -2,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        5,
+        -25,
+        3
+       ],
+       "minus_v2": 70,
+       "div_v": 5,
+       "reduced_form": [
+        3,
+        2,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       14
+      ],
+      [
+       2,
+       0,
+       7
+      ],
+      [
+       3,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       2,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       70,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -59,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       15
+      ],
+      [
+       3,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -60,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        2,
+        -8,
+        1
+       ],
+       "minus_v2": 12,
+       "div_v": 2,
+       "reduced_form": [
+        4,
+        2,
+        4
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       15
+      ],
+      [
+       2,
+       2,
+       8
+      ],
+      [
+       3,
+       0,
+       5
+      ],
+      [
+       4,
+       2,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       4,
+       2,
+       4
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       12,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -63,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       16
+      ],
+      [
+       2,
+       1,
+       8
+      ],
+      [
+       3,
+       3,
+       6
+      ],
+      [
+       4,
+       1,
+       4
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -64,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 4,
+       "v": [
+        5,
+        -10,
+        1
+       ],
+       "minus_v2": 80,
+       "div_v": 5,
+       "reduced_form": [
+        2,
+        0,
+        8
+       ]
+      },
+      {
+       "beta_mod_2n": 16,
+       "v": [
+        5,
+        -40,
+        4
+       ],
+       "minus_v2": 80,
+       "div_v": 5,
+       "reduced_form": [
+        2,
+        0,
+        8
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       16
+      ],
+      [
+       2,
+       0,
+       8
+      ],
+      [
+       4,
+       0,
+       4
+      ],
+      [
+       4,
+       4,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       0,
+       8
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       80,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -67,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       17
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -68,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       17
+      ],
+      [
+       2,
+       2,
+       9
+      ],
+      [
+       3,
+       2,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -71,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 3,
+       "v": [
+        20,
+        -40,
+        3
+       ],
+       "minus_v2": 1420,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        1,
+        9
+       ]
+      },
+      {
+       "beta_mod_2n": 7,
+       "v": [
+        20,
+        -60,
+        7
+       ],
+       "minus_v2": 1420,
+       "div_v": 20,
+       "reduced_form": [
+        3,
+        -1,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 13,
+       "v": [
+        20,
+        -120,
+        13
+       ],
+       "minus_v2": 1420,
+       "div_v": 20,
+       "reduced_form": [
+        3,
+        1,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 17,
+       "v": [
+        20,
+        -180,
+        17
+       ],
+       "minus_v2": 1420,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        -1,
+        9
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       18
+      ],
+      [
+       2,
+       1,
+       9
+      ],
+      [
+       3,
+       1,
+       6
+      ],
+      [
+       4,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       18
+      ],
+      [
+       2,
+       1,
+       9
+      ],
+      [
+       3,
+       1,
+       6
+      ],
+      [
+       4,
+       3,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       1420,
+       20
+      ]
+     ]
+    },
+    {
+     "D": -72,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       18
+      ],
+      [
+       2,
+       0,
+       9
+      ],
+      [
+       3,
+       0,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -75,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       19
+      ],
+      [
+       3,
+       3,
+       7
+      ],
+      [
+       5,
+       5,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -76,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 2,
+       "v": [
+        10,
+        -20,
+        1
+       ],
+       "minus_v2": 380,
+       "div_v": 10,
+       "reduced_form": [
+        2,
+        2,
+        10
+       ]
+      },
+      {
+       "beta_mod_2n": 18,
+       "v": [
+        10,
+        -100,
+        9
+       ],
+       "minus_v2": 380,
+       "div_v": 10,
+       "reduced_form": [
+        2,
+        2,
+        10
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       19
+      ],
+      [
+       2,
+       2,
+       10
+      ],
+      [
+       4,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       2,
+       10
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       380,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -79,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 1,
+       "v": [
+        20,
+        -40,
+        1
+       ],
+       "minus_v2": 1580,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        -1,
+        10
+       ]
+      },
+      {
+       "beta_mod_2n": 9,
+       "v": [
+        20,
+        -80,
+        9
+       ],
+       "minus_v2": 1580,
+       "div_v": 20,
+       "reduced_form": [
+        4,
+        -1,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 11,
+       "v": [
+        20,
+        -100,
+        11
+       ],
+       "minus_v2": 1580,
+       "div_v": 20,
+       "reduced_form": [
+        4,
+        1,
+        5
+       ]
+      },
+      {
+       "beta_mod_2n": 19,
+       "v": [
+        20,
+        -220,
+        19
+       ],
+       "minus_v2": 1580,
+       "div_v": 20,
+       "reduced_form": [
+        2,
+        1,
+        10
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       20
+      ],
+      [
+       2,
+       1,
+       10
+      ],
+      [
+       4,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       1,
+       1,
+       20
+      ],
+      [
+       2,
+       1,
+       10
+      ],
+      [
+       4,
+       1,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       1580,
+       20
+      ]
+     ]
+    },
+    {
+     "D": -80,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 0,
+       "v": [
+        1,
+        -2,
+        0
+       ],
+       "minus_v2": 4,
+       "div_v": 1,
+       "reduced_form": [
+        2,
+        0,
+        10
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       20
+      ],
+      [
+       2,
+       0,
+       10
+      ],
+      [
+       3,
+       2,
+       7
+      ],
+      [
+       4,
+       0,
+       5
+      ],
+      [
+       4,
+       4,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       0,
+       10
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       4,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -83,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       21
+      ],
+      [
+       3,
+       1,
+       7
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -84,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 6,
+       "v": [
+        10,
+        -30,
+        3
+       ],
+       "minus_v2": 420,
+       "div_v": 10,
+       "reduced_form": [
+        3,
+        0,
+        7
+       ]
+      },
+      {
+       "beta_mod_2n": 14,
+       "v": [
+        10,
+        -70,
+        7
+       ],
+       "minus_v2": 420,
+       "div_v": 10,
+       "reduced_form": [
+        3,
+        0,
+        7
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       21
+      ],
+      [
+       2,
+       2,
+       11
+      ],
+      [
+       3,
+       0,
+       7
+      ],
+      [
+       5,
+       4,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       3,
+       0,
+       7
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       420,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -87,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       22
+      ],
+      [
+       2,
+       1,
+       11
+      ],
+      [
+       3,
+       3,
+       8
+      ],
+      [
+       4,
+       3,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -88,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       22
+      ],
+      [
+       2,
+       0,
+       11
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -91,
+     "fundamental": true,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       23
+      ],
+      [
+       5,
+       3,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -92,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       23
+      ],
+      [
+       2,
+       2,
+       12
+      ],
+      [
+       3,
+       2,
+       8
+      ],
+      [
+       4,
+       2,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -95,
+     "fundamental": true,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 5,
+       "v": [
+        4,
+        -12,
+        1
+       ],
+       "minus_v2": 76,
+       "div_v": 4,
+       "reduced_form": [
+        3,
+        1,
+        8
+       ]
+      },
+      {
+       "beta_mod_2n": 15,
+       "v": [
+        4,
+        -32,
+        3
+       ],
+       "minus_v2": 76,
+       "div_v": 4,
+       "reduced_form": [
+        3,
+        -1,
+        8
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       24
+      ],
+      [
+       2,
+       1,
+       12
+      ],
+      [
+       3,
+       1,
+       8
+      ],
+      [
+       4,
+       1,
+       6
+      ],
+      [
+       5,
+       5,
+       6
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       2,
+       1,
+       12
+      ],
+      [
+       3,
+       1,
+       8
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       76,
+       4
+      ]
+     ]
+    },
+    {
+     "D": -96,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 8,
+       "v": [
+        5,
+        -20,
+        2
+       ],
+       "minus_v2": 120,
+       "div_v": 5,
+       "reduced_form": [
+        4,
+        0,
+        6
+       ]
+      },
+      {
+       "beta_mod_2n": 12,
+       "v": [
+        5,
+        -30,
+        3
+       ],
+       "minus_v2": 120,
+       "div_v": 5,
+       "reduced_form": [
+        4,
+        0,
+        6
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       24
+      ],
+      [
+       2,
+       0,
+       12
+      ],
+      [
+       3,
+       0,
+       8
+      ],
+      [
+       4,
+       0,
+       6
+      ],
+      [
+       4,
+       4,
+       7
+      ],
+      [
+       5,
+       2,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       4,
+       0,
+       6
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       120,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -99,
+     "fundamental": false,
+     "square_mod_4n": false,
+     "found_in_box": false,
+     "witnesses": [],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       1,
+       25
+      ],
+      [
+       3,
+       3,
+       9
+      ],
+      [
+       5,
+       1,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [],
+     "minus_v2_and_div_seen_in_box": []
+    },
+    {
+     "D": -100,
+     "fundamental": false,
+     "square_mod_4n": true,
+     "found_in_box": true,
+     "witnesses": [
+      {
+       "beta_mod_2n": 10,
+       "v": [
+        2,
+        -10,
+        1
+       ],
+       "minus_v2": 20,
+       "div_v": 2,
+       "reduced_form": [
+        5,
+        0,
+        5
+       ]
+      }
+     ],
+     "lattice_classes_of_this_D": [
+      [
+       1,
+       0,
+       25
+      ],
+      [
+       2,
+       2,
+       13
+      ],
+      [
+       5,
+       0,
+       5
+      ]
+     ],
+     "lattice_classes_seen": [
+      [
+       5,
+       0,
+       5
+      ]
+     ],
+     "minus_v2_and_div_seen_in_box": [
+      [
+       20,
+       2
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: test_A2_membership_controls.py | Reviewed-by: N"
+}
