@@ -1,0 +1,2862 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
+ "mode": "synthetic",
+ "generated_utc": "2026-09-21T16:09:52.532567+00:00",
+ "pins": [
+  "briefs/PREDICTION_V2_AMENDMENT_DRAFT_2026_07_29.md",
+  "briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md",
+  "briefs/WP_E6_SWEEP_KEFF_RULING_PINNED_2026_09_17.md"
+ ],
+ "statistic": {
+  "cell": "chi2_min, 5 dof",
+  "contour": "delta chi2, 2 dof, threshold 5.9915 (95%)"
+ },
+ "optimizer": {
+  "method": "iminuit Migrad, deterministic multi-start (medians + 8-pt LHS, seed 20260917), re-run once if invalid",
+  "n_starts": 9,
+  "residual_definition": "best of first 5 starts \u2212 best of all",
+  "max_residual": 18.903196885824173,
+  "cells_with_residual_gt_0p1": 4
+ },
+ "taueff_note": "taueff bounds (0.3, 1.8) are a PRIOR-BOX, not a trained-support extremum (T0 ruling 2026-07-28 item 2)",
+ "m_grid": [
+  -22.9,
+  -22.5,
+  -22.0,
+  -21.5,
+  -21.0,
+  -20.5,
+  -20.0,
+  -19.1
+ ],
+ "f_grid": [
+  0.0,
+  0.05,
+  0.1,
+  0.2,
+  0.35,
+  0.6,
+  0.99
+ ],
+ "chi2_min_grid": [
+  [
+   287.73340424624405,
+   260.55092752963594,
+   233.3503173371625,
+   180.2935079998814,
+   109.36947853074578,
+   26.800271623073417,
+   0.0
+  ],
+  [
+   287.73340424624405,
+   275.2268014385921,
+   262.2908815304393,
+   235.5121587692096,
+   null,
+   125.48715072978602,
+   null
+  ],
+  [
+   287.73340424624405,
+   286.2468309480985,
+   284.4394284980874,
+   279.911072752569,
+   271.217561804024,
+   224.93226466536856,
+   166.77736763946
+  ],
+  [
+   287.73340424624405,
+   289.00353580617684,
+   290.02790434576013,
+   null,
+   292.1829870381652,
+   284.3992599426057,
+   254.9646522509958
+  ],
+  [
+   287.73340424624405,
+   288.9189508644445,
+   289.88244899143916,
+   291.2201660635363,
+   292.0025170592894,
+   null,
+   290.33689926460016
+  ],
+  [
+   287.73340424624405,
+   null,
+   289.2772435279848,
+   290.02071029861884,
+   289.91322009826985,
+   287.53979915773436,
+   282.97747925220943
+  ],
+  [
+   287.73340424624405,
+   288.6219489624556,
+   289.2612425013301,
+   289.86759237776346,
+   289.3648049576823,
+   286.04878504545104,
+   280.45388086852114
+  ],
+  [
+   287.73340424624405,
+   289.3076211488545,
+   290.5586107813982,
+   292.17833736226146,
+   292.73514472599794,
+   290.26114518932513,
+   285.27464394181084
+  ]
+ ],
+ "delta_chi2_grid": [
+  [
+   287.73340424624405,
+   260.55092752963594,
+   233.3503173371625,
+   180.2935079998814,
+   109.36947853074578,
+   26.800271623073417,
+   0.0
+  ],
+  [
+   287.73340424624405,
+   275.2268014385921,
+   262.2908815304393,
+   235.5121587692096,
+   null,
+   125.48715072978602,
+   null
+  ],
+  [
+   287.73340424624405,
+   286.2468309480985,
+   284.4394284980874,
+   279.911072752569,
+   271.217561804024,
+   224.93226466536856,
+   166.77736763946
+  ],
+  [
+   287.73340424624405,
+   289.00353580617684,
+   290.02790434576013,
+   null,
+   292.1829870381652,
+   284.3992599426057,
+   254.9646522509958
+  ],
+  [
+   287.73340424624405,
+   288.9189508644445,
+   289.88244899143916,
+   291.2201660635363,
+   292.0025170592894,
+   null,
+   290.33689926460016
+  ],
+  [
+   287.73340424624405,
+   null,
+   289.2772435279848,
+   290.02071029861884,
+   289.91322009826985,
+   287.53979915773436,
+   282.97747925220943
+  ],
+  [
+   287.73340424624405,
+   288.6219489624556,
+   289.2612425013301,
+   289.86759237776346,
+   289.3648049576823,
+   286.04878504545104,
+   280.45388086852114
+  ],
+  [
+   287.73340424624405,
+   289.3076211488545,
+   290.5586107813982,
+   292.17833736226146,
+   292.73514472599794,
+   290.26114518932513,
+   285.27464394181084
+  ]
+ ],
+ "outside_95_region": [
+  [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  [
+   true,
+   true,
+   true,
+   true,
+   null,
+   true,
+   null
+  ],
+  [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  [
+   true,
+   true,
+   true,
+   null,
+   true,
+   true,
+   true
+  ],
+  [
+   true,
+   true,
+   true,
+   true,
+   true,
+   null,
+   true
+  ],
+  [
+   true,
+   null,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ ],
+ "grid_minimum": {
+  "m": -22.9,
+  "f": 0.99,
+  "chi2_min": 0.0
+ },
+ "all_minima_valid": false,
+ "contour_status": "WITHHELD \u2014 5 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+ "ineligible_cells": [
+  {
+   "m": -22.5,
+   "f": 0.35,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 17
+  },
+  {
+   "m": -22.5,
+   "f": 0.99,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 17
+  },
+  {
+   "m": -21.5,
+   "f": 0.2,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 17
+  },
+  {
+   "m": -21.0,
+   "f": 0.6,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 17
+  },
+  {
+   "m": -20.5,
+   "f": 0.05,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 35
+  }
+ ],
+ "eligibility_note": "grids carry null for ineligible cells; the reference minimum and every inside/outside verdict use eligible cells only. Most conservative setting, chosen so the implementation decides no acceptance rule (T0 ruling R2, 2026-09-21).",
+ "cells": [
+  {
+   "m": -22.9,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.05,
+   "chi2_min": 260.55092752963594,
+   "gof_p_value_5dof": 2.9904292240557504e-54,
+   "best_fit": {
+    "zrei": 11.7993282349454,
+    "ha": 3.9889953391078636,
+    "hs": 0.9959998886378448,
+    "taueff": 0.8457915280084904
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    260.55120644799507,
+    260.550957649389,
+    260.55117497624894,
+    260.5522254814999,
+    260.55092752963594,
+    260.55108425460895,
+    260.55103253933135,
+    260.5509316070883,
+    260.55127346856193
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15821,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.1,
+   "chi2_min": 233.3503173371625,
+   "gof_p_value_5dof": 2.046563065911226e-48,
+   "best_fit": {
+    "zrei": 11.734654933360405,
+    "ha": 3.98899976032677,
+    "hs": 0.9959981088644317,
+    "taueff": 0.8765110313082257
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    233.3504713890806,
+    233.35057609608862,
+    233.35049372873544,
+    233.35036914252274,
+    233.3503363428728,
+    233.35052527285666,
+    233.35205765248378,
+    233.3504124933098,
+    233.3503173371625
+   ],
+   "optimizer_residual": 1.900571029977982e-05,
+   "n_calls": 20102,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.2,
+   "chi2_min": 180.2935079998814,
+   "gof_p_value_5dof": 4.631880213190125e-37,
+   "best_fit": {
+    "zrei": 11.668612327113589,
+    "ha": 3.988999189799961,
+    "hs": 0.9959971352900457,
+    "taueff": 0.9355685514726882
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    180.29368269769066,
+    180.29358541830754,
+    180.2946510736994,
+    180.4669446405362,
+    180.29376451812232,
+    180.2935187264079,
+    180.30264390698966,
+    180.2935079998814,
+    180.29391467186147
+   ],
+   "optimizer_residual": 7.741842614450434e-05,
+   "n_calls": 18536,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.35,
+   "chi2_min": 109.36947853074578,
+   "gof_p_value_5dof": 5.568520111979898e-22,
+   "best_fit": {
+    "zrei": 11.570531027393487,
+    "ha": 3.988999785402102,
+    "hs": 0.9959984148366363,
+    "taueff": 1.0127210089037635
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    109.36956613456347,
+    109.3744903851251,
+    109.36947853074578,
+    109.3699694088597,
+    109.37002918500119,
+    109.36962214815357,
+    109.36958039956394,
+    109.36958642605738,
+    115.26335548759803
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 20048,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.6,
+   "chi2_min": 26.800271623073417,
+   "gof_p_value_5dof": 6.238454386204057e-05,
+   "best_fit": {
+    "zrei": 6.050008229100166,
+    "ha": 0.38680674230923257,
+    "hs": 0.9959918501370514,
+    "taueff": 1.219541158240168
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    39.65157484450986,
+    30.639096594081906,
+    30.977343851939466,
+    30.63085957644837,
+    32.03239227082245,
+    29.611371392872247,
+    30.68012586011747,
+    30.631754289138513,
+    26.800271623073417
+   ],
+   "optimizer_residual": 3.830587953374952,
+   "n_calls": 18096,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.99,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.028974363080770518,
+    0.022486608958626194,
+    0.057491396435023163,
+    0.031504696176737144,
+    2.6523492361050998e-05,
+    0.16922307039289933,
+    0.07631796643069805,
+    0.30786366018957656
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 8070,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.05,
+   "chi2_min": 275.2268014385921,
+   "gof_p_value_5dof": 2.1102772442396994e-57,
+   "best_fit": {
+    "zrei": 11.75332511706879,
+    "ha": 3.9889985379756983,
+    "hs": 0.9959996344460167,
+    "taueff": 0.8316762653228142
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    275.22682924993035,
+    275.2268344303309,
+    275.2269945304593,
+    275.2268545613269,
+    275.2268014385921,
+    275.22685412578863,
+    275.22691170616247,
+    275.2268362746156,
+    275.2268370120823
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 14684,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.1,
+   "chi2_min": 262.2908815304393,
+   "gof_p_value_5dof": 1.265348422372509e-54,
+   "best_fit": {
+    "zrei": 11.641319418361187,
+    "ha": 3.988995549468997,
+    "hs": 0.995999154296292,
+    "taueff": 0.8481473696347056
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    262.29144463906357,
+    262.2923737484492,
+    262.29123456100797,
+    262.2908980650743,
+    262.2910220428039,
+    262.29088804410384,
+    262.29090401365903,
+    262.2909998630337,
+    262.2908815304393
+   ],
+   "optimizer_residual": 1.6534634994513908e-05,
+   "n_calls": 17913,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.2,
+   "chi2_min": 235.5121587692096,
+   "gof_p_value_5dof": 7.039529055392945e-49,
+   "best_fit": {
+    "zrei": 11.516392276704423,
+    "ha": 3.9889997863578124,
+    "hs": 0.9959994493219937,
+    "taueff": 0.8802299144618979
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    235.8465529157432,
+    235.5121587692096,
+    235.51370253236755,
+    235.51219019943136,
+    235.5123415382545,
+    235.51218654449164,
+    235.5122499076,
+    235.51220650898958,
+    235.5124174688164
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 17543,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.35,
+   "chi2_min": 194.61310817499347,
+   "gof_p_value_5dof": 4.032318350670382e-40,
+   "best_fit": {
+    "zrei": 11.447273498136914,
+    "ha": 3.9889997429535486,
+    "hs": 0.9959991484451518,
+    "taueff": 0.9236048278613781
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    194.61312842955962,
+    194.61341870696145,
+    194.61322549910855,
+    194.61310817499347,
+    194.6131915990909,
+    194.82851996851483,
+    194.61322364336837,
+    194.6131505150445,
+    199.9334218260507
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 19771,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable.",
+    "Minuit evaluated the objective at non-finite nuisances 17 time(s) (per start: [0, 0, 0, 0, 17, 0, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 17,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -22.5,
+   "f": 0.6,
+   "chi2_min": 125.48715072978602,
+   "gof_p_value_5dof": 2.157097366845389e-25,
+   "best_fit": {
+    "zrei": 6.050003429498904,
+    "ha": 0.06600008525970325,
+    "hs": -0.986996145732515,
+    "taueff": 1.012299003557074
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    131.33879754558473,
+    131.3512227022689,
+    131.33879683389517,
+    131.33925010089092,
+    131.33873449741404,
+    125.49620245876805,
+    131.33885396596023,
+    131.3387470531131,
+    125.48715072978602
+   ],
+   "optimizer_residual": 5.851583767628014,
+   "n_calls": 18588,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.99,
+   "chi2_min": 40.883005016606916,
+   "gof_p_value_5dof": 9.907495216675511e-08,
+   "best_fit": {
+    "zrei": 14.193981775466028,
+    "ha": 0.06600020896998743,
+    "hs": -0.9869992483322895,
+    "taueff": 0.9038209192063807
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    40.88361180580391,
+    60.369588094792086,
+    40.98393390845349,
+    40.88320476964336,
+    60.36962380292769,
+    40.883005016606916,
+    40.91067752007246,
+    60.369989138604986,
+    68.91429974016907
+   ],
+   "optimizer_residual": 0.00019975303644770293,
+   "n_calls": 17889,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable.",
+    "Minuit evaluated the objective at non-finite nuisances 17 time(s) (per start: [0, 0, 0, 17, 0, 0, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 17,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -22.0,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.05,
+   "chi2_min": 286.2468309480985,
+   "gof_p_value_5dof": 9.05240278742949e-60,
+   "best_fit": {
+    "zrei": 11.898756561781681,
+    "ha": 3.988997343380264,
+    "hs": 0.9959987949768864,
+    "taueff": 0.8202706600305906
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    286.24698562917126,
+    286.2468863996126,
+    286.2469683457413,
+    286.2469273038034,
+    286.24712415848666,
+    286.2470661873307,
+    286.2468309480985,
+    286.246968154527,
+    286.2473144857466
+   ],
+   "optimizer_residual": 5.545151412889027e-05,
+   "n_calls": 17332,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.1,
+   "chi2_min": 284.4394284980874,
+   "gof_p_value_5dof": 2.2138021752883787e-59,
+   "best_fit": {
+    "zrei": 11.881508385054644,
+    "ha": 3.9889967824497514,
+    "hs": 0.9959974251373545,
+    "taueff": 0.8254231754714179
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    284.439480300084,
+    284.43948628655,
+    284.4395236387549,
+    284.4396575624774,
+    284.4398641260276,
+    284.43968220767886,
+    284.4395454918164,
+    284.4394284980874,
+    284.43951342628884
+   ],
+   "optimizer_residual": 5.180199661936058e-05,
+   "n_calls": 15065,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.2,
+   "chi2_min": 279.911072752569,
+   "gof_p_value_5dof": 2.0800703607813263e-58,
+   "best_fit": {
+    "zrei": 11.822054127709785,
+    "ha": 3.9889991743913593,
+    "hs": 0.99599928042948,
+    "taueff": 0.8347601517334411
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    279.9111872388094,
+    279.91110654547845,
+    279.911072752569,
+    279.9111845546748,
+    279.91130702996026,
+    279.91121385484024,
+    279.9110932576999,
+    279.91128575534196,
+    279.9111494133883
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 19591,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.35,
+   "chi2_min": 271.217561804024,
+   "gof_p_value_5dof": 1.5326577521213356e-56,
+   "best_fit": {
+    "zrei": 11.727024341544777,
+    "ha": 3.9889991973481433,
+    "hs": 0.9959999529190772,
+    "taueff": 0.8473705947865591
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    271.21774496470323,
+    271.21775980015923,
+    271.22035724135003,
+    271.2176868042938,
+    271.21769336904714,
+    271.21760128528973,
+    281.9709500382071,
+    271.2176509671535,
+    271.217561804024
+   ],
+   "optimizer_residual": 0.00012500026980433177,
+   "n_calls": 17371,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.6,
+   "chi2_min": 224.93226466536856,
+   "gof_p_value_5dof": 1.3039325220871883e-46,
+   "best_fit": {
+    "zrei": 6.05000014941914,
+    "ha": 0.06600353974264116,
+    "hs": -0.9869981088644317,
+    "taueff": 0.9577447918502351
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    254.23796365250743,
+    254.2380702601209,
+    254.23813440626512,
+    243.83546155119274,
+    254.23802334847022,
+    224.93226466536856,
+    254.2379813745325,
+    254.23809991638393,
+    243.83552011236094
+   ],
+   "optimizer_residual": 18.903196885824173,
+   "n_calls": 16949,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.99,
+   "chi2_min": 166.77736763946,
+   "gof_p_value_5dof": 3.5527746723797094e-34,
+   "best_fit": {
+    "zrei": 6.050000021825932,
+    "ha": 0.06600017928087921,
+    "hs": -0.9869999084370352,
+    "taueff": 0.9009951669077872
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    229.9211666791341,
+    229.92121777757146,
+    179.5502278368458,
+    166.77736763946,
+    166.77765324763814,
+    179.5262494967374,
+    166.77762423820613,
+    229.92121381016148,
+    169.7472115124513
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 20433,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.05,
+   "chi2_min": 289.00353580617684,
+   "gof_p_value_5dof": 2.3139472547185952e-60,
+   "best_fit": {
+    "zrei": 12.08400520508484,
+    "ha": 3.9889978969898965,
+    "hs": 0.9959989783796475,
+    "taueff": 0.8156844854186823
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.00357031876945,
+    289.00359454752544,
+    289.0037487724128,
+    289.00364704228303,
+    289.0038774916637,
+    289.00355123882576,
+    289.0035905611188,
+    289.0040655277894,
+    289.00353580617684
+   ],
+   "optimizer_residual": 3.4512592606006365e-05,
+   "n_calls": 16667,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.1,
+   "chi2_min": 290.02790434576013,
+   "gof_p_value_5dof": 1.3938104889820733e-60,
+   "best_fit": {
+    "zrei": 12.223936203400715,
+    "ha": 3.98899933965509,
+    "hs": 0.9959997461048297,
+    "taueff": 0.8163188373856536
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    290.02790434576013,
+    290.0279770465787,
+    290.0280667633669,
+    290.03179966539324,
+    290.0280774451536,
+    290.0279594753651,
+    290.0279726099099,
+    290.02808574898074,
+    290.0279627815303
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 14394,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.2,
+   "chi2_min": 291.41702750934957,
+   "gof_p_value_5dof": 7.008915692700065e-61,
+   "best_fit": {
+    "zrei": 12.457428383971665,
+    "ha": 3.98899911654747,
+    "hs": 0.9959998651083607,
+    "taueff": 0.8169021273343062
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    291.41708992640315,
+    291.41706792364835,
+    291.41702750934957,
+    291.4172890254924,
+    291.4170975028874,
+    291.4297276927695,
+    291.4170985733441,
+    291.4171093864524,
+    291.41707679457437
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 19341,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable.",
+    "Minuit evaluated the objective at non-finite nuisances 17 time(s) (per start: [0, 0, 0, 17, 0, 0, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 17,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -21.5,
+   "f": 0.35,
+   "chi2_min": 292.1829870381652,
+   "gof_p_value_5dof": 4.797590311777379e-61,
+   "best_fit": {
+    "zrei": 12.782130902370284,
+    "ha": 3.988998933331845,
+    "hs": 0.9959987806048205,
+    "taueff": 0.8178625738254689
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    292.1830974364613,
+    292.183079049969,
+    343.53240051207854,
+    292.1831043782926,
+    292.1830464635698,
+    292.18340355518325,
+    292.18323204450724,
+    292.1829870381652,
+    292.18299314444357
+   ],
+   "optimizer_residual": 5.9425404572266416e-05,
+   "n_calls": 16690,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.6,
+   "chi2_min": 284.3992599426057,
+   "gof_p_value_5dof": 2.2582392023858137e-59,
+   "best_fit": {
+    "zrei": 6.050001923315859,
+    "ha": 0.06600021224926383,
+    "hs": -0.9869991146387705,
+    "taueff": 0.9532398933376459
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    291.8020909274626,
+    291.80217076170504,
+    291.80214515812446,
+    291.80236224034974,
+    291.80207123774727,
+    284.3993690120855,
+    284.3992599426057,
+    291.8021440558294,
+    291.80204271373657
+   ],
+   "optimizer_residual": 7.402811295141589,
+   "n_calls": 15947,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.99,
+   "chi2_min": 254.9646522509958,
+   "gof_p_value_5dof": 4.728985149894762e-53,
+   "best_fit": {
+    "zrei": 6.0500009555446415,
+    "ha": 0.06600023589185387,
+    "hs": -0.9869995934270512,
+    "taueff": 0.8890186756878611
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    295.87033978565734,
+    295.87041628590714,
+    295.870363385708,
+    254.96493922759925,
+    295.87037618323717,
+    254.9646522509958,
+    295.87048229457656,
+    254.96476204133532,
+    254.96482796293776
+   ],
+   "optimizer_residual": 0.00028697660343368625,
+   "n_calls": 17023,
+   "messages": [
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.05,
+   "chi2_min": 288.9189508644445,
+   "gof_p_value_5dof": 2.412856348932975e-60,
+   "best_fit": {
+    "zrei": 12.071848642999104,
+    "ha": 3.9889993526158976,
+    "hs": 0.9959995573982771,
+    "taueff": 0.8141386409463356
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    288.9190899337357,
+    288.91911087785866,
+    288.9193494577979,
+    288.91907652601145,
+    288.9190413040723,
+    288.9189841084817,
+    288.91909811781204,
+    288.9189508644445,
+    288.919167985365
+   ],
+   "optimizer_residual": 9.043962779742287e-05,
+   "n_calls": 13444,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.1,
+   "chi2_min": 289.88244899143916,
+   "gof_p_value_5dof": 1.4978364993730983e-60,
+   "best_fit": {
+    "zrei": 12.198189211860848,
+    "ha": 3.9889900870011146,
+    "hs": 0.9959999701970031,
+    "taueff": 0.8133988082250496
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.8825978014439,
+    289.88244899143916,
+    289.8826442492947,
+    289.88256155252185,
+    289.8825843468987,
+    289.8826358927175,
+    289.8826216041439,
+    289.8826678258794,
+    289.8825309050026
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15425,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.2,
+   "chi2_min": 291.2201660635363,
+   "gof_p_value_5dof": 7.726121782306511e-61,
+   "best_fit": {
+    "zrei": 12.430240519807178,
+    "ha": 3.98899651663838,
+    "hs": 0.9959998023582514,
+    "taueff": 0.8115597915682636
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    291.2201660635363,
+    291.22028498996156,
+    291.22041979807966,
+    291.2202694793117,
+    291.2206135804623,
+    291.23671086746253,
+    291.2203150765378,
+    291.2202569467298,
+    291.2202620205685
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 13622,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.35,
+   "chi2_min": 292.0025170592894,
+   "gof_p_value_5dof": 5.245802900226527e-61,
+   "best_fit": {
+    "zrei": 12.738997163166708,
+    "ha": 3.9889998892228506,
+    "hs": 0.9959989798774395,
+    "taueff": 0.8087513741884386
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    292.0028121623632,
+    292.00364605491416,
+    292.002720974701,
+    342.7557663710058,
+    292.00255481067063,
+    292.0025170592894,
+    292.0028565230081,
+    342.7552578312303,
+    292.00258864743773
+   ],
+   "optimizer_residual": 3.775138122819044e-05,
+   "n_calls": 13462,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.6,
+   "chi2_min": 291.1815583680708,
+   "gof_p_value_5dof": 7.875158914892362e-61,
+   "best_fit": {
+    "zrei": 13.37220551313144,
+    "ha": 3.988997947932252,
+    "hs": 0.9959992249379557,
+    "taueff": 0.806152898616417
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    291.1815599767624,
+    291.18161129390006,
+    291.1817650648671,
+    291.18376214228783,
+    291.1819409455719,
+    291.1816959819187,
+    291.18175067210314,
+    291.1872648799587,
+    291.1815583680708
+   ],
+   "optimizer_residual": 1.6086916048152489e-06,
+   "n_calls": 14958,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable.",
+    "Minuit evaluated the objective at non-finite nuisances 17 time(s) (per start: [0, 0, 17, 0, 0, 0, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 17,
+   "start_nonfinite": [
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -21.0,
+   "f": 0.99,
+   "chi2_min": 290.33689926460016,
+   "gof_p_value_5dof": 1.196176441392805e-60,
+   "best_fit": {
+    "zrei": 14.448461913243994,
+    "ha": 3.988991453394269,
+    "hs": 0.9959980192172965,
+    "taueff": 0.8024518127730068
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    290.3369148732858,
+    290.3369268494326,
+    299.5441439604848,
+    290.33704687349694,
+    290.33696688480586,
+    290.33714603897886,
+    290.3386206046992,
+    290.33689926460016,
+    290.33703123189673
+   ],
+   "optimizer_residual": 1.5608685657753085e-05,
+   "n_calls": 16106,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.05,
+   "chi2_min": 288.61417871866973,
+   "gof_p_value_5dof": 2.805621577997496e-60,
+   "best_fit": {
+    "zrei": 11.981160718926427,
+    "ha": 3.988998393126919,
+    "hs": 0.9959998091088172,
+    "taueff": 0.8139170543193862
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    288.6144122608001,
+    288.6143811393677,
+    288.61417871866973,
+    288.61440359169296,
+    288.61451730322636,
+    288.6144152950442,
+    288.61431899320536,
+    288.6142319649771,
+    288.6143151400384
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15566,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable.",
+    "Minuit evaluated the objective at non-finite nuisances 35 time(s) (per start: [0, 0, 0, 0, 0, 35, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 35,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    35,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -20.5,
+   "f": 0.1,
+   "chi2_min": 289.2772435279848,
+   "gof_p_value_5dof": 2.0208356718195986e-60,
+   "best_fit": {
+    "zrei": 12.043817209299604,
+    "ha": 3.988998263034469,
+    "hs": 0.9959994572075472,
+    "taueff": 0.8129625569983377
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.2773618168094,
+    289.2773924110841,
+    289.2773623052296,
+    289.2773793327661,
+    289.27738811176425,
+    289.2772435279848,
+    289.2773319045643,
+    289.2774774917937,
+    289.2775300517929
+   ],
+   "optimizer_residual": 0.00011828882458075896,
+   "n_calls": 13545,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.2,
+   "chi2_min": 290.02071029861884,
+   "gof_p_value_5dof": 1.3987813975283404e-60,
+   "best_fit": {
+    "zrei": 12.148874671151889,
+    "ha": 3.9889987062206114,
+    "hs": 0.9959998614273747,
+    "taueff": 0.8109836308936925
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    290.0207620577739,
+    290.02071029861884,
+    290.02075973033516,
+    290.02075686476064,
+    290.02089361570404,
+    290.0207734484525,
+    373.5665677286256,
+    290.0207463700543,
+    290.02073562222074
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 16658,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.35,
+   "chi2_min": 289.91322009826985,
+   "gof_p_value_5dof": 1.475201074443886e-60,
+   "best_fit": {
+    "zrei": 12.318335294288591,
+    "ha": 3.988997941255118,
+    "hs": 0.9959999149419149,
+    "taueff": 0.8082829612492886
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.9134042031787,
+    289.9133459573749,
+    289.9132634611759,
+    289.9132837647979,
+    289.9134661015152,
+    289.9133598022588,
+    289.9134299586667,
+    289.91348301357766,
+    289.91322009826985
+   ],
+   "optimizer_residual": 4.336290606943294e-05,
+   "n_calls": 15030,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.6,
+   "chi2_min": 287.53979915773436,
+   "gof_p_value_5dof": 4.7743572418181136e-60,
+   "best_fit": {
+    "zrei": 12.693029309343252,
+    "ha": 3.9889997200597804,
+    "hs": 0.9959978104750493,
+    "taueff": 0.8048261812977793
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.5399577004164,
+    287.53979915773436,
+    287.5398761450384,
+    287.5398721537905,
+    287.540162623585,
+    287.5400140122151,
+    287.539850466708,
+    287.5399915599619,
+    287.53988023775355
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 16221,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.99,
+   "chi2_min": 282.97747925220943,
+   "gof_p_value_5dof": 4.563139538757902e-59,
+   "best_fit": {
+    "zrei": 13.683705461070005,
+    "ha": 3.988995602030406,
+    "hs": 0.9959997916031663,
+    "taueff": 0.8005420198739605
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    282.97757379050563,
+    282.97747925220943,
+    282.9808622304886,
+    326.51257297877265,
+    282.97763678774436,
+    282.97753494498113,
+    282.97748146734745,
+    282.9777308991236,
+    282.97764056887866
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 14905,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.05,
+   "chi2_min": 288.6219489624556,
+   "gof_p_value_5dof": 2.7948546270393213e-60,
+   "best_fit": {
+    "zrei": 11.91349511340638,
+    "ha": 3.9889997217962754,
+    "hs": 0.9959985567096556,
+    "taueff": 0.8141851623487486
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    288.62197877262236,
+    288.6219670753683,
+    288.6221491349385,
+    288.6223516681637,
+    288.62203991932785,
+    288.62198641189514,
+    288.6219489624556,
+    288.62227323172925,
+    288.6221825809445
+   ],
+   "optimizer_residual": 1.8112912698597938e-05,
+   "n_calls": 15350,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.1,
+   "chi2_min": 289.2612425013301,
+   "gof_p_value_5dof": 2.0369003921699748e-60,
+   "best_fit": {
+    "zrei": 11.906484926296754,
+    "ha": 3.9889988254805533,
+    "hs": 0.9959995378694028,
+    "taueff": 0.8133660202225629
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.261303836613,
+    289.26141137421985,
+    715.5681157889555,
+    289.2613650167856,
+    289.2613340283847,
+    289.26136762940837,
+    289.2612425013301,
+    289.26128864341615,
+    289.26136131182716
+   ],
+   "optimizer_residual": 6.133528290774848e-05,
+   "n_calls": 15272,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.2,
+   "chi2_min": 289.86759237776346,
+   "gof_p_value_5dof": 1.5088891093711187e-60,
+   "best_fit": {
+    "zrei": 11.907738718301806,
+    "ha": 3.988998315652022,
+    "hs": 0.9959999364951458,
+    "taueff": 0.8122873111447346
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.8677270757297,
+    289.86774291289896,
+    289.86773059122953,
+    289.8676850104136,
+    289.8676867906357,
+    289.8677502860233,
+    289.86759237776346,
+    289.86762945405894,
+    289.86765964528973
+   ],
+   "optimizer_residual": 9.263265013714772e-05,
+   "n_calls": 20487,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.35,
+   "chi2_min": 289.3648049576823,
+   "gof_p_value_5dof": 1.935143046440693e-60,
+   "best_fit": {
+    "zrei": 11.919247336884895,
+    "ha": 3.9889974328191977,
+    "hs": 0.9959999346338059,
+    "taueff": 0.8106120938939665
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.36495494673727,
+    289.3648049576823,
+    289.3651813698058,
+    289.365041592788,
+    289.3651964401484,
+    289.3648311059595,
+    289.36499196232967,
+    289.36505296830717,
+    289.36488202908794
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15456,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.6,
+   "chi2_min": 286.04878504545104,
+   "gof_p_value_5dof": 9.98438367537626e-60,
+   "best_fit": {
+    "zrei": 12.023593629291234,
+    "ha": 3.9889993372864474,
+    "hs": 0.9959997208977794,
+    "taueff": 0.808767887389157
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    286.04882799813066,
+    286.04883526163303,
+    286.0488895681846,
+    286.04898047649914,
+    286.0489564057973,
+    286.04883855933986,
+    286.04895414595444,
+    286.0491472541297,
+    286.04878504545104
+   ],
+   "optimizer_residual": 4.2952679621066636e-05,
+   "n_calls": 16338,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.99,
+   "chi2_min": 280.45388086852114,
+   "gof_p_value_5dof": 1.5902369038304462e-58,
+   "best_fit": {
+    "zrei": 12.532768206797595,
+    "ha": 3.9889990244539177,
+    "hs": 0.9959995553382512,
+    "taueff": 0.8062103740077573
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    280.4539657267052,
+    280.45407694770006,
+    280.4541240479423,
+    280.45388086852114,
+    280.4540480875943,
+    280.45404796759107,
+    366.267642080728,
+    280.4539335204878,
+    280.45400075276564
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15906,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.0,
+   "chi2_min": 287.73340424624405,
+   "gof_p_value_5dof": 4.3381997150445026e-60,
+   "best_fit": {
+    "zrei": 11.905854677697196,
+    "ha": 3.988996165819714,
+    "hs": 0.9959986085138713,
+    "taueff": 0.8148552505943102
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    287.7335108342482,
+    289.659204010958,
+    287.73340424624405,
+    287.7337624958508,
+    287.7335553085261,
+    287.73356597955,
+    287.733614887994,
+    287.7334193209518,
+    287.73400465085143
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12152,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.05,
+   "chi2_min": 289.3076211488545,
+   "gof_p_value_5dof": 1.990684877651167e-60,
+   "best_fit": {
+    "zrei": 11.835034313326084,
+    "ha": 3.9889995159151117,
+    "hs": 0.9959981639729681,
+    "taueff": 0.8144214460520369
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    289.3080181722827,
+    289.30767483987074,
+    289.3076538441402,
+    289.3076404485191,
+    289.3076445379898,
+    289.3076211488545,
+    289.3076729623068,
+    289.30767848004814,
+    289.30776675103317
+   ],
+   "optimizer_residual": 1.9299664643313008e-05,
+   "n_calls": 16634,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.1,
+   "chi2_min": 290.5586107813982,
+   "gof_p_value_5dof": 1.0718772723048061e-60,
+   "best_fit": {
+    "zrei": 11.741817800936717,
+    "ha": 3.988999505654373,
+    "hs": 0.9959993683690597,
+    "taueff": 0.8142316400370365
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    290.55867673989377,
+    290.5587633924794,
+    290.558881589288,
+    290.5587860463495,
+    290.55874248579016,
+    290.55880376950813,
+    290.5589743903543,
+    290.5587183075625,
+    290.5586107813982
+   ],
+   "optimizer_residual": 6.595849555424138e-05,
+   "n_calls": 17524,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.2,
+   "chi2_min": 292.17833736226146,
+   "gof_p_value_5dof": 4.808642903726212e-61,
+   "best_fit": {
+    "zrei": 11.613804029315652,
+    "ha": 3.9889924325732076,
+    "hs": 0.9959990619422304,
+    "taueff": 0.8138601999677233
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    292.1784265546746,
+    292.17833736226146,
+    292.17865288042753,
+    292.178459217679,
+    292.17853265077804,
+    292.17860347575964,
+    292.1785170732314,
+    292.1785967802204,
+    292.17856179084674
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 14949,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.35,
+   "chi2_min": 292.73514472599794,
+   "gof_p_value_5dof": 3.650439622417994e-61,
+   "best_fit": {
+    "zrei": 11.450050806693143,
+    "ha": 3.9889998689988304,
+    "hs": 0.9959999547445183,
+    "taueff": 0.8139360147084103
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    292.7353283463367,
+    292.73514472599794,
+    292.73545176319175,
+    292.73531043022575,
+    292.73552482331877,
+    292.73540249165967,
+    292.7352910940954,
+    292.7353803146143,
+    292.73534732266705
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 15668,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.6,
+   "chi2_min": 290.26114518932513,
+   "gof_p_value_5dof": 1.2418701985825541e-60,
+   "best_fit": {
+    "zrei": 11.261733142370657,
+    "ha": 3.988999464574398,
+    "hs": 0.9959998130818143,
+    "taueff": 0.8157129701976588
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    290.2612913699416,
+    290.26125161281067,
+    290.26124823375426,
+    290.2612816577655,
+    290.2612168870795,
+    290.26125477084986,
+    290.26135227781094,
+    290.26134194460485,
+    290.26114518932513
+   ],
+   "optimizer_residual": 7.169775437887438e-05,
+   "n_calls": 13817,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.99,
+   "chi2_min": 285.27464394181084,
+   "gof_p_value_5dof": 1.46443729113508e-59,
+   "best_fit": {
+    "zrei": 11.155277371457052,
+    "ha": 3.9889992827503016,
+    "hs": 0.9959999479617648,
+    "taueff": 0.8185091286223081
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    285.2747473437907,
+    285.27475227216536,
+    285.27464394181084,
+    285.2747289959775,
+    285.2746647008049,
+    285.2746921889124,
+    285.2765143421848,
+    285.27475226735856,
+    285.2747847344862
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 18424,
+   "messages": [
+    "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  }
+ ],
+ "meta": {
+  "injected": {
+   "m": -22.9,
+   "f": 0.99,
+   "nuisances": [
+    10.5,
+    2.0,
+    0.0,
+    1.0
+   ],
+   "noise_seed": null
+  }
+ }
+}

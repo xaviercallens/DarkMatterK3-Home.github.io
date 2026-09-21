@@ -1,14 +1,14 @@
 {
   "mirror_of": "SocrateAI-Scientific-Agora-K3-DarkMatter (Stream 2)",
-  "source_commit": "4794e7da6f6fbc14659108f97489410788ab3b15",
+  "source_commit": "0e0bfe7d685733fc53bcaaa820653b44396ea285",
   "mirrored_on": "2026-09-21",
   "why": "Stream 2's CM-point / A2 certificates, mirrored so Stream 3 can run a drift-detecting consistency test (their brief STREAM2_TO_STREAM3_MODULAR_RAIL_AND_CM_POINTS_2026_09_21 item 4.2#4). These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Stream 3 DID re-run their controls (46/46 and 35/35) on 2026-09-21.",
   "honor": "Every cooper_s10 row carries advisory=true (LATTICE_CERT_DRAFT, T0 D6'). The certificates' own not_claimed blocks travel with the data and must not be dropped.",
   "files": {
     "CM_POINTS_RHO20.json": {
-      "sha256": "328add3fb9864bc09ab20d050c73d36c7fb71d514eab138a8a8fc1feff4e625d",
+      "sha256": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
       "not_claimed": [
-        "that rho = 20 is a selection criterion of the program: the rho = 20 cut is NOT adopted; adopting it is an open T0 decision, and nothing here scores or ranks a candidate",
+        "that this table scores or ranks a candidate: the rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md) and is read narrowly - no ranking of candidates, no minimum-|D| rule",
         "that any member of either family is singled out or preferred: this is a table of lattice/modular arithmetic",
         "that the table is complete at any discriminant: the enumeration window is logged and is not shown to be a fundamental domain",
         "that any z-value IS the algebraic number recorded: every minimal polynomial is a numeric recognition, fitted at DPS_FIT digits and re-checked at DPS_VERIFY digits (Tier B)",
@@ -20,9 +20,9 @@
       ]
     },
     "A2_MEMBERSHIP.json": {
-      "sha256": "f3d356bc639d94c041de195a021b787c58d127adbaefa4ecb54b040bfc51ac60",
+      "sha256": "2aa105eae60ebd5e6b8abd6f396411fb8bcfbdb88a98e94a9ad632827be4ea08",
       "not_claimed": [
-        "that rho = 20 is a selection criterion of the program: the rho = 20 cut is NOT adopted; adopting it is an open T0 decision, and nothing here scores, ranks or prefers a candidate or a member of a family",
+        "that this certificate scores, ranks or prefers a candidate or a member of a family: the rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md) and is read narrowly - the adoption carries no ranking of s7 over s10 and no minimum-|D| rule, so 'A2 is in the s7 family and not in the s10 family' stays a lattice fact, not a preference",
         "that agreement between the binary-form route and the modular route corroborates anything: LeanMaster docs/STREAM8_WHICH_K3.md sec G10 (read as source) states that the binary-form enumeration and the modular side are the same computation in two languages (Shioda-Inose), so their agreement is forced, not corroboration. The Heegner congruence and the lattice enumeration of this checker agree for the same reason",
         "that the step from 'v in T_n, v.omega = 0' to 'a member of the family has rho = 20 and T_X = v^perp' is proved here: it is the cited framework (Dolgachev 1996 sec 7, read and pinned; Lefschetz (1,1), standard, not among the pinned statements). Tier B. The checker computes the lattice side only",
         "that the explicit Almkvist-van Straten geometric family has a smooth fibre at the point found: for n = 7 the A2 point is z = infinity, which is a regular singular point of L3 (exponent denominators 3 in L3_RIEMANN_SCHEME.json) and an order-3 elliptic point of Gamma_0(7) (one of two, tau = (+-5 + i sqrt 3)/14, which the Fricke involution swaps, so THE order-3 point of X_0(7)+). What is established is a point of the period domain, not a fibre of a specific projective model",
@@ -34,5 +34,14 @@
         "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b). The LeanMaster theorem name is quoted as an identifier only"
       ]
     }
+  },
+  "refreshed": {
+    "on": "2026-09-21",
+    "why": "Stream 2 re-issued every certificate after T0 confirmed the rho=20 adoption in their repository (their D7'). WORDING ONLY: the 'cut is NOT adopted' sentence in status / not_claimed was superseded. Stream 3 verified independently, leaf by leaf with wording/provenance fields set aside: 0 differing leaves of 5459 (CM_POINTS_RHO20) and 2713 (A2_MEMBERSHIP). No computed value changed. Their controls re-run on this side: 46/46 CM, 35/35 A2, 33/33 Atkin-Lehner.",
+    "previous_sha256": {
+      "CM_POINTS_RHO20.json": "328add3fb9864bc09ab20d050c73d36c7fb71d514eab138a8a8fc1feff4e625d",
+      "A2_MEMBERSHIP.json": "f3d356bc639d94c041de195a021b787c58d127adbaefa4ecb54b040bfc51ac60"
+    },
+    "provenance_note": "Files were copied from the Stream 2 working tree, which sat on branch stream2/open-points-2026-09-21 (f62f2c8c); each was then verified byte-identical to `main:data/certificates/<file>` (0e0bfe7d), and source_commit records main. Their in-progress branch does not modify these certificates."
   }
 }

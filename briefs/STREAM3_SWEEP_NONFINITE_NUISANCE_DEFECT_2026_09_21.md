@@ -197,6 +197,15 @@ implementation decides no acceptance rule. Commit `691a4fa`.
   Δχ² even when it holds the lowest χ². Any ineligible cell makes the sweep's
   `contour_status` **WITHHELD**; a sweep with no eligible cell refuses to report at all.
 
+**Re-mirrored after Stream 2 re-issued.** T0 confirmed the ρ = 20 adoption in the Stream 2
+repository too (their D7′, verbatim: *"oui je confirme la coupure aussi sur ce repo"*), and every
+certificate was re-emitted to replace the superseded "cut is NOT adopted" wording. Stream 3 verified
+the re-issue independently rather than on report: leaf by leaf with wording and provenance fields set
+aside, **0 differing leaves** of 5 459 (`CM_POINTS_RHO20`) and 2 713 (`A2_MEMBERSHIP`) — no computed
+value changed — and their control suites re-run on this side, **46/46, 35/35, 33/33**. The mirror is
+re-pinned to their `main` (`0e0bfe7`) after checking each file byte-identical to
+`main:data/certificates/…`; the 140-label vocabulary is unchanged, as they predicted.
+
 **Confirmed on the real defect cell, real unwrapped predictor.** (m, f) = (−22.5, 0.05) now reports
 χ²_min **3.65299** with **guard = 17** — exactly the diagnosis — eligible false, its three
 neighbours untouched, contour WITHHELD. Before the fix the identical call raised and produced
@@ -207,6 +216,12 @@ nothing.
 point nearest the box's edges. That is consistent with §2's near-bound-start hypothesis and narrows
 it to a single start; it still does not isolate Migrad's internal step, and is not claimed to.
 
+> **Correction, 2026-09-21 (same day) — the near-bound-start hypothesis is REFUTED as a general
+> explanation; see §7.** "All from start #9" is true of this one cell and is not the pattern. Across
+> the eight scenarios the guard fires from **every** start index, **including start #1, the nuisance
+> medians**, and most often from start #6. One cell was generalised into a mechanism; the full
+> measurement does not support it.
+
 10 new tests (61 pre-existing unchanged), each path with its control, mutation-verified. The
 validation script is now null-aware — `not None` is `True`, so an unchecked read would have counted
 an ineligible cell as *inside* the region.
@@ -216,6 +231,57 @@ WITHHELD sweep is a dead end or a partial result. The incidence measurement acro
 scenarios — the number that decides how heavy that question is — is what the fix was needed to
 produce; see `data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/summary.json` once the run
 recorded in `launches.log` completes.
+
+## 7. The incidence, measured — and it is not cheap bookkeeping
+
+With the guard in place the full eight-scenario synthetic validation **completed for the first
+time**: one recorded start, one genuine `EXIT=0` under `pipefail`, 1 h 37 min, `pass: true` on S1, S3
+and S4, and S2 reporting 4 of 5 injected cells inside the region **with the fifth ineligible** — the
+null-handling of §6 mattered in practice, since an unchecked `not None` would have counted it inside.
+Artifacts: `summary.json`, `guard_incidence.json`, `start_count_sensitivity.json` in
+`data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/`.
+
+| sweep | ineligible / 56 | in the f = 0 column | contour |
+|---|---|---|---|
+| S1 noiseless FDM | 0 | 0 | COMPLETE |
+| S2 seed 1 | 1 | 0 | WITHHELD |
+| S2 seed 2 | 2 | 0 | WITHHELD |
+| S2 seed 3 | 2 | 0 | WITHHELD |
+| S2 seed 4 | **11** | **8 of 8** | WITHHELD |
+| S2 seed 5 | 4 | 0 | WITHHELD |
+| S3 noiseless CDM | 1 | 0 | WITHHELD |
+| S4 strong-FDM control | 5 | 0 | WITHHELD |
+
+**26 of 448 cells (5.8 %), and 7 of 8 sweeps WITHHELD.** That answers §5's open question: under the
+most conservative rule the sweep would almost never yield a contour, and in S2 seed 4 the guard takes
+out the **entire f = 0 column** — the CDM column every exclusion is measured against. This is a
+design question, not a flag.
+
+**The measurement that bears on the ruling.** In **25 of the 26** ineligible cells the *retained*
+minimum came from a start that **never fired the guard**; the pathological start simply lost. The
+single exception is the original defect cell, (−22.5, 0.05) in S2 seed 1, whose retained χ²_min
+3.65299 came from the very start that degenerated. And in no sweep does the reference minimum change
+if every cell is kept. So a less conservative rule is available and is *measured here, not adopted*:
+
+> **Rule B** — a cell is eligible iff its retained minimum came from a start with zero guarded
+> evaluations. On this evidence it would restore 25 cells and withhold exactly the one whose number
+> is genuinely suspect.
+
+**What the pattern is, and is not.** The guard fires from every start index — cells per start:
+#1: 1, #2: 2, #3: 2, #4: 3, #5: 2, **#6: 12**, #7: 1, #8: 2, #9: 1 — so it is not a near-bound
+phenomenon (start #1 is the medians). The per-cell counts are **quantized**: 17 (13 cells),
+23 (11), 29 (1), 35 (1), steps of 6. That regularity suggests a fixed-length internal Minuit routine
+running on already-non-finite state rather than a wandering line search. Recorded as an observation;
+the internal step is still not isolated.
+
+**A worry raised and then retired by measurement.** The completed sweeps show `optimizer_residual`
+(best of first 5 starts − best of all 9) above 0.1 in up to 14 cells per sweep, with maxima of 1.30,
+2.42 and 18.9 — far above S1's 0.073, the only number the earlier single-scenario validation saw.
+That looked like the single-start defect (0.9975) recurring at larger scale. It is not, at the level
+that matters: recomputing every inside/outside verdict with 5, 7 and 8 starts instead of 9 gives
+**zero verdict flips in all eight sweeps**, and the grid minimum never moves. The large residuals sit
+in cells far from the 5.99 threshold. Stability from 5 to 9 starts is evidence, not proof, that 9
+suffice — but it is the relevant evidence, and it is now persisted rather than assumed.
 
 ---
 *Generated-by: Claude Opus 5 (Stream 3, 2026-09-21) | Verified-by: two exhaustive scans (952 corner

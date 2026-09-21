@@ -1,47 +1,71 @@
-  S1_noiseless_fdm: reused completed sweep
 E VariableMetricBuilder Initial matrix not pos.def.
 E VariableMetricBuilder Initial matrix not pos.def.
-multiprocessing.pool.RemoteTraceback: 
-"""
-Traceback (most recent call last):
-  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
-    result = (True, func(*args, **kwds))
-  File "/usr/lib/python3.10/multiprocessing/pool.py", line 48, in mapstar
-    return list(map(*args))
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/sweep.py", line 106, in _profile_cell
-    r = prof.profile_likelihood(float(m_grid[i]), float(f_grid[j]), starts=PROFILE_STARTS)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/chi2_profile.py", line 208, in profile_likelihood
-    return self._profile_multistart(m, f, starts)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/chi2_profile.py", line 284, in _profile_multistart
-    mi.migrad()
-  File "/home/callensxavier_gmail_com/venv/lib/python3.10/site-packages/iminuit/minuit.py", line 852, in migrad
-    fm = _robust_low_level_fit(
-  File "/home/callensxavier_gmail_com/venv/lib/python3.10/site-packages/iminuit/minuit.py", line 2863, in _robust_low_level_fit
-    fm = migrad(ncall, tolerance)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/chi2_profile.py", line 274, in chi2_nuisances
-    return self._chi2_single_cell(m, f, zrei, ha, hs, taueff)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/chi2_profile.py", line 178, in _chi2_single_cell
-    p_pred = np.asarray(self.predict_pk(m, f, zrei, ha, hs, taueff), dtype=np.float64)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/sweep.py", line 96, in predict
-    return keff.predict_at_keff(np.asarray(predict_native(m, f, zrei, ha, hs, taueff)) * mult, k_eff)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/keff.py", line 78, in predict_at_keff
-    raise ValueError("native P1D must be finite and positive for log-log interpolation")
-ValueError: native P1D must be finite and positive for log-log interpolation
-"""
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py", line 99, in <module>
-    # better; 5 of the 10 are away from any bound. That is why this
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py", line 71, in main
-    r = run(f"S2_noisy_fdm_seed{seed}", -22.0, 0.35, seed)
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py", line 56, in run
-    rec = sweep.run_sweep(obs, cov, predict, "synthetic", OUT / f"{name}.json", workers=WORKERS,
-  File "/mnt/disks/disk-socrateai-local-1/callensxavier_home_data/DarkMatterK3-Home.github.io/pipeline/sweep.py", line 134, in run_sweep
-    results = pool.map(_profile_cell, todo, chunksize=1)
-  File "/usr/lib/python3.10/multiprocessing/pool.py", line 367, in map
-    return self._map_async(func, iterable, mapstar, chunksize).get()
-  File "/usr/lib/python3.10/multiprocessing/pool.py", line 774, in get
-    raise self._value
-ValueError: native P1D must be finite and positive for log-log interpolation
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S1_noiseless_fdm: 409s, grid min {'m': -22.0, 'f': 0.35, 'chi2_min': 0.0}, all minima valid False, optimizer max residual 0.0732
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S2_noisy_fdm_seed1: 469s, grid min {'m': -22.9, 'f': 0.05, 'chi2_min': 3.3896778891719688}, all minima valid False, optimizer max residual 1.2965
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S2_noisy_fdm_seed2: 689s, grid min {'m': -19.1, 'f': 0.35, 'chi2_min': 7.903219647703434}, all minima valid False, optimizer max residual 0.4936
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S2_noisy_fdm_seed3: 1460s, grid min {'m': -22.9, 'f': 0.0, 'chi2_min': 12.612601846958647}, all minima valid False, optimizer max residual 0.7548
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S2_noisy_fdm_seed4: 1400s, grid min {'m': -22.0, 'f': 0.6, 'chi2_min': 7.737218393048054}, all minima valid False, optimizer max residual 0.2738
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+E VariableMetricBuilder Initial matrix not pos.def.
+  S2_noisy_fdm_seed5: 545s, grid min {'m': -21.5, 'f': 0.99, 'chi2_min': 2.8425268164964836}, all minima valid False, optimizer max residual 1.2689
+  S3_noiseless_cdm: 328s, grid min {'m': -22.9, 'f': 0.0, 'chi2_min': 0.0}, all minima valid False, optimizer max residual 2.4218
+E VariableMetricBuilder Initial matrix not pos.def.
+  S4_negative_control_strong_fdm: 521s, grid min {'m': -22.9, 'f': 0.99, 'chi2_min': 0.0}, all minima valid False, optimizer max residual 18.9032
+{
+ "S1": {
+  "injected_cell_eligible": true,
+  "injected_is_grid_minimum": true,
+  "chi2_at_injected": 0.0,
+  "pass": true
+ },
+ "S2": {
+  "injected_inside_95_region": [
+   true,
+   true,
+   null,
+   true,
+   true
+  ],
+  "count": 4,
+  "injected_cell_ineligible": 1,
+  "of": 5,
+  "note": "reported, not asserted: expected \u224895 % coverage; 5 draws is not a coverage test"
+ },
+ "S3": {
+  "f0_column_ineligible": 0,
+  "f0_column_spread": 0.0,
+  "null_row_ineligible": 0,
+  "null_row_m_minus_19_1_any_outside_95": false,
+  "pass": true
+ },
+ "S4": {
+  "f0_cells_outside_95": 8,
+  "f0_cells_ineligible": 0,
+  "of": 8,
+  "pass": true
+ }
+}
+  convergence: S1_noiseless_fdm has 10/56 invalid minima (7 with zero optimizer residual, 5 away from a bound) — reported, not gated
+  convergence: S2_noisy_fdm_seed1 has 36/56 invalid minima (12 with zero optimizer residual, 20 away from a bound) — reported, not gated
+  convergence: S2_noisy_fdm_seed2 has 26/56 invalid minima (18 with zero optimizer residual, 21 away from a bound) — reported, not gated
+  convergence: S2_noisy_fdm_seed3 has 28/56 invalid minima (17 with zero optimizer residual, 2 away from a bound) — reported, not gated
+  convergence: S2_noisy_fdm_seed4 has 20/56 invalid minima (17 with zero optimizer residual, 5 away from a bound) — reported, not gated
+  convergence: S2_noisy_fdm_seed5 has 23/56 invalid minima (9 with zero optimizer residual, 14 away from a bound) — reported, not gated
+  convergence: S3_noiseless_cdm has 13/56 invalid minima (11 with zero optimizer residual, 5 away from a bound) — reported, not gated
+  convergence: S4_negative_control_strong_fdm has 21/56 invalid minima (8 with zero optimizer residual, 0 away from a bound) — reported, not gated
+SYNTHETIC VALIDATION: PASS (pass covers ['S1', 'S3', 'S4']; convergence_health is reported only)

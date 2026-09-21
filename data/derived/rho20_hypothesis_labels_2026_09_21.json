@@ -1,10 +1,10 @@
 {
  "authority": "briefs/T0_RULINGS_2026_09_21.md R1 (rho=20 cut ADOPTED); ranking and min-|D| NOT adopted",
  "inputs": {
-  "mirror_source_commit": "4794e7da6f6fbc14659108f97489410788ab3b15",
+  "mirror_source_commit": "f62f2c8c25ab129fe9e858c8b066c53080c1e77e",
   "sha256": {
-   "A2_MEMBERSHIP.json": "f3d356bc639d94c041de195a021b787c58d127adbaefa4ecb54b040bfc51ac60",
-   "CM_POINTS_RHO20.json": "328add3fb9864bc09ab20d050c73d36c7fb71d514eab138a8a8fc1feff4e625d"
+   "A2_MEMBERSHIP.json": "2aa105eae60ebd5e6b8abd6f396411fb8bcfbdb88a98e94a9ad632827be4ea08",
+   "CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755"
   }
  },
  "label": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",

@@ -1,0 +1,2746 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
+ "mode": "synthetic",
+ "generated_utc": "2026-09-21T16:01:11.456401+00:00",
+ "pins": [
+  "briefs/PREDICTION_V2_AMENDMENT_DRAFT_2026_07_29.md",
+  "briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md",
+  "briefs/WP_E6_SWEEP_KEFF_RULING_PINNED_2026_09_17.md"
+ ],
+ "statistic": {
+  "cell": "chi2_min, 5 dof",
+  "contour": "delta chi2, 2 dof, threshold 5.9915 (95%)"
+ },
+ "optimizer": {
+  "method": "iminuit Migrad, deterministic multi-start (medians + 8-pt LHS, seed 20260917), re-run once if invalid",
+  "n_starts": 9,
+  "residual_definition": "best of first 5 starts \u2212 best of all",
+  "max_residual": 2.4217825391758616,
+  "cells_with_residual_gt_0p1": 2
+ },
+ "taueff_note": "taueff bounds (0.3, 1.8) are a PRIOR-BOX, not a trained-support extremum (T0 ruling 2026-07-28 item 2)",
+ "m_grid": [
+  -22.9,
+  -22.5,
+  -22.0,
+  -21.5,
+  -21.0,
+  -20.5,
+  -20.0,
+  -19.1
+ ],
+ "f_grid": [
+  0.0,
+  0.05,
+  0.1,
+  0.2,
+  0.35,
+  0.6,
+  0.99
+ ],
+ "chi2_min_grid": [
+  [
+   0.0,
+   0.69453055489439,
+   2.9822434204167645,
+   17.462666989884145,
+   72.51610017325585,
+   233.26759529272016,
+   533.8442699783275
+  ],
+  [
+   0.0,
+   0.1386100549788878,
+   0.6877049540452137,
+   3.7869874809825936,
+   18.408263330039222,
+   81.24212957121547,
+   203.91061064344345
+  ],
+  [
+   0.0,
+   0.007265902037163304,
+   0.037627904231278125,
+   0.2706186440135271,
+   1.3430545386948645,
+   10.55000886874802,
+   24.42720684297906
+  ],
+  [
+   0.0,
+   0.0013563124483330124,
+   0.005343773241469687,
+   0.013579357030655076,
+   0.05891221327006338,
+   0.2996872432045196,
+   1.0263580354511133
+  ],
+  [
+   0.0,
+   0.0015536859988278,
+   0.004048686191783889,
+   0.011395120453445227,
+   0.023191233193739308,
+   0.02394742923798753,
+   0.09075593033174922
+  ],
+  [
+   0.0,
+   0.0011827294266511103,
+   0.004878049916192946,
+   0.022536706461227133,
+   null,
+   0.026558215468369534,
+   0.05042537623526519
+  ],
+  [
+   0.0,
+   0.0009565971465704359,
+   0.003504021534346468,
+   0.010328845553212593,
+   0.01410421269531676,
+   0.006962682390069145,
+   0.03481105943453665
+  ],
+  [
+   0.0,
+   0.0006168488014907106,
+   0.0023625048904779376,
+   0.007641202695155827,
+   0.0083608494559532,
+   0.005326145355048585,
+   0.03498146239443637
+  ]
+ ],
+ "delta_chi2_grid": [
+  [
+   0.0,
+   0.69453055489439,
+   2.9822434204167645,
+   17.462666989884145,
+   72.51610017325585,
+   233.26759529272016,
+   533.8442699783275
+  ],
+  [
+   0.0,
+   0.1386100549788878,
+   0.6877049540452137,
+   3.7869874809825936,
+   18.408263330039222,
+   81.24212957121547,
+   203.91061064344345
+  ],
+  [
+   0.0,
+   0.007265902037163304,
+   0.037627904231278125,
+   0.2706186440135271,
+   1.3430545386948645,
+   10.55000886874802,
+   24.42720684297906
+  ],
+  [
+   0.0,
+   0.0013563124483330124,
+   0.005343773241469687,
+   0.013579357030655076,
+   0.05891221327006338,
+   0.2996872432045196,
+   1.0263580354511133
+  ],
+  [
+   0.0,
+   0.0015536859988278,
+   0.004048686191783889,
+   0.011395120453445227,
+   0.023191233193739308,
+   0.02394742923798753,
+   0.09075593033174922
+  ],
+  [
+   0.0,
+   0.0011827294266511103,
+   0.004878049916192946,
+   0.022536706461227133,
+   null,
+   0.026558215468369534,
+   0.05042537623526519
+  ],
+  [
+   0.0,
+   0.0009565971465704359,
+   0.003504021534346468,
+   0.010328845553212593,
+   0.01410421269531676,
+   0.006962682390069145,
+   0.03481105943453665
+  ],
+  [
+   0.0,
+   0.0006168488014907106,
+   0.0023625048904779376,
+   0.007641202695155827,
+   0.0083608494559532,
+   0.005326145355048585,
+   0.03498146239443637
+  ]
+ ],
+ "outside_95_region": [
+  [
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   true
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   null,
+   false,
+   false
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ ],
+ "grid_minimum": {
+  "m": -22.9,
+  "f": 0.0,
+  "chi2_min": 0.0
+ },
+ "all_minima_valid": false,
+ "contour_status": "WITHHELD \u2014 1 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+ "ineligible_cells": [
+  {
+   "m": -20.5,
+   "f": 0.35,
+   "reason": "nonfinite_nuisance_guard",
+   "detail": 17
+  }
+ ],
+ "eligibility_note": "grids carry null for ineligible cells; the reference minimum and every inside/outside verdict use eligible cells only. Most conservative setting, chosen so the implementation decides no acceptance rule (T0 ruling R2, 2026-09-21).",
+ "cells": [
+  {
+   "m": -22.9,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.05,
+   "chi2_min": 0.69453055489439,
+   "gof_p_value_5dof": 0.9832675021032464,
+   "best_fit": {
+    "zrei": 7.328330548497579,
+    "ha": 3.845323669531186,
+    "hs": -0.9861021253599267,
+    "taueff": 0.9576264319781835
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.8820710606263956,
+    7.270933602990937,
+    1.0353864910961976,
+    0.9505290745364832,
+    0.7913954959049296,
+    1.675354980348188,
+    0.9550081129577197,
+    0.8761583346012582,
+    0.69453055489439
+   ],
+   "optimizer_residual": 0.09686494101053966,
+   "n_calls": 10652,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.1,
+   "chi2_min": 2.9822434204167645,
+   "gof_p_value_5dof": 0.7027235271264072,
+   "best_fit": {
+    "zrei": 14.909928264740143,
+    "ha": 0.8081120467712166,
+    "hs": -0.9869971934837846,
+    "taueff": 1.0619339861426318
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    16.800998249101962,
+    3.3080051630733944,
+    4.638008217239671,
+    3.128897967558294,
+    3.1033579731027015,
+    3.1026651062731436,
+    3.843508333807937,
+    2.9822434204167645,
+    3.1131656530414125
+   ],
+   "optimizer_residual": 0.12111455268593696,
+   "n_calls": 13992,
+   "messages": [
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.2,
+   "chi2_min": 17.462666989884145,
+   "gof_p_value_5dof": 0.0037009936346752825,
+   "best_fit": {
+    "zrei": 6.787891988303544,
+    "ha": 1.060768833900573,
+    "hs": -0.9869759200134484,
+    "taueff": 1.0721925851682552
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    17.46525315899067,
+    17.467748172782464,
+    18.328583162054713,
+    17.463013799425468,
+    17.462666989884145,
+    18.318142819886734,
+    20.163640663742164,
+    17.462802606856325,
+    18.251151056142216
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 18233,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.35,
+   "chi2_min": 72.51610017325585,
+   "gof_p_value_5dof": 3.066473435065073e-14,
+   "best_fit": {
+    "zrei": 6.050016998763725,
+    "ha": 1.1855940850854925,
+    "hs": -0.9869990076250879,
+    "taueff": 1.0749801516645896
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    72.52634440995209,
+    84.66882580236572,
+    77.46528446070951,
+    72.51610017325585,
+    72.51623337730663,
+    72.52144681497532,
+    77.4625699020516,
+    72.51621592312438,
+    85.7255414580764
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 18517,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.6,
+   "chi2_min": 233.26759529272016,
+   "gof_p_value_5dof": 2.1318615269377772e-48,
+   "best_fit": {
+    "zrei": 6.050000732901052,
+    "ha": 1.3565210454024956,
+    "hs": -0.9869998835633159,
+    "taueff": 1.0373258280629816
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    233.26779182270337,
+    233.26759529272016,
+    249.37698799054198,
+    233.2716701654235,
+    247.08334103692675,
+    233.26783991704417,
+    233.26793358587358,
+    233.26785988853797,
+    247.08348175432457
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 20617,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.9,
+   "f": 0.99,
+   "chi2_min": 533.8442699783275,
+   "gof_p_value_5dof": 3.940657005860909e-113,
+   "best_fit": {
+    "zrei": 14.909989169602115,
+    "ha": 3.9889990557069632,
+    "hs": -0.9869998890504236,
+    "taueff": 1.0070538095968355
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    534.238484529209,
+    533.8443938807588,
+    533.8443233898874,
+    534.2386138852579,
+    534.2386427181939,
+    534.2385982968011,
+    533.8442699783275,
+    534.2385497023938,
+    533.8444552960699
+   ],
+   "optimizer_residual": 5.341155997484748e-05,
+   "n_calls": 13932,
+   "messages": [
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.05,
+   "chi2_min": 0.1386100549788878,
+   "gof_p_value_5dof": 0.9996378537628416,
+   "best_fit": {
+    "zrei": 8.239369052020674,
+    "ha": 2.0443980978398812,
+    "hs": -0.2114857709418136,
+    "taueff": 0.9967527537068028
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.1386100549788878,
+    0.23004628614252143,
+    0.24941320765172129,
+    0.22931100660182496,
+    0.180936719688412,
+    0.255371308031653,
+    0.7876996874866785,
+    1.5266468389128858,
+    0.7581072544678827
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 10062,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.1,
+   "chi2_min": 0.6877049540452137,
+   "gof_p_value_5dof": 0.9836366353520468,
+   "best_fit": {
+    "zrei": 7.7527926284563815,
+    "ha": 2.4018599810728825,
+    "hs": -0.8688070170742708,
+    "taueff": 0.9848027051347987
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.6877049540452137,
+    0.7471204079980334,
+    1.6393200963509993,
+    1.5082784962726081,
+    0.744995745864922,
+    0.8336547068293229,
+    3.087566273540032,
+    3.2047134795406995,
+    1.6455432256056057
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7460,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.2,
+   "chi2_min": 3.7869874809825936,
+   "gof_p_value_5dof": 0.5804737934563764,
+   "best_fit": {
+    "zrei": 7.35444439790732,
+    "ha": 1.187409760954771,
+    "hs": -0.9869004986341237,
+    "taueff": 1.0383554032414049
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    3.846138616308777,
+    3.7996085944353926,
+    3.7907546096317293,
+    3.7869874809825936,
+    4.921092330808817,
+    5.636692756759624,
+    4.445796223729196,
+    4.551071002567019,
+    4.476159926701983
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12954,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.35,
+   "chi2_min": 18.408263330039222,
+   "gof_p_value_5dof": 0.0024759482075117373,
+   "best_fit": {
+    "zrei": 14.904980783040795,
+    "ha": 0.06601090106287992,
+    "hs": 0.9958337130656962,
+    "taueff": 1.3936441568718714
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    20.836132638405847,
+    20.83118007488472,
+    24.69944406080875,
+    20.830045869215084,
+    20.885700982361104,
+    18.408263330039222,
+    25.398703706575088,
+    24.47843116583019,
+    22.629848819074454
+   ],
+   "optimizer_residual": 2.4217825391758616,
+   "n_calls": 16562,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.6,
+   "chi2_min": 81.24212957121547,
+   "gof_p_value_5dof": 4.612353380083611e-16,
+   "best_fit": {
+    "zrei": 6.050013487510035,
+    "ha": 1.7332932791475129,
+    "hs": -0.9869995024035928,
+    "taueff": 0.9962270388636998
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    81.24337489319294,
+    81.24613845130492,
+    81.24212957121547,
+    81.24220234275202,
+    81.24222596203495,
+    84.07344234530369,
+    81.24224313357544,
+    81.38013493721158,
+    81.93990945142922
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 16752,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.5,
+   "f": 0.99,
+   "chi2_min": 203.91061064344345,
+   "gof_p_value_5dof": 4.1373828494869423e-42,
+   "best_fit": {
+    "zrei": 14.909999127842166,
+    "ha": 3.9889975635664547,
+    "hs": -0.9869997256519684,
+    "taueff": 1.0161143432886315
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    203.91080055153046,
+    213.14204543233143,
+    203.91061064344345,
+    213.14190342620793,
+    209.31793809963312,
+    213.14228376801134,
+    203.91078965492324,
+    213.14208219306937,
+    213.14217551554856
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 16522,
+   "messages": [
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.05,
+   "chi2_min": 0.007265902037163304,
+   "gof_p_value_5dof": 0.9999997612486704,
+   "best_fit": {
+    "zrei": 9.397609244080247,
+    "ha": 2.074550940627973,
+    "hs": -0.1113988516388692,
+    "taueff": 0.99607955053146
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.007265902037163304,
+    0.02494325683339515,
+    0.13175502845533313,
+    3.2222179946094363,
+    0.07506496941574095,
+    0.0373361741052575,
+    0.03586754915031166,
+    0.04532406309631997,
+    0.650272282727929
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11584,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.1,
+   "chi2_min": 0.037627904231278125,
+   "gof_p_value_5dof": 0.9999855857820631,
+   "best_fit": {
+    "zrei": 8.307231005859386,
+    "ha": 2.3523629165130067,
+    "hs": -0.3480818388735489,
+    "taueff": 0.9827398492525965
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.04727213121903067,
+    0.04716101172557671,
+    0.09592908600169725,
+    0.0840078555106504,
+    0.037627904231278125,
+    0.09571245494360432,
+    0.10312222441068561,
+    0.07057226295022535,
+    0.13087307615436683
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 17837,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.2,
+   "chi2_min": 0.2706186440135271,
+   "gof_p_value_5dof": 0.9981594386354797,
+   "best_fit": {
+    "zrei": 14.909995533830614,
+    "ha": 1.5908759838395856,
+    "hs": -0.7598142102598061,
+    "taueff": 1.0022293516092915
+   },
+   "valid_minimum": true,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.2929224405756298,
+    0.4372800638897248,
+    0.2706186440135271,
+    0.27491015989569567,
+    1.5518294700043538,
+    0.996002759902348,
+    0.2822285593427361,
+    2.579467165633358,
+    0.3870710073551282
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9593,
+   "messages": [
+    "Nuisance parameters at boundary: zrei. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.35,
+   "chi2_min": 1.3430545386948645,
+   "gof_p_value_5dof": 0.9304396696322181,
+   "best_fit": {
+    "zrei": 13.467823930753555,
+    "ha": 0.18892295972936068,
+    "hs": 0.9504526835376919,
+    "taueff": 1.277690985750445
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    1.7032545346522303,
+    1.3430545386948645,
+    2.342732320262958,
+    1.7714454051949935,
+    1.7933403646835409,
+    2.026629243183598,
+    2.1476668581045235,
+    2.2044323508117563,
+    1.940424386419734
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12580,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.6,
+   "chi2_min": 10.55000886874802,
+   "gof_p_value_5dof": 0.06106913863251107,
+   "best_fit": {
+    "zrei": 14.909996872932593,
+    "ha": 3.8275772083714745,
+    "hs": -0.9869998379650092,
+    "taueff": 0.9529689261343518
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    11.1956660064618,
+    11.05607013041898,
+    10.55000886874802,
+    10.550513350165783,
+    13.845821164801745,
+    15.897334683850573,
+    10.552140144810856,
+    14.919836881290568,
+    11.148043155613681
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 13825,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -22.0,
+   "f": 0.99,
+   "chi2_min": 24.42720684297906,
+   "gof_p_value_5dof": 0.00017968257958310812,
+   "best_fit": {
+    "zrei": 14.909996197165304,
+    "ha": 3.9889939325786368,
+    "hs": -0.9869999720720158,
+    "taueff": 0.9713058826126606
+   },
+   "valid_minimum": false,
+   "at_boundary": true,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    31.496694245614123,
+    31.53376346732707,
+    31.49666527110393,
+    24.42720684297906,
+    24.44245795494608,
+    35.41541063814786,
+    24.444868884861137,
+    36.429358879383585,
+    31.49799988237848
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 17808,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)",
+    "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.05,
+   "chi2_min": 0.0013563124483330124,
+   "gof_p_value_5dof": 0.9999999963980489,
+   "best_fit": {
+    "zrei": 10.50081042016535,
+    "ha": 2.043693034497817,
+    "hs": -0.03882089233863774,
+    "taueff": 0.9998336273173635
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0013563124483330124,
+    0.058087442806830744,
+    0.05598464361819725,
+    0.022327636639528435,
+    0.18439638077016324,
+    2.984063500025323,
+    0.02269271983132017,
+    0.0022466511194983415,
+    0.08293941729059649
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 8244,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.1,
+   "chi2_min": 0.005343773241469687,
+   "gof_p_value_5dof": 0.9999998891744033,
+   "best_fit": {
+    "zrei": 10.184383245019488,
+    "ha": 2.098856000882963,
+    "hs": -0.07095507812218411,
+    "taueff": 0.9987646728124753
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.005343773241469687,
+    0.00971784128073451,
+    0.26916579629418247,
+    0.045047967792480735,
+    0.01114713933279126,
+    0.05169057085292718,
+    0.05910725852859691,
+    0.04002391130351115,
+    0.04445104899281798
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11188,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.2,
+   "chi2_min": 0.013579357030655076,
+   "gof_p_value_5dof": 0.9999988625271338,
+   "best_fit": {
+    "zrei": 8.954922080543078,
+    "ha": 2.5815824487115733,
+    "hs": -0.3360497532848964,
+    "taueff": 0.9772544678790271
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.030634812402897,
+    0.07513290731332876,
+    0.04527481361791759,
+    0.09291399944434899,
+    0.013579357030655076,
+    0.02660684002500963,
+    0.029914706424492486,
+    0.09623884054705441,
+    0.030651148311681795
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 12868,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.35,
+   "chi2_min": 0.05891221327006338,
+   "gof_p_value_5dof": 0.9999561233846351,
+   "best_fit": {
+    "zrei": 8.857108003412806,
+    "ha": 1.6872691417442789,
+    "hs": 0.0654580543004053,
+    "taueff": 1.0349855002514659
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.07946659735602066,
+    0.10787103738207028,
+    0.13001010651466446,
+    0.06025206209714961,
+    0.830211909451682,
+    1.5946825725593403,
+    0.7106379420693888,
+    0.07596553517587556,
+    0.05891221327006338
+   ],
+   "optimizer_residual": 0.0013398488270862305,
+   "n_calls": 10363,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.6,
+   "chi2_min": 0.2996872432045196,
+   "gof_p_value_5dof": 0.9976489642334249,
+   "best_fit": {
+    "zrei": 7.013046135780968,
+    "ha": 3.054348155165044,
+    "hs": -0.8348383982883978,
+    "taueff": 0.9491940893167943
+   },
+   "valid_minimum": false,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.4987545949432192,
+    0.2996872432045196,
+    0.31596945996239084,
+    0.5246335468899443,
+    0.6475740467618175,
+    0.43139435666344955,
+    0.4193300805745838,
+    0.8550187528250632,
+    0.3429286760978436
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11947,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.5,
+   "f": 0.99,
+   "chi2_min": 1.0263580354511133,
+   "gof_p_value_5dof": 0.9604119214484458,
+   "best_fit": {
+    "zrei": 6.42660792006298,
+    "ha": 2.4298596573700015,
+    "hs": -0.7779009646053696,
+    "taueff": 0.9395472174986118
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    1.2138527250016706,
+    1.1627725579503618,
+    1.7166999615618639,
+    1.5328177119538942,
+    1.060923573272096,
+    1.6621466830181895,
+    1.0263580354511133,
+    1.6793858343176453,
+    1.6719925471964794
+   ],
+   "optimizer_residual": 0.03456553782098282,
+   "n_calls": 12833,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.05,
+   "chi2_min": 0.0015536859988278,
+   "gof_p_value_5dof": 0.9999999949415675,
+   "best_fit": {
+    "zrei": 10.73027426580083,
+    "ha": 2.0180657164329774,
+    "hs": -0.0010797759636636938,
+    "taueff": 1.000289962028153
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0015536859988278,
+    0.02964794195481823,
+    7.091885181610738,
+    0.11314866993700812,
+    0.11478410727436754,
+    3.321069385265751,
+    0.06214134049497261,
+    15.602849385073677,
+    0.00909545623049553
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7265,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.1,
+   "chi2_min": 0.004048686191783889,
+   "gof_p_value_5dof": 0.9999999446004596,
+   "best_fit": {
+    "zrei": 11.779891652917321,
+    "ha": 1.9641389120564317,
+    "hs": -0.005443182120695024,
+    "taueff": 1.004475268169718
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.004048686191783889,
+    0.1336278761564863,
+    0.004419231790927154,
+    0.01656480228069215,
+    0.02108512757132397,
+    0.03735755667232981,
+    0.03003576150347172,
+    0.018485030019959416,
+    0.04623987388157742
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 14151,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.2,
+   "chi2_min": 0.011395120453445227,
+   "gof_p_value_5dof": 0.9999992656907807,
+   "best_fit": {
+    "zrei": 9.704482047599301,
+    "ha": 3.229418449331161,
+    "hs": -0.5132477259045024,
+    "taueff": 0.9495775574814354
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.015028352172904557,
+    2.10856608219394,
+    0.05404922923357646,
+    0.011395120453445227,
+    0.07167153082158428,
+    0.03364644603127056,
+    0.02222391780838405,
+    0.041869526288735644,
+    0.029565723864511756
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11028,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.35,
+   "chi2_min": 0.023191233193739308,
+   "gof_p_value_5dof": 0.9999956792150227,
+   "best_fit": {
+    "zrei": 10.933579448280062,
+    "ha": 2.475881896413937,
+    "hs": -0.22683316308552728,
+    "taueff": 0.9794001261914504
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.03394955776336166,
+    0.1582473287418538,
+    0.668537462570991,
+    0.04410667800273463,
+    0.029875445085748038,
+    1.0829243596855624,
+    0.023191233193739308,
+    0.18385756144975288,
+    0.20702862047855933
+   ],
+   "optimizer_residual": 0.00668421189200873,
+   "n_calls": 8812,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.6,
+   "chi2_min": 0.02394742923798753,
+   "gof_p_value_5dof": 0.999995319598696,
+   "best_fit": {
+    "zrei": 9.462359699491644,
+    "ha": 2.6385068823756033,
+    "hs": -0.14161461890541074,
+    "taueff": 0.9854845747882444
+   },
+   "valid_minimum": false,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.052448881036510395,
+    0.10316439278975612,
+    0.056104651843294884,
+    0.12494231252761563,
+    0.02394742923798753,
+    3.75244797249463,
+    0.14997243244979985,
+    0.09084358803047479,
+    0.0432918377496779
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9287,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -21.0,
+   "f": 0.99,
+   "chi2_min": 0.09075593033174922,
+   "gof_p_value_5dof": 0.9998722149794488,
+   "best_fit": {
+    "zrei": 9.680842329158281,
+    "ha": 2.52809606140263,
+    "hs": -0.11330377980399632,
+    "taueff": 1.001229801794147
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.10348502867023911,
+    0.09075593033174922,
+    2.973879004800997,
+    0.15098556831664495,
+    0.23289475920503688,
+    0.09840215286626271,
+    0.12724751612053034,
+    0.2770826546886116,
+    0.8773825894019917
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9056,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.05,
+   "chi2_min": 0.0011827294266511103,
+   "gof_p_value_5dof": 0.9999999974421276,
+   "best_fit": {
+    "zrei": 11.11186036900917,
+    "ha": 2.0467986164215577,
+    "hs": -0.06156106960091257,
+    "taueff": 0.9958721652792444
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0011827294266511103,
+    0.5930445092460198,
+    0.00122466241025962,
+    0.0049011399400318845,
+    0.8334207956737139,
+    0.012291781971993926,
+    0.11873240456548306,
+    0.02914289128297224,
+    0.0875618050158152
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 10703,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.1,
+   "chi2_min": 0.004878049916192946,
+   "gof_p_value_5dof": 0.9999999117513947,
+   "best_fit": {
+    "zrei": 11.23469395149699,
+    "ha": 2.0453964114144427,
+    "hs": -0.041403405650235786,
+    "taueff": 0.9959198848345079
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.004878049916192946,
+    1.896171131787698,
+    0.05396388908243696,
+    1.57316076346747,
+    0.12177038073000895,
+    2.930028399888327,
+    0.01679171371967793,
+    0.4289855459456416,
+    0.044001625291150606
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7538,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.2,
+   "chi2_min": 0.022536706461227133,
+   "gof_p_value_5dof": 0.9999959767167044,
+   "best_fit": {
+    "zrei": 9.851917247035091,
+    "ha": 2.216780964338983,
+    "hs": -0.00936175753614658,
+    "taueff": 0.9864835906064636
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.024344258010643695,
+    0.022536706461227133,
+    0.0281055465728741,
+    0.14223775086506993,
+    0.05561407099375244,
+    0.03742561736654405,
+    0.038926140560981926,
+    0.1656408945118269,
+    0.03783733098158258
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 10118,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.35,
+   "chi2_min": 0.02123435626177088,
+   "gof_p_value_5dof": 0.9999965314009291,
+   "best_fit": {
+    "zrei": 10.888509049555259,
+    "ha": 2.0348091511769786,
+    "hs": 0.06963576714471616,
+    "taueff": 0.9969862983123279
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.02123435626177088,
+    0.7183859620599939,
+    0.6473948321198412,
+    0.021694595902814914,
+    0.06475514128981551,
+    0.20553836823069266,
+    0.09226381101923486,
+    0.24687085726823996,
+    0.13709133731075324
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 8727,
+   "messages": [
+    "Minuit evaluated the objective at non-finite nuisances 17 time(s) (per start: [0, 0, 0, 0, 0, 17, 0, 0, 0]); penalty returned, cell ineligible for a contour"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 17,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": false
+  },
+  {
+   "m": -20.5,
+   "f": 0.6,
+   "chi2_min": 0.026558215468369534,
+   "gof_p_value_5dof": 0.9999939434061855,
+   "best_fit": {
+    "zrei": 8.641023184055054,
+    "ha": 2.870805331372905,
+    "hs": -0.1150667866997649,
+    "taueff": 0.9610068412117792
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.029493833506748793,
+    0.04770695267757195,
+    0.18498143014442273,
+    0.06583607476885278,
+    0.026558215468369534,
+    2.922139268792126,
+    0.14983780203270355,
+    0.06292653439363072,
+    0.11680878549326836
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9031,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.5,
+   "f": 0.99,
+   "chi2_min": 0.05042537623526519,
+   "gof_p_value_5dof": 0.9999701697631067,
+   "best_fit": {
+    "zrei": 9.917894782970286,
+    "ha": 2.607416201397385,
+    "hs": -0.28353429947944264,
+    "taueff": 0.967116446438815
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.06995582448362588,
+    0.08797772101390364,
+    0.18596703941216475,
+    0.28687240236974804,
+    0.05042537623526519,
+    0.07880440067905545,
+    0.25466973616986893,
+    0.2419914079398939,
+    0.1601183511791755
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 10807,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.05,
+   "chi2_min": 0.0009565971465704359,
+   "gof_p_value_5dof": 0.9999999984950463,
+   "best_fit": {
+    "zrei": 11.131899990376038,
+    "ha": 1.9838440100500758,
+    "hs": -0.028207861618197622,
+    "taueff": 0.9997635427589808
+   },
+   "valid_minimum": false,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0009565971465704359,
+    0.08552527090380259,
+    0.005139760436515352,
+    0.022676539336121328,
+    0.06372918245853455,
+    5.860070439178968,
+    0.005032801231134388,
+    0.02362599869545931,
+    0.948247691866119
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 13190,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.1,
+   "chi2_min": 0.003504021534346468,
+   "gof_p_value_5dof": 0.9999999613880036,
+   "best_fit": {
+    "zrei": 11.698143080257152,
+    "ha": 1.9418532341922303,
+    "hs": -0.02305180243050037,
+    "taueff": 1.0017300159209572
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.003504021534346468,
+    2.2587062999788294,
+    0.01199492341722442,
+    0.16073148534193646,
+    0.1195334408726543,
+    0.008381202378284365,
+    0.016583064673413198,
+    0.026898590250299736,
+    0.037420685744607864
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9141,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.2,
+   "chi2_min": 0.010328845553212593,
+   "gof_p_value_5dof": 0.9999994253856513,
+   "best_fit": {
+    "zrei": 11.483832991637827,
+    "ha": 2.137703166916218,
+    "hs": -0.14184245012729843,
+    "taueff": 0.9866120119046822
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.013121834389660783,
+    2.3364392251321973,
+    0.735526173222823,
+    0.010328845553212593,
+    0.10059741261352012,
+    0.033422724422079206,
+    0.029597815969360747,
+    0.05443938118685277,
+    0.09781607858515297
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9814,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.35,
+   "chi2_min": 0.01410421269531676,
+   "gof_p_value_5dof": 0.9999987496437261,
+   "best_fit": {
+    "zrei": 10.527884670209474,
+    "ha": 2.003707481443735,
+    "hs": 0.026241872114590732,
+    "taueff": 0.9938361378522478
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.01410421269531676,
+    0.1199431133273778,
+    1.8682892599113432,
+    0.2708245744569107,
+    0.08038113898341753,
+    0.06089843946554095,
+    0.05645315739863631,
+    0.27299650118942953,
+    0.05834999883118551
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9477,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.6,
+   "chi2_min": 0.006962682390069145,
+   "gof_p_value_5dof": 0.9999997853601106,
+   "best_fit": {
+    "zrei": 9.399882408515595,
+    "ha": 2.296892913520724,
+    "hs": -0.030045226772367383,
+    "taueff": 0.9755891025901512
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.019039331029897858,
+    2.425450232028991,
+    2.213006876785724,
+    0.027829254257543658,
+    0.04565082837490553,
+    11.801618239035236,
+    0.006962682390069145,
+    0.2136016336502966,
+    0.24861940021380755
+   ],
+   "optimizer_residual": 0.012076648639828713,
+   "n_calls": 10368,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -20.0,
+   "f": 0.99,
+   "chi2_min": 0.03481105943453665,
+   "gof_p_value_5dof": 0.9999881219399903,
+   "best_fit": {
+    "zrei": 8.303332729913114,
+    "ha": 2.366662239758306,
+    "hs": -0.01749950433158082,
+    "taueff": 0.9645972813883311
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.060488288148743866,
+    0.07517300821728534,
+    0.12010388435805712,
+    0.03481105943453665,
+    0.055661602707813465,
+    0.07541148538518887,
+    0.28384026120742195,
+    0.13648153623965975,
+    0.5196632238891641
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11660,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.0,
+   "chi2_min": 0.0,
+   "gof_p_value_5dof": 1.0,
+   "best_fit": {
+    "zrei": 10.5,
+    "ha": 2.0,
+    "hs": -3.2526065174565133e-19,
+    "taueff": 1.0
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0,
+    0.11545986543230692,
+    0.03492440963905408,
+    0.09987713538179806,
+    0.13109959823669773,
+    0.568521445309826,
+    0.018366652009227075,
+    0.037790141372985725,
+    0.03421088149307085
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 7797,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.05,
+   "chi2_min": 0.0006168488014907106,
+   "gof_p_value_5dof": 0.9999999994974261,
+   "best_fit": {
+    "zrei": 11.353456697353966,
+    "ha": 1.9449889858421099,
+    "hs": -0.018155572804119897,
+    "taueff": 1.0033661423850868
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0006168488014907106,
+    1.6020800321015098,
+    0.0033381839480890766,
+    0.002651263604668495,
+    0.05387116539794496,
+    0.007892184999054608,
+    0.08339059154289738,
+    0.063605741333982,
+    0.09624601989791666
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11524,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.1,
+   "chi2_min": 0.0023625048904779376,
+   "gof_p_value_5dof": 0.9999999855816962,
+   "best_fit": {
+    "zrei": 11.936355378546248,
+    "ha": 1.9082328449643642,
+    "hs": -0.01921030160402761,
+    "taueff": 1.00606064433973
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.0023625048904779376,
+    1.6098394209752862,
+    0.002708758598665345,
+    0.03342687560085182,
+    0.10095035112350215,
+    0.013108036143130393,
+    0.024028262693017576,
+    0.5715157510946237,
+    0.03574782748497731
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9716,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.2,
+   "chi2_min": 0.007641202695155827,
+   "gof_p_value_5dof": 0.9999997292502548,
+   "best_fit": {
+    "zrei": 11.834647488302014,
+    "ha": 2.124066480428404,
+    "hs": -0.17763972801102149,
+    "taueff": 0.9907557986319488
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.007641202695155827,
+    2.111796358015581,
+    0.009875485821835171,
+    0.008149572935244723,
+    0.008967769897972183,
+    0.021538402959274554,
+    0.06480886804886116,
+    0.035347831360072766,
+    0.11290199401957586
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11473,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.35,
+   "chi2_min": 0.0083608494559532,
+   "gof_p_value_5dof": 0.9999996610168018,
+   "best_fit": {
+    "zrei": 11.64119283107259,
+    "ha": 2.205631198377782,
+    "hs": -0.24026638174096296,
+    "taueff": 0.9848215618091176
+   },
+   "valid_minimum": false,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.013498754506466664,
+    0.09440017006315356,
+    0.02186493935068834,
+    4.958352267505782,
+    0.01833373675864745,
+    0.03127421311014051,
+    0.0083608494559532,
+    0.08896152662263823,
+    0.04276552795866442
+   ],
+   "optimizer_residual": 0.005137905050513463,
+   "n_calls": 12758,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.6,
+   "chi2_min": 0.005326145355048585,
+   "gof_p_value_5dof": 0.9999998900854222,
+   "best_fit": {
+    "zrei": 10.496780563247583,
+    "ha": 1.9486404976943728,
+    "hs": -0.006526984481113782,
+    "taueff": 0.9998994628788923
+   },
+   "valid_minimum": true,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.005326145355048585,
+    0.03117485524987393,
+    0.01944466847782461,
+    0.16614267413979517,
+    0.007152811702505298,
+    3.830013020761386,
+    0.0658927192201732,
+    0.023556953433346548,
+    2.3223509661394406
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 9516,
+   "messages": [],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  },
+  {
+   "m": -19.1,
+   "f": 0.99,
+   "chi2_min": 0.03498146239443637,
+   "gof_p_value_5dof": 0.9999879767766467,
+   "best_fit": {
+    "zrei": 7.312433053884196,
+    "ha": 2.3344183607736606,
+    "hs": 0.029261123550444964,
+    "taueff": 0.9614490213154571
+   },
+   "valid_minimum": false,
+   "at_boundary": false,
+   "taueff_at_prior_box_edge": false,
+   "start_chi2": [
+    0.11645121576360037,
+    0.059683692575403,
+    0.4290335170611862,
+    0.08342554385311192,
+    0.03498146239443637,
+    2.452137302296756,
+    0.29938302900883573,
+    0.04917170366375095,
+    3.1525563314687735
+   ],
+   "optimizer_residual": 0.0,
+   "n_calls": 11828,
+   "messages": [
+    "Minuit did not converge to valid minimum (best of multi-start)"
+   ],
+   "failed": false,
+   "nonfinite_evaluations": 0,
+   "start_nonfinite": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "contour_eligible": true
+  }
+ ],
+ "meta": {
+  "injected": {
+   "m": -22.0,
+   "f": 0.0,
+   "nuisances": [
+    10.5,
+    2.0,
+    0.0,
+    1.0
+   ],
+   "noise_seed": null
+  }
+ }
+}

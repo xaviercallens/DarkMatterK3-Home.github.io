@@ -1,0 +1,317 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
+ "checks": {
+  "S1": {
+   "injected_cell_eligible": true,
+   "injected_is_grid_minimum": true,
+   "chi2_at_injected": 0.0,
+   "pass": true
+  },
+  "S2": {
+   "injected_inside_95_region": [
+    true,
+    true,
+    null,
+    true,
+    true
+   ],
+   "count": 4,
+   "injected_cell_ineligible": 1,
+   "of": 5,
+   "note": "reported, not asserted: expected \u224895 % coverage; 5 draws is not a coverage test"
+  },
+  "S3": {
+   "f0_column_ineligible": 0,
+   "f0_column_spread": 0.0,
+   "null_row_ineligible": 0,
+   "null_row_m_minus_19_1_any_outside_95": false,
+   "pass": true
+  },
+  "S4": {
+   "f0_cells_outside_95": 8,
+   "f0_cells_ineligible": 0,
+   "of": 8,
+   "pass": true
+  }
+ },
+ "optimizer_max_residual_per_sweep": {
+  "S1_noiseless_fdm": 0.0732290506301248,
+  "S2_noisy_fdm_seed1": 1.2964948747455072,
+  "S2_noisy_fdm_seed2": 0.49364053205010805,
+  "S2_noisy_fdm_seed3": 0.7547959028341822,
+  "S2_noisy_fdm_seed4": 0.2738098027299838,
+  "S2_noisy_fdm_seed5": 1.2688660743028253,
+  "S3_noiseless_cdm": 2.4217825391758616,
+  "S4_negative_control_strong_fdm": 18.903196885824173
+ },
+ "convergence_health": {
+  "note": "reported, not asserted \u2014 see the comment in this script. `pass` below does NOT depend on these numbers; a sweep with invalid minima can still report pass.",
+  "per_sweep": {
+   "S1_noiseless_fdm": {
+    "contour_status": "COMPLETE",
+    "ineligible_cells": [],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 10,
+    "invalid_and_not_at_boundary": 5,
+    "invalid_with_zero_optimizer_residual": 7,
+    "max_optimizer_residual": 0.0732290506301248,
+    "cells_with_residual_gt_0p1": 0,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S2_noisy_fdm_seed1": {
+    "contour_status": "WITHHELD \u2014 1 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.5,
+      "f": 0.05,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 36,
+    "invalid_and_not_at_boundary": 20,
+    "invalid_with_zero_optimizer_residual": 12,
+    "max_optimizer_residual": 1.2964948747455072,
+    "cells_with_residual_gt_0p1": 14,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S2_noisy_fdm_seed2": {
+    "contour_status": "WITHHELD \u2014 2 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.9,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -21.0,
+      "f": 0.2,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 26,
+    "invalid_and_not_at_boundary": 21,
+    "invalid_with_zero_optimizer_residual": 18,
+    "max_optimizer_residual": 0.49364053205010805,
+    "cells_with_residual_gt_0p1": 1,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S2_noisy_fdm_seed3": {
+    "contour_status": "WITHHELD \u2014 2 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.0,
+      "f": 0.35,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -19.1,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 28,
+    "invalid_and_not_at_boundary": 2,
+    "invalid_with_zero_optimizer_residual": 17,
+    "max_optimizer_residual": 0.7547959028341822,
+    "cells_with_residual_gt_0p1": 4,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S2_noisy_fdm_seed4": {
+    "contour_status": "WITHHELD \u2014 11 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.9,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -22.5,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -22.0,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -22.0,
+      "f": 0.2,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -21.5,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -21.0,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -21.0,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -20.5,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -20.0,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -20.0,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     },
+     {
+      "m": -19.1,
+      "f": 0.0,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 23
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 20,
+    "invalid_and_not_at_boundary": 5,
+    "invalid_with_zero_optimizer_residual": 17,
+    "max_optimizer_residual": 0.2738098027299838,
+    "cells_with_residual_gt_0p1": 3,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S2_noisy_fdm_seed5": {
+    "contour_status": "WITHHELD \u2014 4 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.0,
+      "f": 0.1,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -22.0,
+      "f": 0.2,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -21.0,
+      "f": 0.2,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -20.5,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 29
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 23,
+    "invalid_and_not_at_boundary": 14,
+    "invalid_with_zero_optimizer_residual": 9,
+    "max_optimizer_residual": 1.2688660743028253,
+    "cells_with_residual_gt_0p1": 11,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S3_noiseless_cdm": {
+    "contour_status": "WITHHELD \u2014 1 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -20.5,
+      "f": 0.35,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 13,
+    "invalid_and_not_at_boundary": 5,
+    "invalid_with_zero_optimizer_residual": 11,
+    "max_optimizer_residual": 2.4217825391758616,
+    "cells_with_residual_gt_0p1": 2,
+    "taueff_at_prior_box_edge": 0
+   },
+   "S4_negative_control_strong_fdm": {
+    "contour_status": "WITHHELD \u2014 5 cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); no contour may be drawn from this sweep until T0 rules on ineligible cells (briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)",
+    "ineligible_cells": [
+     {
+      "m": -22.5,
+      "f": 0.35,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -22.5,
+      "f": 0.99,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -21.5,
+      "f": 0.2,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -21.0,
+      "f": 0.6,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 17
+     },
+     {
+      "m": -20.5,
+      "f": 0.05,
+      "reason": "nonfinite_nuisance_guard",
+      "detail": 35
+     }
+    ],
+    "all_minima_valid": false,
+    "cells": 56,
+    "invalid_minima": 21,
+    "invalid_and_not_at_boundary": 0,
+    "invalid_with_zero_optimizer_residual": 8,
+    "max_optimizer_residual": 18.903196885824173,
+    "cells_with_residual_gt_0p1": 4,
+    "taueff_at_prior_box_edge": 0
+   }
+  }
+ },
+ "pass": true,
+ "pass_covers": [
+  "S1",
+  "S3",
+  "S4"
+ ]
+}

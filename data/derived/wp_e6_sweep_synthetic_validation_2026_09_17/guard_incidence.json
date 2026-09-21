@@ -1,0 +1,85 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
+ "question": "How often does the non-finite-nuisance guard fire, and what would a less conservative eligibility rule change?",
+ "total_cells": 448,
+ "total_ineligible": 26,
+ "sweeps_withheld": 7,
+ "sweeps": 8,
+ "ineligible_cells_whose_retained_minimum_came_from_a_clean_start": 25,
+ "guard_count_histogram": {
+  "17": 13,
+  "23": 11,
+  "29": 1,
+  "35": 1
+ },
+ "guard_fired_by_start_index_cells": {
+  "1": 1,
+  "2": 2,
+  "3": 2,
+  "4": 3,
+  "5": 2,
+  "6": 12,
+  "7": 1,
+  "8": 2,
+  "9": 1
+ },
+ "per_sweep": {
+  "S1_noiseless_fdm": {
+   "cells": 56,
+   "ineligible": 0,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 0,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S2_noisy_fdm_seed1": {
+   "cells": 56,
+   "ineligible": 1,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 0,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S2_noisy_fdm_seed2": {
+   "cells": 56,
+   "ineligible": 2,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 2,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S2_noisy_fdm_seed3": {
+   "cells": 56,
+   "ineligible": 2,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 2,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S2_noisy_fdm_seed4": {
+   "cells": 56,
+   "ineligible": 11,
+   "ineligible_in_f0_column": 8,
+   "retained_minimum_from_a_clean_start": 11,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S2_noisy_fdm_seed5": {
+   "cells": 56,
+   "ineligible": 4,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 4,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S3_noiseless_cdm": {
+   "cells": 56,
+   "ineligible": 1,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 1,
+   "reference_minimum_changes_if_all_cells_kept": false
+  },
+  "S4_negative_control_strong_fdm": {
+   "cells": 56,
+   "ineligible": 5,
+   "ineligible_in_f0_column": 0,
+   "retained_minimum_from_a_clean_start": 5,
+   "reference_minimum_changes_if_all_cells_kept": false
+  }
+ },
+ "not_decided_here": "whether an ineligible cell may contribute to a contour. 'Rule B' (keep a cell whose retained minimum came from a start with zero guarded evaluations) is MEASURED here, not adopted."
+}

@@ -1,7 +1,7 @@
 {
  "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
  "mode": "synthetic",
- "generated_utc": "2026-09-21T14:39:40.778493+00:00",
+ "generated_utc": "2026-09-17T17:30:17.464840+00:00",
  "pins": [
   "briefs/PREDICTION_V2_AMENDMENT_DRAFT_2026_07_29.md",
   "briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md",
@@ -266,9 +266,6 @@
   "chi2_min": 0.0
  },
  "all_minima_valid": false,
- "contour_status": "COMPLETE",
- "ineligible_cells": [],
- "eligibility_note": "grids carry null for ineligible cells; the reference minimum and every inside/outside verdict use eligible cells only. Most conservative setting, chosen so the implementation decides no acceptance rule (T0 ruling R2, 2026-09-21).",
  "cells": [
   {
    "m": -22.9,
@@ -299,21 +296,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.9,
@@ -342,21 +325,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 8241,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.9,
@@ -385,21 +354,7 @@
    ],
    "optimizer_residual": 0.03559269739676152,
    "n_calls": 9702,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.9,
@@ -430,21 +385,7 @@
    "n_calls": 12754,
    "messages": [
     "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.9,
@@ -476,21 +417,7 @@
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)",
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.9,
@@ -522,21 +449,7 @@
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)",
     "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.9,
@@ -567,21 +480,7 @@
    "n_calls": 14241,
    "messages": [
     "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -612,21 +511,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -655,21 +540,7 @@
    ],
    "optimizer_residual": 0.01816335307488451,
    "n_calls": 10736,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.5,
@@ -700,21 +571,7 @@
    "n_calls": 9337,
    "messages": [
     "Nuisance parameters at boundary: zrei. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -745,21 +602,7 @@
    "n_calls": 12144,
    "messages": [
     "Nuisance parameters at boundary: zrei. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -790,21 +633,7 @@
    "n_calls": 13344,
    "messages": [
     "Nuisance parameters at boundary: zrei, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -836,21 +665,7 @@
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)",
     "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.5,
@@ -881,21 +696,7 @@
    "n_calls": 16639,
    "messages": [
     "Nuisance parameters at boundary: zrei, ha, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.0,
@@ -926,21 +727,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.0,
@@ -971,21 +758,7 @@
    "n_calls": 12553,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.0,
@@ -1016,21 +789,7 @@
    "n_calls": 15673,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -22.0,
@@ -1059,21 +818,7 @@
    ],
    "optimizer_residual": 0.0032920143714635364,
    "n_calls": 7031,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.0,
@@ -1102,21 +847,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 11959,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.0,
@@ -1145,21 +876,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 8422,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -22.0,
@@ -1190,21 +907,7 @@
    "n_calls": 15180,
    "messages": [
     "Nuisance parameters at boundary: zrei, ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.5,
@@ -1235,21 +938,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.5,
@@ -1278,21 +967,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 11008,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.5,
@@ -1321,21 +996,7 @@
    ],
    "optimizer_residual": 0.003865067760110419,
    "n_calls": 11128,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.5,
@@ -1366,21 +1027,7 @@
    "n_calls": 10401,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.5,
@@ -1411,21 +1058,7 @@
    "n_calls": 10247,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.5,
@@ -1454,21 +1087,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 9706,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.5,
@@ -1499,21 +1118,7 @@
    "n_calls": 7137,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.0,
@@ -1544,21 +1149,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.0,
@@ -1589,21 +1180,7 @@
    "n_calls": 9363,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.0,
@@ -1632,21 +1209,7 @@
    ],
    "optimizer_residual": 0.011511764533350621,
    "n_calls": 9037,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.0,
@@ -1675,21 +1238,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 12544,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.0,
@@ -1718,21 +1267,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 10787,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -21.0,
@@ -1763,21 +1298,7 @@
    "n_calls": 9621,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -21.0,
@@ -1808,21 +1329,7 @@
    "n_calls": 13215,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.5,
@@ -1853,21 +1360,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.5,
@@ -1899,21 +1392,7 @@
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)",
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.5,
@@ -1942,21 +1421,7 @@
    ],
    "optimizer_residual": 0.0651263528343985,
    "n_calls": 11527,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -20.5,
@@ -1987,21 +1452,7 @@
    "n_calls": 12509,
    "messages": [
     "Nuisance parameters at boundary: ha. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.5,
@@ -2030,21 +1481,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 11607,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -20.5,
@@ -2075,21 +1512,7 @@
    "n_calls": 12962,
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)"
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.5,
@@ -2118,21 +1541,7 @@
    ],
    "optimizer_residual": 0.009914346970487542,
    "n_calls": 10457,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -20.0,
@@ -2163,21 +1572,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.0,
@@ -2206,21 +1601,7 @@
    ],
    "optimizer_residual": 0.00826620967432623,
    "n_calls": 9485,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -20.0,
@@ -2251,21 +1632,7 @@
    "n_calls": 9799,
    "messages": [
     "Nuisance parameters at boundary: ha, hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.0,
@@ -2296,21 +1663,7 @@
    "n_calls": 10428,
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)"
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.0,
@@ -2341,21 +1694,7 @@
    "n_calls": 12538,
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)"
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -20.0,
@@ -2384,21 +1723,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 10724,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -20.0,
@@ -2427,21 +1752,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 8908,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -19.1,
@@ -2472,21 +1783,7 @@
    "n_calls": 11549,
    "messages": [
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -19.1,
@@ -2517,21 +1814,7 @@
    "n_calls": 12094,
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)"
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -19.1,
@@ -2560,21 +1843,7 @@
    ],
    "optimizer_residual": 0.0013275333134279421,
    "n_calls": 6722,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -19.1,
@@ -2603,21 +1872,7 @@
    ],
    "optimizer_residual": 0.0,
    "n_calls": 10002,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   },
   {
    "m": -19.1,
@@ -2649,21 +1904,7 @@
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)",
     "Nuisance parameters at boundary: hs. Interior minimization may be unreliable."
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -19.1,
@@ -2694,21 +1935,7 @@
    "n_calls": 10232,
    "messages": [
     "Minuit did not converge to valid minimum (best of multi-start)"
-   ],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   ]
   },
   {
    "m": -19.1,
@@ -2737,21 +1964,7 @@
    ],
    "optimizer_residual": 0.0732290506301248,
    "n_calls": 10831,
-   "messages": [],
-   "failed": false,
-   "nonfinite_evaluations": 0,
-   "start_nonfinite": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "contour_eligible": true
+   "messages": []
   }
  ],
  "meta": {

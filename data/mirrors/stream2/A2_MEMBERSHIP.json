@@ -1,14 +1,14 @@
 {
  "certificate": "A2_MEMBERSHIP",
  "checker": "checkers/check_A2_membership.py",
- "checker_version": "f091e43",
+ "checker_version": "b344c73",
  "checker_commit_state": {
-  "head": "f091e43",
+  "head": "b344c73",
   "code_files_not_as_in_head": [],
-  "label": "f091e43"
+  "label": "b344c73"
  },
  "date": "2026-09-21",
- "status": "RECORD, NOT A GATE. The rho = 20 cut is not adopted by the program (open T0 decision). K3_CRITERIA.md unchanged. No scoring. cooper_s10 advisory (lattice certificate DRAFT).",
+ "status": "RECORD, NOT A GATE. The rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md), read narrowly: no ranking of candidates, no minimum-|D| rule, no physical reading. K3_CRITERIA.md unchanged. No scoring. cooper_s10 advisory (lattice certificate DRAFT).",
  "claim": "Tier B: T_7 = U+<14> contains a primitive v with v^perp isometric to A2, so -- within the cited framework -- the M_7-polarized family (Dolgachev moduli space X_0(7)+), of which cooper_s7 is the period operator, contains a point whose transcendental lattice is A2; in the s7 coordinate that point is z = infinity (relation PASS(40) + Tier B numeric recognition), a singular point of L3, and the explicit projective model is not examined there (see not_claimed). T_10 = U+<20> contains no such v (exact congruence over all v), so the M_10-polarized family as the DRAFT cooper_s10 lattice certificate records it does not.",
  "tier": "B",
  "headline": {
@@ -81,9 +81,9 @@
  },
  "inputs": {
   "sha256": {
-   "checkers/check_A2_membership.py": "f4a0dd0ec88f9393d8ef53da1205f4534d048da90e1c4d29289d3664fd835955",
+   "checkers/check_A2_membership.py": "9ff27e8904bb5363c1e4fa02c516dceba9e8e1ead6d0ff645c7361e156f492cc",
    "checkers/check_C1_mirror_integrality.py": "320d0de61a0a70dfa3e730178154b92d33fdf12a0d293b6f99a2dae94f7f07e7",
-   "checkers/check_CM_points_rho20.py": "f7dd388f53454d7e4e32ff552a4c3e3d62429390f6a6bd529fa5529449a7e62c",
+   "checkers/check_CM_points_rho20.py": "66ef850b7b4b44cae7fe6dc9c5b6fefc9e21ca18402919daec4e05a48636a8e2",
    "checkers/check_T3_level_consistency.py": "62db82b635a863170199b7fba2ba39462ecd123593a6f7f38ff044ce3cffd296",
    "checkers/check_s10_hauptmodul_gamma010star.py": "3f8d034460d7d5b310cca0448bda9e8ebf44f8b50164a68651dc88e411fcc995",
    "checkers/check_s7_hauptmodul_gamma07plus.py": "ddc3a34f7d97cef1f767d03717f566338c8580042c938c42365ef1d8110363ab",
@@ -91,16 +91,16 @@
    "data/certificates/C1_L3_cooper_s7.json": "c9d82f76bef8eee279ce91540a2b7cfddd98d79965162e8598b29aee458edbfc",
    "data/certificates/C2_cooper_s10_v4_DRAFT.json": "3558343b84751a0682cadc985a76272b50d7bc98b0f2d0f44a9c46edf9ae57ac",
    "data/certificates/C2_cooper_s7_v5.json": "54565d3919f1bd5592618e8fd1cbfe7d807a29d010d99c308641bc5d253730f3",
-   "data/certificates/CM_POINTS_RHO20.json": "328add3fb9864bc09ab20d050c73d36c7fb71d514eab138a8a8fc1feff4e625d",
+   "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
    "data/certificates/HAUPTMODUL_S10_GAMMA010STAR.json": "8cd79878b7d4828c44ef15e4881b2cf35a1344ded9057b3dd20458da5aca1e40",
    "data/certificates/HAUPTMODUL_S7_GAMMA07PLUS.json": "c1f7bb0798eac4a3eac5aced9f535c3826444bd3bbd33592f4460b2cc73adcc1",
    "data/certificates/L3_RIEMANN_SCHEME.json": "b15dc064214b55685c892ac6de7fd751b72945b97defad9f151cf8c8007bf151",
-   "docs/literature/MANIFEST.md": "701ad5dd37c1b54a481c39de0677b3a8281da4f24ad4357fc12e466a7cc667a6",
+   "docs/literature/MANIFEST.md": "400358928ce01647fecf0ebb9135d4b03c744216054fa12a724c520cf5815d60",
    "refs/recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76"
   }
  },
  "not_claimed": [
-  "that rho = 20 is a selection criterion of the program: the rho = 20 cut is NOT adopted; adopting it is an open T0 decision, and nothing here scores, ranks or prefers a candidate or a member of a family",
+  "that this certificate scores, ranks or prefers a candidate or a member of a family: the rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md) and is read narrowly - the adoption carries no ranking of s7 over s10 and no minimum-|D| rule, so 'A2 is in the s7 family and not in the s10 family' stays a lattice fact, not a preference",
   "that agreement between the binary-form route and the modular route corroborates anything: LeanMaster docs/STREAM8_WHICH_K3.md sec G10 (read as source) states that the binary-form enumeration and the modular side are the same computation in two languages (Shioda-Inose), so their agreement is forced, not corroboration. The Heegner congruence and the lattice enumeration of this checker agree for the same reason",
   "that the step from 'v in T_n, v.omega = 0' to 'a member of the family has rho = 20 and T_X = v^perp' is proved here: it is the cited framework (Dolgachev 1996 sec 7, read and pinned; Lefschetz (1,1), standard, not among the pinned statements). Tier B. The checker computes the lattice side only",
   "that the explicit Almkvist-van Straten geometric family has a smooth fibre at the point found: for n = 7 the A2 point is z = infinity, which is a regular singular point of L3 (exponent denominators 3 in L3_RIEMANN_SCHEME.json) and an order-3 elliptic point of Gamma_0(7) (one of two, tau = (+-5 + i sqrt 3)/14, which the Fricke involution swaps, so THE order-3 point of X_0(7)+). What is established is a point of the period domain, not a fibre of a specific projective model",
