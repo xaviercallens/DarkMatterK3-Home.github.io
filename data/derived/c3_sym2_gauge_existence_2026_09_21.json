@@ -1,0 +1,256 @@
+{
+  "artifact": "c3_sym2_gauge_existence",
+  "date": "2026-09-21",
+  "label": "MATH-EXISTENCE \u2014 projective/gauge equivalence only; not a C3 verdict, not exclusion, not FIT, not TEST",
+  "question": "Does an order-2 L2 with L3 = Sym^2(L2) exist in ANY gauge for the K3_CRITERIA register primaries, and can C3 discriminate within their family?",
+  "derivations_executed_at_runtime": {
+    "D1_sym2_of_order2": "Sym^2(d^2 + r) = d^3 + 4 r d + 2 r'",
+    "D1_verified": true,
+    "D1_detail": "residual = 0",
+    "D3_test_is_2Q_minus_Pprime": true,
+    "D3_detail": "L*+L - (2Q-P')f = 0"
+  },
+  "headline_family_identity": {
+    "statement": "For the AZ/Cooper shape th^3 - z(2th+1)(a th^2 + a th + b) + z^2(c(th+1)^3 + d(th+1)), 2Q - P' vanishes IDENTICALLY in the symbolic parameters (a, b, c, d).",
+    "holds": true,
+    "defect": "0",
+    "consequence_1": "An order-2 L2 exists for every member, including s7 and s10; branch (iii) of the audit sec.3 is EXCLUDED.",
+    "consequence_2": "C3 has NO discriminating power inside this family \u2014 every member satisfies it by the shape of the recurrence. C3 cannot rank or separate register candidates drawn from it."
+  },
+  "scope_limits": [
+    "Tests projective (gauge) equivalence in the variable z, NOT C3's equality in a fixed normalization. SYM2_EXISTS_UP_TO_GAUGE is not a C3 pass.",
+    "'Anti-self-adjoint <=> symmetric square' requires L3 irreducible. Irreducibility is NOT checked here and is not claimed.",
+    "Integrality of the exhibited L2's sequence is a separate question and is not addressed; the s10 partner (6,25,2) is known non-integral at n = 1."
+  ],
+  "candidates": {
+    "delta": {
+      "label": "delta",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(6561*z**4 - 1620*z**3 + 150*z**2 - 20*z + 1)/(6561*z**6 - 2268*z**5 + 358*z**4 - 28*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(6561*z**4 - 1620*z**3 + 150*z**2 - 20*z + 1)/(26244*z**6 - 9072*z**5 + 1432*z**4 - 112*z**3 + 4*z**2)",
+      "order3_abcd": [
+        7,
+        3,
+        81,
+        0
+      ]
+    },
+    "zeta": {
+      "label": "zeta",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(729*z**4 + 648*z**3 + 378*z**2 - 24*z + 1)/(729*z**6 + 972*z**5 + 270*z**4 - 36*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(729*z**4 + 648*z**3 + 378*z**2 - 24*z + 1)/(2916*z**6 + 3888*z**5 + 1080*z**4 - 144*z**3 + 4*z**2)",
+      "order3_abcd": [
+        9,
+        3,
+        -27,
+        0
+      ]
+    },
+    "alpha": {
+      "label": "alpha",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(4096*z**4 - 1792*z**3 + 396*z**2 - 28*z + 1)/(4096*z**6 - 2560*z**5 + 528*z**4 - 40*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(4096*z**4 - 1792*z**3 + 396*z**2 - 28*z + 1)/(16384*z**6 - 10240*z**5 + 2112*z**4 - 160*z**3 + 4*z**2)",
+      "order3_abcd": [
+        10,
+        4,
+        64,
+        0
+      ]
+    },
+    "eta": {
+      "label": "eta",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(15625*z**4 - 4000*z**3 + 458*z**2 - 32*z + 1)/(15625*z**6 - 5500*z**5 + 734*z**4 - 44*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(15625*z**4 - 4000*z**3 + 458*z**2 - 32*z + 1)/(62500*z**6 - 22000*z**5 + 2936*z**4 - 176*z**3 + 4*z**2)",
+      "order3_abcd": [
+        11,
+        5,
+        125,
+        0
+      ]
+    },
+    "epsilon": {
+      "label": "epsilon",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(256*z**4 - 512*z**3 + 608*z**2 - 32*z + 1)/(256*z**6 - 768*z**5 + 608*z**4 - 48*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(256*z**4 - 512*z**3 + 608*z**2 - 32*z + 1)/(1024*z**6 - 3072*z**5 + 2432*z**4 - 192*z**3 + 4*z**2)",
+      "order3_abcd": [
+        12,
+        4,
+        16,
+        0
+      ]
+    },
+    "gamma": {
+      "label": "gamma",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(z**4 - 44*z**3 + 1206*z**2 - 44*z + 1)/(z**6 - 68*z**5 + 1158*z**4 - 68*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(z**4 - 44*z**3 + 1206*z**2 - 44*z + 1)/(4*z**6 - 272*z**5 + 4632*z**4 - 272*z**3 + 4*z**2)",
+      "order3_abcd": [
+        17,
+        5,
+        1,
+        0
+      ]
+    },
+    "s7": {
+      "label": "s7",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(648*z**4 + 840*z**3 + 745*z**2 - 34*z + 1)/(729*z**6 + 1404*z**5 + 622*z**4 - 52*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(648*z**4 + 840*z**3 + 745*z**2 - 34*z + 1)/(2916*z**6 + 5616*z**5 + 2488*z**4 - 208*z**3 + 4*z**2)",
+      "order3_abcd": [
+        13,
+        4,
+        -27,
+        3
+      ]
+    },
+    "s10": {
+      "label": "s10",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(3840*z**4 + 976*z**3 + 224*z**2 - 16*z + 1)/(4096*z**6 + 1536*z**5 + 16*z**4 - 24*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(3840*z**4 + 976*z**3 + 224*z**2 - 16*z + 1)/(16384*z**6 + 6144*z**5 + 64*z**4 - 96*z**3 + 4*z**2)",
+      "order3_abcd": [
+        6,
+        2,
+        -64,
+        4
+      ]
+    },
+    "s18": {
+      "label": "s18",
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "defect_2Q_minus_Pprime": "0",
+      "P": "(34560*z**4 - 7344*z**3 + 720*z**2 - 40*z + 1)/(36864*z**6 - 10752*z**5 + 1168*z**4 - 56*z**3 + z**2)",
+      "exhibited_r_for_L2_dd_plus_r": "(34560*z**4 - 7344*z**3 + 720*z**2 - 40*z + 1)/(147456*z**6 - 43008*z**5 + 4672*z**4 - 224*z**3 + 4*z**2)",
+      "order3_abcd": [
+        14,
+        6,
+        192,
+        -12
+      ]
+    }
+  },
+  "register_primaries": {
+    "s7": {
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "exhibited_r": "(648*z**4 + 840*z**3 + 745*z**2 - 34*z + 1)/(2916*z**6 + 5616*z**5 + 2488*z**4 - 208*z**3 + 4*z**2)"
+    },
+    "s10": {
+      "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+      "exhibited_r": "(3840*z**4 + 976*z**3 + 224*z**2 - 16*z + 1)/(16384*z**6 + 6144*z**5 + 64*z**4 - 96*z**3 + 4*z**2)"
+    }
+  },
+  "order2_partner_coordinate_note": {
+    "P_over_4_vs_zagier_R": {
+      "A<->delta": {
+        "P_over_4_equals_R": false
+      },
+      "B<->zeta": {
+        "P_over_4_equals_R": false
+      },
+      "C<->alpha": {
+        "P_over_4_equals_R": false
+      },
+      "D<->eta": {
+        "P_over_4_equals_R": false
+      },
+      "E<->epsilon": {
+        "P_over_4_equals_R": false
+      },
+      "F<->gamma": {
+        "P_over_4_equals_R": false
+      }
+    },
+    "explanation": "A non-match is EXPECTED, not a defect: the Gorodetsky C3 identity carries the change of variable w = -x/(1 - A x + B x^2), so the Zagier L2 lives in the w coordinate while P/4 lives in z. Being a symmetric square is invariant under change of variable."
+  },
+  "negative_control_NC0_operator_annihilates_own_series": {
+    "pass": true,
+    "detail": {
+      "delta": true,
+      "zeta": true,
+      "alpha": true,
+      "eta": true,
+      "epsilon": true,
+      "gamma": true,
+      "s7": true,
+      "s10": true,
+      "s18": true
+    }
+  },
+  "negative_control_NC1_shape_breaks_the_identity": {
+    "pass": true,
+    "detail": {
+      "c_theta_cubed_instead_of_theta_plus_1_cubed": {
+        "verdict": "NO_SYM2_IN_ANY_GAUGE",
+        "breaks": true
+      },
+      "drop_the_2theta_plus_1_factor": {
+        "verdict": "NO_SYM2_IN_ANY_GAUGE",
+        "breaks": true
+      }
+    }
+  },
+  "negative_control_NC2_off_family_detected": {
+    "pass": true,
+    "detail": {
+      "d3 + z d + 1": {
+        "verdict": "NO_SYM2_IN_ANY_GAUGE",
+        "detects": true
+      },
+      "d3 + d2 + d + z": {
+        "verdict": "NO_SYM2_IN_ANY_GAUGE",
+        "detects": true
+      },
+      "d3 + z d + z^2": {
+        "verdict": "NO_SYM2_IN_ANY_GAUGE",
+        "detects": true
+      }
+    }
+  },
+  "negative_control_NC3_known_good_families": {
+    "pass": true,
+    "detail": {
+      "alpha": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": "C3_sym2_C_alpha.json",
+        "ok": true
+      },
+      "delta": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": "C3_sym2_A_delta.json",
+        "ok": true
+      },
+      "epsilon": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": null,
+        "ok": true
+      },
+      "eta": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": "C3_sym2_D_eta.json",
+        "ok": true
+      },
+      "gamma": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": null,
+        "ok": true
+      },
+      "zeta": {
+        "verdict": "SYM2_EXISTS_UP_TO_GAUGE",
+        "committed_certificate": null,
+        "ok": true
+      }
+    }
+  }
+}

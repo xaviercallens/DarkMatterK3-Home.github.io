@@ -20,9 +20,10 @@ added condition ρ = 20 the classification would instead be finite, with a small
 T_S = A₂ at discriminant −3 (§4.2). That condition is the fork worth a T0 decision, and the
 register's primary candidates sit on the other branch of it (ρ = 19, Tier B).
 
-Two gaps found while checking this, both recorded below and neither previously filed: criterion C3
-cannot be run on either register primary with the committed checker (§3), and the one Lean statement
-that names a Cooper candidate is vacuous (§5).
+Three gaps found while checking this, none previously filed: criterion C3 cannot be run on either
+register primary with the committed checker (§3); C3 is in any case satisfied by every member of that
+family by the shape of the recurrence, so it cannot select among candidates (§3.1); and the one Lean
+statement that names a Cooper candidate is vacuous (§5).
 
 ## 1. A DESI sweep is candidate-blind — checked, not argued
 
@@ -92,8 +93,14 @@ exists for these candidates at all.** Branch (iii) is not a gap: `K3_CRITERIA.md
 "an explicitly exhibited order-2 operator L₂", so no such L₂ is a C3 failure, whose stated
 consequence is **F1 removal for the dual-scale role**. Since DR-4 records "s10 stays primary", branch
 (iii) is a live path to removing the primary candidate, and it is named here so that T0 sees it rather
-than inferring it from an omission. Stream 3 takes no position on which branch holds; distinguishing
-them is Stream 2 mathematics, not a computation this repo can run.
+than inferring it from an omission.
+
+> **Correction note, 2026-09-21 (same day, F6 in-band).** This section first read: "Stream 3 takes no
+> position on which branch holds; distinguishing them is Stream 2 mathematics, not a computation this
+> repo can run." **The second clause was wrong.** The existence question is exactly computable here,
+> by exact symbolic arithmetic, and §3.1 now resolves it. The original sentence is preserved in this
+> note rather than silently rewritten. What remains Stream 2's is the normalization and integrality
+> question, not the existence question.
 
 Feeding either primary to the committed checker would be a test that *cannot pass* — the mirror image
 of the "test that cannot fail" class this repo has caught five times. A `FAIL` certificate from it
@@ -109,6 +116,58 @@ for a C3 claim. Accordingly the artifact is written to `data/derived/`, **not** 
   sporadic families come out APPLICABLE and reproduce the committed `ORDER2_ZAGIER` parameters
   exactly; **NC-2** mutating d: 0 → 1 on each known-good family flips it to INAPPLICABLE. NC-1 guards
   against a wrong inverse bijection; NC-2 against a script that calls everything inapplicable.
+
+### 3.1 Branch (iii) is excluded — and C3 cannot discriminate inside this family
+
+Resolved 2026-09-21 by exact symbolic computation. An order-3 operator in projective normal form
+`u''' + P u' + Q u` is the symmetric square of a second-order operator exactly when it is
+anti-self-adjoint, i.e. when `2Q − P′` vanishes. Both ingredients are **derived at run time**, not
+cited: `Sym²(∂² + r) = ∂³ + 4r∂ + 2r′` is obtained by substituting a generic product of solutions of
+`y″ = −ry` (residual 0), and the adjoint condition is obtained by building the formal adjoint
+symbolically. The normal form itself is produced by executing the `y = w·u` substitution with
+`w′/w = −p₂/3` and reading off P and Q, so no classical closed form is typed in (VISION §6.1).
+
+**The result is stronger than a per-candidate verdict: `2Q − P′` vanishes identically in the symbolic
+parameters (a, b, c, d) of the AZ/Cooper shape** `θ³ − z(2θ+1)(aθ²+aθ+b) + z²(c(θ+1)³ + d(θ+1))`.
+Two consequences:
+
+1. **Branch (iii) is excluded.** An order-2 L₂ exists for s7 and s10 — and for every member of the
+   family — exhibited as `∂² + P/4`. So the missing C3 certificates are branch (i)/(ii): an L₂ exists
+   and the committed checker's d = 0 normalization cannot see it. **No candidate is removed by C3 on
+   existence grounds.**
+2. **C3 has no discriminating power inside this family.** Every member satisfies the symmetric-square
+   property by the *shape* of the recurrence, independently of (a, b, c, d). A criterion that every
+   candidate passes by construction cannot rank or separate them. This is a finding about the
+   criterion, not about any candidate, and it bears directly on the `K3_CRITERIA.md` freeze: C3 can
+   serve as a well-formedness check on the family, but not as a selector within it. It agrees from an
+   independent direction with the sandbox R2 result that ODE order 3 alone does not make a sequence
+   K3-type.
+
+- Script: `scripts/c3_sym2_gauge_existence_2026_09_21.py` · Artifact:
+  `data/derived/c3_sym2_gauge_existence_2026_09_21.json`
+- Label: `MATH-EXISTENCE` — gauge equivalence only; not a C3 verdict, not exclusion, not FIT, not TEST
+- Verdict vocabulary is `SYM2_EXISTS_UP_TO_GAUGE` / `NO_SYM2_IN_ANY_GAUGE`, never PASS/FAIL, because
+  the two directions are not symmetric: a nonzero defect would be decisive, whereas vanishing only
+  **excludes** branch (iii) and is *not* a C3 pass — C3 requires equality in a fixed normalization,
+  and the exhibited L₂'s integrality is a separate question already known to fail for the s10
+  partner (6, 25, 2) at n = 1.
+- Four enforced controls, all passing: **NC-0** the reconstructed operator annihilates each
+  candidate's own committed power series, validating the θ → ∂/∂z conversion; **NC-1** breaking the
+  shape two ways (`c(θ+1)³ → cθ³`, and dropping the `(2θ+1)` factor) makes the defect nonzero, so the
+  family-wide vanishing is a property of the recurrence shape and not of the normal-form code;
+  **NC-2** off-family operators with a hand-computed nonzero defect (e.g. `∂³ + z∂ + 1`, where
+  `2Q − P′ = 1`) are correctly reported `NO_SYM2_IN_ANY_GAUGE`, so the criterion is falsifiable;
+  **NC-3** the six d = 0 families come out `SYM2_EXISTS_UP_TO_GAUGE`, consistent with the three
+  committed `C3_sym2_*.json` certificates.
+- **Documented expected non-match.** `P/4` does not equal the projective normal form R of the Zagier
+  order-2 partner. This is expected rather than a defect, and is recorded in the artifact: the
+  Gorodetsky identity carries the change of variable `w = −x/(1 − Ax + Bx²)`, so the Zagier L₂ lives
+  in the w coordinate while `P/4` lives in z. Being a symmetric square is invariant under change of
+  variable, so both readings stand. An earlier draft of this check treated the non-match as a control
+  failure; that was a wrong expectation on Stream 3's part, not a defect in either operator.
+- **Scope limit, stated rather than buried.** "Anti-self-adjoint ⟺ symmetric square" requires L₃
+  irreducible. Irreducibility is **not** checked here and is not claimed; for a reducible L₃ the
+  reading can degenerate.
 
 ## 4. What the arithmetic route already answers (Tier A, Stream 1)
 
@@ -185,8 +244,13 @@ Routed, with the owner each already has in the record:
    frozen on the C3 axis — which independently blocks C3b, since C3b is defined only for candidates
    that have cleared C3. **If the answer is that no order-2 L₂ exists (§3 branch iii), that is a C3
    failure and not a gap, and C3's own stated consequence — F1 removal for the dual-scale role —
-   falls due on the primary candidate.** Stream 2 should return which branch holds, not only whether
-   an identity is coded.
+   falls due on the primary candidate.** — **Superseded the same day by §3.1: branch (iii) is
+   excluded, so no candidate is removed by C3 on existence grounds, and this item is rescoped.**
+   What remains for Stream 2 is narrower and purely about normalization: the exhibited L₂ is
+   `∂² + P/4` in the projective normal form, so the open question is whether it can be brought to
+   C3's fixed normalization and whether its associated sequence is integral — which for the s10
+   partner (6, 25, 2) already fails at n = 1. Stream 2 should also record, for the freeze, that C3 is
+   satisfied by every member of the family by construction and so cannot serve as a selector (§3.1).
 3. **T0 — disambiguate the two `L₃ = Sym²(L₂)` statements in the ledger.** Ledger item 1 licenses
    that string as Tier A fact. What is kernel-proven under it is the **lattice** bridge: `sym2` is a
    3×3 integer matrix, `G0` is the discriminant form b² − 4ac, and the content is the SL(2) → SO(2,1)
@@ -207,7 +271,9 @@ Routed, with the owner each already has in the record:
 
 ## 7. What this brief does not claim
 
-- It does not claim s7 or s10 fails C3. The criterion was not run; it is not runnable (§3).
+- It does not claim s7 or s10 fails C3. The criterion was not run; it is not runnable as committed
+  (§3). Nor does it claim either passes C3: §3.1 establishes only that an order-2 L₂ exists up to
+  gauge, which excludes branch (iii) and is not a pass in C3's fixed normalization.
 - It does not claim ρ = 19 is wrong for cooper_s7. That value is Tier B and stands as recorded.
 - It does not claim the K3 has been identified. On the ρ = 20 branch a smallest case exists
   (T_S = A₂); connecting that to this program's register is unstarted work, and no physical

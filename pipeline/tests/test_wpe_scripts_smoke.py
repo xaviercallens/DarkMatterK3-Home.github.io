@@ -29,7 +29,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPTS = REPO_ROOT / "scripts"
 WPE_SCRIPTS = ["wpe_preflight_baseline.py", "wpe_closure_tests.py",
                "wpe_transverse_sweep.py",
-               "c3_normalization_applicability_2026_09_21.py"]
+               "c3_normalization_applicability_2026_09_21.py",
+               "c3_sym2_gauge_existence_2026_09_21.py"]
 
 
 def _load(script_name):
@@ -196,3 +197,61 @@ def test_c3_applicability_never_emits_a_c3_certificate():
     assert mod.OUT.parts[-2:][0] == "derived"
     for name in ("s7", "s10"):
         assert mod.applicability(name, mod.ORDER3_AZ_COOPER[name])["verdict"] != "FAIL"
+
+
+# ---------------------------------------------------------------------------
+# C3 Sym^2 gauge existence (2026-09-21). Same rule: the script's `Verified-by:`
+# footer cites five controls, so the controls must run somewhere other than a
+# hand invocation.
+# ---------------------------------------------------------------------------
+C3_GAUGE = "c3_sym2_gauge_existence_2026_09_21.py"
+
+
+def test_c3_gauge_existence_all_controls_run_for_real():
+    """main() returns 0 only if D1, D3, the family identity and NC-0..NC-3 all hold."""
+    pytest.importorskip("sympy")
+    mod = _load(C3_GAUGE)
+    assert mod.main() == 0, "a derivation or negative control failed inside the script"
+
+
+def test_c3_gauge_criterion_can_say_no():
+    """The criterion must be falsifiable: an operator that is provably NOT a symmetric
+    square must be detected. d^3 + z d + 1 has P = z, Q = 1, so 2Q - P' = 1 != 0.
+
+    Without this the family-wide identity would be indistinguishable from a criterion
+    that returns SYM2_EXISTS for every input.
+    """
+    sp = pytest.importorskip("sympy")
+    mod = _load(C3_GAUGE)
+    one = sp.Integer(1)
+    _, P, Q = mod.normal_form(one, sp.Integer(0), mod.z, one)
+    defect = sp.cancel(2 * Q - sp.diff(P, mod.z))
+    assert not mod.rational_is_zero(defect), "criterion failed to reject d^3 + z d + 1"
+
+
+def test_c3_gauge_family_identity_is_a_property_of_the_shape():
+    """Breaking the AZ/Cooper shape must break the identity — otherwise the family-wide
+    result is an artifact of the normal-form code rather than of the recurrence shape."""
+    sp = pytest.importorskip("sympy")
+    mod = _load(C3_GAUGE)
+    y = sp.Function("y")(mod.z)
+    a, b, c, d = sp.symbols("a b c d")
+
+    intact = mod.classify(mod.l3_applied(a, b, c, d, y), y, "intact")
+    assert intact["verdict"] == "SYM2_EXISTS_UP_TO_GAUGE"
+
+    for fn in (mod.l3_shape_broken_cube, mod.l3_shape_broken_factor):
+        broken = mod.classify(fn(a, b, c, d, y), y, fn.__name__)
+        assert broken["verdict"] == "NO_SYM2_IN_ANY_GAUGE", fn.__name__
+
+
+def test_c3_gauge_verdicts_are_never_pass_or_fail():
+    """A C3 PASS/FAIL must not be emitted: this tests gauge equivalence, not C3's
+    fixed-normalization equality, and the artifact must stay out of certificates/."""
+    sp = pytest.importorskip("sympy")
+    mod = _load(C3_GAUGE)
+    y = sp.Function("y")(mod.z)
+    assert "certificates" not in mod.OUT.parts
+    for name in ("s7", "s10"):
+        v = mod.classify(mod.l3_applied(*mod.ORDER3_AZ_COOPER[name], y), y, name)["verdict"]
+        assert v in ("SYM2_EXISTS_UP_TO_GAUGE", "NO_SYM2_IN_ANY_GAUGE")
