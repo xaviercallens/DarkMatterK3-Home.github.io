@@ -20,6 +20,13 @@ same-day reply added a fifth.
 
 ## D-1. The ρ = 20 fork — adopt the definiteness cut, or not?
 
+> **RULED 2026-09-21 — ADOPTED.** T0 text (verbatim): *"adopt decision 1 and implement what you
+> could at this stage waiting for others streams"*. Recorded in `briefs/T0_RULINGS_2026_09_21.md`
+> R1, read narrowly: the cut is adopted as a criterion; **no** ranking of s7 over s10, **no**
+> minimum-|D| rule, **no** promotion of s10's advisory rows and **no** physical reading come with
+> it. Implemented on Stream 3's side as `pipeline/cm_labels.py` (11 tests) and
+> `data/derived/rho20_hypothesis_labels_2026_09_21.json`. D-2 … D-5 below remain OPEN.
+
 **The question.** The arithmetic route cannot select a K3, and this is a theorem, not a gap: the
 rank-3 lattice is indefinite (`g9_verdict`, Tier A), so it picks out a modular curve, not a surface.
 Adding ρ = 20 makes T rank-2 positive definite and the classification finite, with a smallest case

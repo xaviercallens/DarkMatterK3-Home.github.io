@@ -82,3 +82,17 @@ in this repo contradicts it, the document carries (or needs) a dated correction 
    Resumed work on (b)/this track's DarkMatterK3@Home side stays on its own branch(es) — not
    `main` directly — labeled `sandbox/` — until a future T0 ruling reconciles it against
    Tier A/B/C or formally retires it.
+8. **The ρ = 20 definiteness cut is ADOPTED** (T0 ruling R1, 2026-09-21,
+   `briefs/T0_RULINGS_2026_09_21.md`). The arithmetic route cannot select a K3 at ρ = 19 — the
+   rank-3 lattice is indefinite, so it picks out a modular curve, not a surface (Tier A, LeanMaster
+   `g9_verdict`); demanding ρ = 20 makes T rank-2 positive definite and the classification finite.
+   Inside the register families this is the CM-point locus (Stream 2 `CM_POINTS_RHO20`, Tier B;
+   mirrored at `data/mirrors/stream2/`, vocabulary in `pipeline/cm_labels.py`). **The adoption is
+   narrow. NOT adopted:** any ranking of s7 over s10, any minimum-|D| rule, any promotion of
+   cooper_s10 (every s10 row stays ADVISORY, lattice cert DRAFT), and any physical reading — a CM
+   point maps to no observable (item 4 stands; `cm_labels.observable_for()` raises by design).
+   "A₂ is in the s7 family and not in s10" is a lattice fact, not a preference. The binary-form /
+   modular agreement is forced by Shioda–Inose and is not independent corroboration. Still OPEN
+   with T0: C3's coordinate (D-2), the two-entry register (D-3), and the two ledger wording items
+   (D-4: item 1's `L₃ = Sym²(L₂)` names the *lattice* bridge, not C3's operator identity;
+   D-5: item 3's "open geometric item is U1" is stale — U1 was CLOSED Tier B on 2026-07-27).
