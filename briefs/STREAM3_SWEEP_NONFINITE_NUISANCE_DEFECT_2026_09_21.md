@@ -56,7 +56,7 @@ instead of raising. Result (artifact
 
 | | |
 |---|---|
-| invalid-prediction events | **17** (at the time of writing; the diagnostic sweep was still running) |
+| invalid-prediction events | **17**, confirmed final by the single-cell reproduction below |
 | distinct (m, f) cells affected | **1 of 56** — (m, f) = (−22.5, 0.05) |
 | `zrei` non-finite | **17 / 17 events** |
 | `ha`, `hs`, `taueff` non-finite | 11 / 17 events each |
@@ -67,13 +67,28 @@ So the failure is purely NaN propagation from the optimizer inward: `zrei` degen
 other three follow. `keff.predict_at_keff`'s check is doing its job correctly — it is the last line
 of defence, and it is the only one.
 
+**It is deterministic, and that is now isolated.** Re-running the *real* code path
+(`sweep.run_sweep`) on the single affected cell reproduces it exactly, and **the worker count makes
+no difference**:
+
+| configuration | events | χ²_min | valid |
+|---|---|---|---|
+| `run_sweep`, workers = 1, `torch` threads = 1, 1 cell | **17** | 3.65299 | False |
+| `run_sweep`, workers = 7, `torch` threads = 1, 1 cell | **17** | 3.65299 | False |
+
+Identical. So this is **not** a fork or concurrency artifact — a hypothesis worth stating because it
+was Stream 3's first guess and it is wrong. The defect is deterministic and reproducible in a single
+process, which makes it *easier* to fix and harder to dismiss.
+
 **Why the 9-start set exposes it and the single-start runs did not.** The single-start runs all began
-at the nuisance medians. The deterministic 9-start set (`sweep.PROFILE_STARTS`: medians plus an
-8-point LHS over the central 90 % of each bound) starts some fits near the bounds, where Migrad's
-initial Hessian is ill-conditioned — the runs print `Initial matrix not pos.def.` throughout — and
-from there a line search can produce a non-finite parameter. The multi-start fix was correct and
-necessary (it removed a χ²_min overestimate of up to 0.9975, enough to flip a cell against the 5.99
-threshold); **it also opened this failure mode**, which had no guard waiting for it.
+at the nuisance medians; the 9-start set (`sweep.PROFILE_STARTS`: medians plus an 8-point LHS over
+the central 90 % of each bound) starts some fits near the bounds, where the runs print
+`Initial matrix not pos.def.` throughout. The multi-start fix was correct and necessary — it removed
+a χ²_min overestimate of up to 0.9975, enough to flip a cell against the 5.99 threshold — and **it
+also opened this failure mode**, which had no guard waiting for it. **The step from "ill-conditioned
+start" to "a non-finite parameter reaches the objective" is a plausible mechanism, not an isolated
+one**; Stream 3 has established *that* Migrad emits NaN parameters deterministically, not yet *by
+which internal step*. Stated as a hypothesis rather than a conclusion.
 
 ## 3. A second, independent finding in the same run: convergence health was never persisted
 
@@ -97,6 +112,27 @@ carrying all of the above per sweep, **reported and not asserted** — the same 
 already uses for S2's coverage count. `summary["pass"]` is deliberately left unchanged, and a new
 `pass_covers` field states which checks it actually covers, so a reader cannot mistake its scope.
 Making convergence a pass/fail gate is a design change and is raised in §5, not taken here.
+
+## 3b. A silent API trap found while diagnosing this — worth its own guard
+
+`Chi2Profiler.__init__(self, p_data, cov_inv, predict_pk, ...)` takes the **inverse** covariance as
+its second argument. `run_sweep` passes `cov_inv` correctly. Stream 3's first two diagnostic scripts
+passed the **covariance** instead — and nothing complained. The run produced a plausible χ²_min
+(127.597 instead of 3.65299) with zero NaN events, from which Stream 3 briefly and wrongly concluded
+that the defect was concurrency-dependent. The controlled comparison against the real code path is
+what caught it.
+
+The failure is silent by construction: a covariance and its inverse are both symmetric
+positive-definite, so the module's existing validity check ("Check that the inverse covariance matrix
+is valid") cannot distinguish them. Anything downstream gets a wrong χ² that looks entirely
+reasonable.
+
+**Recommendation** (not implemented, same reason as §5): give the constructor a cheap orientation
+check — for example, verify that `cov_inv` scaled against the data's own variance has the magnitude
+of an inverse rather than a covariance, or accept the covariance and invert internally so the
+ambiguity cannot arise. This is the second time in one session that a plausible number came from a
+wrong call rather than a wrong pipeline, and both were caught only by comparing against the code
+path that actually runs.
 
 ## 4. What is *not* affected
 
@@ -128,6 +164,15 @@ the validation finish today. **It is not obviously the right thing to do silentl
 recorded counter; (b) isolate per cell, so one cell fails rather than the sweep, with the failure in
 the artifact; (c) treat any cell that required either mechanism as ineligible to contribute to a
 contour until T0 rules otherwise. Each needs a negative control proving the guard fires.
+
+**The number that decides how heavy (c) is has not been measured.** The diagnostic covered
+**S2 seed 1 only**, where 1 cell of 56 needed the guard. The other seven scenarios — S2 seeds 2–5,
+S3, S4, and S1 (which predates the diagnostic) — have **not** been measured for incidence. This
+matters for what T0 is actually ruling on: if one or two cells per sweep need the guard, "ineligible"
+is cheap bookkeeping and a contour loses a couple of cells; if it is routinely a dozen, the sweep's
+output is **structurally partial** and (c) is a redesign rather than a flag. Measuring it is cheap —
+the diagnostic runs unchanged over all eight scenarios — and Stream 3 will do so on request, but the
+measurement should precede the ruling rather than follow it.
 
 **Asks.** Stream 3 can implement (a)–(c) with controls on request. It has not, because the sweep's
 acceptance rule is pre-registration territory and the driver's outputs are destined to be labelled

@@ -10,7 +10,14 @@ Checks, each able to fail:
      null row m=−19.1 entirely inside the 95 % region
   S4 negative control: noiseless strong-FDM injection (m=−22.9, f=0.99): some f=0 cell OUTSIDE the 95 % region
 The K3 gate must pass first. Writes data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/*.json.
-    ~/venv/bin/python scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py
+
+RUN IT LIKE THIS — the `set -o pipefail` is not decoration:
+    set -o pipefail; ~/venv/bin/python scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py \
+        2>&1 | tee data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/run.log
+A pipeline reports the exit status of its LAST command, so `python ... | tee run.log` returns tee's
+0 even when this script dies. On 2026-09-21 that reported a crashed run (unhandled NaN nuisance,
+`briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md`) as exit code 0. Without pipefail,
+the exit status of any teed run here is meaningless.
 """
 import json, sys, time, warnings
 from pathlib import Path
