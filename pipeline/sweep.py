@@ -100,11 +100,23 @@ def make_predictor(predict_native, k_eff, theory_multiplier, mode):
 _WORKER = {}
 
 
+CONTOUR_COMPLETE = "COMPLETE"
+CONTOUR_WITHHELD = ("WITHHELD — {n} cell(s) ineligible (non-finite-nuisance guard fired, or the cell failed); "
+                    "no contour may be drawn from this sweep until T0 rules on ineligible cells "
+                    "(briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)")
+
+
 def _profile_cell(ij):
+    """Profile one cell. A failure is returned, not raised: before 2026-09-21 one cell's exception
+    propagated through pool.map and destroyed the whole sweep. The failure is recorded in the artifact and
+    makes the sweep's contour WITHHELD — isolation must never turn a failed cell into a quiet gap."""
     i, j = ij
     prof, m_grid, f_grid = _WORKER["prof"], _WORKER["m_grid"], _WORKER["f_grid"]
-    r = prof.profile_likelihood(float(m_grid[i]), float(f_grid[j]), starts=PROFILE_STARTS)
-    return i, j, r
+    try:
+        r = prof.profile_likelihood(float(m_grid[i]), float(f_grid[j]), starts=PROFILE_STARTS)
+    except Exception as exc:                      # noqa: BLE001 — recorded verbatim below, never swallowed
+        return i, j, None, f"{type(exc).__name__}: {exc}"
+    return i, j, r, None
 
 
 def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_GRID, meta=None, workers=1):
@@ -136,12 +148,19 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
         results = [_profile_cell(ij) for ij in todo]
 
     names = ["zrei", "ha", "hs", "taueff"]
-    chi2 = np.zeros((len(m_grid), len(f_grid)))
+    chi2 = np.full((len(m_grid), len(f_grid)), np.nan)
+    eligible = np.zeros((len(m_grid), len(f_grid)), dtype=bool)
     cells = []
-    for i, j, r in sorted(results, key=lambda x: (x[0], x[1])):
+    for i, j, r, err in sorted(results, key=lambda x: (x[0], x[1])):
+        if r is None:                              # the cell failed; recorded, never dropped
+            cells.append({"m": float(m_grid[i]), "f": float(f_grid[j]), "failed": True, "error": err,
+                          "contour_eligible": False})
+            continue
         chi2[i, j] = r.chi2_min
         tau = r.nuisance_params["taueff"]
         fv = np.asarray(r.start_fvals)
+        n_guard = int(getattr(r, "nonfinite_evaluations", 0))
+        eligible[i, j] = n_guard == 0
         cells.append({
             "m": float(m_grid[i]), "f": float(f_grid[j]), "chi2_min": float(r.chi2_min),
             "gof_p_value_5dof": float(stats.chi2.sf(r.chi2_min, DOF_CELL)),
@@ -151,10 +170,26 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
             "start_chi2": fv.tolist(),
             "optimizer_residual": float(fv[:RESIDUAL_SPLIT].min() - fv.min()),
             "n_calls": int(r.n_calls), "messages": list(r.messages),
+            "failed": False,
+            "nonfinite_evaluations": n_guard,
+            "start_nonfinite": list(getattr(r, "start_nonfinite", ())),
+            "contour_eligible": bool(n_guard == 0),
         })
-    dchi2 = chi2 - chi2.min()
-    imin = np.unravel_index(np.argmin(chi2), chi2.shape)
-    resid = np.array([c["optimizer_residual"] for c in cells])
+    if not eligible.any():
+        raise RuntimeError("no contour-eligible cell in the sweep: every cell failed or needed the "
+                           "non-finite-nuisance guard — nothing to report")
+    # The reference minimum and every contour decision use ELIGIBLE cells only. An ineligible cell keeps its
+    # χ²_min in `cells` for diagnosis, but it neither anchors Δχ² nor receives an inside/outside verdict.
+    chi2_ref = np.where(eligible, chi2, np.nan)
+    dchi2 = chi2_ref - np.nanmin(chi2_ref)
+    imin = np.unravel_index(np.nanargmin(chi2_ref), chi2_ref.shape)
+    ok_cells = [c for c in cells if not c["failed"]]
+    resid = np.array([c["optimizer_residual"] for c in ok_cells])
+    n_inel = int((~eligible).sum())
+
+    def _grid(a, cast):                            # NaN is not JSON; an ineligible entry is null
+        return [[None if not eligible[i, j] else cast(a[i, j]) for j in range(a.shape[1])]
+                for i in range(a.shape[0])]
     rec = {
         "label": SYNTHETIC_LABEL if mode == "synthetic" else REAL_LABELS,
         "mode": mode,
@@ -167,10 +202,18 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
                       "max_residual": float(resid.max()), "cells_with_residual_gt_0p1": int((resid > 0.1).sum())},
         "taueff_note": TAUEFF_NOTE,
         "m_grid": list(map(float, m_grid)), "f_grid": list(map(float, f_grid)),
-        "chi2_min_grid": chi2.tolist(), "delta_chi2_grid": dchi2.tolist(),
-        "outside_95_region": (dchi2 > DCHI2_95_2DOF).tolist(),
+        "chi2_min_grid": _grid(chi2, float), "delta_chi2_grid": _grid(dchi2, float),
+        "outside_95_region": _grid(dchi2 > DCHI2_95_2DOF, bool),
         "grid_minimum": {"m": float(m_grid[imin[0]]), "f": float(f_grid[imin[1]]), "chi2_min": float(chi2[imin])},
-        "all_minima_valid": bool(all(c["valid_minimum"] for c in cells)),
+        "all_minima_valid": bool(all(c["valid_minimum"] for c in ok_cells)),
+        "contour_status": CONTOUR_COMPLETE if n_inel == 0 else CONTOUR_WITHHELD.format(n=n_inel),
+        "ineligible_cells": [{"m": c["m"], "f": c["f"],
+                              "reason": "failed" if c["failed"] else "nonfinite_nuisance_guard",
+                              "detail": c.get("error") or c.get("nonfinite_evaluations")}
+                             for c in cells if not c["contour_eligible"]],
+        "eligibility_note": ("grids carry null for ineligible cells; the reference minimum and every "
+                             "inside/outside verdict use eligible cells only. Most conservative setting, "
+                             "chosen so the implementation decides no acceptance rule (T0 ruling R2, 2026-09-21)."),
         "cells": cells,
         "meta": meta or {},
     }

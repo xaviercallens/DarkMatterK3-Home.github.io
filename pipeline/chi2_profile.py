@@ -65,6 +65,24 @@ class ProfileLikelihoodResult(NamedTuple):
     valid_minimum: bool
     messages: list
     start_fvals: tuple = ()   # χ² reached from each start (multi-start only), in start order
+    # Evaluations at which Minuit handed the objective a NON-FINITE nuisance. Added 2026-09-21: see
+    # NONFINITE_PENALTY. A cell with nonfinite_evaluations > 0 had a fit degenerate at least once;
+    # its χ²_min is reported but must be treated as ineligible for a contour until T0 rules.
+    nonfinite_evaluations: int = 0
+    start_nonfinite: tuple = ()   # the same count per start, in start order (multi-start only)
+
+
+# Returned by the objective when Minuit evaluates it at a non-finite nuisance (2026-09-21).
+# WHY A GUARD AT ALL: on the real emulator, Migrad deterministically emits NaN parameters in some
+# cells (first seen: m = −22.5, f = 0.05, S2 seed 1 — 17 evaluations, zrei first). Unguarded, the
+# NaN reached the emulator, `keff.predict_at_keff` correctly refused its NaN output, and one cell's
+# optimizer pathology destroyed a 56-cell sweep. See
+# `briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md`.
+# WHY IT IS COUNTED, NOT SILENT: a guard turns a loud failure into a quiet one. Every guarded
+# evaluation is counted per start and persisted per cell, and `sweep.run_sweep` marks any such cell
+# ineligible for a contour. The guard covers non-finite PARAMETERS only. A non-finite PREDICTION
+# from finite parameters is an emulator problem and still raises.
+NONFINITE_PENALTY = 1e30
 
 
 def hartlap_correction(n_realizations: int, n_bins: int = 9) -> float:
@@ -270,11 +288,17 @@ class Chi2Profiler:
         )
 
     def _profile_multistart(self, m, f, starts):
+        guarded = [0]
+
         def chi2_nuisances(zrei, ha, hs, taueff):
+            if not (np.isfinite(zrei) and np.isfinite(ha) and np.isfinite(hs) and np.isfinite(taueff)):
+                guarded[0] += 1
+                return NONFINITE_PENALTY
             return self._chi2_single_cell(m, f, zrei, ha, hs, taueff)
 
-        best, fvals, n_calls = None, [], 0
+        best, fvals, n_calls, per_start = None, [], 0, []
         for start in starts:
+            before = guarded[0]
             mi = Minuit(chi2_nuisances, **{k: float(start[k]) for k in ("zrei", "ha", "hs", "taueff")})
             for param_name, (lower, upper) in NUISANCE_BOUNDS.items():
                 mi.limits[param_name] = (lower, upper)
@@ -284,6 +308,7 @@ class Chi2Profiler:
                 mi.migrad()
             n_calls += mi.nfcn
             fvals.append(float(mi.fval))
+            per_start.append(guarded[0] - before)
             if best is None or mi.fval < best.fval:
                 best = mi
         at_limit = [n for n in best.parameters
@@ -293,12 +318,16 @@ class Chi2Profiler:
             messages.append("Minuit did not converge to valid minimum (best of multi-start)")
         if at_limit:
             messages.append(f"Nuisance parameters at boundary: {', '.join(at_limit)}. Interior minimization may be unreliable.")
+        if guarded[0]:
+            messages.append(f"Minuit evaluated the objective at non-finite nuisances {guarded[0]} time(s) "
+                            f"(per start: {per_start}); penalty returned, cell ineligible for a contour")
         return ProfileLikelihoodResult(
             chi2_min=float(best.fval),
             nuisance_params=dict(zip(best.parameters, best.values)),
             nuisance_errors=dict(zip(best.parameters, best.errors)),
             at_boundary=bool(at_limit), n_calls=int(n_calls), valid_minimum=bool(best.valid),
             messages=messages, start_fvals=tuple(fvals),
+            nonfinite_evaluations=int(guarded[0]), start_nonfinite=tuple(per_start),
         )
 
     def profile_likelihood_grid(

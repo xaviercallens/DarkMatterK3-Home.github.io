@@ -54,7 +54,8 @@ def main():
         if path.exists():   # resume: reuse a completed sweep only if it was built for exactly this injection
             prev = json.load(open(path))
             if (prev.get("meta", {}).get("injected") == {"m": m, "f": f, "nuisances": NUIS, "noise_seed": seed}
-                    and prev.get("optimizer", {}).get("n_starts") == len(sweep.PROFILE_STARTS)):
+                    and prev.get("optimizer", {}).get("n_starts") == len(sweep.PROFILE_STARTS)
+                    and "contour_status" in prev):   # pre-2026-09-21 sweeps carry no eligibility: redo them
                 print(f"  {name}: reused completed sweep", flush=True)
                 return prev
         truth = predict(m, f, *NUIS)
@@ -66,30 +67,50 @@ def main():
               f"optimizer max residual {rec['optimizer']['max_residual']:.4f}", flush=True)
         return rec
 
+    # Since 2026-09-21 a grid entry is null where the cell is ineligible for a contour (the non-finite
+    # guard fired, or the cell failed). `not None` is True, so reading a verdict without checking for
+    # null would silently count an ineligible cell as "inside the region". Every check below therefore
+    # treats null explicitly, and a check that depends on an ineligible cell does not pass.
+    def grid(rec, key):
+        return np.array([[np.nan if v is None else float(v) for v in row] for row in rec[key]])
+
+    def verdict(rec, i, j):
+        return rec["outside_95_region"][i][j]          # True / False / None (ineligible)
+
     r = run("S1_noiseless_fdm", -22.0, 0.35)
-    c = np.array(r["chi2_min_grid"])
-    s1 = {"injected_is_grid_minimum": bool(np.argmin(c) == im * len(sweep.F_GRID) + jf),
-          "chi2_at_injected": float(c[im, jf])}
-    s1["pass"] = s1["injected_is_grid_minimum"] and s1["chi2_at_injected"] < 1e-2
+    c = grid(r, "chi2_min_grid")
+    s1 = {"injected_cell_eligible": bool(np.isfinite(c[im, jf])),
+          "injected_is_grid_minimum": bool(np.isfinite(c[im, jf]) and np.nanargmin(c) == im * len(sweep.F_GRID) + jf),
+          "chi2_at_injected": None if not np.isfinite(c[im, jf]) else float(c[im, jf])}
+    s1["pass"] = bool(s1["injected_is_grid_minimum"] and s1["chi2_at_injected"] < 1e-2)
     summary["checks"]["S1"] = s1
 
     inside = []
     for seed in range(1, 6):
         r = run(f"S2_noisy_fdm_seed{seed}", -22.0, 0.35, seed)
-        inside.append(not r["outside_95_region"][im][jf])
-    summary["checks"]["S2"] = {"injected_inside_95_region": inside, "count": int(sum(inside)), "of": 5,
+        v = verdict(r, im, jf)
+        inside.append(None if v is None else (not v))
+    summary["checks"]["S2"] = {"injected_inside_95_region": inside,
+                               "count": int(sum(1 for x in inside if x is True)),
+                               "injected_cell_ineligible": int(sum(1 for x in inside if x is None)), "of": 5,
                                "note": "reported, not asserted: expected ≈95 % coverage; 5 draws is not a coverage test"}
 
     r = run("S3_noiseless_cdm", -22.0, 0.0)
-    c = np.array(r["chi2_min_grid"]); out95 = np.array(r["outside_95_region"])
-    s3 = {"f0_column_spread": float(np.ptp(c[:, 0])),
-          "null_row_m_minus_19_1_any_outside_95": bool(out95[list(sweep.M_GRID).index(-19.1)].any())}
-    s3["pass"] = s3["f0_column_spread"] < 1e-6 and not s3["null_row_m_minus_19_1_any_outside_95"]
+    c = grid(r, "chi2_min_grid")
+    row = r["outside_95_region"][list(sweep.M_GRID).index(-19.1)]
+    s3 = {"f0_column_ineligible": int(np.isnan(c[:, 0]).sum()),
+          "f0_column_spread": float(np.nanmax(c[:, 0]) - np.nanmin(c[:, 0])),
+          "null_row_ineligible": int(sum(1 for v in row if v is None)),
+          "null_row_m_minus_19_1_any_outside_95": bool(any(v is True for v in row))}
+    # structural checks need the WHOLE column / row: an ineligible member means the check did not run
+    s3["pass"] = bool(s3["f0_column_ineligible"] == 0 and s3["null_row_ineligible"] == 0
+                      and s3["f0_column_spread"] < 1e-6 and not s3["null_row_m_minus_19_1_any_outside_95"])
     summary["checks"]["S3"] = s3
 
     r = run("S4_negative_control_strong_fdm", -22.9, 0.99)
-    out95 = np.array(r["outside_95_region"])
-    s4 = {"f0_cells_outside_95": int(out95[:, 0].sum()), "of": len(sweep.M_GRID)}
+    col = [row[0] for row in r["outside_95_region"]]
+    s4 = {"f0_cells_outside_95": int(sum(1 for v in col if v is True)),
+          "f0_cells_ineligible": int(sum(1 for v in col if v is None)), "of": len(sweep.M_GRID)}
     s4["pass"] = s4["f0_cells_outside_95"] > 0
     summary["checks"]["S4"] = s4
 
@@ -111,8 +132,11 @@ def main():
     for path in sorted(OUT.glob("S*.json")):
         rec = json.load(open(path))
         cells = rec["cells"]
-        invalid = [c for c in cells if not c["valid_minimum"]]
+        ok = [c for c in cells if not c.get("failed")]
+        invalid = [c for c in ok if not c["valid_minimum"]]
         conv[path.stem] = {
+            "contour_status": rec.get("contour_status", "PRE-GUARD SWEEP (no eligibility recorded)"),
+            "ineligible_cells": rec.get("ineligible_cells"),
             "all_minima_valid": rec["all_minima_valid"],
             "cells": len(cells),
             "invalid_minima": len(invalid),
@@ -122,7 +146,7 @@ def main():
             "max_optimizer_residual": rec["optimizer"]["max_residual"],
             "cells_with_residual_gt_0p1": rec["optimizer"]["cells_with_residual_gt_0p1"],
             "taueff_at_prior_box_edge": sum(
-                1 for c in cells if c.get("taueff_at_prior_box_edge")),
+                1 for c in ok if c.get("taueff_at_prior_box_edge")),
         }
     summary["convergence_health"] = {
         "note": "reported, not asserted — see the comment in this script. `pass` below does NOT "
