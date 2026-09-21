@@ -28,7 +28,8 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPTS = REPO_ROOT / "scripts"
 WPE_SCRIPTS = ["wpe_preflight_baseline.py", "wpe_closure_tests.py",
-               "wpe_transverse_sweep.py"]
+               "wpe_transverse_sweep.py",
+               "c3_normalization_applicability_2026_09_21.py"]
 
 
 def _load(script_name):
@@ -151,3 +152,47 @@ def test_no_script_calls_density_shuffle_with_an_rng_kwarg():
     assert not offenders, (
         f"density_shuffle_realization called with rng= at {offenders}; "
         f"its signature is (field, seed)")
+
+
+# ---------------------------------------------------------------------------
+# C3 normalization applicability (2026-09-21). Same reason this module exists:
+# the script ships a `Verified-by:` footer citing two negative controls, and
+# those controls only execute when someone invokes it by hand. Here they run.
+# ---------------------------------------------------------------------------
+C3_APPLICABILITY = "c3_normalization_applicability_2026_09_21.py"
+
+
+def test_c3_applicability_negative_controls_run_for_real():
+    """Drive main(): it returns 0 only if NC-1 and NC-2 both pass inside the script."""
+    mod = _load(C3_APPLICABILITY)
+    assert mod.main() == 0, "NC-1/NC-2 failed inside the applicability script"
+
+
+def test_c3_applicability_discriminates_d0_from_dnonzero():
+    """Module code — not this test — must separate the two classes.
+
+    Negative control for the script's own conclusion: if `applicability` called
+    everything INAPPLICABLE, the s7/s10 finding would be worthless. The six d=0
+    sporadic families must come out APPLICABLE against the same function.
+    """
+    mod = _load(C3_APPLICABILITY)
+    order3 = mod.ORDER3_AZ_COOPER
+
+    for name in mod.BIJECTION.values():
+        assert mod.applicability(name, order3[name])["verdict"] == "APPLICABLE", name
+
+    for name in ("s7", "s10"):
+        res = mod.applicability(name, order3[name])
+        assert res["verdict"] == "INAPPLICABLE_NORMALIZATION", name
+        assert res["reasons"], f"{name} inapplicable with no reason recorded"
+
+
+def test_c3_applicability_never_emits_a_c3_certificate():
+    """The artifact must not land in checkers/certificates/, whose contents are the
+    only admissible evidence for a C3 claim (K3_CRITERIA.md 3.5), and must not carry
+    a bare FAIL that would read as a geometric falsification."""
+    mod = _load(C3_APPLICABILITY)
+    assert "certificates" not in mod.OUT.parts
+    assert mod.OUT.parts[-2:][0] == "derived"
+    for name in ("s7", "s10"):
+        assert mod.applicability(name, mod.ORDER3_AZ_COOPER[name])["verdict"] != "FAIL"

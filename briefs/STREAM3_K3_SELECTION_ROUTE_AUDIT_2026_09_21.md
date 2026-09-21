@@ -85,6 +85,16 @@ have d ≠ 0, and inverting the bijection on them yields no usable order-2 partn
 (`ORDER2_ZAGIER`: (7,−8,2), (9,27,3), (10,9,3), (11,−1,3), (12,32,4), (17,72,6)). Zagier's
 degenerate/hypergeometric families were **not** searched here; that check is not claimed.
 
+**Three branches follow, and one of them is not a bookkeeping outcome.** Either (i) a d ≠ 0 Sym²
+identity exists and is simply not coded — a normalization gap; or (ii) the d ≠ 0 operators are
+gauge/pullback-equivalent to d = 0 ones, also a gap but a different repair; or (iii) **no order-2 L₂
+exists for these candidates at all.** Branch (iii) is not a gap: `K3_CRITERIA.md` C3 requires
+"an explicitly exhibited order-2 operator L₂", so no such L₂ is a C3 failure, whose stated
+consequence is **F1 removal for the dual-scale role**. Since DR-4 records "s10 stays primary", branch
+(iii) is a live path to removing the primary candidate, and it is named here so that T0 sees it rather
+than inferring it from an omission. Stream 3 takes no position on which branch holds; distinguishing
+them is Stream 2 mathematics, not a computation this repo can run.
+
 Feeding either primary to the committed checker would be a test that *cannot pass* — the mirror image
 of the "test that cannot fail" class this repo has caught five times. A `FAIL` certificate from it
 would read downstream as a geometric falsification of the primary candidate while recording only a
@@ -121,8 +131,13 @@ degenerations. Both statements say the object at the end of this route is a curv
 **4.2 The stated repair, and the fork it creates.** Adding a definiteness condition — demanding
 ρ = 20 — makes the transcendental lattice rank 2 and positive definite, and the classification then
 runs by positive-definite binary quadratic forms: finite at each discriminant, with a smallest case.
-`AttractorCharges.discriminant_gap` gives 4ac − b² ≥ 3 (with 3 requiring odd b), attained only by
-(1, 1, 1), i.e. T_S = A₂ at D = −3.
+Two distinct Lean results carry this, and they must not be merged:
+`AttractorCharges.discriminant_gap` gives the **bound and a parity condition only** —
+`3 ≤ 4ac − b² ∧ (4ac − b² = 3 → b odd)`. The **uniqueness** is a separate theorem,
+`AttractorCharges.smallest_black_hole`, whose operative conjunct is `reducedForms 3 = [(1, 1, 1)]`:
+the reduced forms of discriminant 3 are exactly the single class (1, 1, 1), giving
+(p², p·q, q²) = (2, 1, 2), T_S = A₂ and D = −3. Proved by `decide +kernel`, so kernel-checked
+without the `native_decide` compiler-trust caveat.
 
 So there is a determinate answer to "which K3" — but only on the ρ = 20 branch, and the register's
 primary candidates are on the other one: ρ = 19, T = 3 for the cooper_s7 family is **Tier B**
@@ -132,9 +147,13 @@ adopts the ρ = 20 condition is a T0 question, not one Stream 3 can settle, and 
 highest-leverage decision available on the selection problem.
 
 **Verification status of the citations in §4.** Both files contain zero occurrences of `sorry` or
-`admit`, and every theorem named above exists at the cited name (checked 2026-09-21 by direct read).
-A fresh `lake build` was **not** run in this session, so these are cited as committed-and-sorry-free,
-not as re-verified-today; the full five-gate check is `lean-proof-gate`'s to run.
+`admit`, and every theorem named above exists at the cited name with its **statement** read, not only
+its name and docstring (checked 2026-09-21 by direct read). That distinction is load-bearing: a
+name-existence check would not have caught this brief's own first draft, which attributed the
+(1, 1, 1) uniqueness to `discriminant_gap` — a theorem that states a bound and a parity condition and
+no uniqueness at all. A fresh `lake build` was **not** run in this session, so these are cited as
+committed-and-sorry-free, not as re-verified-today; the full five-gate check is `lean-proof-gate`'s
+to run.
 
 ## 5. New finding — the one Lean statement naming a Cooper candidate is vacuous
 
@@ -164,14 +183,26 @@ Routed, with the owner each already has in the record:
    This is the mechanical unblock for DR-4's standing ask ("produce C1/C3/C3b for s7"). Until it
    exists, C3 is not a runnable criterion for any register primary, and `K3_CRITERIA.md` cannot be
    frozen on the C3 axis — which independently blocks C3b, since C3b is defined only for candidates
-   that have cleared C3.
-3. **Stream 1 — triage `cooper_s10_swampland_safe` (§5)**, and confirm whether any Lean statement
+   that have cleared C3. **If the answer is that no order-2 L₂ exists (§3 branch iii), that is a C3
+   failure and not a gap, and C3's own stated consequence — F1 removal for the dual-scale role —
+   falls due on the primary candidate.** Stream 2 should return which branch holds, not only whether
+   an identity is coded.
+3. **T0 — disambiguate the two `L₃ = Sym²(L₂)` statements in the ledger.** Ledger item 1 licenses
+   that string as Tier A fact. What is kernel-proven under it is the **lattice** bridge: `sym2` is a
+   3×3 integer matrix, `G0` is the discriminant form b² − 4ac, and the content is the SL(2) → SO(2,1)
+   lift with its exponents 1, 2, 3 — candidate-independent. `K3_CRITERIA.md` C3 uses the *identical
+   string* for the **operator** identity, which has no certificate for any register candidate (§3).
+   A reader moving from CLAUDE.md to C3 can therefore license Tier A for a per-candidate claim that
+   nothing certifies. This is the conflation class the ledger preamble exists to catch, and it is a
+   wording fix to CLAUDE.md, which is T0's call and not Stream 3's to make. Raised here under F6
+   discipline as a disclosure rather than left inside another stream's action item.
+4. **Stream 1 — triage `cooper_s10_swampland_safe` (§5)**, and confirm whether any Lean statement
    instantiates `sym2_<candidate>` for a register candidate as `K3_CRITERIA.md` C3 route 2 requires.
    Stream 3's search found none: the proved `sym2_*` results are lattice-and-matrix level and
    candidate-independent (the SL(2) → SO(2,1) lift and its exponents 1, 2, 3). Ledger item 1's Tier A
    statement is correct as written and is not weakened by this brief — but it certifies the lattice
-   bridge, and it does not supply a C3 certificate for s7 or s10.
-4. **Stream 3 — no action available on selection.** The WP-E6-SWEEP line stays blocked on C1–C5 and
+   bridge, and it does not supply a C3 certificate for s7 or s10 (see item 3).
+5. **Stream 3 — no action available on selection.** The WP-E6-SWEEP line stays blocked on C1–C5 and
    remains, when unblocked, an (m, f) exclusion instrument rather than a selection instrument.
 
 ## 7. What this brief does not claim
