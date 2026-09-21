@@ -1,0 +1,33 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated observation; not exclusion, not FIT, not TEST",
+ "checks": {
+  "S1": {
+   "injected_is_grid_minimum": true,
+   "chi2_at_injected": 0.0,
+   "pass": true
+  },
+  "S2": {
+   "injected_inside_95_region": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "count": 5,
+   "of": 5,
+   "note": "reported, not asserted: expected \u224895 % coverage; 5 draws is not a coverage test"
+  },
+  "S3": {
+   "f0_column_spread": 0.0,
+   "null_row_m_minus_19_1_any_outside_95": false,
+   "pass": true
+  },
+  "S4": {
+   "f0_cells_outside_95": 8,
+   "of": 8,
+   "pass": true
+  }
+ },
+ "pass": true
+}

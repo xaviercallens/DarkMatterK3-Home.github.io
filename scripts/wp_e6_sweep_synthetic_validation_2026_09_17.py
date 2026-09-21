@@ -88,10 +88,52 @@ def main():
 
     residuals = {p.stem: json.load(open(p))["optimizer"]["max_residual"] for p in sorted(OUT.glob("S*.json"))}
     summary["optimizer_max_residual_per_sweep"] = residuals
+
+    # Convergence health, REPORTED not asserted (same posture as S2's coverage count). Added
+    # 2026-09-21: the previous summary recorded neither, so `all minima valid False` appeared only
+    # in a run log and never in the persisted artifact — and the log is not the artifact.
+    # `valid_minimum` is Minuit's own flag on the retained (lowest-χ²) start. On this emulator the
+    # χ² surface is flat and rugged (Migrad prints "Initial matrix not pos.def."), so the flag can
+    # be False while the minimum LOCATION is stable: in S1, 7 of the 10 invalid cells have
+    # optimizer_residual exactly 0.0 and an 8th has 1e-4, i.e. the extra starts found nothing
+    # better; 5 of the 10 are away from any bound. That is why this
+    # is reported rather than gated — turning it into a pass/fail criterion is a design change and
+    # belongs to whoever fixes the sweep's acceptance rule, not to a validation run. See
+    # `briefs/` for the filed note.
+    conv = {}
+    for path in sorted(OUT.glob("S*.json")):
+        rec = json.load(open(path))
+        cells = rec["cells"]
+        invalid = [c for c in cells if not c["valid_minimum"]]
+        conv[path.stem] = {
+            "all_minima_valid": rec["all_minima_valid"],
+            "cells": len(cells),
+            "invalid_minima": len(invalid),
+            "invalid_and_not_at_boundary": sum(1 for c in invalid if not c["at_boundary"]),
+            "invalid_with_zero_optimizer_residual": sum(
+                1 for c in invalid if c["optimizer_residual"] == 0.0),
+            "max_optimizer_residual": rec["optimizer"]["max_residual"],
+            "cells_with_residual_gt_0p1": rec["optimizer"]["cells_with_residual_gt_0p1"],
+            "taueff_at_prior_box_edge": sum(
+                1 for c in cells if c.get("taueff_at_prior_box_edge")),
+        }
+    summary["convergence_health"] = {
+        "note": "reported, not asserted — see the comment in this script. `pass` below does NOT "
+                "depend on these numbers; a sweep with invalid minima can still report pass.",
+        "per_sweep": conv,
+    }
     summary["pass"] = all(v.get("pass", True) for v in summary["checks"].values())
+    summary["pass_covers"] = sorted(k for k, v in summary["checks"].items() if "pass" in v)
     (OUT / "summary.json").write_text(json.dumps(summary, indent=1))
     print(json.dumps(summary["checks"], indent=1))
-    print("SYNTHETIC VALIDATION:", "PASS" if summary["pass"] else "FAIL")
+    for name, c in conv.items():
+        if not c["all_minima_valid"]:
+            print(f"  convergence: {name} has {c['invalid_minima']}/{c['cells']} invalid minima "
+                  f"({c['invalid_with_zero_optimizer_residual']} with zero optimizer residual, "
+                  f"{c['invalid_and_not_at_boundary']} away from a bound) — reported, not gated",
+                  flush=True)
+    print("SYNTHETIC VALIDATION:", "PASS" if summary["pass"] else "FAIL",
+          f"(pass covers {summary['pass_covers']}; convergence_health is reported only)")
     return 0 if summary["pass"] else 1
 
 
