@@ -159,6 +159,15 @@ Two consequences:
    `PASS(40)` for s7, s10, alpha, gamma, delta, eta. Whether C1 alone can carry a selection is a
    freeze question for T0 and Stream 2, not one this brief answers.
 
+**Independent corroboration from the framework literature.** The symbolic identity above was derived
+here from the recurrence shape alone, with no appeal to the geometry. It agrees with what the
+hash-pinned sources already say: Stream 2 recorded **Doran 1998 Thm 5.13 — the Picard–Fuchs operator
+of an Mₙ-polarized family *is* the Sym² of a second-order Fuchsian operator** (read 2026-07-26,
+`briefs/STREAM2_PHASE4_STEP2_SOURCES_READ_2026_07_26.md` leg 4, in the K3-DarkMatter repo). So the
+symmetric-square property is a *consequence of Mₙ-polarization*, not a discriminating fact about any
+member — which is exactly why C3 cannot separate candidates inside the family. Two independent
+routes, one computational and one from the framework, reach the same conclusion.
+
 - Script: `scripts/c3_sym2_gauge_existence_2026_09_21.py` · Artifact:
   `data/derived/c3_sym2_gauge_existence_2026_09_21.json`
 - Label: `MATH-EXISTENCE` — gauge equivalence only; not a C3 verdict, not exclusion, not FIT, not TEST
@@ -290,6 +299,14 @@ Routed, with the owner each already has in the record:
 5. **Stream 3 — no action available on selection.** The WP-E6-SWEEP line stays blocked on C1–C5 and
    remains, when unblocked, an (m, f) exclusion instrument rather than a selection instrument.
 
+6. **T0 — ledger item 3's U1 line is stale.** CLAUDE.md records "The open geometric item is U1
+   (is T ≅ U⊕⟨14⟩?)". U1 was closed Tier B on 2026-07-27 with an explicit det-1 base change and
+   coordinator-verified controls (§7). The ledger's own rule is that a document contradicting it
+   carries a dated correction note; here the contradiction runs the other way, and the ledger
+   line is the stale one. A wording fix to CLAUDE.md is T0's call, raised for the same reason as
+   item 3. Until it is fixed, ledger item 3 will keep propagating into new documents — it
+   propagated into this one.
+
 ## 7. What this brief does not claim
 
 - It does not claim s7 or s10 fails C3. The criterion was not run; it is not runnable as committed
@@ -300,8 +317,21 @@ Routed, with the owner each already has in the record:
   (T_S = A₂); connecting that to this program's register is unstarted work, and no physical
   consequence follows from it absent the worked EFT matching that VISION §1.3 requires — the Sym²
   and Shioda-Inose structures supply a geometric relation and no physical coupling.
-- It does not reopen U1 (is T ≅ U⊕⟨14⟩?), which remains the open geometric item at
-  `docs/U1_ROUTE_DESIGN_2026_07_26.md` in the Stream 2 repo.
+- ~~It does not reopen U1 (is T ≅ U⊕⟨14⟩?), which remains the open geometric item at
+  `docs/U1_ROUTE_DESIGN_2026_07_26.md` in the Stream 2 repo.~~ **Corrected 2026-09-21, same day:
+  U1 is CLOSED, not open.** Stream 2 executed it fresh-context on 2026-07-27 and the T1
+  coordinator re-ran the pipeline and controls independently:
+  `briefs/STREAM2_TO_STREAMS1_3_U1_CLOSED_2026_07_27.md`, record
+  `briefs/STREAM2_U1_EXECUTION_2026_07_27.md`, pipeline `checkers/check_U1_lattice.py` in the
+  K3-DarkMatter repo. The joint monodromy-invariant lattice of cooper_s7 is primitive even with
+  det = −14, signature (2,1), and an **explicit det-1 integral base change realizing U ⊕ ⟨14⟩**
+  was exhibited; the identical pipeline on cooper_s10 derives det = −20 / U ⊕ ⟨20⟩
+  (computed-vs-computed, no hardcoded target). **Tier B**, with two named residual links — the
+  numerics→exact monodromy recognition, and the identification of the computed lattice with T,
+  where the λ-rescaling branch is excluded by the framework's shape rather than by computation.
+  So the levels are n = 7 for cooper_s7 and n = 10 for cooper_s10. This brief's earlier sentence
+  was drawn from CLAUDE.md ledger item 3, which still calls U1 "the open geometric item" and is
+  **stale on that point** — flagged to T0 in §6 item 6.
 
 ---
 *Generated-by: Claude Opus 5 (Stream 3, 2026-09-21) | Verified-by: grep of the sweep chain for
