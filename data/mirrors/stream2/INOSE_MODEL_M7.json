@@ -1,0 +1,306 @@
+{
+  "certificate": "INOSE_MODEL_M7",
+  "checker": "checkers/check_inose_model_M7.py",
+  "checker_version": "1.0.0",
+  "date": "2026-09-27",
+  "status": "RECORD, NOT A GATE. An explicit M_7-polarized model over the cooper_s7 coordinate, in the Clingher-Doran-Lewis-Whitcher normal form, with its W-invariants as exact Laurent polynomials in z. The rho = 20 cut stays read narrowly (T0 D7'); nothing is ranked or preferred; no Kodaira type is read here; no physical reading.",
+  "claim": "sigma(z) = J(tau) + J(7 tau) and pi(z) = J(tau) J(7 tau), as functions on X_0(7)+ in the s7 Hauptmodul coordinate z, are the exact Laurent polynomials recorded in result.S3, verified to q^129; the Inose surface X(a,b) with a^3 = pi(z), b^2 = pi(z) - sigma(z) + 1 is an M_7-polarized model of the family (CD Thm 1.2 + CDLW sec. 3.2 + DHNT Rem. 5.3, all read). The locus J(tau) = J(7 tau) (the 7-isogenous pair isomorphic) is exactly {z = -1, z = 1/27}, the two finite singular loci of L3 = the two W_7 fixed points; at z = infinity both J vanish (E_omega x E_omega).",
+  "tier": "B",
+  "tier_reason": "exact once z is identified with the Gamma_0(7)+ Hauptmodul of the s7 family (T1 certificate, Tier B; the identification is cross-checked here against the b-file and the mirror map from refs); the geometric statements rest on the three read sources (Tier L, hash-pinned).",
+  "sources_read": [
+    "docs/literature/arxiv_math_0602146.pdf (CD 2007) Thm 1.2, Cor 1.3",
+    "docs/literature/arxiv_0712.1880.pdf (CDLW) Thm 3.1-3.4, sec. 3.2",
+    "docs/literature/arxiv_1312.6434.pdf (DHNT) Def 5.2, Remark 5.3"
+  ],
+  "result": {
+    "family": "cooper_s7",
+    "level": 7,
+    "order_N": 130,
+    "S1": {
+      "bfile_terms_matched": true,
+      "mirror_map_from_refs_matched_to": 36,
+      "relation_constants_read_from": "CM_POINTS_RHO20.json",
+      "alpha_beta_gamma": [
+        "49",
+        "13",
+        "1"
+      ],
+      "eta_exponents": {
+        "1": -4,
+        "7": 4
+      }
+    },
+    "S3": {
+      "sigma_laurent": "(0) + (-160/27)*z^-1 + (98/9)*z^-2 + (245/18)*z^-3 + (-1813/288)*z^-4 + (7/9)*z^-5 + (-7/192)*z^-6 + (1/1728)*z^-7",
+      "sigma_verified_to_order": 128,
+      "sigma_all_orders": true,
+      "pi_laurent": "(0) + (0)*z^-1 + (21952/729)*z^-2 + (10976/243)*z^-3 + (5537/243)*z^-4 + (2891/729)*z^-5 + (791/15552)*z^-6 + (7/31104)*z^-7 + (1/2985984)*z^-8",
+      "pi_verified_to_order": 128,
+      "pi_all_orders": true
+    },
+    "S4_model": {
+      "normal_form": "CDLW Q(a,b,d) with d = 1; W1 = a^3 = pi(z), W2 = b^2 = pi(z) - sigma(z) + 1",
+      "at_loci": {
+        "-1": {
+          "sigma": "-125/32",
+          "pi": "15625/4096",
+          "W1=a^3": "15625/4096",
+          "W2=b^2": "35721/4096",
+          "sigma^2-4pi": "0",
+          "J_common_if_zero": "-125/64"
+        },
+        "1/27": {
+          "sigma": "614125/32",
+          "pi": "377149515625/4096",
+          "W1=a^3": "377149515625/4096",
+          "W2=b^2": "377070911721/4096",
+          "sigma^2-4pi": "0",
+          "J_common_if_zero": "614125/64"
+        }
+      }
+    },
+    "S5": {
+      "D(z)=sigma^2-4pi_factored": "-(z + 1)*(2*z - 1)**2*(8*z - 1)**2*(24*z - 1)**2*(27*z - 1)*(8*z**2 + 16*z - 1)**2/(2985984*z**14)",
+      "factors": [
+        {
+          "factor": "Poly(z + 1, z, domain='ZZ')",
+          "multiplicity": 1,
+          "degree": 1,
+          "table_rows": [
+            {
+              "D": -7,
+              "T": [
+                1,
+                1,
+                2
+              ],
+              "minus_v2": 2,
+              "div_v": 2
+            }
+          ],
+          "D_values": [
+            -7
+          ],
+          "D_by_kleinj_match": [
+            -7
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -7,
+              "min_minus_v2": 2,
+              "table_window": 44,
+              "inside_window": true
+            }
+          ]
+        },
+        {
+          "factor": "Poly(27*z - 1, z, domain='ZZ')",
+          "multiplicity": 1,
+          "degree": 1,
+          "table_rows": [
+            {
+              "D": -28,
+              "T": [
+                1,
+                0,
+                7
+              ],
+              "minus_v2": 2,
+              "div_v": 1
+            }
+          ],
+          "D_values": [
+            -28
+          ],
+          "D_by_kleinj_match": [
+            -28
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -28,
+              "min_minus_v2": 2,
+              "table_window": 44,
+              "inside_window": true
+            }
+          ]
+        },
+        {
+          "factor": "Poly(2*z - 1, z, domain='ZZ')",
+          "multiplicity": 2,
+          "degree": 1,
+          "table_rows": [
+            {
+              "D": -12,
+              "T": [
+                1,
+                0,
+                3
+              ],
+              "minus_v2": 42,
+              "div_v": 7
+            }
+          ],
+          "D_values": [
+            -12
+          ],
+          "D_by_kleinj_match": [
+            -12
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -12,
+              "min_minus_v2": 42,
+              "table_window": 44,
+              "inside_window": true
+            }
+          ]
+        },
+        {
+          "factor": "Poly(8*z - 1, z, domain='ZZ')",
+          "multiplicity": 2,
+          "degree": 1,
+          "table_rows": [],
+          "D_values": [],
+          "D_by_kleinj_match": [
+            -19
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -19,
+              "min_minus_v2": 266,
+              "table_window": 44,
+              "inside_window": false
+            }
+          ]
+        },
+        {
+          "factor": "Poly(24*z - 1, z, domain='ZZ')",
+          "multiplicity": 2,
+          "degree": 1,
+          "table_rows": [],
+          "D_values": [],
+          "D_by_kleinj_match": [
+            -27
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -27,
+              "min_minus_v2": 378,
+              "table_window": 44,
+              "inside_window": false
+            }
+          ]
+        },
+        {
+          "factor": "Poly(8*z**2 + 16*z - 1, z, domain='ZZ')",
+          "multiplicity": 2,
+          "degree": 2,
+          "table_rows": [],
+          "D_values": [],
+          "D_by_kleinj_match": [
+            -24,
+            -24
+          ],
+          "table_D_agrees_where_present": true,
+          "window_explanation": [
+            {
+              "D": -24,
+              "min_minus_v2": 84,
+              "table_window": 44,
+              "inside_window": false
+            },
+            {
+              "D": -24,
+              "min_minus_v2": 84,
+              "table_window": 44,
+              "inside_window": false
+            }
+          ]
+        }
+      ],
+      "allowed_D_norm7_endomorphism": [
+        -28,
+        -27,
+        -24,
+        -19,
+        -12,
+        -7,
+        -3
+      ],
+      "L3_loci_are_simple_zeros": true,
+      "expected_double_zero_count_from_class_numbers": 5,
+      "actual_double_zero_count": 5,
+      "hits_per_D": {
+        "-7": 1,
+        "-28": 1,
+        "-12": 1,
+        "-19": 1,
+        "-27": 1,
+        "-24": 2
+      },
+      "all_zeros_assigned_a_D": true,
+      "simple_zeros_are_exactly_D_-28_-7": true,
+      "class_numbers_match": true,
+      "table_agrees_where_present": true,
+      "absences_explained_by_window": true,
+      "expected_L3_loci": [
+        "-1",
+        "1/27"
+      ],
+      "match": true
+    },
+    "S6": {
+      "sigma_at_infinity": "0",
+      "pi_at_infinity": "0",
+      "both_zero_E_omega_x_E_omega": true
+    },
+    "S7_numeric_control": {
+      "-1": {
+        "tau": "(0.5 + 0.1889822365046136136072582681170900304079j)",
+        "kleinj_tau": "(-1.953125 + 4.00221095082781636937103692895e-44j)",
+        "kleinj_7tau": "(-1.953125 - 3.2843027519101734949812690513e-44j)",
+        "sigma_over_2": "-125/64",
+        "abs_err": [
+          "1.61e-40",
+          "2.07e-40"
+        ],
+        "ok": true
+      },
+      "1/27": {
+        "tau": "(0.0 + 0.3779644730092272272145165362341800608157j)",
+        "kleinj_tau": "(9595.703125 + 0.0j)",
+        "kleinj_7tau": "(9595.703125 + 0.0j)",
+        "sigma_over_2": "614125/64",
+        "abs_err": [
+          "1.32e-36",
+          "1.69e-36"
+        ],
+        "ok": true
+      }
+    },
+    "all_ok": true
+  },
+  "inputs": {
+    "sha256": {
+      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "refs/oeis_A279618_bfile.txt": "fdf1eaf799863aec6ac922215d9f1b414baa456233855434823546d136092b43",
+      "refs/recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76",
+      "docs/literature/arxiv_math_0602146.pdf": "879d98d91a9cf3f643dd1c1d9c9ef7e557527d23b838db8fa24d284ce05da7ea",
+      "docs/literature/arxiv_0712.1880.pdf": "8c2a299ae241760122f67beb29b60d173f9772dee2354b39f783d22840837e19",
+      "docs/literature/arxiv_1312.6434.pdf": "8b5c336307261765e0ea09b7d7773958ed5284d6a384afad7e079dc53b4033b2"
+    }
+  },
+  "not_claimed": [
+    "any Kodaira fibre type of any fibration (needs the Weierstrass reduction and a T0 reading)",
+    "anything about cooper_s10",
+    "that any member is preferred (D7')",
+    "any physical reading (VISION sec. 1.3; ledger item 4)"
+  ],
+  "controls": "checkers/test_inose_model_M7_controls.py",
+  "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: checkers/test_inose_model_M7_controls.py | Reviewed-by: N"
+}

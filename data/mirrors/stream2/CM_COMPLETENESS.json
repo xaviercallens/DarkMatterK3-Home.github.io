@@ -1,0 +1,5134 @@
+{
+ "certificate": "CM_COMPLETENESS",
+ "checker": "checkers/check_CM_completeness_classnumber.py",
+ "date": "2026-09-21",
+ "tier": "B",
+ "checker_version": {
+  "git_describe_HEAD": "v0.3.9-thought-experiments-tested-17-gbfe4907",
+  "checker_sha256": "4dba92014ae8d95a6a25560642abc4a27486a04765829061fe12435eda2ae9fc"
+ },
+ "status": "RECORD, NOT A GATE. A completeness CONTROL on the P2 table. P2 claims no completeness; INCOMPLETE rows are a finding about P2's window, not a failure. The rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md), read narrowly: no ranking of candidates, no minimum-|D| rule, no physical reading; nothing is scored. cooper_s10 is ADVISORY (lattice certificate DRAFT).",
+ "normalisation": "F_v = [n x, -2 n z, -y]/div(v); disc F_v = 2 n v^2/div(v)^2 = D of the table; Heegner condition n | A, gcd(A/n, B, C) = 1; asserted on every vector used",
+ "inputs": {
+  "sha256": {
+   "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755"
+  }
+ },
+ "families": {
+  "cooper_s7": {
+   "candidate": "cooper_s7",
+   "n": 7,
+   "advisory": false,
+   "flags": [],
+   "group": "Gamma_0(7)* , Atkin-Lehner determinants [1, 7], and complex conjugation (the table identifies z with conj z)",
+   "per_D": [
+    {
+     "D": -3,
+     "reduced_forms_any_content": 1,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 6,
+     "minus_v2_and_div_of_classes": [
+      [
+       42,
+       14
+      ]
+     ]
+    },
+    {
+     "D": -7,
+     "reduced_forms_any_content": 1,
+     "gamma0_classes": 1,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -12,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       42,
+       7
+      ]
+     ]
+    },
+    {
+     "D": -28,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 1,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -35,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       10,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -56,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 12,
+     "minus_v2_and_div_of_classes": [
+      [
+       4,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -63,
+     "reduced_forms_any_content": 5,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       18,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -84,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 12,
+     "minus_v2_and_div_of_classes": [
+      [
+       6,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -91,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       26,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -112,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       8,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -119,
+     "reduced_forms_any_content": 10,
+     "gamma0_classes": 10,
+     "points_on_X0n_star": 5,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 26,
+     "minus_v2_and_div_of_classes": [
+      [
+       34,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -140,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 6,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       10,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -147,
+     "reduced_forms_any_content": 3,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       42,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -168,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       12,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -196,
+     "reduced_forms_any_content": 5,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       14,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -224,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       16,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -252,
+     "reduced_forms_any_content": 10,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 8,
+     "minus_v2_and_div_of_classes": [
+      [
+       18,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -280,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       20,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -308,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       22,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -336,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       24,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -364,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 6,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       26,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -392,
+     "reduced_forms_any_content": 9,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 8,
+     "points_up_to_conjugation": 5,
+     "expected": 5,
+     "found": 5,
+     "table_rows_of_this_D": 5,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 17,
+     "minus_v2_and_div_of_classes": [
+      [
+       28,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -420,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 11,
+     "minus_v2_and_div_of_classes": [
+      [
+       30,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -448,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       32,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -476,
+     "reduced_forms_any_content": 20,
+     "gamma0_classes": 10,
+     "points_on_X0n_star": 5,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 9,
+     "minus_v2_and_div_of_classes": [
+      [
+       34,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -504,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 7,
+     "minus_v2_and_div_of_classes": [
+      [
+       36,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -532,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 3,
+     "minus_v2_and_div_of_classes": [
+      [
+       38,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -560,
+     "reduced_forms_any_content": 20,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 6,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 11,
+     "minus_v2_and_div_of_classes": [
+      [
+       40,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -588,
+     "reduced_forms_any_content": 10,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 6,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 11,
+     "minus_v2_and_div_of_classes": [
+      [
+       42,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -616,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 7,
+     "minus_v2_and_div_of_classes": [
+      [
+       44,
+       1
+      ]
+     ]
+    }
+   ],
+   "discriminants_with_more_than_one_norm_div_pair": {
+    "listed": [],
+    "absent": []
+   },
+   "absent_D": {
+    "range": "-616 <= D < 0, D not in the table, at least one Heegner class",
+    "count": 146,
+    "points_missing": 607,
+    "least_abs_D_absent": 19,
+    "reason": "each absent D needs -v^2 = |D| div(v)^2/(2n) above the table's logged bound on -v^2 (checked: no absent D has a required norm inside the bound)",
+    "rows": [
+     {
+      "D": -19,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        266,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -20,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        70,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -24,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        84,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -27,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        378,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -31,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        434,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -40,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        140,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -47,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        658,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -48,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        168,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -52,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        182,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -55,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        770,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -59,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        826,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -68,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        238,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -75,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        1050,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -76,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        266,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -80,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        280,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -83,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1162,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -87,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1218,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -96,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        336,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -103,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1442,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -104,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        364,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -108,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        378,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -111,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1554,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -115,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        1610,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -124,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        434,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -131,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1834,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -132,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        462,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -136,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        476,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -139,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1946,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -143,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2002,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -152,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        532,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -159,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        2226,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -160,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        560,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -164,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        574,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -167,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        2338,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -171,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        2394,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -175,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        50,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -180,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        630,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -187,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        2618,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -188,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        658,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -192,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        672,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -195,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        2730,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -199,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2786,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -203,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        58,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -208,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        728,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -215,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        3010,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -216,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        756,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -220,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        770,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -223,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        3122,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -227,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        3178,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -231,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        66,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -236,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        826,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -243,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        3402,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -244,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        854,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -248,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        868,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -251,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        3514,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -255,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        3570,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -259,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        74,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -264,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        924,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -271,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        3794,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -272,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        952,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -276,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        966,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -279,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        3906,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -283,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        3962,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -287,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        82,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -292,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1022,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -299,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        4186,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -300,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1050,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -304,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1064,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -307,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        4298,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -311,
+      "expected": 10,
+      "found": 0,
+      "verdict": "ABSENT(missing all 10)",
+      "minus_v2_and_div_required": [
+       [
+        4354,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -315,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        90,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -320,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1120,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -327,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        4578,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -328,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1148,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -332,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1162,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -335,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        4690,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -339,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        4746,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -343,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        98,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -348,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1218,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -355,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        4970,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -356,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1246,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -360,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1260,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -363,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        5082,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -367,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        5138,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -371,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        106,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -376,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1316,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -383,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        5362,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -384,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1344,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -388,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1358,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -391,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        5474,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -395,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        5530,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -399,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        114,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -404,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        1414,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -411,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        5754,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -412,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1442,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -416,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1456,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -419,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        5866,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -423,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        5922,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -427,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        122,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -432,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1512,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -439,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        6146,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -440,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1540,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -444,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1554,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -447,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        6258,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -451,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        6314,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -455,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        130,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -460,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1610,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -467,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        6538,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -468,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1638,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -472,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1652,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -475,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        6650,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -479,
+      "expected": 13,
+      "found": 0,
+      "verdict": "ABSENT(missing all 13)",
+      "minus_v2_and_div_required": [
+       [
+        6706,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -483,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        138,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -488,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1708,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -495,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        6930,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -496,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1736,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -500,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1750,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -503,
+      "expected": 11,
+      "found": 0,
+      "verdict": "ABSENT(missing all 11)",
+      "minus_v2_and_div_required": [
+       [
+        7042,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -507,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        7098,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -511,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        146,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -516,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1806,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -523,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        7322,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -524,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        1834,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -528,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1848,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -531,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        7434,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -535,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        7490,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -539,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        154,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -544,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1904,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -551,
+      "expected": 14,
+      "found": 0,
+      "verdict": "ABSENT(missing all 14)",
+      "minus_v2_and_div_required": [
+       [
+        7714,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -552,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1932,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -556,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1946,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -559,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        7826,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -563,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        7882,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -567,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        162,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -572,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2002,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -579,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        8106,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -580,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2030,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -584,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        2044,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -587,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        8218,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -591,
+      "expected": 12,
+      "found": 0,
+      "verdict": "ABSENT(missing all 12)",
+      "minus_v2_and_div_required": [
+       [
+        8274,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -595,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        170,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -600,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2100,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -607,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        8498,
+        14
+       ]
+      ]
+     },
+     {
+      "D": -608,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        2128,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -612,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2142,
+        7
+       ]
+      ]
+     },
+     {
+      "D": -615,
+      "expected": 10,
+      "found": 0,
+      "verdict": "ABSENT(missing all 10)",
+      "minus_v2_and_div_required": [
+       [
+        8610,
+        14
+       ]
+      ]
+     }
+    ]
+   },
+   "summary": {
+    "D_values": 30,
+    "complete": 30,
+    "incomplete": 0,
+    "expected_total": 71,
+    "found_total": 71,
+    "least_abs_D_incomplete_in_table": null
+   },
+   "x2_numeric_grouping_vs_exact_orbits": {
+    "vectors": 180,
+    "numeric_groups": 71,
+    "exact_orbits": 71,
+    "partitions_identical": true
+   },
+   "contradictions": []
+  },
+  "cooper_s10": {
+   "candidate": "cooper_s10",
+   "n": 10,
+   "advisory": true,
+   "flags": [
+    "LATTICE_CERT_DRAFT"
+   ],
+   "group": "Gamma_0(10)* , Atkin-Lehner determinants [1, 2, 5, 10], and complex conjugation (the table identifies z with conj z)",
+   "per_D": [
+    {
+     "D": -4,
+     "reduced_forms_any_content": 1,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       20,
+       10
+      ]
+     ]
+    },
+    {
+     "D": -15,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       12,
+       4
+      ]
+     ]
+    },
+    {
+     "D": -16,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 12,
+     "minus_v2_and_div_of_classes": [
+      [
+       20,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -20,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 8,
+     "minus_v2_and_div_of_classes": [
+      [
+       4,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -24,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       30,
+       5
+      ]
+     ]
+    },
+    {
+     "D": -40,
+     "reduced_forms_any_content": 2,
+     "gamma0_classes": 2,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -55,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       44,
+       4
+      ]
+     ]
+    },
+    {
+     "D": -60,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       12,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -80,
+     "reduced_forms_any_content": 6,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 16,
+     "minus_v2_and_div_of_classes": [
+      [
+       4,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -100,
+     "reduced_forms_any_content": 3,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 6,
+     "minus_v2_and_div_of_classes": [
+      [
+       20,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -120,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       6,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -140,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 16,
+     "minus_v2_and_div_of_classes": [
+      [
+       28,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -160,
+     "reduced_forms_any_content": 6,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       8,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -180,
+     "reduced_forms_any_content": 6,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 6,
+     "minus_v2_and_div_of_classes": [
+      [
+       36,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -200,
+     "reduced_forms_any_content": 7,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 12,
+     "minus_v2_and_div_of_classes": [
+      [
+       10,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -220,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       44,
+       2
+      ]
+     ]
+    },
+    {
+     "D": -240,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 4,
+     "minus_v2_and_div_of_classes": [
+      [
+       12,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -280,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 2,
+     "minus_v2_and_div_of_classes": [
+      [
+       14,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -320,
+     "reduced_forms_any_content": 14,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       16,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -360,
+     "reduced_forms_any_content": 10,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 8,
+     "minus_v2_and_div_of_classes": [
+      [
+       18,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -400,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 10,
+     "minus_v2_and_div_of_classes": [
+      [
+       20,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -440,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 8,
+     "minus_v2_and_div_of_classes": [
+      [
+       22,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -480,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 14,
+     "minus_v2_and_div_of_classes": [
+      [
+       24,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -520,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 1,
+     "minus_v2_and_div_of_classes": [
+      [
+       26,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -560,
+     "reduced_forms_any_content": 20,
+     "gamma0_classes": 24,
+     "points_on_X0n_star": 6,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 15,
+     "minus_v2_and_div_of_classes": [
+      [
+       28,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -600,
+     "reduced_forms_any_content": 10,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 9,
+     "minus_v2_and_div_of_classes": [
+      [
+       30,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -640,
+     "reduced_forms_any_content": 14,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 9,
+     "minus_v2_and_div_of_classes": [
+      [
+       32,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -680,
+     "reduced_forms_any_content": 12,
+     "gamma0_classes": 12,
+     "points_on_X0n_star": 3,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       34,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -720,
+     "reduced_forms_any_content": 18,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 3,
+     "expected": 3,
+     "found": 3,
+     "table_rows_of_this_D": 3,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 7,
+     "minus_v2_and_div_of_classes": [
+      [
+       36,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -760,
+     "reduced_forms_any_content": 4,
+     "gamma0_classes": 4,
+     "points_on_X0n_star": 1,
+     "points_up_to_conjugation": 1,
+     "expected": 1,
+     "found": 1,
+     "table_rows_of_this_D": 1,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 1,
+     "minus_v2_and_div_of_classes": [
+      [
+       38,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -800,
+     "reduced_forms_any_content": 21,
+     "gamma0_classes": 48,
+     "points_on_X0n_star": 12,
+     "points_up_to_conjugation": 8,
+     "expected": 8,
+     "found": 8,
+     "table_rows_of_this_D": 8,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 29,
+     "minus_v2_and_div_of_classes": [
+      [
+       40,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -840,
+     "reduced_forms_any_content": 8,
+     "gamma0_classes": 8,
+     "points_on_X0n_star": 2,
+     "points_up_to_conjugation": 2,
+     "expected": 2,
+     "found": 2,
+     "table_rows_of_this_D": 2,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 3,
+     "minus_v2_and_div_of_classes": [
+      [
+       42,
+       1
+      ]
+     ]
+    },
+    {
+     "D": -880,
+     "reduced_forms_any_content": 16,
+     "gamma0_classes": 16,
+     "points_on_X0n_star": 4,
+     "points_up_to_conjugation": 4,
+     "expected": 4,
+     "found": 4,
+     "table_rows_of_this_D": 4,
+     "verdict": "COMPLETE",
+     "missing_points_representative_forms": [],
+     "missing_points_representative_vectors": [],
+     "x3_bruteforce_forms_checked": 5,
+     "minus_v2_and_div_of_classes": [
+      [
+       44,
+       1
+      ]
+     ]
+    }
+   ],
+   "discriminants_with_more_than_one_norm_div_pair": {
+    "listed": [],
+    "absent": []
+   },
+   "absent_D": {
+    "range": "-880 <= D < 0, D not in the table, at least one Heegner class",
+    "count": 165,
+    "points_missing": 822,
+    "least_abs_D_absent": 31,
+    "reason": "each absent D needs -v^2 = |D| div(v)^2/(2n) above the table's logged bound on -v^2 (checked: no absent D has a required norm inside the bound)",
+    "rows": [
+     {
+      "D": -31,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        620,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -36,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        180,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -39,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        780,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -44,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        220,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -56,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        70,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -64,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        80,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -71,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1420,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -76,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        380,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -79,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1580,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -84,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        420,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -95,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        76,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -96,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        120,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -104,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        130,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -111,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2220,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -116,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        580,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -119,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2380,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -124,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        620,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -135,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        108,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -136,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        170,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -144,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        180,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -151,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        3020,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -156,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        780,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -159,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        3180,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -164,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        820,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -175,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        140,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -176,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        220,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -184,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        230,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -191,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        3820,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -196,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        980,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -199,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        3980,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -204,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1020,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -215,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        172,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -216,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        270,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -224,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        280,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -231,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        4620,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -236,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1180,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -239,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        4780,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -244,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1220,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -255,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        204,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -256,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        320,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -260,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        52,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -264,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        330,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -271,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        5420,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -276,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1380,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -279,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        5580,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -284,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1420,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -295,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        236,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -296,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        370,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -300,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        60,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -304,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        380,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -311,
+      "expected": 10,
+      "found": 0,
+      "verdict": "ABSENT(missing all 10)",
+      "minus_v2_and_div_required": [
+       [
+        6220,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -316,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1580,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -319,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        6380,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -324,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1620,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -335,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        268,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -336,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        420,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -340,
+      "expected": 1,
+      "found": 0,
+      "verdict": "ABSENT(missing all 1)",
+      "minus_v2_and_div_required": [
+       [
+        68,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -344,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        430,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -351,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        7020,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -356,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        1780,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -359,
+      "expected": 10,
+      "found": 0,
+      "verdict": "ABSENT(missing all 10)",
+      "minus_v2_and_div_required": [
+       [
+        7180,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -364,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1820,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -375,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        300,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -376,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        470,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -380,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        76,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -384,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        480,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -391,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        7820,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -396,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        1980,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -399,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        7980,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -404,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2020,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -415,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        332,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -416,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        520,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -420,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        84,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -424,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        530,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -431,
+      "expected": 11,
+      "found": 0,
+      "verdict": "ABSENT(missing all 11)",
+      "minus_v2_and_div_required": [
+       [
+        8620,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -436,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        2180,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -439,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        8780,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -444,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2220,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -455,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        364,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -456,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        570,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -460,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        92,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -464,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        580,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -471,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        9420,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -476,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2380,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -479,
+      "expected": 13,
+      "found": 0,
+      "verdict": "ABSENT(missing all 13)",
+      "minus_v2_and_div_required": [
+       [
+        9580,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -484,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        2420,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -495,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        396,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -496,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        620,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -500,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        100,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -504,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        630,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -511,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        10220,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -516,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2580,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -519,
+      "expected": 10,
+      "found": 0,
+      "verdict": "ABSENT(missing all 10)",
+      "minus_v2_and_div_required": [
+       [
+        10380,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -524,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        2620,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -535,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        428,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -536,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        670,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -540,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        108,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -544,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        680,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -551,
+      "expected": 13,
+      "found": 0,
+      "verdict": "ABSENT(missing all 13)",
+      "minus_v2_and_div_required": [
+       [
+        11020,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -556,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        2780,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -559,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        11180,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -564,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        2820,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -575,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        460,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -576,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        720,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -580,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        116,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -584,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        730,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -591,
+      "expected": 12,
+      "found": 0,
+      "verdict": "ABSENT(missing all 12)",
+      "minus_v2_and_div_required": [
+       [
+        11820,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -596,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        2980,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -599,
+      "expected": 13,
+      "found": 0,
+      "verdict": "ABSENT(missing all 13)",
+      "minus_v2_and_div_required": [
+       [
+        11980,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -604,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        3020,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -615,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        492,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -616,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        770,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -620,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        124,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -624,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        780,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -631,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        12620,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -636,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        3180,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -639,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        12780,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -644,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        3220,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -655,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        524,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -656,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        820,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -660,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        132,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -664,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        830,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -671,
+      "expected": 15,
+      "found": 0,
+      "verdict": "ABSENT(missing all 15)",
+      "minus_v2_and_div_required": [
+       [
+        13420,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -676,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        3380,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -679,
+      "expected": 9,
+      "found": 0,
+      "verdict": "ABSENT(missing all 9)",
+      "minus_v2_and_div_required": [
+       [
+        13580,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -684,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        3420,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -695,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        556,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -696,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        870,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -700,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        140,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -704,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        880,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -711,
+      "expected": 11,
+      "found": 0,
+      "verdict": "ABSENT(missing all 11)",
+      "minus_v2_and_div_required": [
+       [
+        14220,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -716,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        3580,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -719,
+      "expected": 16,
+      "found": 0,
+      "verdict": "ABSENT(missing all 16)",
+      "minus_v2_and_div_required": [
+       [
+        14380,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -724,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        3620,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -735,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        588,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -736,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        920,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -740,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        148,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -744,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        930,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -751,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        15020,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -756,
+      "expected": 3,
+      "found": 0,
+      "verdict": "ABSENT(missing all 3)",
+      "minus_v2_and_div_required": [
+       [
+        3780,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -759,
+      "expected": 12,
+      "found": 0,
+      "verdict": "ABSENT(missing all 12)",
+      "minus_v2_and_div_required": [
+       [
+        15180,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -764,
+      "expected": 7,
+      "found": 0,
+      "verdict": "ABSENT(missing all 7)",
+      "minus_v2_and_div_required": [
+       [
+        3820,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -775,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        620,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -776,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        970,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -780,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        156,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -784,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        980,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -791,
+      "expected": 16,
+      "found": 0,
+      "verdict": "ABSENT(missing all 16)",
+      "minus_v2_and_div_required": [
+       [
+        15820,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -796,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        3980,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -799,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        15980,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -804,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        4020,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -815,
+      "expected": 8,
+      "found": 0,
+      "verdict": "ABSENT(missing all 8)",
+      "minus_v2_and_div_required": [
+       [
+        652,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -816,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1020,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -820,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        164,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -824,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        1030,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -831,
+      "expected": 15,
+      "found": 0,
+      "verdict": "ABSENT(missing all 15)",
+      "minus_v2_and_div_required": [
+       [
+        16620,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -836,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        4180,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -839,
+      "expected": 17,
+      "found": 0,
+      "verdict": "ABSENT(missing all 17)",
+      "minus_v2_and_div_required": [
+       [
+        16780,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -844,
+      "expected": 5,
+      "found": 0,
+      "verdict": "ABSENT(missing all 5)",
+      "minus_v2_and_div_required": [
+       [
+        4220,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -855,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        684,
+        4
+       ]
+      ]
+     },
+     {
+      "D": -856,
+      "expected": 2,
+      "found": 0,
+      "verdict": "ABSENT(missing all 2)",
+      "minus_v2_and_div_required": [
+       [
+        1070,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -860,
+      "expected": 4,
+      "found": 0,
+      "verdict": "ABSENT(missing all 4)",
+      "minus_v2_and_div_required": [
+       [
+        172,
+        2
+       ]
+      ]
+     },
+     {
+      "D": -864,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        1080,
+        5
+       ]
+      ]
+     },
+     {
+      "D": -871,
+      "expected": 12,
+      "found": 0,
+      "verdict": "ABSENT(missing all 12)",
+      "minus_v2_and_div_required": [
+       [
+        17420,
+        20
+       ]
+      ]
+     },
+     {
+      "D": -876,
+      "expected": 6,
+      "found": 0,
+      "verdict": "ABSENT(missing all 6)",
+      "minus_v2_and_div_required": [
+       [
+        4380,
+        10
+       ]
+      ]
+     },
+     {
+      "D": -879,
+      "expected": 12,
+      "found": 0,
+      "verdict": "ABSENT(missing all 12)",
+      "minus_v2_and_div_required": [
+       [
+        17580,
+        20
+       ]
+      ]
+     }
+    ]
+   },
+   "summary": {
+    "D_values": 33,
+    "complete": 33,
+    "incomplete": 0,
+    "expected_total": 69,
+    "found_total": 69,
+    "least_abs_D_incomplete_in_table": null
+   },
+   "x2_numeric_grouping_vs_exact_orbits": {
+    "vectors": 182,
+    "numeric_groups": 69,
+    "exact_orbits": 69,
+    "partitions_identical": true
+   },
+   "contradictions": []
+  }
+ },
+ "x1_class_number_cross_check": {
+  "cooper_s7": {
+   "discriminants_checked": 170,
+   "disagreements": [],
+   "nonzero_cases": 85,
+   "table_discriminants_total": 30,
+   "table_discriminants_covered": [
+    -3,
+    -12
+   ],
+   "table_discriminants_covered_count": 2,
+   "coverage_note": "X1 applies only where gcd(D, n) = 1. It therefore tests the enumeration CODE on 170 discriminants, but only 2 of the 30 discriminants of the table; at the others (D sharing a factor with n: forms with content, ramified primes) the expected counts are NOT cross-checked by X1 and rest on the enumeration plus X2 and X3 alone."
+  },
+  "cooper_s10": {
+   "discriminants_checked": 80,
+   "disagreements": [],
+   "nonzero_cases": 20,
+   "table_discriminants_total": 33,
+   "table_discriminants_covered": [],
+   "table_discriminants_covered_count": 0,
+   "coverage_note": "X1 applies only where gcd(D, n) = 1. It therefore tests the enumeration CODE on 80 discriminants, but only 0 of the 33 discriminants of the table; at the others (D sharing a factor with n: forms with content, ramified primes) the expected counts are NOT cross-checked by X1 and rest on the enumeration plus X2 and X3 alone."
+  }
+ },
+ "checks": {
+  "cooper_s7: no contradiction (found <= expected, rows in distinct orbits, brute force inside classes)": true,
+  "cooper_s7: X1 class-number formula agrees with enumeration": true,
+  "cooper_s7: X2 numeric z-grouping equals exact orbit partition": true,
+  "cooper_s10: no contradiction (found <= expected, rows in distinct orbits, brute force inside classes)": true,
+  "cooper_s10: X1 class-number formula agrees with enumeration": true,
+  "cooper_s10: X2 numeric z-grouping equals exact orbit partition": true
+ },
+ "tier_notes": [
+  "expected counts: exact integer enumeration",
+  "found counts: rows of the P2 table, whose grouping by z is numeric (Tier B); X2 re-derives that grouping exactly",
+  "the identification 'points of X_0(n)* <-> values of z' rests on the s7 / s10 Hauptmodul certificates (Tier B); X2 is consistent with it on the window and does not prove it",
+  "X1 formula: standard (Gross-Kohnen-Zagier), not among the pinned sources; used as a cross-check only; it covers only the table discriminants coprime to n (see coverage_note per family)"
+ ],
+ "controls": "checkers/test_CM_completeness_classnumber_controls.py",
+ "not_claimed": [
+  "that P2 is defective: it claims no completeness, and this control measures its window",
+  "that COMPLETE at a D means the z-values or minimal polynomials of that D are certified: recognition stays Tier B numeric",
+  "that the table is complete as a list of discriminants: D absent from it are listed under absent_D",
+  "that rho = 20 is a selection criterion or that any point is preferred",
+  "anything certified about cooper_s10: advisory throughout",
+  "any physical reading whatsoever"
+ ],
+ "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: checkers/test_CM_completeness_classnumber_controls.py | Reviewed-by: N"
+}

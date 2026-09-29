@@ -1,0 +1,147 @@
+{
+  "certificate": "INOSE_FIBRATION_MULTIPLICITIES",
+  "checker": "checkers/check_inose_fibration_multiplicities.py",
+  "checker_version": "1.0.0",
+  "date": "2026-09-27",
+  "tier": "B",
+  "status": "RECORD, NOT A GATE. Discriminant-root ORDERS of the Inose elliptic fibration on X = Inose(E1 x E2), from the Kuwata-Shioda J9 equation (transcription verified against their printed discriminant), after the degree-2 base change they name. No Kodaira label is attached anywhere in this certificate: whether such labels may be read off an explicit Weierstrass model is T0's reading (briefs/WP_GE10_INOSE_MODEL_M7_2026_09_27.md sec. 5). The rho = 20 cut stays read narrowly (D7').",
+  "claim": "At every point with J(E1) = J(E2) outside a finite explicit exceptional set -- in particular at both singular loci of the s7 family, z = -1 (D = -7) and z = 1/27 (D = -28) -- the orders of the discriminant roots are {10, 10, 2, 1, 1}: exactly one order-2 fibre appears (at the base-change branch point), because d(0) vanishes identically when the two curves are isomorphic. The div-2 and div-1 points are indistinguishable at the fibre level; the second extra class of the rank-20 surface is not a fibre (GE-10, fibre-level question, answered for this fibration). Special values: J = 0 -> {10, 10, 4}; J = 1 -> {10, 10, 2, 2}.",
+  "tier_reason": "exact polynomial algebra on a sourced equation (Tier L, pinned); the link to the s7 loci is through INOSE_MODEL_M7.json (Tier B: Hauptmodul identification).",
+  "result": {
+    "T1_transcription": {
+      "delta_divisible_by_u6_um1_10": true,
+      "deg_d": 2,
+      "disc_d_matches_KS_line_1418": true,
+      "convention": "Silverman Delta = 16 x KS cubic discriminant; d here = KS d (after /16)",
+      "d(u)": "l1**6*l2**4*u**2 - 2*l1**6*l2**4*u + l1**6*l2**4 - 2*l1**6*l2**3*u**2 + 4*l1**6*l2**3*u - 2*l1**6*l2**3 + l1**6*l2**2*u**2 - 2*l1**6*l2**2*u + l1**6*l2**2 + 2*l1**5*l2**5*u**2 - 2*l1**5*l2**5 - 8*l1**5*l2**4*u**2 + 6*l1**5*l2**4*u + 2*l1**5*l2**4 + 6*l1**5*l2**3*u**2 - 12*l1**5*l2**3*u + 6*l1**5*l2**3 + 2*l1**5*l2**2*u**2 + 6*l1**5*l2**2*u - 8*l1**5*l2**2 - 2*l1**5*l2*u**2 + 2*l1**5*l2 + l1**4*l2**6*u**2 - 2*l1**4*l2**6*u + l1**4*l2**6 - 8*l1**4*l2**5*u**2 + 6*l1**4*l2**5*u + 2*l1**4*l2**5 + 11*l1**4*l2**4*u**2 - 24*l1**4*l2**4*u - 14*l1**4*l2**4 + 8*l1**4*l2**3*u**2 + 38*l1**4*l2**3*u + 8*l1**4*l2**3 - 14*l1**4*l2**2*u**2 - 24*l1**4*l2**2*u + 11*l1**4*l2**2 + 2*l1**4*l2*u**2 + 6*l1**4*l2*u - 8*l1**4*l2 + l1**4*u**2 - 2*l1**4*u + l1**4 - 2*l1**3*l2**6*u**2 + 4*l1**3*l2**6*u - 2*l1**3*l2**6 + 6*l1**3*l2**5*u**2 - 12*l1**3*l2**5*u + 6*l1**3*l2**5 + 8*l1**3*l2**4*u**2 + 38*l1**3*l2**4*u + 8*l1**3*l2**4 - 26*l1**3*l2**3*u**2 - 56*l1**3*l2**3*u - 26*l1**3*l2**3 + 8*l1**3*l2**2*u**2 + 38*l1**3*l2**2*u + 8*l1**3*l2**2 + 6*l1**3*l2*u**2 - 12*l1**3*l2*u + 6*l1**3*l2 - 2*l1**3*u**2 + 4*l1**3*u - 2*l1**3 + l1**2*l2**6*u**2 - 2*l1**2*l2**6*u + l1**2*l2**6 + 2*l1**2*l2**5*u**2 + 6*l1**2*l2**5*u - 8*l1**2*l2**5 - 14*l1**2*l2**4*u**2 - 24*l1**2*l2**4*u + 11*l1**2*l2**4 + 8*l1**2*l2**3*u**2 + 38*l1**2*l2**3*u + 8*l1**2*l2**3 + 11*l1**2*l2**2*u**2 - 24*l1**2*l2**2*u - 14*l1**2*l2**2 - 8*l1**2*l2*u**2 + 6*l1**2*l2*u + 2*l1**2*l2 + l1**2*u**2 - 2*l1**2*u + l1**2 - 2*l1*l2**5*u**2 + 2*l1*l2**5 + 2*l1*l2**4*u**2 + 6*l1*l2**4*u - 8*l1*l2**4 + 6*l1*l2**3*u**2 - 12*l1*l2**3*u + 6*l1*l2**3 - 8*l1*l2**2*u**2 + 6*l1*l2**2*u + 2*l1*l2**2 + 2*l1*l2*u**2 - 2*l1*l2 + l2**4*u**2 - 2*l2**4*u + l2**4 - 2*l2**3*u**2 + 4*l2**3*u - 2*l2**3 + l2**2*u**2 - 2*l2**2*u + l2**2",
+      "d(0)": "(l1 - l2)**2*(l1*l2 - l1 + 1)**2*(l1*l2 - l2 + 1)**2",
+      "d(1)": "-27*l1**2*l2**2*(l1 - 1)**2*(l2 - 1)**2"
+    },
+    "T2_K3_model": {
+      "a2": "l1*l2*s**4 - 2*l1*l2*s**2 + l1*l2 - 2*l1*s**4 + 4*l1*s**2 - 2*l1 - 2*l2*s**4 + 4*l2*s**2 - 2*l2 + s**4 - 2*s**2 + 1",
+      "a4": "-l1**2*l2*s**8 + 4*l1**2*l2*s**6 - 6*l1**2*l2*s**4 + 4*l1**2*l2*s**2 - l1**2*l2 + l1**2*s**8 - 4*l1**2*s**6 + 6*l1**2*s**4 - 4*l1**2*s**2 + l1**2 - l1*l2**2*s**8 + 4*l1*l2**2*s**6 - 6*l1*l2**2*s**4 + 4*l1*l2**2*s**2 - l1*l2**2 + 3*l1*l2*s**8 - 12*l1*l2*s**6 + 18*l1*l2*s**4 - 12*l1*l2*s**2 + 3*l1*l2 - l1*s**8 + 4*l1*s**6 - 6*l1*s**4 + 4*l1*s**2 - l1 + l2**2*s**8 - 4*l2**2*s**6 + 6*l2**2*s**4 - 4*l2**2*s**2 + l2**2 - l2*s**8 + 4*l2*s**6 - 6*l2*s**4 + 4*l2*s**2 - l2",
+      "a6": "-l1**2*l2**2*s**10 + 5*l1**2*l2**2*s**8 - 10*l1**2*l2**2*s**6 + 10*l1**2*l2**2*s**4 - 5*l1**2*l2**2*s**2 + l1**2*l2**2 + l1**2*l2*s**10 - 5*l1**2*l2*s**8 + 10*l1**2*l2*s**6 - 10*l1**2*l2*s**4 + 5*l1**2*l2*s**2 - l1**2*l2 + l1*l2**2*s**10 - 5*l1*l2**2*s**8 + 10*l1*l2**2*s**6 - 10*l1*l2**2*s**4 + 5*l1*l2**2*s**2 - l1*l2**2 - l1*l2*s**10 + 5*l1*l2*s**8 - 10*l1*l2*s**6 + 10*l1*l2*s**4 - 5*l1*l2*s**2 + l1*l2",
+      "Delta_X": "(s^2-1)^10 * d(s^2)",
+      "deg_Delta_X": 24
+    },
+    "T3_generic_orders": {
+      "orders_at_s_plus_minus_1": 10,
+      "roots_of_d_of_s2": "4 simple iff disc(d) != 0, d(0) != 0",
+      "order_at_infinity": 0
+    },
+    "T4_J1_eq_J2": {
+      "disc_d_at_l1_eq_l2": "16*lam**4*(lam - 1)**4*(lam**2 - lam + 1)**6",
+      "d0_at_l1_eq_l2": "0",
+      "d1_at_l1_eq_l2": "-27*lam**4*(lam - 1)**4",
+      "e(u)=d(u)/u": "-4*lam**10 + 20*lam**9 - 52*lam**8 + 88*lam**7 - 104*lam**6 + 88*lam**5 - 52*lam**4 + 20*lam**3 - 4*lam**2 + u*(4*lam**10 - 20*lam**9 + 25*lam**8 + 20*lam**7 - 58*lam**6 + 20*lam**5 + 25*lam**4 - 20*lam**3 + 4*lam**2)",
+      "lead_e": "lam**2*(lam - 2)**2*(lam - 1)**2*(lam + 1)**2*(2*lam - 1)**2",
+      "e(0)": "-4*lam**2*(lam - 1)**2*(lam**2 - lam + 1)**3",
+      "e(1)": "-27*lam**4*(lam - 1)**4",
+      "exceptional_lambda_factors": [
+        "2*lam - 1",
+        "lam",
+        "lam + 1",
+        "lam - 1",
+        "lam - 2",
+        "lam**2 - lam + 1"
+      ],
+      "statement": "d(0) = 0 identically at l1 = l2: for lambda outside the exceptional factors the orders are {10, 10, 2, 1, 1} (order 0 at infinity) -- exactly ONE order-2 fibre appears, at the branch point s = 0; the extra algebraic class at J1 = J2 is that fibre"
+    },
+    "T5_s7_loci": {
+      "-1": {
+        "J": "-125/64",
+        "j": "-3375",
+        "lambda_polynomial_degree": 6,
+        "shares_root_with_exceptional_set": false,
+        "orders": {
+          "s=+1": 10,
+          "s=-1": 10,
+          "s=0": 2,
+          "roots_of_e(s^2)": [
+            1,
+            1
+          ],
+          "s=infinity": 0
+        }
+      },
+      "1/27": {
+        "J": "614125/64",
+        "j": "16581375",
+        "lambda_polynomial_degree": 6,
+        "shares_root_with_exceptional_set": false,
+        "orders": {
+          "s=+1": 10,
+          "s=-1": 10,
+          "s=0": 2,
+          "roots_of_e(s^2)": [
+            1,
+            1
+          ],
+          "s=infinity": 0
+        }
+      }
+    },
+    "T5_all_loci_generic_orders": true,
+    "T6_special_values": {
+      "J=0 (lam^2-lam+1=0)": {
+        "lambda": "1/2 + sqrt(3)*I/2",
+        "j": "0",
+        "orders_finite": [
+          {
+            "factor": "s",
+            "order": 4,
+            "degree": 1
+          },
+          {
+            "factor": "s - 1",
+            "order": 10,
+            "degree": 1
+          },
+          {
+            "factor": "s + 1",
+            "order": 10,
+            "degree": 1
+          }
+        ],
+        "order_at_infinity": 0
+      },
+      "J=1 (lam=-1)": {
+        "lambda": "-1",
+        "j": "1728",
+        "orders_finite": [
+          {
+            "factor": "s",
+            "order": 2,
+            "degree": 1
+          },
+          {
+            "factor": "s - 1",
+            "order": 10,
+            "degree": 1
+          },
+          {
+            "factor": "s + 1",
+            "order": 10,
+            "degree": 1
+          }
+        ],
+        "order_at_infinity": 2
+      }
+    },
+    "all_ok": true
+  },
+  "inputs": {
+    "sha256": {
+      "docs/literature/arxiv_math_0609473.pdf": "5676cefc8b7d18bd2f940661afb953f2378ea2b942884bf39634692b7a8a857f",
+      "data/certificates/INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6"
+    }
+  },
+  "not_claimed": [
+    "any Kodaira label",
+    "the Mordell-Weil structure at the loci (not computed)",
+    "anything about cooper_s10",
+    "any physical reading"
+  ],
+  "controls": "checkers/test_inose_fibration_multiplicities_controls.py",
+  "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: checkers/test_inose_fibration_multiplicities_controls.py | Reviewed-by: N"
+}

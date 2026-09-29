@@ -1,0 +1,130 @@
+{
+  "certificate": "C6_SELECTED_CANDIDATE",
+  "checker": "checkers/check_C6_selector_adopted.py",
+  "checker_version": "1.0.0",
+  "date": "2026-09-28",
+  "tier": "B",
+  "status": "Selector ADOPTED: AM-8, K3_CRITERIA.md C6, T0 ruling via AskUserQuestion 2026-09-28 ('SEL-D: minimal |disc T|'), narrowing D7' (ledger item 8) to cross-family comparison only. This certificate verifies the criteria text's two named lattices against a fresh recomputation and CM_COMPLETENESS.json's curve-point count (not class number alone). cooper_s10's pick is ADVISORY: its lattice certificate stays DRAFT (D6'), untouched by this selection. No ranking of the two families; no physical reading (ledger item 4).",
+  "selected": {
+    "cooper_s7": {
+      "T_reduced_form": [
+        1,
+        1,
+        1
+      ],
+      "D": -3,
+      "z": "infinity",
+      "v": [
+        14,
+        -14,
+        -5
+      ],
+      "advisory": false
+    },
+    "cooper_s10": {
+      "T_reduced_form": [
+        1,
+        0,
+        1
+      ],
+      "D": -4,
+      "z": "infinity",
+      "v": [
+        10,
+        -10,
+        -3
+      ],
+      "advisory": true
+    }
+  },
+  "result": {
+    "cooper_s7": {
+      "n": 7,
+      "recomputed": {
+        "definition": "minimal |disc T| over the occurrence criterion, searched exactly (not from the certificate's own window)",
+        "global_min_abs_D": 3,
+        "D": -3,
+        "reduced_forms_of_D": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "class_number_h_D": 1,
+        "certificate_window_min_abs_D": 3,
+        "window_realizes_global_min": true,
+        "picked_row": {
+          "v": [
+            14,
+            -14,
+            -5
+          ],
+          "D": -3,
+          "T": [
+            1,
+            1,
+            1
+          ],
+          "div_v": 14
+        }
+      },
+      "unique_on_curve": true,
+      "matches_criteria_text": true,
+      "ok": true,
+      "advisory": false
+    },
+    "cooper_s10": {
+      "n": 10,
+      "recomputed": {
+        "definition": "minimal |disc T| over the occurrence criterion, searched exactly (not from the certificate's own window)",
+        "global_min_abs_D": 4,
+        "D": -4,
+        "reduced_forms_of_D": [
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "class_number_h_D": 1,
+        "certificate_window_min_abs_D": 4,
+        "window_realizes_global_min": true,
+        "picked_row": {
+          "v": [
+            10,
+            -10,
+            -3
+          ],
+          "D": -4,
+          "T": [
+            1,
+            0,
+            1
+          ],
+          "div_v": 10
+        }
+      },
+      "unique_on_curve": true,
+      "matches_criteria_text": true,
+      "ok": true,
+      "advisory": true
+    }
+  },
+  "inputs": {
+    "sha256": {
+      "K3_CRITERIA.md": "7af500a774073893ea0829efc6e7fcdfccf1974fbd5859275f902feb70fd3511",
+      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "data/certificates/CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+      "data/certificates/C6_SELECTOR_COMPARISON.json": "92e05bf175688692961147c57045988404142036164ace776b42ae216a68ae1c"
+    }
+  },
+  "not_claimed": [
+    "that SEL-D is intrinsically the correct quantity to extremise (a T0 ruling, not a mathematical fact)",
+    "any physical reading (ledger item 4)",
+    "any promotion of cooper_s10's lattice certificate (D6')",
+    "any ranking of cooper_s7 over cooper_s10"
+  ],
+  "controls": "checkers/test_C6_selector_adopted_controls.py",
+  "provenance": "Generated-by: Claude (Sonnet 5), Stream 2 | Verified-by: checkers/test_C6_selector_adopted_controls.py | Reviewed-by: T0 Y (selector choice), record N"
+}
