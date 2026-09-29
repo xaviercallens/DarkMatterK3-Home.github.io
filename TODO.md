@@ -198,3 +198,10 @@ the scientific pipeline — run the two directories above, not the repo root.
 <!-- Generated-by: Claude Fable 5 (Stream 3, session close 2026-07-26); WP-E6 line section and
 the WP-E6 v2 T0 ask added by Claude Opus 5 (Stream 3, WP-E6b, 2026-07-27) | Verified-by: every
 item traced to its committed artifact | Reviewed-by: pending T0 -->
+
+## 📥 Inbox — filed 2026-09-29 (Stream 2 deliveries, content untouched)
+
+- `briefs/STREAM2_TO_STREAM3_FABLE_REVIEW_DIRECTIONS_2026_09_27.md` — audited external review; laboratory programme offered (E1–E4), K3 is the shadow not the target.
+- `briefs/STREAM2_TO_STREAM3_NOTICE_PR55_MERGED_2026_09_27.md` — §1–§9: re-pin/re-mirror, D12′ laboratory approach (§5), AM-8 selector (§7), Stream 1 close (§8), paper + D14′–D18′ restart (§9, two sections carry that number — both are Stream 2's, the first is the ruling record, the second the paper FYI).
+- `briefs/DUALSCALE_TO_STREAMS_DECISIONS_2026_09_28.md` — DualScaleSimulator D1–D3; no level chosen, modular potential gated; nothing moves a gate here.
+- `briefs/STREAM3_ACTIVATION_2026_09_29.md` — the ordered work list W0–W5 executed below.
