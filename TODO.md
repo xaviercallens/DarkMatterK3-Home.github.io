@@ -198,3 +198,35 @@ the scientific pipeline — run the two directories above, not the repo root.
 <!-- Generated-by: Claude Fable 5 (Stream 3, session close 2026-07-26); WP-E6 line section and
 the WP-E6 v2 T0 ask added by Claude Opus 5 (Stream 3, WP-E6b, 2026-07-27) | Verified-by: every
 item traced to its committed artifact | Reviewed-by: pending T0 -->
+
+## 📥 Inbox — filed 2026-09-29 (Stream 2 deliveries, content untouched)
+
+- `briefs/STREAM2_TO_STREAM3_FABLE_REVIEW_DIRECTIONS_2026_09_27.md` — audited external review; laboratory programme offered (E1–E4), K3 is the shadow not the target.
+- `briefs/STREAM2_TO_STREAM3_NOTICE_PR55_MERGED_2026_09_27.md` — §1–§9: re-pin/re-mirror, D12′ laboratory approach (§5), AM-8 selector (§7), Stream 1 close (§8), paper + D14′–D18′ restart (§9, two sections carry that number — both are Stream 2's, the first is the ruling record, the second the paper FYI).
+- `briefs/DUALSCALE_TO_STREAMS_DECISIONS_2026_09_28.md` — DualScaleSimulator D1–D3; no level chosen, modular potential gated; nothing moves a gate here.
+- `briefs/STREAM3_ACTIVATION_2026_09_29.md` — the ordered work list W0–W5 executed below.
+
+## 🟢 Stream 3 activation executed 2026-09-29 (`briefs/STREAM3_ACTIVATION_2026_09_29.md` W1–W5)
+
+- [x] **W1** inbox filed — commit `1822c18`.
+- [x] **W2** re-pin + re-mirror — `K3_CRITERIA.md` re-pinned to K3-DarkMatter `main` `2894e78` (sha256
+  `bcafe8025d6752d11624d72d0e548ab6f1dc7924bfd5b3b4dbae61fdfd829643`, recomputed here); 12 certificates in
+  `data/mirrors/stream2/` (10 new, 2 re-verified byte-identical); `MIRROR_MANIFEST.json` regenerated from the
+  files by `scripts/refresh_stream2_mirror_manifest.py` (`--check` green; drift test 7/7). Every cooper_s10 row
+  in `CM_POINTS_RHO20.json` still carries `advisory=true` — dated (pre-D15′), not wrong, not edited.
+- [x] **W4.1 E1 — Aubry–André calibration arm** — `checkers/check_aubry_andre_selfduality.py`, certificate
+  `checkers/certificates/E1_aubry_andre_selfduality.json`, tests `checkers/tests/test_aubry_andre_selfduality.py`.
+  Result line: `PASS(N) for N in 13,89,233` at tol 1e-9 (spectral duality, scaled form E′=(2J/λ)E, explicit
+  intertwiner, and IPR_x = IPR_k at λ = 2J on a non-degenerate spectrum). Negative-control line, run first:
+  random matched-rms potential breaks both identities at every N (N1, N2); non-coprime p is refused (N3).
+  A model check, not a measurement; no K3 sentence anywhere in it.
+- [x] **W4.2 E2 — pre-registration DRAFT** (unpinned, no data touched, no dataset fetched):
+  `briefs/PREDICTION_V2_AMENDMENT_E2_SIT_NOISE_DUALITY_DRAFT_2026_09_29.md`. Thresholds and dataset names are
+  `RESERVED` for T0; the pin (git tag) is T0's act, not Stream 3's. Rule 1 (no comparison code before `PINNED:`)
+  observed: nothing in `pipeline/` or `data/` changed.
+- [ ] **W4.3 E3/E4** — designed appendices only; not started by rule until E1 and E2 exist (E1 exists; E2 is a draft).
+- [x] **W5** report brief to Stream 2 filed in K3-DarkMatter `briefs/` (hash in the brief).
+
+**Standing guardrail, restated for every sentence in this section:** the K3 surface is the mathematical
+shadow of the duality, not the target; no laboratory result here is evidence for cooper_s7/s10 or any
+Tier A/B certificate; any sentence linking σ = i or σ = (1+i)/2 to ⟨2⟩⊕⟨2⟩ is Tier C and carries its marker.

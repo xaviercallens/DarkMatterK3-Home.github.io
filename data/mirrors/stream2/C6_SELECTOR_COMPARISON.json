@@ -1,0 +1,176 @@
+{
+  "certificate": "C6_SELECTOR_COMPARISON",
+  "checker": "checkers/check_C6_selector_comparison.py",
+  "checker_version": "1.0.0",
+  "date": "2026-09-28",
+  "tier": "B",
+  "status": "RECORD, NOT A GATE, NOT AN ADOPTION. Neither SEL-D nor SEL-N is adopted by this certificate; AM-6 requires the selector to be named by its own T0 text before any candidate is preferred. D7' is unchanged: no ranking of cooper_s7 over cooper_s10; cooper_s10 stays ADVISORY (D6').",
+  "result": {
+    "families": {
+      "cooper_s7": {
+        "n": 7,
+        "advisory": false,
+        "SEL-D": {
+          "definition": "minimal |disc T| over the occurrence criterion, searched exactly (not from the certificate's own window)",
+          "global_min_abs_D": 3,
+          "D": -3,
+          "reduced_forms_of_D": [
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "class_number_h_D": 1,
+          "certificate_window_min_abs_D": 3,
+          "window_realizes_global_min": true,
+          "picked_row": {
+            "v": [
+              14,
+              -14,
+              -5
+            ],
+            "D": -3,
+            "T": [
+              1,
+              1,
+              1
+            ],
+            "div_v": 14
+          },
+          "points_on_curve_at_D": 1,
+          "curve_completeness_verdict": "COMPLETE",
+          "unique_on_curve": true
+        },
+        "SEL-N": {
+          "definition": "minimal |v^2| over the certificate window (the -2 floor)",
+          "min_abs_v2": 2,
+          "tie_count": 2,
+          "unique": false,
+          "tied_rows": [
+            {
+              "v": [
+                2,
+                -4,
+                1
+              ],
+              "D": -7,
+              "T": [
+                1,
+                1,
+                2
+              ],
+              "div_v": 2
+            },
+            {
+              "v": [
+                1,
+                -1,
+                0
+              ],
+              "D": -28,
+              "T": [
+                1,
+                0,
+                7
+              ],
+              "div_v": 1
+            }
+          ],
+          "one_stated_tiebreak_minimal_div_v": {
+            "v": [
+              1,
+              -1,
+              0
+            ],
+            "D": -28,
+            "T": [
+              1,
+              0,
+              7
+            ],
+            "div_v": 1,
+            "note": "NOT part of SEL-N as defined; reported only to show what one natural tiebreak would give, for T0 to accept, replace or reject explicitly"
+          }
+        },
+        "SEL-D_and_SEL-N_agree": false,
+        "d7prime_conflict": "SEL-D is a minimal-|D| rule; D7' (ledger item 8) states 'no minimum-|D| rule' without restricting that to cross-family comparison. Adopting SEL-D needs its own T0 text resolving or narrowing that clause, not an inference from context."
+      },
+      "cooper_s10": {
+        "n": 10,
+        "advisory": true,
+        "SEL-D": {
+          "definition": "minimal |disc T| over the occurrence criterion, searched exactly (not from the certificate's own window)",
+          "global_min_abs_D": 4,
+          "D": -4,
+          "reduced_forms_of_D": [
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "class_number_h_D": 1,
+          "certificate_window_min_abs_D": 4,
+          "window_realizes_global_min": true,
+          "picked_row": {
+            "v": [
+              10,
+              -10,
+              -3
+            ],
+            "D": -4,
+            "T": [
+              1,
+              0,
+              1
+            ],
+            "div_v": 10
+          },
+          "points_on_curve_at_D": 1,
+          "curve_completeness_verdict": "COMPLETE",
+          "unique_on_curve": true
+        },
+        "SEL-N": {
+          "definition": "minimal |v^2| over the certificate window (the -2 floor)",
+          "min_abs_v2": 2,
+          "tie_count": 1,
+          "unique": true,
+          "tied_rows": [
+            {
+              "v": [
+                1,
+                -1,
+                0
+              ],
+              "D": -40,
+              "T": [
+                1,
+                0,
+                10
+              ],
+              "div_v": 1
+            }
+          ],
+          "one_stated_tiebreak_minimal_div_v": null
+        },
+        "SEL-D_and_SEL-N_agree": false,
+        "d7prime_conflict": "SEL-D is a minimal-|D| rule; D7' (ledger item 8) states 'no minimum-|D| rule' without restricting that to cross-family comparison. Adopting SEL-D needs its own T0 text resolving or narrowing that clause, not an inference from context."
+      }
+    }
+  },
+  "inputs": {
+    "sha256": {
+      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "data/certificates/CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6"
+    }
+  },
+  "not_claimed": [
+    "that either selector is adopted",
+    "any physical reading of any point (ledger item 4)",
+    "any ranking of the two families",
+    "any promotion of cooper_s10"
+  ],
+  "controls": "checkers/test_C6_selector_comparison_controls.py",
+  "provenance": "Generated-by: Claude (Sonnet 5), Stream 2 | Verified-by: checkers/test_C6_selector_comparison_controls.py | Reviewed-by: N"
+}

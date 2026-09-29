@@ -1,0 +1,937 @@
+{
+  "certificate": "CM_POINTS_RHO20_LATTICE_TIER",
+  "checker": "checkers/check_lean_attestations_rankjump.py",
+  "checker_version": "1.1.0",
+  "date": "2026-09-27",
+  "status": "OVERLAY on CM_POINTS_RHO20.json (unchanged): per-row lattice_tier granted from kernel-checked statements after exact recomputation that each statement is about that row and after Stream 2's own gate readings in each producer's worktree. The rho = 20 cut stays read narrowly (D7'); nothing ranks; cooper_s10 rows stay ADVISORY (D6') whatever their lattice tier.",
+  "rows": [
+    {
+      "candidate": "cooper_s7",
+      "v": [
+        1,
+        -1,
+        0
+      ],
+      "attestations": [
+        {
+          "id": "S1-s7-z1/27",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+            "file": "Agora/Geometry/MnLattice.lean",
+            "namespace": "Agora.Geometry.MnLattice",
+            "commit": "fd76a49",
+            "file_sha256": "95c023ef430c21e0bea0ac0bbe1b8e6badf033ea966a03b8a0d8097117b69ae2"
+          },
+          "theorems": [
+            "rootEF_norm",
+            "rootEF_perp_iff",
+            "rootEF_perp_gram",
+            "rootEFFrame_det",
+            "TN_splits_at_rootEF"
+          ],
+          "failed_clauses": []
+        },
+        {
+          "id": "LM-s7-z1/27",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s7_z_1_27",
+            "wall_general"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": false,
+      "independent_files_passing": 2,
+      "lattice_tier": "A",
+      "row_z": "1/27",
+      "row_D": -28,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            14
+          ]
+        ],
+        "attested_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "det_M": 1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 28,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 28,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    },
+    {
+      "candidate": "cooper_s7",
+      "v": [
+        2,
+        -4,
+        1
+      ],
+      "attestations": [
+        {
+          "id": "S1-s7-z-1",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": -1,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+            "file": "Agora/Geometry/MnLattice.lean",
+            "namespace": "Agora.Geometry.MnLattice",
+            "commit": "fd76a49",
+            "file_sha256": "95c023ef430c21e0bea0ac0bbe1b8e6badf033ea966a03b8a0d8097117b69ae2"
+          },
+          "theorems": [
+            "root7_norm",
+            "root7_perp_iff",
+            "root7_perp_gram",
+            "root7_perp_bases_related",
+            "root7_perp_change_det",
+            "root7_perp_reduced_gram",
+            "root7Frame_det",
+            "T7_splits_at_root7",
+            "root7_e_not_perp",
+            "rootEF_root7_pairing"
+          ],
+          "failed_clauses": []
+        },
+        {
+          "id": "LM-s7-z-1",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": -1,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s7_z_minus_1"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": false,
+      "independent_files_passing": 2,
+      "lattice_tier": "A",
+      "row_z": "-1",
+      "row_D": -7,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            -7,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            4,
+            -7
+          ],
+          [
+            -7,
+            14
+          ]
+        ],
+        "attested_basis": [
+          [
+            2,
+            -3,
+            1
+          ],
+          [
+            1,
+            2,
+            0
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "det_M": -1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 7,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 7,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    },
+    {
+      "candidate": "cooper_s7",
+      "v": [
+        14,
+        -14,
+        -5
+      ],
+      "attestations": [
+        {
+          "id": "LM-s7-zinf",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 3,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s7_z_infinity",
+            "s7_z_infinity_index"
+          ],
+          "failed_clauses": []
+        },
+        {
+          "id": "S1-s7-zinf",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 3,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+            "file": "Agora/Geometry/MnLattice.lean",
+            "namespace": "Agora.Geometry.MnLattice",
+            "commit": "2f665dd",
+            "file_sha256": "b4d0adcbde27a291e7dec90f63b4cd712d70e9f1d5f2543ff4a07b427b81cf49"
+          },
+          "theorems": [
+            "root7Inf_norm",
+            "root7Inf_perp_iff",
+            "root7Inf_perp_gram",
+            "root7Inf_perp_reduced_gram",
+            "root7Inf_div",
+            "root7Inf_pairing_e",
+            "root7InfFrame_det",
+            "T7_splits_at_root7Inf"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": false,
+      "independent_files_passing": 2,
+      "lattice_tier": "A",
+      "row_z": "infinity",
+      "row_D": -3,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            5,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            14
+          ]
+        ],
+        "attested_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            -2,
+            3,
+            1
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            1,
+            -2
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "det_M": 1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 3,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 3,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    },
+    {
+      "candidate": "cooper_s10",
+      "v": [
+        1,
+        -1,
+        0
+      ],
+      "attestations": [
+        {
+          "id": "LM-s10-z1/16",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s10_z_1_16",
+            "wall_general"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": true,
+      "independent_files_passing": 1,
+      "lattice_tier": "A",
+      "row_z": "1/16",
+      "row_D": -40,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "attested_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "det_M": 1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 40,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 40,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    },
+    {
+      "candidate": "cooper_s10",
+      "v": [
+        2,
+        -6,
+        1
+      ],
+      "attestations": [
+        {
+          "id": "LM-s10-z-1/4",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": -2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s10_z_minus_1_4"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": true,
+      "independent_files_passing": 1,
+      "lattice_tier": "A",
+      "row_z": "-1/4",
+      "row_D": -20,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            3,
+            0
+          ],
+          [
+            0,
+            -10,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            6,
+            -10
+          ],
+          [
+            -10,
+            20
+          ]
+        ],
+        "attested_basis": [
+          [
+            2,
+            -4,
+            1
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "det_M": -1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 20,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 20,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    },
+    {
+      "candidate": "cooper_s10",
+      "v": [
+        10,
+        -10,
+        -3
+      ],
+      "attestations": [
+        {
+          "id": "LM-s10-zinf",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+            "file": "DualScaleDyons/RankJump.lean",
+            "namespace": "DualScaleDyons.RankJump",
+            "commit": "73f6fb1",
+            "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23"
+          },
+          "theorems": [
+            "s10_z_infinity"
+          ],
+          "failed_clauses": []
+        },
+        {
+          "id": "S1-s10-zinf",
+          "clauses": {
+            "A1_row_exists": true,
+            "A2_norm": true,
+            "A3_basis_orthogonal": true,
+            "A4_gram_matches_attested": true,
+            "A4_reduced_form_is_row_T": true,
+            "A5_frame_det": true,
+            "A6_gates": true,
+            "A7_source_sha256": true
+          },
+          "frame_det_recomputed": 2,
+          "ok": true,
+          "source": {
+            "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+            "file": "Agora/Geometry/MnLattice.lean",
+            "namespace": "Agora.Geometry.MnLattice",
+            "commit": "2f665dd",
+            "file_sha256": "b4d0adcbde27a291e7dec90f63b4cd712d70e9f1d5f2543ff4a07b427b81cf49"
+          },
+          "theorems": [
+            "root10Inf_norm",
+            "root10Inf_perp_iff",
+            "root10Inf_perp_gram",
+            "root10Inf_perp_reduced_gram",
+            "root10Inf_div",
+            "root10Inf_pairing_e",
+            "root10InfFrame_det",
+            "T10_splits_at_root10Inf"
+          ],
+          "failed_clauses": []
+        }
+      ],
+      "advisory_family": true,
+      "independent_files_passing": 2,
+      "lattice_tier": "A",
+      "row_z": "infinity",
+      "row_D": -4,
+      "Q1_kernel_basis": {
+        "T_X_kernel_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            6,
+            1
+          ]
+        ],
+        "its_gram": [
+          [
+            2,
+            6
+          ],
+          [
+            6,
+            20
+          ]
+        ],
+        "attested_basis": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            -3,
+            3,
+            1
+          ]
+        ],
+        "change_of_basis_M": [
+          [
+            1,
+            -3
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "det_M": 1,
+        "unimodular": true
+      },
+      "Q2_det_T_X": {
+        "certified_here": 4,
+        "source_certified": "4ac - b^2 of the kernel-checked reduced Gram",
+        "certificate_det_T_X": 4,
+        "certificate_source": "-v^2 * 2N / div(v)^2 (Tier B formula)",
+        "agree": true
+      },
+      "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+      "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)",
+      "what_stays_tier_L": "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13)"
+    }
+  ],
+  "gate_records": {
+    "S1-MnLattice-fd76a49": {
+      "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+      "file": "Agora/Geometry/MnLattice.lean",
+      "namespace": "Agora.Geometry.MnLattice",
+      "branch": "worktree-k3-criteria-stream2-directions-2026-09-27",
+      "commit": "fd76a49",
+      "file_sha256": "95c023ef430c21e0bea0ac0bbe1b8e6badf033ea966a03b8a0d8097117b69ae2",
+      "verified_by_stream2": {
+        "date": "2026-09-27",
+        "where": "the producer's worktree; LEAN_PROJECT_ROOT set to it; LeanMaster tools",
+        "G1": {
+          "target": "lake build Agora",
+          "exit": 0,
+          "jobs": 3723
+        },
+        "G2": {
+          "exit": 0,
+          "summary": "clean: no sorry/admit/native_decide in 1 libraries"
+        },
+        "G3": {
+          "exit": 1,
+          "audited": 395,
+          "failing": 3,
+          "failing_are": [
+            "Agora.Sequences.Partner.s7_partner_integral (registered axiom obrien2016_theorem6_2)",
+            "Agora.Swampland.pipeline_ensures_perturbative (registered axiom pipeline_upper_bound)",
+            "Agora.Swampland.lvs_potential_positivity_and_placeholder (same)"
+          ],
+          "none_in_attested_file": true,
+          "note": "exit 1 is this repository's steady state: it registers three disclosed axioms"
+        },
+        "G4": {
+          "exit": 0,
+          "summary": "statement lock: OK"
+        },
+        "print_axioms": {
+          "exit": 0,
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "on": [
+            "rootEF_norm",
+            "rootEF_perp_iff",
+            "TN_splits_at_rootEF",
+            "root7_norm",
+            "root7_perp_iff",
+            "root7_perp_reduced_gram",
+            "root7_perp_bases_related",
+            "root7Frame_det",
+            "T7_splits_at_root7"
+          ]
+        },
+        "producer_neq_verifier": true
+      }
+    },
+    "S1-MnLattice-2f665dd": {
+      "repo": "SocrateAI-DualScaleTopologicalUniverseModel-LeanProposal",
+      "file": "Agora/Geometry/MnLattice.lean",
+      "namespace": "Agora.Geometry.MnLattice",
+      "branch": "worktree-am8-selected-rows-lattice-2026-09-28",
+      "commit": "2f665dd",
+      "commit_note": "AM-8 follow-up (sec. 3c); branch merged --no-ff into LeanProposal main as 4bab4b6, released v0.24-am8-rows-lattice-half, file bytes identical (hash re-verified by the producer after merge)",
+      "file_sha256": "b4d0adcbde27a291e7dec90f63b4cd712d70e9f1d5f2543ff4a07b427b81cf49",
+      "verified_by_stream2": {
+        "date": "2026-09-28",
+        "where": "the producer's worktree; LEAN_PROJECT_ROOT set to it; LeanMaster tools",
+        "G1": {
+          "target": "lake build Agora",
+          "exit": 0,
+          "jobs": 3723
+        },
+        "G2": {
+          "exit": 0,
+          "summary": "clean: no sorry/admit/native_decide in 1 libraries"
+        },
+        "G3": {
+          "exit": 1,
+          "audited": 421,
+          "failing": 3,
+          "failing_are": [
+            "Agora.Sequences.Partner.s7_partner_integral (registered axiom obrien2016_theorem6_2)",
+            "Agora.Swampland.pipeline_ensures_perturbative (registered axiom pipeline_upper_bound)",
+            "Agora.Swampland.lvs_potential_positivity_and_placeholder (same)"
+          ],
+          "none_in_attested_file": true,
+          "note": "same three registered axioms as the sec. 3b run; sec. 3c adds none"
+        },
+        "G4": {
+          "exit": 0,
+          "summary": "statement lock: OK"
+        },
+        "print_axioms": {
+          "exit": 0,
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "on": [
+            "root7Inf_norm",
+            "root7Inf_perp_iff",
+            "root7Inf_perp_gram",
+            "root7Inf_perp_reduced_gram",
+            "root7Inf_div",
+            "root7Inf_pairing_e",
+            "root7InfFrame_det",
+            "T7_splits_at_root7Inf",
+            "root10Inf_norm",
+            "root10Inf_perp_iff",
+            "root10Inf_perp_gram",
+            "root10Inf_perp_reduced_gram",
+            "root10Inf_div",
+            "root10Inf_pairing_e",
+            "root10InfFrame_det",
+            "T10_splits_at_root10Inf"
+          ]
+        },
+        "producer_neq_verifier": true
+      }
+    },
+    "LM-RankJump-73f6fb1": {
+      "repo": "SocrateAI-Scientific-Agora-LeanMaster",
+      "file": "DualScaleDyons/RankJump.lean",
+      "namespace": "DualScaleDyons.RankJump",
+      "branch": "worktree-rank-jump-lemma",
+      "commit": "73f6fb1",
+      "commit_note": "worktree HEAD f0697bd adds only the brief; RankJump.lean identical (git diff --stat empty; same sha)",
+      "file_sha256": "d9c3e5f3fe5c743b7da069f138c567c1913ce26d2d7226baf7cb15c4b3bc9f23",
+      "verified_by_stream2": {
+        "date": "2026-09-27",
+        "where": "the producer's worktree; LEAN_PROJECT_ROOT set to it; the worktree's own tools (a first run without LEAN_PROJECT_ROOT audited the main checkout, 166 theorems, and was discarded)",
+        "G1": {
+          "target": "lake build DualScaleDyons",
+          "exit": 0,
+          "jobs": 8805
+        },
+        "G2": {
+          "exit": 0,
+          "summary": "clean: no sorry/admit/native_decide in 1 libraries"
+        },
+        "G3": {
+          "exit": 0,
+          "audited": 184,
+          "failing": 0,
+          "attested_file_theorems_in_audit": 18,
+          "none_in_attested_file": true
+        },
+        "G4": {
+          "exit": 0,
+          "summary": "statement lock: OK"
+        },
+        "print_axioms": {
+          "exit": 0,
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "on": [
+            "wall_general",
+            "orth_det_identity",
+            "s7_z_1_27",
+            "s7_z_minus_1",
+            "s7_z_infinity",
+            "s7_z_infinity_index",
+            "s10_z_1_16",
+            "s10_z_minus_1_4",
+            "s10_z_infinity",
+            "g11_rows",
+            "basis_mismatch_control"
+          ]
+        },
+        "producer_neq_verifier": true
+      }
+    }
+  },
+  "not_proved_in_either_file": [
+    "the index step |det(w1|w2|v)| = |v^2|/div(v) in general (observed per row only)",
+    "v^perp = T_X (Dolgachev 1996 sec. 7 / Doran 1998 Thm 5.13, Tier L)",
+    "anything about z (the certificate's numeric recognition, Tier B)"
+  ],
+  "inputs": {
+    "sha256": {
+      "refs/lean_attestations_rankjump_2026_09_27.json": "6bf0f7b56f764d5acef672a625e952e49f4c1f4c7ef49e35ca78aefe2e82f0c8",
+      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755"
+    }
+  },
+  "not_claimed": [
+    "anything about z beyond the CM certificate's numeric recognition",
+    "that v^perp is T_X (Tier L)",
+    "the general index step (unproved in both files)",
+    "any promotion of cooper_s10",
+    "any ranking",
+    "any physical reading"
+  ],
+  "controls": "checkers/test_lean_attestations_rankjump_controls.py",
+  "provenance": "Generated-by: Claude (Fable 5.1), Stream 2 | Verified-by: gates re-run by Stream 2 in both producers' worktrees (exit codes in the attestation file) + checkers/test_lean_attestations_rankjump_controls.py | Reviewed-by: N"
+}

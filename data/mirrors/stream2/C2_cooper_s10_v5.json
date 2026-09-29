@@ -1,0 +1,136 @@
+{
+  "certificate": "C2_cooper_s10_v5",
+  "status": "LIVE v5 - promoted from C2_cooper_s10_v4_DRAFT.json on 2026-09-29 by Stream 2 acting on T0's behalf under an explicit in-session delegation from T0 (Xavier); ruling D15', recorded in briefs/T0_DECISIONS_2026_09_29_STREAM2_DELEGATED.md. Lattice authority for cooper_s10 with NO value change: derived/how/controls/tier/not_claimed are identical to v4_DRAFT; the differences are this status, the t0_acceptance block and the supersedes/provenance fields. Acceptance evidence re-run on 2026-09-29 before promotion: checkers/independent_rederivation_C2_s10_v4.py 23/23 PASS (producer != verifier); checkers/check_U1_witness_serialization.py PASS. Does NOT supersede C2_cooper_s10_v3.json (LIVE rank certificate, still the runtime rho/T source). Reversible by one T0 sentence. Nothing about cross-family comparison changes: no ranking of cooper_s7 over cooper_s10 (ledger items 8/9 stand).",
+  "checker": "check_U1_lattice.py",
+  "checker_version": "1.2.0",
+  "date": "2026-08-01",
+  "operator": "cooper_s10",
+  "claim": "The joint monodromy-invariant lattice of the cooper_s10 family (orbit lattice of the cusp-invariant isotropic vector under the computed monodromy group, primitive even scaling) is isometric to U + <20> by an explicit integral base change. Identification of this lattice with the transcendental lattice T of the family is Tier B via the read framework sources (Dolgachev Thm 7.1/sec 7 p.20, Doran Thm 5.13), exactly as for cooper_s7's C2_cooper_s7_v5.json — the pipeline is family-generic and no s10-specific framework step was added or skipped.",
+  "derived": {
+    "gram_primitive_even": [
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        0,
+        20,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ]
+    ],
+    "det": -20,
+    "signature": [
+      2,
+      1
+    ],
+    "disc_group_elementary_divisors": [
+      20
+    ],
+    "disc_form": [
+      {
+        "dual_basis_vector": 1,
+        "order": 20,
+        "q_value_mod_2Z": "1/20"
+      }
+    ],
+    "derived_2n_from_cusp_unipotent": 20,
+    "u_splitting": {
+      "basis_change_det": 1,
+      "d": 20,
+      "basis_change_matrix": [
+        [
+          1,
+          -360,
+          120
+        ],
+        [
+          0,
+          -6,
+          1
+        ],
+        [
+          0,
+          -1,
+          0
+        ]
+      ],
+      "gram_after": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20
+        ]
+      ]
+    },
+    "proper_even_invariant_overlattices": 0,
+    "yukawa": {
+      "yukawa_constant_C1_norm": "1",
+      "constant_to_order": 31,
+      "hauptmodul_match": null,
+      "value_independent": false,
+      "value_note": "value is convention until fixed by the integral lattice (stage 3)"
+    }
+  },
+  "how": {
+    "stage0": "Dolgachev sec-7 framework re-derived symbolically (sympy) before use",
+    "stage1": "exact q-series Yukawa; constancy asserted; VALUE is normalization-dependent and NOT claimed as independent evidence (see s7 brief)",
+    "stage2": "numerical analytic continuation at 60 dps, Taylor order 140; cusp-loop machinery control err 4.09e-61; rational recognition tolerance 1e-35, denominators [1, 5, 10]",
+    "stage3": "exact sympy rational lattice pipeline; all structural conditions asserted; basis_change_matrix is the in-memory witness T=[f|e|w] (columns), serialized"
+  },
+  "controls": {
+    "different_level_cooper_s7": {
+      "det": -14,
+      "derived_2n": 14,
+      "discriminates": true,
+      "note": "mirror image of C2_cooper_s7_v5.json's own s10 control: the LIVE s7 result (det -14) is the discriminating cross-family control for this s10 certificate"
+    },
+    "scrambled_matrix": "pipeline fails loudly (test_U1_controls.py)",
+    "yukawa_scramble": "constancy check fails loudly (test_U1_controls.py)",
+    "witness_serialization": "checkers/check_U1_witness_serialization.py --cert data/certificates/C2_cooper_s10_v4_DRAFT.json (tampered P / tampered gram_after FAIL)"
+  },
+  "tier": "B",
+  "tier_reason": "monodromy entries enter via numerical recognition (60-digit numerics, 1e-35 gate, exact structural post-verification); lattice-to-T identification cites read framework theorems; not kernel-proven. Same tier and same reasons as C2_cooper_s7_v5.json — nothing about the s10 run is weaker EXCEPT review status, which this DRAFT requests rather than claims.",
+  "u1b_status": "NOT NEEDED in the Eichler/genus form: an explicit integral base change realizing U + <20> was found and verified exactly, which is stronger than a one-class-genus argument for this lattice. No 2-adic spinor-norm claim is made anywhere.",
+  "not_claimed": [
+    "no Kodaira fibre types (E-007/E-008/E-009 stand)",
+    "no physical coupling of any kind (VISION sec 1.3)",
+    "rho/T ranks unchanged (rho=19, T=3 per C2_cooper_s10_v3.json)",
+    "no claim about which lattice T is beyond the stated Tier-B identification",
+    "no claim originating from the AlphaEvolve/Vertex report of the same lattice (Stream-4 exploratory sandbox, DL-3 firewall) — this certificate's derivation chain does not touch it",
+    "this v4 DRAFT is not live; until T0 acceptance the s10 lattice identification remains uncertified and G0_NS_genus_cooper_s10.json's input-provenance gap statement stands"
+  ],
+  "refs_sha256": {
+    "recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76"
+  },
+  "provenance": "Generated-by: Fable 5 (T1 coordinator, Stream 2, 2026-08-01) | Verified-by: check_U1_lattice.py structural assertions + test_U1_controls.py + check_U1_witness_serialization.py --cert <this file> | Reviewed-by: pending T0 (Xavier) acceptance",
+  "t0_acceptance": {
+    "by": "Stream 2 on T0's behalf (T0 = Xavier Callens), explicit in-session delegation",
+    "date": "2026-09-29",
+    "mode": "delegated; the delegation and the decision are recorded in the brief below",
+    "record": "briefs/T0_DECISIONS_2026_09_29_STREAM2_DELEGATED.md#d15",
+    "reversal": "one T0 sentence; v4_DRAFT is retained unchanged for that case"
+  },
+  "inputs_added_in_v5": {
+    "sha256": {
+      "data/certificates/C2_cooper_s10_v4_DRAFT.json": "3558343b84751a0682cadc985a76272b50d7bc98b0f2d0f44a9c46edf9ae57ac"
+    }
+  },
+  "derived_identical_to_v4_DRAFT": true,
+  "supersedes": "C2_cooper_s10_v4_DRAFT.json (lattice-authority role only; no value changes; provenance only)"
+}

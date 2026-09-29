@@ -1,0 +1,147 @@
+{
+  "checker": "checkers/check_aubry_andre_selfduality.py",
+  "checker_sha256": "0221e749dc44a4f3a508339a63e883fb6b84493b461c5e5edeb61ab79c52541b",
+  "work_package": "E1 calibration arm (D12' laboratory approach, item 1)",
+  "tier": "model check (exactly solvable 1D Hamiltonian), verified numerically at the stated tolerance: PASS(N), not a proof and not a measurement",
+  "result": {
+    "tol": 1e-09,
+    "J": 1.0,
+    "lams": [
+      0.5,
+      1.0,
+      3.0
+    ],
+    "cases": [
+      {
+        "N": 13,
+        "p": 8,
+        "A_spectral_duality_gap": {
+          "0.5": 8.881784197001252e-15,
+          "1.0": 6.63358257213531e-15,
+          "3.0": 8.965050923848139e-15
+        },
+        "A_scaled_form_gap": {
+          "0.5": 3.552713678800501e-14,
+          "1.0": 1.326716514427062e-14,
+          "3.0": 1.0394463068053028e-14
+        },
+        "C_intertwiner_gap": {
+          "0.5": 1.8235413549811807e-14,
+          "1.0": 1.7763568741655216e-14,
+          "3.0": 2.92595193068345e-14
+        },
+        "B_selfdual_min_spectral_gap": 0.01622577079392129,
+        "B_selfdual_ipr_gap": 1.1213252548714081e-14,
+        "B_nondegenerate": true,
+        "pass": true,
+        "line": "PASS(N=13) at tol 1e-09"
+      },
+      {
+        "N": 89,
+        "p": 55,
+        "A_spectral_duality_gap": {
+          "0.5": 3.9190872769268026e-14,
+          "1.0": 3.5083047578154947e-14,
+          "3.0": 3.7067571234672414e-14
+        },
+        "A_scaled_form_gap": {
+          "0.5": 1.567634910770721e-13,
+          "1.0": 7.016609515630989e-14,
+          "3.0": 2.531308496145357e-14
+        },
+        "C_intertwiner_gap": {
+          "0.5": 6.627336165295742e-13,
+          "1.0": 7.037689297585194e-13,
+          "3.0": 1.0492522067947627e-12
+        },
+        "B_selfdual_min_spectral_gap": 6.485463064809238e-05,
+        "B_selfdual_ipr_gap": 7.114864253310316e-13,
+        "B_nondegenerate": true,
+        "pass": true,
+        "line": "PASS(N=89) at tol 1e-09"
+      },
+      {
+        "N": 233,
+        "p": 144,
+        "A_spectral_duality_gap": {
+          "0.5": 2.349925809497222e-13,
+          "1.0": 1.4810375148499588e-13,
+          "3.0": 1.91402449445377e-13
+        },
+        "A_scaled_form_gap": {
+          "0.5": 9.399703237988888e-13,
+          "1.0": 2.9620750296999176e-13,
+          "3.0": 1.2678746941219288e-13
+        },
+        "C_intertwiner_gap": {
+          "0.5": 4.322860118802388e-12,
+          "1.0": 4.398250453035482e-12,
+          "3.0": 7.773474313100513e-12
+        },
+        "B_selfdual_min_spectral_gap": 7.154166908218684e-06,
+        "B_selfdual_ipr_gap": 1.718436504205556e-11,
+        "B_nondegenerate": true,
+        "pass": true,
+        "line": "PASS(N=233) at tol 1e-09"
+      }
+    ],
+    "negative_controls": [
+      {
+        "N": 13,
+        "p": 8,
+        "seed": 20260942,
+        "N1_random_potential_spectral_gap": {
+          "0.5": 0.20178204893772378,
+          "1.0": 0.4536273697711656,
+          "3.0": 1.5900020679624736
+        },
+        "N1_breaks": true,
+        "N2_random_potential_selfdual_ipr_gap": 0.4577445163379179,
+        "N2_breaks": true,
+        "N3_refuses": true,
+        "all_controls_fail_as_required": true
+      },
+      {
+        "N": 89,
+        "p": 55,
+        "seed": 20261018,
+        "N1_random_potential_spectral_gap": {
+          "0.5": 0.2806535750778094,
+          "1.0": 0.8424269478627315,
+          "3.0": 3.3761038714987017
+        },
+        "N1_breaks": true,
+        "N2_random_potential_selfdual_ipr_gap": 0.7751252105562574,
+        "N2_breaks": true,
+        "N3_refuses": true,
+        "all_controls_fail_as_required": true
+      },
+      {
+        "N": 233,
+        "p": 144,
+        "seed": 20261162,
+        "N1_random_potential_spectral_gap": {
+          "0.5": 0.4652989423676286,
+          "1.0": 1.1630894818583877,
+          "3.0": 4.388582508895537
+        },
+        "N1_breaks": true,
+        "N2_random_potential_selfdual_ipr_gap": 0.8604107959578888,
+        "N2_breaks": true,
+        "N3_refuses": true,
+        "all_controls_fail_as_required": true
+      }
+    ],
+    "verdict": "PASS(N) for N in 13,89,233"
+  },
+  "not_claimed": [
+    "any statement about a K3 surface, a Cooper family, a transcendental lattice, a CM point or any certificate in K3_CRITERIA.md: this is the calibration arm of a laboratory programme whose K3 side is a mathematical shadow, not a target (directive sec.5 item 4)",
+    "any physical measurement or any physical system: the model is a finite tight-binding ring; nothing here touches data, an experiment, or PREDICTION.md",
+    "exactness: every identity is algebraic but is checked in floating point at tol; the per-eigenstate IPR identity is checked only where the spectrum is non-degenerate at tol (the checker refuses otherwise)",
+    "the incommensurate (infinite-chain) limit: the ring with rational p/N is exactly self-dual by the twisted DFT; nothing is inferred about N -> infinity",
+    "any link between the self-dual point lam = 2J and sigma = i, sigma = (1+i)/2, or the lattice <2>+<2>: such a sentence is Tier C by the directive and does not appear in this certificate"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 3 activation 2026-09-29",
+  "verified_by": "negative controls N1-N3 in this file (run first, required to fail); checkers/tests/test_aubry_andre_selfduality.py",
+  "reviewed_by": "N"
+}
