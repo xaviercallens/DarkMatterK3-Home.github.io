@@ -12,8 +12,9 @@ WHAT THIS IS NOT. A label is not an observable and carries none. There is no map
 to (m, f), m_φ, α_D or Λ_D: that map is Tier C, BLOCKED under F5b, and the tadpole is unposable
 without a base B₃ (CLAUDE.md ledger item 4). `observable_for()` exists only to make that block
 mechanical — it raises, always, until a pinned ruling says otherwise. Nothing here ranks a
-candidate, prefers a discriminant, or reads real data. cooper_s10 labels are ADVISORY (its lattice
-certificate is DRAFT, T0 D6′) and the flag travels with every label.
+candidate, prefers a discriminant, or reads real data. The ADVISORY flag on a label shadows the
+lattice-certificate status recorded in the mirrored certificate (cooper_s10 was DRAFT under T0 D6′
+until D15′, 2026-09-29, made C2_cooper_s10_v5 LIVE); the flag travels with every label either way.
 
 INDEPENDENT LEG. `admits_discriminant` implements Stream 2's criterion ("D occurs in the level-n
 family iff D is a square mod 4n") from its statement, not from their code, and the test suite
@@ -152,7 +153,8 @@ def vocabulary_record(labels: list) -> dict:
             "that any label maps to an observable: observable_for() raises by design (F5b)",
             "that the list is complete: Stream 2's enumeration window is not shown to be a "
             "fundamental domain, and their own not_claimed blocks travel with the mirror",
-            "that cooper_s10 labels are settled: every one is advisory (lattice cert DRAFT, T0 D6')",
+            "that any label is settled beyond Tier B: the advisory flag shadows the mirrored lattice-certificate "
+            "status (s10 DRAFT under D6' until D15', 2026-09-29); 'this lattice is T' stays Tier B for both families",
         ],
         "per_candidate": per,
         "labels": [asdict(l) | {"key": l.key} for l in labels],

@@ -300,7 +300,7 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 | Register row (refs entry) | §1 pool flag | C6 | T1 | T3 |
 |---|---|---|---|---|
 | K-s7 (`cooper_s7`) | `TIER_A_POOL` | record in `CM_POINTS_RHO20.json` (lattice source LIVE) | `GAMMA07PLUS_HAUPTMODUL` (held-out to q^29) | `T3_AGREE(n=7)`, CONSISTENT |
-| K-s10 (`cooper_s10`) | `TIER_A_POOL` | record in `CM_POINTS_RHO20.json` (lattice source DRAFT); flags `LATTICE_CERT_DRAFT` (ADVISORY) | `GAMMA010STAR_HAUPTMODUL` (held-out to q^40) | `T3_AGREE(n=10)`, CONSISTENT_WITH_OPEN_ITEMS; open flags `LATTICE_CERT_DRAFT` |
+| K-s10 (`cooper_s10`) | `TIER_A_POOL` | record in `CM_POINTS_RHO20.json` (lattice source LIVE) | `GAMMA010STAR_HAUPTMODUL` (held-out to q^40) | `T3_AGREE(n=10)`, CONSISTENT |
 | K-s18 (`avs_sporadic3_s18`) | `TIER_B_QUARANTINE` | no certificate | no certificate | no certificate |
 
 Rows struck in the frozen §1 register (rendered as §1 states them, not adjudicated here): `K-S22`, `K-t103`.

@@ -1,0 +1,162 @@
+{
+  "checker": "checkers/check_TW0_hodge_degree_orbifold.py",
+  "checker_sha256": "8abb0385bbd9e6ea2bd26251f8c762e80c4f0bb18fde0a01f887bf32427c427c",
+  "work_package": "WP-TW0 re-examination (ledger item 6)",
+  "tier": "B (exact exponent/orbifold arithmetic from the Tier-A operator tuple; framework identification of omega^2 with the K3 Hodge line bundle via Doran Thm 5.13, read and pinned)",
+  "result": {
+    "cooper_s7": {
+      "candidate": "cooper_s7",
+      "level": 7,
+      "riemann_scheme": {
+        "-1": [
+          "0",
+          "1/2"
+        ],
+        "0": [
+          "0",
+          "0"
+        ],
+        "1/27": [
+          "0",
+          "1/2"
+        ],
+        "oo": [
+          "1/3",
+          "2/3"
+        ]
+      },
+      "n_singular_points": 4,
+      "fuchs_sum": "2",
+      "signature_from_exponents": {
+        "genus": 0,
+        "elliptic_orders": [
+          2,
+          2,
+          3
+        ],
+        "cusps": 1
+      },
+      "signature_from_gamma0_plus": {
+        "genus": 0,
+        "elliptic_orders": [
+          2,
+          2,
+          3
+        ],
+        "cusps": 1,
+        "gamma0_data": {
+          "index": 8,
+          "e2": 0,
+          "e3": 2,
+          "cusps": 2,
+          "genus": 0,
+          "fricke_fixed_points": 2,
+          "class_numbers": {
+            "h(-28)": 1,
+            "h(-7)": 1
+          }
+        }
+      },
+      "signatures_agree": true,
+      "agreement_detail": {
+        "genus": true,
+        "elliptic_orders": true,
+        "cusps": true
+      },
+      "degrees": {
+        "chi_orb": "-2/3",
+        "deg_omega_Q": "1/3",
+        "deg_omega2_Q": "2/3",
+        "holomorphic_exponents": {
+          "-1": "0",
+          "0": "0",
+          "1/27": "0",
+          "oo": "1/3"
+        },
+        "deg_ext_omega_residues_[0,1)": "0",
+        "deg_ext_omega_residues_(-1,0]": "1",
+        "deg_ext_omega2_residues_[0,1)": "0",
+        "deg_ext_omega2_residues_(-1,0]": "1"
+      },
+      "formula_2026_07_29_sum_exponents_over_order": "1"
+    },
+    "cooper_s10_as_control": {
+      "candidate": "cooper_s10",
+      "level": 10,
+      "riemann_scheme": {
+        "-1/4": [
+          "0",
+          "1/2"
+        ],
+        "0": [
+          "0",
+          "0"
+        ],
+        "1/16": [
+          "0",
+          "1/2"
+        ],
+        "oo": [
+          "3/8",
+          "5/8"
+        ]
+      },
+      "n_singular_points": 4,
+      "fuchs_sum": "2",
+      "signature_from_exponents": {
+        "genus": 0,
+        "elliptic_orders": [
+          2,
+          2,
+          4
+        ],
+        "cusps": 1
+      },
+      "signature_from_gamma0_plus": {
+        "genus": 0,
+        "elliptic_orders": [
+          2,
+          2,
+          2
+        ],
+        "cusps": 2,
+        "gamma0_data": {
+          "index": 18,
+          "e2": 2,
+          "e3": 0,
+          "cusps": 4,
+          "genus": 0,
+          "fricke_fixed_points": 2,
+          "class_numbers": {
+            "h(-40)": 2,
+            "h(-10)": 0
+          }
+        }
+      },
+      "signatures_agree": false,
+      "agreement_detail": {
+        "genus": true,
+        "elliptic_orders": false,
+        "cusps": false
+      },
+      "formula_2026_07_29_sum_exponents_over_order": "1"
+    },
+    "surface_reading": {
+      "chi_O": "2",
+      "euler_number": "24",
+      "deg_Delta": "24",
+      "ell_surface": "2"
+    },
+    "finding": "ell = 2 is reproduced ONLY by the elliptic-surface reading (ell = chi(O_K3)); every family-level reading gives 1/3, 2/3, 0 or 1. F6 disclosure to T0; ledger not edited."
+  },
+  "not_claimed": [
+    "any Kodaira fibre type at any point (ledger items 3 and 10): exponent language only",
+    "that ell = 2 is wrong: it is correct as chi(O) of any elliptic K3 with section; what is not reproduced is a FAMILY-level Hodge-bundle degree of 2",
+    "which reading WP-TW1 requires: that is the T0 question raised in the brief",
+    "anything about cooper_s10's geometry beyond its use as a discriminating control here",
+    "any physical statement (ledger item 4)"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 2, 2026-10-07",
+  "verified_by": "checkers/test_TW0_hodge_degree_orbifold_controls.py",
+  "reviewed_by": "N"
+}
