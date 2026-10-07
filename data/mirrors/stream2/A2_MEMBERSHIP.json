@@ -1,11 +1,16 @@
 {
  "certificate": "A2_MEMBERSHIP",
  "checker": "checkers/check_A2_membership.py",
- "checker_version": "b344c73",
+ "checker_version": "run on top of HEAD 2cab124; 4 code file(s) uncommitted or modified -- identify the code by inputs.sha256, not by this commit",
  "checker_commit_state": {
-  "head": "b344c73",
-  "code_files_not_as_in_head": [],
-  "label": "b344c73"
+  "head": "2cab124",
+  "code_files_not_as_in_head": [
+   "checkers/check_A2_membership.py",
+   "checkers/check_CM_points_rho20.py",
+   "checkers/check_T3_level_consistency.py",
+   "checkers/check_s10_hauptmodul_gamma010star.py"
+  ],
+  "label": "run on top of HEAD 2cab124; 4 code file(s) uncommitted or modified -- identify the code by inputs.sha256, not by this commit"
  },
  "date": "2026-09-21",
  "status": "RECORD, NOT A GATE. The rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md), read narrowly: no ranking of candidates, no minimum-|D| rule, no physical reading. K3_CRITERIA.md unchanged. No scoring. cooper_s10 advisory (lattice certificate DRAFT).",
@@ -22,7 +27,7 @@
    "n": 10,
    "A2": "ABSENT",
    "fired": "D_not_square_mod_4n",
-   "advisory": true
+   "advisory": false
   }
  },
  "tier_links": {
@@ -81,21 +86,21 @@
  },
  "inputs": {
   "sha256": {
-   "checkers/check_A2_membership.py": "9ff27e8904bb5363c1e4fa02c516dceba9e8e1ead6d0ff645c7361e156f492cc",
+   "checkers/check_A2_membership.py": "5ab82db97d4997a4158b2bc74ad8dd45579a6363d92a52aab525448d07f2aa25",
    "checkers/check_C1_mirror_integrality.py": "320d0de61a0a70dfa3e730178154b92d33fdf12a0d293b6f99a2dae94f7f07e7",
-   "checkers/check_CM_points_rho20.py": "66ef850b7b4b44cae7fe6dc9c5b6fefc9e21ca18402919daec4e05a48636a8e2",
-   "checkers/check_T3_level_consistency.py": "62db82b635a863170199b7fba2ba39462ecd123593a6f7f38ff044ce3cffd296",
-   "checkers/check_s10_hauptmodul_gamma010star.py": "3f8d034460d7d5b310cca0448bda9e8ebf44f8b50164a68651dc88e411fcc995",
+   "checkers/check_CM_points_rho20.py": "5438718c391f5573fd0877e0074488a4711a4e4d8e83c758f5f666060aefa660",
+   "checkers/check_T3_level_consistency.py": "8381f56545a3a230c1370b11176723d8dc5b907a6623a3383e87fc4d047aa416",
+   "checkers/check_s10_hauptmodul_gamma010star.py": "0c547d38757e6ac0ac461ae9bd17c935e3fc7f0a71a6acb515d507dcc7dbe436",
    "checkers/check_s7_hauptmodul_gamma07plus.py": "ddc3a34f7d97cef1f767d03717f566338c8580042c938c42365ef1d8110363ab",
    "data/certificates/C1_L3_cooper_s10.json": "503cfe63b7d20d78c53344ee091e4b39517bd2966181c1ff38a45e21f44721e8",
    "data/certificates/C1_L3_cooper_s7.json": "c9d82f76bef8eee279ce91540a2b7cfddd98d79965162e8598b29aee458edbfc",
-   "data/certificates/C2_cooper_s10_v4_DRAFT.json": "3558343b84751a0682cadc985a76272b50d7bc98b0f2d0f44a9c46edf9ae57ac",
+   "data/certificates/C2_cooper_s10_v5.json": "bc1f1ebc76dfedd27a9a9e0ae5d66ce3b5f2a2852105885ee329fb93db2f1e4e",
    "data/certificates/C2_cooper_s7_v5.json": "54565d3919f1bd5592618e8fd1cbfe7d807a29d010d99c308641bc5d253730f3",
-   "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+   "data/certificates/CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
    "data/certificates/HAUPTMODUL_S10_GAMMA010STAR.json": "8cd79878b7d4828c44ef15e4881b2cf35a1344ded9057b3dd20458da5aca1e40",
    "data/certificates/HAUPTMODUL_S7_GAMMA07PLUS.json": "c1f7bb0798eac4a3eac5aced9f535c3826444bd3bbd33592f4460b2cc73adcc1",
    "data/certificates/L3_RIEMANN_SCHEME.json": "b15dc064214b55685c892ac6de7fd751b72945b97defad9f151cf8c8007bf151",
-   "docs/literature/MANIFEST.md": "400358928ce01647fecf0ebb9135d4b03c744216054fa12a724c520cf5815d60",
+   "docs/literature/MANIFEST.md": "94ee742bbff06244d9178ef1bc5f9202d6e9be012ab23bf26f11cadc92e106c2",
    "refs/recurrences_v1.json": "f6c7ee9e34ba2c9b8d8132c6aa9109db951ab696de09f23aab3ef03ce8679a76"
   }
  },
@@ -107,7 +112,7 @@
   "that z = infinity IS the value at the A2 point: the statement rests on (a) the relation 1/z = alpha t + beta + gamma/t, certified by T3.modular_leg to a finite q-order only (PASS(N), N = relation_order_checked in the point record), and (b) |1/z| below 10^-(dps-20) at two precisions (Tier B numeric recognition), supported by an exact proportionality that itself rests on a numerically recognised minimal polynomial of t",
   "that the singular-point reading of the hand estimate was unanticipated program-wide: the docstring of Stream 1's g3_fixes (ModularAction.lean, read as source) already says that (14,-14,5) corresponds to the order-3 elliptic point of X_0(7)",
   "that the per-discriminant form lists are complete: they record what the stated box and the constructed witnesses contain. Only the discriminant criterion covers all v",
-  "anything certified about T(cooper_s10): C2_cooper_s10_v4_DRAFT.json is DRAFT by T0 ruling; the s10 negative is arithmetic of U + <20> as that draft records it, and is advisory",
+  "that 'this lattice is T(cooper_s10)' is more than Tier B: C2_cooper_s10_v5.json is LIVE (T0 D15', 2026-09-29, value-identical to v4_DRAFT); the s10 negative is arithmetic of U + <20> as that certificate records it; no ranking of cooper_s7 over cooper_s10 follows (ledger items 8/9)",
   "any Kodaira fibre type at any locus (CLAUDE.md ledger item 3); elliptic points are treated only as elliptic points of the modular curve",
   "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b). The LeanMaster theorem name is quoted as an identifier only"
  ],
@@ -2970,11 +2975,9 @@
   "cooper_s10": {
    "candidate": "cooper_s10",
    "n": 10,
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
-   "advisory": true,
-   "lattice_cert": "C2_cooper_s10_v4_DRAFT.json",
+   "flags": [],
+   "advisory": false,
+   "lattice_cert": "C2_cooper_s10_v5.json",
    "box": {
     "abs_coords_max": 80,
     "primitive_negative_norm_vectors_checked": 121667,

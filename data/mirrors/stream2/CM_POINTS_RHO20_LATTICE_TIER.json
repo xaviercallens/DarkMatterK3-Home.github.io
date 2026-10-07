@@ -3,7 +3,7 @@
   "checker": "checkers/check_lean_attestations_rankjump.py",
   "checker_version": "1.1.0",
   "date": "2026-09-27",
-  "status": "OVERLAY on CM_POINTS_RHO20.json (unchanged): per-row lattice_tier granted from kernel-checked statements after exact recomputation that each statement is about that row and after Stream 2's own gate readings in each producer's worktree. The rho = 20 cut stays read narrowly (D7'); nothing ranks; cooper_s10 rows stay ADVISORY (D6') whatever their lattice tier.",
+  "status": "OVERLAY on CM_POINTS_RHO20.json (unchanged): per-row lattice_tier granted from kernel-checked statements after exact recomputation that each statement is about that row and after Stream 2's own gate readings in each producer's worktree. The rho = 20 cut stays read narrowly (D7'); nothing ranks; no cross-family comparison follows from any row's lattice tier (ledger items 8/9; the s10 ADVISORY label lifted with D15', 2026-09-29).",
   "rows": [
     {
       "candidate": "cooper_s7",
@@ -438,7 +438,7 @@
           "failed_clauses": []
         }
       ],
-      "advisory_family": true,
+      "advisory_family": false,
       "independent_files_passing": 1,
       "lattice_tier": "A",
       "row_z": "1/16",
@@ -537,7 +537,7 @@
           "failed_clauses": []
         }
       ],
-      "advisory_family": true,
+      "advisory_family": false,
       "independent_files_passing": 1,
       "lattice_tier": "A",
       "row_z": "-1/4",
@@ -669,7 +669,7 @@
           "failed_clauses": []
         }
       ],
-      "advisory_family": true,
+      "advisory_family": false,
       "independent_files_passing": 2,
       "lattice_tier": "A",
       "row_z": "infinity",
@@ -921,7 +921,7 @@
   "inputs": {
     "sha256": {
       "refs/lean_attestations_rankjump_2026_09_27.json": "6bf0f7b56f764d5acef672a625e952e49f4c1f4c7ef49e35ca78aefe2e82f0c8",
-      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755"
+      "data/certificates/CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993"
     }
   },
   "not_claimed": [

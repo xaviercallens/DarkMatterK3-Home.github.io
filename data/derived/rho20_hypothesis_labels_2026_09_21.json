@@ -1,10 +1,21 @@
 {
  "authority": "briefs/T0_RULINGS_2026_09_21.md R1 (rho=20 cut ADOPTED); ranking and min-|D| NOT adopted",
  "inputs": {
-  "mirror_source_commit": "f62f2c8c25ab129fe9e858c8b066c53080c1e77e",
+  "mirror_source_commit": "bd576c1",
   "sha256": {
-   "A2_MEMBERSHIP.json": "2aa105eae60ebd5e6b8abd6f396411fb8bcfbdb88a98e94a9ad632827be4ea08",
-   "CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755"
+   "A2_MEMBERSHIP.json": "0d272dd44517cfc88affc69d3ddff8fa191dd74318fb81d97a977629a8ebd6b0",
+   "C2_cooper_s10_v5.json": "bc1f1ebc76dfedd27a9a9e0ae5d66ce3b5f2a2852105885ee329fb93db2f1e4e",
+   "C2_cooper_s7_v6.json": "789fec2ac3d7fd3c5bfadc91fd2524836dae53147f4d596637182d97d110c078",
+   "C6_SELECTED_CANDIDATE.json": "48cf40d28fc6a9980f4657cf6db36b7956163de363db1dd40f7180e2046d2658",
+   "C6_SELECTOR_COMPARISON.json": "aedcafd90b96fb261da4e68a8788126fba90b4faa9db08d7d9ed0430a42d9c71",
+   "CERTIFIED_MONODROMY_L2_cooper_s10.json": "d811432f513e98b202e28ec560409eb43114312f9b9551c0966636f552c90dca",
+   "CERTIFIED_MONODROMY_L2_cooper_s7.json": "69626f35d45d1ecf7911a0add900ff9a2e036148d16796c7c5e557a615cdbc99",
+   "CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+   "CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
+   "CM_POINTS_RHO20_LATTICE_TIER.json": "9b11021e71f52cc3fb4cdee28ed2a20899cc076ece6629dddb9fe37170789b0d",
+   "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
+   "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6",
+   "TW0_HODGE_DEGREE_ORBIFOLD.json": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61"
   }
  },
  "label": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
@@ -1294,11 +1305,9 @@
     0,
     1
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-4|z=infinity",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1314,11 +1323,9 @@
     1,
     4
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-15|z=1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1334,11 +1341,9 @@
     0,
     2
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-16|z=-1/2",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1354,11 +1359,9 @@
     2,
     3
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-20|z=-1/4",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1374,11 +1377,9 @@
     0,
     6
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-24|z=1/4",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1394,11 +1395,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-40|z=1/16",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1414,11 +1413,9 @@
     1,
     7
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-55|z=81*z**2 - 7*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1434,11 +1431,9 @@
     2,
     4
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-60|z=-1/9",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1454,11 +1449,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-80|z=4*z**2 + 22*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1474,11 +1467,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-80|z=4*z**2 + 22*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1494,11 +1485,9 @@
     0,
     5
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-100|z=-1/20",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1514,11 +1503,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-120|z=1/36",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1534,11 +1521,9 @@
     2,
     6
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-140|z=784*z**3 - 192*z**2 + 32*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1554,11 +1539,9 @@
     2,
     6
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-140|z=784*z**3 - 192*z**2 + 32*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1574,11 +1557,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-160|z=324*z**2 + 52*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1594,11 +1575,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-160|z=324*z**2 + 52*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1614,11 +1593,9 @@
     4,
     7
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-180|z=-1/64",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1634,11 +1611,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-200|z=256*z**3 + 112*z**2 + 88*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1654,11 +1629,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-200|z=256*z**3 + 112*z**2 + 88*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1674,11 +1647,9 @@
     6,
     8
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-220|z=121*z**2 + 103*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1694,11 +1665,9 @@
     2,
     28
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-220|z=121*z**2 + 103*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1714,11 +1683,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-240|z=2401*z**2 - 152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1734,11 +1701,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-240|z=2401*z**2 - 152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1754,11 +1719,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-280|z=1/196",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1774,11 +1737,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-320|z=58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1794,11 +1755,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-320|z=58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1814,11 +1773,9 @@
     0,
     40
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-320|z=58564*z**4 + 12384*z**3 + 4414*z**2 + 264*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1834,11 +1791,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-360|z=16*z**2 - 392*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1854,11 +1809,9 @@
     0,
     90
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-360|z=16*z**2 - 392*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1874,11 +1827,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-400|z=104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1894,11 +1845,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-400|z=104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1914,11 +1863,9 @@
     0,
     10
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-400|z=104976*z**4 - 68688*z**3 + 17644*z**2 - 572*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1934,11 +1881,9 @@
     0,
     11
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-440|z=30976*z**3 + 2672*z**2 + 728*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1954,11 +1899,9 @@
     -4,
     19
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-440|z=30976*z**3 + 2672*z**2 + 728*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1974,11 +1917,9 @@
     0,
     12
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-480|z=2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -1994,11 +1935,9 @@
     0,
     12
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-480|z=2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2014,11 +1953,9 @@
     0,
     12
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-480|z=2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2034,11 +1971,9 @@
     0,
     12
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-480|z=2085136*z**4 + 412016*z**3 - 15564*z**2 - 964*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2054,11 +1989,9 @@
     0,
     13
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-520|z=1/1296",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2074,11 +2007,9 @@
     0,
     14
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-560|z=4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2094,11 +2025,9 @@
     0,
     14
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-560|z=4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2114,11 +2043,9 @@
     -4,
     24
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-560|z=4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2134,11 +2061,9 @@
     4,
     24
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-560|z=4477456*z**6 + 6850944*z**5 + 7381040*z**4 + 367280*z**3 + 65640*z**2 - 1736*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2154,11 +2079,9 @@
     0,
     15
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-600|z=331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2174,11 +2097,9 @@
     0,
     15
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-600|z=331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2194,11 +2115,9 @@
     0,
     15
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-600|z=331776*z**4 + 198144*z**3 + 30736*z**2 - 2216*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2214,11 +2133,9 @@
     0,
     16
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-640|z=26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2234,11 +2151,9 @@
     0,
     16
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-640|z=26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2254,11 +2169,9 @@
     0,
     16
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-640|z=26244*z**4 - 83456*z**3 + 138804*z**2 + 2784*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2274,11 +2187,9 @@
     0,
     17
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-680|z=614656*z**3 + 32112*z**2 + 3608*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2294,11 +2205,9 @@
     2,
     57
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-680|z=614656*z**3 + 32112*z**2 + 3608*z - 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2314,11 +2223,9 @@
     0,
     18
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-720|z=14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2334,11 +2241,9 @@
     0,
     18
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-720|z=14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2354,11 +2259,9 @@
     0,
     18
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-720|z=14776336*z**4 - 2351584*z**3 + 360536*z**2 - 4664*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2374,11 +2277,9 @@
     0,
     19
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-760|z=1/5776",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2394,11 +2295,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2414,11 +2313,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2434,11 +2331,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2454,11 +2349,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2474,11 +2367,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2494,11 +2385,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2514,11 +2403,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2534,11 +2421,9 @@
     0,
     20
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-800|z=23612624896*z**12 - 251684421632*z**11 + 9045353742336*z**10 + 2066503731200*z**9 - 304517160960*z**8 - 140016653312*z**7 + 8799789184*z**6 + 2763570688*z**5 + 19187200*z**4 + 379360*z**3 - 581184*z**2 - 7152*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2554,11 +2439,9 @@
     0,
     21
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-840|z=234256*z**2 - 9032*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2574,11 +2457,9 @@
     0,
     21
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-840|z=234256*z**2 - 9032*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2594,11 +2475,9 @@
     0,
     22
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-880|z=6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2614,11 +2493,9 @@
     0,
     22
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-880|z=6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2634,11 +2511,9 @@
     0,
     110
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-880|z=6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2654,11 +2529,9 @@
     0,
     110
    ],
-   "advisory": true,
+   "advisory": false,
    "candidate": "cooper_s10",
-   "flags": [
-    "LATTICE_CERT_DRAFT"
-   ],
+   "flags": [],
    "key": "cooper_s10|D=-880|z=6561*z**4 + 3542616*z**3 + 1192711*z**2 - 11264*z + 1",
    "kind": "HYPOTHESIS-LABEL \u2014 rho=20 CM-point vocabulary; not an observable, not exclusion, not FIT, not TEST",
    "n": 10,
@@ -2672,11 +2545,11 @@
   "that any label is preferred, ranked, or selected: no minimum-|D| rule is adopted",
   "that any label maps to an observable: observable_for() raises by design (F5b)",
   "that the list is complete: Stream 2's enumeration window is not shown to be a fundamental domain, and their own not_claimed blocks travel with the mirror",
-  "that cooper_s10 labels are settled: every one is advisory (lattice cert DRAFT, T0 D6')"
+  "that any label is settled beyond Tier B: the advisory flag shadows the mirrored lattice-certificate status (s10 DRAFT under D6' until D15', 2026-09-29); 'this lattice is T' stays Tier B for both families"
  ],
  "per_candidate": {
   "cooper_s10": {
-   "advisory": 69,
+   "advisory": 0,
    "distinct_D": 33,
    "labels": 69,
    "n": 10,

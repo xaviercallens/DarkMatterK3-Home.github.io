@@ -1,13 +1,13 @@
 {
   "mirror_of": "SocrateAI-Scientific-Agora-K3-DarkMatter (Stream 2)",
-  "source_commit": "2894e78bf9b4c8ce826f5af15564238be077001c",
-  "mirrored_on": "2026-09-29",
+  "source_commit": "bd576c1",
+  "mirrored_on": "2026-10-07",
   "why": "Stream 2's CM-point / A2 certificates, mirrored so Stream 3 can run a drift-detecting consistency test (their brief STREAM2_TO_STREAM3_MODULAR_RAIL_AND_CM_POINTS_2026_09_21 item 4.2#4). These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Stream 3 DID re-run their controls (46/46 and 35/35) on 2026-09-21.",
   "honor": "These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Each certificate's own not_claimed block travels with it and must not be dropped. Rows/flags that predate a later Stream 2 ruling (e.g. LATTICE_CERT_DRAFT / advisory=true on cooper_s10 rows emitted before D15' of 2026-09-29) are dated, not wrong; do not edit them here.",
   "generated_by": "scripts/refresh_stream2_mirror_manifest.py (hashes computed, not typed)",
   "files": {
     "A2_MEMBERSHIP.json": {
-      "sha256": "2aa105eae60ebd5e6b8abd6f396411fb8bcfbdb88a98e94a9ad632827be4ea08",
+      "sha256": "0d272dd44517cfc88affc69d3ddff8fa191dd74318fb81d97a977629a8ebd6b0",
       "not_claimed": [
         "that this certificate scores, ranks or prefers a candidate or a member of a family: the rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md) and is read narrowly - the adoption carries no ranking of s7 over s10 and no minimum-|D| rule, so 'A2 is in the s7 family and not in the s10 family' stays a lattice fact, not a preference",
         "that agreement between the binary-form route and the modular route corroborates anything: LeanMaster docs/STREAM8_WHICH_K3.md sec G10 (read as source) states that the binary-form enumeration and the modular side are the same computation in two languages (Shioda-Inose), so their agreement is forced, not corroboration. The Heegner congruence and the lattice enumeration of this checker agree for the same reason",
@@ -16,7 +16,7 @@
         "that z = infinity IS the value at the A2 point: the statement rests on (a) the relation 1/z = alpha t + beta + gamma/t, certified by T3.modular_leg to a finite q-order only (PASS(N), N = relation_order_checked in the point record), and (b) |1/z| below 10^-(dps-20) at two precisions (Tier B numeric recognition), supported by an exact proportionality that itself rests on a numerically recognised minimal polynomial of t",
         "that the singular-point reading of the hand estimate was unanticipated program-wide: the docstring of Stream 1's g3_fixes (ModularAction.lean, read as source) already says that (14,-14,5) corresponds to the order-3 elliptic point of X_0(7)",
         "that the per-discriminant form lists are complete: they record what the stated box and the constructed witnesses contain. Only the discriminant criterion covers all v",
-        "anything certified about T(cooper_s10): C2_cooper_s10_v4_DRAFT.json is DRAFT by T0 ruling; the s10 negative is arithmetic of U + <20> as that draft records it, and is advisory",
+        "that 'this lattice is T(cooper_s10)' is more than Tier B: C2_cooper_s10_v5.json is LIVE (T0 D15', 2026-09-29, value-identical to v4_DRAFT); the s10 negative is arithmetic of U + <20> as that certificate records it; no ranking of cooper_s7 over cooper_s10 follows (ledger items 8/9)",
         "any Kodaira fibre type at any locus (CLAUDE.md ledger item 3); elliptic points are treated only as elliptic points of the modular curve",
         "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b). The LeanMaster theorem name is quoted as an identifier only"
       ],
@@ -46,7 +46,7 @@
       "status_as_shipped": "LIVE v6 - accepted by T0 (Xavier) 2026-09-27, in session ('accept v6 draft and merge the PR'), recorded in briefs/T0_DECISIONS_2026_09_27_STREAM2.md (D10'). Lattice authority for cooper_s7, superseding C2_cooper_s7_v5.json in that role with"
     },
     "C6_SELECTED_CANDIDATE.json": {
-      "sha256": "8ef469c152febbd9fc95163dcf532524ae046873fa52ca613670722c2378afae",
+      "sha256": "48cf40d28fc6a9980f4657cf6db36b7956163de363db1dd40f7180e2046d2658",
       "not_claimed": [
         "that SEL-D is intrinsically the correct quantity to extremise (a T0 ruling, not a mathematical fact)",
         "any physical reading (ledger item 4)",
@@ -56,7 +56,7 @@
       "status_as_shipped": "Selector ADOPTED: AM-8, K3_CRITERIA.md C6, T0 ruling via AskUserQuestion 2026-09-28 ('SEL-D: minimal |disc T|'), narrowing D7' (ledger item 8) to cross-family comparison only. This certificate verifies the criteria text's two named lattices"
     },
     "C6_SELECTOR_COMPARISON.json": {
-      "sha256": "92e05bf175688692961147c57045988404142036164ace776b42ae216a68ae1c",
+      "sha256": "aedcafd90b96fb261da4e68a8788126fba90b4faa9db08d7d9ed0430a42d9c71",
       "not_claimed": [
         "that either selector is adopted",
         "any physical reading of any point (ledger item 4)",
@@ -96,7 +96,7 @@
       "status_as_shipped": "RECORD, NOT A GATE. A completeness CONTROL on the P2 table. P2 claims no completeness; INCOMPLETE rows are a finding about P2's window, not a failure. The rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STR"
     },
     "CM_POINTS_RHO20.json": {
-      "sha256": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "sha256": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
       "not_claimed": [
         "that this table scores or ranks a candidate: the rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md) and is read narrowly - no ranking of candidates, no minimum-|D| rule",
         "that any member of either family is singled out or preferred: this is a table of lattice/modular arithmetic",
@@ -104,14 +104,14 @@
         "that any z-value IS the algebraic number recorded: every minimal polynomial is a numeric recognition, fitted at DPS_FIT digits and re-checked at DPS_VERIFY digits (Tier B)",
         "that the step from 'v.omega = 0' to 'rho = 20, T_X = v^perp' is proved here: it is the cited framework (Dolgachev 1996 sec 7 period domain, read and pinned, plus the Lefschetz (1,1) theorem, standard and not among the pinned statements; Tier B). The checker computes the lattice side only",
         "that a smooth M_n-polarized member with rho = 20 sits at the (-2)-vector rows: Dolgachev Thm 7.3 (pinned) removes the (-2)-walls from the ample locus, and those rows include C1 singular loci of the operator; 'T_X = v^perp' there refers at best to a pseudo-ample / resolved surface and is recorded as lattice arithmetic only",
-        "anything certified about T(cooper_s10): C2_cooper_s10_v4_DRAFT.json is DRAFT by T0 ruling; every s10 row carries LATTICE_CERT_DRAFT and is advisory",
+        "that 'this lattice is T(cooper_s10)' is more than Tier B: C2_cooper_s10_v5.json is LIVE (T0 D15', 2026-09-29, value-identical to v4_DRAFT; the former LATTICE_CERT_DRAFT flag lifted on that ground only); no ranking of cooper_s7 over cooper_s10 follows (ledger items 8/9)",
         "any Kodaira fibre type at any locus (CLAUDE.md ledger item 3): the loci are elliptic points of the modular curve and are treated only as such",
         "any physical reading whatsoever (VISION sec 1.3; Tier C blocked, F5b)"
       ],
       "status_as_shipped": "RECORD, NOT A GATE. The rho = 20 cut was ADOPTED by T0 on 2026-09-21 (D7', briefs/T0_DECISIONS_2026_09_21_STREAM2.md), read narrowly: no ranking of candidates, no minimum-|D| rule, no physical reading. K3_CRITERIA.md unchanged. No scoring. "
     },
     "CM_POINTS_RHO20_LATTICE_TIER.json": {
-      "sha256": "882a866c0a01e718e64849d7c95edad0d15af9da54d8e4d4d76a4dd52477ee56",
+      "sha256": "9b11021e71f52cc3fb4cdee28ed2a20899cc076ece6629dddb9fe37170789b0d",
       "not_claimed": [
         "anything about z beyond the CM certificate's numeric recognition",
         "that v^perp is T_X (Tier L)",
@@ -141,6 +141,16 @@
         "any physical reading (VISION sec. 1.3; ledger item 4)"
       ],
       "status_as_shipped": "RECORD, NOT A GATE. An explicit M_7-polarized model over the cooper_s7 coordinate, in the Clingher-Doran-Lewis-Whitcher normal form, with its W-invariants as exact Laurent polynomials in z. The rho = 20 cut stays read narrowly (T0 D7'); not"
+    },
+    "TW0_HODGE_DEGREE_ORBIFOLD.json": {
+      "sha256": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61",
+      "not_claimed": [
+        "any Kodaira fibre type at any point (ledger items 3 and 10): exponent language only",
+        "that ell = 2 is wrong: it is correct as chi(O) of any elliptic K3 with section; what is not reproduced is a FAMILY-level Hodge-bundle degree of 2",
+        "which reading WP-TW1 requires: that is the T0 question raised in the brief",
+        "anything about cooper_s10's geometry beyond its use as a discriminating control here",
+        "any physical statement (ledger item 4)"
+      ]
     }
   },
   "history": [
@@ -160,6 +170,25 @@
         },
         "provenance_note": "Files were copied from the Stream 2 working tree, which sat on branch stream2/open-points-2026-09-21 (f62f2c8c); each was then verified byte-identical to `main:data/certificates/<file>` (0e0bfe7d), and source_commit records main. Their in-progress branch does not modify these certificates."
       }
+    },
+    {
+      "source_commit": "2894e78bf9b4c8ce826f5af15564238be077001c",
+      "mirrored_on": "2026-09-29",
+      "files_sha256": {
+        "A2_MEMBERSHIP.json": "2aa105eae60ebd5e6b8abd6f396411fb8bcfbdb88a98e94a9ad632827be4ea08",
+        "C2_cooper_s10_v5.json": "bc1f1ebc76dfedd27a9a9e0ae5d66ce3b5f2a2852105885ee329fb93db2f1e4e",
+        "C2_cooper_s7_v6.json": "789fec2ac3d7fd3c5bfadc91fd2524836dae53147f4d596637182d97d110c078",
+        "C6_SELECTED_CANDIDATE.json": "8ef469c152febbd9fc95163dcf532524ae046873fa52ca613670722c2378afae",
+        "C6_SELECTOR_COMPARISON.json": "92e05bf175688692961147c57045988404142036164ace776b42ae216a68ae1c",
+        "CERTIFIED_MONODROMY_L2_cooper_s10.json": "d811432f513e98b202e28ec560409eb43114312f9b9551c0966636f552c90dca",
+        "CERTIFIED_MONODROMY_L2_cooper_s7.json": "69626f35d45d1ecf7911a0add900ff9a2e036148d16796c7c5e557a615cdbc99",
+        "CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+        "CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+        "CM_POINTS_RHO20_LATTICE_TIER.json": "882a866c0a01e718e64849d7c95edad0d15af9da54d8e4d4d76a4dd52477ee56",
+        "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
+        "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6"
+      },
+      "refreshed": null
     }
   ]
 }

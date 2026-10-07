@@ -4,7 +4,7 @@
   "checker_version": "1.0.0",
   "date": "2026-09-28",
   "tier": "B",
-  "status": "RECORD, NOT A GATE, NOT AN ADOPTION. Neither SEL-D nor SEL-N is adopted by this certificate; AM-6 requires the selector to be named by its own T0 text before any candidate is preferred. D7' is unchanged: no ranking of cooper_s7 over cooper_s10; cooper_s10 stays ADVISORY (D6').",
+  "status": "RECORD, NOT A GATE, NOT AN ADOPTION. Neither SEL-D nor SEL-N is adopted by this certificate; AM-6 requires the selector to be named by its own T0 text before any candidate is preferred. D7' is unchanged: no ranking of cooper_s7 over cooper_s10 (the ADVISORY label that rested on D6' lifted with D15', 2026-09-29; the no-ranking rule did not).",
   "result": {
     "families": {
       "cooper_s7": {
@@ -98,7 +98,7 @@
       },
       "cooper_s10": {
         "n": 10,
-        "advisory": true,
+        "advisory": false,
         "SEL-D": {
           "definition": "minimal |disc T| over the occurrence criterion, searched exactly (not from the certificate's own window)",
           "global_min_abs_D": 4,
@@ -161,7 +161,7 @@
   },
   "inputs": {
     "sha256": {
-      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "data/certificates/CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
       "data/certificates/CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6"
     }
   },

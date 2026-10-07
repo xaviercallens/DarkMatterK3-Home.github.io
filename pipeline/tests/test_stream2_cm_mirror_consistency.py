@@ -57,24 +57,37 @@ def test_s10_locus_hits_reproduce_the_ledger_loci():
     assert finite == LEDGER_FINITE_LOCI["cooper_s10"]
 
 
-def test_every_s10_row_is_advisory():
-    """Stream 2's ask, second half. s10's lattice certificate is DRAFT (T0 D6'), so every s10
-    row is advisory and must never be cited as settled. If a refresh drops the flag, fail."""
+def test_advisory_flag_mirrors_the_lattice_certificate_status():
+    """Stream 2's ask, second half, as it reads after T0 D15' (2026-09-29): the advisory flag is
+    not a constant per family but the shadow of the lattice certificate's status. Until D15' s10's
+    certificate was DRAFT (D6') and every s10 row was advisory; since D15' it is LIVE
+    (C2_cooper_s10_v5.json, value-identical) and no row is. The test asserts the *relation*, so it
+    fails closed if a refresh ever carries a flag that disagrees with the recorded status."""
     cert, _ = _load("CM_POINTS_RHO20.json")
-    rows = cert["families"]["cooper_s10"]["rows"]
-    assert rows, "no s10 rows"
-    non_advisory = [r for r in rows if not r.get("advisory")]
-    assert not non_advisory, f"{len(non_advisory)} cooper_s10 rows lost advisory=true"
+    for key, fam in cert["families"].items():
+        rows = fam["rows"]
+        assert rows, f"no {key} rows"
+        expected = fam["lattice_cert_status"] != "LIVE"
+        assert fam["advisory"] is expected, f"{key}: advisory={fam['advisory']} but status={fam['lattice_cert_status']}"
+        assert all(bool(r.get("advisory", fam["advisory"])) is expected for r in rows), f"{key}: a row disagrees with its family's status"
 
 
-def test_s7_rows_are_not_advisory_so_the_flag_discriminates():
-    """Negative control for the test above: if `advisory` were set on everything (or on
-    nothing), the s10 check would carry no information. s7's T2 is LIVE, so its rows must NOT
-    be advisory."""
+def test_s10_certificate_is_the_live_v5_after_d15prime():
+    """Pins the fact the previous test's expectation rests on: the mirrored s10 record cites the
+    LIVE v5 certificate. If Stream 2 reverts D15' (one T0 sentence), this names the change."""
     cert, _ = _load("CM_POINTS_RHO20.json")
-    s7 = cert["families"]["cooper_s7"]["rows"]
-    assert s7 and not any(r.get("advisory") for r in s7), (
-        "cooper_s7 rows are advisory too — the advisory flag no longer discriminates")
+    s10 = cert["families"]["cooper_s10"]
+    assert s10["lattice_cert"] == "C2_cooper_s10_v5.json" and s10["lattice_cert_status"] == "LIVE"
+    assert cert["families"]["cooper_s7"]["lattice_cert_status"] == "LIVE"
+
+
+def test_flag_still_discriminates_a_draft_status():
+    """Negative control: a copy whose s10 status is flipped back to DRAFT must be caught by the
+    relation test's logic (advisory stays False while status says DRAFT)."""
+    cert, _ = _load("CM_POINTS_RHO20.json")
+    s10 = dict(cert["families"]["cooper_s10"])
+    s10["lattice_cert_status"] = "DRAFT"
+    assert s10["advisory"] is not (s10["lattice_cert_status"] != "LIVE"), "flipping the status must break the relation"
 
 
 def test_a2_membership_verdicts_are_s7_yes_s10_no():
@@ -83,8 +96,9 @@ def test_a2_membership_verdicts_are_s7_yes_s10_no():
     fam = cert["families"]
     blob = json.dumps(fam["cooper_s7"])
     assert "-3" in blob or "A2" in blob, "s7 A2 record unreadable"
-    assert fam["cooper_s10"]["advisory"] is True, "s10 A2 row must stay advisory"
-    assert fam["cooper_s7"]["advisory"] is False
+    cm, _ = _load("CM_POINTS_RHO20.json")
+    for key in ("cooper_s7", "cooper_s10"):   # advisory shadows the lattice-certificate status (D15' lifted s10's)
+        assert fam[key]["advisory"] is (cm["families"][key]["lattice_cert_status"] != "LIVE"), key
 
 
 def test_not_claimed_blocks_travel_with_the_mirrored_data():

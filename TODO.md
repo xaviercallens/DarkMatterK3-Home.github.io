@@ -230,3 +230,9 @@ item traced to its committed artifact | Reviewed-by: pending T0 -->
 **Standing guardrail, restated for every sentence in this section:** the K3 surface is the mathematical
 shadow of the duality, not the target; no laboratory result here is evidence for cooper_s7/s10 or any
 Tier A/B certificate; any sentence linking σ = i or σ = (1+i)/2 to ⟨2⟩⊕⟨2⟩ is Tier C and carries its marker.
+- [x] **W2 refreshed 2026-10-07** — Stream 2 re-emitted the v5 chain (K3 PR #76, `main` `bd576c1`): 5 certificates
+  re-mirrored + `TW0_HODGE_DEGREE_ORBIFOLD.json` added (13 files, manifest regenerated, `--check` green);
+  `K3_CRITERIA.md` re-pinned to `50907eb569b3a5495…` (recompute at your own merge). The drift test's
+  "every s10 row is advisory" encoded the pre-D15′ state and now asserts the *relation* flag ⇔ status≠LIVE
+  (+ a flip control); `cm_labels.py` wording made status-driven. **Open from Stream 2 for T0:** WP-TW0 F6 brief
+  (family-level Hodge degree ≠ 2; R-a/R-b), Home PR #5 (E2 pin status).

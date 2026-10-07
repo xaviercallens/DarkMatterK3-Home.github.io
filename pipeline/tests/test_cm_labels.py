@@ -71,12 +71,19 @@ def test_every_certificate_label_satisfies_the_predicate():
     assert offenders == []
 
 
-def test_advisory_flag_discriminates():
+def _status(fam):
+    cm = json.loads((L.MIRROR_DIR / "CM_POINTS_RHO20.json").read_text())
+    return cm["families"][fam]["lattice_cert_status"]
+
+
+def test_advisory_flag_shadows_the_lattice_certificate_status():
+    """The flag is the shadow of the mirrored certificate's lattice-cert status, not a constant per
+    family: s10 was DRAFT (advisory) under T0 D6' and is LIVE (not advisory) since D15', 2026-09-29."""
     labels = L.load_labels()
-    s7 = [l for l in labels if l.candidate == "cooper_s7"]
-    s10 = [l for l in labels if l.candidate == "cooper_s10"]
-    assert s10 and all(l.advisory for l in s10), "an s10 label lost advisory=true"
-    assert s7 and not any(l.advisory for l in s7), "s7 labels advisory too — flag carries nothing"
+    for fam in ("cooper_s7", "cooper_s10"):
+        fl = [l for l in labels if l.candidate == fam]
+        expected = _status(fam) != "LIVE"
+        assert fl and all(l.advisory is expected for l in fl), f"{fam}: a label disagrees with status {_status(fam)}"
 
 
 def test_a2_label_exists_once_in_s7_at_infinity():
@@ -91,7 +98,9 @@ def test_tampered_mirror_is_refused(tmp_path):
     shutil.copytree(L.MIRROR_DIR, mirror)
     L.load_labels(mirror)                                        # pristine copy loads
     p = mirror / "CM_POINTS_RHO20.json"
-    p.write_text(p.read_text().replace('"advisory": true', '"advisory": false', 1))
+    txt = p.read_text()
+    assert '"advisory": false' in txt
+    p.write_text(txt.replace('"advisory": false', '"advisory": true', 1))
     with pytest.raises(L.MirrorIntegrityError):
         L.load_labels(mirror)
 
@@ -106,6 +115,7 @@ def test_no_observable_can_be_obtained_from_a_label():
 def test_vocabulary_record_is_labelled_and_never_a_comparison_output():
     rec = L.vocabulary_record(L.load_labels())
     assert rec["label"] == L.LABEL_KIND and "HYPOTHESIS-LABEL" in rec["label"]
-    assert rec["per_candidate"]["cooper_s10"]["advisory"] == rec["per_candidate"]["cooper_s10"]["labels"]
-    assert rec["per_candidate"]["cooper_s7"]["advisory"] == 0
+    for fam in ("cooper_s7", "cooper_s10"):
+        expected = rec["per_candidate"][fam]["labels"] if _status(fam) != "LIVE" else 0
+        assert rec["per_candidate"][fam]["advisory"] == expected, fam
     assert any("ranked" in s or "preferred" in s for s in rec["not_claimed"])

@@ -4,7 +4,7 @@
   "checker_version": "1.0.0",
   "date": "2026-09-28",
   "tier": "B",
-  "status": "Selector ADOPTED: AM-8, K3_CRITERIA.md C6, T0 ruling via AskUserQuestion 2026-09-28 ('SEL-D: minimal |disc T|'), narrowing D7' (ledger item 8) to cross-family comparison only. This certificate verifies the criteria text's two named lattices against a fresh recomputation and CM_COMPLETENESS.json's curve-point count (not class number alone). cooper_s10's pick is ADVISORY: its lattice certificate stays DRAFT (D6'), untouched by this selection. No ranking of the two families; no physical reading (ledger item 4).",
+  "status": "Selector ADOPTED: AM-8, K3_CRITERIA.md C6, T0 ruling via AskUserQuestion 2026-09-28 ('SEL-D: minimal |disc T|'), narrowing D7' (ledger item 8) to cross-family comparison only. This certificate verifies the criteria text's two named lattices against a fresh recomputation and CM_COMPLETENESS.json's curve-point count (not class number alone). cooper_s10's lattice certificate is LIVE (v5, D15' 2026-09-29; the ADVISORY label that rested on D6' lifted on that ground only), untouched by this selection. No ranking of the two families; no physical reading (ledger item 4).",
   "selected": {
     "cooper_s7": {
       "T_reduced_form": [
@@ -34,7 +34,7 @@
         -10,
         -3
       ],
-      "advisory": true
+      "advisory": false
     }
   },
   "result": {
@@ -108,15 +108,15 @@
       "unique_on_curve": true,
       "matches_criteria_text": true,
       "ok": true,
-      "advisory": true
+      "advisory": false
     }
   },
   "inputs": {
     "sha256": {
-      "K3_CRITERIA.md": "7af500a774073893ea0829efc6e7fcdfccf1974fbd5859275f902feb70fd3511",
-      "data/certificates/CM_POINTS_RHO20.json": "1ef6d622af22a6488316fad01503ed4381c1d742861f178b3d3ea9d76c220755",
+      "K3_CRITERIA.md": "bcafe8025d6752d11624d72d0e548ab6f1dc7924bfd5b3b4dbae61fdfd829643",
+      "data/certificates/CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
       "data/certificates/CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
-      "data/certificates/C6_SELECTOR_COMPARISON.json": "92e05bf175688692961147c57045988404142036164ace776b42ae216a68ae1c"
+      "data/certificates/C6_SELECTOR_COMPARISON.json": "aedcafd90b96fb261da4e68a8788126fba90b4faa9db08d7d9ed0430a42d9c71"
     }
   },
   "not_claimed": [
