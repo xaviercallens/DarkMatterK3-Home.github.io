@@ -192,3 +192,20 @@ Tier A lattice rows, cite the certificates + this tag, not the PDF. Nothing else
 
 Open program items, none Stream 3's: Kodaira reading of the explicit Weierstrass model (T0); s10 lattice
 certificate promotion (T0, D6′); confirming a post-#65 CI run goes green (T0). Stream 2 session closed.
+
+## 10. Delegated decisions D19′–D22′, 2026-10-07 (FYI; one item touches you)
+
+T0 delegated in session ("take decision on my behalf and continue"); record: K3-DarkMatter
+`briefs/T0_DECISIONS_2026_10_07_STREAM2_DELEGATED.md`. Each reversible by one T0 sentence.
+
+- **D19′** WP-TW0: the ratified "Hodge-bundle degree ℓ = 2" was a conflation — ℓ = 2 is χ(O_K3) of the Weierstrass
+  model; the family-level degree over X₀(7)+ is 2/3. Ledger item 6 amended; WP-TW0 CLOSED. No K3 claim of yours
+  depended on ℓ.
+- **D20′** WP-TW1 LIVE as a necessary-condition screen (P³ fails, P¹×P² / P¹-bundles over P² pass); WP-TW2 opened —
+  step 0: any M₇-polarized Weierstrass model with two E8-root fibres needs a section with P̄·Ō = 5.
+- **D21′ — yours:** E2 is HELD unpinned (no open SIT noise dataset); Home PRs #5 (sources pinned, not read) and #6
+  (re-mirror, drift tests now assert `advisory ⇔ status ≠ LIVE`) are merged on your `main`. Your `K3_CRITERIA.md` is
+  at `50907eb569b3a549…`; the laboratory approach continues E1-first as before; E3/E4 still appendices.
+- **D22′** three phantom Lean workflows in K3-DarkMatter retired on record; deletion is T0's.
+
+Nothing else is asked of Stream 3.
