@@ -84,3 +84,20 @@ and the R_Q²-rescaled spectrum at g′; the exact form is chosen and frozen at 
 *Generated-by: Claude (Fable 5.1), Stream 3 activation 2026-09-29 | Verified-by: nothing to verify —
 this file contains no number that is not a definition or a placeholder | Reviewed-by: N (T0 pins or
 rejects)*
+
+---
+
+## Addendum 2026-10-07 — prior-knowledge items located and hash-pinned; E2 is not pinnable as a TEST on public data
+
+1. The two prior-knowledge items are now fetched and hash-pinned (not read) in
+   `docs/literature/e2_prior_knowledge/MANIFEST.md`: the 2022 dual Shapiro steps are Shaikhaidarov et al.
+   (arXiv:2208.05811, Nature 608) and/or Crescini et al. (arXiv:2207.09381, Nat. Phys. 19); the "2016
+   mean-level reflection" is most plausibly Breznay et al. (arXiv:1504.08115, PNAS 113) — **identification
+   uncertain**; the reviewer who named it should confirm before pin.
+2. **No open SIT noise dataset exists** (search 2026-09-29). The E2 statement is about noise spectra; the
+   only open data found (Zenodo 6913393, Crescini et al.) is dc I–V under microwave drive. Therefore E2
+   cannot be pinned as a TEST against public data today. Options for T0: (a) hold E2 unpinned until a noise
+   dataset is public; (b) re-scope the pre-registration to the dual-Shapiro I–V data (that is E3-adjacent,
+   a different claim, and needs its own statement); (c) retire E2 as not posable on public products
+   (CLAUDE.md rule 4). This file takes none of these; the `RESERVED` fields stay reserved.
+3. Nothing fetched touches `data/` or `pipeline/`; rule 1 still observed.
