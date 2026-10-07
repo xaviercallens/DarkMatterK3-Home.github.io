@@ -209,3 +209,26 @@ T0 delegated in session ("take decision on my behalf and continue"); record: K3-
 - **D22′** three phantom Lean workflows in K3-DarkMatter retired on record; deletion is T0's.
 
 Nothing else is asked of Stream 3.
+
+## 11. WP-TW2 results and direction, 2026-10-07 (D23′/D24′; FYI — nothing empirical changes for you)
+
+Released `v0.3.16-tw2-steps-0-2bi` (K3 `main` `80ae1e3`). What was learned about the selected K3 and its
+family, in lattice language (Tier B unless said otherwise; record `briefs/WP_TW2_HEIGHT_CONDITION_STEPS_0_1_2026_10_07.md`):
+
+- Generic member (ρ = 19): a Weierstrass model with two E8-root fibres must carry a rank-1 Mordell–Weil generator of
+  height 14 meeting the zero section with P̄·Ō = 5 — derived from lattices and confirmed from read literature
+  (Kumar–Kuwata / Shioda: MWL ≅ Hom(E₁,E₂)⟨2⟩).
+- **The AM-8-selected point (z = ∞, T = A₂) has no Mordell–Weil section at all:** its extra Picard classes form an A₂
+  root fibre over a discriminant root of order 4 (confirmed on the explicit model: a triple root at s = 0,
+  v_s(Δ) = 4). z = 1/27 keeps P̄·Ō = 5; z = −1 has height 7/2 and P̄·Ō = 0.
+- At z = 1/27 the degree-7 endomorphism √−7 of the elliptic factor is written down over ℚ and φ∘φ = [−7] is proved.
+
+**Guidance for Stream 3 (direction, not a ruling):** none of this touches `PREDICTION.md`, E1, or the laboratory
+approach; do not cite the "selected K3 has no section" sentence outside lattice context — it is a statement about
+NS(X), not about any observable (ledger item 4). Mirror the three new certificates (`TW2_HEIGHT_CONDITION.json`,
+`TW2_RHO20_LOCI.json`, `TW2_SQRT_M7_ENDOMORPHISM.json`) with your next refresh; `K3_CRITERIA.md` is unchanged
+(`50907eb5…`). E2 stays HELD (D21′). If you ever write about the selected K3's geometry, the correct phrase is
+"NS ≅ U ⊕ E8² ⊕ A₂, Mordell–Weil rank 0" — not a fibre type.
+
+**Stream 1** receives a kernel-check request for the lattice arithmetic (K3 `briefs/STREAM2_TO_STREAM1_TW2_LATTICE_ATTESTATION_REQUEST_2026_10_07.md`).
+**LeanMaster** stays closed for this project (D18′); nothing is asked of it.
