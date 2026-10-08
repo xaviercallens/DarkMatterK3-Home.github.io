@@ -5,6 +5,13 @@
 > this repo's record has since retracted or never held (see `docs/WP_H_AUTO_RESEARCH_TRIAGE.md`).
 > This file now tracks the **scientific program's** live task state. One item = one truth.
 
+## ✅ Stream 3 status note published 2026-10-08 (T0: "publish the different papers on the different streams")
+
+`papers/stream3_status_note_2026_10_08.pdf`: E1/E1b calibrations, the Phase 0 recount, and what is NOT claimed (no dark-matter result,
+no data comparison, no TEST/FIT, no pin). Tables from certificates via `scripts/render_stream3_note_tables.py --check` (3 controls in
+`checkers/tests/test_render_stream3_note_tables.py`). Prose linted with the K3 repo's `check_paper_tier_language.py` (Home has no copy).
+Interpretation prose stays T0-only (rule 6); the note has none. FYI brief: `briefs/STREAM2_TO_ALL_STREAMS_PAPERS_2026_10_08.md`.
+
 ## ✅ WP-E6 v2 Phase 0 (literature re-survey) — DONE 2026-10-08 under T0 D-g (Phase 0 ONLY)
 
 Report `briefs/WP_E6_V2_PHASE0_RESURVEY_REPORT_2026_10_08.md`; table `data/literature/fdm_mixed_fraction_bounds_2026_10_08.csv`; recount
