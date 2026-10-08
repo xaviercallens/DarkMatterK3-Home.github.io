@@ -37,5 +37,14 @@ each stream owns its paper, and a repo with a possibly live session is not touch
 - **DualScaleSimulator:** nothing requested. No number from either paper is a simulation input (ledger item 4).
 - **Stream 3:** the note is yours to review and amend. Interpretation prose stays T0-only (your rule 6). The note has none.
 
+## Addendum (2026-10-08, later): the K3×T² reading is ruled (D29′)
+
+On T0's delegation, "K3×T²" in selection criteria now means **Reading S**, the Shioda–Inose pairing with E×E′ where E and E′
+are cyclically n-isogenous. The lattice fact it needs, T(E×E′) ≅ U⊕⟨2n⟩, is computed exactly in
+`data/certificates/K3xT2_READING_S.json` (n = 7 and n = 10, isometric to the certified T, with 9 controls), so Morrison 1984 is
+no longer needed. **For every stream:** this is a convention for selection criteria only. It does **not** identify the T² of a
+physical compactification with E or E′; that stays Tier C. DualScaleSimulator and Stream 3 should take no parameter from it.
+LeanMaster: the product lattice you formalize corresponds to Reading P, which is not used for selection. Nothing conflicts.
+
 *Generated-by: Claude (Opus 5.5), Stream 2 | Verified-by: `render_paper_tables.py --check`, `render_stream3_note_tables.py --check`,
 `check_paper_tier_language.py` (self-test with planted violations) | Reviewed-by: N*
