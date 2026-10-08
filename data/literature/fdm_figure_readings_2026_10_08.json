@@ -1,0 +1,156 @@
+{
+  "kobayashi_fig1": {
+    "1.0000e-22": {
+      "F_max_2sigma_allowed": 0.175,
+      "F_max_3sigma_allowed": 0.205
+    },
+    "1.7783e-22": {
+      "F_max_2sigma_allowed": 0.191,
+      "F_max_3sigma_allowed": 0.232
+    },
+    "3.1623e-22": {
+      "F_max_2sigma_allowed": 0.216,
+      "F_max_3sigma_allowed": 0.283
+    },
+    "5.6234e-22": {
+      "F_max_2sigma_allowed": 0.264,
+      "F_max_3sigma_allowed": 0.364
+    },
+    "1.0000e-21": {
+      "F_max_2sigma_allowed": 0.345,
+      "F_max_3sigma_allowed": 0.515
+    },
+    "1.7783e-21": {
+      "F_max_2sigma_allowed": 0.491,
+      "F_max_3sigma_allowed": 0.491
+    },
+    "3.1623e-21": {
+      "F_max_2sigma_allowed": 0.997,
+      "F_max_3sigma_allowed": 0.997
+    },
+    "5.6234e-21": {
+      "F_max_2sigma_allowed": 0.997,
+      "F_max_3sigma_allowed": 0.997
+    },
+    "1.0000e-20": {
+      "F_max_2sigma_allowed": 0.997,
+      "F_max_3sigma_allowed": 0.997
+    }
+  },
+  "liu_fig6": {
+    "1.0000e-22": {
+      "f_max_95_allowed": 0.116
+    },
+    "1.7783e-22": {
+      "f_max_95_allowed": 0.162
+    },
+    "3.1623e-22": {
+      "f_max_95_allowed": 0.239
+    },
+    "5.6234e-22": {
+      "f_max_95_allowed": 0.388
+    },
+    "1.0000e-21": {
+      "f_max_95_allowed": 0.631
+    },
+    "1.7783e-21": {
+      "f_max_95_allowed": 0.86
+    },
+    "3.1623e-21": {
+      "f_max_95_allowed": 0.616
+    },
+    "5.6234e-21": {
+      "f_max_95_allowed": 0.78
+    },
+    "1.0000e-20": {
+      "f_max_95_allowed": 1.0
+    },
+    "1.7783e-20": {
+      "f_max_95_allowed": 1.0
+    },
+    "3.1623e-20": {
+      "f_max_95_allowed": 1.0
+    },
+    "5.6234e-20": {
+      "f_max_95_allowed": 1.0
+    },
+    "1.0000e-19": {
+      "f_max_95_allowed": 1.0
+    }
+  },
+  "marsh_fig2": {
+    "1.0000e-21": {
+      "zone": "questionable_stripes_or_resonance_band",
+      "f_min_excluded_conservative_C0.3": null,
+      "solid_fraction": 0.0,
+      "stripe_fraction": 1.0
+    },
+    "1.7783e-21": {
+      "zone": "questionable_stripes_or_resonance_band",
+      "f_min_excluded_conservative_C0.3": null,
+      "solid_fraction": 0.0,
+      "stripe_fraction": 0.2
+    },
+    "3.1623e-21": {
+      "zone": "unshaded",
+      "f_min_excluded_conservative_C0.3": null,
+      "solid_fraction": 0.0,
+      "stripe_fraction": 0.0
+    },
+    "5.6234e-21": {
+      "zone": "solid_full_height",
+      "f_min_excluded_conservative_C0.3": 0.0,
+      "solid_fraction": 0.963,
+      "stripe_fraction": 0.0
+    },
+    "1.0000e-20": {
+      "zone": "boundary_curve",
+      "f_min_excluded_conservative_C0.3": 0.006,
+      "solid_fraction": 0.271,
+      "stripe_fraction": 0.0
+    },
+    "1.7783e-20": {
+      "zone": "solid_full_height",
+      "f_min_excluded_conservative_C0.3": 0.0,
+      "solid_fraction": 0.953,
+      "stripe_fraction": 0.0
+    },
+    "3.1623e-20": {
+      "zone": "solid_full_height",
+      "f_min_excluded_conservative_C0.3": 0.0,
+      "solid_fraction": 0.909,
+      "stripe_fraction": 0.0
+    },
+    "5.6234e-20": {
+      "zone": "boundary_curve",
+      "f_min_excluded_conservative_C0.3": 0.521,
+      "solid_fraction": 0.478,
+      "stripe_fraction": 0.0
+    },
+    "1.0000e-19": {
+      "zone": "unshaded",
+      "f_min_excluded_conservative_C0.3": null,
+      "solid_fraction": 0.0,
+      "stripe_fraction": 0.0
+    }
+  },
+  "liu_text_check": {
+    "-22.0": {
+      "stated": 0.12,
+      "digitized": 0.116,
+      "within_reading_error": true
+    },
+    "-21.0": {
+      "stated": 0.65,
+      "digitized": 0.631,
+      "within_reading_error": true
+    }
+  },
+  "reading_error_f": 0.03,
+  "dpi": 130,
+  "pdf_sha256": {
+    "kobayashi.pdf": "e4b2684f95d967c606a6b8fe490a21c0054e9ba2d8bb32ad51278d1905521a3f",
+    "liu.pdf": "7dbd13fe7076295cd048909076e36ed9b1f84fba0592778e7dcb5f2ec37b40b0",
+    "marsh.pdf": "856bd42efab8ffbc0dbc63f1e8d1123b6be4e2e37bf4873c835ca4dbe0fc6191"
+  }
+}
