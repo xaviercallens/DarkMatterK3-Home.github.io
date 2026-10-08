@@ -1,0 +1,137 @@
+{
+  "checker": "checkers/check_selected_k3_dossier.py",
+  "checker_sha256": "b61ab2870d99c2e5184cf1e32249600365d98ca6a9173ec65af0d0ad7dc808a7",
+  "date": "2026-10-08",
+  "status": "DOSSIER -- a cross-checked index of existing certificates; adopts nothing, ranks nothing",
+  "families": {
+    "cooper_s7": {
+      "family": "cooper_s7",
+      "level_n": 7,
+      "z": "infinity",
+      "v": [
+        14,
+        -14,
+        -5
+      ],
+      "minus_v2": 42,
+      "D": -3,
+      "T_reduced_form_abc": [
+        1,
+        1,
+        1
+      ],
+      "T_gram": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "abs_disc_T": 3,
+      "lattice_half": {
+        "tier": "A",
+        "independent_kernel_sources": 2,
+        "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+        "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)"
+      },
+      "unique_on_modular_curve_at_D": {
+        "verdict": "COMPLETE",
+        "points_on_X0n_star": 1
+      },
+      "lattice_cert": "C2_cooper_s7_v5.json",
+      "lattice_cert_status": "LIVE",
+      "advisory": false,
+      "selection_authority": "T0 D13' / AM-8 (K3_CRITERIA.md C6, SEL-D: minimal |disc T| within the family); recorded, not recomputed as a preference",
+      "A2_membership": {
+        "verdict": "PRESENT",
+        "vector": [
+          14,
+          -14,
+          -5
+        ],
+        "tier": "B (lattice arithmetic; framework Dolgachev 1996 sec. 7)"
+      },
+      "shioda_inose_partner": {
+        "E1_x_E2": "E_omega x E_omega (sigma = pi = 0 at z = infinity)",
+        "source": "INOSE_MODEL_M7.json S6",
+        "tier": "B"
+      },
+      "neron_severi_structure": {
+        "NS": "U + E8 + E8 + A2",
+        "mordell_weil_rank": 0,
+        "extra_root": "order-4 discriminant root, triple root at s = 0, v_s(Delta) = 4",
+        "source": "TW2_RHO20_LOCI.json",
+        "tier": "B",
+        "note": "no Mordell-Weil section; fibre described by root lattice and orders only (ledger items 3, 10)"
+      }
+    },
+    "cooper_s10": {
+      "family": "cooper_s10",
+      "level_n": 10,
+      "z": "infinity",
+      "v": [
+        10,
+        -10,
+        -3
+      ],
+      "minus_v2": 20,
+      "D": -4,
+      "T_reduced_form_abc": [
+        1,
+        0,
+        1
+      ],
+      "T_gram": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "abs_disc_T": 4,
+      "lattice_half": {
+        "tier": "A",
+        "independent_kernel_sources": 2,
+        "what_is_tier_A": "v^2, a saturated Z-basis of v^perp (as a set), its Gram matrix and reduced form",
+        "what_stays_tier_B": "z-recognition (numeric); v algebraic at tau (Lefschetz); the index step |det frame| = |v^2|/div (observed per row only)"
+      },
+      "unique_on_modular_curve_at_D": {
+        "verdict": "COMPLETE",
+        "points_on_X0n_star": 1
+      },
+      "lattice_cert": "C2_cooper_s10_v5.json",
+      "lattice_cert_status": "LIVE",
+      "advisory": false,
+      "selection_authority": "T0 D13' / AM-8 (K3_CRITERIA.md C6, SEL-D: minimal |disc T| within the family); recorded, not recomputed as a preference",
+      "A2_membership": {
+        "verdict": "ABSENT",
+        "tier": "B (all-v congruence)"
+      }
+    }
+  },
+  "inputs_sha256": {
+    "C6_SELECTED_CANDIDATE.json": "48cf40d28fc6a9980f4657cf6db36b7956163de363db1dd40f7180e2046d2658",
+    "CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
+    "CM_POINTS_RHO20_LATTICE_TIER.json": "9b11021e71f52cc3fb4cdee28ed2a20899cc076ece6629dddb9fe37170789b0d",
+    "A2_MEMBERSHIP.json": "0d272dd44517cfc88affc69d3ddff8fa191dd74318fb81d97a977629a8ebd6b0",
+    "CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+    "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6",
+    "TW2_RHO20_LOCI.json": "c1f5e195b2fbd39812caf57c2d278569f1ad6f7ab18db876e5f898a9e2d6b60e"
+  },
+  "not_claimed": [
+    "any ranking or comparison of cooper_s7 and cooper_s10: both picks are recorded because K3_CRITERIA.md C6 names both (ledger items 8/9)",
+    "that 'this lattice is T' is more than Tier B for either family (Dolgachev/Doran framework); the Tier A statements are the lattice half only",
+    "any Kodaira fibre type (items 3, 10): fibres appear as root lattices and discriminant-root orders",
+    "any physical reading of the selected point (item 4)",
+    "that the dossier adds information: it only fails closed when its sources disagree"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 2, 2026-10-08",
+  "verified_by": "checkers/test_selected_k3_dossier_controls.py",
+  "reviewed_by": "N"
+}

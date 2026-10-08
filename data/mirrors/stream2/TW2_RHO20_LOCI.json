@@ -1,0 +1,154 @@
+{
+  "checker": "checkers/check_TW2_rho20_loci.py",
+  "checker_sha256": "42693947774e46e75bf8a80217678d815409d8c899c196685730a814259d02b6",
+  "work_package": "WP-TW2 step 2a (D23', 2026-10-07)",
+  "tier": "B (exact lattice arithmetic from certificates; Shioda-Tate, eq. 22, height formula and torsion lemma from pinned, read sources)",
+  "result": {
+    "d(0)_from_T1_transcription": "(l1 - l2)**2*(l1*l2 - l1 + 1)**2*(l1*l2 - l2 + 1)**2",
+    "generic_member": {
+      "rho": 19,
+      "mordell_weil_rank": 1,
+      "height": "14",
+      "P_dot_O": 5,
+      "source": "check_TW2_height_condition.py (step 0)"
+    },
+    "loci": {
+      "-1": {
+        "locus": "-1",
+        "T_abc": [
+          1,
+          1,
+          2
+        ],
+        "abs_disc_T": 7,
+        "extra_root_order": 2,
+        "simple_roots": 2,
+        "rho": 20,
+        "resolution": {
+          "root_rank": 1,
+          "root_lattice": "A1",
+          "trivial_rank": 19,
+          "mordell_weil_rank": 1,
+          "abs_disc_trivial": 2,
+          "height": "7/2",
+          "P_dot_O_solutions": [
+            {
+              "contr": "1/2",
+              "P_dot_O": 0
+            }
+          ],
+          "consistent": true,
+          "torsion_free_by_height": true
+        },
+        "rejected_readings": [],
+        "D": -7
+      },
+      "1/27": {
+        "locus": "1/27",
+        "T_abc": [
+          1,
+          0,
+          7
+        ],
+        "abs_disc_T": 28,
+        "extra_root_order": 2,
+        "simple_roots": 2,
+        "rho": 20,
+        "resolution": {
+          "root_rank": 1,
+          "root_lattice": "A1",
+          "trivial_rank": 19,
+          "mordell_weil_rank": 1,
+          "abs_disc_trivial": 2,
+          "height": "14",
+          "P_dot_O_solutions": [
+            {
+              "contr": "0",
+              "P_dot_O": 5
+            }
+          ],
+          "consistent": true,
+          "torsion_free_by_height": true
+        },
+        "rejected_readings": [],
+        "D": -28
+      },
+      "infinity": {
+        "locus": "infinity",
+        "T_abc": [
+          1,
+          1,
+          1
+        ],
+        "abs_disc_T": 3,
+        "extra_root_order": 4,
+        "simple_roots": 0,
+        "rho": 20,
+        "resolution": {
+          "root_rank": 2,
+          "root_lattice": "A2",
+          "trivial_rank": 20,
+          "mordell_weil_rank": 0,
+          "abs_disc_trivial": 3,
+          "consistent": true,
+          "note": "no section: NS = U + E8^2 + R, |disc NS| must equal |disc T|"
+        },
+        "rejected_readings": [],
+        "D": -3
+      }
+    },
+    "model_checks": {
+      "-1": {
+        "J": "-125/64",
+        "lambda_min_poly": "4*lam**6 - 12*lam**5 + 4911*lam**4/64 - 4271*lam**3/32 + 4911*lam**2/64 - 12*lam + 4",
+        "lambda_min_poly_degree": 6,
+        "v_s_Delta": 2,
+        "degeneration": "double_root_multiplicative",
+        "root_lattice_rank": 1,
+        "specialized_model_mod_mJ": {
+          "a2": "lam**2*s**4 - 2*lam**2*s**2 + lam**2 - 4*lam*s**4 + 8*lam*s**2 - 4*lam + s**4 - 2*s**2 + 1",
+          "a4": "-2*lam**3*s**8 + 8*lam**3*s**6 - 12*lam**3*s**4 + 8*lam**3*s**2 - 2*lam**3 + 5*lam**2*s**8 - 20*lam**2*s**6 + 30*lam**2*s**4 - 20*lam**2*s**2 + 5*lam**2 - 2*lam*s**8 + 8*lam*s**6 - 12*lam*s**4 + 8*lam*s**2 - 2*lam",
+          "a6": "-lam**4*s**10 + 5*lam**4*s**8 - 10*lam**4*s**6 + 10*lam**4*s**4 - 5*lam**4*s**2 + lam**4 + 2*lam**3*s**10 - 10*lam**3*s**8 + 20*lam**3*s**6 - 20*lam**3*s**4 + 10*lam**3*s**2 - 2*lam**3 - lam**2*s**10 + 5*lam**2*s**8 - 10*lam**2*s**6 + 10*lam**2*s**4 - 5*lam**2*s**2 + lam**2"
+        },
+        "agrees_with_lattice_reading": true
+      },
+      "1/27": {
+        "J": "614125/64",
+        "lambda_min_poly": "4*lam**6 - 12*lam**5 - 16579839*lam**4/64 + 16580479*lam**3/32 - 16579839*lam**2/64 - 12*lam + 4",
+        "lambda_min_poly_degree": 6,
+        "v_s_Delta": 2,
+        "degeneration": "double_root_multiplicative",
+        "root_lattice_rank": 1,
+        "specialized_model_mod_mJ": {
+          "a2": "lam**2*s**4 - 2*lam**2*s**2 + lam**2 - 4*lam*s**4 + 8*lam*s**2 - 4*lam + s**4 - 2*s**2 + 1",
+          "a4": "-2*lam**3*s**8 + 8*lam**3*s**6 - 12*lam**3*s**4 + 8*lam**3*s**2 - 2*lam**3 + 5*lam**2*s**8 - 20*lam**2*s**6 + 30*lam**2*s**4 - 20*lam**2*s**2 + 5*lam**2 - 2*lam*s**8 + 8*lam*s**6 - 12*lam*s**4 + 8*lam*s**2 - 2*lam",
+          "a6": "-lam**4*s**10 + 5*lam**4*s**8 - 10*lam**4*s**6 + 10*lam**4*s**4 - 5*lam**4*s**2 + lam**4 + 2*lam**3*s**10 - 10*lam**3*s**8 + 20*lam**3*s**6 - 20*lam**3*s**4 + 10*lam**3*s**2 - 2*lam**3 - lam**2*s**10 + 5*lam**2*s**8 - 10*lam**2*s**6 + 10*lam**2*s**4 - 5*lam**2*s**2 + lam**2"
+        },
+        "agrees_with_lattice_reading": true
+      },
+      "infinity": {
+        "J": "0",
+        "lambda_min_poly": "lam**2 - lam + 1",
+        "lambda_min_poly_degree": 2,
+        "v_s_Delta": 4,
+        "degeneration": "triple_root_additive",
+        "root_lattice_rank": 2,
+        "specialized_model_mod_mJ": {
+          "a2": "-3*lam*s**4 + 6*lam*s**2 - 3*lam",
+          "a4": "3*lam*s**8 - 12*lam*s**6 + 18*lam*s**4 - 12*lam*s**2 + 3*lam - 3*s**8 + 12*s**6 - 18*s**4 + 12*s**2 - 3",
+          "a6": "-s**10 + 5*s**8 - 10*s**6 + 10*s**4 - 5*s**2 + 1"
+        },
+        "agrees_with_lattice_reading": true
+      }
+    }
+  },
+  "not_claimed": [
+    "any Kodaira fibre type (ledger items 3, 10): only discriminant-root orders and root-lattice rank/determinant are used",
+    "that a section has been exhibited: the heights and P.O values are forced by the lattices, the sections are not written down (step 2b)",
+    "any statement at rho = 19 members beyond step 0 (generic_member block is a pointer)",
+    "anything physical (ledger item 4)"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 2, 2026-10-07",
+  "verified_by": "checkers/test_TW2_rho20_loci_controls.py",
+  "reviewed_by": "N"
+}

@@ -1,0 +1,59 @@
+{
+  "checker": "checkers/check_TW2_sqrt_m7_endomorphism.py",
+  "checker_sha256": "e02ebc4761c37b26e69d1f6b2a092b27602084bab8eaeeccbb4264e4a6ac473d",
+  "work_package": "WP-TW2 step 2b-i (D23', 2026-10-07)",
+  "tier": "A-style exact computation (Velu's formulas over Q, identity verified at > degree-bound many rational points); the link to the K3 section is Tier B via step 2a",
+  "result": {
+    "j": "16581375",
+    "model": {
+      "A": "-1551893875",
+      "B": "23529814932750"
+    },
+    "kernel_cubic": "x**3 - 101745*x**2 + 3158560475*x - 30989768789875",
+    "phi_x": {
+      "num": "x**7 - 203490*x**6 + 31567347175*x**5 - 2580023567187500*x**4 + 111014902167998469375*x**3 - 2593087354195191153081250*x**2 + 31319136520334762681470765625*x - 153778093947099484662962338750000",
+      "den": "x**6 - 203490*x**5 + 16669165975*x**4 - 704715008637500*x**3 + 16282612325283889375*x**2 - 195766117658175510381250*x + 960365769649910621902515625",
+      "degrees": [
+        7,
+        6
+      ],
+      "den_is_kernel_cubic_squared": true
+    },
+    "phi_y": {
+      "identity_curve_to_curve": true,
+      "c3_squared": "-1/343",
+      "phi_y_numerator_degree": 9,
+      "phi_y_denominator_degree": 9,
+      "phi_y_num_den_coprime": true,
+      "denominator_is_kernel_cubic_cubed": true,
+      "equation_degree_phi_y_eq_t3": 9,
+      "kumar_kuwata_expected_degree": 9
+    },
+    "sign_of_square": {
+      "D_of_locus_from_CM_certificate": -28,
+      "reasoning": "x-coordinates give phi o phi = +/-[7]; End(E) tensor Q is the imaginary quadratic field of the CM discriminant D < 0, in which no element squares to +7 (that would put sqrt(7) in it); hence phi o phi = [-7]",
+      "tier": "B (uses that the locus is a CM point of discriminant D, from CM_POINTS_RHO20.json)"
+    },
+    "codomain": {
+      "A2": "-76042799875",
+      "B2": "-8070726521933250",
+      "j_equal": true,
+      "c2": "-1/7"
+    },
+    "composition_phi_phi_equals_minus7": {
+      "agreements": 60,
+      "points": 60,
+      "degree_bound": 49,
+      "is_identity": true
+    }
+  },
+  "not_claimed": [
+    "the section on the K3 itself (step 2b-ii, Kumar-Kuwata (3.1)-(3.3) descent, not done)",
+    "anything about fibres of the K3 beyond step 2a; no Kodaira label anywhere",
+    "which of +/- sqrt(-7) phi is (x-maps and the y-identity involve c3^2 only); the sign of phi o phi is fixed separately (sign_of_square, Tier B)",
+    "any physical statement (ledger item 4)"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 2, 2026-10-07",
+  "verified_by": "checkers/test_TW2_sqrt_m7_endomorphism_controls.py",
+  "reviewed_by": "N"
+}

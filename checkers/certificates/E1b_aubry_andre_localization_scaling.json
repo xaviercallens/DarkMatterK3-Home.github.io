@@ -1,0 +1,574 @@
+{
+  "checker": "checkers/check_aubry_andre_localization_scaling.py",
+  "checker_sha256": "726414f59d42fa5e45a03e6d12b03ef9f452b56bb048d5578287e47cad3063d9",
+  "work_package": "E1b calibration extension (D12' laboratory approach, item 1)",
+  "tier": "model check (finite rings), numerical at stated tolerances: PASS(N), not a proof and not a measurement",
+  "result": {
+    "tol": 1e-08,
+    "cases": [
+      [
+        89,
+        55
+      ],
+      [
+        233,
+        144
+      ],
+      [
+        377,
+        233
+      ],
+      [
+        987,
+        610
+      ]
+    ],
+    "lams": [
+      0.5,
+      1.0,
+      1.5,
+      1.9,
+      2.0,
+      2.1,
+      2.5,
+      3.0,
+      4.0
+    ],
+    "criteria": {
+      "extended_factor": 1.5,
+      "localized_const": 0.1,
+      "localized_min": 0.1
+    },
+    "theta_for_localized": 0.7,
+    "near_critical_band": 0.15,
+    "claim_revisions": [
+      {
+        "date": "2026-10-08",
+        "run": 1,
+        "observation": "theta = 0: localized-regime criterion failed at lam = 2.5 and 3.0; diagnosed (268 exactly degenerate mirror pairs at lam = 3, N = 610, mirror overlap 1.000) as eigenbasis dependence inside n -> -n degenerate pairs, not a physics failure",
+        "change": "localized criterion evaluated at generic phase THETA = 0.7 (no degenerate pairs); theta = 0 values kept in the certificate as a finding"
+      },
+      {
+        "date": "2026-10-08",
+        "run": 2,
+        "observation": "at generic theta the criterion passes for lam = 2.5, 3.0, 4.0 but fails at lam = 2.1 (|lam - 2| = 0.1, localization length ~ 20 sites): mean IPR_x still N-dependent at N <= 987",
+        "change": "near-critical band |lam - 2J| < 0.15 (covers 1.9 and 2.1) is REPORTED, NOT CLAIMED; the 10% criterion itself was not changed"
+      }
+    ],
+    "negative_controls": {
+      "N1_random_potential_duality_gap": 0.5269480003789555,
+      "N1_breaks": true,
+      "N2_random_potential_N_times_IPR_ratio": 11.123145075497263,
+      "N2_fails_extended_scaling": true
+    },
+    "duality": [
+      {
+        "N": 89,
+        "lam": 0.5,
+        "gap": 0.18332867898580674,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 1.0,
+        "gap": 0.019736972357064286,
+        "min_level_spacing": 1.7763568394002505e-15,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 1.5,
+        "gap": 6.772360450213455e-15,
+        "min_level_spacing": 1.4618704025082252e-08,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 1.9,
+        "gap": 3.608224830031759e-16,
+        "min_level_spacing": 3.967591166098572e-05,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 2.0,
+        "gap": 9.645062526431047e-15,
+        "min_level_spacing": 6.485463064809238e-05,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 2.1,
+        "gap": 1.1796119636642288e-15,
+        "min_level_spacing": 4.146169836083402e-05,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 2.5,
+        "gap": 7.771561172376096e-16,
+        "min_level_spacing": 1.7597368273669645e-07,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 3.0,
+        "gap": 1.7490522918883755e-12,
+        "min_level_spacing": 1.3095879936031452e-10,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 89,
+        "lam": 4.0,
+        "gap": 0.0005035414617639462,
+        "min_level_spacing": 1.7763568394002505e-15,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 0.5,
+        "gap": 0.3384466367863292,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 1.0,
+        "gap": 0.19787530049281044,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 1.5,
+        "gap": 0.04748807265414101,
+        "min_level_spacing": 3.3306690738754696e-16,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 1.9,
+        "gap": 8.243405957841787e-15,
+        "min_level_spacing": 4.907259929520791e-07,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 2.0,
+        "gap": 5.363071098329897e-14,
+        "min_level_spacing": 7.154166908218684e-06,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 2.1,
+        "gap": 3.056582764671134e-15,
+        "min_level_spacing": 6.068818798610209e-07,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 2.5,
+        "gap": 0.0001649043630885215,
+        "min_level_spacing": 8.659739592076221e-15,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 3.0,
+        "gap": 0.0014028633531820434,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 233,
+        "lam": 4.0,
+        "gap": 0.0017319993887966335,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 0.5,
+        "gap": 0.3759613062530828,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 1.0,
+        "gap": 0.25704719496762735,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 1.5,
+        "gap": 0.11244554028472792,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 1.9,
+        "gap": 1.119243586700236e-13,
+        "min_level_spacing": 5.140160297401053e-09,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 2.0,
+        "gap": 1.6734530428053063e-13,
+        "min_level_spacing": 1.398356576753912e-06,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 2.1,
+        "gap": 1.3860440573054689e-15,
+        "min_level_spacing": 7.614195052241257e-09,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 2.5,
+        "gap": 0.0009987276679502485,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 3.0,
+        "gap": 0.0013915071763302457,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 377,
+        "lam": 4.0,
+        "gap": 0.0014101772604567728,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 0.5,
+        "gap": 0.4089071518339104,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 1.0,
+        "gap": 0.31052581615801733,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 1.5,
+        "gap": 0.1845619815181984,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 1.9,
+        "gap": 0.014484610506414405,
+        "min_level_spacing": 1.1102230246251565e-15,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 2.0,
+        "gap": 9.545558787849018e-13,
+        "min_level_spacing": 1.543292036387811e-07,
+        "excluded_degenerate": false,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 2.1,
+        "gap": 0.00020223077791414138,
+        "min_level_spacing": 1.7763568394002505e-15,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 2.5,
+        "gap": 0.0008151895306110373,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 3.0,
+        "gap": 0.0007380948673841525,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      },
+      {
+        "N": 987,
+        "lam": 4.0,
+        "gap": 0.0006502007635597658,
+        "min_level_spacing": 0.0,
+        "excluded_degenerate": true,
+        "pass": true
+      }
+    ],
+    "scaling": [
+      {
+        "lam": 0.5,
+        "regime": "extended",
+        "N_times_IPR_x": [
+          1.6877100036583308,
+          1.715417874840223,
+          1.7225551310993574,
+          1.7286128032921153
+        ],
+        "ratio_largest_over_smallest": 1.024235680031002,
+        "pass": true,
+        "near_critical_reported_not_claimed": false
+      },
+      {
+        "lam": 1.0,
+        "regime": "extended",
+        "N_times_IPR_x": [
+          2.024282263703987,
+          2.07078098175846,
+          2.087378394442286,
+          2.1016907009796846
+        ],
+        "ratio_largest_over_smallest": 1.0382399424544961,
+        "pass": true,
+        "near_critical_reported_not_claimed": false
+      },
+      {
+        "lam": 1.5,
+        "regime": "extended",
+        "N_times_IPR_x": [
+          2.749162558680227,
+          2.8210694803908796,
+          2.8573766410438846,
+          2.9024025247015404
+        ],
+        "ratio_largest_over_smallest": 1.055740598364208,
+        "pass": true,
+        "near_critical_reported_not_claimed": false
+      },
+      {
+        "lam": 1.9,
+        "regime": "extended",
+        "N_times_IPR_x": [
+          4.516169255728855,
+          5.475769454015275,
+          5.745969277705846,
+          5.953751826456418
+        ],
+        "ratio_largest_over_smallest": 1.318319019798463,
+        "pass": true,
+        "near_critical_reported_not_claimed": true
+      },
+      {
+        "lam": 2.1,
+        "regime": "localized",
+        "theta": 0.7,
+        "IPR_x": [
+          0.19116835997320128,
+          0.17915670018449856,
+          0.14940967930309643,
+          0.1848753047003565
+        ],
+        "pass": false,
+        "theta0_attempt_basis_artifact": {
+          "IPR_x": [
+            0.1402676378591549,
+            0.1172258955713784,
+            0.11004204340215475,
+            0.11157858823906545
+          ],
+          "criterion_would_pass": true
+        },
+        "near_critical_reported_not_claimed": true
+      },
+      {
+        "lam": 2.5,
+        "regime": "localized",
+        "theta": 0.7,
+        "IPR_x": [
+          0.40899753793497146,
+          0.40410541638089126,
+          0.3899128554657424,
+          0.4072808687567885
+        ],
+        "pass": true,
+        "theta0_attempt_basis_artifact": {
+          "IPR_x": [
+            0.23818668048414213,
+            0.22863611919862795,
+            0.28602696033722097,
+            0.36124848751750827
+          ],
+          "criterion_would_pass": false
+        },
+        "near_critical_reported_not_claimed": false
+      },
+      {
+        "lam": 3.0,
+        "regime": "localized",
+        "theta": 0.7,
+        "IPR_x": [
+          0.541860699233858,
+          0.5383258987359861,
+          0.5279248243712635,
+          0.5407020644765131
+        ],
+        "pass": true,
+        "theta0_attempt_basis_artifact": {
+          "IPR_x": [
+            0.29905288042186606,
+            0.3935379698295641,
+            0.4468632080682571,
+            0.506207741453126
+          ],
+          "criterion_would_pass": false
+        },
+        "near_critical_reported_not_claimed": false
+      },
+      {
+        "lam": 4.0,
+        "regime": "localized",
+        "theta": 0.7,
+        "IPR_x": [
+          0.6795786795677744,
+          0.6765529738991085,
+          0.6690232878717867,
+          0.6784261526756092
+        ],
+        "pass": true,
+        "theta0_attempt_basis_artifact": {
+          "IPR_x": [
+            0.38252422860295804,
+            0.547940703510953,
+            0.6036478383805812,
+            0.6531757239966967
+          ],
+          "criterion_would_pass": true
+        },
+        "near_critical_reported_not_claimed": false
+      }
+    ],
+    "crossing": [
+      {
+        "lam": 0.5,
+        "ipr_x_minus_ipr_k": -0.4268956954038794,
+        "sign": -1,
+        "expected_sign": -1,
+        "pass": true
+      },
+      {
+        "lam": 1.0,
+        "ipr_x_minus_ipr_k": -0.34052053529462695,
+        "sign": -1,
+        "expected_sign": -1,
+        "pass": true
+      },
+      {
+        "lam": 1.5,
+        "ipr_x_minus_ipr_k": -0.23243594249598146,
+        "sign": -1,
+        "expected_sign": -1,
+        "pass": true
+      },
+      {
+        "lam": 1.9,
+        "ipr_x_minus_ipr_k": -0.09770666065015028,
+        "sign": -1,
+        "expected_sign": -1,
+        "pass": true
+      },
+      {
+        "lam": 2.0,
+        "ipr_x_minus_ipr_k": -9.545558787849018e-13,
+        "sign": 0,
+        "expected_sign": 0,
+        "pass": true
+      },
+      {
+        "lam": 2.1,
+        "ipr_x_minus_ipr_k": 0.10562025537290393,
+        "sign": 1,
+        "expected_sign": 1,
+        "pass": true
+      },
+      {
+        "lam": 2.5,
+        "ipr_x_minus_ipr_k": 0.3588056166940771,
+        "sign": 1,
+        "expected_sign": 1,
+        "pass": true
+      },
+      {
+        "lam": 3.0,
+        "ipr_x_minus_ipr_k": 0.5043712218307618,
+        "sign": 1,
+        "expected_sign": 1,
+        "pass": true
+      },
+      {
+        "lam": 4.0,
+        "ipr_x_minus_ipr_k": 0.651696552216204,
+        "sign": 1,
+        "expected_sign": 1,
+        "pass": true
+      }
+    ],
+    "verdict": "PASS(N) for N in 89,233,377,987"
+  },
+  "not_claimed": [
+    "any statement about a K3 surface, Cooper family, lattice, CM point or certificate in K3_CRITERIA.md",
+    "any physical measurement or system; nothing touches data or PREDICTION.md",
+    "the N -> infinity limit: finite Fibonacci rings only; acceptance criteria are stated in the module docstring, not fitted",
+    "the scaling dichotomy inside the near-critical band |lam - 2J| < 0.15 (reported, not claimed; see claim_revisions)",
+    "mean-IPR duality in the (N, lam) cells excluded as exactly degenerate (n -> -n mirror pairs at theta = 0); they are counted in the certificate",
+    "exactness: floating point at tol; degenerate (N, lam) cells are excluded and counted, not averaged"
+  ],
+  "generated_by": "Claude, Stream 3 support, 2026-10-08",
+  "verified_by": "negative controls N1-N2 (run first) + checkers/tests/test_aubry_andre_localization_scaling.py",
+  "reviewed_by": "N"
+}
