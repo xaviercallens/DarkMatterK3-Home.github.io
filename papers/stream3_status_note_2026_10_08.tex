@@ -1,0 +1,193 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=red, urlcolor=cyan,
+  pdftitle={Calibration Checks and a Literature Recount for a Mixed Fuzzy-Dark-Matter Window},
+  pdfauthor={Xavier Callens and the SocrateAI Scientific Agora Collaboration}}
+
+\newtcolorbox{scopebox}{colback=gray!5, colframe=gray!45, boxrule=0.4pt, arc=1pt,
+  left=6pt, right=6pt, top=3pt, bottom=3pt, fonttitle=\bfseries\small, title={What is not claimed}}
+\newtcolorbox{headlinebox}{colback=red!4, colframe=red!45!black, boxrule=0.5pt, arc=1pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt, fonttitle=\bfseries\small, title={Headline result}}
+\newtcolorbox{correctionbox}{colback=orange!6, colframe=orange!55!black, boxrule=0.5pt, arc=1pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt, fonttitle=\bfseries\small, title={Corrections recorded in band}}
+
+\title{\Large \textbf{Calibration Checks and a Literature Recount}\\[0.2em]
+\textbf{for a Mixed Fuzzy-Dark-Matter Search Window}\\[0.3em]\large Stream 3 status note}
+\author{\textbf{Xavier Callens} \and \textbf{SocrateAI Scientific Agora Collaboration} \\[0.3em]
+\textit{Stream 3 --- Experimentation (\texttt{DarkMatterK3-Home.github.io})}}
+\date{2026-10-08 \quad (preprint; not reviewed)}
+
+\begin{document}
+\maketitle
+
+\begin{scopebox}
+This note contains no dark-matter result. Nothing in it compares a model with data: no prediction is pinned
+for the search discussed here, no output carries a TEST or FIT label, and the comparison phases of that
+search are not authorized. The calibration checks are model checks of an exactly solvable Hamiltonian, not
+evidence about any physical system. The $K3$ surfaces selected by the geometry stream, including $X_3$ and
+$X_4$, map to no dark-matter observable, and no number from that work is used here as a prior, a parameter
+or an input.
+\end{scopebox}
+
+\begin{abstract}
+We report the state of the programme's experimentation stream on 2026-10-08. Two numerical calibrations
+pass on finite Fibonacci rings of the Aubry--Andr\'e chain. The exact duality between couplings $\lambda$ and
+$4J^2/\lambda$ holds with errors below $10^{-11}$ at $N\le233$, and a seeded random potential of the same strength
+breaks it, as required. The extended and localized regimes and their crossing at $\lambda=2J$ hold for
+$N\le987$ outside a band $|\lambda-2J|<0.15$, which is reported and not claimed. Separately, a literature
+recount was carried out for a proposed search for a sub-dominant fuzzy-dark-matter component with fraction
+$f<1$ in the one-dimensional Lyman-$\alpha$ flux power spectrum. Published mixed-fraction bounds reduce the
+number of grid cells that would be both decisive and still open from $221$ to $182$ using text-stated bounds,
+or to $152$ when figure-read contours are included. The proposal's stop condition does not fire. No published
+analysis of the DESI DR1 spectrum for a mixed fraction was found.
+\end{abstract}
+
+\section{Where the stream stands}\label{sec:status}
+
+The stream's governing rule is that no real-data comparison is coded before a prediction is pinned. Two of
+its routes are stopped: a two-dimensional transverse search is closed by the data floors of public surveys,
+and a flux/tadpole route is blocked until a threefold base is specified. The open direction is an exclusion-type
+search over a grid of fuzzy-dark-matter masses $m$ and fractions $f$. Under its proposal, Phase~0 is a
+literature re-survey; Phases~1--4 build and run the comparison. The decision authority approved Phase~0 only,
+on 2026-10-08. A noise-calibration experiment (E2) is held because no open noise dataset exists, and two
+laboratory-analogue experiments (E3, E4) remain appendices.
+
+\section{Calibration of the Aubry--Andr\'e arm}\label{sec:e1}
+
+The model is the tight-binding chain $(H\psi)_n = J(\psi_{n+1}+\psi_{n-1}) + \lambda\cos(2\pi pn/N)\,\psi_n$ on a
+ring of $N$ sites, with $(N,p)$ consecutive Fibonacci numbers so that $\gcd(p,N)=1$. The discrete Fourier
+transform intertwines $H(J,\lambda)$ with $H(\lambda/2,2J)$ exactly, so the spectra at $\lambda$ and $4J^2/\lambda$
+agree after rescaling, and at $\lambda=2J$ each non-degenerate eigenvector has equal inverse participation
+ratios in position and momentum. These are algebraic identities; the checker verifies them in floating point,
+so every verdict is PASS($N$) at a stated tolerance. Negative controls run first and must fail: a seeded
+random potential of matched strength breaks the duality, and a non-coprime $p$ makes the checker refuse to
+run.
+
+\begin{table}[h]
+\centering\small
+\input{tables/s3_e1.tex}
+\caption{E1, tolerance $10^{-9}$. Gaps are maxima over $\lambda\in\{0.5,1,3\}J$; the control column is the
+smallest duality gap produced by the random potential, which must be large.}\label{tab:e1}
+\end{table}
+
+E1b extends the check to the whole coupling range and to the localization dichotomy, with acceptance criteria
+written in the checker before it ran. Extended regime: the product $N\cdot$(mean IPR) varies by less than a
+factor $1.5$ across rings. Localized regime: the mean IPR is stable within $10\%$ between the two largest rings
+and exceeds $0.1$. The localized regime is evaluated at a generic phase, because at phase zero exactly
+degenerate mirror pairs make the eigenbasis, and therefore the mean IPR, ill-defined.
+
+\begin{table}[h]
+\centering\small
+\input{tables/s3_e1b.tex}
+\caption{E1b scaling ($J=1$). The crossing of mean IPR in position and momentum changes sign at $\lambda=2J$
+for every coupling tested. Rows in the near-critical band are reported, not claimed.}\label{tab:e1b}
+\end{table}
+
+These checks calibrate numerical machinery. They are not a measurement, they say nothing about any $K3$
+surface, and no result here is evidence for a dark-matter model.
+
+\section{Phase 0: a literature recount for mixed fuzzy dark matter}\label{sec:p0}
+
+The proposed search covers $13$ masses from $10^{-22}$ to $10^{-19}$\,eV and $20$ fractions $f$ from $0.05$ to
+$1$. A cell is \emph{decisive} if an earlier pre-flight, using an optimistic proxy, finds that the data could
+reach two standard deviations there. A cell is \emph{open} if no published constraint already excludes it. For
+$f=1$ the window is already covered by published bounds; the question for Phase~0 was how much of the $f<1$
+region published mixed-fraction analyses have closed since the pre-flight table was written.
+
+We re-read the sources and tabulated each bound with its locator and quoted sentence. Text-stated bounds are
+kept apart from contours read off figures. The latter come from a colour-thresholding script run on
+hash-pinned PDFs, with a reading error of about $0.03$ in $f$. Every figure value is shifted toward closing
+fewer cells, and the script refuses to run unless its reading of one contour reproduces the two limits that
+paper states in its text. The main sources are Kobayashi et al.\ (2017), for which a fuzzy component above $30\%$
+requires $m\gtrsim10^{-21}$\,eV, and Liu, Gong and Zhou (2026), whose $95\%$ contour gives no effective limit
+above $10^{-20}$\,eV.
+
+\begin{table}[h]
+\centering\small
+\input{tables/s3_p0.tex}
+\caption{Phase~0 recount. ``Decisive'' is the pre-flight's optimistic proxy, not a forecast. The stop
+condition fires if fewer than $10$ cells survive or if all survivors have $f\ge0.5$.}\label{tab:p0}
+\end{table}
+
+\begin{headlinebox}
+Phase~0 leaves $182$ decisive and open cells using text-stated bounds, or $152$ with figure reads. Survivors
+reach down to $f=0.05$ at most masses, so the stop condition does not fire. The DESI DR1 cosmological analysis
+of the one-dimensional flux power spectrum states that constraining the nature of dark matter is beyond its
+scope, so the proposal's secondary trigger does not fire either.
+\end{headlinebox}
+
+What these counts are worth: four parallel survey reports covering CMB and large-scale structure, dwarf
+galaxies, reviews and the Lyman-$\alpha$ forest were not all audited against their sources, and nothing from
+them is applied. An unaudited bound, if real, could only close more cells, so the counts are upper bounds on
+how open the grid is. An Eridanus~II star-cluster constraint is recorded and not applied, because its figure
+carries resonance bands and an approximation caveat near a few $10^{-21}$\,eV.
+
+\section{What happens next, and what does not}\label{sec:next}
+
+Phases~1--4 have not started and are not authorized: they need their predecessors' artifacts, a pinned
+prediction amendment, and the decision authority's answers to five open questions of the proposal. Any output
+of those phases would be labeled as an exclusion or FIT, never as a TEST, until the pin. E2 stays held. The
+geometry stream's results of the same date (\texttt{papers/stream2\_k3\_identification\_twisted\_route\_2026\_10\_08.pdf}
+in the geometry repository) have their certificates mirrored under \nolinkurl{data/mirrors/stream2/} for the
+record; they are not inputs to anything above.
+
+\begin{correctionbox}
+\begin{enumerate}
+\item E1b, first run: the localized-regime criterion failed at phase zero. The cause was eigenbasis
+  dependence inside exactly degenerate mirror pairs, not a physics failure. The criterion was then evaluated at
+  a generic phase; the phase-zero values are kept in the certificate.
+\item E1b, second run: at $\lambda=2.1J$ the localized criterion still fails on rings up to $987$ sites. The band
+  $|\lambda-2J|<0.15$ is reported and not claimed; the criterion itself was not changed.
+\item Phase~0 report draft: a sentence saying the two Lyman-$\alpha$ contours agreed below $10^{-21}$\,eV was
+  false (at $10^{-21}$\,eV they read about $0.35$ and $0.63$). It was corrected before the report was merged.
+\item Phase~0 figure script: the pinned hash of one PDF was first typed with a missing digit; the script's own
+  hash check refused to run, which is the purpose of the check.
+\item The repository's continuous-integration job fails at its dependency-installation step on every recent
+  run, before any test executes. A fix is prepared and waits for a token permission. Local runs of the full
+  test suite pass; the CI job is not green and is not described as green.
+\end{enumerate}
+\end{correctionbox}
+
+\section*{Reproducibility}
+\begin{itemize}\small
+\item Tables: \nolinkurl{scripts/render_stream3_note_tables.py} (\texttt{--check} fails on drift); controls in
+  \nolinkurl{checkers/tests/test_render_stream3_note_tables.py}.
+\item Calibrations: \nolinkurl{checkers/check_aubry_andre_selfduality.py},
+  \nolinkurl{checkers/check_aubry_andre_localization_scaling.py}.
+\item Phase~0: \nolinkurl{scripts/wp_e6_v2_p0_overlay.py}, \nolinkurl{scripts/wp_e6_v2_p0_digitize_figures.py},
+  report \nolinkurl{briefs/WP_E6_V2_PHASE0_RESURVEY_REPORT_2026_10_08.md}.
+\end{itemize}
+
+\section*{Provenance}
+Generated-by: Claude (Opus~5.5), Stream~3 support \textbar\ Verified-by: the renderer's \texttt{--check} and
+controls; each cited checker's negative controls \textbar\ Reviewed-by: N (preprint; not reviewed).
+
+\begin{thebibliography}{9}
+\bibitem{AA} S.~Aubry and G.~Andr\'e, ``Analyticity breaking and Anderson localization in incommensurate
+  lattices,'' \textit{Ann. Israel Phys. Soc.} \textbf{3} (1980) 133.
+\bibitem{Kob} T.~Kobayashi, R.~Murgia, A.~De~Simone, V.~Ir\v{s}i\v{c}, M.~Viel, ``Lyman-alpha constraints on
+  ultralight scalar dark matter: implications for the early and late universe,'' \textit{arXiv:1708.00015}.
+\bibitem{Liu} Liu, Gong and Zhou, mixed fuzzy-dark-matter constraints from the high-redshift Lyman-$\alpha$
+  forest, \textit{arXiv:2606.06969}.
+\bibitem{DESI} J.~Chaves-Montero et al.\ (DESI), ``Cosmological analysis of the DESI DR1 Ly$\alpha$ 1D power
+  spectrum,'' \textit{arXiv:2601.21432}.
+\bibitem{DESIm} N.~G.~Kara\c{c}ayl\i{} et al.\ (DESI), ``DESI DR1 Ly$\alpha$ 1D power spectrum: the optimal
+  estimator measurement,'' \textit{arXiv:2505.07974}.
+\bibitem{MN} D.~J.~E.~Marsh and J.~C.~Niemeyer, ``Strong constraints on fuzzy dark matter from ultrafaint
+  dwarf galaxy Eridanus II,'' \textit{arXiv:1810.08543}.
+\end{thebibliography}
+
+\end{document}
