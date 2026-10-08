@@ -247,3 +247,19 @@ Full text: `briefs/STREAM2_TO_STREAM3_NUMERIC_EVALUATION_GUIDANCE_2026_10_08.md`
   infrastructure stays within rule 1.
 - **One T0 sentence unlocks more:** WP-E6 v2 **Phase 0 only** (literature re-survey). Stream 3 must not start it on Stream 2's
   say-so. E2 stays HELD; E3/E4 appendices; no pin; no real-data comparison.
+
+## 13. The selected K3 is identified (2026-10-08, T0: "identify the K3")
+
+K3-DarkMatter `main` `5d510a7`; certificate `SELECTED_K3_IDENTIFICATION.json` (mirrored, 18 files, `--check` green); brief
+`SELECTED_K3_IDENTIFICATION_2026_10_08.md`. By the Shioda–Inose bijection (Tier L, sources read) a singular K3 surface is named by its
+transcendental lattice:
+
+- **cooper_s7 AM-8 pick** (z = ∞, T = [[2,1],[1,2]], det 3) = **X₃**, Vinberg's "most algebraic" K3 surface;
+- **cooper_s10 AM-8 pick** (T = ⟨2⟩⊕⟨2⟩, det 4) = **X₄**, Vinberg's second;
+- cooper_s7 at z = −1 = X₇; at z = 1/27 (T = ⟨2⟩⊕⟨14⟩, det 28) the discriminant alone does **not** name the surface (two classes).
+
+The literature table was parsed from the pinned text of Takatsu, arXiv:1903.03054 (read); class counts are computed. Tier B for "the
+family member at that value is X₃" (T = v⊥ framework), Tier L for the bijection and table. **Guidance for Stream 3:** this is a name for
+a lattice class, nothing more — it maps to no observable, ranks nothing (the two picks are the two smallest *attainable* determinants,
+3 and 4, a lattice fact), and does not change E1/E1b, E2 (HELD) or WP-E6. If you cite it, write "the singular K3 surface X₃ with
+transcendental lattice [[2,1],[1,2]]" and keep the Tier B marker. Not identified: a smooth fibre of a specific projective model.

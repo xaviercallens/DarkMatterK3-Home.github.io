@@ -1,0 +1,206 @@
+{
+  "checker": "checkers/check_selected_k3_identification.py",
+  "checker_sha256": "d2b68a9d34d555c42fa95a13803743fee9e3b37814bfebd851ffd133c89124d9",
+  "date": "2026-10-08",
+  "status": "IDENTIFICATION -- names the singular K3 surface of each point from its transcendental lattice; adopts nothing, ranks nothing",
+  "source": {
+    "file": "docs/literature/takatsu_1903.03054.txt",
+    "pdf_sha256": "ffb3e5b452e30fe2c98f48518dedf1e8f7e916a7b8b299fd784a1d789c280cbe",
+    "paper": "T. Takatsu, arXiv:1903.03054v1",
+    "statements_found": {
+      "uniqueness_sentence_found": true,
+      "remark_same_discriminant_found": true,
+      "constructions_E3_E4_found": true
+    },
+    "table_rows_parsed": 11
+  },
+  "shioda_inose_bijection": {
+    "statement": "singular K3 surfaces up to C-isomorphism <-> positive-definite even binary forms up to SL2(Z)",
+    "sources_read": [
+      "Shioda MPIM 2007-137 (txt l.912)",
+      "Kumar-Kuwata arXiv:1409.2931 Thm 8.1 (txt l.1779)",
+      "Takatsu arXiv:1903.03054 (intro Theorem)"
+    ]
+  },
+  "points": [
+    {
+      "point": "cooper_s7, z = infinity (AM-8 pick)",
+      "T_reduced_form_abc": [
+        1,
+        1,
+        1
+      ],
+      "T_gram": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "determinant": 3,
+      "this_class_is_in_enumeration": true,
+      "classes_of_this_determinant": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "number_of_classes": 1,
+      "ambiguous_class": true,
+      "table_entry": {
+        "No": 1,
+        "attribution": "Vinberg [8]",
+        "source_line": 56
+      },
+      "identification": "X_3 (Takatsu Sec. 5: the unique singular K3 surface of discriminant 3)",
+      "determined_by_discriminant_alone": true,
+      "explicit_model_consistency": {
+        "INOSE_MODEL_M7.S6.both_zero_E_omega_x_E_omega": true,
+        "takatsu_sec_5_1_uses": "E_3 x E_3 with E_3 = C/Z + Z omega (sigma(x,y) = (omega x, omega^2 y))",
+        "reading": "consistent; forced by the Shioda-Inose structure, not independent corroboration"
+      }
+    },
+    {
+      "point": "cooper_s7, z = -1",
+      "T_reduced_form_abc": [
+        1,
+        1,
+        2
+      ],
+      "T_gram": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "determinant": 7,
+      "this_class_is_in_enumeration": true,
+      "classes_of_this_determinant": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "number_of_classes": 1,
+      "ambiguous_class": true,
+      "table_entry": {
+        "No": 3,
+        "attribution": "Ujikawa [9]",
+        "source_line": 58
+      },
+      "identification": "X_7 (Takatsu Sec. 5: the unique singular K3 surface of discriminant 7)",
+      "determined_by_discriminant_alone": true
+    },
+    {
+      "point": "cooper_s7, z = 1/27",
+      "T_reduced_form_abc": [
+        1,
+        0,
+        7
+      ],
+      "T_gram": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          14
+        ]
+      ],
+      "determinant": 28,
+      "this_class_is_in_enumeration": true,
+      "classes_of_this_determinant": [
+        [
+          1,
+          0,
+          7
+        ],
+        [
+          2,
+          2,
+          4
+        ]
+      ],
+      "number_of_classes": 2,
+      "ambiguous_class": true,
+      "table_entry": null,
+      "identification": "the singular K3 surface with T = [2,0,14] (Shioda-Inose); 2 class(es) share determinant 28, so the determinant alone does not name it",
+      "determined_by_discriminant_alone": false
+    },
+    {
+      "point": "cooper_s10, z = infinity (AM-8 pick)",
+      "T_reduced_form_abc": [
+        1,
+        0,
+        1
+      ],
+      "T_gram": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "determinant": 4,
+      "this_class_is_in_enumeration": true,
+      "classes_of_this_determinant": [
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "number_of_classes": 1,
+      "ambiguous_class": true,
+      "table_entry": {
+        "No": 2,
+        "attribution": "Vinberg [8]",
+        "source_line": 57
+      },
+      "identification": "X_4 (Takatsu Sec. 5: the unique singular K3 surface of discriminant 4)",
+      "determined_by_discriminant_alone": true
+    }
+  ],
+  "global_floor": {
+    "smallest_determinants_attained_by_any_positive_definite_even_binary_lattice": [
+      3,
+      4,
+      7,
+      8,
+      11
+    ],
+    "picks_determinants": [
+      3,
+      4
+    ],
+    "reading": "the s7 pick sits at the absolute minimum determinant and the s10 pick at the next value; s10 cannot reach the minimum because A2_MEMBERSHIP records A2 absent from the s10 family. A lattice fact, forced by arithmetic -- not a preference, not corroboration, no cross-family ranking (items 8/9)"
+  },
+  "tiers": {
+    "T_X_equals_v_perp": "B (Dolgachev 1996 sec. 7; Lefschetz (1,1))",
+    "bijection_and_table": "L (sources read, lines recorded)",
+    "naming 'Vinberg's two most algebraic K3 surfaces'": "L (Schuett-Shioda l.3293 ties the name to the d = -3, -4 surfaces; Vinberg 1983 itself NOT fetched)"
+  },
+  "not_claimed": [
+    "that the member of the family at that parameter value is a smooth fibre of a specific projective model: A2_MEMBERSHIP records only a point of the period domain",
+    "anything about Vinberg's 1983 paper beyond what Takatsu's table and Schuett-Shioda l.3293 state (not fetched)",
+    "that our E8^2 + A2 elliptic fibration of X_3 is one of Nishiyama's six fibrations for d = -3 (Nishiyama [63] not fetched; Schuett-Shioda l.3295 gives only the count)",
+    "that the explicit-model E_omega x E_omega corroborates the identification: the agreement is forced by the Shioda-Inose structure",
+    "any ranking of cooper_s7 over cooper_s10, any physical reading, any Kodaira label (ledger items 3, 4, 8, 9, 10)"
+  ],
+  "generated_by": "Claude (Sonnet 5.5), Stream 2, 2026-10-08",
+  "verified_by": "checkers/test_selected_k3_identification_controls.py",
+  "reviewed_by": "N"
+}

@@ -1,6 +1,6 @@
 {
   "mirror_of": "SocrateAI-Scientific-Agora-K3-DarkMatter (Stream 2)",
-  "source_commit": "bf5582a",
+  "source_commit": "5d510a7",
   "mirrored_on": "2026-10-08",
   "why": "Stream 2's CM-point / A2 certificates, mirrored so Stream 3 can run a drift-detecting consistency test (their brief STREAM2_TO_STREAM3_MODULAR_RAIL_AND_CM_POINTS_2026_09_21 item 4.2#4). These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Stream 3 DID re-run their controls (46/46 and 35/35) on 2026-09-21.",
   "honor": "These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Each certificate's own not_claimed block travels with it and must not be dropped. Rows/flags that predate a later Stream 2 ruling (e.g. LATTICE_CERT_DRAFT / advisory=true on cooper_s10 rows emitted before D15' of 2026-09-29) are dated, not wrong; do not edit them here.",
@@ -153,6 +153,17 @@
       ],
       "status_as_shipped": "DOSSIER -- a cross-checked index of existing certificates; adopts nothing, ranks nothing"
     },
+    "SELECTED_K3_IDENTIFICATION.json": {
+      "sha256": "c83011d1ec5215b5e92a8beced9cc49605aaa99dc2ecbc524c6583fdbb2b73d8",
+      "not_claimed": [
+        "that the member of the family at that parameter value is a smooth fibre of a specific projective model: A2_MEMBERSHIP records only a point of the period domain",
+        "anything about Vinberg's 1983 paper beyond what Takatsu's table and Schuett-Shioda l.3293 state (not fetched)",
+        "that our E8^2 + A2 elliptic fibration of X_3 is one of Nishiyama's six fibrations for d = -3 (Nishiyama [63] not fetched; Schuett-Shioda l.3295 gives only the count)",
+        "that the explicit-model E_omega x E_omega corroborates the identification: the agreement is forced by the Shioda-Inose structure",
+        "any ranking of cooper_s7 over cooper_s10, any physical reading, any Kodaira label (ledger items 3, 4, 8, 9, 10)"
+      ],
+      "status_as_shipped": "IDENTIFICATION -- names the singular K3 surface of each point from its transcendental lattice; adopts nothing, ranks nothing"
+    },
     "TW0_HODGE_DEGREE_ORBIFOLD.json": {
       "sha256": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61",
       "not_claimed": [
@@ -245,6 +256,30 @@
         "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
         "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6",
         "TW0_HODGE_DEGREE_ORBIFOLD.json": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61"
+      },
+      "refreshed": null
+    },
+    {
+      "source_commit": "bf5582a",
+      "mirrored_on": "2026-10-08",
+      "files_sha256": {
+        "A2_MEMBERSHIP.json": "0d272dd44517cfc88affc69d3ddff8fa191dd74318fb81d97a977629a8ebd6b0",
+        "C2_cooper_s10_v5.json": "bc1f1ebc76dfedd27a9a9e0ae5d66ce3b5f2a2852105885ee329fb93db2f1e4e",
+        "C2_cooper_s7_v6.json": "789fec2ac3d7fd3c5bfadc91fd2524836dae53147f4d596637182d97d110c078",
+        "C6_SELECTED_CANDIDATE.json": "48cf40d28fc6a9980f4657cf6db36b7956163de363db1dd40f7180e2046d2658",
+        "C6_SELECTOR_COMPARISON.json": "aedcafd90b96fb261da4e68a8788126fba90b4faa9db08d7d9ed0430a42d9c71",
+        "CERTIFIED_MONODROMY_L2_cooper_s10.json": "d811432f513e98b202e28ec560409eb43114312f9b9551c0966636f552c90dca",
+        "CERTIFIED_MONODROMY_L2_cooper_s7.json": "69626f35d45d1ecf7911a0add900ff9a2e036148d16796c7c5e557a615cdbc99",
+        "CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+        "CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
+        "CM_POINTS_RHO20_LATTICE_TIER.json": "9b11021e71f52cc3fb4cdee28ed2a20899cc076ece6629dddb9fe37170789b0d",
+        "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
+        "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6",
+        "SELECTED_K3_DOSSIER.json": "06c8de880c7068821ed53aaf054d26d6f82ef34931b4f97588a4af2259996eb0",
+        "TW0_HODGE_DEGREE_ORBIFOLD.json": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61",
+        "TW2_HEIGHT_CONDITION.json": "cb24a6ea2fad7f9cd40fa0c19cd0460920529850c600dd9e609bbb943ca33015",
+        "TW2_RHO20_LOCI.json": "c1f5e195b2fbd39812caf57c2d278569f1ad6f7ab18db876e5f898a9e2d6b60e",
+        "TW2_SQRT_M7_ENDOMORPHISM.json": "9e9fbf274a8b90d14675fcc0b60219678a8018706e6f96e4b10b688f2f1d13f1"
       },
       "refreshed": null
     }
