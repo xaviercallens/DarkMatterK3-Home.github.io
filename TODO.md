@@ -5,6 +5,13 @@
 > this repo's record has since retracted or never held (see `docs/WP_H_AUTO_RESEARCH_TRIAGE.md`).
 > This file now tracks the **scientific program's** live task state. One item = one truth.
 
+## ✅ WP-E6 v2 Phase 0 (literature re-survey) — DONE 2026-10-08 under T0 D-g (Phase 0 ONLY)
+
+Report `briefs/WP_E6_V2_PHASE0_RESURVEY_REPORT_2026_10_08.md`; table `data/literature/fdm_mixed_fraction_bounds_2026_10_08.csv`; recount
+`data/derived/wp_e6_v2_p0_resurvey_2026_10_08.json` (decisive-and-open 221 → 182 text-only, 152 with figure reads); P0 does not fire; secondary trigger NO.
+Literature-table arithmetic only: no data, no TEST/FIT, no pin. **Phases 1–4 NOT started and NOT authorized** (gated on predecessors' artifacts, the pin, and
+T0's answers to proposal §8(a) and Q1–Q5, all unanswered). Tests: `checkers/tests/test_wp_e6_v2_p0_overlay.py`, `test_wp_e6_v2_p0_digitize.py` (19).
+
 ## ✅ Formerly blocked on T0 — CLOSED 2026-07-26 under delegated authority
 
 All six ruled in `docs/T0_DELEGATED_RULINGS_2026_07_26.md`. Countermand window open on all.

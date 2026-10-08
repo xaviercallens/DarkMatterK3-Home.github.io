@@ -116,6 +116,16 @@ PTA-band constraints (relevant to the program's NANOGrav lineage; gravitationall
 
 **Net position (fact, not physics claim):** for a mediator assumed to be all of the dark matter, the 1e-22–1e-19 eV window is fully covered by published exclusions (Lya to 2×10^-20; UFDs to 8×10^-18), each with stated model dependences (IGM modeling for Lya; heating/tidal assumptions for UFDs). The open territory a sweep could legitimately target is (i) mixed fractions f_FDM < 1 above ~10^-21 eV, and (ii) mediators that are not the dominant DM component — a framing decision that belongs to the pre-registration, not to this survey.
 
+### Addendum 2026-10-08 — WP-E6 v2 Phase 0 re-survey (mixed fractions, f_FDM < 1) — dated, does not replace the text above
+
+Scope: T0 decision D-g (`briefs/T0_DECISIONS_2026_10_08.md`), Phase 0 only. Report: `briefs/WP_E6_V2_PHASE0_RESURVEY_REPORT_2026_10_08.md`. Table: `data/literature/fdm_mixed_fraction_bounds_2026_10_08.csv`. Recount: `scripts/wp_e6_v2_p0_overlay.py` → `data/derived/wp_e6_v2_p0_resurvey_2026_10_08.json`.
+
+- **Correction to the list above.** The list quotes Liu et al. at three masses only. A mixed-fraction bound is a curve, not three points: Kobayashi et al. 2017 (arXiv:1708.00015, read in full text) states f > 30% requires m ≳ 10^-21 eV, and Liu et al. 2026 Fig. 6 gives the full 95% contour, which the repo's earlier table sampled at 10^-22 and 10^-21 only. Liu's frequentist limits are weaker than the Bayesian ones quoted above (f < 0.08, 0.17, 0.90 at 10^-23, 10^-22, 10^-21 eV).
+- **Mass range with no effective limit.** Liu et al. state the data give no effective upper limit on f_FDM for m > 10^-20 eV.
+- **Figure-only constraints** (Kobayashi Fig. 1, Liu Fig. 6, Marsh & Niemeyer Fig. 2 on Eridanus II) were read by colour thresholding (`scripts/wp_e6_v2_p0_digitize_figures.py`, source PDFs hash-pinned, reading error about ±0.03 in f). The Liu contour reproduces the two limits stated in its text. Marsh & Niemeyer is recorded but not applied to any count (resonance bands and a stated diffusion-approximation caveat near a few 10^-21 eV; model-dependent).
+- **Secondary trigger answered: NO.** The DESI DR1 P1D cosmological analysis (arXiv:2601.21432) says constraining the nature of dark matter "is beyond the scope of this work"; the measurement paper (arXiv:2505.07974) lists dark matter only as a downstream use. No published DESI DR1 P1D mixed-fraction analysis was found.
+- **Not verified here:** the four parallel survey reports (CMB/LSS, dwarfs, reviews, Lyα) were not all audited against their sources; nothing from them is applied. The recount is therefore an upper bound on how open the grid is.
+
 ---
 
 ## 5. Open questions

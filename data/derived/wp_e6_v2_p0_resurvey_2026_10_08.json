@@ -1,0 +1,217 @@
+{
+  "label": "WP-E6 v2 Phase 0 re-survey overlay -- LITERATURE-TABLE ARITHMETIC ONLY; not a comparison, not TEST/FIT",
+  "artifact": "wp_e6b_lya_adequacy_preflight_2026_07_27.json",
+  "bounds_table": "fdm_mixed_fraction_bounds_2026_10_08.csv",
+  "n_bounds_rows": 10,
+  "baseline_reproduction": {
+    "decisive": 258,
+    "decisive_and_open": 221,
+    "artifact_n_decisive_cells_field": 221,
+    "reproduces_artifact": true
+  },
+  "strict": {
+    "decisive": 258,
+    "decisive_and_open": 182,
+    "survivors_by_mass": {
+      "1.0000e-22": {
+        "n": 2,
+        "f_min": 0.05,
+        "f_max": 0.1
+      },
+      "1.7783e-22": {
+        "n": 6,
+        "f_min": 0.05,
+        "f_max": 0.3
+      },
+      "3.1623e-22": {
+        "n": 6,
+        "f_min": 0.05,
+        "f_max": 0.3
+      },
+      "5.6234e-22": {
+        "n": 6,
+        "f_min": 0.05,
+        "f_max": 0.3
+      },
+      "1.0000e-21": {
+        "n": 12,
+        "f_min": 0.05,
+        "f_max": 0.6
+      },
+      "1.7783e-21": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "3.1623e-21": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "5.6234e-21": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "1.0000e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "1.7783e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "3.1623e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "5.6234e-20": {
+        "n": 18,
+        "f_min": 0.1,
+        "f_max": 0.95
+      },
+      "1.0000e-19": {
+        "n": 18,
+        "f_min": 0.1,
+        "f_max": 0.95
+      }
+    },
+    "closed_by_row": {
+      "BASE-LGZ-1e-22": 17,
+      "KOB-2017-TEXT": 52,
+      "BASE-LGZ-1e-21": 7
+    },
+    "p0": {
+      "fired": false,
+      "reasons": []
+    }
+  },
+  "with_figure": {
+    "decisive": 258,
+    "decisive_and_open": 152,
+    "survivors_by_mass": {
+      "1.0000e-22": {
+        "n": 2,
+        "f_min": 0.05,
+        "f_max": 0.1
+      },
+      "1.7783e-22": {
+        "n": 3,
+        "f_min": 0.05,
+        "f_max": 0.15
+      },
+      "3.1623e-22": {
+        "n": 4,
+        "f_min": 0.05,
+        "f_max": 0.2
+      },
+      "5.6234e-22": {
+        "n": 5,
+        "f_min": 0.05,
+        "f_max": 0.25
+      },
+      "1.0000e-21": {
+        "n": 7,
+        "f_min": 0.05,
+        "f_max": 0.35
+      },
+      "1.7783e-21": {
+        "n": 10,
+        "f_min": 0.05,
+        "f_max": 0.5
+      },
+      "3.1623e-21": {
+        "n": 12,
+        "f_min": 0.05,
+        "f_max": 0.6
+      },
+      "5.6234e-21": {
+        "n": 16,
+        "f_min": 0.05,
+        "f_max": 0.8
+      },
+      "1.0000e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "1.7783e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "3.1623e-20": {
+        "n": 19,
+        "f_min": 0.05,
+        "f_max": 0.95
+      },
+      "5.6234e-20": {
+        "n": 18,
+        "f_min": 0.1,
+        "f_max": 0.95
+      },
+      "1.0000e-19": {
+        "n": 18,
+        "f_min": 0.1,
+        "f_max": 0.95
+      }
+    },
+    "closed_by_row": {
+      "BASE-LGZ-1e-22": 17,
+      "FIG-LIU-1.0000e-22": 17,
+      "FIG-KOB-1.0000e-22": 15,
+      "KOB-2017-TEXT": 52,
+      "FIG-LIU-1.7783e-22": 16,
+      "FIG-KOB-1.7783e-22": 15,
+      "FIG-KOB-3.1623e-22": 15,
+      "FIG-LIU-3.1623e-22": 14,
+      "FIG-KOB-5.6234e-22": 14,
+      "FIG-LIU-5.6234e-22": 11,
+      "FIG-KOB-1.0000e-21": 12,
+      "BASE-LGZ-1e-21": 7,
+      "FIG-LIU-1.0000e-21": 6,
+      "FIG-KOB-1.7783e-21": 9,
+      "FIG-LIU-1.7783e-21": 2,
+      "FIG-LIU-3.1623e-21": 7,
+      "FIG-LIU-5.6234e-21": 3
+    },
+    "p0": {
+      "fired": false,
+      "reasons": []
+    }
+  },
+  "frequentist_sensitivity_strict": {
+    "decisive_and_open": 188,
+    "note": "Liu et al. frequentist limits (weaker) replace the Bayesian text rows; figure rows (Bayesian contour) are NOT swapped, so with-figure counts are unaffected",
+    "decisive_and_open_text_rows_only": 188
+  },
+  "searched_and_not_found": [
+    {
+      "id": "LGZ-NOLIMIT-GT-1e-20",
+      "source": "Liu, Gong & Zhou 2026",
+      "probe": "Lyman-alpha P1D",
+      "quote": "For log10(m_FDM/eV) > -20, the data do not provide an effective upper limit on f_FDM."
+    },
+    {
+      "id": "DESI-DR1-CAST-NOTRIGGER",
+      "source": "Chaves-Montero et al. 2026 (DESI DR1 P1D cosmological analysis)",
+      "probe": "DESI DR1 Lyman-alpha P1D",
+      "quote": "The Lya forest is also sensitive to the nature of dark matter (e.g.; [131-133]) and primordial magnetic fields [134], but constraining these effects is beyond the scope of this work."
+    },
+    {
+      "id": "DESI-DR1-MEAS-NOTRIGGER",
+      "source": "Karacayli et al. 2025 (DESI DR1 P1D measurement)",
+      "probe": "DESI DR1 Lyman-alpha P1D",
+      "quote": "P1D has been used in a wide range of topics, including the primordial power spectrum [26], the sum of neutrino masses [27-29], and the nature of dark matter [30-38]."
+    },
+    {
+      "id": "SURVEY-UNAUDITED",
+      "source": "Four parallel literature-survey agents (CMB/LSS, dwarf galaxies, reviews, Lyman-alpha)",
+      "probe": "all",
+      "quote": "Agents reported no further published mixed-fraction (f<1) bound at m > 1e-21 eV beyond those above; their individual quotes were not all audited and nothing from them is applied to any count."
+    }
+  ]
+}
