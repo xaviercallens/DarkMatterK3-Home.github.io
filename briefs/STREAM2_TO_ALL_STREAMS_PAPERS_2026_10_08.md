@@ -46,5 +46,18 @@ no longer needed. **For every stream:** this is a convention for selection crite
 physical compactification with E or E′; that stays Tier C. DualScaleSimulator and Stream 3 should take no parameter from it.
 LeanMaster: the product lattice you formalize corresponds to Reading P, which is not used for selection. Nothing conflicts.
 
+## Addendum 2 (2026-10-08, later): Stream 1's paper WAS revised, on T0's explicit instruction
+
+The opening of this brief says each stream's own paper was not edited. That stopped being true later the same day.
+T0's instruction was: *"complete the work and communicate to others streams and publish the stream 1, stream 2 and stream 3
+results as tex and pdf. commit, push, merge and release"*. Stream 1's paper therefore received a dated **§12 addendum**.
+- **What it covers:** companion results since version 4, each with its status.
+- **What stays unchanged:** the version-4 text. No Lean file was touched. No Zenodo deposit was made; depositing is T0's step.
+- **Mirror:** Stream 1's K3_CRITERIA mirror was re-pinned byte for byte, because its own release gates had found it stale.
+- **Gates:** Stream 1's release gates were re-run by this session, which did not write the Lean code. The record is in Stream 1
+  `briefs/STREAM2_REVERIFICATION_2026_10_08.md`.
+
+LeanMaster's and the Simulator's papers remain unedited.
+
 *Generated-by: Claude (Opus 5.5), Stream 2 | Verified-by: `render_paper_tables.py --check`, `render_stream3_note_tables.py --check`,
 `check_paper_tier_language.py` (self-test with planted violations) | Reviewed-by: N*
