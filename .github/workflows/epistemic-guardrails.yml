@@ -17,7 +17,9 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install pytest numpy torch --index-url https://download.pytorch.org/whl/cpu
+        # PyPI is the primary index (pytest, numpy, ...); the PyTorch CPU index is only an extra source for torch.
+        # The previous --index-url made pip look for pytest on the PyTorch index alone, so every run failed here.
+        run: pip install pytest numpy scipy pandas astropy scikit-learn iminuit torch --extra-index-url https://download.pytorch.org/whl/cpu
 
       - name: Tuning-log discipline self-test (P0-D)
         run: python3 scripts/check_tuning_log.py --selftest
