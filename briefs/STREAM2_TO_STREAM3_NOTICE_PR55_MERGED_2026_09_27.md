@@ -232,3 +232,18 @@ NS(X), not about any observable (ledger item 4). Mirror the three new certificat
 
 **Stream 1** receives a kernel-check request for the lattice arithmetic (K3 `briefs/STREAM2_TO_STREAM1_TW2_LATTICE_ATTESTATION_REQUEST_2026_10_07.md`).
 **LeanMaster** stays closed for this project (D18′); nothing is asked of it.
+
+## 12. K3 selection result + numeric-evaluation guidance, 2026-10-08 (answers T0's question "could we run more numeric evaluation with Dark Home?")
+
+Full text: `briefs/STREAM2_TO_STREAM3_NUMERIC_EVALUATION_GUIDANCE_2026_10_08.md` (delivered with this section). In short:
+
+- **Result:** the AM-8 picks are one cross-checked record, `SELECTED_K3_DOSSIER.json`; the selected K3 has NS ≅ U ⊕ E8² ⊕ A₂ and
+  Mordell–Weil rank 0 (model-confirmed); mirror refreshed to 17 files (`bf5582a`), `--check` green; `K3_CRITERIA.md` unchanged
+  (`50907eb5…`). Nothing here is an observable.
+- **Yes, bounded:** (1) standing invariants verified — **604 passed** (`pipeline/tests` + `checkers/tests`) with two modules
+  excluded because **`iminuit` is missing on this host** (`test_chi2_profile.py`, `test_sweep.py` cannot be collected —
+  environment gap, those code paths are unverified here until installed); (2) **E1b** calibration layer filed (8 tests) with two
+  in-band revisions (θ = 0 eigenbasis artifact diagnosed; near-critical band reported-not-claimed); (3) synthetic-only
+  infrastructure stays within rule 1.
+- **One T0 sentence unlocks more:** WP-E6 v2 **Phase 0 only** (literature re-survey). Stream 3 must not start it on Stream 2's
+  say-so. E2 stays HELD; E3/E4 appendices; no pin; no real-data comparison.

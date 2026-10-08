@@ -236,3 +236,19 @@ Tier A/B certificate; any sentence linking σ = i or σ = (1+i)/2 to ⟨2⟩⊕�
   "every s10 row is advisory" encoded the pre-D15′ state and now asserts the *relation* flag ⇔ status≠LIVE
   (+ a flip control); `cm_labels.py` wording made status-driven. **Open from Stream 2 for T0:** WP-TW0 F6 brief
   (family-level Hodge degree ≠ 2; R-a/R-b), Home PR #5 (E2 pin status).
+
+## 🟢 2026-10-08 — E1b filed, mirror refreshed, invariants re-verified (Stream 2 support session)
+
+- [x] **E1b** `checkers/check_aubry_andre_localization_scaling.py` + certificate `E1b_aubry_andre_localization_scaling.json` + 8 tests:
+  `PASS(N) for N in 89,233,377,987`; negative controls first (random potential breaks the mean-IPR duality, gap 0.53; and fails the
+  extended scaling, ratio 11.1). **Revisions recorded in the certificate:** θ = 0 localized-regime failure = eigenbasis artifact of
+  exact n → −n degeneracy (268 mirror pairs at λ = 3, N = 610) → criterion evaluated at generic θ = 0.7; λ = 2.1 / 1.9 near-critical
+  band reported, not claimed. 26 of 36 duality cells excluded as degenerate and counted. No K3 claim.
+- [x] **Mirror refreshed to 17 files** (`SELECTED_K3_DOSSIER`, `TW2_HEIGHT_CONDITION`, `TW2_RHO20_LOCI`, `TW2_SQRT_M7_ENDOMORPHISM` added;
+  K3 `main` `bf5582a`); `scripts/refresh_stream2_mirror_manifest.py --check` green; `K3_CRITERIA.md` unchanged (`50907eb5…`).
+- [x] **Standing invariant:** `pytest pipeline/tests/ checkers/tests/ -q` → **604 passed** (10 min 47 s) with
+  `--ignore=pipeline/tests/test_chi2_profile.py --ignore=pipeline/tests/test_sweep.py`. **Environment gap:** `iminuit` is not installed on
+  this host; those two modules cannot be collected, so `pipeline` chi² profiling and the sweep are unverified here until
+  `pip install iminuit` (in a venv). Running the suite restamps `date` in three tracked `data/derived/*_2026_09_21.json` files; restore
+  them (`git checkout --`) before committing.
+- [ ] **T0 sentence available** for WP-E6 v2 Phase 0 (literature re-survey only) — see the guidance brief §3; not started.

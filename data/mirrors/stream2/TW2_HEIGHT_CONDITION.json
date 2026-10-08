@@ -1,0 +1,68 @@
+{
+  "checker": "checkers/check_TW2_height_condition.py",
+  "checker_sha256": "662ceb28462b414497149176a1f020b4c1088775893427c2f0badfd9023f0792",
+  "work_package": "WP-TW2 step 0 (opened by D20', 2026-10-07)",
+  "tier": "B (exact lattice arithmetic; Shioda-Tate and height formula from Schuett-Shioda, fetched and read; M_n from Dolgachev, pinned)",
+  "result": {
+    "cooper_s7_n7": {
+      "n": 7,
+      "chi": 2,
+      "fibres": [
+        "E8",
+        "E8"
+      ],
+      "trivial_lattice_rank": 18,
+      "mordell_weil_rank": 1,
+      "disc_trivial_lattice": -1,
+      "target_abs_disc_NS": 14,
+      "ns_is_M_n_shape": true,
+      "height_h_P": 14,
+      "sum_contr": "0",
+      "P_dot_O": 5,
+      "formula": "h(P) = 2chi + 2 P.O - sum contr_v(P)  (Schuett-Shioda Thm 11.5); |disc NS| = -disc(T_triv) h(P) (eq. 23)"
+    },
+    "cooper_s10_n10_as_instance": {
+      "n": 10,
+      "chi": 2,
+      "fibres": [
+        "E8",
+        "E8"
+      ],
+      "trivial_lattice_rank": 18,
+      "mordell_weil_rank": 1,
+      "disc_trivial_lattice": -1,
+      "target_abs_disc_NS": 20,
+      "ns_is_M_n_shape": true,
+      "height_h_P": 20,
+      "sum_contr": "0",
+      "P_dot_O": 8,
+      "formula": "h(P) = 2chi + 2 P.O - sum contr_v(P)  (Schuett-Shioda Thm 11.5); |disc NS| = -disc(T_triv) h(P) (eq. 23)"
+    },
+    "general": {
+      "P_dot_O": "n - chi = n - 2",
+      "h_P": "2n"
+    },
+    "e8_root_fibres_in_explicit_M7_model_by_locus": {
+      "-1": 2,
+      "1/27": 2
+    },
+    "step1_literature_cross_check": {
+      "statement": "MWL(F(1)) = Hom(E1, E2)<2>: the section attached to an isogeny phi has height 2 deg(phi)",
+      "sources_read": [
+        "Kumar-Kuwata arXiv:1409.2931 Prop. 3.1 (citing Shioda), hypothesis E1 not isomorphic to E2; Prop. 3.2 explicit construction, height 2d",
+        "Shioda, MPIM 2007-137 / JMSJ 60 (2008): norm 2 deg(phi) on the Inose surface, deg(phi) on the Kummer surface"
+      ],
+      "consequence": "a 7-isogeny gives h(P) = 14 = 2n, hence P.O = 5 -- the same number as the lattice derivation above, from an independent route",
+      "caveat": "Prop. 3.1 assumes E1 not isomorphic to E2; the A2 point (j = 0, E1 = E2) is outside its hypothesis; the class-number-1 CM loci are the natural place for an explicit construction (WP-TW2 step 2, not executed)"
+    }
+  },
+  "not_claimed": [
+    "that a section with P.O = n - 2 exists on any particular base or model: this is the constraint, not its realization (WP-TW2 proper)",
+    "any Kodaira fibre type anywhere (ledger items 3, 10): fibres are named by their root lattice and discriminant order only",
+    "anything about cooper_s10 beyond its use as the n = 10 instance of the same formula",
+    "any physical statement (ledger item 4)"
+  ],
+  "generated_by": "Claude (Fable 5.1), Stream 2, 2026-10-07",
+  "verified_by": "checkers/test_TW2_height_condition_controls.py",
+  "reviewed_by": "N"
+}

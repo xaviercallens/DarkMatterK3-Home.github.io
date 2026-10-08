@@ -1,7 +1,7 @@
 {
   "mirror_of": "SocrateAI-Scientific-Agora-K3-DarkMatter (Stream 2)",
-  "source_commit": "bd576c1",
-  "mirrored_on": "2026-10-07",
+  "source_commit": "bf5582a",
+  "mirrored_on": "2026-10-08",
   "why": "Stream 2's CM-point / A2 certificates, mirrored so Stream 3 can run a drift-detecting consistency test (their brief STREAM2_TO_STREAM3_MODULAR_RAIL_AND_CM_POINTS_2026_09_21 item 4.2#4). These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Stream 3 DID re-run their controls (46/46 and 35/35) on 2026-09-21.",
   "honor": "These are Stream 2 artifacts; Stream 3 neither produced nor re-derived their contents. Each certificate's own not_claimed block travels with it and must not be dropped. Rows/flags that predate a later Stream 2 ruling (e.g. LATTICE_CERT_DRAFT / advisory=true on cooper_s10 rows emitted before D15' of 2026-09-29) are dated, not wrong; do not edit them here.",
   "generated_by": "scripts/refresh_stream2_mirror_manifest.py (hashes computed, not typed)",
@@ -142,6 +142,17 @@
       ],
       "status_as_shipped": "RECORD, NOT A GATE. An explicit M_7-polarized model over the cooper_s7 coordinate, in the Clingher-Doran-Lewis-Whitcher normal form, with its W-invariants as exact Laurent polynomials in z. The rho = 20 cut stays read narrowly (T0 D7'); not"
     },
+    "SELECTED_K3_DOSSIER.json": {
+      "sha256": "06c8de880c7068821ed53aaf054d26d6f82ef34931b4f97588a4af2259996eb0",
+      "not_claimed": [
+        "any ranking or comparison of cooper_s7 and cooper_s10: both picks are recorded because K3_CRITERIA.md C6 names both (ledger items 8/9)",
+        "that 'this lattice is T' is more than Tier B for either family (Dolgachev/Doran framework); the Tier A statements are the lattice half only",
+        "any Kodaira fibre type (items 3, 10): fibres appear as root lattices and discriminant-root orders",
+        "any physical reading of the selected point (item 4)",
+        "that the dossier adds information: it only fails closed when its sources disagree"
+      ],
+      "status_as_shipped": "DOSSIER -- a cross-checked index of existing certificates; adopts nothing, ranks nothing"
+    },
     "TW0_HODGE_DEGREE_ORBIFOLD.json": {
       "sha256": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61",
       "not_claimed": [
@@ -149,6 +160,33 @@
         "that ell = 2 is wrong: it is correct as chi(O) of any elliptic K3 with section; what is not reproduced is a FAMILY-level Hodge-bundle degree of 2",
         "which reading WP-TW1 requires: that is the T0 question raised in the brief",
         "anything about cooper_s10's geometry beyond its use as a discriminating control here",
+        "any physical statement (ledger item 4)"
+      ]
+    },
+    "TW2_HEIGHT_CONDITION.json": {
+      "sha256": "cb24a6ea2fad7f9cd40fa0c19cd0460920529850c600dd9e609bbb943ca33015",
+      "not_claimed": [
+        "that a section with P.O = n - 2 exists on any particular base or model: this is the constraint, not its realization (WP-TW2 proper)",
+        "any Kodaira fibre type anywhere (ledger items 3, 10): fibres are named by their root lattice and discriminant order only",
+        "anything about cooper_s10 beyond its use as the n = 10 instance of the same formula",
+        "any physical statement (ledger item 4)"
+      ]
+    },
+    "TW2_RHO20_LOCI.json": {
+      "sha256": "c1f5e195b2fbd39812caf57c2d278569f1ad6f7ab18db876e5f898a9e2d6b60e",
+      "not_claimed": [
+        "any Kodaira fibre type (ledger items 3, 10): only discriminant-root orders and root-lattice rank/determinant are used",
+        "that a section has been exhibited: the heights and P.O values are forced by the lattices, the sections are not written down (step 2b)",
+        "any statement at rho = 19 members beyond step 0 (generic_member block is a pointer)",
+        "anything physical (ledger item 4)"
+      ]
+    },
+    "TW2_SQRT_M7_ENDOMORPHISM.json": {
+      "sha256": "9e9fbf274a8b90d14675fcc0b60219678a8018706e6f96e4b10b688f2f1d13f1",
+      "not_claimed": [
+        "the section on the K3 itself (step 2b-ii, Kumar-Kuwata (3.1)-(3.3) descent, not done)",
+        "anything about fibres of the K3 beyond step 2a; no Kodaira label anywhere",
+        "which of +/- sqrt(-7) phi is (x-maps and the y-identity involve c3^2 only); the sign of phi o phi is fixed separately (sign_of_square, Tier B)",
         "any physical statement (ledger item 4)"
       ]
     }
@@ -187,6 +225,26 @@
         "CM_POINTS_RHO20_LATTICE_TIER.json": "882a866c0a01e718e64849d7c95edad0d15af9da54d8e4d4d76a4dd52477ee56",
         "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
         "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6"
+      },
+      "refreshed": null
+    },
+    {
+      "source_commit": "bd576c1",
+      "mirrored_on": "2026-10-07",
+      "files_sha256": {
+        "A2_MEMBERSHIP.json": "0d272dd44517cfc88affc69d3ddff8fa191dd74318fb81d97a977629a8ebd6b0",
+        "C2_cooper_s10_v5.json": "bc1f1ebc76dfedd27a9a9e0ae5d66ce3b5f2a2852105885ee329fb93db2f1e4e",
+        "C2_cooper_s7_v6.json": "789fec2ac3d7fd3c5bfadc91fd2524836dae53147f4d596637182d97d110c078",
+        "C6_SELECTED_CANDIDATE.json": "48cf40d28fc6a9980f4657cf6db36b7956163de363db1dd40f7180e2046d2658",
+        "C6_SELECTOR_COMPARISON.json": "aedcafd90b96fb261da4e68a8788126fba90b4faa9db08d7d9ed0430a42d9c71",
+        "CERTIFIED_MONODROMY_L2_cooper_s10.json": "d811432f513e98b202e28ec560409eb43114312f9b9551c0966636f552c90dca",
+        "CERTIFIED_MONODROMY_L2_cooper_s7.json": "69626f35d45d1ecf7911a0add900ff9a2e036148d16796c7c5e557a615cdbc99",
+        "CM_COMPLETENESS.json": "c9749d68a1d06d62f98707641f22c68df453f6cf664da715c04542477c44a5c6",
+        "CM_POINTS_RHO20.json": "c549f71ed27cd2a4418cad3398f5ce8293307809f64185ffcbc7f66f59283993",
+        "CM_POINTS_RHO20_LATTICE_TIER.json": "9b11021e71f52cc3fb4cdee28ed2a20899cc076ece6629dddb9fe37170789b0d",
+        "INOSE_FIBRATION_MULTIPLICITIES.json": "e75d3ff3633443a9e7b905a7dcca6333bbe64e06102dcff434d3f13a845bd99c",
+        "INOSE_MODEL_M7.json": "96abd41a9cd36ed2299f10bc21a70588c02954a22dc66c550b60e083b4c684e6",
+        "TW0_HODGE_DEGREE_ORBIFOLD.json": "0be0fc09756bfcfdaa319d743683f1ccebb810b06f858b6950d09c87e4da1c61"
       },
       "refreshed": null
     }
