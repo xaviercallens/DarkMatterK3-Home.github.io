@@ -66,13 +66,37 @@ class RealDataBlockedError(PermissionError):
     """Real-data sweep requested before the theory-corrections ruling is pinned."""
 
 
-def load_real_observation():
-    """P₉ from the tracked aggregation artifact — refused until C1–C5 are pinned."""
+def load_real_observation(design=None):
+    """P₉ from the tracked aggregation artifact — refused until C1–C5 are pinned.
+
+    design: None/"v1" reads the v1 artifact; "v2" reads the C4 artifact (band 8 from 7 members). Both are refused
+    while REAL_DATA_RULING_PIN is unset; the pin must name an existing file."""
     if REAL_DATA_RULING_PIN is None or not (REPO_ROOT / REAL_DATA_RULING_PIN).is_file():
         raise RealDataBlockedError(
             "real-data sweep blocked: theory-corrections ruling (C1–C5) not pinned; see "
             "briefs/T0_DECISION_REQUEST_SWEEP_THEORY_CORRECTIONS_2026_09_17.md")
-    return np.asarray(json.load(open(keff.AGG_JSON))["data_agg_p1d_kms"], dtype=float)
+    src = keff.V2.agg_json if design == "v2" else keff.AGG_JSON
+    return np.asarray(json.load(open(src))["data_agg_p1d_kms"], dtype=float)
+
+
+SIII_NAME = "s_siiii"
+
+
+def _v2_starts(base_starts, s_values=(1.0, 0.2, 3.0, 0.6, 2.4, 1.4, 3.6, 0.1, 2.0)):
+    """Design-v2 starts: each v1 start gets a deterministic Si III amplitude (first = upstream's own value 1.0)."""
+    return [dict(st, **{SIII_NAME: float(s_values[i % len(s_values)])}) for i, st in enumerate(base_starts)]
+
+
+def make_predictor_v2(predict_native, k_eff, corrector):
+    """Design-v2 predictor: (m, f, zrei, ha, hs, taueff, s) → 9 bands. Native emulator × pixel × (1 + s·g) × patchy,
+    then K1 at k_eff. `corrector` comes from sweep_corrections.load_corrector() (hash-pinned). Allowed in real mode."""
+    import sweep_corrections as sc
+    k_eff = np.asarray(k_eff, dtype=float)
+
+    def predict(m, f, zrei, ha, hs, taueff, s):
+        mult = sc.multiplier(corrector, s)
+        return keff.predict_at_keff(np.asarray(predict_native(m, f, zrei, ha, hs, taueff)) * mult, k_eff)
+    return predict
 
 
 def make_predictor(predict_native, k_eff, theory_multiplier, mode):
@@ -106,6 +130,26 @@ CONTOUR_WITHHELD = ("WITHHELD — {n} cell(s) ineligible (non-finite-nuisance gu
                     "(briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)")
 
 
+DOF_CELL_V2 = 4                               # design v2: 9 bins − 5 profiled nuisances (4 IGM + Si III amplitude), ruling C5(a)
+# Eligibility rule (T0 decision request 2026-09-21): "E-A" = any guarded evaluation voids the cell (v1 default);
+# "E-B" = the cell is eligible iff the start that produced the retained minimum had zero guarded evaluations.
+# E-B is selected by the design-v2 ruling (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md); it is inert until pinned.
+ELIGIBILITY_RULE = "E-A"
+
+
+def cell_eligible(r, rule):
+    n_guard = int(getattr(r, "nonfinite_evaluations", 0))
+    if rule == "E-A":
+        return n_guard == 0
+    if rule == "E-B":
+        per = tuple(getattr(r, "start_nonfinite", ()))
+        fv = tuple(getattr(r, "start_fvals", ()))
+        if not per or len(per) != len(fv):
+            return n_guard == 0                   # no per-start accounting available: fall back to the conservative rule
+        return per[int(np.argmin(fv))] == 0       # first strict minimum == the start the profiler retained
+    raise ValueError(f"unknown eligibility rule {rule!r}")
+
+
 def _profile_cell(ij):
     """Profile one cell. A failure is returned, not raised: before 2026-09-21 one cell's exception
     propagated through pool.map and destroyed the whole sweep. The failure is recorded in the artifact and
@@ -113,13 +157,14 @@ def _profile_cell(ij):
     i, j = ij
     prof, m_grid, f_grid = _WORKER["prof"], _WORKER["m_grid"], _WORKER["f_grid"]
     try:
-        r = prof.profile_likelihood(float(m_grid[i]), float(f_grid[j]), starts=PROFILE_STARTS)
+        r = prof.profile_likelihood(float(m_grid[i]), float(f_grid[j]), starts=_WORKER.get("starts", PROFILE_STARTS))
     except Exception as exc:                      # noqa: BLE001 — recorded verbatim below, never swallowed
         return i, j, None, f"{type(exc).__name__}: {exc}"
     return i, j, r, None
 
 
-def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_GRID, meta=None, workers=1):
+def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_GRID, meta=None, workers=1,
+              design="v1"):
     """Profile every (m, f) cell (deterministic multi-start); persist the JSON record before returning it.
 
     mode: "synthetic" or "real". Real mode requires load_real_observation() to have succeeded, and is
@@ -128,18 +173,30 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
     """
     if mode not in ("synthetic", "real"):
         raise ValueError("mode must be 'synthetic' or 'real'")
+    if design not in ("v1", "v2"):
+        raise ValueError("design must be 'v1' or 'v2'")
+    import sweep_corrections as sc
+    v2 = design == "v2"
+    dof = DOF_CELL_V2 if v2 else DOF_CELL
+    rule = "E-B" if v2 else ELIGIBILITY_RULE
     if mode == "real":
-        load_real_observation()            # raises while blocked
-    real_p9 = np.asarray(json.load(open(keff.AGG_JSON))["data_agg_p1d_kms"], dtype=float)
-    if mode == "synthetic" and np.allclose(np.asarray(p_obs, dtype=float), real_p9, rtol=1e-9, atol=0):
-        raise RealDataBlockedError("synthetic mode was given the real observed vector")
+        load_real_observation(design)      # raises while blocked
+    # a synthetic run must not be handed ANY real vector (v1 or v2 artifact)
+    for src in (keff.AGG_JSON, keff.V2.agg_json):
+        if Path(src).exists():
+            real_p9 = np.asarray(json.load(open(src))["data_agg_p1d_kms"], dtype=float)
+            if mode == "synthetic" and np.allclose(np.asarray(p_obs, dtype=float), real_p9, rtol=1e-9, atol=0):
+                raise RealDataBlockedError("synthetic mode was given the real observed vector")
 
     cov9_sys = np.asarray(cov9_sys, dtype=float)
     cov_inv = linalg.cho_solve(linalg.cho_factor(cov9_sys), np.eye(9))
     cov_inv = 0.5 * (cov_inv + cov_inv.T)
-    prof = chi2_profile.Chi2Profiler(np.asarray(p_obs, dtype=float), cov_inv, predict, hartlap_n=None)
+    extra = {SIII_NAME: (*sc.SIII_PRIOR_BOX, sc.SIII_INIT)} if v2 else None
+    prof = chi2_profile.Chi2Profiler(np.asarray(p_obs, dtype=float), cov_inv, predict, hartlap_n=None,
+                                     extra_nuisances=extra)
+    starts = _v2_starts(PROFILE_STARTS) if v2 else PROFILE_STARTS
 
-    _WORKER.update(prof=prof, m_grid=np.asarray(m_grid), f_grid=np.asarray(f_grid))
+    _WORKER.update(prof=prof, m_grid=np.asarray(m_grid), f_grid=np.asarray(f_grid), starts=starts)
     todo = [(i, j) for i in range(len(m_grid)) for j in range(len(f_grid))]
     if workers > 1:
         with mp.get_context("fork").Pool(workers) as pool:
@@ -147,7 +204,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
     else:
         results = [_profile_cell(ij) for ij in todo]
 
-    names = ["zrei", "ha", "hs", "taueff"]
+    names = ["zrei", "ha", "hs", "taueff"] + ([SIII_NAME] if v2 else [])
     chi2 = np.full((len(m_grid), len(f_grid)), np.nan)
     eligible = np.zeros((len(m_grid), len(f_grid)), dtype=bool)
     cells = []
@@ -160,10 +217,10 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
         tau = r.nuisance_params["taueff"]
         fv = np.asarray(r.start_fvals)
         n_guard = int(getattr(r, "nonfinite_evaluations", 0))
-        eligible[i, j] = n_guard == 0
+        eligible[i, j] = cell_eligible(r, rule)
         cells.append({
             "m": float(m_grid[i]), "f": float(f_grid[j]), "chi2_min": float(r.chi2_min),
-            "gof_p_value_5dof": float(stats.chi2.sf(r.chi2_min, DOF_CELL)),
+            ("gof_p_value_4dof" if v2 else "gof_p_value_5dof"): float(stats.chi2.sf(r.chi2_min, dof)),
             "best_fit": {n: float(r.nuisance_params[n]) for n in names},
             "valid_minimum": bool(r.valid_minimum), "at_boundary": bool(r.at_boundary),
             "taueff_at_prior_box_edge": bool(min(abs(tau - 0.3), abs(tau - 1.8)) < 1e-4),
@@ -173,7 +230,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
             "failed": False,
             "nonfinite_evaluations": n_guard,
             "start_nonfinite": list(getattr(r, "start_nonfinite", ())),
-            "contour_eligible": bool(n_guard == 0),
+            "contour_eligible": bool(eligible[i, j]),
         })
     if not eligible.any():
         raise RuntimeError("no contour-eligible cell in the sweep: every cell failed or needed the "
@@ -196,9 +253,11 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "pins": ["briefs/PREDICTION_V2_AMENDMENT_DRAFT_2026_07_29.md", "briefs/WP_E6_SWEEP_DESIGN_PINNED_2026_09_16.md",
                  "briefs/WP_E6_SWEEP_KEFF_RULING_PINNED_2026_09_17.md"],
-        "statistic": {"cell": f"chi2_min, {DOF_CELL} dof", "contour": f"delta chi2, 2 dof, threshold {DCHI2_95_2DOF:.4f} (95%)"},
+        "design": design,
+        "eligibility_rule": rule,
+        "statistic": {"cell": f"chi2_min, {dof} dof", "contour": f"delta chi2, 2 dof, threshold {DCHI2_95_2DOF:.4f} (95%)"},
         "optimizer": {"method": "iminuit Migrad, deterministic multi-start (medians + 8-pt LHS, seed 20260917), re-run once if invalid",
-                      "n_starts": len(PROFILE_STARTS), "residual_definition": f"best of first {RESIDUAL_SPLIT} starts − best of all",
+                      "n_starts": len(starts), "residual_definition": f"best of first {RESIDUAL_SPLIT} starts − best of all",
                       "max_residual": float(resid.max()), "cells_with_residual_gt_0p1": int((resid > 0.1).sum())},
         "taueff_note": TAUEFF_NOTE,
         "m_grid": list(map(float, m_grid)), "f_grid": list(map(float, f_grid)),
