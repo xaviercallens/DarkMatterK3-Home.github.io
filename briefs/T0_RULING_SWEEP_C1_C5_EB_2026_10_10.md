@@ -92,6 +92,19 @@ What this says and what it does not:
   (an E-C follow-up or an added validity condition), and the fifth nuisance may need a tighter box or a prior. Both change the
   ruling and are T0's.
 
+## T0's choice on invalid minima: rule E-B+V (2026-10-10)
+
+T0 (Xavier), replying to the open question on invalid minima, in these words: **"Rule E-B+V"**. This is a T0 sentence, not a
+delegated decision, and it supersedes the delegated E-B for design v2. A cell is contour-eligible iff the start that produced
+the retained minimum had zero guarded evaluations **and** the retained fit is a valid Minuit minimum (`sweep.cell_eligible`,
+rule `"E-B+V"`; `run_sweep(design="v2")` now uses it, v1 is unchanged).
+
+What it does not settle, still open:
+* On the 12 synthetic draws, 7 of 12 truth-cell fits were invalid, so this rule withholds those cells and a v2 sweep on
+  similar data would withhold most of them. The rule makes the defect visible; it does not fix the optimizer (E-C).
+* The Si III amplitude box [0, 4] and whether it needs a prior are undecided.
+* The pin (`REAL_DATA_RULING_PIN`) is still unset, and a pin on this evidence would be T0's call.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector

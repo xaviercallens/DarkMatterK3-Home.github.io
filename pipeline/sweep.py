@@ -182,7 +182,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
     import sweep_corrections as sc
     v2 = design == "v2"
     dof = DOF_CELL_V2 if v2 else DOF_CELL
-    rule = "E-B" if v2 else ELIGIBILITY_RULE
+    rule = "E-B+V" if v2 else ELIGIBILITY_RULE      # design v2: T0 chose E-B+V on 2026-10-10 (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md)
     if mode == "real":
         load_real_observation(design)      # raises while blocked
     # a synthetic run must not be handed ANY real vector (v1 or v2 artifact)
