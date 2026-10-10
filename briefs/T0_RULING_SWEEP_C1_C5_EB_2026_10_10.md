@@ -105,6 +105,20 @@ What it does not settle, still open:
 * The Si III amplitude box [0, 4] and whether it needs a prior are undecided.
 * The pin (`REAL_DATA_RULING_PIN`) is still unset, and a pin on this evidence would be T0's call.
 
+## Delegated decisions taken on T0's behalf, 2026-10-10 ("continue and take decision on my behalf")
+
+Each is reversible by one T0 sentence.
+
+1. **Si III box stays [0, 4], no prior added.** Reason: the only evidence for changing it is the synthetic validation, and
+   tightening a box after seeing where fits land is tuning on the validation. Fits at the lower edge are not a defect (s ≥ 0 is
+   physical) and are reported as at-boundary. A prior is a modelling choice with no data behind it today.
+2. **The pin is NOT set.** Reason: 7 of 12 synthetic truth-cell fits were invalid, so a real sweep under E-B+V would withhold
+   most cells. Pinning would pre-register a design whose validation has not passed. The pin stays T0's one-line edit.
+3. **E-C (fix the optimizer) is opened as follow-up work, not done here.** The messages ("initial matrix not pos.def.") point at
+   flat directions interacting with the box; that is a diagnosis to make, with its own validation, not a change to slip into a
+   ruling. Suggested first step: re-run the 7 invalid draws with a bounded fallback for a start that returns invalid, and count.
+4. **PR #19 is merged.** It adds evidence, a selectable rule and T0's E-B+V choice; it sets no pin and runs no real data.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector
