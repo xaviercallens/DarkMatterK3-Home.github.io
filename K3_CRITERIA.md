@@ -226,7 +226,7 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 - **Failure:** no removal; the candidate simply has no certified modular coordinate.
 - **Tier:** B. **Scoring:** none.
 
-### T3 — Level consistency — *added 2026-09-21 (AM-4); consistency gate, never scored*
+### T3 — Level consistency — *added 2026-09-21 (AM-4); **hard gate since 2026-10-08 (AM-9, D30′)**, never scored*
 - **Definition:** the `n` re-derived from the lattice certificate (C2) equals the level at which the
   candidate's inverse mirror map is verified to uniformize.
 - **Wording that is part of the criterion:** these are **two disjoint computations on the same
@@ -241,8 +241,15 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
   (`ATKIN_LEHNER_DISC_FORM.json`); the former flag `ATKIN_LEHNER_ACTION_UNVERIFIED` is therefore
   retired. The one open flag on `cooper_s10` is `LATTICE_CERT_DRAFT`, a **process** item (C2 above),
   not a mathematical one. The two are never to be merged into one flag.
-- **Failure:** disagreement is a finding to escalate, not an automatic removal.
-- **Tier:** B. **Scoring:** none.
+- **Failure (AM-9, 2026-10-08, D30′; replaces "disagreement is a finding to escalate, not an automatic
+  removal"):** a T3 certificate whose verdict is `T3_DISAGREE` removes the candidate (branch F1), in the same
+  PR as the certificate, and the disagreement is still escalated as a finding. A candidate with **no** T3
+  certificate (it lacks a leg — e.g. no C2 lattice certificate) is **not** failed: per §4, an absent
+  certificate is neither a pass nor a failure. The stated limits above are unchanged and are part of the
+  gate: its discriminating power against a real two-leg candidate is UNESTABLISHED, and its teeth are
+  directional. **Impact at adoption:** both two-leg candidates (s7, s10) are `T3_AGREE`; the gate removes no
+  current candidate and creates no ordering between them.
+- **Tier:** B. **Scoring:** none — a hard gate excludes; it never contributes a score term.
 
 ---
 
@@ -264,9 +271,15 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
   statement resting on it ADVISORY. (Added 2026-09-21 with AM-3: `cooper_s10`'s lattice certificate
   is DRAFT by T0 D6′ and must not read as failing the amended C2. Superseded for `cooper_s10` on
   2026-09-29, D15′: `C2_cooper_s10_v5.json` is LIVE; the rule itself stands.)
-- **C6, T1 and T3 are neither hard nor soft: they are not scored at all.** C6 records which members
-  of a family are candidates; T1 and T3 are consistency gates. None contributes a term to any score,
-  and AutoEvolve may not read them as one.
+- **C6 and T1 are neither hard nor soft: they are not scored at all.** C6 records which members of a
+  family are candidates; T1 is a consistency gate. Neither contributes a term to any score, and
+  AutoEvolve may not read them as one.
+- **T3 is a hard gate (AM-9, 2026-10-08, D30′):** a failed T3 certificate (`T3_DISAGREE`) triggers F1;
+  an absent one does not. Like every hard gate it excludes and never scores.
+- **Scoring considered 2026-10-08 (D31′) and NOT adopted:** the score formula below stays TBD-AT-FREEZE.
+  Before the v1.0 freeze no ranking run is permitted (§6 table); C4 and C5 have no checkers, and C4's
+  requirements await the blocked EFT matching. Any score definable today reduces to the hard-gate vector,
+  on which cooper_s7 and cooper_s10 both pass, and ledger items 8/9 bar a cross-family ordering in any case.
 - Soft criteria (margin-scored): C4, C5 — weights TBD-AT-FREEZE, fixed before any ranking run, hash-pinned with this file.
 - Score formula: TBD-AT-FREEZE (proposed: lexicographic — hard criteria as gates, then weighted soft margins). AutoEvolve may not modify weights at runtime.
 
@@ -287,7 +300,7 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 > Tiers and caveats are those stated in §2 and in the certificates themselves.
 
 <!-- BEGIN GENERATED STATUS TABLE: scripts/render_status_table.py -- do not edit by hand -->
-**Scored criteria** (proposed hard set per §4, TBD-AT-FREEZE: C1, C2, C3 · soft: C4, C5, weights TBD-AT-FREEZE · C3b gates S3-00 input). `no certificate` is neither a pass nor a failure. The §1 pool flag is the register's pool assignment in the narrow sense §1 states, not an epistemic tier.
+**Scored criteria** (proposed hard set per §4, TBD-AT-FREEZE: C1, C2, C3; T3 is a hard gate since AM-9 and is shown in the second table · soft: C4, C5, weights TBD-AT-FREEZE · C3b gates S3-00 input). `no certificate` is neither a pass nor a failure. The §1 pool flag is the register's pool assignment in the narrow sense §1 states, not an epistemic tier.
 
 | Register row (refs entry) | §1 pool flag | C1 | C2 | C3 | C3b | C4 | C5 |
 |---|---|---|---|---|---|---|---|
@@ -295,7 +308,7 @@ Template per criterion: **Definition** (mathematically exact) · **Checking proc
 | K-s10 (`cooper_s10`) | `TIER_A_POOL` | `PASS(60)` | LIVE: T ≅ U⊕⟨20⟩ (`C2_cooper_s10_v5.json`; T0 acceptance `briefs/T0_DECISIONS_2026_09_29_STREAM2_DELEGATED.md#d15`); stage-2 monodromy CERTIFIED, chain to this lattice closed (`CERTIFIED_MONODROMY_L2_cooper_s10.json`) | `SYM2_OPERATOR_IDENTITY_PROVEN(all-n symbolic; partner revalidated to n=58, mirror q^14)` | no certificate | TBD-AT-FREEZE (no checker) | TBD-AT-FREEZE (no checker) |
 | K-s18 (`avs_sporadic3_s18`) | `TIER_B_QUARANTINE` | `PASS(60)` | no certificate | no certificate | no certificate | TBD-AT-FREEZE (no checker) | TBD-AT-FREEZE (no checker) |
 
-**Unscored — record and consistency gates** (C6, T1, T3; never scored, §4). C6 is rendered without counts: CM points are dense and a certificate lists a window, not a complete or ordered set.
+**Record and consistency gates** (C6 and T1 are never scored; T3 is a hard gate since AM-9: a failed T3 certificate removes the candidate, and T3 still contributes no score term, §4). C6 is rendered without counts: CM points are dense and a certificate lists a window, not a complete or ordered set.
 
 | Register row (refs entry) | §1 pool flag | C6 | T1 | T3 |
 |---|---|---|---|---|
@@ -327,6 +340,7 @@ Identity: each row's refs entry is the unique `refs/recurrences_v1.json` entry w
 | v0.1c | 2026-09-21 | AM-1…AM-5 (T0 D8′): C6 ρ=20 cut (narrow), C3 literal, C2 → lattice gate, T1/T3 unscored gates, canonical copy here | n/a (no ranking run yet) |
 | v0.1d | 2026-09-27 | AM-6 (T0 D9′): C6 selector clause; AM-7: C3 checker path corrected to `check_C3b_symsqrt.py`; §7 selector item; §5 table generated by `scripts/render_status_table.py` | n/a (no ranking run yet) |
 | v0.1e | 2026-09-28 | AM-8 (T0, `AskUserQuestion` choice "SEL-D"): C6 selector adopted — minimal `\|disc T\|` per family, narrows D7′'s "no minimum-\|D\| rule" to cross-family only; §7 selector item satisfied | n/a (no ranking run yet) |
+| v0.1f | 2026-10-08 | AM-9 (D30′, taken on T0's behalf on T0's instruction "start T3"): T3 becomes a hard gate (failed certificate ⇒ F1; absent ⇒ no failure); its stated limits kept. D31′: scoring considered and not adopted (pre-freeze; no soft checkers; s7/s10 tie on the hard gates) | n/a (no ranking run exists); removes no current candidate |
 | v1.0 | (freeze) | Full criteria: all TBD-AT-FREEZE resolved with citations; §7 checklist signed | — |
 
 ---
