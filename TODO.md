@@ -13,6 +13,10 @@
   including `test_chi2_profile.py` and `test_sweep.py`.
 - **`K3_CRITERIA.md` re-synced** byte for byte to K3-DarkMatter `06dd34a` (sha256 `005b37c3…`; AM-9: T3 is a hard gate, D31′: scoring
   considered and not adopted). This copy is a mirror, not an authority.
+- **WP-E6 synthetic validation re-run (SYNTHETIC; no real data), 2026-10-10**, on `main` @ fff5625 under `~/venv` with `pipefail`:
+  `scripts/wp_e6_sweep_synthetic_validation_2026_09_17.py` ended `SYNTHETIC VALIDATION: PASS (S1, S3, S4)`, exit 0, and
+  `data/derived/wp_e6_sweep_synthetic_validation_2026_09_17/` is **bit-identical** to the committed outputs (`git status` of the
+  directory empty after the run). Convergence-health notes are reported, not gated, as before.
 - **No real-data run was made.** `pipeline/sweep.py` still has `REAL_DATA_RULING_PIN = None` and raises on real data; the C1–C5
   theory-corrections ruling and the eligibility rule (E-A/B/C) are unruled, and Phases 1–4 of WP-E6 v2 are not authorized.
   Home has no "K3 numeric selection" pipeline: the K3 selection is Stream 2's, and Home only mirrors it.
