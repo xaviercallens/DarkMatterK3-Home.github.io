@@ -65,6 +65,21 @@ What this does and does not say:
   be expected to localise (m, f) here.
 * Not done: a multi-draw coverage study, or a run over the full 56-cell grid. Both are needed before any real vector is fitted.
 
+## Coverage run: INCOMPLETE (5 of 12 planned draws; stopped by the system for low memory, 2026-10-10)
+
+`scripts/wp_e6_sweep_v2_coverage_2026_10_10.py`, record `data/derived/wp_e6_sweep_v2_coverage_2026_10_10.json` (no summary block:
+the run never finished). Draw count, seeds and grid were fixed before the run. Five draws are not a coverage result.
+
+| Measure (5 draws) | Count |
+|---|---|
+| Truth cell inside the 2-dof 95% region | 5 |
+| Truth cell's fit a valid minimum | 4 |
+| Truth cell's fit at a bound | 3 |
+| Fitted s (true 1.0) | 3.21, 0.00, 1.73, 0.00, 1.53 |
+
+Reading: the truth is not excluded in any draw, but the Si III amplitude is weakly constrained and often sits on a box edge.
+Rerun needs a quiet machine: 12 draws at roughly 15 minutes each. Not rerun, by instruction.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector

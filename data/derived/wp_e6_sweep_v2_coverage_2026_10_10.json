@@ -1,0 +1,116 @@
+{
+ "label": "SYNTHETIC-VALIDATION \u2014 emulator-generated; not exclusion, not FIT, not TEST; no real vector read",
+ "generated_utc": "2026-10-10T17:28:14.631662+00:00",
+ "truth": {
+  "m": -22.0,
+  "f": 0.2,
+  "s": 1.0
+ },
+ "n_draws": 12,
+ "seed0": 20261011,
+ "grid": {
+  "m": [
+   -22.5,
+   -22.0,
+   -21.0
+  ],
+  "f": [
+   0.1,
+   0.2,
+   0.6
+  ]
+ },
+ "threshold_dchi2_2dof_95": 5.9915,
+ "draws": [
+  {
+   "draw": 0,
+   "seed": 20261011,
+   "truth_chi2": 1.6109608605577235,
+   "grid_min_chi2": 1.6109608605577235,
+   "truth_dchi2": 0.0,
+   "truth_inside_95": true,
+   "truth_eligible": true,
+   "truth_valid_minimum": true,
+   "truth_at_boundary": false,
+   "truth_s_fit": 3.2075144135543816,
+   "n_ineligible": 0,
+   "grid_min_cell": {
+    "m": -22.0,
+    "f": 0.2,
+    "chi2_min": 1.6109608605577235
+   }
+  },
+  {
+   "draw": 1,
+   "seed": 20261012,
+   "truth_chi2": 3.7373813950624513,
+   "grid_min_chi2": 3.3629151128178534,
+   "truth_dchi2": 0.3744662822445979,
+   "truth_inside_95": true,
+   "truth_eligible": true,
+   "truth_valid_minimum": true,
+   "truth_at_boundary": true,
+   "truth_s_fit": 5.223864323733408e-06,
+   "n_ineligible": 0,
+   "grid_min_cell": {
+    "m": -22.5,
+    "f": 0.2,
+    "chi2_min": 3.3629151128178534
+   }
+  },
+  {
+   "draw": 2,
+   "seed": 20261013,
+   "truth_chi2": 3.5112805479958795,
+   "grid_min_chi2": 2.967336114831724,
+   "truth_dchi2": 0.5439444331641554,
+   "truth_inside_95": true,
+   "truth_eligible": true,
+   "truth_valid_minimum": true,
+   "truth_at_boundary": true,
+   "truth_s_fit": 1.7349774671173377,
+   "n_ineligible": 0,
+   "grid_min_cell": {
+    "m": -22.5,
+    "f": 0.2,
+    "chi2_min": 2.967336114831724
+   }
+  },
+  {
+   "draw": 3,
+   "seed": 20261014,
+   "truth_chi2": 5.938077444178005,
+   "grid_min_chi2": 5.529705471227678,
+   "truth_dchi2": 0.40837197295032723,
+   "truth_inside_95": true,
+   "truth_eligible": true,
+   "truth_valid_minimum": false,
+   "truth_at_boundary": true,
+   "truth_s_fit": 5.373024116529009e-07,
+   "n_ineligible": 0,
+   "grid_min_cell": {
+    "m": -22.5,
+    "f": 0.2,
+    "chi2_min": 5.529705471227678
+   }
+  },
+  {
+   "draw": 4,
+   "seed": 20261015,
+   "truth_chi2": 2.44659214277041,
+   "grid_min_chi2": 2.333809389198132,
+   "truth_dchi2": 0.11278275357227807,
+   "truth_inside_95": true,
+   "truth_eligible": true,
+   "truth_valid_minimum": true,
+   "truth_at_boundary": false,
+   "truth_s_fit": 1.530884042150765,
+   "n_ineligible": 0,
+   "grid_min_cell": {
+    "m": -22.0,
+    "f": 0.1,
+    "chi2_min": 2.333809389198132
+   }
+  }
+ ]
+}
