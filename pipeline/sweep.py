@@ -147,6 +147,10 @@ def cell_eligible(r, rule):
         if not per or len(per) != len(fv):
             return n_guard == 0                   # no per-start accounting available: fall back to the conservative rule
         return per[int(np.argmin(fv))] == 0       # first strict minimum == the start the profiler retained
+    if rule == "E-B+V":
+        # E-B plus: the retained fit must be a valid Minuit minimum. Added 2026-10-10 after the 12-draw synthetic
+        # coverage run found 7 of 12 truth-cell fits invalid yet eligible under E-B. NOT selected by any ruling.
+        return cell_eligible(r, "E-B") and bool(getattr(r, "valid_minimum", False))
     raise ValueError(f"unknown eligibility rule {rule!r}")
 
 
@@ -178,7 +182,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
     import sweep_corrections as sc
     v2 = design == "v2"
     dof = DOF_CELL_V2 if v2 else DOF_CELL
-    rule = "E-B" if v2 else ELIGIBILITY_RULE
+    rule = "E-B+V" if v2 else ELIGIBILITY_RULE      # design v2: T0 chose E-B+V on 2026-10-10 (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md)
     if mode == "real":
         load_real_observation(design)      # raises while blocked
     # a synthetic run must not be handed ANY real vector (v1 or v2 artifact)

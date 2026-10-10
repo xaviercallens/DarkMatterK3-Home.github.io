@@ -65,6 +65,60 @@ What this does and does not say:
   be expected to localise (m, f) here.
 * Not done: a multi-draw coverage study, or a run over the full 56-cell grid. Both are needed before any real vector is fitted.
 
+## Coverage run: 12 fixed-seed noise draws, synthetic only (2026-10-10; resumed once after a low-memory stop)
+
+`scripts/wp_e6_sweep_v2_coverage_2026_10_10.py`, record `data/derived/wp_e6_sweep_v2_coverage_2026_10_10.json`. Draw count, seeds and
+the 3×3 grid were fixed before the run. Draws 0–4 ran first, then the run was stopped by the system for low memory and resumed
+with the same seeds for draws 5–11 (BLAS threads capped at 2).
+
+| Measure (12 draws) | Count |
+|---|---|
+| Truth cell inside the 2-dof 95% region | 12 |
+| Truth cell eligible under E-B | 12 |
+| Truth cell's fit a **valid** minimum | **5** |
+| Truth cell's fit at a bound | 6 |
+| Mean truth-cell χ² (expectation 4 for 4 dof) | 4.21 |
+| Fitted s, true 1.0 | median 1.38, range 0.00 to 3.66 |
+
+What this says and what it does not:
+* **The inside-95% count is weak evidence.** The grid is flat (the truth's Δχ² is at most 1.4 in every draw), so a region that
+  large contains the truth almost regardless of the fit. It is not a power statement.
+* **The optimizer is the problem, not the physics.** Seven of 12 truth-cell fits did not return a valid minimum, and the
+  run logged repeated "initial matrix not pos.def." messages. **E-B did not catch them:** eligibility keys on non-finite
+  guard evaluations, not on `valid_minimum`, so an invalid minimum is currently contour-eligible. This is a defect of the
+  eligibility rule as written, not of the data.
+* The χ² level is plausible (mean 4.2 for 4 degrees of freedom), and s is poorly constrained (box-edge fits in half the draws).
+* **Consequence for T0:** do not pin on this evidence. Before any real vector, the rule needs a decision on invalid minima
+  (an E-C follow-up or an added validity condition), and the fifth nuisance may need a tighter box or a prior. Both change the
+  ruling and are T0's.
+
+## T0's choice on invalid minima: rule E-B+V (2026-10-10)
+
+T0 (Xavier), replying to the open question on invalid minima, in these words: **"Rule E-B+V"**. This is a T0 sentence, not a
+delegated decision, and it supersedes the delegated E-B for design v2. A cell is contour-eligible iff the start that produced
+the retained minimum had zero guarded evaluations **and** the retained fit is a valid Minuit minimum (`sweep.cell_eligible`,
+rule `"E-B+V"`; `run_sweep(design="v2")` now uses it, v1 is unchanged).
+
+What it does not settle, still open:
+* On the 12 synthetic draws, 7 of 12 truth-cell fits were invalid, so this rule withholds those cells and a v2 sweep on
+  similar data would withhold most of them. The rule makes the defect visible; it does not fix the optimizer (E-C).
+* The Si III amplitude box [0, 4] and whether it needs a prior are undecided.
+* The pin (`REAL_DATA_RULING_PIN`) is still unset, and a pin on this evidence would be T0's call.
+
+## Delegated decisions taken on T0's behalf, 2026-10-10 ("continue and take decision on my behalf")
+
+Each is reversible by one T0 sentence.
+
+1. **Si III box stays [0, 4], no prior added.** Reason: the only evidence for changing it is the synthetic validation, and
+   tightening a box after seeing where fits land is tuning on the validation. Fits at the lower edge are not a defect (s ≥ 0 is
+   physical) and are reported as at-boundary. A prior is a modelling choice with no data behind it today.
+2. **The pin is NOT set.** Reason: 7 of 12 synthetic truth-cell fits were invalid, so a real sweep under E-B+V would withhold
+   most cells. Pinning would pre-register a design whose validation has not passed. The pin stays T0's one-line edit.
+3. **E-C (fix the optimizer) is opened as follow-up work, not done here.** The messages ("initial matrix not pos.def.") point at
+   flat directions interacting with the box; that is a diagnosis to make, with its own validation, not a change to slip into a
+   ruling. Suggested first step: re-run the 7 invalid draws with a bounded fallback for a start that returns invalid, and count.
+4. **PR #19 is merged.** It adds evidence, a selectable rule and T0's E-B+V choice; it sets no pin and runs no real data.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector

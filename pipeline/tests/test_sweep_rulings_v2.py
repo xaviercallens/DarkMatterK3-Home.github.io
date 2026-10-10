@@ -155,7 +155,7 @@ class TestRunSweepV2Synthetic:
         sweep, pred, data, cov_sys = self._setup()
         rec = sweep.run_sweep(data, cov_sys, pred, "synthetic", tmp_path / "o.json",
                               m_grid=np.array([-22.0, -21.5]), f_grid=np.array([0.2, 0.35]), design="v2")
-        assert rec["design"] == "v2" and rec["eligibility_rule"] == "E-B"
+        assert rec["design"] == "v2" and rec["eligibility_rule"] == "E-B+V"
         assert rec["statistic"]["cell"].endswith("4 dof")
         cell = [c for c in rec["cells"] if c["m"] == -22.0 and c["f"] == 0.2][0]
         assert cell["chi2_min"] < 1e-3                      # truth cell fits a noiseless vector exactly
@@ -202,6 +202,18 @@ class TestEligibilityEB:
         import sweep
         r = self.R([5.0, 3.0], [0, 17])         # the guarded start 2 has the lowest chi2: retained minimum is degenerate
         assert not sweep.cell_eligible(r, "E-B")
+
+    def test_EBV_withholds_invalid_minimum_that_EB_accepts(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum = False
+        assert sweep.cell_eligible(r, "E-B") and not sweep.cell_eligible(r, "E-B+V")
+
+    def test_EBV_keeps_valid_clean_cell(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum = True
+        assert sweep.cell_eligible(r, "E-B+V")
 
     def test_unknown_rule_raises_and_default_is_conservative(self):
         import sweep
