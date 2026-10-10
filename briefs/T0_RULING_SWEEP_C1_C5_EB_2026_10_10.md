@@ -65,20 +65,32 @@ What this does and does not say:
   be expected to localise (m, f) here.
 * Not done: a multi-draw coverage study, or a run over the full 56-cell grid. Both are needed before any real vector is fitted.
 
-## Coverage run: INCOMPLETE (5 of 12 planned draws; stopped by the system for low memory, 2026-10-10)
+## Coverage run: 12 fixed-seed noise draws, synthetic only (2026-10-10; resumed once after a low-memory stop)
 
-`scripts/wp_e6_sweep_v2_coverage_2026_10_10.py`, record `data/derived/wp_e6_sweep_v2_coverage_2026_10_10.json` (no summary block:
-the run never finished). Draw count, seeds and grid were fixed before the run. Five draws are not a coverage result.
+`scripts/wp_e6_sweep_v2_coverage_2026_10_10.py`, record `data/derived/wp_e6_sweep_v2_coverage_2026_10_10.json`. Draw count, seeds and
+the 3×3 grid were fixed before the run. Draws 0–4 ran first, then the run was stopped by the system for low memory and resumed
+with the same seeds for draws 5–11 (BLAS threads capped at 2).
 
-| Measure (5 draws) | Count |
+| Measure (12 draws) | Count |
 |---|---|
-| Truth cell inside the 2-dof 95% region | 5 |
-| Truth cell's fit a valid minimum | 4 |
-| Truth cell's fit at a bound | 3 |
-| Fitted s (true 1.0) | 3.21, 0.00, 1.73, 0.00, 1.53 |
+| Truth cell inside the 2-dof 95% region | 12 |
+| Truth cell eligible under E-B | 12 |
+| Truth cell's fit a **valid** minimum | **5** |
+| Truth cell's fit at a bound | 6 |
+| Mean truth-cell χ² (expectation 4 for 4 dof) | 4.21 |
+| Fitted s, true 1.0 | median 1.38, range 0.00 to 3.66 |
 
-Reading: the truth is not excluded in any draw, but the Si III amplitude is weakly constrained and often sits on a box edge.
-Rerun needs a quiet machine: 12 draws at roughly 15 minutes each. Not rerun, by instruction.
+What this says and what it does not:
+* **The inside-95% count is weak evidence.** The grid is flat (the truth's Δχ² is at most 1.4 in every draw), so a region that
+  large contains the truth almost regardless of the fit. It is not a power statement.
+* **The optimizer is the problem, not the physics.** Seven of 12 truth-cell fits did not return a valid minimum, and the
+  run logged repeated "initial matrix not pos.def." messages. **E-B did not catch them:** eligibility keys on non-finite
+  guard evaluations, not on `valid_minimum`, so an invalid minimum is currently contour-eligible. This is a defect of the
+  eligibility rule as written, not of the data.
+* The χ² level is plausible (mean 4.2 for 4 degrees of freedom), and s is poorly constrained (box-edge fits in half the draws).
+* **Consequence for T0:** do not pin on this evidence. Before any real vector, the rule needs a decision on invalid minima
+  (an E-C follow-up or an added validity condition), and the fifth nuisance may need a tighter box or a prior. Both change the
+  ruling and are T0's.
 
 ## To make it live (T0)
 

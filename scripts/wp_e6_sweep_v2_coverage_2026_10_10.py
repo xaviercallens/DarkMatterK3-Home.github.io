@@ -51,7 +51,11 @@ def main():
     rec = {"label": "SYNTHETIC-VALIDATION — emulator-generated; not exclusion, not FIT, not TEST; no real vector read",
            "generated_utc": datetime.now(timezone.utc).isoformat(), "truth": TRUTH, "n_draws": N_DRAWS, "seed0": SEED0,
            "grid": {"m": M_GRID.tolist(), "f": F_GRID.tolist()}, "threshold_dchi2_2dof_95": THRESH, "draws": []}
-    for i in range(N_DRAWS):
+    if OUT.exists():                       # resume: keep finished draws, run only the rest (same seeds, same grid)
+        prev = json.load(open(OUT))
+        if prev.get("seed0") == SEED0 and prev.get("n_draws") == N_DRAWS and "summary" not in prev:
+            rec["draws"] = prev["draws"]
+    for i in range(len(rec["draws"]), N_DRAWS):
         rng = np.random.default_rng(SEED0 + i)
         data = clean + L @ rng.standard_normal(9)
         tmp = ROOT / f"data/derived/_tmp_cov_{i}.json"
