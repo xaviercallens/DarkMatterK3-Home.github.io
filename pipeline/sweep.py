@@ -106,6 +106,26 @@ CONTOUR_WITHHELD = ("WITHHELD — {n} cell(s) ineligible (non-finite-nuisance gu
                     "(briefs/STREAM3_SWEEP_NONFINITE_NUISANCE_DEFECT_2026_09_21.md sec.5)")
 
 
+DOF_CELL_V2 = 4                               # design v2: 9 bins − 5 profiled nuisances (4 IGM + Si III amplitude), ruling C5(a)
+# Eligibility rule (T0 decision request 2026-09-21): "E-A" = any guarded evaluation voids the cell (v1 default);
+# "E-B" = the cell is eligible iff the start that produced the retained minimum had zero guarded evaluations.
+# E-B is selected by the design-v2 ruling (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md); it is inert until pinned.
+ELIGIBILITY_RULE = "E-A"
+
+
+def cell_eligible(r, rule):
+    n_guard = int(getattr(r, "nonfinite_evaluations", 0))
+    if rule == "E-A":
+        return n_guard == 0
+    if rule == "E-B":
+        per = tuple(getattr(r, "start_nonfinite", ()))
+        fv = tuple(getattr(r, "start_fvals", ()))
+        if not per or len(per) != len(fv):
+            return n_guard == 0                   # no per-start accounting available: fall back to the conservative rule
+        return per[int(np.argmin(fv))] == 0       # first strict minimum == the start the profiler retained
+    raise ValueError(f"unknown eligibility rule {rule!r}")
+
+
 def _profile_cell(ij):
     """Profile one cell. A failure is returned, not raised: before 2026-09-21 one cell's exception
     propagated through pool.map and destroyed the whole sweep. The failure is recorded in the artifact and
@@ -160,7 +180,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
         tau = r.nuisance_params["taueff"]
         fv = np.asarray(r.start_fvals)
         n_guard = int(getattr(r, "nonfinite_evaluations", 0))
-        eligible[i, j] = n_guard == 0
+        eligible[i, j] = cell_eligible(r, ELIGIBILITY_RULE)
         cells.append({
             "m": float(m_grid[i]), "f": float(f_grid[j]), "chi2_min": float(r.chi2_min),
             "gof_p_value_5dof": float(stats.chi2.sf(r.chi2_min, DOF_CELL)),

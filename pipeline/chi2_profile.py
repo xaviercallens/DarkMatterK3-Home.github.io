@@ -134,6 +134,7 @@ class Chi2Profiler:
         predict_pk,
         hartlap_n: Optional[int] = None,
         hartlap_p: int = 9,
+        extra_nuisances: Optional[dict] = None,
     ):
         """
         Initialize profiler.
@@ -148,6 +149,10 @@ class Chi2Profiler:
                 cov_inv_corrected = hartlap_factor(hartlap_n, hartlap_p) * cov_inv.
                 Raises ValueError if hartlap_n <= hartlap_p + 2.
             hartlap_p: Covariance dimension for Hartlap formula (default 9).
+            extra_nuisances: Optional {name: (lower, upper, init)} of nuisances profiled IN ADDITION to the four IGM
+                ones (design v2, ruling C1(c-SiIII): one Si III amplitude). predict_pk is then called as
+                predict_pk(m, f, zrei, ha, hs, taueff, *extras) in insertion order. None = the original
+                four-nuisance behaviour, bit-for-bit.
 
         Raises:
             ValueError: If hartlap_n is provided but invalid (≤ p + 2).
@@ -181,8 +186,9 @@ class Chi2Profiler:
 
         self.predict_pk = predict_pk
         self.hartlap_n = hartlap_n
+        self.extra = dict(extra_nuisances or {})
 
-    def _chi2_single_cell(self, m, f, zrei, ha, hs, taueff):
+    def _chi2_single_cell(self, m, f, zrei, ha, hs, taueff, *extras):
         """
         Compute χ² for a single (m, f) cell at given nuisance parameters.
 
@@ -193,7 +199,7 @@ class Chi2Profiler:
         Returns:
             χ² = (p_pred - p_data)ᵀ Σ⁻¹ (p_pred - p_data).
         """
-        p_pred = np.asarray(self.predict_pk(m, f, zrei, ha, hs, taueff), dtype=np.float64)
+        p_pred = np.asarray(self.predict_pk(m, f, zrei, ha, hs, taueff, *extras), dtype=np.float64)
         if p_pred.shape != (9,):
             raise ValueError(
                 f"predict_pk must return shape (9,), got {p_pred.shape}"
@@ -287,7 +293,58 @@ class Chi2Profiler:
             messages=messages,
         )
 
+    def _profile_multistart_extra(self, m, f, starts):
+        """Multi-start profile with the extra nuisances (array-mode Minuit). Same guard, best-of rule and per-start
+        accounting as the four-nuisance path; the result's nuisance dicts carry the extra names too."""
+        names = ["zrei", "ha", "hs", "taueff"] + list(self.extra)
+        bounds = dict(NUISANCE_BOUNDS)
+        bounds.update({k: (v[0], v[1]) for k, v in self.extra.items()})
+        guarded = [0]
+
+        def chi2_vec(x):
+            if not np.all(np.isfinite(x)):
+                guarded[0] += 1
+                return NONFINITE_PENALTY
+            return self._chi2_single_cell(m, f, *[float(v) for v in x])
+
+        best, fvals, n_calls, per_start = None, [], 0, []
+        for start in starts:
+            before = guarded[0]
+            x0 = np.array([float(start[n]) if n in start else float(self.extra[n][2]) for n in names])
+            mi = Minuit(chi2_vec, x0, name=names)
+            for n in names:
+                mi.limits[n] = bounds[n]
+            mi.errordef = Minuit.LEAST_SQUARES
+            mi.migrad()
+            if not mi.valid:
+                mi.migrad()
+            n_calls += mi.nfcn
+            fvals.append(float(mi.fval))
+            per_start.append(guarded[0] - before)
+            if best is None or mi.fval < best.fval:
+                best = mi
+        at_limit = [n for n in names
+                    if min(abs(best.values[n] - bounds[n][0]), abs(best.values[n] - bounds[n][1])) < 1e-4]
+        messages = []
+        if not best.valid:
+            messages.append("Minuit did not converge to valid minimum (best of multi-start)")
+        if at_limit:
+            messages.append(f"Nuisance parameters at boundary: {', '.join(at_limit)}. Interior minimization may be unreliable.")
+        if guarded[0]:
+            messages.append(f"Minuit evaluated the objective at non-finite nuisances {guarded[0]} time(s) "
+                            f"(per start: {per_start}); penalty returned, cell ineligible for a contour")
+        return ProfileLikelihoodResult(
+            chi2_min=float(best.fval),
+            nuisance_params=dict(zip(best.parameters, best.values)),
+            nuisance_errors=dict(zip(best.parameters, best.errors)),
+            at_boundary=bool(at_limit), n_calls=int(n_calls), valid_minimum=bool(best.valid),
+            messages=messages, start_fvals=tuple(fvals),
+            nonfinite_evaluations=int(guarded[0]), start_nonfinite=tuple(per_start),
+        )
+
     def _profile_multistart(self, m, f, starts):
+        if self.extra:
+            return self._profile_multistart_extra(m, f, starts)
         guarded = [0]
 
         def chi2_nuisances(zrei, ha, hs, taueff):
