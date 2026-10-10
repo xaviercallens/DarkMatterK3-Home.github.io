@@ -5,6 +5,18 @@
 > this repo's record has since retracted or never held (see `docs/WP_H_AUTO_RESEARCH_TRIAGE.md`).
 > This file now tracks the **scientific program's** live task state. One item = one truth.
 
+## 🔧 Corrections and re-sync, 2026-10-10 (dated; earlier text left as written)
+
+- **`iminuit` was never missing.** The 2026-10-08 notes (this file, release v5.13.0, K3 TODO) say the host lacked `iminuit` and that
+  two test modules were ignored ("631 passed"). That was a property of the system `python3`; `~/venv/bin/python` has `iminuit 2.32.0`
+  and `torch 2.12.1`. Run under the venv, **`pytest pipeline/tests/ checkers/tests/` gives 678 passed, 0 ignored** (11 min 28 s),
+  including `test_chi2_profile.py` and `test_sweep.py`.
+- **`K3_CRITERIA.md` re-synced** byte for byte to K3-DarkMatter `06dd34a` (sha256 `005b37c3…`; AM-9: T3 is a hard gate, D31′: scoring
+  considered and not adopted). This copy is a mirror, not an authority.
+- **No real-data run was made.** `pipeline/sweep.py` still has `REAL_DATA_RULING_PIN = None` and raises on real data; the C1–C5
+  theory-corrections ruling and the eligibility rule (E-A/B/C) are unruled, and Phases 1–4 of WP-E6 v2 are not authorized.
+  Home has no "K3 numeric selection" pipeline: the K3 selection is Stream 2's, and Home only mirrors it.
+
 ## ✅ Stream 3 status note published 2026-10-08 (T0: "publish the different papers on the different streams")
 
 `papers/stream3_status_note_2026_10_08.pdf`: E1/E1b calibrations, the Phase 0 recount, and what is NOT claimed (no dark-matter result,
