@@ -203,6 +203,18 @@ class TestEligibilityEB:
         r = self.R([5.0, 3.0], [0, 17])         # the guarded start 2 has the lowest chi2: retained minimum is degenerate
         assert not sweep.cell_eligible(r, "E-B")
 
+    def test_EBV_withholds_invalid_minimum_that_EB_accepts(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum = False
+        assert sweep.cell_eligible(r, "E-B") and not sweep.cell_eligible(r, "E-B+V")
+
+    def test_EBV_keeps_valid_clean_cell(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum = True
+        assert sweep.cell_eligible(r, "E-B+V")
+
     def test_unknown_rule_raises_and_default_is_conservative(self):
         import sweep
         assert sweep.ELIGIBILITY_RULE == "E-A" and sweep.DOF_CELL == 5 and sweep.DOF_CELL_V2 == 4

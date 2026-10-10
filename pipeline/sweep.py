@@ -147,6 +147,10 @@ def cell_eligible(r, rule):
         if not per or len(per) != len(fv):
             return n_guard == 0                   # no per-start accounting available: fall back to the conservative rule
         return per[int(np.argmin(fv))] == 0       # first strict minimum == the start the profiler retained
+    if rule == "E-B+V":
+        # E-B plus: the retained fit must be a valid Minuit minimum. Added 2026-10-10 after the 12-draw synthetic
+        # coverage run found 7 of 12 truth-cell fits invalid yet eligible under E-B. NOT selected by any ruling.
+        return cell_eligible(r, "E-B") and bool(getattr(r, "valid_minimum", False))
     raise ValueError(f"unknown eligibility rule {rule!r}")
 
 
