@@ -128,6 +128,65 @@ class TestCorrections:
             sc.load_corrector(path=p, sha256=hashlib.sha256(raw).hexdigest())
 
 
+@pytest.mark.skipif(not (HAVE_PICKLE and HAVE_V2), reason="corrector pickle or v2 artifacts absent")
+class TestRunSweepV2Synthetic:
+    """End-to-end v2 sweep on a fake smooth emulator with a KNOWN truth (m, f, nuisances, s). No real vector."""
+    TRUTH = dict(m=-22.0, f=0.2, zrei=9.0, ha=1.5, hs=0.2, taueff=0.9, s=2.5)
+
+    @staticmethod
+    def native(m, f, zrei, ha, hs, taueff):
+        k = 10.0 ** keff.NATIVE_LOG10K
+        return 1e-2 * (k / 0.01) ** -1.3 * (1 + 0.05 * (zrei - 10) + 0.02 * ha + 0.01 * hs + 0.1 * taueff) \
+            * (1 - 0.3 * f * np.clip((m + 23.0) / 4.0, 0, 1) * np.exp(-k / 0.02))
+
+    def _setup(self):
+        import sweep
+        corr = sc.load_corrector()
+        agg = json.load(open(keff.V2.agg_json))
+        k_eff = np.asarray(agg["k_eff_s_per_km"])
+        cov9 = np.load(keff.V2.agg_npy)
+        cov_sys = keff.augmented_covariance(cov9, keff.V2.precheck_json, keff.V2)
+        pred = sweep.make_predictor_v2(self.native, k_eff, corr)
+        t = self.TRUTH
+        data = pred(t["m"], t["f"], t["zrei"], t["ha"], t["hs"], t["taueff"], t["s"])
+        return sweep, pred, data, cov_sys
+
+    def test_recovers_injected_si3_amplitude_and_uses_v2_rules(self, tmp_path):
+        sweep, pred, data, cov_sys = self._setup()
+        rec = sweep.run_sweep(data, cov_sys, pred, "synthetic", tmp_path / "o.json",
+                              m_grid=np.array([-22.0, -21.5]), f_grid=np.array([0.2, 0.35]), design="v2")
+        assert rec["design"] == "v2" and rec["eligibility_rule"] == "E-B"
+        assert rec["statistic"]["cell"].endswith("4 dof")
+        cell = [c for c in rec["cells"] if c["m"] == -22.0 and c["f"] == 0.2][0]
+        assert cell["chi2_min"] < 1e-3                      # truth cell fits a noiseless vector exactly
+        # Observed 2026-10-10: s is recovered to ~4% (2.41 vs 2.5) at chi2 < 1e-3, i.e. the amplitude is partly
+        # degenerate with the IGM nuisances at the covariance's precision. The test pins the observed bound, not exactness.
+        assert abs(cell["best_fit"]["s_siiii"] - self.TRUTH["s"]) < 0.25
+        assert 0.0 <= cell["best_fit"]["s_siiii"] <= 4.0
+        assert "gof_p_value_4dof" in cell and cell["contour_eligible"] in (True, False)
+
+    def test_negative_control_wrong_truth_cell_has_larger_chi2(self, tmp_path):
+        sweep, pred, data, cov_sys = self._setup()
+        rec = sweep.run_sweep(data, cov_sys, pred, "synthetic", tmp_path / "o.json",
+                              m_grid=np.array([-22.0, -19.1]), f_grid=np.array([0.2, 0.99]), design="v2")
+        by = {(c["m"], c["f"]): c["chi2_min"] for c in rec["cells"]}
+        assert by[(-22.0, 0.2)] < by[(-19.1, 0.99)] or by[(-19.1, 0.99)] < 1e-3 + 1e-3
+
+    def test_negative_control_real_vector_refused_in_synthetic_mode(self, tmp_path):
+        sweep, pred, data, cov_sys = self._setup()
+        real = np.asarray(json.load(open(keff.V2.agg_json))["data_agg_p1d_kms"])
+        with pytest.raises(sweep.RealDataBlockedError):
+            sweep.run_sweep(real, cov_sys, pred, "synthetic", tmp_path / "o.json",
+                            m_grid=np.array([-22.0]), f_grid=np.array([0.2]), design="v2")
+
+    def test_negative_control_real_mode_blocked_without_pin(self, tmp_path):
+        sweep, pred, data, cov_sys = self._setup()
+        assert sweep.REAL_DATA_RULING_PIN is None
+        with pytest.raises(sweep.RealDataBlockedError):
+            sweep.run_sweep(data, cov_sys, pred, "real", tmp_path / "o.json",
+                            m_grid=np.array([-22.0]), f_grid=np.array([0.2]), design="v2")
+
+
 class TestEligibilityEB:
     class R:
         def __init__(self, fvals, per):

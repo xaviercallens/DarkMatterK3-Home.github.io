@@ -35,10 +35,13 @@ This is a delegated decision, not a T0 sentence. It is reversible by one T0 sent
 
 ## What is NOT done, and what it blocks
 
-1. **No real-data run was made and no pin was set.** `run_sweep` is not yet wired to design v2 (predictor with the Si III
-   argument, `DOF_CELL_V2`, `ELIGIBILITY_RULE = "E-B"`, V2 artifacts). The pieces exist and are tested separately.
-2. **No synthetic injection–recovery of the full v2 pipeline** was run on the real emulator. Only the profiler's fifth-nuisance
-   path was validated on a synthetic model (recovery, a negative control, box-edge reporting).
+1. **No real-data run was made and no pin was set.** `run_sweep(..., design="v2")` is wired: Si III predictor, 4 dof, E-B,
+   V2 artifacts, a synthetic-mode refusal of either real vector, and the real-mode refusal while the pin is unset.
+2. **Injection–recovery was done on a fake smooth emulator with a known truth, not on the real emulator.** The truth cell
+   fits a noiseless vector to chi2 < 1e-3. The Si III amplitude injected at 2.5 came back as 2.41, so it is partly degenerate
+   with the IGM nuisances at this covariance; the test pins that observed bound (0.25), not exactness. A real-emulator
+   synthetic validation is still to do before any real vector is fitted.
+   Also fixed in this change: the per-cell `contour_eligible` field now follows the active rule (it used the guard count).
 3. **Si II, Mg II and C IV are not modelled.** C5 states 4 dof on that basis; it is a known limitation, not a fix.
 4. The Si III box [0, 4] is a prior box, not a trained support. A best fit at an edge is reported as such.
 5. Anything fitted under this design remains exclusion/FIT, never TEST (ledger item 5), until a PREDICTION v2 amendment pins it.
