@@ -46,6 +46,25 @@ This is a delegated decision, not a T0 sentence. It is reversible by one T0 sent
 4. The Si III box [0, 4] is a prior box, not a trained support. A best fit at an edge is reported as such.
 5. Anything fitted under this design remains exclusion/FIT, never TEST (ledger item 5), until a PREDICTION v2 amendment pins it.
 
+## Real-emulator synthetic validation (2026-10-10; `data/derived/wp_e6_sweep_v2_synthetic_validation_2026_10_10.json`)
+
+3×3 grid containing the truth cell (m = −22.0, f = 0.2), IGM medians, v2 predictor, V2 covariance. No real vector.
+
+| Case | Truth-cell χ² | Fitted s (true) | Grid minimum | Fit valid |
+|---|---|---|---|---|
+| s = 1, noiseless | 0 | 1.000 (1.0) | the truth cell | yes |
+| s = 2.5, noiseless | 1e-6 | 2.500 (2.5) | the truth cell | yes |
+| s = 1, one noise draw (seed 20261010) | 8.77 | 2.32 (1.0) | (−22.5, 0.2), χ² 5.28 | no, at a bound |
+
+What this does and does not say:
+* Noiseless injection is recovered exactly on the real emulator, for both amplitudes. This tests the code path, not the statistics.
+* The noisy case is **one draw, not a coverage study**. The truth cell sits Δχ² = 3.5 above the grid minimum, inside the 2-dof 95%
+  threshold of 5.99, so the truth is not excluded. The truth cell's own fit did not return a valid minimum and sat at a bound,
+  and its fitted s is 2.3 against a true 1.0. The amplitude is weakly constrained by one draw at this covariance.
+* The whole region near the truth is flat: neighbouring cells differ by less than a few in χ². A sweep on real data should not
+  be expected to localise (m, f) here.
+* Not done: a multi-draw coverage study, or a run over the full 56-cell grid. Both are needed before any real vector is fitted.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector
