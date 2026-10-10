@@ -119,6 +119,34 @@ Each is reversible by one T0 sentence.
    ruling. Suggested first step: re-run the 7 invalid draws with a bounded fallback for a start that returns invalid, and count.
 4. **PR #19 is merged.** It adds evidence, a selectable rule and T0's E-B+V choice; it sets no pin and runs no real data.
 
+## E-C diagnosis (2026-10-10, synthetic only, pipeline unchanged)
+
+`scripts/wp_e6_sweep_v2_optimizer_diagnosis_2026_10_10.py`, record `data/derived/wp_e6_sweep_v2_optimizer_diagnosis_2026_10_10.json`.
+The truth cell of the seven invalid coverage draws (3, 5, 6, 7, 8, 9, 10) was re-profiled with the same 9 starts under three
+variants. Best-start validity: BASE (Migrad, re-run once) 5 of 7, STRATEGY 2 0 of 7, SIMPLEX then Migrad 4 of 7.
+
+| Draw | BASE χ² (valid) | STRAT2 χ² (valid) | SIMPLEX χ² (valid) |
+|---|---|---|---|
+| 3 | 7.235 (yes) | 6.203 (no) | 6.409 (no) |
+| 5 | 4.604 (yes) | 4.625 (no) | 4.618 (yes) |
+| 6 | 5.433 (no) | 5.436 (no) | 5.624 (yes) |
+| 7 | 4.749 (yes) | 4.761 (no) | 4.757 (no) |
+| 8 | 0.892 (no) | 0.783 (no) | 0.970 (yes) |
+| 9 | 12.406 (yes) | 12.531 (no) | 12.201 (no) |
+| 10 | 4.283 (yes) | 4.272 (no) | 4.325 (yes) |
+
+What this says:
+* **The validity flag is not a stable property of the fit.** BASE here returned a valid best start in 5 of the 7 draws that the
+  pipeline recorded as invalid. The two code paths differ only by numerically equivalent arithmetic (matrix inverse route,
+  array ordering). A flag that flips under that is not a safe eligibility test, which weakens E-B+V as the sole gate.
+* **The minima are not reliably found.** Across variants the best χ² differs by up to about 1.0 (draw 3: 7.24 against 6.20),
+  and no variant is lowest in every draw. The multi-start optimizer leaves χ² on the table in some draws.
+* Strategy 2 never returned a valid best start here, so it is not a fix.
+* No variant is adopted. This is a diagnosis; any change to the optimizer or to the eligibility rule is a ruling.
+
+Suggested next step for T0 or Stream 3: judge eligibility on a **reproducibility** condition (best χ² agreeing across two
+optimizer variants within a tolerance) instead of the Minuit validity flag, and pre-register the tolerance before any real vector.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector
