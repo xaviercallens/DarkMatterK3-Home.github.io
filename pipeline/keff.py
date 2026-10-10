@@ -20,6 +20,7 @@ Authority: T0 ruling A2 2026-09-17 (Option B), pinned in
 import hashlib
 import json
 from pathlib import Path
+from typing import NamedTuple
 
 import numpy as np
 
@@ -44,12 +45,41 @@ PINNED_TERM = np.array([0.56416863, 0.62891846, 0.04306201, 0.00525071, 0.119543
 PIN_TOL_REL = 1e-6
 
 
+class Design(NamedTuple):
+    """One pinned aggregation + K2 design. V1 is the original (2026-09-16/17) design, unchanged and the default everywhere.
+    V2 is the C4(b) design (2026-10-10, briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md): band 8 re-aggregated from the members
+    inside the provider's k cut, and K2 re-derived by re-running the unchanged pre-check on those artifacts. Constants are
+    copied from the artifacts and are re-derived at use; any disagreement is a hard stop (PinMismatchError)."""
+    name: str
+    agg_json: Path
+    agg_npy: Path
+    precheck_json: Path
+    precheck_sha256: str
+    pinned_beta: np.ndarray
+    pinned_term: np.ndarray
+
+
 class KeffCapError(ValueError):
     """Evaluation requested beyond the pinned 0.01-dex extrapolation cap (K1 hard stop)."""
 
 
 class PinMismatchError(RuntimeError):
     """An artifact or derived value disagrees with the pinned ruling (K2/K3 hard stop)."""
+
+
+V1 = Design("v1", AGG_JSON, AGG_NPY, PRECHECK_JSON, PRECHECK_SHA256, PINNED_BETA, PINNED_TERM)
+
+# C4(b) design (2026-10-10). The pre-check JSON hash and the two tables below were produced by
+# scripts/wp_e6_sweep_aggregate_9x9_c4.py and scripts/wp_e6_sweep_keff_emulator_precheck_c4_2026_10_10.py. Bands 0-7 equal v1.
+V2 = Design(
+    "v2_c4",
+    REPO_ROOT / "data/derived/wp_e6_sweep_cov_agg9_c4_z4p2_2026_10_10.json",
+    REPO_ROOT / "data/derived/wp_e6_sweep_cov_agg9_c4_z4p2_2026_10_10.npy",
+    REPO_ROOT / "data/derived/wp_e6_sweep_keff_emulator_precheck_c4_2026_10_10.json",
+    "0fb1e998e48703bd3160c64bf88770b4c871fcc133df007a583974f251c35a9f",
+    np.array([0.161049, 0.208265, 0.062253, 0.029042, 0.162314, 0.311839, 0.055129, 0.003139, 0.179933]),
+    np.array([0.56416863, 0.62891846, 0.04306201, 0.00525071, 0.11954302, 0.39281729, 0.01353629, 0.00005315, 0.22800444]),
+)
 
 
 def _sha256(path):
@@ -96,30 +126,31 @@ def systematic_term(cov9, beta):
     return (np.asarray(beta, dtype=float) * sigma) ** 2
 
 
-def pinned_beta(precheck_json=PRECHECK_JSON):
+def pinned_beta(precheck_json=PRECHECK_JSON, table=None):
     """Full-precision β from the pinned pre-check JSON, checked against the pinned table's 6-decimal rounding."""
+    table = PINNED_BETA if table is None else table
     beta = np.asarray(json.load(open(precheck_json))["bound_sigma_max_per_band"], dtype=float)
-    if beta.shape != (N_BANDS,) or not np.all(np.abs(beta - PINNED_BETA) <= 5e-7 + 1e-12):
-        raise PinMismatchError(f"pre-check β {beta} disagrees with pinned β table {PINNED_BETA}")
+    if beta.shape != (N_BANDS,) or not np.all(np.abs(beta - table) <= 5e-7 + 1e-12):
+        raise PinMismatchError(f"pre-check β {beta} disagrees with pinned β table {table}")
     return beta
 
 
-def augmented_covariance(cov9, precheck_json=PRECHECK_JSON):
+def augmented_covariance(cov9, precheck_json=PRECHECK_JSON, design=V1):
     """K2: C₉,sys = C₉ + diag((β_b σ_b)²), β from the pinned pre-check; hard-stops on any pin mismatch."""
     cov9 = np.asarray(cov9, dtype=float)
     if cov9.shape != (N_BANDS, N_BANDS) or not np.allclose(cov9, cov9.T, rtol=0, atol=1e-12 * np.abs(cov9).max()):
         raise PinMismatchError("C₉ must be a symmetric 9×9 matrix")
-    term = systematic_term(cov9, pinned_beta(precheck_json))
+    term = systematic_term(cov9, pinned_beta(precheck_json, design.pinned_beta))
     # the pinned K2 table prints s_b² to 8 decimals
-    if not np.all(np.abs(term - PINNED_TERM) <= 5e-9 + 1e-12):
-        raise PinMismatchError(f"derived term {term} disagrees with pinned K2 table {PINNED_TERM}")
+    if not np.all(np.abs(term - design.pinned_term) <= 5e-9 + 1e-12):
+        raise PinMismatchError(f"derived term {term} disagrees with pinned K2 table {design.pinned_term}")
     out = cov9 + np.diag(term)
     np.linalg.cholesky(out)   # raises LinAlgError: hard stop, no pseudo-inverse
     return out
 
 
 def sweep_gate(precheck_json=PRECHECK_JSON, agg_npy=AGG_NPY, agg_json=AGG_JSON,
-               expected_sha256=PRECHECK_SHA256, emulator=None, out_path=None):
+               expected_sha256=PRECHECK_SHA256, emulator=None, out_path=None, design=V1):
     """K3: mechanical pre-sweep gate. Returns a record; `passes` is True only if every item holds.
 
     emulator: optional (predict_pk, pack) pair. If given, item 3 checks it reproduces the
@@ -154,14 +185,14 @@ def sweep_gate(precheck_json=PRECHECK_JSON, agg_npy=AGG_NPY, agg_json=AGG_JSON,
         items["3_emulator_regression"] = {"pass": rel <= 1e-6, "max_rel_diff": rel}
     try:
         cov9 = np.load(agg_npy)
-        aug = augmented_covariance(cov9, precheck_json)
+        aug = augmented_covariance(cov9, precheck_json, design)
         diff = np.diag(aug) - np.diag(cov9)
-        exact = systematic_term(cov9, pinned_beta(precheck_json))    # K2: ≤ 1e-6 relative to artifacts
+        exact = systematic_term(cov9, pinned_beta(precheck_json, design.pinned_beta))    # K2: ≤ 1e-6 relative to artifacts
         rel = float(np.max(np.abs(diff / exact - 1)))
         k_eff = load_k_eff(agg_json)
         predict_at_keff(np.ones(NATIVE_LOG10K.size), k_eff)      # cap check on the pinned k_eff
         items["4_augmented_covariance"] = {"pass": rel <= PIN_TOL_REL, "max_rel_diff_vs_artifact_term": rel,
-                                           "max_abs_diff_vs_pinned_table": float(np.max(np.abs(diff - PINNED_TERM))),
+                                           "max_abs_diff_vs_pinned_table": float(np.max(np.abs(diff - design.pinned_term))),
                                            "cholesky": True, "k_eff_within_cap": True}
     except (PinMismatchError, KeffCapError, np.linalg.LinAlgError, OSError, ValueError) as exc:
         items["4_augmented_covariance"] = {"pass": False, "error": f"{type(exc).__name__}: {exc}"}
