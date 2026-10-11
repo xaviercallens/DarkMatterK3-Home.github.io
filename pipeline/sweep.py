@@ -135,6 +135,11 @@ DOF_CELL_V2 = 4                               # design v2: 9 bins − 5 profiled
 # "E-B" = the cell is eligible iff the start that produced the retained minimum had zero guarded evaluations.
 # E-B is selected by the design-v2 ruling (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md); it is inert until pinned.
 ELIGIBILITY_RULE = "E-A"
+# Reproducibility tolerance for rule E-B+R, in chi2 units. PRE-REGISTERED 2026-10-11, before any real vector was fitted, and
+# chosen on T0's behalf: Delta chi2 = 1 is the one-parameter 1-sigma step, so two passes that disagree by more than that have
+# not found the same minimum at the resolution the 95% contour (5.99, 2 dof) is read at. It was set looking at the SYNTHETIC
+# diagnosis spread (largest pass difference 0.83 over 7 draws); changing it after real data is a TUNING_LOG event.
+REPRO_TOL = 1.0
 
 
 def cell_eligible(r, rule):
@@ -147,6 +152,12 @@ def cell_eligible(r, rule):
         if not per or len(per) != len(fv):
             return n_guard == 0                   # no per-start accounting available: fall back to the conservative rule
         return per[int(np.argmin(fv))] == 0       # first strict minimum == the start the profiler retained
+    if rule == "E-B+R":
+        # E-B plus reproducibility: the two optimizer passes (Migrad; simplex then Migrad) over the same starts must agree
+        # on the best chi2 to within REPRO_TOL. A missing or NaN statistic is ineligible. Replaces the Minuit validity flag
+        # (T0, 2026-10-11, "replace the validity flag"); the flag flipped under numerically equivalent arithmetic.
+        d = getattr(r, "repro_delta", float("nan"))
+        return cell_eligible(r, "E-B") and bool(np.isfinite(d)) and float(d) <= REPRO_TOL
     if rule == "E-B+V":
         # E-B plus: the retained fit must be a valid Minuit minimum. Added 2026-10-10 after the 12-draw synthetic
         # coverage run found 7 of 12 truth-cell fits invalid yet eligible under E-B. NOT selected by any ruling.
@@ -182,7 +193,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
     import sweep_corrections as sc
     v2 = design == "v2"
     dof = DOF_CELL_V2 if v2 else DOF_CELL
-    rule = "E-B+V" if v2 else ELIGIBILITY_RULE      # design v2: T0 chose E-B+V on 2026-10-10 (briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md)
+    rule = "E-B+R" if v2 else ELIGIBILITY_RULE      # design v2: E-B+V (2026-10-10) replaced by E-B+R on T0's sentence 2026-10-11
     if mode == "real":
         load_real_observation(design)      # raises while blocked
     # a synthetic run must not be handed ANY real vector (v1 or v2 artifact)
@@ -232,6 +243,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
             "optimizer_residual": float(fv[:RESIDUAL_SPLIT].min() - fv.min()),
             "n_calls": int(r.n_calls), "messages": list(r.messages),
             "failed": False,
+            "repro_delta": float(getattr(r, "repro_delta", float("nan"))) if np.isfinite(getattr(r, "repro_delta", float("nan"))) else None,
             "nonfinite_evaluations": n_guard,
             "start_nonfinite": list(getattr(r, "start_nonfinite", ())),
             "contour_eligible": bool(eligible[i, j]),
@@ -259,6 +271,7 @@ def run_sweep(p_obs, cov9_sys, predict, mode, out_path, m_grid=M_GRID, f_grid=F_
                  "briefs/WP_E6_SWEEP_KEFF_RULING_PINNED_2026_09_17.md"],
         "design": design,
         "eligibility_rule": rule,
+        "repro_tol_chi2": REPRO_TOL if rule == "E-B+R" else None,
         "statistic": {"cell": f"chi2_min, {dof} dof", "contour": f"delta chi2, 2 dof, threshold {DCHI2_95_2DOF:.4f} (95%)"},
         "optimizer": {"method": "iminuit Migrad, deterministic multi-start (medians + 8-pt LHS, seed 20260917), re-run once if invalid",
                       "n_starts": len(starts), "residual_definition": f"best of first {RESIDUAL_SPLIT} starts − best of all",
