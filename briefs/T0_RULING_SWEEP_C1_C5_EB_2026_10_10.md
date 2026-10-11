@@ -176,6 +176,33 @@ real vector, and changing it after real data are seen is a `TUNING_LOG.md` event
 * Not done: a re-run of the full 56-cell grid under this rule, a multi-draw cell-level coverage study on the noisy draws beyond
   the truth cell, and any real vector. The pin is unset and the evidence for it is still the synthetic record only.
 
+## Full 56-cell synthetic sweep under E-B+R (2026-10-11)
+
+`scripts/wp_e6_sweep_v2_fullgrid_2026_10_11.py`, record `data/derived/wp_e6_sweep_v2_fullgrid_2026_10_11.json` (synthetic label).
+One fixed-seed noisy draw (seed 20261011) around the truth (m = −22.0, f = 0.2, s = 1) on the real emulator, the full pinned
+8 × 7 grid, design v2. No real vector.
+
+| Measure | Result |
+|---|---|
+| Cells run / ineligible under E-B+R | 56 / 0 |
+| Contour status | COMPLETE |
+| Grid minimum | m = −22.0, f = 0.35, χ² 1.48 |
+| Truth cell | χ² 1.61, eligible |
+| Pass-to-pass gap | median 0.015, maximum 0.14, cells above 1.0: 0 |
+| Minuit validity flag invalid | 29 of 56 |
+| Fits at a box edge | 14 of 56 |
+
+What this says and what it does not:
+* **The reproducibility gap is small everywhere on this draw** (maximum 0.14 against the 1.0 tolerance), while the Minuit flag
+  would have withheld 29 of 56 cells. That is consistent with the flag-instability finding and is why E-B+V was a poor gate.
+* The grid minimum is at the truth's mass and one grid step away in f; the truth sits 0.13 above it in χ². The surface is
+  flat, so this is not localisation evidence.
+* **One draw.** Gaps this small on one draw do not bound the gap on others: on the truth-cell check one of 12 draws had a gap
+  of 1.28. A multi-draw full-grid study is not done (about an hour per draw).
+* Both passes agreeing says the optimizer is stable here, not that the minimum is global.
+* 14 fits at a box edge are reported, not excluded; a contour that depends on an edge fit should be read with that in view.
+* The pin is still unset. This is the evidence the brief listed as missing, and it is a single synthetic draw.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector
