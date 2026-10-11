@@ -155,7 +155,8 @@ class TestRunSweepV2Synthetic:
         sweep, pred, data, cov_sys = self._setup()
         rec = sweep.run_sweep(data, cov_sys, pred, "synthetic", tmp_path / "o.json",
                               m_grid=np.array([-22.0, -21.5]), f_grid=np.array([0.2, 0.35]), design="v2")
-        assert rec["design"] == "v2" and rec["eligibility_rule"] == "E-B+V"
+        assert rec["design"] == "v2" and rec["eligibility_rule"] == "E-B+R"
+        assert rec["repro_tol_chi2"] == sweep.REPRO_TOL == 1.0
         assert rec["statistic"]["cell"].endswith("4 dof")
         cell = [c for c in rec["cells"] if c["m"] == -22.0 and c["f"] == 0.2][0]
         assert cell["chi2_min"] < 1e-3                      # truth cell fits a noiseless vector exactly
@@ -214,6 +215,31 @@ class TestEligibilityEB:
         r = self.R([3.0, 5.0], [0, 17])
         r.valid_minimum = True
         assert sweep.cell_eligible(r, "E-B+V")
+
+    def test_EBR_accepts_reproducible_cell_even_if_minuit_flag_invalid(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum, r.repro_delta = False, 0.2
+        assert sweep.cell_eligible(r, "E-B+R") and not sweep.cell_eligible(r, "E-B+V")
+
+    def test_negative_control_EBR_withholds_irreproducible_cell(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        r.valid_minimum, r.repro_delta = True, 1.0 + 1e-9      # Minuit says valid, passes disagree beyond the tolerance
+        assert not sweep.cell_eligible(r, "E-B+R")
+
+    def test_negative_control_EBR_withholds_missing_or_nan_statistic(self):
+        import sweep
+        r = self.R([3.0, 5.0], [0, 17])
+        assert not sweep.cell_eligible(r, "E-B+R")             # no repro_delta attribute at all
+        r.repro_delta = float("nan")
+        assert not sweep.cell_eligible(r, "E-B+R")
+
+    def test_EBR_still_requires_E_B(self):
+        import sweep
+        r = self.R([5.0, 3.0], [0, 17])                         # guarded start retained: E-B fails
+        r.repro_delta = 0.0
+        assert not sweep.cell_eligible(r, "E-B+R")
 
     def test_unknown_rule_raises_and_default_is_conservative(self):
         import sweep

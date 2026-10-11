@@ -70,6 +70,10 @@ class ProfileLikelihoodResult(NamedTuple):
     # its χ²_min is reported but must be treated as ineligible for a contour until T0 rules.
     nonfinite_evaluations: int = 0
     start_nonfinite: tuple = ()   # the same count per start, in start order (multi-start only)
+    # Design v2 only (extra-nuisance path): |best chi2 of the Migrad pass − best chi2 of the simplex-then-Migrad pass| over
+    # the same starts. NaN when not computed. Added 2026-10-11 to replace the Minuit validity flag as an eligibility
+    # test (the flag flipped under numerically equivalent arithmetic: briefs/T0_RULING_SWEEP_C1_C5_EB_2026_10_10.md).
+    repro_delta: float = float("nan")
 
 
 # Returned by the objective when Minuit evaluates it at a non-finite nuisance (2026-09-21).
@@ -307,22 +311,39 @@ class Chi2Profiler:
                 return NONFINITE_PENALTY
             return self._chi2_single_cell(m, f, *[float(v) for v in x])
 
-        best, fvals, n_calls, per_start = None, [], 0, []
-        for start in starts:
-            before = guarded[0]
+        def one(start, simplex_first):
             x0 = np.array([float(start[n]) if n in start else float(self.extra[n][2]) for n in names])
             mi = Minuit(chi2_vec, x0, name=names)
             for n in names:
                 mi.limits[n] = bounds[n]
             mi.errordef = Minuit.LEAST_SQUARES
+            if simplex_first:
+                mi.simplex()
             mi.migrad()
-            if not mi.valid:
+            if not mi.valid and not simplex_first:
                 mi.migrad()
+            return mi
+
+        best, fvals, n_calls, per_start = None, [], 0, []
+        for start in starts:                          # pass 1: Migrad (re-run once if invalid) — the original behaviour
+            before = guarded[0]
+            mi = one(start, False)
             n_calls += mi.nfcn
             fvals.append(float(mi.fval))
             per_start.append(guarded[0] - before)
             if best is None or mi.fval < best.fval:
                 best = mi
+        # pass 2: simplex then Migrad, same starts. The retained minimum is the LOWER of the two passes (never worse than
+        # pass 1); the gap between the passes is the reproducibility statistic used by eligibility rule E-B+R.
+        best2 = None
+        for start in starts:
+            mi2 = one(start, True)
+            n_calls += mi2.nfcn
+            if best2 is None or mi2.fval < best2.fval:
+                best2 = mi2
+        repro = float(abs(best.fval - best2.fval))
+        if best2.fval < best.fval:
+            best = best2
         at_limit = [n for n in names
                     if min(abs(best.values[n] - bounds[n][0]), abs(best.values[n] - bounds[n][1])) < 1e-4]
         messages = []
@@ -340,6 +361,7 @@ class Chi2Profiler:
             at_boundary=bool(at_limit), n_calls=int(n_calls), valid_minimum=bool(best.valid),
             messages=messages, start_fvals=tuple(fvals),
             nonfinite_evaluations=int(guarded[0]), start_nonfinite=tuple(per_start),
+            repro_delta=repro,
         )
 
     def _profile_multistart(self, m, f, starts):

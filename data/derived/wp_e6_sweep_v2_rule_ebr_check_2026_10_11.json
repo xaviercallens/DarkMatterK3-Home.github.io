@@ -1,0 +1,153 @@
+{
+ "label": "SYNTHETIC \u2014 emulator-generated; not exclusion, not FIT, not TEST; no real vector",
+ "generated_utc": "2026-10-11T06:35:41.326466+00:00",
+ "repro_tol": 1.0,
+ "seed0": 20261011,
+ "truth": {
+  "m": -22.0,
+  "f": 0.2,
+  "s": 1.0
+ },
+ "draws": [
+  {
+   "draw": 0,
+   "chi2_min": 1.6109608605577235,
+   "repro_delta": 0.0009199476541610352,
+   "minuit_valid": true,
+   "s_fit": 3.2075144135543816,
+   "at_boundary": false,
+   "elig_E_B": true,
+   "elig_E_BV": true,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 1,
+   "chi2_min": 3.7373813950624513,
+   "repro_delta": 0.03484869597974116,
+   "minuit_valid": true,
+   "s_fit": 5.223864323733408e-06,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": true,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 2,
+   "chi2_min": 3.5112805479958795,
+   "repro_delta": 0.013139453479800167,
+   "minuit_valid": true,
+   "s_fit": 1.7349774671173377,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": true,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 3,
+   "chi2_min": 5.938077444178005,
+   "repro_delta": 1.2805144931110153,
+   "minuit_valid": false,
+   "s_fit": 5.373024116529009e-07,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": false
+  },
+  {
+   "draw": 4,
+   "chi2_min": 2.44659214277041,
+   "repro_delta": 0.007243001017655626,
+   "minuit_valid": true,
+   "s_fit": 1.530884042150765,
+   "at_boundary": false,
+   "elig_E_B": true,
+   "elig_E_BV": true,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 5,
+   "chi2_min": 4.605460967006717,
+   "repro_delta": 0.005085292273088626,
+   "minuit_valid": false,
+   "s_fit": 3.6573322561671278,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 6,
+   "chi2_min": 5.431569842068295,
+   "repro_delta": 0.011152355875072573,
+   "minuit_valid": false,
+   "s_fit": 1.9371242376959903,
+   "at_boundary": false,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 7,
+   "chi2_min": 4.748465206331025,
+   "repro_delta": 0.007637848220340082,
+   "minuit_valid": false,
+   "s_fit": 1.9720558974020913e-06,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 8,
+   "chi2_min": 0.7896058990982556,
+   "repro_delta": 0.16854103955365884,
+   "minuit_valid": false,
+   "s_fit": 6.997824439420501e-07,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 9,
+   "chi2_min": 11.883852788182342,
+   "repro_delta": 0.5965830004823758,
+   "minuit_valid": false,
+   "s_fit": 1.2265971542010874,
+   "at_boundary": false,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 10,
+   "chi2_min": 4.26870273645728,
+   "repro_delta": 0.031919069298739444,
+   "minuit_valid": false,
+   "s_fit": 1.11045410311867,
+   "at_boundary": true,
+   "elig_E_B": true,
+   "elig_E_BV": false,
+   "elig_E_BR": true
+  },
+  {
+   "draw": 11,
+   "chi2_min": 1.5538533724530192,
+   "repro_delta": 0.009805906123585784,
+   "minuit_valid": true,
+   "s_fit": 2.5176528928860744,
+   "at_boundary": false,
+   "elig_E_B": true,
+   "elig_E_BV": true,
+   "elig_E_BR": true
+  }
+ ],
+ "summary": {
+  "n": 12,
+  "elig_E_B": 12,
+  "elig_E_BV": 5,
+  "elig_E_BR": 11,
+  "max_repro_delta": 1.2805144931110153,
+  "median_repro_delta": 0.01214590467743637
+ }
+}

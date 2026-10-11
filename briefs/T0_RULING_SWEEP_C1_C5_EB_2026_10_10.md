@@ -147,6 +147,35 @@ What this says:
 Suggested next step for T0 or Stream 3: judge eligibility on a **reproducibility** condition (best χ² agreeing across two
 optimizer variants within a tolerance) instead of the Minuit validity flag, and pre-register the tolerance before any real vector.
 
+## T0's replacement of the validity flag: rule E-B+R (2026-10-11)
+
+T0 (Xavier), after the diagnosis above, in these words: **"replace the validity flag"**. This supersedes E-B+V for design v2.
+
+**Rule E-B+R.** A cell is contour-eligible iff (E-B) the start that produced the retained minimum had zero guarded evaluations
+**and** (R) the two optimizer passes over the same starts, Migrad and simplex-then-Migrad, agree on the best χ² to within
+`REPRO_TOL`. The retained minimum is the lower of the two passes. A missing or NaN gap is ineligible. The Minuit validity flag is
+still recorded per cell and no longer gates anything. v1 and rule E-B+V remain selectable and unchanged.
+
+**Tolerance, taken on T0's behalf and pre-registered here:** `REPRO_TOL = 1.0` in χ². Δχ² = 1 is the one-parameter 1σ step; two
+passes that disagree by more have not found the same minimum at the resolution the 95% contour (5.99, 2 dof) is read at. It was
+set looking at the synthetic diagnosis (largest pass difference 0.83), so it is not blind to that data; it was fixed before any
+real vector, and changing it after real data are seen is a `TUNING_LOG.md` event. Reversible by one T0 sentence.
+
+**Effect on the 12 synthetic draws** (truth cell only, `scripts/wp_e6_sweep_v2_rule_ebr_check_2026_10_11.py`):
+
+| Rule | Truth cells eligible (of 12) |
+|---|---|
+| E-B | 12 |
+| E-B+V (Minuit validity flag) | 5 |
+| E-B+R (tolerance 1.0) | 11 |
+
+* Pass-to-pass gap: median 0.012, maximum 1.28. One draw (3) is withheld for a gap of 1.28; its two passes reached χ² of about
+  5.9 and 7.2.
+* Seven fits that the validity flag rejected have gaps of 0.6 or less and are kept: the flag was rejecting reproducible fits.
+* Two optimizer passes are not a proof of a global minimum. Both could miss the same basin. The rule measures agreement.
+* Not done: a re-run of the full 56-cell grid under this rule, a multi-draw cell-level coverage study on the noisy draws beyond
+  the truth cell, and any real vector. The pin is unset and the evidence for it is still the synthetic record only.
+
 ## To make it live (T0)
 
 Name this file in `REAL_DATA_RULING_PIN`; then wire `run_sweep` to V2 and run the validation in item 2 before any real vector
